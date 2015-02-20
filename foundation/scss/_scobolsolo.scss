@@ -1,0 +1,131 @@
+@mixin css3-prefix($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-khtml-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-o-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+td { // Deliberately not th
+	vertical-align: top;
+}
+
+.switch {
+	padding: $form-spacing / 2 + rem-calc($input-border-width) 0 !important;
+}
+
+td div.switch {
+	padding: 0 !important;
+}
+
+abbr, acronym {
+	text-transform: none !important;
+	font-size: 100% !important;
+}
+
+[title].stealth-tool-tip {
+	border-bottom: none;
+	font-weight: 400;
+}
+
+.warning {
+	background-color: $warning-color;
+}
+
+
+.log-out-container {
+	text-align: center;
+	
+	a.log-out {
+		color: #fff;
+		border: 0;
+	}
+}
+
+
+input.annotated {
+	margin-bottom: 0 !important;
+}
+
+input[disabled] {
+	background-color: #aaa !important;
+}
+
+.form-annotation {
+	font-size: 67%;
+	font-style: italic;
+}
+
+
+.side-nav {
+	position: fixed;
+}
+
+.magellan li.active, .magellan li.active a {
+	color: #000 !important;
+	font-weight: 700 !important;
+}
+
+
+label {
+	font-weight: 400 !important;
+}
+
+label.my-inline {
+	display: inline;
+}
+
+
+table:not(.unsortable) thead th, table:not(.unsortable) thead td {
+	padding-right: 20px !important;
+	cursor: pointer;
+	background-image: url(/template/tablesorter/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+table:not(.unsortable) thead tr .tablesorter-headerAsc {
+	background-image: url(/template/tablesorter/asc.gif);
+}
+
+table:not(.unsortable) thead tr .tablesorter-headerDesc {
+	background-image: url(/template/tablesorter/desc.gif);
+}
+
+
+.full-width {
+	width: 100%;
+}
+
+@media #{$large-up} {
+	table.even-spacing {
+		table-layout: fixed;
+	}
+}
+
+a.has-tip {
+	color: $primary-color;
+}
+
+h1#mainHeader {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	margin-top: 1rem;
+}
+
+.button-in-row {
+	padding-top: 20px;
+	
+	input[type=submit], input[type=reset], input[type=button], button, .button {
+		margin-bottom: 0;
+	}
+}
+
+a.subtle-highlight {
+	color: inherit;
+	border-bottom: 1px dotted $primary-color;
+}
