@@ -1,0 +1,218 @@
+package com.scobolsolo.persistence;
+
+import java.io.PrintWriter;
+import java.io.PrintStream;
+
+import com.opal.*;
+
+import com.scobolsolo.application.*;
+
+public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<CategoryConversionV> {
+
+	private CategoryConversionVOpal() {
+		super();
+		setUserFacing(null);
+	}
+
+	public CategoryConversionVOpal(OpalFactory<CategoryConversionV, CategoryConversionVOpal> argOpalFactory, Object[] argValues) {
+		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void initializeReferences() {
+		myOldResponseTypeOpal = ResponseTypeOpal.NOT_YET_LOADED;
+		myOldTournamentOpal = TournamentOpal.NOT_YET_LOADED;
+		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
+		return;
+	}
+
+	/* package */ static final String[] ourFieldNames = new String[] {
+		"TournamentCode",
+		"CategoryCode",
+		"ResponseTypeCode",
+		"ResponseTypeCount",
+	};
+
+	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
+		java.lang.String.class,
+		java.lang.String.class,
+		java.lang.String.class,
+		java.lang.Integer.class,
+	};
+
+	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
+		false,
+		false,
+		false,
+		true,
+	};
+
+	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
+		null,
+		null,
+		null,
+	};
+
+	public static final CategoryConversionVOpal NOT_YET_LOADED = new CategoryConversionVOpal();
+
+	public static String[] getStaticFieldNames() { return ourFieldNames; }
+
+	public static Class<?>[] getStaticFieldTypes() { return ourFieldTypes; }
+
+	@Override
+	public Class<?>[] getFieldTypes() { return ourFieldTypes; }
+
+	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
+
+	@Override
+	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+
+	@Override
+	public boolean[] getFieldNullability() { return ourFieldNullability; }
+
+	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+
+
+	public java.lang.String getTournamentCode() {
+		return (java.lang.String) getValues()[0];
+	}
+
+	public java.lang.String getCategoryCode() {
+		return (java.lang.String) getValues()[1];
+	}
+
+	public java.lang.String getResponseTypeCode() {
+		return (java.lang.String) getValues()[2];
+	}
+
+	public java.lang.Integer getResponseTypeCountAsObject() {
+		return (java.lang.Integer) getValues()[3];
+	}
+
+	@Override
+	protected /* synchronized */ void copyOldValuesToNewInternal() {
+		myNewResponseTypeOpal = myOldResponseTypeOpal;
+		myNewTournamentOpal = myOldTournamentOpal;
+		myNewCategoryOpal = myOldCategoryOpal;
+		/* We don't copy Collections of other Opals; they will be cloned as needed. */
+		return;
+	}
+
+	@Override
+	protected /* synchronized */ void copyNewValuesToOldInternal() {
+		myOldResponseTypeOpal = myNewResponseTypeOpal;
+		myOldTournamentOpal = myNewTournamentOpal;
+		myOldCategoryOpal = myNewCategoryOpal;
+
+		return;
+	}
+
+	@Override
+	public synchronized void translateReferencesToFields() {
+		return;
+	}
+
+	private static int getFieldCountInternal() { return ourFieldNames.length; }
+
+	@Override
+	protected int getFieldCount() { return getFieldCountInternal(); }
+
+	@Override
+	protected String[] getFieldNames() { return ourFieldNames; }
+
+	@Override
+	public synchronized void output(final PrintWriter argPW) {
+		argPW.println("TournamentCode = " + getTournamentCode());
+		argPW.println("CategoryCode = " + getCategoryCode());
+		argPW.println("ResponseTypeCode = " + getResponseTypeCode());
+		argPW.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+	}
+
+	@Override
+	public synchronized void output(final PrintStream argPS) {
+		argPS.println("TournamentCode = " + getTournamentCode());
+		argPS.println("CategoryCode = " + getCategoryCode());
+		argPS.println("ResponseTypeCode = " + getResponseTypeCode());
+		argPS.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+	}
+
+	private ResponseTypeOpal myOldResponseTypeOpal;
+	private ResponseTypeOpal myNewResponseTypeOpal;
+
+	protected ResponseTypeOpal retrieveResponseTypeOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[2] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getResponseTypeOpalFactory().forCode(getResponseTypeCode());
+	}
+
+	public synchronized ResponseTypeOpal getResponseTypeOpal() {
+		ResponseTypeOpal lclResponseTypeOpal;
+		boolean lclAccess = tryAccess();
+		lclResponseTypeOpal = lclAccess ? myNewResponseTypeOpal : myOldResponseTypeOpal;
+		if (lclResponseTypeOpal == ResponseTypeOpal.NOT_YET_LOADED) {
+			lclResponseTypeOpal = retrieveResponseTypeOpal(getValues());
+			if (lclAccess) {
+				myNewResponseTypeOpal = lclResponseTypeOpal;
+			} else {
+				myOldResponseTypeOpal = lclResponseTypeOpal;
+			}
+		}
+		return lclResponseTypeOpal;
+	}
+
+	private TournamentOpal myOldTournamentOpal;
+	private TournamentOpal myNewTournamentOpal;
+
+	protected TournamentOpal retrieveTournamentOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[0] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getTournamentOpalFactory().forCode(getTournamentCode());
+	}
+
+	public synchronized TournamentOpal getTournamentOpal() {
+		TournamentOpal lclTournamentOpal;
+		boolean lclAccess = tryAccess();
+		lclTournamentOpal = lclAccess ? myNewTournamentOpal : myOldTournamentOpal;
+		if (lclTournamentOpal == TournamentOpal.NOT_YET_LOADED) {
+			lclTournamentOpal = retrieveTournamentOpal(getValues());
+			if (lclAccess) {
+				myNewTournamentOpal = lclTournamentOpal;
+			} else {
+				myOldTournamentOpal = lclTournamentOpal;
+			}
+		}
+		return lclTournamentOpal;
+	}
+
+	private CategoryOpal myOldCategoryOpal;
+	private CategoryOpal myNewCategoryOpal;
+
+	protected CategoryOpal retrieveCategoryOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[1] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCode(getCategoryCode());
+	}
+
+	public synchronized CategoryOpal getCategoryOpal() {
+		CategoryOpal lclCategoryOpal;
+		boolean lclAccess = tryAccess();
+		lclCategoryOpal = lclAccess ? myNewCategoryOpal : myOldCategoryOpal;
+		if (lclCategoryOpal == CategoryOpal.NOT_YET_LOADED) {
+			lclCategoryOpal = retrieveCategoryOpal(getValues());
+			if (lclAccess) {
+				myNewCategoryOpal = lclCategoryOpal;
+			} else {
+				myOldCategoryOpal = lclCategoryOpal;
+			}
+		}
+		return lclCategoryOpal;
+	}
+
+}

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+	PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+	"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<servlet>
+		<servlet-name>GameEntry</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.games.GameEntry</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AssignCards</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.AssignCards</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>CreateCards</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.CreateCards</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>DownloadSpreadsheetForCardSystem</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.DownloadSpreadsheetForCardSystem</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>GeneratePaperwork</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.GeneratePaperwork</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>UploadCardSystem</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.UploadCardSystem</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RearrangeSeeds</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.RearrangeSeeds</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RearrangeWaitlist</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.RearrangeWaitlist</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RearrangeStandby</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.RearrangeStandby</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>UpdateCategoryUses</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.UpdateCategoryUses</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>EmailAttendees</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.EmailAttendees</servlet-class>
+	</servlet>
+	
+	
+	<servlet>
+		<servlet-name>OpalCache</servlet-name>
+		<servlet-class>com.opal.cma.OpalCacheViewServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>OpalFormController</servlet-name>
+		<servlet-class>com.opal.cma.OpalFormController</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>Initializer</servlet-name>
+		<servlet-class>com.scobolsolo.Initializer</servlet-class>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>GameEntry</servlet-name>
+		<url-pattern>/games/GameEntry</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CreateCards</servlet-name>
+		<url-pattern>/tournament/CreateCards</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AssignCards</servlet-name>
+		<url-pattern>/tournament/AssignCards</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DownloadSpreadsheetForCardSystem</servlet-name>
+		<url-pattern>/tournament/DownloadSpreadsheetForCardSystem</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GeneratePaperwork</servlet-name>
+		<url-pattern>/tournament/GeneratePaperwork</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UploadCardSystem</servlet-name>
+		<url-pattern>/tournament/UploadCardSystem</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RearrangeSeeds</servlet-name>
+		<url-pattern>/tournament/RearrangeSeeds</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RearrangeWaitlist</servlet-name>
+		<url-pattern>/tournament/RearrangeWaitlist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RearrangeStandby</servlet-name>
+		<url-pattern>/tournament/RearrangeStandby</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UpdateCategoryUses</servlet-name>
+		<url-pattern>/tournament/UpdateCategoryUses</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>EmailAttendees</servlet-name>
+		<url-pattern>/tournament/EmailAttendees</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!--<servlet-mapping>
+		<servlet-name>OpalCache</servlet-name>
+		<url-pattern>/admin/OpalCache</url-pattern>
+	</servlet-mapping>-->
+	
+	<servlet-mapping>
+		<servlet-name>OpalFormController</servlet-name>
+		<url-pattern>/OpalFormController</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>jsp</servlet-name>
+		<url-pattern>*.jsp</url-pattern>
+		<url-pattern>*.html</url-pattern>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	
+	<session-config> 
+		<session-timeout>120</session-timeout> 
+	</session-config> 
+	
+	<mime-mapping>
+		<extension>xls</extension>
+		<mime-type>application/msexcel</mime-type>
+	</mime-mapping>
+	
+	-<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Valid User Pages</web-resource-name>
+			<url-pattern>/games/*</url-pattern>
+			<url-pattern>/tournament/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>LOGIN</role-name>
+			<role-name>ADMINISTRATOR</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	-<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Administrative Pages</web-resource-name>
+			<url-pattern>/admin/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>ADMINISTRATOR</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>Scobol Solo</realm-name>
+		<form-login-config>
+			<form-login-page>/login.jsp</form-login-page>
+			<form-error-page>/login-error.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+	<security-role>
+		 <role-name>LOGIN</role-name>
+		 <role-name>ADMINISTRATOR</role-name>
+	</security-role>
+	
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error403.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error500.jsp</location>
+	</error-page>
+	
+	<filter>
+		<filter-name>XFrameOptionsDenyFilter</filter-name>
+		<filter-class>com.scobolsolo.security.XFrameOptionsDenyFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>XFrameOptionsDenyFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>ExpiresFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+		<init-param>
+			<param-name>ExpiresByType image</param-name>
+			<param-value>access plus 8 days</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExpiresByType text/css</param-name>
+			<param-value>access plus 8 days</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExpiresByType application/javascript</param-name>
+			<param-value>access plus 8 days</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExpiresByType application/x-javascript</param-name>
+			<param-value>access plus 8 days</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExpiresByType text/javascript</param-name>
+			<param-value>access plus 8 days</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>ExpiresFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<!-- Directory listings -->
+	<!--<servlet>
+		<servlet-name>DirectoryListing</servlet-name>
+		<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>0</param-value>
+		</init-param>
+		<init-param>
+			<param-name>listings</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DirectoryListing</servlet-name>
+		<url-pattern>/admin/Archives/</url-pattern>
+	</servlet-mapping>-->
+	
+	<!-- End the reaper thread that cleans up uploaded files -->
+	<listener>
+		<listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
+	</listener>
+</web-app>

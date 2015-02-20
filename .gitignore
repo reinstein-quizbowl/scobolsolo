@@ -10,3 +10,31 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+
+# Configuration files that shouldn't be public
+etc/scobolsolo/authentication.properties
+etc/server.properties
+
+# Libraries that aren't licensed for public posting
+lib/siliconage.jar
+lib/opal.jar
+doclib/siliconage-src.jar
+doclib/opal-src.jar
+
+# Runtime stuff
+tomcat/**
+
+# Production files
+data/uploaded/**
+data/generated-spreadsheets/**
+
+# Logs
+scobolsolo.log
+
+# Development stuff
+ant/**
+build.csh
+src/com/scobolsolo/StandaloneTest.java
+to-do.txt
+

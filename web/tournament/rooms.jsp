@@ -1,0 +1,105 @@
+﻿<%@ page import="java.util.List" %>
+<%@ page import="com.opal.cma.OpalForm" %>
+<%@ page import="com.opal.cma.OpalMainForm" %>
+<%@ page import="com.scobolsolo.application.*" %>
+<%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.opalforms.updater.RoomUpdater" %>
+<%@ page import="com.scobolsolo.HTMLUtility" %>
+
+<%
+OpalMainForm<Tournament> lclOF = OpalForm.create(
+	session,
+	request,
+	"/OpalFormController",
+	TournamentFactory.getInstance().forUniqueString(request.getParameter("object")),
+	TournamentFactory.getInstance()
+);
+
+Tournament lclT = lclOF.getUserFacing();
+%>
+
+<jsp:include page="/template/header.jsp">
+	<jsp:param name="tournamentCode" value="<%= lclT.getCode() %>" />
+	<jsp:param name="pageTitle" value="Rooms" />
+	<jsp:param name="topMenu" value="<%= Menus.tournamentAdmin(lclT).asTopLevel().output(request, \"rooms-\" + lclT.getUniqueString()) %>" />
+	<jsp:param name="h1" value="Rooms" />
+</jsp:include>
+
+<%= lclOF.open() %><%
+if (lclOF.hasErrors()) {
+	%><div class="row">
+		<div class="small-12 columns">
+			<p class="form-error-intro">Error:</p>
+			<div class="form-errors"><%= lclOF.errors() %></div>
+		</div>
+	</div><%
+}
+
+%><div class="row">
+	<div class="small-12 columns">
+		<table class="responsive">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Short&nbsp;name</th>
+					<th>Note</th>
+					<th><span title="Buzzers">Bz</span></th>
+					<th>Games?</th>
+					<th><span title="Sequence">Seq.</span></th>
+					<th>Staff</th>
+					<th>Edit</th>
+					<th>Delete?</th>
+				</tr>
+			</thead>
+			<tbody><%
+				List<OpalForm<Room>> lclROFs = lclOF.children(
+					"Room",
+					RoomFactory.getInstance(),
+					1, // row for a new room
+					Room.SequenceComparator.getInstance()
+				);
+				
+				for (OpalForm<Room> lclROF : lclROFs) {
+					lclROF.setUpdaterClass(RoomUpdater.class);
+					Room lclR = lclROF.getUserFacing();
+					
+					%><tr>
+						<%= lclROF.open() %>
+						<td><%= lclROF.text("Name", 20) %></td>
+						<td><%= lclROF.text("ShortName", 10) %></td>
+						<td><%= lclROF.textarea("Note", 60, 1) %></td>
+						<td><%= lclR == null ? "-" : lclR.getBuzzerCount() %></td>
+						<td><%= lclROF.checkbox("GameRoom") %></td>
+						<td><%= lclROF.text("Sequence", 3) %></td>
+						<td><%
+							for (OpalForm<StaffAssignment> lclSAOF : lclROF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.StaffNameComparator.getInstance())) {
+								Staff lclS = lclSAOF.getUserFacing().getStaff();
+								%><%= lclSAOF.open() %>
+									<a href="staff-edit.jsp?staff_id=<%= lclS.getId() %>"><%= lclS.getContact().getName() %></a> (<label class="my-inline">Unassign?&nbsp;<%= lclSAOF.delete() %></label>)<br />
+								<%= lclSAOF.close() %><%
+							}
+							
+							if (lclR != null && lclR.getStaffAssignmentCount() == 0) {
+								%>(none)<%
+							}
+						%></td>
+						<td><%= lclR == null ? "&nbsp;" : "<a href=\"room-edit.jsp?room_id=" + lclR.getId() + "\">Edit</a>" %></td>
+						<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
+						<%= lclROF.close() %>
+					</tr><%
+				}
+			%></tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<%= lclOF.submit() %>
+		<%= lclOF.cancel() %>
+	</div>
+</div>
+
+<%= lclOF.close() %>
+
+<jsp:include page="/template/footer.jsp" />

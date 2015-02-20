@@ -1,0 +1,325 @@
+<Project Name="ScobolSolo">
+	<Package>com.scobolsolo</Package>
+	<ApplicationSubpackage>application</ApplicationSubpackage>
+	<PersistenceSubpackage>persistence</PersistenceSubpackage>
+	
+	<Author><![CDATA[<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>]]></Author>
+	<Database
+		Url="jdbc:postgresql://127.0.0.1:5432/scobolsolo"
+		Driver="net.sourceforge.jtds.jdbc.Driver"
+		JNDIName="java:comp/env/ScobolSoloDataSource"
+		DefaultDatabase="scobolsolo"
+		DefaultOwner="scobolsolo"
+	>
+		<Schema>scobolsolo</Schema>
+		
+		<Comparators>
+			<Column>id</Column>
+			<Column>sequence</Column>
+			<Column>code</Column>
+			<Column>name</Column>
+			<Column>short_name</Column>
+			<Column>very_short_name</Column>
+			<Column>date</Column>
+		</Comparators>
+		
+		<Filters>
+			<Column>active</Column>
+		</Filters>
+		
+		
+		<Mappings HttpRequestFactories="True">
+			<Mapping Table="Account">
+				<Comparator Name="NameComparator">
+					<Child Name="Contact" Comparator="SortByComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Buzzer" />
+			
+			<Mapping Table="Card">
+				<Column Name="sequence" Ordering="True" />
+				<Comparator Name="StandardComparator">
+					<Child Name="Phase" Comparator="SequenceComparator" />
+					<Column Name="sequence" />
+				</Comparator>
+				<SingleLookUp>
+					<Column>name</Column>
+					<Column>phase_id</Column>
+				</SingleLookUp>
+				<SingleLookUp>
+					<Column>short_name</Column>
+					<Column>phase_id</Column>
+				</SingleLookUp>
+			</Mapping>
+			
+			<Mapping Table="Category">
+				<Column Name="sequence" Ordering="True" />
+				<Comparator Name="StandardComparator">
+					<Child Name="CategoryGroup" Comparator="SequenceComparator" />
+					<Column Name="sequence" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Category_Group">
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
+			
+			<Mapping Table="Category_Use">
+				<Comparator Name="CategoryComparator">
+					<Child Name="Category" Comparator="StandardComparator" />
+				</Comparator>
+				<Comparator Name="TournamentComparator">
+					<Child Name="Tournament" Comparator="DateComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Contact">
+				<Column Name="sort_by" Ordering="True" Comparator="True" />
+			</Mapping>
+			
+			<Mapping Table="Game" />
+			
+			<Mapping Table="Match">
+				<Comparator Name="RoundComparator">
+					<Child Name="Round" Comparator="StandardComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Packet">
+				<Comparator Name="StandardComparator">
+					<Child Name="Round" Comparator="StandardComparator" />
+					<Column Name="sequence" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Performance" />
+			
+			<Mapping Table="Placement">
+				<Column Name="sequence" Ordering="True" />
+				<Comparator Name="StandardComparator">
+					<Child Name="Packet" Comparator="StandardComparator" />
+					<Column Name="sequence" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Player">
+				<SingleLookUp>
+					<Column>initial_card_id</Column>
+				</SingleLookUp>
+				<Comparator Name="NameComparator">
+					<Child Name="Contact" Comparator="SortByComparator" />
+				</Comparator>
+				<Comparator Name="RankWithinSchoolComparator">
+					<Column Name="rank_within_school" />
+					<Child Name="Contact" Comparator="SortByComparator" />
+				</Comparator>
+				<Comparator Name="SeedComparator">
+					<Column Name="seed" />
+					<Child Name="Contact" Comparator="SortByComparator" />
+				</Comparator>
+				<Comparator Name="TournamentDateComparator">
+					<Child Name="SchoolRegistration" Comparator="TournamentDateComparator" />
+				</Comparator>
+				<Comparator Name="SchoolNameComparator">
+					<Child Name="SchoolRegistration" Comparator="SchoolNameComparator" />
+				</Comparator>
+				<Comparator Name="SchoolShortNameComparator">
+					<Child Name="SchoolRegistration" Comparator="SchoolNameComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Question">
+				<Comparator Name="CategoryComparator">
+					<Child Name="Category" Comparator="StandardComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="School_Registration">
+				<Comparator>
+					<Child Name="Tournament" Comparator="DateComparator" />
+				</Comparator>
+				<Comparator>
+					<Child Name="School" Comparator="NameComparator" />
+				</Comparator>
+				<Comparator>
+					<Child Name="School" Comparator="ShortNameComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Waitlist_Entry">
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
+			
+			<Mapping Table="Standby_Entry">
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
+			
+			<Mapping Table="Response" />
+			
+			<Mapping Table="Response_Type">
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
+			
+			<Mapping Table="Room">
+				<Column Name="game_room" Filter="True" />
+				<Column Name="sequence" Ordering="True" />
+				<SingleLookUp>
+					<Column>name</Column>
+					<Column>tournament_code</Column>
+				</SingleLookUp>
+				<SingleLookUp>
+					<Column>short_name</Column>
+					<Column>tournament_code</Column>
+				</SingleLookUp>
+			</Mapping>
+			
+			<Mapping Table="Phase">
+				<Column Name="card_system" Filter="True" />
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
+			
+			<Mapping Table="Round_Group">
+				<Column Name="card_system" Filter="True" />
+				<Comparator Name="StandardComparator">
+					<Child Name="Phase" Comparator="SequenceComparator" />
+					<Column Name="sequence" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Round">
+				<Column Name="sequence" Ordering="True" />
+				<Comparator Name="StandardComparator">
+					<Child Name="RoundGroup" Comparator="StandardComparator" />
+					<Column Name="sequence" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="School">
+				<Column Name="name" Ordering="True" />
+			</Mapping>
+			
+			<Mapping Table="School_Year">
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
+			
+			<Mapping Table="Staff">
+				<Comparator Name="NameComparator">
+					<Child Name="Contact" Comparator="SortByComparator" />
+				</Comparator>
+				<Comparator Name="SchoolNameThenStaffNameComparator">
+					<Child Name="SchoolRegistration" Comparator="SchoolNameComparator" />
+					<Child Name="Contact" Comparator="SortByComparator" />
+				</Comparator>
+				<Comparator>
+					<Child Name="Tournament" Comparator="DateComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Staff_Assignment">
+				<Comparator>
+					<Child Name="Staff" Comparator="NameComparator" />
+				</Comparator>
+				<Comparator>
+					<Child Name="Room" Comparator="SequenceComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Table="Tournament">
+				<Column Name="date" Ordering="True" />
+			</Mapping>
+			<Reference Field="ControlRoom">
+				<Source Type="Tournament">
+					<Column>control_room_room_id</Column>
+				</Source>
+				<Target Type="Room" />
+			</Reference>
+			
+			<!-- Stats views -->
+			<Mapping Entity="Player_Point_v" View="True">
+				<Column Name="points" Type="java.lang.Integer" />
+				<Comparator>
+					<Column Name="points" Inverted="True" />
+					<Child Name="Player" Comparator="NameComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Entity="Player_Category_Point_v" View="True">
+				<Column Name="tossups_heard" Type="java.lang.Integer" />
+				<Column Name="points" Type="java.lang.Integer" />
+				<Comparator Name="CategoryComparator">
+					<Child Name="Category" Comparator="StandardComparator" />
+					<Column Name="points" Inverted="True" />
+					<Child Name="Player" Comparator="NameComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Entity="Game_v" View="True">
+				<Column Name="winner_score" Type="java.lang.Integer" />
+				<Column Name="loser_score" Type="java.lang.Integer" />
+				<Comparator Name="RoundComparator">
+					<Child Name="Round" Comparator="StandardComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Entity="Player_Match_v" View="True">
+				<Comparator Name="RoundComparator">
+					<Child Name="Match" Comparator="RoundComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Entity="Player_Record_v" View="True">
+				<Column Name="tossups_heard" Type="java.lang.Integer" />
+				<Comparator Name="PlayerComparator">
+					<Child Name="Player" Comparator="NameComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Entity="Category_Conversion_v" View="True">
+				<Column Name="response_type_count" Type="java.lang.Integer" />
+				<Comparator>
+					<Child Name="Category" Comparator="SequenceComparator" />
+				</Comparator>
+			</Mapping>
+			
+			<Mapping Entity="Placement_Conversion_v" View="True">
+				<Column Name="response_type_count" Type="java.lang.Integer" />
+				<Comparator Name="PlacementComparator">
+					<Child Name="Placement" Comparator="StandardComparator" />
+				</Comparator>
+			</Mapping>
+		</Mappings>
+		
+		
+		<!-- One-to-one relationships -->
+		<Reference>
+			<Source Type="Game">
+				<Column>id</Column>
+			</Source>
+			<Target Type="Match" OneToOne="True" />
+		</Reference>
+		
+		<Reference>
+			<Source Type="Player">
+				<Column>initial_card_id</Column>
+			</Source>
+			<Target Type="Card" OneToOne="True" />
+		</Reference>
+		
+		
+		<!-- Eliminate unneeded back collections -->
+		<Reference>
+			<Source Type="Player">
+				<Column>school_year_code</Column>
+			</Source>
+			<Target Type="SchoolYear" CollectionClass="None" />
+		</Reference>
+		
+		<Reference>
+			<Source Type="Response">
+				<Column>response_type_code</Column>
+			</Source>
+			<Target Type="ResponseType" CollectionClass="None" />
+		</Reference>
+	</Database>
+</Project>
