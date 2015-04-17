@@ -89,7 +89,7 @@
 				<exclude name="**/*.bak,**/*~" />
 			</fileset>
 			<preserveintarget>
-				<include name="naqt-bcrypt.jar" />
+				<include name="scobolsolo-bcrypt.jar" />
 			</preserveintarget>
 		</sync>
 		
