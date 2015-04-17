@@ -1,9 +1,10 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.AccountOpal;
 import com.scobolsolo.persistence.ContactOpal;
 
-public class AccountImpl extends com.opal.AbstractIdentityImpl<AccountOpal> implements Account {
+public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountOpal> implements Account {
 	private final AccountOpal myAccountOpal;
 
 	public AccountImpl(AccountOpal argAccountOpal) {
@@ -16,13 +17,13 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<AccountOpal> impl
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ AccountOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Account> getBottomOpal() {
 		return getAccountOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ AccountOpal[] getOpalArray() {
-		return new /* Opal<?> */ AccountOpal[] {
+	protected Opal<? super Account>[] getOpalArray() {
+		return (Opal<? super Account>[]) new Opal<?>[] {
 			getAccountOpal(),
 		};
 	}

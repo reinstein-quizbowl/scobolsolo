@@ -1,9 +1,10 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.RoundGroupOpal;
 
-public class RoundImpl extends com.opal.AbstractIdentityImpl<RoundOpal> implements Round {
+public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> implements Round {
 	private final RoundOpal myRoundOpal;
 
 	public RoundImpl(RoundOpal argRoundOpal) {
@@ -16,13 +17,13 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<RoundOpal> implemen
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ RoundOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Round> getBottomOpal() {
 		return getRoundOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ RoundOpal[] getOpalArray() {
-		return new /* Opal<?> */ RoundOpal[] {
+	protected Opal<? super Round>[] getOpalArray() {
+		return (Opal<? super Round>[]) new Opal<?>[] {
 			getRoundOpal(),
 		};
 	}

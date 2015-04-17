@@ -146,7 +146,7 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 
 	@Override
 	public void updateKeys(StaffAssignmentOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 4) { throw new IllegalStateException(); }
@@ -183,19 +183,19 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
+	public java.util.HashSet<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argStaffId };
 		final String[] lclFieldNames = new String[] { "staff_id" };
-		com.siliconage.util.Fast3Set<StaffAssignmentOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
+	public java.util.HashSet<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoomId };
 		final String[] lclFieldNames = new String[] { "room_id" };
-		com.siliconage.util.Fast3Set<StaffAssignmentOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

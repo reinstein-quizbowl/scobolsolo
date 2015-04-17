@@ -148,7 +148,7 @@ public class PostgresStaffOpalFactory extends com.opal.AbstractDatabaseIdentityO
 
 	@Override
 	public void updateKeys(StaffOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
@@ -185,19 +185,19 @@ public class PostgresStaffOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<StaffOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
+	public java.util.HashSet<StaffOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argContactId };
 		final String[] lclFieldNames = new String[] { "contact_id" };
-		com.siliconage.util.Fast3Set<StaffOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<StaffOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<StaffOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
+	public java.util.HashSet<StaffOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argSchoolRegistrationId };
 		final String[] lclFieldNames = new String[] { "school_registration_id" };
-		com.siliconage.util.Fast3Set<StaffOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<StaffOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

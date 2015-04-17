@@ -157,7 +157,7 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 
 	@Override
 	public void updateKeys(PlayerOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
@@ -208,10 +208,10 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PlayerOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
+	public java.util.HashSet<PlayerOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argContactId };
 		final String[] lclFieldNames = new String[] { "contact_id" };
-		com.siliconage.util.Fast3Set<PlayerOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PlayerOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

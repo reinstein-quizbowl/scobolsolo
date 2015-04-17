@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.BuzzerOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.RoomOpal;
 
-public class BuzzerImpl extends com.opal.AbstractIdentityImpl<BuzzerOpal> implements Buzzer {
+public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal> implements Buzzer {
 	private final BuzzerOpal myBuzzerOpal;
 
 	public BuzzerImpl(BuzzerOpal argBuzzerOpal) {
@@ -17,13 +18,13 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<BuzzerOpal> implem
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ BuzzerOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Buzzer> getBottomOpal() {
 		return getBuzzerOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ BuzzerOpal[] getOpalArray() {
-		return new /* Opal<?> */ BuzzerOpal[] {
+	protected Opal<? super Buzzer>[] getOpalArray() {
+		return (Opal<? super Buzzer>[]) new Opal<?>[] {
 			getBuzzerOpal(),
 		};
 	}

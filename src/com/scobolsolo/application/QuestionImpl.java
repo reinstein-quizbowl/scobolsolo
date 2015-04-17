@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
-public class QuestionImpl extends com.opal.AbstractIdentityImpl<QuestionOpal> implements Question {
+public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, QuestionOpal> implements Question {
 	private final QuestionOpal myQuestionOpal;
 
 	public QuestionImpl(QuestionOpal argQuestionOpal) {
@@ -17,13 +18,13 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<QuestionOpal> im
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ QuestionOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Question> getBottomOpal() {
 		return getQuestionOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ QuestionOpal[] getOpalArray() {
-		return new /* Opal<?> */ QuestionOpal[] {
+	protected Opal<? super Question>[] getOpalArray() {
+		return (Opal<? super Question>[]) new Opal<?>[] {
 			getQuestionOpal(),
 		};
 	}

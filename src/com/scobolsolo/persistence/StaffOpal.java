@@ -202,7 +202,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myNewTournamentOpal = myOldTournamentOpal;
 		myNewModeratorGameOpalHashSet = null; /* Necessary if it has been rolled back */
 		myModeratorGameOpalCachedOperations = null; /* Ditto */
-		myNewStaffAssignmentOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewStaffAssignmentOpalHashSet = null; /* Necessary if it has been rolled back */
 		myStaffAssignmentOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -225,11 +225,11 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			}
 		}
 		if (needsToClearOldCollections()) {
-			myOldStaffAssignmentOpalFast3Set = null;
+			myOldStaffAssignmentOpalHashSet = null;
 			} else {
-			if (myNewStaffAssignmentOpalFast3Set != null) {
-				myOldStaffAssignmentOpalFast3Set = myNewStaffAssignmentOpalFast3Set;
-				myNewStaffAssignmentOpalFast3Set = null;
+			if (myNewStaffAssignmentOpalHashSet != null) {
+				myOldStaffAssignmentOpalHashSet = myNewStaffAssignmentOpalHashSet;
+				myNewStaffAssignmentOpalHashSet = null;
 			} else {
 				myStaffAssignmentOpalCachedOperations = null;
 			}
@@ -247,7 +247,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 				((GameOpal) lclI.next()).setModeratorStaffOpalInternal(null);
 			}
 		}
-		if (myNewStaffAssignmentOpalFast3Set != null || myStaffAssignmentOpalCachedOperations != null) {
+		if (myNewStaffAssignmentOpalHashSet != null || myStaffAssignmentOpalCachedOperations != null) {
 			lclI = createStaffAssignmentOpalIterator();
 			while (lclI.hasNext()) {
 				((StaffAssignmentOpal) lclI.next()).setStaffOpalInternal(null);
@@ -540,28 +540,28 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 
 	public synchronized void clearModeratorGameOpalInternal() { getModeratorGameOpalClass().clear(); }
 
-	private com.siliconage.util.Fast3Set<StaffAssignmentOpal> myOldStaffAssignmentOpalFast3Set = null;
-	private com.siliconage.util.Fast3Set<StaffAssignmentOpal> myNewStaffAssignmentOpalFast3Set = null;
+	private java.util.HashSet<StaffAssignmentOpal> myOldStaffAssignmentOpalHashSet = null;
+	private java.util.HashSet<StaffAssignmentOpal> myNewStaffAssignmentOpalHashSet = null;
 	private java.util.ArrayList<CachedOperation<StaffAssignmentOpal>> myStaffAssignmentOpalCachedOperations = null;
 
-	/* package */ com.siliconage.util.Fast3Set<StaffAssignmentOpal> getStaffAssignmentOpalClass() {
+	/* package */ java.util.HashSet<StaffAssignmentOpal> getStaffAssignmentOpalClass() {
 		if (tryAccess()) {
-			if (myNewStaffAssignmentOpalFast3Set == null) {
-				if (myOldStaffAssignmentOpalFast3Set == null) {
-					myOldStaffAssignmentOpalFast3Set = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffIdCollection(getIdAsObject());
+			if (myNewStaffAssignmentOpalHashSet == null) {
+				if (myOldStaffAssignmentOpalHashSet == null) {
+					myOldStaffAssignmentOpalHashSet = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffIdCollection(getIdAsObject());
 				}
-				myNewStaffAssignmentOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffAssignmentOpalFast3Set);
+				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
 				if (myStaffAssignmentOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalFast3Set);
+					OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalHashSet);
 					myStaffAssignmentOpalCachedOperations = null;
 				}
 			}
-			return myNewStaffAssignmentOpalFast3Set;
+			return myNewStaffAssignmentOpalHashSet;
 		}
-		if (myOldStaffAssignmentOpalFast3Set == null) {
-			myOldStaffAssignmentOpalFast3Set = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffIdCollection(getIdAsObject());
+		if (myOldStaffAssignmentOpalHashSet == null) {
+			myOldStaffAssignmentOpalHashSet = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffIdCollection(getIdAsObject());
 		}
-		return myOldStaffAssignmentOpalFast3Set;
+		return myOldStaffAssignmentOpalHashSet;
 	}
 
 	public synchronized void addStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
@@ -572,16 +572,16 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 
 	protected synchronized void addStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
 		tryMutate();
-		if (myNewStaffAssignmentOpalFast3Set == null) {
-			if (myOldStaffAssignmentOpalFast3Set == null) {
+		if (myNewStaffAssignmentOpalHashSet == null) {
+			if (myOldStaffAssignmentOpalHashSet == null) {
 				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStaffAssignmentOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argStaffAssignmentOpal));
 			} else {
-				myNewStaffAssignmentOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffAssignmentOpalFast3Set);
-				myNewStaffAssignmentOpalFast3Set.add(argStaffAssignmentOpal);
+				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
+				myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
 			}
 		} else {
-			myNewStaffAssignmentOpalFast3Set.add(argStaffAssignmentOpal);
+			myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
 		}
 		return;
 	}
@@ -593,16 +593,16 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 
 	protected synchronized void removeStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
 		tryMutate();
-		if (myNewStaffAssignmentOpalFast3Set == null) {
-			if (myOldStaffAssignmentOpalFast3Set == null) {
+		if (myNewStaffAssignmentOpalHashSet == null) {
+			if (myOldStaffAssignmentOpalHashSet == null) {
 				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStaffAssignmentOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argStaffAssignmentOpal));
 			} else {
-				myNewStaffAssignmentOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffAssignmentOpalFast3Set);
-				myNewStaffAssignmentOpalFast3Set.remove(argStaffAssignmentOpal);
+				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
+				myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
 			}
 		} else {
-			myNewStaffAssignmentOpalFast3Set.remove(argStaffAssignmentOpal);
+			myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
 		}
 		return;
 	}

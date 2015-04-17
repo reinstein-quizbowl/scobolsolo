@@ -147,7 +147,7 @@ public class PostgresStandbyEntryOpalFactory extends com.opal.AbstractDatabaseId
 
 	@Override
 	public void updateKeys(StandbyEntryOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
@@ -184,10 +184,10 @@ public class PostgresStandbyEntryOpalFactory extends com.opal.AbstractDatabaseId
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<StandbyEntryOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
+	public java.util.HashSet<StandbyEntryOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argSchoolRegistrationId };
 		final String[] lclFieldNames = new String[] { "school_registration_id" };
-		com.siliconage.util.Fast3Set<StandbyEntryOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<StandbyEntryOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

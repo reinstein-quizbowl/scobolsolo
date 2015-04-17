@@ -145,7 +145,7 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 
 	@Override
 	public void updateKeys(TournamentOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 15) { throw new IllegalStateException(); }
@@ -212,10 +212,10 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<TournamentOpal> forControlRoomRoomIdCollection(java.lang.Integer argControlRoomRoomId) /* throws PersistenceException */ {
+	public java.util.HashSet<TournamentOpal> forControlRoomRoomIdCollection(java.lang.Integer argControlRoomRoomId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argControlRoomRoomId };
 		final String[] lclFieldNames = new String[] { "control_room_room_id" };
-		com.siliconage.util.Fast3Set<TournamentOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<TournamentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

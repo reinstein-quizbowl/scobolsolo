@@ -1,9 +1,10 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.StandbyEntryOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 
-public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntryOpal> implements StandbyEntry {
+public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry, StandbyEntryOpal> implements StandbyEntry {
 	private final StandbyEntryOpal myStandbyEntryOpal;
 
 	public StandbyEntryImpl(StandbyEntryOpal argStandbyEntryOpal) {
@@ -16,13 +17,13 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ StandbyEntryOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends StandbyEntry> getBottomOpal() {
 		return getStandbyEntryOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ StandbyEntryOpal[] getOpalArray() {
-		return new /* Opal<?> */ StandbyEntryOpal[] {
+	protected Opal<? super StandbyEntry>[] getOpalArray() {
+		return (Opal<? super StandbyEntry>[]) new Opal<?>[] {
 			getStandbyEntryOpal(),
 		};
 	}

@@ -1,9 +1,10 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
-public class PhaseImpl extends com.opal.AbstractIdentityImpl<PhaseOpal> implements Phase {
+public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> implements Phase {
 	private final PhaseOpal myPhaseOpal;
 
 	public PhaseImpl(PhaseOpal argPhaseOpal) {
@@ -16,13 +17,13 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<PhaseOpal> implemen
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PhaseOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Phase> getBottomOpal() {
 		return getPhaseOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PhaseOpal[] getOpalArray() {
-		return new /* Opal<?> */ PhaseOpal[] {
+	protected Opal<? super Phase>[] getOpalArray() {
+		return (Opal<? super Phase>[]) new Opal<?>[] {
 			getPhaseOpal(),
 		};
 	}

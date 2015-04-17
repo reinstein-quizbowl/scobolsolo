@@ -1,9 +1,10 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.CategoryGroupOpal;
 
-public class CategoryImpl extends com.opal.AbstractIdentityImpl<CategoryOpal> implements Category {
+public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, CategoryOpal> implements Category {
 	private final CategoryOpal myCategoryOpal;
 
 	public CategoryImpl(CategoryOpal argCategoryOpal) {
@@ -16,13 +17,13 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<CategoryOpal> im
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ CategoryOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Category> getBottomOpal() {
 		return getCategoryOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ CategoryOpal[] getOpalArray() {
-		return new /* Opal<?> */ CategoryOpal[] {
+	protected Opal<? super Category>[] getOpalArray() {
+		return (Opal<? super Category>[]) new Opal<?>[] {
 			getCategoryOpal(),
 		};
 	}

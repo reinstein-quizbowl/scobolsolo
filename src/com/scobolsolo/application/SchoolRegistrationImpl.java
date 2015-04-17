@@ -1,11 +1,12 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.SchoolOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
-public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<SchoolRegistrationOpal> implements SchoolRegistration {
+public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<SchoolRegistration, SchoolRegistrationOpal> implements SchoolRegistration {
 	private final SchoolRegistrationOpal mySchoolRegistrationOpal;
 
 	public SchoolRegistrationImpl(SchoolRegistrationOpal argSchoolRegistrationOpal) {
@@ -18,13 +19,13 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ SchoolRegistrationOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends SchoolRegistration> getBottomOpal() {
 		return getSchoolRegistrationOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ SchoolRegistrationOpal[] getOpalArray() {
-		return new /* Opal<?> */ SchoolRegistrationOpal[] {
+	protected Opal<? super SchoolRegistration>[] getOpalArray() {
+		return (Opal<? super SchoolRegistration>[]) new Opal<?>[] {
 			getSchoolRegistrationOpal(),
 		};
 	}

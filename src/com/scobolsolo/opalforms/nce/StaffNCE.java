@@ -16,12 +16,12 @@ public final class StaffNCE extends NameCodeExtractor<Staff> {
 	}
 	
 	@Override
-	public String extractName(final Staff argS) {
+	public String extractNameInternal(final Staff argS) {
 		return argS.getContact().getName();
 	}
 	
 	@Override
-	public String extractCode(final Staff argS) {
+	public String extractCodeInternal(final Staff argS) {
 		return argS.getUniqueString();
 	}
 }

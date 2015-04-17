@@ -153,7 +153,7 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 
 	@Override
 	public void updateKeys(PhaseOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
@@ -210,10 +210,10 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PhaseOpal> forTournamentCodeCollection(java.lang.String argTournamentCode) /* throws PersistenceException */ {
+	public java.util.HashSet<PhaseOpal> forTournamentCodeCollection(java.lang.String argTournamentCode) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argTournamentCode };
 		final String[] lclFieldNames = new String[] { "tournament_code" };
-		com.siliconage.util.Fast3Set<PhaseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PhaseOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

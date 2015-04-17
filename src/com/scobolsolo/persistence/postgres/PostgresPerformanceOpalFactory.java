@@ -147,7 +147,7 @@ public class PostgresPerformanceOpalFactory extends com.opal.AbstractDatabaseIde
 
 	@Override
 	public void updateKeys(PerformanceOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 3) { throw new IllegalStateException(); }
@@ -194,10 +194,10 @@ public class PostgresPerformanceOpalFactory extends com.opal.AbstractDatabaseIde
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PerformanceOpal> forGameIdCollection(java.lang.Integer argGameId) /* throws PersistenceException */ {
+	public java.util.HashSet<PerformanceOpal> forGameIdCollection(java.lang.Integer argGameId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argGameId };
 		final String[] lclFieldNames = new String[] { "game_id" };
-		com.siliconage.util.Fast3Set<PerformanceOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PerformanceOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

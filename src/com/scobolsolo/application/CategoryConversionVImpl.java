@@ -1,11 +1,12 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.CategoryConversionVOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 
-public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConversionVOpal> implements CategoryConversionV {
+public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConversionV, CategoryConversionVOpal> implements CategoryConversionV {
 	private final CategoryConversionVOpal myCategoryConversionVOpal;
 
 	public CategoryConversionVImpl(CategoryConversionVOpal argCategoryConversionVOpal) {
@@ -18,13 +19,13 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ CategoryConversionVOpal getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends CategoryConversionV> getBottomOpal() {
 		return getCategoryConversionVOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ CategoryConversionVOpal[] getOpalArray() {
-		return new /* Opal<?> */ CategoryConversionVOpal[] {
+	protected Opal<? super CategoryConversionV>[] getOpalArray() {
+		return (Opal<? super CategoryConversionV>[]) new Opal<?>[] {
 			getCategoryConversionVOpal(),
 		};
 	}

@@ -215,7 +215,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		myNewQuestionOpal = myOldQuestionOpal;
 		myNewResponseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myResponseOpalCachedOperations = null; /* Ditto */
-		myNewReplacementForResponseOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewReplacementForResponseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myReplacementForResponseOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -237,11 +237,11 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 			}
 		}
 		if (needsToClearOldCollections()) {
-			myOldReplacementForResponseOpalFast3Set = null;
+			myOldReplacementForResponseOpalHashSet = null;
 			} else {
-			if (myNewReplacementForResponseOpalFast3Set != null) {
-				myOldReplacementForResponseOpalFast3Set = myNewReplacementForResponseOpalFast3Set;
-				myNewReplacementForResponseOpalFast3Set = null;
+			if (myNewReplacementForResponseOpalHashSet != null) {
+				myOldReplacementForResponseOpalHashSet = myNewReplacementForResponseOpalHashSet;
+				myNewReplacementForResponseOpalHashSet = null;
 			} else {
 				myReplacementForResponseOpalCachedOperations = null;
 			}
@@ -259,7 +259,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 				((ResponseOpal) lclI.next()).setPlacementOpalInternal(null);
 			}
 		}
-		if (myNewReplacementForResponseOpalFast3Set != null || myReplacementForResponseOpalCachedOperations != null) {
+		if (myNewReplacementForResponseOpalHashSet != null || myReplacementForResponseOpalCachedOperations != null) {
 			lclI = createReplacementForResponseOpalIterator();
 			while (lclI.hasNext()) {
 				((ResponseOpal) lclI.next()).setReplacementForPlacementOpalInternal(null);
@@ -501,28 +501,28 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	public synchronized void clearResponseOpalInternal() { getResponseOpalClass().clear(); }
 
-	private com.siliconage.util.Fast3Set<ResponseOpal> myOldReplacementForResponseOpalFast3Set = null;
-	private com.siliconage.util.Fast3Set<ResponseOpal> myNewReplacementForResponseOpalFast3Set = null;
+	private java.util.HashSet<ResponseOpal> myOldReplacementForResponseOpalHashSet = null;
+	private java.util.HashSet<ResponseOpal> myNewReplacementForResponseOpalHashSet = null;
 	private java.util.ArrayList<CachedOperation<ResponseOpal>> myReplacementForResponseOpalCachedOperations = null;
 
-	/* package */ com.siliconage.util.Fast3Set<ResponseOpal> getReplacementForResponseOpalClass() {
+	/* package */ java.util.HashSet<ResponseOpal> getReplacementForResponseOpalClass() {
 		if (tryAccess()) {
-			if (myNewReplacementForResponseOpalFast3Set == null) {
-				if (myOldReplacementForResponseOpalFast3Set == null) {
-					myOldReplacementForResponseOpalFast3Set = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
+			if (myNewReplacementForResponseOpalHashSet == null) {
+				if (myOldReplacementForResponseOpalHashSet == null) {
+					myOldReplacementForResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
 				}
-				myNewReplacementForResponseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldReplacementForResponseOpalFast3Set);
+				myNewReplacementForResponseOpalHashSet = new java.util.HashSet<>(myOldReplacementForResponseOpalHashSet);
 				if (myReplacementForResponseOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myReplacementForResponseOpalCachedOperations, myNewReplacementForResponseOpalFast3Set);
+					OpalUtility.handleCachedOperations(myReplacementForResponseOpalCachedOperations, myNewReplacementForResponseOpalHashSet);
 					myReplacementForResponseOpalCachedOperations = null;
 				}
 			}
-			return myNewReplacementForResponseOpalFast3Set;
+			return myNewReplacementForResponseOpalHashSet;
 		}
-		if (myOldReplacementForResponseOpalFast3Set == null) {
-			myOldReplacementForResponseOpalFast3Set = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
+		if (myOldReplacementForResponseOpalHashSet == null) {
+			myOldReplacementForResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
 		}
-		return myOldReplacementForResponseOpalFast3Set;
+		return myOldReplacementForResponseOpalHashSet;
 	}
 
 	public synchronized void addReplacementForResponseOpal(ResponseOpal argResponseOpal) {
@@ -533,16 +533,16 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	protected synchronized void addReplacementForResponseOpalInternal(ResponseOpal argResponseOpal) {
 		tryMutate();
-		if (myNewReplacementForResponseOpalFast3Set == null) {
-			if (myOldReplacementForResponseOpalFast3Set == null) {
+		if (myNewReplacementForResponseOpalHashSet == null) {
+			if (myOldReplacementForResponseOpalHashSet == null) {
 				if (myReplacementForResponseOpalCachedOperations == null) { myReplacementForResponseOpalCachedOperations = new java.util.ArrayList<>(); }
 				myReplacementForResponseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argResponseOpal));
 			} else {
-				myNewReplacementForResponseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldReplacementForResponseOpalFast3Set);
-				myNewReplacementForResponseOpalFast3Set.add(argResponseOpal);
+				myNewReplacementForResponseOpalHashSet = new java.util.HashSet<>(myOldReplacementForResponseOpalHashSet);
+				myNewReplacementForResponseOpalHashSet.add(argResponseOpal);
 			}
 		} else {
-			myNewReplacementForResponseOpalFast3Set.add(argResponseOpal);
+			myNewReplacementForResponseOpalHashSet.add(argResponseOpal);
 		}
 		return;
 	}
@@ -554,16 +554,16 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	protected synchronized void removeReplacementForResponseOpalInternal(ResponseOpal argResponseOpal) {
 		tryMutate();
-		if (myNewReplacementForResponseOpalFast3Set == null) {
-			if (myOldReplacementForResponseOpalFast3Set == null) {
+		if (myNewReplacementForResponseOpalHashSet == null) {
+			if (myOldReplacementForResponseOpalHashSet == null) {
 				if (myReplacementForResponseOpalCachedOperations == null) { myReplacementForResponseOpalCachedOperations = new java.util.ArrayList<>(); }
 				myReplacementForResponseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argResponseOpal));
 			} else {
-				myNewReplacementForResponseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldReplacementForResponseOpalFast3Set);
-				myNewReplacementForResponseOpalFast3Set.remove(argResponseOpal);
+				myNewReplacementForResponseOpalHashSet = new java.util.HashSet<>(myOldReplacementForResponseOpalHashSet);
+				myNewReplacementForResponseOpalHashSet.remove(argResponseOpal);
 			}
 		} else {
-			myNewReplacementForResponseOpalFast3Set.remove(argResponseOpal);
+			myNewReplacementForResponseOpalHashSet.remove(argResponseOpal);
 		}
 		return;
 	}

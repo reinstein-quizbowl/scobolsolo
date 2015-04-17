@@ -1,12 +1,13 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.GameOpal;
 
-public class MatchImpl extends com.opal.AbstractIdentityImpl<MatchOpal> implements Match {
+public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> implements Match {
 	private final MatchOpal myMatchOpal;
 
 	public MatchImpl(MatchOpal argMatchOpal) {
@@ -19,13 +20,13 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<MatchOpal> implemen
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ MatchOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Match> getBottomOpal() {
 		return getMatchOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ MatchOpal[] getOpalArray() {
-		return new /* Opal<?> */ MatchOpal[] {
+	protected Opal<? super Match>[] getOpalArray() {
+		return (Opal<? super Match>[]) new Opal<?>[] {
 			getMatchOpal(),
 		};
 	}

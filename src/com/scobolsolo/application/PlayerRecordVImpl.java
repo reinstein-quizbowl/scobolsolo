@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerRecordVOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 
-public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordVOpal> implements PlayerRecordV {
+public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, PlayerRecordVOpal> implements PlayerRecordV {
 	private final PlayerRecordVOpal myPlayerRecordVOpal;
 
 	public PlayerRecordVImpl(PlayerRecordVOpal argPlayerRecordVOpal) {
@@ -17,13 +18,13 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordVOpal> 
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerRecordVOpal getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlayerRecordV> getBottomOpal() {
 		return getPlayerRecordVOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerRecordVOpal[] getOpalArray() {
-		return new /* Opal<?> */ PlayerRecordVOpal[] {
+	protected Opal<? super PlayerRecordV>[] getOpalArray() {
+		return (Opal<? super PlayerRecordV>[]) new Opal<?>[] {
 			getPlayerRecordVOpal(),
 		};
 	}

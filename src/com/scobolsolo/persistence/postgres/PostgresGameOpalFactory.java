@@ -131,7 +131,7 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	@Override
 	public void updateKeys(GameOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 7) { throw new IllegalStateException(); }

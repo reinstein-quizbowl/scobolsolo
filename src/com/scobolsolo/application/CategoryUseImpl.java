@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.CategoryUseOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
-public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUseOpal> implements CategoryUse {
+public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, CategoryUseOpal> implements CategoryUse {
 	private final CategoryUseOpal myCategoryUseOpal;
 
 	public CategoryUseImpl(CategoryUseOpal argCategoryUseOpal) {
@@ -17,13 +18,13 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUseOp
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ CategoryUseOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends CategoryUse> getBottomOpal() {
 		return getCategoryUseOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ CategoryUseOpal[] getOpalArray() {
-		return new /* Opal<?> */ CategoryUseOpal[] {
+	protected Opal<? super CategoryUse>[] getOpalArray() {
+		return (Opal<? super CategoryUse>[]) new Opal<?>[] {
 			getCategoryUseOpal(),
 		};
 	}

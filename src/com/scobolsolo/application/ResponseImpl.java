@@ -1,11 +1,12 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.ResponseOpal;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.PlacementOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 
-public class ResponseImpl extends com.opal.AbstractIdentityImpl<ResponseOpal> implements Response {
+public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, ResponseOpal> implements Response {
 	private final ResponseOpal myResponseOpal;
 
 	public ResponseImpl(ResponseOpal argResponseOpal) {
@@ -18,13 +19,13 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<ResponseOpal> im
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ ResponseOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Response> getBottomOpal() {
 		return getResponseOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ ResponseOpal[] getOpalArray() {
-		return new /* Opal<?> */ ResponseOpal[] {
+	protected Opal<? super Response>[] getOpalArray() {
+		return (Opal<? super Response>[]) new Opal<?>[] {
 			getResponseOpal(),
 		};
 	}

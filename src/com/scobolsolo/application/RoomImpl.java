@@ -1,9 +1,10 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
-public class RoomImpl extends com.opal.AbstractIdentityImpl<RoomOpal> implements Room {
+public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> implements Room {
 	private final RoomOpal myRoomOpal;
 
 	public RoomImpl(RoomOpal argRoomOpal) {
@@ -16,13 +17,13 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<RoomOpal> implements
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ RoomOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Room> getBottomOpal() {
 		return getRoomOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ RoomOpal[] getOpalArray() {
-		return new /* Opal<?> */ RoomOpal[] {
+	protected Opal<? super Room>[] getOpalArray() {
+		return (Opal<? super Room>[]) new Opal<?>[] {
 			getRoomOpal(),
 		};
 	}

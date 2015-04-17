@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
-public class PacketImpl extends com.opal.AbstractIdentityImpl<PacketOpal> implements Packet {
+public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal> implements Packet {
 	private final PacketOpal myPacketOpal;
 
 	public PacketImpl(PacketOpal argPacketOpal) {
@@ -17,13 +18,13 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<PacketOpal> implem
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PacketOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Packet> getBottomOpal() {
 		return getPacketOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PacketOpal[] getOpalArray() {
-		return new /* Opal<?> */ PacketOpal[] {
+	protected Opal<? super Packet>[] getOpalArray() {
+		return (Opal<? super Packet>[]) new Opal<?>[] {
 			getPacketOpal(),
 		};
 	}

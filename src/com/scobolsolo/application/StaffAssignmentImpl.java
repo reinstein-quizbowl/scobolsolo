@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.StaffAssignmentOpal;
 import com.scobolsolo.persistence.StaffOpal;
 import com.scobolsolo.persistence.RoomOpal;
 
-public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssignmentOpal> implements StaffAssignment {
+public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssignment, StaffAssignmentOpal> implements StaffAssignment {
 	private final StaffAssignmentOpal myStaffAssignmentOpal;
 
 	public StaffAssignmentImpl(StaffAssignmentOpal argStaffAssignmentOpal) {
@@ -17,13 +18,13 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ StaffAssignmentOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends StaffAssignment> getBottomOpal() {
 		return getStaffAssignmentOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ StaffAssignmentOpal[] getOpalArray() {
-		return new /* Opal<?> */ StaffAssignmentOpal[] {
+	protected Opal<? super StaffAssignment>[] getOpalArray() {
+		return (Opal<? super StaffAssignment>[]) new Opal<?>[] {
 			getStaffAssignmentOpal(),
 		};
 	}

@@ -150,7 +150,7 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 
 	@Override
 	public void updateKeys(PlacementOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
@@ -206,10 +206,10 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PlacementOpal> forQuestionIdCollection(java.lang.Integer argQuestionId) /* throws PersistenceException */ {
+	public java.util.HashSet<PlacementOpal> forQuestionIdCollection(java.lang.Integer argQuestionId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argQuestionId };
 		final String[] lclFieldNames = new String[] { "question_id" };
-		com.siliconage.util.Fast3Set<PlacementOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PlacementOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

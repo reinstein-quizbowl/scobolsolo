@@ -126,7 +126,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 
 	@Override
 	public void updateKeys(CategoryUseOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 2) { throw new IllegalStateException(); }
@@ -163,10 +163,10 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<CategoryUseOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
+	public java.util.HashSet<CategoryUseOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argCategoryCode };
 		final String[] lclFieldNames = new String[] { "category_code" };
-		com.siliconage.util.Fast3Set<CategoryUseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<CategoryUseOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

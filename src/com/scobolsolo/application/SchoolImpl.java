@@ -1,8 +1,9 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.SchoolOpal;
 
-public class SchoolImpl extends com.opal.AbstractIdentityImpl<SchoolOpal> implements School {
+public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal> implements School {
 	private final SchoolOpal mySchoolOpal;
 
 	public SchoolImpl(SchoolOpal argSchoolOpal) {
@@ -15,13 +16,13 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<SchoolOpal> implem
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ SchoolOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends School> getBottomOpal() {
 		return getSchoolOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ SchoolOpal[] getOpalArray() {
-		return new /* Opal<?> */ SchoolOpal[] {
+	protected Opal<? super School>[] getOpalArray() {
+		return (Opal<? super School>[]) new Opal<?>[] {
 			getSchoolOpal(),
 		};
 	}

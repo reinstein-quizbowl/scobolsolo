@@ -339,7 +339,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewControlRoomOpal = myOldControlRoomOpal;
 		myNewTournamentDirectorContactOpal = myOldTournamentDirectorContactOpal;
-		myNewPhaseOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewPhaseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myPhaseOpalCachedOperations = null; /* Ditto */
 		myNewQuestionOpalHashSet = null; /* Necessary if it has been rolled back */
 		myQuestionOpalCachedOperations = null; /* Ditto */
@@ -363,11 +363,11 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		myOldTournamentDirectorContactOpal = myNewTournamentDirectorContactOpal;
 
 		if (needsToClearOldCollections()) {
-			myOldPhaseOpalFast3Set = null;
+			myOldPhaseOpalHashSet = null;
 			} else {
-			if (myNewPhaseOpalFast3Set != null) {
-				myOldPhaseOpalFast3Set = myNewPhaseOpalFast3Set;
-				myNewPhaseOpalFast3Set = null;
+			if (myNewPhaseOpalHashSet != null) {
+				myOldPhaseOpalHashSet = myNewPhaseOpalHashSet;
+				myNewPhaseOpalHashSet = null;
 			} else {
 				myPhaseOpalCachedOperations = null;
 			}
@@ -439,7 +439,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
-		if (myNewPhaseOpalFast3Set != null || myPhaseOpalCachedOperations != null) {
+		if (myNewPhaseOpalHashSet != null || myPhaseOpalCachedOperations != null) {
 			lclI = createPhaseOpalIterator();
 			while (lclI.hasNext()) {
 				((PhaseOpal) lclI.next()).setTournamentOpalInternal(null);
@@ -665,28 +665,28 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		myNewTournamentDirectorContactOpal = argContactOpal;
 	}
 
-	private com.siliconage.util.Fast3Set<PhaseOpal> myOldPhaseOpalFast3Set = null;
-	private com.siliconage.util.Fast3Set<PhaseOpal> myNewPhaseOpalFast3Set = null;
+	private java.util.HashSet<PhaseOpal> myOldPhaseOpalHashSet = null;
+	private java.util.HashSet<PhaseOpal> myNewPhaseOpalHashSet = null;
 	private java.util.ArrayList<CachedOperation<PhaseOpal>> myPhaseOpalCachedOperations = null;
 
-	/* package */ com.siliconage.util.Fast3Set<PhaseOpal> getPhaseOpalClass() {
+	/* package */ java.util.HashSet<PhaseOpal> getPhaseOpalClass() {
 		if (tryAccess()) {
-			if (myNewPhaseOpalFast3Set == null) {
-				if (myOldPhaseOpalFast3Set == null) {
-					myOldPhaseOpalFast3Set = OpalFactoryFactory.getInstance().getPhaseOpalFactory().forTournamentCodeCollection(getCode());
+			if (myNewPhaseOpalHashSet == null) {
+				if (myOldPhaseOpalHashSet == null) {
+					myOldPhaseOpalHashSet = OpalFactoryFactory.getInstance().getPhaseOpalFactory().forTournamentCodeCollection(getCode());
 				}
-				myNewPhaseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPhaseOpalFast3Set);
+				myNewPhaseOpalHashSet = new java.util.HashSet<>(myOldPhaseOpalHashSet);
 				if (myPhaseOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myPhaseOpalCachedOperations, myNewPhaseOpalFast3Set);
+					OpalUtility.handleCachedOperations(myPhaseOpalCachedOperations, myNewPhaseOpalHashSet);
 					myPhaseOpalCachedOperations = null;
 				}
 			}
-			return myNewPhaseOpalFast3Set;
+			return myNewPhaseOpalHashSet;
 		}
-		if (myOldPhaseOpalFast3Set == null) {
-			myOldPhaseOpalFast3Set = OpalFactoryFactory.getInstance().getPhaseOpalFactory().forTournamentCodeCollection(getCode());
+		if (myOldPhaseOpalHashSet == null) {
+			myOldPhaseOpalHashSet = OpalFactoryFactory.getInstance().getPhaseOpalFactory().forTournamentCodeCollection(getCode());
 		}
-		return myOldPhaseOpalFast3Set;
+		return myOldPhaseOpalHashSet;
 	}
 
 	public synchronized void addPhaseOpal(PhaseOpal argPhaseOpal) {
@@ -697,16 +697,16 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	protected synchronized void addPhaseOpalInternal(PhaseOpal argPhaseOpal) {
 		tryMutate();
-		if (myNewPhaseOpalFast3Set == null) {
-			if (myOldPhaseOpalFast3Set == null) {
+		if (myNewPhaseOpalHashSet == null) {
+			if (myOldPhaseOpalHashSet == null) {
 				if (myPhaseOpalCachedOperations == null) { myPhaseOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPhaseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argPhaseOpal));
 			} else {
-				myNewPhaseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPhaseOpalFast3Set);
-				myNewPhaseOpalFast3Set.add(argPhaseOpal);
+				myNewPhaseOpalHashSet = new java.util.HashSet<>(myOldPhaseOpalHashSet);
+				myNewPhaseOpalHashSet.add(argPhaseOpal);
 			}
 		} else {
-			myNewPhaseOpalFast3Set.add(argPhaseOpal);
+			myNewPhaseOpalHashSet.add(argPhaseOpal);
 		}
 		return;
 	}
@@ -718,16 +718,16 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	protected synchronized void removePhaseOpalInternal(PhaseOpal argPhaseOpal) {
 		tryMutate();
-		if (myNewPhaseOpalFast3Set == null) {
-			if (myOldPhaseOpalFast3Set == null) {
+		if (myNewPhaseOpalHashSet == null) {
+			if (myOldPhaseOpalHashSet == null) {
 				if (myPhaseOpalCachedOperations == null) { myPhaseOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPhaseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argPhaseOpal));
 			} else {
-				myNewPhaseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPhaseOpalFast3Set);
-				myNewPhaseOpalFast3Set.remove(argPhaseOpal);
+				myNewPhaseOpalHashSet = new java.util.HashSet<>(myOldPhaseOpalHashSet);
+				myNewPhaseOpalHashSet.remove(argPhaseOpal);
 			}
 		} else {
-			myNewPhaseOpalFast3Set.remove(argPhaseOpal);
+			myNewPhaseOpalHashSet.remove(argPhaseOpal);
 		}
 		return;
 	}

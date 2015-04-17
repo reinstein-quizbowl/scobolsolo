@@ -173,7 +173,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		myNewCategoryGroupOpal = myOldCategoryGroupOpal;
 		myNewQuestionOpalHashSet = null; /* Necessary if it has been rolled back */
 		myQuestionOpalCachedOperations = null; /* Ditto */
-		myNewCategoryUseOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewCategoryUseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myCategoryUseOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -194,11 +194,11 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			}
 		}
 		if (needsToClearOldCollections()) {
-			myOldCategoryUseOpalFast3Set = null;
+			myOldCategoryUseOpalHashSet = null;
 			} else {
-			if (myNewCategoryUseOpalFast3Set != null) {
-				myOldCategoryUseOpalFast3Set = myNewCategoryUseOpalFast3Set;
-				myNewCategoryUseOpalFast3Set = null;
+			if (myNewCategoryUseOpalHashSet != null) {
+				myOldCategoryUseOpalHashSet = myNewCategoryUseOpalHashSet;
+				myNewCategoryUseOpalHashSet = null;
 			} else {
 				myCategoryUseOpalCachedOperations = null;
 			}
@@ -216,7 +216,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 				((QuestionOpal) lclI.next()).setCategoryOpalInternal(null);
 			}
 		}
-		if (myNewCategoryUseOpalFast3Set != null || myCategoryUseOpalCachedOperations != null) {
+		if (myNewCategoryUseOpalHashSet != null || myCategoryUseOpalCachedOperations != null) {
 			lclI = createCategoryUseOpalIterator();
 			while (lclI.hasNext()) {
 				((CategoryUseOpal) lclI.next()).setCategoryOpalInternal(null);
@@ -404,28 +404,28 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	public synchronized void clearQuestionOpalInternal() { getQuestionOpalClass().clear(); }
 
-	private com.siliconage.util.Fast3Set<CategoryUseOpal> myOldCategoryUseOpalFast3Set = null;
-	private com.siliconage.util.Fast3Set<CategoryUseOpal> myNewCategoryUseOpalFast3Set = null;
+	private java.util.HashSet<CategoryUseOpal> myOldCategoryUseOpalHashSet = null;
+	private java.util.HashSet<CategoryUseOpal> myNewCategoryUseOpalHashSet = null;
 	private java.util.ArrayList<CachedOperation<CategoryUseOpal>> myCategoryUseOpalCachedOperations = null;
 
-	/* package */ com.siliconage.util.Fast3Set<CategoryUseOpal> getCategoryUseOpalClass() {
+	/* package */ java.util.HashSet<CategoryUseOpal> getCategoryUseOpalClass() {
 		if (tryAccess()) {
-			if (myNewCategoryUseOpalFast3Set == null) {
-				if (myOldCategoryUseOpalFast3Set == null) {
-					myOldCategoryUseOpalFast3Set = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
+			if (myNewCategoryUseOpalHashSet == null) {
+				if (myOldCategoryUseOpalHashSet == null) {
+					myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
 				}
-				myNewCategoryUseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldCategoryUseOpalFast3Set);
+				myNewCategoryUseOpalHashSet = new java.util.HashSet<>(myOldCategoryUseOpalHashSet);
 				if (myCategoryUseOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myCategoryUseOpalCachedOperations, myNewCategoryUseOpalFast3Set);
+					OpalUtility.handleCachedOperations(myCategoryUseOpalCachedOperations, myNewCategoryUseOpalHashSet);
 					myCategoryUseOpalCachedOperations = null;
 				}
 			}
-			return myNewCategoryUseOpalFast3Set;
+			return myNewCategoryUseOpalHashSet;
 		}
-		if (myOldCategoryUseOpalFast3Set == null) {
-			myOldCategoryUseOpalFast3Set = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
+		if (myOldCategoryUseOpalHashSet == null) {
+			myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
 		}
-		return myOldCategoryUseOpalFast3Set;
+		return myOldCategoryUseOpalHashSet;
 	}
 
 	public synchronized void addCategoryUseOpal(CategoryUseOpal argCategoryUseOpal) {
@@ -436,16 +436,16 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	protected synchronized void addCategoryUseOpalInternal(CategoryUseOpal argCategoryUseOpal) {
 		tryMutate();
-		if (myNewCategoryUseOpalFast3Set == null) {
-			if (myOldCategoryUseOpalFast3Set == null) {
+		if (myNewCategoryUseOpalHashSet == null) {
+			if (myOldCategoryUseOpalHashSet == null) {
 				if (myCategoryUseOpalCachedOperations == null) { myCategoryUseOpalCachedOperations = new java.util.ArrayList<>(); }
 				myCategoryUseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argCategoryUseOpal));
 			} else {
-				myNewCategoryUseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldCategoryUseOpalFast3Set);
-				myNewCategoryUseOpalFast3Set.add(argCategoryUseOpal);
+				myNewCategoryUseOpalHashSet = new java.util.HashSet<>(myOldCategoryUseOpalHashSet);
+				myNewCategoryUseOpalHashSet.add(argCategoryUseOpal);
 			}
 		} else {
-			myNewCategoryUseOpalFast3Set.add(argCategoryUseOpal);
+			myNewCategoryUseOpalHashSet.add(argCategoryUseOpal);
 		}
 		return;
 	}
@@ -457,16 +457,16 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	protected synchronized void removeCategoryUseOpalInternal(CategoryUseOpal argCategoryUseOpal) {
 		tryMutate();
-		if (myNewCategoryUseOpalFast3Set == null) {
-			if (myOldCategoryUseOpalFast3Set == null) {
+		if (myNewCategoryUseOpalHashSet == null) {
+			if (myOldCategoryUseOpalHashSet == null) {
 				if (myCategoryUseOpalCachedOperations == null) { myCategoryUseOpalCachedOperations = new java.util.ArrayList<>(); }
 				myCategoryUseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argCategoryUseOpal));
 			} else {
-				myNewCategoryUseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldCategoryUseOpalFast3Set);
-				myNewCategoryUseOpalFast3Set.remove(argCategoryUseOpal);
+				myNewCategoryUseOpalHashSet = new java.util.HashSet<>(myOldCategoryUseOpalHashSet);
+				myNewCategoryUseOpalHashSet.remove(argCategoryUseOpal);
 			}
 		} else {
-			myNewCategoryUseOpalFast3Set.remove(argCategoryUseOpal);
+			myNewCategoryUseOpalHashSet.remove(argCategoryUseOpal);
 		}
 		return;
 	}

@@ -1,11 +1,12 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.StaffOpal;
 
-public class GameImpl extends com.opal.AbstractIdentityImpl<GameOpal> implements Game {
+public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> implements Game {
 	private final GameOpal myGameOpal;
 
 	public GameImpl(GameOpal argGameOpal) {
@@ -18,13 +19,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<GameOpal> implements
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ GameOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Game> getBottomOpal() {
 		return getGameOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ GameOpal[] getOpalArray() {
-		return new /* Opal<?> */ GameOpal[] {
+	protected Opal<? super Game>[] getOpalArray() {
+		return (Opal<? super Game>[]) new Opal<?>[] {
 			getGameOpal(),
 		};
 	}

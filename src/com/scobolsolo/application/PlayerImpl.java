@@ -1,12 +1,13 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.SchoolYearOpal;
 
-public class PlayerImpl extends com.opal.AbstractIdentityImpl<PlayerOpal> implements Player {
+public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal> implements Player {
 	private final PlayerOpal myPlayerOpal;
 
 	public PlayerImpl(PlayerOpal argPlayerOpal) {
@@ -19,13 +20,13 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<PlayerOpal> implem
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Player> getBottomOpal() {
 		return getPlayerOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerOpal[] getOpalArray() {
-		return new /* Opal<?> */ PlayerOpal[] {
+	protected Opal<? super Player>[] getOpalArray() {
+		return (Opal<? super Player>[]) new Opal<?>[] {
 			getPlayerOpal(),
 		};
 	}

@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PlacementOpal;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.QuestionOpal;
 
-public class PlacementImpl extends com.opal.AbstractIdentityImpl<PlacementOpal> implements Placement {
+public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, PlacementOpal> implements Placement {
 	private final PlacementOpal myPlacementOpal;
 
 	public PlacementImpl(PlacementOpal argPlacementOpal) {
@@ -17,13 +18,13 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<PlacementOpal> 
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlacementOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Placement> getBottomOpal() {
 		return getPlacementOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlacementOpal[] getOpalArray() {
-		return new /* Opal<?> */ PlacementOpal[] {
+	protected Opal<? super Placement>[] getOpalArray() {
+		return (Opal<? super Placement>[]) new Opal<?>[] {
 			getPlacementOpal(),
 		};
 	}

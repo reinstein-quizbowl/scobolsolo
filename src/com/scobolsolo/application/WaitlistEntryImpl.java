@@ -1,9 +1,10 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.WaitlistEntryOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 
-public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEntryOpal> implements WaitlistEntry {
+public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEntry, WaitlistEntryOpal> implements WaitlistEntry {
 	private final WaitlistEntryOpal myWaitlistEntryOpal;
 
 	public WaitlistEntryImpl(WaitlistEntryOpal argWaitlistEntryOpal) {
@@ -16,13 +17,13 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ WaitlistEntryOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends WaitlistEntry> getBottomOpal() {
 		return getWaitlistEntryOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ WaitlistEntryOpal[] getOpalArray() {
-		return new /* Opal<?> */ WaitlistEntryOpal[] {
+	protected Opal<? super WaitlistEntry>[] getOpalArray() {
+		return (Opal<? super WaitlistEntry>[]) new Opal<?>[] {
 			getWaitlistEntryOpal(),
 		};
 	}

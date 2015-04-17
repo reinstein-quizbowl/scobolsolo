@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerMatchVOpal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -7,7 +8,7 @@ import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.PerformanceOpal;
 
-public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchVOpal> implements PlayerMatchV {
+public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, PlayerMatchVOpal> implements PlayerMatchV {
 	private final PlayerMatchVOpal myPlayerMatchVOpal;
 
 	public PlayerMatchVImpl(PlayerMatchVOpal argPlayerMatchVOpal) {
@@ -20,13 +21,13 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchVOpal> im
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerMatchVOpal getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlayerMatchV> getBottomOpal() {
 		return getPlayerMatchVOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerMatchVOpal[] getOpalArray() {
-		return new /* Opal<?> */ PlayerMatchVOpal[] {
+	protected Opal<? super PlayerMatchV>[] getOpalArray() {
+		return (Opal<? super PlayerMatchV>[]) new Opal<?>[] {
 			getPlayerMatchVOpal(),
 		};
 	}

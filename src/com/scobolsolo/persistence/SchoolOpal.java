@@ -176,7 +176,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewSchoolRegistrationOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewSchoolRegistrationOpalHashSet = null; /* Necessary if it has been rolled back */
 		mySchoolRegistrationOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -186,11 +186,11 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		/** This Opal has no references to other Opals that need to be copied. */
 		if (needsToClearOldCollections()) {
-			myOldSchoolRegistrationOpalFast3Set = null;
+			myOldSchoolRegistrationOpalHashSet = null;
 			} else {
-			if (myNewSchoolRegistrationOpalFast3Set != null) {
-				myOldSchoolRegistrationOpalFast3Set = myNewSchoolRegistrationOpalFast3Set;
-				myNewSchoolRegistrationOpalFast3Set = null;
+			if (myNewSchoolRegistrationOpalHashSet != null) {
+				myOldSchoolRegistrationOpalHashSet = myNewSchoolRegistrationOpalHashSet;
+				myNewSchoolRegistrationOpalHashSet = null;
 			} else {
 				mySchoolRegistrationOpalCachedOperations = null;
 			}
@@ -202,7 +202,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
-		if (myNewSchoolRegistrationOpalFast3Set != null || mySchoolRegistrationOpalCachedOperations != null) {
+		if (myNewSchoolRegistrationOpalHashSet != null || mySchoolRegistrationOpalCachedOperations != null) {
 			lclI = createSchoolRegistrationOpalIterator();
 			while (lclI.hasNext()) {
 				((SchoolRegistrationOpal) lclI.next()).setSchoolOpalInternal(null);
@@ -263,28 +263,28 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		argPS.println("Note = " + getNote());
 	}
 
-	private com.siliconage.util.Fast3Set<SchoolRegistrationOpal> myOldSchoolRegistrationOpalFast3Set = null;
-	private com.siliconage.util.Fast3Set<SchoolRegistrationOpal> myNewSchoolRegistrationOpalFast3Set = null;
+	private java.util.HashSet<SchoolRegistrationOpal> myOldSchoolRegistrationOpalHashSet = null;
+	private java.util.HashSet<SchoolRegistrationOpal> myNewSchoolRegistrationOpalHashSet = null;
 	private java.util.ArrayList<CachedOperation<SchoolRegistrationOpal>> mySchoolRegistrationOpalCachedOperations = null;
 
-	/* package */ com.siliconage.util.Fast3Set<SchoolRegistrationOpal> getSchoolRegistrationOpalClass() {
+	/* package */ java.util.HashSet<SchoolRegistrationOpal> getSchoolRegistrationOpalClass() {
 		if (tryAccess()) {
-			if (myNewSchoolRegistrationOpalFast3Set == null) {
-				if (myOldSchoolRegistrationOpalFast3Set == null) {
-					myOldSchoolRegistrationOpalFast3Set = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+			if (myNewSchoolRegistrationOpalHashSet == null) {
+				if (myOldSchoolRegistrationOpalHashSet == null) {
+					myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
 				}
-				myNewSchoolRegistrationOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldSchoolRegistrationOpalFast3Set);
+				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
 				if (mySchoolRegistrationOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(mySchoolRegistrationOpalCachedOperations, myNewSchoolRegistrationOpalFast3Set);
+					OpalUtility.handleCachedOperations(mySchoolRegistrationOpalCachedOperations, myNewSchoolRegistrationOpalHashSet);
 					mySchoolRegistrationOpalCachedOperations = null;
 				}
 			}
-			return myNewSchoolRegistrationOpalFast3Set;
+			return myNewSchoolRegistrationOpalHashSet;
 		}
-		if (myOldSchoolRegistrationOpalFast3Set == null) {
-			myOldSchoolRegistrationOpalFast3Set = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+		if (myOldSchoolRegistrationOpalHashSet == null) {
+			myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
 		}
-		return myOldSchoolRegistrationOpalFast3Set;
+		return myOldSchoolRegistrationOpalHashSet;
 	}
 
 	public synchronized void addSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
@@ -295,16 +295,16 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 	protected synchronized void addSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
-		if (myNewSchoolRegistrationOpalFast3Set == null) {
-			if (myOldSchoolRegistrationOpalFast3Set == null) {
+		if (myNewSchoolRegistrationOpalHashSet == null) {
+			if (myOldSchoolRegistrationOpalHashSet == null) {
 				if (mySchoolRegistrationOpalCachedOperations == null) { mySchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
 				mySchoolRegistrationOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argSchoolRegistrationOpal));
 			} else {
-				myNewSchoolRegistrationOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldSchoolRegistrationOpalFast3Set);
-				myNewSchoolRegistrationOpalFast3Set.add(argSchoolRegistrationOpal);
+				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
+				myNewSchoolRegistrationOpalHashSet.add(argSchoolRegistrationOpal);
 			}
 		} else {
-			myNewSchoolRegistrationOpalFast3Set.add(argSchoolRegistrationOpal);
+			myNewSchoolRegistrationOpalHashSet.add(argSchoolRegistrationOpal);
 		}
 		return;
 	}
@@ -316,16 +316,16 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 	protected synchronized void removeSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
-		if (myNewSchoolRegistrationOpalFast3Set == null) {
-			if (myOldSchoolRegistrationOpalFast3Set == null) {
+		if (myNewSchoolRegistrationOpalHashSet == null) {
+			if (myOldSchoolRegistrationOpalHashSet == null) {
 				if (mySchoolRegistrationOpalCachedOperations == null) { mySchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
 				mySchoolRegistrationOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argSchoolRegistrationOpal));
 			} else {
-				myNewSchoolRegistrationOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldSchoolRegistrationOpalFast3Set);
-				myNewSchoolRegistrationOpalFast3Set.remove(argSchoolRegistrationOpal);
+				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
+				myNewSchoolRegistrationOpalHashSet.remove(argSchoolRegistrationOpal);
 			}
 		} else {
-			myNewSchoolRegistrationOpalFast3Set.remove(argSchoolRegistrationOpal);
+			myNewSchoolRegistrationOpalHashSet.remove(argSchoolRegistrationOpal);
 		}
 		return;
 	}

@@ -162,7 +162,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewCategoryOpal = myOldCategoryOpal;
 		myNewTournamentOpal = myOldTournamentOpal;
-		myNewPlacementOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewPlacementOpalHashSet = null; /* Necessary if it has been rolled back */
 		myPlacementOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -174,11 +174,11 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		myOldTournamentOpal = myNewTournamentOpal;
 
 		if (needsToClearOldCollections()) {
-			myOldPlacementOpalFast3Set = null;
+			myOldPlacementOpalHashSet = null;
 			} else {
-			if (myNewPlacementOpalFast3Set != null) {
-				myOldPlacementOpalFast3Set = myNewPlacementOpalFast3Set;
-				myNewPlacementOpalFast3Set = null;
+			if (myNewPlacementOpalHashSet != null) {
+				myOldPlacementOpalHashSet = myNewPlacementOpalHashSet;
+				myNewPlacementOpalHashSet = null;
 			} else {
 				myPlacementOpalCachedOperations = null;
 			}
@@ -190,7 +190,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
-		if (myNewPlacementOpalFast3Set != null || myPlacementOpalCachedOperations != null) {
+		if (myNewPlacementOpalHashSet != null || myPlacementOpalCachedOperations != null) {
 			lclI = createPlacementOpalIterator();
 			while (lclI.hasNext()) {
 				((PlacementOpal) lclI.next()).setQuestionOpalInternal(null);
@@ -350,28 +350,28 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		myNewTournamentOpal = argTournamentOpal;
 	}
 
-	private com.siliconage.util.Fast3Set<PlacementOpal> myOldPlacementOpalFast3Set = null;
-	private com.siliconage.util.Fast3Set<PlacementOpal> myNewPlacementOpalFast3Set = null;
+	private java.util.HashSet<PlacementOpal> myOldPlacementOpalHashSet = null;
+	private java.util.HashSet<PlacementOpal> myNewPlacementOpalHashSet = null;
 	private java.util.ArrayList<CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
 
-	/* package */ com.siliconage.util.Fast3Set<PlacementOpal> getPlacementOpalClass() {
+	/* package */ java.util.HashSet<PlacementOpal> getPlacementOpalClass() {
 		if (tryAccess()) {
-			if (myNewPlacementOpalFast3Set == null) {
-				if (myOldPlacementOpalFast3Set == null) {
-					myOldPlacementOpalFast3Set = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
+			if (myNewPlacementOpalHashSet == null) {
+				if (myOldPlacementOpalHashSet == null) {
+					myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
 				}
-				myNewPlacementOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPlacementOpalFast3Set);
+				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
 				if (myPlacementOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myPlacementOpalCachedOperations, myNewPlacementOpalFast3Set);
+					OpalUtility.handleCachedOperations(myPlacementOpalCachedOperations, myNewPlacementOpalHashSet);
 					myPlacementOpalCachedOperations = null;
 				}
 			}
-			return myNewPlacementOpalFast3Set;
+			return myNewPlacementOpalHashSet;
 		}
-		if (myOldPlacementOpalFast3Set == null) {
-			myOldPlacementOpalFast3Set = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
+		if (myOldPlacementOpalHashSet == null) {
+			myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
 		}
-		return myOldPlacementOpalFast3Set;
+		return myOldPlacementOpalHashSet;
 	}
 
 	public synchronized void addPlacementOpal(PlacementOpal argPlacementOpal) {
@@ -382,16 +382,16 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 
 	protected synchronized void addPlacementOpalInternal(PlacementOpal argPlacementOpal) {
 		tryMutate();
-		if (myNewPlacementOpalFast3Set == null) {
-			if (myOldPlacementOpalFast3Set == null) {
+		if (myNewPlacementOpalHashSet == null) {
+			if (myOldPlacementOpalHashSet == null) {
 				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPlacementOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argPlacementOpal));
 			} else {
-				myNewPlacementOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPlacementOpalFast3Set);
-				myNewPlacementOpalFast3Set.add(argPlacementOpal);
+				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
+				myNewPlacementOpalHashSet.add(argPlacementOpal);
 			}
 		} else {
-			myNewPlacementOpalFast3Set.add(argPlacementOpal);
+			myNewPlacementOpalHashSet.add(argPlacementOpal);
 		}
 		return;
 	}
@@ -403,16 +403,16 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 
 	protected synchronized void removePlacementOpalInternal(PlacementOpal argPlacementOpal) {
 		tryMutate();
-		if (myNewPlacementOpalFast3Set == null) {
-			if (myOldPlacementOpalFast3Set == null) {
+		if (myNewPlacementOpalHashSet == null) {
+			if (myOldPlacementOpalHashSet == null) {
 				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPlacementOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argPlacementOpal));
 			} else {
-				myNewPlacementOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPlacementOpalFast3Set);
-				myNewPlacementOpalFast3Set.remove(argPlacementOpal);
+				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
+				myNewPlacementOpalHashSet.remove(argPlacementOpal);
 			}
 		} else {
-			myNewPlacementOpalFast3Set.remove(argPlacementOpal);
+			myNewPlacementOpalHashSet.remove(argPlacementOpal);
 		}
 		return;
 	}

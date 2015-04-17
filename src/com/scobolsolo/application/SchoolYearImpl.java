@@ -1,8 +1,9 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.SchoolYearOpal;
 
-public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYearOpal> implements SchoolYear {
+public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, SchoolYearOpal> implements SchoolYear {
 	private final SchoolYearOpal mySchoolYearOpal;
 
 	public SchoolYearImpl(SchoolYearOpal argSchoolYearOpal) {
@@ -15,13 +16,13 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYearOpal
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ SchoolYearOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends SchoolYear> getBottomOpal() {
 		return getSchoolYearOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ SchoolYearOpal[] getOpalArray() {
-		return new /* Opal<?> */ SchoolYearOpal[] {
+	protected Opal<? super SchoolYear>[] getOpalArray() {
+		return (Opal<? super SchoolYear>[]) new Opal<?>[] {
 			getSchoolYearOpal(),
 		};
 	}

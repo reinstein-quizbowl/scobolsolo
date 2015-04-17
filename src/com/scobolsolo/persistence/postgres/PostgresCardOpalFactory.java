@@ -152,7 +152,7 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	@Override
 	public void updateKeys(CardOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 6) { throw new IllegalStateException(); }

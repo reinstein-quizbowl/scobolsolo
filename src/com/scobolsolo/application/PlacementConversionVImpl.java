@@ -1,12 +1,13 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PlacementConversionVOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.PlacementOpal;
 
-public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementConversionVOpal> implements PlacementConversionV {
+public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementConversionV, PlacementConversionVOpal> implements PlacementConversionV {
 	private final PlacementConversionVOpal myPlacementConversionVOpal;
 
 	public PlacementConversionVImpl(PlacementConversionVOpal argPlacementConversionVOpal) {
@@ -19,13 +20,13 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlacementConversionVOpal getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlacementConversionV> getBottomOpal() {
 		return getPlacementConversionVOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlacementConversionVOpal[] getOpalArray() {
-		return new /* Opal<?> */ PlacementConversionVOpal[] {
+	protected Opal<? super PlacementConversionV>[] getOpalArray() {
+		return (Opal<? super PlacementConversionV>[]) new Opal<?>[] {
 			getPlacementConversionVOpal(),
 		};
 	}

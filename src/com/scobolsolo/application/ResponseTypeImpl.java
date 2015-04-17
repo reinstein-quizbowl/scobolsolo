@@ -1,8 +1,9 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 
-public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseTypeOpal> implements ResponseType {
+public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType, ResponseTypeOpal> implements ResponseType {
 	private final ResponseTypeOpal myResponseTypeOpal;
 
 	public ResponseTypeImpl(ResponseTypeOpal argResponseTypeOpal) {
@@ -15,13 +16,13 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ ResponseTypeOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends ResponseType> getBottomOpal() {
 		return getResponseTypeOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ ResponseTypeOpal[] getOpalArray() {
-		return new /* Opal<?> */ ResponseTypeOpal[] {
+	protected Opal<? super ResponseType>[] getOpalArray() {
+		return (Opal<? super ResponseType>[]) new Opal<?>[] {
 			getResponseTypeOpal(),
 		};
 	}

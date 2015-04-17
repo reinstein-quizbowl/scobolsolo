@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.GameVOpal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -10,7 +11,7 @@ import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.CardOpal;
 
-public class GameVImpl extends com.opal.AbstractImpl<GameVOpal> implements GameV {
+public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implements GameV {
 	private final GameVOpal myGameVOpal;
 
 	public GameVImpl(GameVOpal argGameVOpal) {
@@ -23,13 +24,13 @@ public class GameVImpl extends com.opal.AbstractImpl<GameVOpal> implements GameV
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ GameVOpal getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends GameV> getBottomOpal() {
 		return getGameVOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ GameVOpal[] getOpalArray() {
-		return new /* Opal<?> */ GameVOpal[] {
+	protected Opal<? super GameV>[] getOpalArray() {
+		return (Opal<? super GameV>[]) new Opal<?>[] {
 			getGameVOpal(),
 		};
 	}

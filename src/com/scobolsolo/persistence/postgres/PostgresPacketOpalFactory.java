@@ -155,7 +155,7 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 
 	@Override
 	public void updateKeys(PacketOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
@@ -221,10 +221,10 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PacketOpal> forRoundIdCollection(java.lang.Integer argRoundId) /* throws PersistenceException */ {
+	public java.util.HashSet<PacketOpal> forRoundIdCollection(java.lang.Integer argRoundId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoundId };
 		final String[] lclFieldNames = new String[] { "round_id" };
-		com.siliconage.util.Fast3Set<PacketOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PacketOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

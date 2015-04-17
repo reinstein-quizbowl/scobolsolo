@@ -16,12 +16,12 @@ public final class SchoolRegistrationNCE extends NameCodeExtractor<SchoolRegistr
 	}
 	
 	@Override
-	public String extractName(final SchoolRegistration argSR) {
+	public String extractNameInternal(final SchoolRegistration argSR) {
 		return argSR.getSchool().getShortName();
 	}
 	
 	@Override
-	public String extractCode(final SchoolRegistration argSR) {
+	public String extractCodeInternal(final SchoolRegistration argSR) {
 		return argSR.getUniqueString();
 	}
 }

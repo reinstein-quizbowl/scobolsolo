@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.ContactOpal;
 
-public class TournamentImpl extends com.opal.AbstractIdentityImpl<TournamentOpal> implements Tournament {
+public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, TournamentOpal> implements Tournament {
 	private final TournamentOpal myTournamentOpal;
 
 	public TournamentImpl(TournamentOpal argTournamentOpal) {
@@ -17,13 +18,13 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<TournamentOpal
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ TournamentOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Tournament> getBottomOpal() {
 		return getTournamentOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ TournamentOpal[] getOpalArray() {
-		return new /* Opal<?> */ TournamentOpal[] {
+	protected Opal<? super Tournament>[] getOpalArray() {
+		return (Opal<? super Tournament>[]) new Opal<?>[] {
 			getTournamentOpal(),
 		};
 	}

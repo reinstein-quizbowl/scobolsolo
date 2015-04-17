@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerPointVOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 
-public class PlayerPointVImpl extends com.opal.AbstractImpl<PlayerPointVOpal> implements PlayerPointV {
+public class PlayerPointVImpl extends com.opal.AbstractImpl<PlayerPointV, PlayerPointVOpal> implements PlayerPointV {
 	private final PlayerPointVOpal myPlayerPointVOpal;
 
 	public PlayerPointVImpl(PlayerPointVOpal argPlayerPointVOpal) {
@@ -17,13 +18,13 @@ public class PlayerPointVImpl extends com.opal.AbstractImpl<PlayerPointVOpal> im
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerPointVOpal getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlayerPointV> getBottomOpal() {
 		return getPlayerPointVOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PlayerPointVOpal[] getOpalArray() {
-		return new /* Opal<?> */ PlayerPointVOpal[] {
+	protected Opal<? super PlayerPointV>[] getOpalArray() {
+		return (Opal<? super PlayerPointV>[]) new Opal<?>[] {
 			getPlayerPointVOpal(),
 		};
 	}

@@ -16,12 +16,12 @@ public final class PlayerNCE extends NameCodeExtractor<Player> {
 	}
 	
 	@Override
-	public String extractName(final Player argP) {
+	public String extractNameInternal(final Player argP) {
 		return argP.getContact().getName();
 	}
 	
 	@Override
-	public String extractCode(final Player argP) {
+	public String extractCodeInternal(final Player argP) {
 		return argP.getUniqueString();
 	}
 }

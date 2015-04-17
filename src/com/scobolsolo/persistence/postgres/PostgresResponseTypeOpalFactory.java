@@ -137,7 +137,7 @@ public class PostgresResponseTypeOpalFactory extends com.opal.AbstractDatabaseId
 
 	@Override
 	public void updateKeys(ResponseTypeOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 9) { throw new IllegalStateException(); }

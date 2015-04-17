@@ -135,7 +135,7 @@ public class PostgresSchoolYearOpalFactory extends com.opal.AbstractDatabaseIden
 
 	@Override
 	public void updateKeys(SchoolYearOpal argOpal) {
-		if (argOpal == null) { throw new IllegalArgumentException("argOpal is null"); }
+		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 5) { throw new IllegalStateException(); }

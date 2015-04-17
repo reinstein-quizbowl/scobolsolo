@@ -1,10 +1,11 @@
 package com.scobolsolo.application;
 
+import com.opal.Opal;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 
-public class PerformanceImpl extends com.opal.AbstractIdentityImpl<PerformanceOpal> implements Performance {
+public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, PerformanceOpal> implements Performance {
 	private final PerformanceOpal myPerformanceOpal;
 
 	public PerformanceImpl(PerformanceOpal argPerformanceOpal) {
@@ -17,13 +18,13 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<PerformanceOp
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PerformanceOpal getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Performance> getBottomOpal() {
 		return getPerformanceOpal();
 	}
 
 	@Override
-	protected /* Opal<? extends UserFacing> */ PerformanceOpal[] getOpalArray() {
-		return new /* Opal<?> */ PerformanceOpal[] {
+	protected Opal<? super Performance>[] getOpalArray() {
+		return (Opal<? super Performance>[]) new Opal<?>[] {
 			getPerformanceOpal(),
 		};
 	}
