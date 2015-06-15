@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.CategoryGroupOpal;
 
@@ -17,15 +16,13 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Category> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Category> getOpal() {
 		return getCategoryOpal();
 	}
 
 	@Override
-	protected Opal<? super Category>[] getOpalArray() {
-		return (Opal<? super Category>[]) new Opal<?>[] {
-			getCategoryOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Category> getBottomOpal() {
+		return getCategoryOpal();
 	}
 
 	@Override
@@ -94,10 +91,10 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the CategoryGroup object created from the table category through foreign key category_category_group_code_fkey */
+	/** Access to the CategoryGroup object created from category through reference category_category_group_code_fkey */
 
 	@Override
 	public CategoryGroup getCategoryGroup() {
@@ -111,7 +108,7 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.SchoolOpal;
 
 public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal> implements School {
@@ -16,15 +15,13 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends School> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends School> getOpal() {
 		return getSchoolOpal();
 	}
 
 	@Override
-	protected Opal<? super School>[] getOpalArray() {
-		return (Opal<? super School>[]) new Opal<?>[] {
-			getSchoolOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends School> getBottomOpal() {
+		return getSchoolOpal();
 	}
 
 	@Override
@@ -104,10 +101,10 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

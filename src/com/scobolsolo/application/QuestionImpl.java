@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -18,15 +17,13 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Question> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Question> getOpal() {
 		return getQuestionOpal();
 	}
 
 	@Override
-	protected Opal<? super Question>[] getOpalArray() {
-		return (Opal<? super Question>[]) new Opal<?>[] {
-			getQuestionOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Question> getBottomOpal() {
+		return getQuestionOpal();
 	}
 
 	@Override
@@ -90,10 +87,10 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Category object created from the table question through foreign key question_category_code_fkey */
+	/** Access to the Category object created from question through reference question_category_code_fkey */
 
 	@Override
 	public Category getCategory() {
@@ -107,7 +104,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return;
 	}
 
-	/** Access to the Tournament object created from the table question through foreign key question_tournament_code_fkey */
+	/** Access to the Tournament object created from question through reference question_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {
@@ -121,7 +118,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

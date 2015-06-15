@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 
 public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType, ResponseTypeOpal> implements ResponseType {
@@ -16,15 +15,13 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends ResponseType> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends ResponseType> getOpal() {
 		return getResponseTypeOpal();
 	}
 
 	@Override
-	protected Opal<? super ResponseType>[] getOpalArray() {
-		return (Opal<? super ResponseType>[]) new Opal<?>[] {
-			getResponseTypeOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends ResponseType> getBottomOpal() {
+		return getResponseTypeOpal();
 	}
 
 	@Override
@@ -161,10 +158,10 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerMatchVOpal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -21,15 +20,13 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends PlayerMatchV> getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlayerMatchV> getOpal() {
 		return getPlayerMatchVOpal();
 	}
 
 	@Override
-	protected Opal<? super PlayerMatchV>[] getOpalArray() {
-		return (Opal<? super PlayerMatchV>[]) new Opal<?>[] {
-			getPlayerMatchVOpal(),
-		};
+	protected com.opal.EphemeralOpal<? extends PlayerMatchV> getBottomOpal() {
+		return getPlayerMatchVOpal();
 	}
 
 	@Override
@@ -67,10 +64,10 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return getPlayerMatchVOpal().getGameIdAsObject();
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Game object created from the table player_match_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Game object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Game getGame() {
@@ -78,7 +75,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return lclGameOpal == null ? null : lclGameOpal.getUserFacing();
 	}
 
-	/** Access to the Tournament object created from the table player_match_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Tournament object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -86,7 +83,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table player_match_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getPlayer() {
@@ -94,7 +91,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table player_match_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getOpponentPlayer() {
@@ -102,7 +99,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/** Access to the Match object created from the table player_match_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Match object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Match getMatch() {
@@ -110,7 +107,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return lclMatchOpal == null ? null : lclMatchOpal.getUserFacing();
 	}
 
-	/** Access to the Performance object created from the table player_match_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Performance object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Performance getPerformance() {
@@ -118,7 +115,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return lclPerformanceOpal == null ? null : lclPerformanceOpal.getUserFacing();
 	}
 
-	/** Access to the Performance object created from the table player_match_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Performance object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Performance getOpponentPerformance() {
@@ -126,7 +123,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return lclPerformanceOpal == null ? null : lclPerformanceOpal.getUserFacing();
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

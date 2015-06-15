@@ -358,6 +358,58 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 	}
 
 	@Override
+	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myNewReplacementPacketOpal;
+		if ((lclUO != null) && (lclUO != this) && lclUO.isNew()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewRoundOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewTournamentOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
+	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myOldReplacementPacketOpal;
+		if ((lclUO != null) && (lclUO != this) && lclUO.isDeleted()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldRoundOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldTournamentOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
 	public Object[] getPrimaryKeyWhereClauseValues() {
 		return new Object[] {getOldValues()[0], };
 	}

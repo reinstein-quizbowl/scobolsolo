@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -18,15 +17,13 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Packet> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Packet> getOpal() {
 		return getPacketOpal();
 	}
 
 	@Override
-	protected Opal<? super Packet>[] getOpalArray() {
-		return (Opal<? super Packet>[]) new Opal<?>[] {
-			getPacketOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Packet> getBottomOpal() {
+		return getPacketOpal();
 	}
 
 	@Override
@@ -158,10 +155,10 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Packet object created from the table packet through foreign key packet_replacement_packet_id_fkey */
+	/** Access to the Packet object created from packet through reference packet_replacement_packet_id_fkey */
 
 	@Override
 	public Packet getReplacementPacket() {
@@ -175,7 +172,7 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 		return;
 	}
 
-	/** Access to the Round object created from the table packet through foreign key packet_round_id_fkey */
+	/** Access to the Round object created from packet through reference packet_round_id_fkey */
 
 	@Override
 	public Round getRound() {
@@ -189,7 +186,7 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 		return;
 	}
 
-	/** Access to the Tournament object created from the table packet through foreign key packet_tournament_code_fkey */
+	/** Access to the Tournament object created from packet through reference packet_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {
@@ -203,7 +200,7 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
@@ -17,15 +16,13 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Phase> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Phase> getOpal() {
 		return getPhaseOpal();
 	}
 
 	@Override
-	protected Opal<? super Phase>[] getOpalArray() {
-		return (Opal<? super Phase>[]) new Opal<?>[] {
-			getPhaseOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Phase> getBottomOpal() {
+		return getPhaseOpal();
 	}
 
 	@Override
@@ -128,10 +125,10 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Tournament object created from the table phase through foreign key phase_tournament_code_fkey */
+	/** Access to the Tournament object created from phase through reference phase_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {
@@ -145,7 +142,7 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

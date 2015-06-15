@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.StandbyEntryOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 
@@ -17,15 +16,13 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends StandbyEntry> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends StandbyEntry> getOpal() {
 		return getStandbyEntryOpal();
 	}
 
 	@Override
-	protected Opal<? super StandbyEntry>[] getOpalArray() {
-		return (Opal<? super StandbyEntry>[]) new Opal<?>[] {
-			getStandbyEntryOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends StandbyEntry> getBottomOpal() {
+		return getStandbyEntryOpal();
 	}
 
 	@Override
@@ -112,10 +109,10 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the SchoolRegistration object created from the table standby_entry through foreign key standby_entry_school_registration_id_fkey */
+	/** Access to the SchoolRegistration object created from standby_entry through reference standby_entry_school_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -129,7 +126,7 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

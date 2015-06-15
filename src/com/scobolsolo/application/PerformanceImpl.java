@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.PlayerOpal;
@@ -18,15 +17,13 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Performance> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Performance> getOpal() {
 		return getPerformanceOpal();
 	}
 
 	@Override
-	protected Opal<? super Performance>[] getOpalArray() {
-		return (Opal<? super Performance>[]) new Opal<?>[] {
-			getPerformanceOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Performance> getBottomOpal() {
+		return getPerformanceOpal();
 	}
 
 	@Override
@@ -80,10 +77,10 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Game object created from the table performance through foreign key performance_game_id_fkey */
+	/** Access to the Game object created from performance through reference performance_game_id_fkey */
 
 	@Override
 	public Game getGame() {
@@ -97,7 +94,7 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 		return;
 	}
 
-	/** Access to the Player object created from the table performance through foreign key performance_player_id_fkey */
+	/** Access to the Player object created from performance through reference performance_player_id_fkey */
 
 	@Override
 	public Player getPlayer() {
@@ -111,7 +108,7 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.SchoolOpal;
@@ -19,15 +18,13 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends SchoolRegistration> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends SchoolRegistration> getOpal() {
 		return getSchoolRegistrationOpal();
 	}
 
 	@Override
-	protected Opal<? super SchoolRegistration>[] getOpalArray() {
-		return (Opal<? super SchoolRegistration>[]) new Opal<?>[] {
-			getSchoolRegistrationOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends SchoolRegistration> getBottomOpal() {
+		return getSchoolRegistrationOpal();
 	}
 
 	@Override
@@ -142,10 +139,10 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Contact object created from the table school_registration through foreign key registration_main_contact_id_fkey */
+	/** Access to the Contact object created from school_registration through reference registration_main_contact_id_fkey */
 
 	@Override
 	public Contact getMainContact() {
@@ -159,7 +156,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return;
 	}
 
-	/** Access to the School object created from the table school_registration through foreign key registration_school_id_fkey */
+	/** Access to the School object created from school_registration through reference registration_school_id_fkey */
 
 	@Override
 	public School getSchool() {
@@ -173,7 +170,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return;
 	}
 
-	/** Access to the Tournament object created from the table school_registration through foreign key school_registration_tournament_code_fkey */
+	/** Access to the Tournament object created from school_registration through reference school_registration_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {
@@ -187,7 +184,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

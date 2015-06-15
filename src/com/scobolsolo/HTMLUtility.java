@@ -15,7 +15,7 @@ public class HTMLUtility {
 		Validate.notEmpty(argFieldName);
 		Validate.notEmpty(argSize);
 		
-		return "<div class=\"switch " + argSize + "\">" + argOF.checkbox(argFieldName) + argOF.label(argFieldName, "") + "</div>";
+		return "<div class=\"switch " + argSize + "\">" + argOF.checkbox(argFieldName) + "<label for=\"" + argOF.id(argFieldName) + "\"></label></div>";
 	}
 	
 	public static String switchWidget(OpalForm<?> argOF, String argFieldName) {

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PlacementConversionVOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -20,15 +19,13 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends PlacementConversionV> getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlacementConversionV> getOpal() {
 		return getPlacementConversionVOpal();
 	}
 
 	@Override
-	protected Opal<? super PlacementConversionV>[] getOpalArray() {
-		return (Opal<? super PlacementConversionV>[]) new Opal<?>[] {
-			getPlacementConversionVOpal(),
-		};
+	protected com.opal.EphemeralOpal<? extends PlacementConversionV> getBottomOpal() {
+		return getPlacementConversionVOpal();
 	}
 
 	@Override
@@ -56,10 +53,10 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return getPlacementConversionVOpal().getResponseTypeCountAsObject();
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the ResponseType object created from the table placement_conversion_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the ResponseType object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public ResponseType getResponseType() {
@@ -67,7 +64,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return lclResponseTypeOpal == null ? null : lclResponseTypeOpal.getUserFacing();
 	}
 
-	/** Access to the Tournament object created from the table placement_conversion_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Tournament object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -75,7 +72,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Question object created from the table placement_conversion_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Question object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Question getQuestion() {
@@ -83,7 +80,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return lclQuestionOpal == null ? null : lclQuestionOpal.getUserFacing();
 	}
 
-	/** Access to the Placement object created from the table placement_conversion_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Placement object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Placement getPlacement() {
@@ -91,7 +88,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return lclPlacementOpal == null ? null : lclPlacementOpal.getUserFacing();
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

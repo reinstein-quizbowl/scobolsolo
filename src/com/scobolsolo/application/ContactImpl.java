@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.AccountOpal;
 
@@ -17,15 +16,13 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Contact> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Contact> getOpal() {
 		return getContactOpal();
 	}
 
 	@Override
-	protected Opal<? super Contact>[] getOpalArray() {
-		return (Opal<? super Contact>[]) new Opal<?>[] {
-			getContactOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Contact> getBottomOpal() {
+		return getContactOpal();
 	}
 
 	@Override
@@ -144,8 +141,8 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
 	@Override
 	public Account getAccount() {
@@ -159,7 +156,7 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

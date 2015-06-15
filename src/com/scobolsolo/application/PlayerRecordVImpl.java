@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerRecordVOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.PlayerOpal;
@@ -18,15 +17,13 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends PlayerRecordV> getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlayerRecordV> getOpal() {
 		return getPlayerRecordVOpal();
 	}
 
 	@Override
-	protected Opal<? super PlayerRecordV>[] getOpalArray() {
-		return (Opal<? super PlayerRecordV>[]) new Opal<?>[] {
-			getPlayerRecordVOpal(),
-		};
+	protected com.opal.EphemeralOpal<? extends PlayerRecordV> getBottomOpal() {
+		return getPlayerRecordVOpal();
 	}
 
 	@Override
@@ -59,10 +56,10 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 		return getPlayerRecordVOpal().getTossupsHeardAsObject();
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Tournament object created from the table player_record_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Tournament object created from player_record_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -70,7 +67,7 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table player_record_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from player_record_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getPlayer() {
@@ -78,7 +75,7 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

@@ -313,6 +313,100 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	}
 
 	@Override
+	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myNewIncomingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewMatchOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewOutgoingWinningCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewModeratorStaffOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewOutgoingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewIncomingWinningCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
+	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myOldIncomingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldMatchOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldOutgoingWinningCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldModeratorStaffOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldOutgoingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldIncomingWinningCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
 	public Object[] getPrimaryKeyWhereClauseValues() {
 		return new Object[] {getOldValues()[0], };
 	}

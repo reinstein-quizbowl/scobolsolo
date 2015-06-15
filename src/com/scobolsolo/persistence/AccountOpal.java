@@ -217,6 +217,30 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	}
 
 	@Override
+	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myNewContactOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
+	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myOldContactOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
 	public Object[] getPrimaryKeyWhereClauseValues() {
 		return new Object[] {getOldValues()[0], };
 	}

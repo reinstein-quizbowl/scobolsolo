@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.PlayerOpal;
@@ -19,15 +18,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Game> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Game> getOpal() {
 		return getGameOpal();
 	}
 
 	@Override
-	protected Opal<? super Game>[] getOpalArray() {
-		return (Opal<? super Game>[]) new Opal<?>[] {
-			getGameOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Game> getBottomOpal() {
+		return getGameOpal();
 	}
 
 	@Override
@@ -149,10 +146,10 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Match object created from the table game through foreign key game_id_fkey */
+	/** Access to the Match object created from game through reference game_id_fkey */
 
 	@Override
 	public Match getMatch() {
@@ -166,7 +163,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return;
 	}
 
-	/** Access to the Player object created from the table game through foreign key game_incoming_losing_card_player_id_fkey */
+	/** Access to the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
 
 	@Override
 	public Player getIncomingLosingCardPlayer() {
@@ -180,7 +177,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return;
 	}
 
-	/** Access to the Player object created from the table game through foreign key game_incoming_winning_card_player_id_fkey */
+	/** Access to the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
 
 	@Override
 	public Player getIncomingWinningCardPlayer() {
@@ -194,7 +191,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return;
 	}
 
-	/** Access to the Staff object created from the table game through foreign key game_moderator_staff_id_fkey */
+	/** Access to the Staff object created from game through reference game_moderator_staff_id_fkey */
 
 	@Override
 	public Staff getModeratorStaff() {
@@ -208,7 +205,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return;
 	}
 
-	/** Access to the Player object created from the table game through foreign key game_outgoing_losing_card_player_id_fkey */
+	/** Access to the Player object created from game through reference game_outgoing_losing_card_player_id_fkey */
 
 	@Override
 	public Player getOutgoingLosingCardPlayer() {
@@ -222,7 +219,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return;
 	}
 
-	/** Access to the Player object created from the table game through foreign key game_outgoing_winning_card_player_id_fkey */
+	/** Access to the Player object created from game through reference game_outgoing_winning_card_player_id_fkey */
 
 	@Override
 	public Player getOutgoingWinningCardPlayer() {
@@ -236,7 +233,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

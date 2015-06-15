@@ -525,6 +525,44 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	}
 
 	@Override
+	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myNewControlRoomOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewTournamentDirectorContactOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
+	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<TransactionAware> lclTAs = null;
+		UpdatableOpal<?> lclUO;
+		lclUO = myOldControlRoomOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldTournamentDirectorContactOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+	}
+
+	@Override
 	public Object[] getPrimaryKeyWhereClauseValues() {
 		return new Object[] {getOldValues()[3], };
 	}

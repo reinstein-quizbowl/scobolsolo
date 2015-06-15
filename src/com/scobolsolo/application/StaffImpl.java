@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.StaffOpal;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
@@ -19,15 +18,13 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Staff> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Staff> getOpal() {
 		return getStaffOpal();
 	}
 
 	@Override
-	protected Opal<? super Staff>[] getOpalArray() {
-		return (Opal<? super Staff>[]) new Opal<?>[] {
-			getStaffOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Staff> getBottomOpal() {
+		return getStaffOpal();
 	}
 
 	@Override
@@ -120,10 +117,10 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Contact object created from the table staff through foreign key staff_contact_id_fkey */
+	/** Access to the Contact object created from staff through reference staff_contact_id_fkey */
 
 	@Override
 	public Contact getContact() {
@@ -137,7 +134,7 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 		return;
 	}
 
-	/** Access to the SchoolRegistration object created from the table staff through foreign key staff_school_registration_id_fkey */
+	/** Access to the SchoolRegistration object created from staff through reference staff_school_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -151,7 +148,7 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 		return;
 	}
 
-	/** Access to the Tournament object created from the table staff through foreign key staff_tournament_code_fkey */
+	/** Access to the Tournament object created from staff through reference staff_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {
@@ -165,7 +162,7 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

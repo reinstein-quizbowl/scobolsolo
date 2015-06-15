@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.CategoryUseOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -18,15 +17,13 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends CategoryUse> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends CategoryUse> getOpal() {
 		return getCategoryUseOpal();
 	}
 
 	@Override
-	protected Opal<? super CategoryUse>[] getOpalArray() {
-		return (Opal<? super CategoryUse>[]) new Opal<?>[] {
-			getCategoryUseOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends CategoryUse> getBottomOpal() {
+		return getCategoryUseOpal();
 	}
 
 	@Override
@@ -51,10 +48,10 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Category object created from the table category_use through foreign key category_use_category_code_fkey */
+	/** Access to the Category object created from category_use through reference category_use_category_code_fkey */
 
 	@Override
 	public Category getCategory() {
@@ -68,7 +65,7 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 		return;
 	}
 
-	/** Access to the Tournament object created from the table category_use through foreign key category_use_tournament_code_fkey */
+	/** Access to the Tournament object created from category_use through reference category_use_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {
@@ -82,7 +79,7 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

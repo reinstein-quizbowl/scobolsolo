@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.PlayerOpal;
@@ -18,15 +17,13 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Card> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Card> getOpal() {
 		return getCardOpal();
 	}
 
 	@Override
-	protected Opal<? super Card>[] getOpalArray() {
-		return (Opal<? super Card>[]) new Opal<?>[] {
-			getCardOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Card> getBottomOpal() {
+		return getCardOpal();
 	}
 
 	@Override
@@ -118,10 +115,10 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Phase object created from the table card through foreign key card_phase_id_fkey */
+	/** Access to the Phase object created from card through reference card_phase_id_fkey */
 
 	@Override
 	public Phase getPhase() {
@@ -147,7 +144,7 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

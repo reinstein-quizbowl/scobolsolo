@@ -197,6 +197,16 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 	}
 
 	@Override
+	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+		return java.util.Collections.emptySet();
+	}
+
+	@Override
+	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+		return java.util.Collections.emptySet();
+	}
+
+	@Override
 	public Object[] getPrimaryKeyWhereClauseValues() {
 		return new Object[] {getOldValues()[0], };
 	}

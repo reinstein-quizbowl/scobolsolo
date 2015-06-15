@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.BuzzerOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.RoomOpal;
@@ -18,15 +17,13 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Buzzer> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Buzzer> getOpal() {
 		return getBuzzerOpal();
 	}
 
 	@Override
-	protected Opal<? super Buzzer>[] getOpalArray() {
-		return (Opal<? super Buzzer>[]) new Opal<?>[] {
-			getBuzzerOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Buzzer> getBottomOpal() {
+		return getBuzzerOpal();
 	}
 
 	@Override
@@ -91,10 +88,10 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the SchoolRegistration object created from the table buzzer through foreign key buzzer_registration_id_fkey */
+	/** Access to the SchoolRegistration object created from buzzer through reference buzzer_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -108,7 +105,7 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return;
 	}
 
-	/** Access to the Room object created from the table buzzer through foreign key buzzer_room_id_fkey */
+	/** Access to the Room object created from buzzer through reference buzzer_room_id_fkey */
 
 	@Override
 	public Room getRoom() {
@@ -122,7 +119,7 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

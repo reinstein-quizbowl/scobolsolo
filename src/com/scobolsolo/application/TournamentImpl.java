@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.ContactOpal;
@@ -18,15 +17,13 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Tournament> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Tournament> getOpal() {
 		return getTournamentOpal();
 	}
 
 	@Override
-	protected Opal<? super Tournament>[] getOpalArray() {
-		return (Opal<? super Tournament>[]) new Opal<?>[] {
-			getTournamentOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Tournament> getBottomOpal() {
+		return getTournamentOpal();
 	}
 
 	@Override
@@ -217,10 +214,10 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Room object created from the table tournament through foreign key tournament_control_room_room_id_fkey */
+	/** Access to the Room object created from tournament through reference tournament_control_room_room_id_fkey */
 
 	@Override
 	public Room getControlRoom() {
@@ -234,7 +231,7 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 		return;
 	}
 
-	/** Access to the Contact object created from the table tournament through foreign key tournament_tournament_director_contact_id_fkey */
+	/** Access to the Contact object created from tournament through reference tournament_tournament_director_contact_id_fkey */
 
 	@Override
 	public Contact getTournamentDirectorContact() {
@@ -248,7 +245,7 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

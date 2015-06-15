@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.RoomOpal;
@@ -20,15 +19,13 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Match> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Match> getOpal() {
 		return getMatchOpal();
 	}
 
 	@Override
-	protected Opal<? super Match>[] getOpalArray() {
-		return (Opal<? super Match>[]) new Opal<?>[] {
-			getMatchOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Match> getBottomOpal() {
+		return getMatchOpal();
 	}
 
 	@Override
@@ -116,10 +113,10 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Card object created from the table match through foreign key match_losing_card_id_fkey */
+	/** Access to the Card object created from match through reference match_losing_card_id_fkey */
 
 	@Override
 	public Card getLosingCard() {
@@ -133,7 +130,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return;
 	}
 
-	/** Access to the Room object created from the table match through foreign key match_room_id_fkey */
+	/** Access to the Room object created from match through reference match_room_id_fkey */
 
 	@Override
 	public Room getRoom() {
@@ -147,7 +144,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return;
 	}
 
-	/** Access to the Round object created from the table match through foreign key match_round_id_fkey */
+	/** Access to the Round object created from match through reference match_round_id_fkey */
 
 	@Override
 	public Round getRound() {
@@ -161,7 +158,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return;
 	}
 
-	/** Access to the Card object created from the table match through foreign key match_winning_card_id_fkey */
+	/** Access to the Card object created from match through reference match_winning_card_id_fkey */
 
 	@Override
 	public Card getWinningCard() {
@@ -187,7 +184,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

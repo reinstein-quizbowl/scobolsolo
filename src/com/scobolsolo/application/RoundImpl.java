@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.RoundGroupOpal;
 
@@ -17,15 +16,13 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Round> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Round> getOpal() {
 		return getRoundOpal();
 	}
 
 	@Override
-	protected Opal<? super Round>[] getOpalArray() {
-		return (Opal<? super Round>[]) new Opal<?>[] {
-			getRoundOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Round> getBottomOpal() {
+		return getRoundOpal();
 	}
 
 	@Override
@@ -134,10 +131,10 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the RoundGroup object created from the table round through foreign key round_round_group_id_fkey */
+	/** Access to the RoundGroup object created from round through reference round_round_group_id_fkey */
 
 	@Override
 	public RoundGroup getRoundGroup() {
@@ -151,7 +148,7 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

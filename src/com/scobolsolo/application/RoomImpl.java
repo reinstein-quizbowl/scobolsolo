@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
@@ -17,15 +16,13 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Room> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Room> getOpal() {
 		return getRoomOpal();
 	}
 
 	@Override
-	protected Opal<? super Room>[] getOpalArray() {
-		return (Opal<? super Room>[]) new Opal<?>[] {
-			getRoomOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Room> getBottomOpal() {
+		return getRoomOpal();
 	}
 
 	@Override
@@ -128,10 +125,10 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Tournament object created from the table room through foreign key room_tournament_code_fkey */
+	/** Access to the Tournament object created from room through reference room_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {
@@ -145,7 +142,7 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

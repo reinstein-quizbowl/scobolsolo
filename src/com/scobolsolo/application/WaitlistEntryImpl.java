@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.WaitlistEntryOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 
@@ -17,15 +16,13 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends WaitlistEntry> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends WaitlistEntry> getOpal() {
 		return getWaitlistEntryOpal();
 	}
 
 	@Override
-	protected Opal<? super WaitlistEntry>[] getOpalArray() {
-		return (Opal<? super WaitlistEntry>[]) new Opal<?>[] {
-			getWaitlistEntryOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends WaitlistEntry> getBottomOpal() {
+		return getWaitlistEntryOpal();
 	}
 
 	@Override
@@ -112,10 +109,10 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the SchoolRegistration object created from the table waitlist_entry through foreign key waitlist_entry_school_registration_id_fkey */
+	/** Access to the SchoolRegistration object created from waitlist_entry through reference waitlist_entry_school_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -129,7 +126,7 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.GameVOpal;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -24,15 +23,13 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends GameV> getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends GameV> getOpal() {
 		return getGameVOpal();
 	}
 
 	@Override
-	protected Opal<? super GameV>[] getOpalArray() {
-		return (Opal<? super GameV>[]) new Opal<?>[] {
-			getGameVOpal(),
-		};
+	protected com.opal.EphemeralOpal<? extends GameV> getBottomOpal() {
+		return getGameVOpal();
 	}
 
 	@Override
@@ -115,10 +112,10 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return getGameVOpal().getLoserScoreAsObject();
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Game object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Game object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Game getGame() {
@@ -126,7 +123,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclGameOpal == null ? null : lclGameOpal.getUserFacing();
 	}
 
-	/** Access to the Tournament object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Tournament object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -134,7 +131,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getIncomingWinningCardPlayer() {
@@ -142,7 +139,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getIncomingLosingCardPlayer() {
@@ -150,7 +147,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getWinnerPlayer() {
@@ -158,7 +155,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getLoserPlayer() {
@@ -166,7 +163,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/** Access to the Staff object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Staff object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Staff getModeratorStaff() {
@@ -174,7 +171,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclStaffOpal == null ? null : lclStaffOpal.getUserFacing();
 	}
 
-	/** Access to the Room object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Room object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Room getRoom() {
@@ -182,7 +179,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclRoomOpal == null ? null : lclRoomOpal.getUserFacing();
 	}
 
-	/** Access to the Performance object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Performance object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Performance getWinnerPerformance() {
@@ -190,7 +187,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclPerformanceOpal == null ? null : lclPerformanceOpal.getUserFacing();
 	}
 
-	/** Access to the Performance object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Performance object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Performance getLoserPerformance() {
@@ -198,7 +195,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclPerformanceOpal == null ? null : lclPerformanceOpal.getUserFacing();
 	}
 
-	/** Access to the Round object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Round object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Round getRound() {
@@ -206,7 +203,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclRoundOpal == null ? null : lclRoundOpal.getUserFacing();
 	}
 
-	/** Access to the Card object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Card object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Card getWinningCard() {
@@ -214,7 +211,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclCardOpal == null ? null : lclCardOpal.getUserFacing();
 	}
 
-	/** Access to the Card object created from the table game_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Card object created from game_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Card getLosingCard() {
@@ -222,7 +219,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return lclCardOpal == null ? null : lclCardOpal.getUserFacing();
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

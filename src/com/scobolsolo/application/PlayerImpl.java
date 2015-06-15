@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.CardOpal;
@@ -20,15 +19,13 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Player> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Player> getOpal() {
 		return getPlayerOpal();
 	}
 
 	@Override
-	protected Opal<? super Player>[] getOpalArray() {
-		return (Opal<? super Player>[]) new Opal<?>[] {
-			getPlayerOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Player> getBottomOpal() {
+		return getPlayerOpal();
 	}
 
 	@Override
@@ -172,10 +169,10 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Contact object created from the table player through foreign key player_contact_id_fkey */
+	/** Access to the Contact object created from player through reference player_contact_id_fkey */
 
 	@Override
 	public Contact getContact() {
@@ -189,7 +186,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return;
 	}
 
-	/** Access to the Card object created from the table player through foreign key player_initial_card_id_fkey */
+	/** Access to the Card object created from player through reference player_initial_card_id_fkey */
 
 	@Override
 	public Card getInitialCard() {
@@ -203,7 +200,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return;
 	}
 
-	/** Access to the SchoolRegistration object created from the table player through foreign key player_registration_id_fkey */
+	/** Access to the SchoolRegistration object created from player through reference player_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -217,7 +214,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return;
 	}
 
-	/** Access to the SchoolYear object created from the table player through foreign key player_school_year_code_fkey */
+	/** Access to the SchoolYear object created from player through reference player_school_year_code_fkey */
 
 	@Override
 	public SchoolYear getSchoolYear() {
@@ -231,7 +228,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

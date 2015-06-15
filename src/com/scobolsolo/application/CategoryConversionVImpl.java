@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.CategoryConversionVOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -19,15 +18,13 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends CategoryConversionV> getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends CategoryConversionV> getOpal() {
 		return getCategoryConversionVOpal();
 	}
 
 	@Override
-	protected Opal<? super CategoryConversionV>[] getOpalArray() {
-		return (Opal<? super CategoryConversionV>[]) new Opal<?>[] {
-			getCategoryConversionVOpal(),
-		};
+	protected com.opal.EphemeralOpal<? extends CategoryConversionV> getBottomOpal() {
+		return getCategoryConversionVOpal();
 	}
 
 	@Override
@@ -50,10 +47,10 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 		return getCategoryConversionVOpal().getResponseTypeCountAsObject();
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the ResponseType object created from the table category_conversion_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the ResponseType object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public ResponseType getResponseType() {
@@ -61,7 +58,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 		return lclResponseTypeOpal == null ? null : lclResponseTypeOpal.getUserFacing();
 	}
 
-	/** Access to the Tournament object created from the table category_conversion_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Tournament object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -69,7 +66,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Category object created from the table category_conversion_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Category object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Category getCategory() {
@@ -77,7 +74,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

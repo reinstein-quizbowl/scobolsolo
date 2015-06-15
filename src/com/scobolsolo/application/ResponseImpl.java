@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.ResponseOpal;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.PlacementOpal;
@@ -19,15 +18,13 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Response> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Response> getOpal() {
 		return getResponseOpal();
 	}
 
 	@Override
-	protected Opal<? super Response>[] getOpalArray() {
-		return (Opal<? super Response>[]) new Opal<?>[] {
-			getResponseOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Response> getBottomOpal() {
+		return getResponseOpal();
 	}
 
 	@Override
@@ -109,10 +106,10 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Performance object created from the table response through foreign key response_performance_id_fkey */
+	/** Access to the Performance object created from response through reference response_performance_id_fkey */
 
 	@Override
 	public Performance getPerformance() {
@@ -126,7 +123,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return;
 	}
 
-	/** Access to the Placement object created from the table response through foreign key response_placement_id_fkey */
+	/** Access to the Placement object created from response through reference response_placement_id_fkey */
 
 	@Override
 	public Placement getPlacement() {
@@ -140,7 +137,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return;
 	}
 
-	/** Access to the Placement object created from the table response through foreign key response_replacement_placement_id_fkey */
+	/** Access to the Placement object created from response through reference response_replacement_placement_id_fkey */
 
 	@Override
 	public Placement getReplacementForPlacement() {
@@ -154,7 +151,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return;
 	}
 
-	/** Access to the ResponseType object created from the table response through foreign key response_response_type_code_fkey */
+	/** Access to the ResponseType object created from response through reference response_response_type_code_fkey */
 
 	@Override
 	public ResponseType getResponseType() {
@@ -168,7 +165,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

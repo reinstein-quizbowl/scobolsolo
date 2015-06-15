@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.StaffAssignmentOpal;
 import com.scobolsolo.persistence.StaffOpal;
 import com.scobolsolo.persistence.RoomOpal;
@@ -18,15 +17,13 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends StaffAssignment> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends StaffAssignment> getOpal() {
 		return getStaffAssignmentOpal();
 	}
 
 	@Override
-	protected Opal<? super StaffAssignment>[] getOpalArray() {
-		return (Opal<? super StaffAssignment>[]) new Opal<?>[] {
-			getStaffAssignmentOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends StaffAssignment> getBottomOpal() {
+		return getStaffAssignmentOpal();
 	}
 
 	@Override
@@ -91,10 +88,10 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Staff object created from the table staff_assignment through foreign key staff_assignment_staff_id_fkey */
+	/** Access to the Staff object created from staff_assignment through reference staff_assignment_staff_id_fkey */
 
 	@Override
 	public Staff getStaff() {
@@ -108,7 +105,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return;
 	}
 
-	/** Access to the Room object created from the table staff_assignment through foreign key staffer_assignment_room_id_fkey */
+	/** Access to the Room object created from staff_assignment through reference staffer_assignment_room_id_fkey */
 
 	@Override
 	public Room getRoom() {
@@ -122,7 +119,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

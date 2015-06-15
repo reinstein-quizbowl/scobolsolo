@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PlayerCategoryPointVOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.PlayerOpal;
@@ -19,15 +18,13 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends PlayerCategoryPointV> getBottomOpal() {
+	protected com.opal.EphemeralOpal<? extends PlayerCategoryPointV> getOpal() {
 		return getPlayerCategoryPointVOpal();
 	}
 
 	@Override
-	protected Opal<? super PlayerCategoryPointV>[] getOpalArray() {
-		return (Opal<? super PlayerCategoryPointV>[]) new Opal<?>[] {
-			getPlayerCategoryPointVOpal(),
-		};
+	protected com.opal.EphemeralOpal<? extends PlayerCategoryPointV> getBottomOpal() {
+		return getPlayerCategoryPointVOpal();
 	}
 
 	@Override
@@ -55,10 +52,10 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 		return getPlayerCategoryPointVOpal().getPointsAsObject();
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Tournament object created from the table player_category_point_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Tournament object created from player_category_point_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -66,7 +63,7 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from the table player_category_point_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Player object created from player_category_point_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getPlayer() {
@@ -74,7 +71,7 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
-	/** Access to the Category object created from the table player_category_point_v through foreign key UNNAMED_INFERRED_KEY */
+	/** Access to the Category object created from player_category_point_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Category getCategory() {
@@ -82,7 +79,7 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override

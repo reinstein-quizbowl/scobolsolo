@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.Opal;
 import com.scobolsolo.persistence.PlacementOpal;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.QuestionOpal;
@@ -18,15 +17,13 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends Placement> getBottomOpal() {
+	protected com.opal.IdentityOpal<? extends Placement> getOpal() {
 		return getPlacementOpal();
 	}
 
 	@Override
-	protected Opal<? super Placement>[] getOpalArray() {
-		return (Opal<? super Placement>[]) new Opal<?>[] {
-			getPlacementOpal(),
-		};
+	protected com.opal.IdentityOpal<? extends Placement> getBottomOpal() {
+		return getPlacementOpal();
 	}
 
 	@Override
@@ -136,10 +133,10 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return;
 	}
 
-	/* The following methods allow direct access to the user objects for which
-	this object has foreign keys in the database. */
+	/* The following methods allow direct access to the user objects to which
+	this object has references in the database. */
 
-	/** Access to the Packet object created from the table placement through foreign key placement_packet_id_fkey */
+	/** Access to the Packet object created from placement through reference placement_packet_id_fkey */
 
 	@Override
 	public Packet getPacket() {
@@ -153,7 +150,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return;
 	}
 
-	/** Access to the Question object created from the table placement through foreign key placement_question_id_fkey */
+	/** Access to the Question object created from placement through reference placement_question_id_fkey */
 
 	@Override
 	public Question getQuestion() {
@@ -167,7 +164,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return;
 	}
 
-	/* The following methods allow access to the user objects that have foreign keys
+	/* The following methods allow access to the user objects that have references
 	to this object. */
 
 	@Override
