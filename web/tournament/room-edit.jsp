@@ -158,7 +158,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						<td><%= lclSAOF.dropdown("Phase", Phase.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
 						<td><%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(StaffNCE.getInstance()) %></td>
 						<td><%= lclSAOF.dropdown("StaffRole", StaffRole.SequenceComparator.getInstance()) %></td>
-						<td><%= lclOF.textarea("Note", 30, 1) %></td>
+						<td><%= lclOF.textarea("Note", 40, 1) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSAOF) %></td>
 					</tr>
 					<%= lclSAOF.close() %><%

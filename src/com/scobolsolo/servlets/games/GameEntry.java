@@ -54,7 +54,7 @@ public class GameEntry extends ScobolSoloControllerServlet {
 		}
 		Validate.notNull(DEFAULT_RESPONSE_TYPE);
 		
-		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {			
+		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			if (lclTUH != null) {
 				lclG.setTossupsHeard(lclTUH);
 			}
@@ -75,15 +75,15 @@ public class GameEntry extends ScobolSoloControllerServlet {
 			}
 			
 			if (lclIWCPerformance == null) {
-				lclIWCPerformance = PerformanceFactory.getInstance().create();
-				lclIWCPerformance.setGame(lclG);
-				lclIWCPerformance.setPlayer(lclIWCPlayer);
+				lclIWCPerformance = PerformanceFactory.getInstance().create()
+					.setGame(lclG)
+					.setPlayer(lclIWCPlayer);
 			}
 			
 			if (lclILCPerformance == null) {
-				lclILCPerformance = PerformanceFactory.getInstance().create();
-				lclILCPerformance.setGame(lclG);
-				lclILCPerformance.setPlayer(lclILCPlayer);
+				lclILCPerformance = PerformanceFactory.getInstance().create()
+					.setGame(lclG)
+					.setPlayer(lclILCPlayer);
 			}
 			
 			int lclIWCScore = 0;
@@ -142,13 +142,13 @@ public class GameEntry extends ScobolSoloControllerServlet {
 						}
 					}
 					
-					final Response lclIWCResponse = ResponseFactory.getInstance().create();
-					lclIWCResponse.setPerformance(lclIWCPerformance);
-					lclIWCResponse.setResponseType(lclIWCResponseType);
+					final Response lclIWCResponse = ResponseFactory.getInstance().create()
+						.setPerformance(lclIWCPerformance)
+						.setResponseType(lclIWCResponseType);
 					
-					final Response lclILCResponse = ResponseFactory.getInstance().create();
-					lclILCResponse.setPerformance(lclILCPerformance);
-					lclILCResponse.setResponseType(lclILCResponseType);
+					final Response lclILCResponse = ResponseFactory.getInstance().create()
+						.setPerformance(lclILCPerformance)
+						.setResponseType(lclILCResponseType);
 					
 					// Was the question replaced?
 					final Placement lclReplacement = PlacementFactory.getInstance().fromHttpRequest(argRequest, "replaced_placement_unique_string_" + lclPL.getUniqueString());
@@ -188,10 +188,9 @@ public class GameEntry extends ScobolSoloControllerServlet {
 			if (lclNextMatchForWinner != null) {
 				lclNextGameForWinner = lclNextMatchForWinner.getGame();
 				if (lclNextGameForWinner == null) {
-					lclNextGameForWinner = GameFactory.getInstance().create();
-					lclNextGameForWinner.setMatch(lclNextMatchForWinner);
-					lclNextGameForWinner.setModeratorStaff(lclNextMatchForWinner.determineLikelyModerator());
-					lclNextMatchForWinner.setGame(lclNextGameForWinner);
+					lclNextGameForWinner = GameFactory.getInstance().create()
+						.setMatch(lclNextMatchForWinner)
+						.setModeratorStaff(lclNextMatchForWinner.determineLikelyModerator());
 				}
 			}
 			
@@ -200,10 +199,9 @@ public class GameEntry extends ScobolSoloControllerServlet {
 			if (lclNextMatchForLoser != null) {
 				lclNextGameForLoser = lclNextMatchForLoser.getGame();
 				if (lclNextGameForLoser == null) {
-					lclNextGameForLoser = GameFactory.getInstance().create();
-					lclNextGameForLoser.setMatch(lclNextMatchForLoser);
-					lclNextGameForLoser.setModeratorStaff(lclNextMatchForLoser.determineLikelyModerator());
-					lclNextMatchForLoser.setGame(lclNextGameForLoser);
+					lclNextGameForLoser = GameFactory.getInstance().create()
+						.setMatch(lclNextMatchForLoser)
+						.setModeratorStaff(lclNextMatchForLoser.determineLikelyModerator());
 				}
 			}
 			

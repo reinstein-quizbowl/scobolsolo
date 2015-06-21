@@ -11,6 +11,11 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>ClearGame</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.games.ClearGame</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>AssignCards</servlet-name>
 		<servlet-class>com.scobolsolo.servlets.tournament.AssignCards</servlet-class>
 	</servlet>

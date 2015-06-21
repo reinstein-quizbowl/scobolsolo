@@ -429,10 +429,15 @@ if (lclM.determineStatus().mayEnterData()) {
 		</div>
 		
 		<div>
-			<div class="small-2 small-centered text-center columns">
+			<div class="small-4 small-centered text-center columns">
 				<input type="submit" value="Save" />
+				<input type="submit" form="clear" value="Clear Game" />
 			</div>
 		</div>
+	</form>
+	
+	<form id="clear" action="ClearGame" method="post" onsubmit="return confirm('Are you sure you want to destroy all data about this game that has already been entered? This action cannot be undone.');">
+		<input type="hidden" name="game_id" value="<%= lclG.getId() %>" />
 	</form>
 	
 	<script type="text/javascript">
