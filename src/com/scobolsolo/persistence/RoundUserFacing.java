@@ -46,19 +46,21 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Round setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Round setId(int argId);
 
 	/**
 	 * object accessor for the {@code RoundGroupId}
@@ -121,15 +123,17 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 * sets the {@code RoundGroupId} to the value of {@code argRoundGroupId}
 	 *
 	 * @param argRoundGroupId the new value of {@code RoundGroupId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setRoundGroupId(java.lang.Integer argRoundGroupId);
+	public com.scobolsolo.application.Round setRoundGroupId(java.lang.Integer argRoundGroupId);
 
 	/**
 	 * sets the {@code RoundGroupId} to the value of {@code argRoundGroupId}
 	 *
 	 * @param argRoundGroupId the new value of {@code RoundGroupId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setRoundGroupId(int argRoundGroupId);
+	public com.scobolsolo.application.Round setRoundGroupId(int argRoundGroupId);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -144,6 +148,7 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -153,7 +158,7 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.Round setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -168,6 +173,7 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -177,7 +183,7 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.Round setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -208,19 +214,21 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.Round setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.Round setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code StartTime}
@@ -251,12 +259,13 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 * sets the {@code StartTime} to the value of {@code argStartTime}
 	 *
 	 * @param argStartTime the new value of {@code StartTime}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argStartTime} is longer than 16 characters
 	 * <p>The database column {@code start_time} is limited to 16 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 16L)
-	public void setStartTime(java.lang.String argStartTime);
+	public com.scobolsolo.application.Round setStartTime(java.lang.String argStartTime);
 
 	/**
 	 * object accessor for the {@code LunchAfter}
@@ -287,19 +296,21 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 * sets the {@code LunchAfter} to the value of {@code argLunchAfter}
 	 *
 	 * @param argLunchAfter the new value of {@code LunchAfter}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code lunch_after} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argLunchAfter is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setLunchAfter(java.lang.Boolean argLunchAfter);
+	public com.scobolsolo.application.Round setLunchAfter(java.lang.Boolean argLunchAfter);
 
 	/**
 	 * sets the {@code LunchAfter} to the value of {@code argLunchAfter}
 	 *
 	 * @param argLunchAfter the new value of {@code LunchAfter}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setLunchAfter(boolean argLunchAfter);
+	public com.scobolsolo.application.Round setLunchAfter(boolean argLunchAfter);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.RoundGroup}
@@ -307,7 +318,7 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 */
 	public com.scobolsolo.application.RoundGroup getRoundGroup();
-	public void setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
+	public com.scobolsolo.application.Round setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
 
 	public int getMatchCount();
 	public java.util.Iterator<com.scobolsolo.application.Match> createMatchIterator();

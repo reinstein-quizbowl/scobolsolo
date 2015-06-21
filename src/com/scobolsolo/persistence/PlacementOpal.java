@@ -115,88 +115,88 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return (java.lang.Boolean) getReadValueSet()[5];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized PlacementOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public PlacementOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setQuestionId(final java.lang.Integer argQuestionId) {
+	public synchronized PlacementOpal setQuestionId(final java.lang.Integer argQuestionId) {
 		tryMutate();
 		if (argQuestionId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myQuestionId on " + this + " to null.");
 		}
 		getNewValues()[1] = argQuestionId;
-		return;
+		return this;
 	}
 
-	public void setQuestionId(final int argQuestionId) {
+	public PlacementOpal setQuestionId(final int argQuestionId) {
 		setQuestionId(java.lang.Integer.valueOf(argQuestionId));
-		return;
+		return this;
 	}
 
-	public synchronized void setPacketId(final java.lang.Integer argPacketId) {
+	public synchronized PlacementOpal setPacketId(final java.lang.Integer argPacketId) {
 		tryMutate();
 		if (argPacketId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPacketId on " + this + " to null.");
 		}
 		getNewValues()[2] = argPacketId;
-		return;
+		return this;
 	}
 
-	public void setPacketId(final int argPacketId) {
+	public PlacementOpal setPacketId(final int argPacketId) {
 		setPacketId(java.lang.Integer.valueOf(argPacketId));
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized PlacementOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[3] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public PlacementOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setTiebreaker(final java.lang.Boolean argTiebreaker) {
+	public synchronized PlacementOpal setTiebreaker(final java.lang.Boolean argTiebreaker) {
 		tryMutate();
 		if (argTiebreaker == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTiebreaker on " + this + " to null.");
 		}
 		getNewValues()[4] = argTiebreaker;
-		return;
+		return this;
 	}
 
-	public void setTiebreaker(final boolean argTiebreaker) {
+	public PlacementOpal setTiebreaker(final boolean argTiebreaker) {
 		setTiebreaker(argTiebreaker ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
-	public synchronized void setScorecheckAfter(final java.lang.Boolean argScorecheckAfter) {
+	public synchronized PlacementOpal setScorecheckAfter(final java.lang.Boolean argScorecheckAfter) {
 		tryMutate();
 		if (argScorecheckAfter == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myScorecheckAfter on " + this + " to null.");
 		}
 		getNewValues()[5] = argScorecheckAfter;
-		return;
+		return this;
 	}
 
-	public void setScorecheckAfter(final boolean argScorecheckAfter) {
+	public PlacementOpal setScorecheckAfter(final boolean argScorecheckAfter) {
 		setScorecheckAfter(argScorecheckAfter ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -396,10 +396,10 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return lclPacketOpal;
 	}
 
-	public synchronized void setPacketOpal(PacketOpal argPacketOpal) {
+	public synchronized PlacementOpal setPacketOpal(PacketOpal argPacketOpal) {
 		tryMutate();
 		PacketOpal lclPacketOpal = getPacketOpal();
-		if (lclPacketOpal == argPacketOpal) { return; }
+		if (lclPacketOpal == argPacketOpal) { return this; }
 		if (lclPacketOpal != null) {
 			lclPacketOpal.removePlacementOpalInternal(this);
 		}
@@ -407,7 +407,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		if (argPacketOpal != null) {
 			argPacketOpal.addPlacementOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setPacketOpalInternal(PacketOpal argPacketOpal) {
@@ -441,10 +441,10 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return lclQuestionOpal;
 	}
 
-	public synchronized void setQuestionOpal(QuestionOpal argQuestionOpal) {
+	public synchronized PlacementOpal setQuestionOpal(QuestionOpal argQuestionOpal) {
 		tryMutate();
 		QuestionOpal lclQuestionOpal = getQuestionOpal();
-		if (lclQuestionOpal == argQuestionOpal) { return; }
+		if (lclQuestionOpal == argQuestionOpal) { return this; }
 		if (lclQuestionOpal != null) {
 			lclQuestionOpal.removePlacementOpalInternal(this);
 		}
@@ -452,7 +452,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		if (argQuestionOpal != null) {
 			argQuestionOpal.addPlacementOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setQuestionOpalInternal(QuestionOpal argQuestionOpal) {

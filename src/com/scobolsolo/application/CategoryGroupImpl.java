@@ -35,9 +35,9 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<CategoryGro
 	}
 
 	@Override
-	public void setCode(java.lang.String argCode) {
+	public CategoryGroupImpl setCode(java.lang.String argCode) {
 		getCategoryGroupOpal().setCode(argCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -46,9 +46,9 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<CategoryGro
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public CategoryGroupImpl setName(java.lang.String argName) {
 		getCategoryGroupOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -57,9 +57,9 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<CategoryGro
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public CategoryGroupImpl setShortName(java.lang.String argShortName) {
 		getCategoryGroupOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -68,15 +68,15 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<CategoryGro
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public CategoryGroupImpl setSequence(java.lang.Integer argSequence) {
 		getCategoryGroupOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public CategoryGroupImpl setSequence(int argSequence) {
 		getCategoryGroupOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which

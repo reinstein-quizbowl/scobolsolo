@@ -30,6 +30,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 * sets the {@code Code} to the value of {@code argCode}
 	 *
 	 * @param argCode the new value of {@code Code}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argCode is null
@@ -39,7 +40,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setCode(java.lang.String argCode);
+	public com.scobolsolo.application.Category setCode(java.lang.String argCode);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -54,6 +55,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -63,7 +65,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.Category setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -78,6 +80,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -87,7 +90,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.Category setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -118,19 +121,21 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.Category setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.Category setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code CategoryGroupCode}
@@ -145,6 +150,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 * sets the {@code CategoryGroupCode} to the value of {@code argCategoryGroupCode}
 	 *
 	 * @param argCategoryGroupCode the new value of {@code CategoryGroupCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_group_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argCategoryGroupCode is null
@@ -154,7 +160,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setCategoryGroupCode(java.lang.String argCategoryGroupCode);
+	public com.scobolsolo.application.Category setCategoryGroupCode(java.lang.String argCategoryGroupCode);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.CategoryGroup}
@@ -162,7 +168,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 *
 	 */
 	public com.scobolsolo.application.CategoryGroup getCategoryGroup();
-	public void setCategoryGroup(com.scobolsolo.application.CategoryGroup argCategoryGroup);
+	public com.scobolsolo.application.Category setCategoryGroup(com.scobolsolo.application.CategoryGroup argCategoryGroup);
 
 	public int getQuestionCount();
 	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator();

@@ -35,15 +35,15 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public SchoolImpl setId(java.lang.Integer argId) {
 		getSchoolOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public SchoolImpl setId(int argId) {
 		getSchoolOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -52,9 +52,9 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public SchoolImpl setName(java.lang.String argName) {
 		getSchoolOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -63,9 +63,9 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public SchoolImpl setShortName(java.lang.String argShortName) {
 		getSchoolOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -74,9 +74,9 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	public void setVeryShortName(java.lang.String argVeryShortName) {
+	public SchoolImpl setVeryShortName(java.lang.String argVeryShortName) {
 		getSchoolOpal().setVeryShortName(argVeryShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -85,9 +85,9 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	public void setLocation(java.lang.String argLocation) {
+	public SchoolImpl setLocation(java.lang.String argLocation) {
 		getSchoolOpal().setLocation(argLocation);
-		return;
+		return this;
 	}
 
 	@Override
@@ -96,9 +96,9 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public SchoolImpl setNote(java.lang.String argNote) {
 		getSchoolOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which

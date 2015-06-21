@@ -36,15 +36,15 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public StandbyEntryImpl setId(java.lang.Integer argId) {
 		getStandbyEntryOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public StandbyEntryImpl setId(int argId) {
 		getStandbyEntryOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -53,15 +53,15 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
+	public StandbyEntryImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getStandbyEntryOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSchoolRegistrationId(int argSchoolRegistrationId) {
+	public StandbyEntryImpl setSchoolRegistrationId(int argSchoolRegistrationId) {
 		getStandbyEntryOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -70,15 +70,15 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public StandbyEntryImpl setSequence(java.lang.Integer argSequence) {
 		getStandbyEntryOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public StandbyEntryImpl setSequence(int argSequence) {
 		getStandbyEntryOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -87,15 +87,15 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	public void setPlayerCount(java.lang.Integer argPlayerCount) {
+	public StandbyEntryImpl setPlayerCount(java.lang.Integer argPlayerCount) {
 		getStandbyEntryOpal().setPlayerCount(argPlayerCount);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPlayerCount(int argPlayerCount) {
+	public StandbyEntryImpl setPlayerCount(int argPlayerCount) {
 		getStandbyEntryOpal().setPlayerCount(argPlayerCount);
-		return;
+		return this;
 	}
 
 	@Override
@@ -104,9 +104,9 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public StandbyEntryImpl setNote(java.lang.String argNote) {
 		getStandbyEntryOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -121,9 +121,9 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 	}
 
 	@Override
-	public void setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public StandbyEntry setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getStandbyEntryOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

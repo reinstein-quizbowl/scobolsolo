@@ -97,21 +97,21 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 		return (java.lang.Integer) getReadValueSet()[4];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized RoundGroupOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public RoundGroupOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized RoundGroupOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -120,10 +120,10 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized RoundGroupOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -132,35 +132,35 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized RoundGroupOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[3] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public RoundGroupOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setPhaseId(final java.lang.Integer argPhaseId) {
+	public synchronized RoundGroupOpal setPhaseId(final java.lang.Integer argPhaseId) {
 		tryMutate();
 		if (argPhaseId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPhaseId on " + this + " to null.");
 		}
 		getNewValues()[4] = argPhaseId;
-		return;
+		return this;
 	}
 
-	public void setPhaseId(final int argPhaseId) {
+	public RoundGroupOpal setPhaseId(final int argPhaseId) {
 		setPhaseId(java.lang.Integer.valueOf(argPhaseId));
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -317,10 +317,10 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 		return lclPhaseOpal;
 	}
 
-	public synchronized void setPhaseOpal(PhaseOpal argPhaseOpal) {
+	public synchronized RoundGroupOpal setPhaseOpal(PhaseOpal argPhaseOpal) {
 		tryMutate();
 		PhaseOpal lclPhaseOpal = getPhaseOpal();
-		if (lclPhaseOpal == argPhaseOpal) { return; }
+		if (lclPhaseOpal == argPhaseOpal) { return this; }
 		if (lclPhaseOpal != null) {
 			lclPhaseOpal.removeRoundGroupOpalInternal(this);
 		}
@@ -328,7 +328,7 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 		if (argPhaseOpal != null) {
 			argPhaseOpal.addRoundGroupOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setPhaseOpalInternal(PhaseOpal argPhaseOpal) {

@@ -100,49 +100,49 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return (java.lang.Integer) getReadValueSet()[4];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized ResponseOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public ResponseOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setPerformanceId(final java.lang.Integer argPerformanceId) {
+	public synchronized ResponseOpal setPerformanceId(final java.lang.Integer argPerformanceId) {
 		tryMutate();
 		if (argPerformanceId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPerformanceId on " + this + " to null.");
 		}
 		getNewValues()[1] = argPerformanceId;
-		return;
+		return this;
 	}
 
-	public void setPerformanceId(final int argPerformanceId) {
+	public ResponseOpal setPerformanceId(final int argPerformanceId) {
 		setPerformanceId(java.lang.Integer.valueOf(argPerformanceId));
-		return;
+		return this;
 	}
 
-	public synchronized void setPlacementId(final java.lang.Integer argPlacementId) {
+	public synchronized ResponseOpal setPlacementId(final java.lang.Integer argPlacementId) {
 		tryMutate();
 		if (argPlacementId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPlacementId on " + this + " to null.");
 		}
 		getNewValues()[2] = argPlacementId;
-		return;
+		return this;
 	}
 
-	public void setPlacementId(final int argPlacementId) {
+	public ResponseOpal setPlacementId(final int argPlacementId) {
 		setPlacementId(java.lang.Integer.valueOf(argPlacementId));
-		return;
+		return this;
 	}
 
-	public synchronized void setResponseTypeCode(final java.lang.String argResponseTypeCode) {
+	public synchronized ResponseOpal setResponseTypeCode(final java.lang.String argResponseTypeCode) {
 		tryMutate();
 		if (argResponseTypeCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myResponseTypeCode on " + this + " to null.");
@@ -151,18 +151,18 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myResponseTypeCode on " + this + " is 32.", argResponseTypeCode.length(), 32);
 		}
 		getNewValues()[3] = argResponseTypeCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setReplacementForPlacementId(final java.lang.Integer argReplacementForPlacementId) {
+	public synchronized ResponseOpal setReplacementForPlacementId(final java.lang.Integer argReplacementForPlacementId) {
 		tryMutate();
 		getNewValues()[4] = argReplacementForPlacementId;
-		return;
+		return this;
 	}
 
-	public void setReplacementForPlacementId(final int argReplacementForPlacementId) {
+	public ResponseOpal setReplacementForPlacementId(final int argReplacementForPlacementId) {
 		setReplacementForPlacementId(java.lang.Integer.valueOf(argReplacementForPlacementId));
-		return;
+		return this;
 	}
 
 	@Override
@@ -238,13 +238,6 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewPlacementOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
 		lclUO = myNewResponseTypeOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
@@ -253,6 +246,13 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewReplacementForPlacementOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewPlacementOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -271,13 +271,6 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldPlacementOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
 		lclUO = myOldResponseTypeOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
@@ -286,6 +279,13 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			lclTAs.add(lclUO);
 		}
 		lclUO = myOldReplacementForPlacementOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldPlacementOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -352,10 +352,10 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return lclPerformanceOpal;
 	}
 
-	public synchronized void setPerformanceOpal(PerformanceOpal argPerformanceOpal) {
+	public synchronized ResponseOpal setPerformanceOpal(PerformanceOpal argPerformanceOpal) {
 		tryMutate();
 		PerformanceOpal lclPerformanceOpal = getPerformanceOpal();
-		if (lclPerformanceOpal == argPerformanceOpal) { return; }
+		if (lclPerformanceOpal == argPerformanceOpal) { return this; }
 		if (lclPerformanceOpal != null) {
 			lclPerformanceOpal.removeResponseOpalInternal(this);
 		}
@@ -363,7 +363,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (argPerformanceOpal != null) {
 			argPerformanceOpal.addResponseOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setPerformanceOpalInternal(PerformanceOpal argPerformanceOpal) {
@@ -397,10 +397,10 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return lclPlacementOpal;
 	}
 
-	public synchronized void setPlacementOpal(PlacementOpal argPlacementOpal) {
+	public synchronized ResponseOpal setPlacementOpal(PlacementOpal argPlacementOpal) {
 		tryMutate();
 		PlacementOpal lclPlacementOpal = getPlacementOpal();
-		if (lclPlacementOpal == argPlacementOpal) { return; }
+		if (lclPlacementOpal == argPlacementOpal) { return this; }
 		if (lclPlacementOpal != null) {
 			lclPlacementOpal.removeResponseOpalInternal(this);
 		}
@@ -408,7 +408,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (argPlacementOpal != null) {
 			argPlacementOpal.addResponseOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setPlacementOpalInternal(PlacementOpal argPlacementOpal) {
@@ -442,10 +442,10 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return lclPlacementOpal;
 	}
 
-	public synchronized void setReplacementForPlacementOpal(PlacementOpal argPlacementOpal) {
+	public synchronized ResponseOpal setReplacementForPlacementOpal(PlacementOpal argPlacementOpal) {
 		tryMutate();
 		PlacementOpal lclPlacementOpal = getReplacementForPlacementOpal();
-		if (lclPlacementOpal == argPlacementOpal) { return; }
+		if (lclPlacementOpal == argPlacementOpal) { return this; }
 		if (lclPlacementOpal != null) {
 			lclPlacementOpal.removeReplacementForResponseOpalInternal(this);
 		}
@@ -453,7 +453,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (argPlacementOpal != null) {
 			argPlacementOpal.addReplacementForResponseOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setReplacementForPlacementOpalInternal(PlacementOpal argPlacementOpal) {
@@ -487,10 +487,10 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return lclResponseTypeOpal;
 	}
 
-	public synchronized void setResponseTypeOpal(ResponseTypeOpal argResponseTypeOpal) {
+	public synchronized ResponseOpal setResponseTypeOpal(ResponseTypeOpal argResponseTypeOpal) {
 		tryMutate();
 		myNewResponseTypeOpal = argResponseTypeOpal;
-		return;
+		return this;
 	}
 
 	@Override

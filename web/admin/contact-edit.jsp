@@ -131,7 +131,7 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 				}
 			%></label>
 		</div>
-		<div class="small-2 columns">
+		<div class="small-1 columns">
 			<label>
 				Active?
 				<%= HTMLUtility.switchWidget(lclAOF, "Active") %>
@@ -142,6 +142,12 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 				<span class="show-for-small-only">Admin?</span>
 				<span class="show-for-medium-up">Administrator?</span>
 				<%= HTMLUtility.switchWidget(lclAOF, "Administrator") %>
+			</label>
+		</div>
+		<div class="small-1 columns">
+			<label>
+				Writer?
+				<%= HTMLUtility.switchWidget(lclAOF, "Writer") %>
 			</label>
 		</div>
 	</div>

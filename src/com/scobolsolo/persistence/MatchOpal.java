@@ -101,68 +101,68 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		return (java.lang.Integer) getReadValueSet()[4];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized MatchOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public MatchOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setRoundId(final java.lang.Integer argRoundId) {
+	public synchronized MatchOpal setRoundId(final java.lang.Integer argRoundId) {
 		tryMutate();
 		if (argRoundId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myRoundId on " + this + " to null.");
 		}
 		getNewValues()[1] = argRoundId;
-		return;
+		return this;
 	}
 
-	public void setRoundId(final int argRoundId) {
+	public MatchOpal setRoundId(final int argRoundId) {
 		setRoundId(java.lang.Integer.valueOf(argRoundId));
-		return;
+		return this;
 	}
 
-	public synchronized void setRoomId(final java.lang.Integer argRoomId) {
+	public synchronized MatchOpal setRoomId(final java.lang.Integer argRoomId) {
 		tryMutate();
 		if (argRoomId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myRoomId on " + this + " to null.");
 		}
 		getNewValues()[2] = argRoomId;
-		return;
+		return this;
 	}
 
-	public void setRoomId(final int argRoomId) {
+	public MatchOpal setRoomId(final int argRoomId) {
 		setRoomId(java.lang.Integer.valueOf(argRoomId));
-		return;
+		return this;
 	}
 
-	public synchronized void setWinningCardId(final java.lang.Integer argWinningCardId) {
+	public synchronized MatchOpal setWinningCardId(final java.lang.Integer argWinningCardId) {
 		tryMutate();
 		getNewValues()[3] = argWinningCardId;
-		return;
+		return this;
 	}
 
-	public void setWinningCardId(final int argWinningCardId) {
+	public MatchOpal setWinningCardId(final int argWinningCardId) {
 		setWinningCardId(java.lang.Integer.valueOf(argWinningCardId));
-		return;
+		return this;
 	}
 
-	public synchronized void setLosingCardId(final java.lang.Integer argLosingCardId) {
+	public synchronized MatchOpal setLosingCardId(final java.lang.Integer argLosingCardId) {
 		tryMutate();
 		getNewValues()[4] = argLosingCardId;
-		return;
+		return this;
 	}
 
-	public void setLosingCardId(final int argLosingCardId) {
+	public MatchOpal setLosingCardId(final int argLosingCardId) {
 		setLosingCardId(java.lang.Integer.valueOf(argLosingCardId));
-		return;
+		return this;
 	}
 
 	@Override
@@ -244,14 +244,14 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewWinningCardOpal;
+		lclUO = myNewLosingCardOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewLosingCardOpal;
+		lclUO = myNewWinningCardOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -277,14 +277,14 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldWinningCardOpal;
+		lclUO = myOldLosingCardOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldLosingCardOpal;
+		lclUO = myOldWinningCardOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -358,10 +358,10 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		return lclCardOpal;
 	}
 
-	public synchronized void setLosingCardOpal(CardOpal argCardOpal) {
+	public synchronized MatchOpal setLosingCardOpal(CardOpal argCardOpal) {
 		tryMutate();
 		CardOpal lclCardOpal = getLosingCardOpal();
-		if (lclCardOpal == argCardOpal) { return; }
+		if (lclCardOpal == argCardOpal) { return this; }
 		if (lclCardOpal != null) {
 			lclCardOpal.removeLosingMatchOpalInternal(this);
 		}
@@ -369,7 +369,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		if (argCardOpal != null) {
 			argCardOpal.addLosingMatchOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setLosingCardOpalInternal(CardOpal argCardOpal) {
@@ -403,10 +403,10 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		return lclRoomOpal;
 	}
 
-	public synchronized void setRoomOpal(RoomOpal argRoomOpal) {
+	public synchronized MatchOpal setRoomOpal(RoomOpal argRoomOpal) {
 		tryMutate();
 		RoomOpal lclRoomOpal = getRoomOpal();
-		if (lclRoomOpal == argRoomOpal) { return; }
+		if (lclRoomOpal == argRoomOpal) { return this; }
 		if (lclRoomOpal != null) {
 			lclRoomOpal.removeMatchOpalInternal(this);
 		}
@@ -414,7 +414,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		if (argRoomOpal != null) {
 			argRoomOpal.addMatchOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setRoomOpalInternal(RoomOpal argRoomOpal) {
@@ -448,10 +448,10 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		return lclRoundOpal;
 	}
 
-	public synchronized void setRoundOpal(RoundOpal argRoundOpal) {
+	public synchronized MatchOpal setRoundOpal(RoundOpal argRoundOpal) {
 		tryMutate();
 		RoundOpal lclRoundOpal = getRoundOpal();
-		if (lclRoundOpal == argRoundOpal) { return; }
+		if (lclRoundOpal == argRoundOpal) { return this; }
 		if (lclRoundOpal != null) {
 			lclRoundOpal.removeMatchOpalInternal(this);
 		}
@@ -459,7 +459,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		if (argRoundOpal != null) {
 			argRoundOpal.addMatchOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setRoundOpalInternal(RoundOpal argRoundOpal) {
@@ -493,10 +493,10 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		return lclCardOpal;
 	}
 
-	public synchronized void setWinningCardOpal(CardOpal argCardOpal) {
+	public synchronized MatchOpal setWinningCardOpal(CardOpal argCardOpal) {
 		tryMutate();
 		CardOpal lclCardOpal = getWinningCardOpal();
-		if (lclCardOpal == argCardOpal) { return; }
+		if (lclCardOpal == argCardOpal) { return this; }
 		if (lclCardOpal != null) {
 			lclCardOpal.removeWinningMatchOpalInternal(this);
 		}
@@ -504,7 +504,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		if (argCardOpal != null) {
 			argCardOpal.addWinningMatchOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setWinningCardOpalInternal(CardOpal argCardOpal) {
@@ -538,13 +538,13 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		return lclGameOpal;
 	}
 
-	public synchronized void setGameOpal(GameOpal argGameOpal) {
+	public synchronized MatchOpal setGameOpal(GameOpal argGameOpal) {
 		tryMutate();
 		myNewGameOpal = argGameOpal;
 		if (argGameOpal != null) {
 			argGameOpal.setMatchOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	public synchronized void setGameOpalInternal(GameOpal argGameOpal) {

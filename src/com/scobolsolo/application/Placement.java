@@ -59,4 +59,8 @@ public interface Placement extends PlacementUserFacing {
 	default String getDescription() {
 		return "#" + getSequence() + " in packet " + getPacket().getShortName() + " (" + getQuestion().getDescription() + "; ID " + getId() + ")";
 	}
+	
+	default Tournament getTournament() {
+		return getPacket().getTournament();
+	}
 }

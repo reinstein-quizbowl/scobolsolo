@@ -46,19 +46,21 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Contact setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Contact setId(int argId);
 
 	/**
 	 * object accessor for the {@code EmailAddress}
@@ -89,12 +91,13 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code EmailAddress} to the value of {@code argEmailAddress}
 	 *
 	 * @param argEmailAddress the new value of {@code EmailAddress}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argEmailAddress} is longer than 256 characters
 	 * <p>The database column {@code email_address} is limited to 256 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setEmailAddress(java.lang.String argEmailAddress);
+	public com.scobolsolo.application.Contact setEmailAddress(java.lang.String argEmailAddress);
 
 	/**
 	 * object accessor for the {@code AdvancePhone}
@@ -125,12 +128,13 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code AdvancePhone} to the value of {@code argAdvancePhone}
 	 *
 	 * @param argAdvancePhone the new value of {@code AdvancePhone}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argAdvancePhone} is longer than 32 characters
 	 * <p>The database column {@code advance_phone} is limited to 32 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setAdvancePhone(java.lang.String argAdvancePhone);
+	public com.scobolsolo.application.Contact setAdvancePhone(java.lang.String argAdvancePhone);
 
 	/**
 	 * object accessor for the {@code DayOfPhone}
@@ -161,12 +165,13 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code DayOfPhone} to the value of {@code argDayOfPhone}
 	 *
 	 * @param argDayOfPhone the new value of {@code DayOfPhone}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argDayOfPhone} is longer than 32 characters
 	 * <p>The database column {@code day_of_phone} is limited to 32 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setDayOfPhone(java.lang.String argDayOfPhone);
+	public com.scobolsolo.application.Contact setDayOfPhone(java.lang.String argDayOfPhone);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -197,12 +202,13 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.Contact setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -217,6 +223,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -226,7 +233,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.Contact setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code SortBy}
@@ -241,6 +248,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code SortBy} to the value of {@code argSortBy}
 	 *
 	 * @param argSortBy the new value of {@code SortBy}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sort_by} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSortBy is null
@@ -250,7 +258,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setSortBy(java.lang.String argSortBy);
+	public com.scobolsolo.application.Contact setSortBy(java.lang.String argSortBy);
 
 	/**
 	 * object accessor for the {@code Active}
@@ -290,19 +298,21 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code Active} to the value of {@code argActive}
 	 *
 	 * @param argActive the new value of {@code Active}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code active} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argActive is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setActive(java.lang.Boolean argActive);
+	public com.scobolsolo.application.Contact setActive(java.lang.Boolean argActive);
 
 	/**
 	 * sets the {@code Active} to the value of {@code argActive}
 	 *
 	 * @param argActive the new value of {@code Active}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setActive(boolean argActive);
+	public com.scobolsolo.application.Contact setActive(boolean argActive);
 
 	/**
 	 * object accessor for the {@code Address}
@@ -333,15 +343,16 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * sets the {@code Address} to the value of {@code argAddress}
 	 *
 	 * @param argAddress the new value of {@code Address}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argAddress} is longer than 2147483647 characters
 	 * <p>The database column {@code address} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setAddress(java.lang.String argAddress);
+	public com.scobolsolo.application.Contact setAddress(java.lang.String argAddress);
 
 	public com.scobolsolo.application.Account getAccount();
-	public void setAccount(com.scobolsolo.application.Account argAccount);
+	public com.scobolsolo.application.Contact setAccount(com.scobolsolo.application.Account argAccount);
 
 	public int getTournamentDirectorTournamentCount();
 	public java.util.Iterator<com.scobolsolo.application.Tournament> createTournamentDirectorTournamentIterator();

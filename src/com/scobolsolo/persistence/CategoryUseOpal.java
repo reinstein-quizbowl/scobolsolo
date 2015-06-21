@@ -73,7 +73,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		return (java.lang.String) getReadValueSet()[1];
 	}
 
-	public synchronized void setCategoryCode(final java.lang.String argCategoryCode) {
+	public synchronized CategoryUseOpal setCategoryCode(final java.lang.String argCategoryCode) {
 		tryMutate();
 		if (argCategoryCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCategoryCode on " + this + " to null.");
@@ -82,10 +82,10 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myCategoryCode on " + this + " is 32.", argCategoryCode.length(), 32);
 		}
 		getNewValues()[0] = argCategoryCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setTournamentCode(final java.lang.String argTournamentCode) {
+	public synchronized CategoryUseOpal setTournamentCode(final java.lang.String argTournamentCode) {
 		tryMutate();
 		if (argTournamentCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
@@ -94,7 +94,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[1] = argTournamentCode;
-		return;
+		return this;
 	}
 
 	@Override
@@ -232,10 +232,10 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		return lclCategoryOpal;
 	}
 
-	public synchronized void setCategoryOpal(CategoryOpal argCategoryOpal) {
+	public synchronized CategoryUseOpal setCategoryOpal(CategoryOpal argCategoryOpal) {
 		tryMutate();
 		CategoryOpal lclCategoryOpal = getCategoryOpal();
-		if (lclCategoryOpal == argCategoryOpal) { return; }
+		if (lclCategoryOpal == argCategoryOpal) { return this; }
 		if (lclCategoryOpal != null) {
 			lclCategoryOpal.removeCategoryUseOpalInternal(this);
 		}
@@ -243,7 +243,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		if (argCategoryOpal != null) {
 			argCategoryOpal.addCategoryUseOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setCategoryOpalInternal(CategoryOpal argCategoryOpal) {
@@ -277,10 +277,10 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		return lclTournamentOpal;
 	}
 
-	public synchronized void setTournamentOpal(TournamentOpal argTournamentOpal) {
+	public synchronized CategoryUseOpal setTournamentOpal(TournamentOpal argTournamentOpal) {
 		tryMutate();
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
-		if (lclTournamentOpal == argTournamentOpal) { return; }
+		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
 			lclTournamentOpal.removeCategoryUseOpalInternal(this);
 		}
@@ -288,7 +288,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		if (argTournamentOpal != null) {
 			argTournamentOpal.addCategoryUseOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setTournamentOpalInternal(TournamentOpal argTournamentOpal) {

@@ -120,21 +120,21 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		return (java.lang.Boolean) getReadValueSet()[6];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized RoomOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public RoomOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized RoomOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -143,10 +143,10 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized RoomOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -155,16 +155,16 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized RoomOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[3] = argNote;
-		return;
+		return this;
 	}
 
-	public synchronized void setTournamentCode(final java.lang.String argTournamentCode) {
+	public synchronized RoomOpal setTournamentCode(final java.lang.String argTournamentCode) {
 		tryMutate();
 		if (argTournamentCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
@@ -173,35 +173,35 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[4] = argTournamentCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized RoomOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[5] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public RoomOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setGameRoom(final java.lang.Boolean argGameRoom) {
+	public synchronized RoomOpal setGameRoom(final java.lang.Boolean argGameRoom) {
 		tryMutate();
 		if (argGameRoom == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myGameRoom on " + this + " to null.");
 		}
 		getNewValues()[6] = argGameRoom;
-		return;
+		return this;
 	}
 
-	public void setGameRoom(final boolean argGameRoom) {
+	public RoomOpal setGameRoom(final boolean argGameRoom) {
 		setGameRoom(argGameRoom ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -418,10 +418,10 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		return lclTournamentOpal;
 	}
 
-	public synchronized void setTournamentOpal(TournamentOpal argTournamentOpal) {
+	public synchronized RoomOpal setTournamentOpal(TournamentOpal argTournamentOpal) {
 		tryMutate();
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
-		if (lclTournamentOpal == argTournamentOpal) { return; }
+		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
 			lclTournamentOpal.removeRoomOpalInternal(this);
 		}
@@ -429,7 +429,7 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		if (argTournamentOpal != null) {
 			argTournamentOpal.addRoomOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setTournamentOpalInternal(TournamentOpal argTournamentOpal) {

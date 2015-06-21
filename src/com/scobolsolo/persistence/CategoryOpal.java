@@ -96,7 +96,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return (java.lang.String) getReadValueSet()[4];
 	}
 
-	public synchronized void setCode(final java.lang.String argCode) {
+	public synchronized CategoryOpal setCode(final java.lang.String argCode) {
 		tryMutate();
 		if (argCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
@@ -105,10 +105,10 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized CategoryOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -117,10 +117,10 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized CategoryOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -129,24 +129,24 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized CategoryOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[3] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public CategoryOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setCategoryGroupCode(final java.lang.String argCategoryGroupCode) {
+	public synchronized CategoryOpal setCategoryGroupCode(final java.lang.String argCategoryGroupCode) {
 		tryMutate();
 		if (argCategoryGroupCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCategoryGroupCode on " + this + " to null.");
@@ -155,7 +155,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myCategoryGroupCode on " + this + " is 32.", argCategoryGroupCode.length(), 32);
 		}
 		getNewValues()[4] = argCategoryGroupCode;
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -330,10 +330,10 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return lclCategoryGroupOpal;
 	}
 
-	public synchronized void setCategoryGroupOpal(CategoryGroupOpal argCategoryGroupOpal) {
+	public synchronized CategoryOpal setCategoryGroupOpal(CategoryGroupOpal argCategoryGroupOpal) {
 		tryMutate();
 		CategoryGroupOpal lclCategoryGroupOpal = getCategoryGroupOpal();
-		if (lclCategoryGroupOpal == argCategoryGroupOpal) { return; }
+		if (lclCategoryGroupOpal == argCategoryGroupOpal) { return this; }
 		if (lclCategoryGroupOpal != null) {
 			lclCategoryGroupOpal.removeCategoryOpalInternal(this);
 		}
@@ -341,7 +341,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		if (argCategoryGroupOpal != null) {
 			argCategoryGroupOpal.addCategoryOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setCategoryGroupOpalInternal(CategoryGroupOpal argCategoryGroupOpal) {

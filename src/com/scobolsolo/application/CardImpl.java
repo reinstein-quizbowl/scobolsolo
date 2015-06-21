@@ -37,15 +37,15 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public CardImpl setId(java.lang.Integer argId) {
 		getCardOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public CardImpl setId(int argId) {
 		getCardOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -54,9 +54,9 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public CardImpl setName(java.lang.String argName) {
 		getCardOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -65,9 +65,9 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public CardImpl setShortName(java.lang.String argShortName) {
 		getCardOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -76,15 +76,15 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public CardImpl setSequence(java.lang.Integer argSequence) {
 		getCardOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public CardImpl setSequence(int argSequence) {
 		getCardOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -93,9 +93,9 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setFinalMessage(java.lang.String argFinalMessage) {
+	public CardImpl setFinalMessage(java.lang.String argFinalMessage) {
 		getCardOpal().setFinalMessage(argFinalMessage);
-		return;
+		return this;
 	}
 
 	@Override
@@ -104,15 +104,15 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setPhaseId(java.lang.Integer argPhaseId) {
+	public CardImpl setPhaseId(java.lang.Integer argPhaseId) {
 		getCardOpal().setPhaseId(argPhaseId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPhaseId(int argPhaseId) {
+	public CardImpl setPhaseId(int argPhaseId) {
 		getCardOpal().setPhaseId(argPhaseId);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -127,9 +127,9 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setPhase(Phase argPhase) {
+	public Card setPhase(Phase argPhase) {
 		getCardOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
-		return;
+		return this;
 	}
 
 	@Override
@@ -139,9 +139,9 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void setInitialPlayer(Player argPlayer) {
+	public Card setInitialPlayer(Player argPlayer) {
 		getCardOpal().setInitialPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

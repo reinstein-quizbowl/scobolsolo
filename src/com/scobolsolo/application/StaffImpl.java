@@ -33,15 +33,15 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public StaffImpl setId(java.lang.Integer argId) {
 		getStaffOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public StaffImpl setId(int argId) {
 		getStaffOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -50,15 +50,15 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setContactId(java.lang.Integer argContactId) {
+	public StaffImpl setContactId(java.lang.Integer argContactId) {
 		getStaffOpal().setContactId(argContactId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setContactId(int argContactId) {
+	public StaffImpl setContactId(int argContactId) {
 		getStaffOpal().setContactId(argContactId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -67,9 +67,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setTournamentCode(java.lang.String argTournamentCode) {
+	public StaffImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getStaffOpal().setTournamentCode(argTournamentCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -78,15 +78,15 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
+	public StaffImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getStaffOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSchoolRegistrationId(int argSchoolRegistrationId) {
+	public StaffImpl setSchoolRegistrationId(int argSchoolRegistrationId) {
 		getStaffOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -95,9 +95,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public StaffImpl setNote(java.lang.String argNote) {
 		getStaffOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -106,15 +106,15 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setBringingLaptop(java.lang.Boolean argBringingLaptop) {
+	public StaffImpl setBringingLaptop(java.lang.Boolean argBringingLaptop) {
 		getStaffOpal().setBringingLaptop(argBringingLaptop);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setBringingLaptop(boolean argBringingLaptop) {
+	public StaffImpl setBringingLaptop(boolean argBringingLaptop) {
 		getStaffOpal().setBringingLaptop(argBringingLaptop);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -129,9 +129,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setContact(Contact argContact) {
+	public Staff setContact(Contact argContact) {
 		getStaffOpal().setContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the SchoolRegistration object created from staff through reference staff_school_registration_id_fkey */
@@ -143,9 +143,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public Staff setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getStaffOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Tournament object created from staff through reference staff_tournament_code_fkey */
@@ -157,9 +157,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void setTournament(Tournament argTournament) {
+	public Staff setTournament(Tournament argTournament) {
 		getStaffOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

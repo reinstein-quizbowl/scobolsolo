@@ -36,15 +36,15 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public RoomImpl setId(java.lang.Integer argId) {
 		getRoomOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public RoomImpl setId(int argId) {
 		getRoomOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -53,9 +53,9 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public RoomImpl setName(java.lang.String argName) {
 		getRoomOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -64,9 +64,9 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public RoomImpl setShortName(java.lang.String argShortName) {
 		getRoomOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -75,9 +75,9 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public RoomImpl setNote(java.lang.String argNote) {
 		getRoomOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -86,9 +86,9 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setTournamentCode(java.lang.String argTournamentCode) {
+	public RoomImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getRoomOpal().setTournamentCode(argTournamentCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -97,15 +97,15 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public RoomImpl setSequence(java.lang.Integer argSequence) {
 		getRoomOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public RoomImpl setSequence(int argSequence) {
 		getRoomOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -114,15 +114,15 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setGameRoom(java.lang.Boolean argGameRoom) {
+	public RoomImpl setGameRoom(java.lang.Boolean argGameRoom) {
 		getRoomOpal().setGameRoom(argGameRoom);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setGameRoom(boolean argGameRoom) {
+	public RoomImpl setGameRoom(boolean argGameRoom) {
 		getRoomOpal().setGameRoom(argGameRoom);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -137,9 +137,9 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void setTournament(Tournament argTournament) {
+	public Room setTournament(Tournament argTournament) {
 		getRoomOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

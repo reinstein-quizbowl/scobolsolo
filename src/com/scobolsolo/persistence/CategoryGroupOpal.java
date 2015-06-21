@@ -82,7 +82,7 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 		return (java.lang.Integer) getReadValueSet()[3];
 	}
 
-	public synchronized void setCode(final java.lang.String argCode) {
+	public synchronized CategoryGroupOpal setCode(final java.lang.String argCode) {
 		tryMutate();
 		if (argCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
@@ -91,10 +91,10 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized CategoryGroupOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -103,10 +103,10 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized CategoryGroupOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -115,21 +115,21 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized CategoryGroupOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[3] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public CategoryGroupOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;

@@ -46,19 +46,21 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.StaffAssignment setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.StaffAssignment setId(int argId);
 
 	/**
 	 * object accessor for the {@code RoomId}
@@ -89,19 +91,21 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 * sets the {@code RoomId} to the value of {@code argRoomId}
 	 *
 	 * @param argRoomId the new value of {@code RoomId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code room_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argRoomId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setRoomId(java.lang.Integer argRoomId);
+	public com.scobolsolo.application.StaffAssignment setRoomId(java.lang.Integer argRoomId);
 
 	/**
 	 * sets the {@code RoomId} to the value of {@code argRoomId}
 	 *
 	 * @param argRoomId the new value of {@code RoomId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setRoomId(int argRoomId);
+	public com.scobolsolo.application.StaffAssignment setRoomId(int argRoomId);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -132,12 +136,13 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.StaffAssignment setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code StaffId}
@@ -168,19 +173,21 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 * sets the {@code StaffId} to the value of {@code argStaffId}
 	 *
 	 * @param argStaffId the new value of {@code StaffId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code staff_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argStaffId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setStaffId(java.lang.Integer argStaffId);
+	public com.scobolsolo.application.StaffAssignment setStaffId(java.lang.Integer argStaffId);
 
 	/**
 	 * sets the {@code StaffId} to the value of {@code argStaffId}
 	 *
 	 * @param argStaffId the new value of {@code StaffId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setStaffId(int argStaffId);
+	public com.scobolsolo.application.StaffAssignment setStaffId(int argStaffId);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Staff}
@@ -188,7 +195,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Staff getStaff();
-	public void setStaff(com.scobolsolo.application.Staff argStaff);
+	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
@@ -196,7 +203,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Room getRoom();
-	public void setRoom(com.scobolsolo.application.Room argRoom);
+	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom);
 
 	public com.scobolsolo.application.StaffAssignment copy();
 

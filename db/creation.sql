@@ -34,7 +34,8 @@ CREATE TABLE Account (
 	username VARCHAR(64) UNIQUE NOT NULL,
 	password_hash CHAR(60) NOT NULL DEFAULT '$2a$16$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 	administrator BOOLEAN NOT NULL DEFAULT FALSE,
-	active BOOLEAN NOT NULL DEFAULT TRUE
+	writer BOOLEAN NOT NULL DEFAULT FALSE,
+	active BOOLEAN NOT NULL DEFAULT TRUE,
 );
 
 CREATE TABLE School (
@@ -245,9 +246,34 @@ CREATE TABLE Question (
 	writer_account_id INTEGER REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
 	text TEXT,
 	answer TEXT,
+	note TEXT,
 	UNIQUE(tournament_code, description)
 );
 ALTER SEQUENCE question_id_seq RESTART WITH 1000;
+
+CREATE TABLE Diff (
+	id SERIAL PRIMARY KEY,
+	question_id INTEGER NOT NULL REFERENCES Question ON UPDATE CASCADE ON DELETE RESTRICT,
+	revision_number INTEGER NOT NULL,
+	editor_account_id INTEGER NOT NULL REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
+	text TEXT NOT NULL,
+	answer TEXT NOT NULL,
+	note TEXT, -- Question.note
+	remark TEXT, -- a remark specific to this editing
+	edit_distance INTEGER NOT NULL,
+	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	UNIQUE(question_id, revision_number)
+);
+ALTER SEQUENCE diff_id_seq RESTART WITH 1000;
+
+CREATE TABLE Approval (
+	id SERIAL PRIMARY KEY,
+	diff_id INTEGER NOT NULL REFERENCES Diff ON UPDATE CASCADE ON DELETE RESTRICT,
+	approver_account_id INTEGER NOT NULL REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
+	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	UNIQUE(diff_id, approver_account_id)
+);
+ALTER SEQUENCE approval_id_seq RESTART WITH 1000;
 
 CREATE TABLE Packet (
 	id SERIAL PRIMARY KEY,
@@ -313,6 +339,10 @@ UNION ALL
 SELECT A.username, 'LOGIN' AS role
 FROM Account A
 WHERE A.active = true
+UNION ALL
+SELECT A.username, 'WRITER' AS role
+FROM Account A
+WHERE A.writer = true
 UNION ALL
 SELECT A.username, T.web_xml_role_code AS role
 FROM Account A

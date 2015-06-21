@@ -46,19 +46,21 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.RoundGroup setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.RoundGroup setId(int argId);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -73,6 +75,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -82,7 +85,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.RoundGroup setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -97,6 +100,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -106,7 +110,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.RoundGroup setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -137,19 +141,21 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.RoundGroup setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.RoundGroup setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code PhaseId}
@@ -180,19 +186,21 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 * sets the {@code PhaseId} to the value of {@code argPhaseId}
 	 *
 	 * @param argPhaseId the new value of {@code PhaseId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code phase_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPhaseId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setPhaseId(java.lang.Integer argPhaseId);
+	public com.scobolsolo.application.RoundGroup setPhaseId(java.lang.Integer argPhaseId);
 
 	/**
 	 * sets the {@code PhaseId} to the value of {@code argPhaseId}
 	 *
 	 * @param argPhaseId the new value of {@code PhaseId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setPhaseId(int argPhaseId);
+	public com.scobolsolo.application.RoundGroup setPhaseId(int argPhaseId);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Phase}
@@ -200,7 +208,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Phase getPhase();
-	public void setPhase(com.scobolsolo.application.Phase argPhase);
+	public com.scobolsolo.application.RoundGroup setPhase(com.scobolsolo.application.Phase argPhase);
 
 	public int getRoundCount();
 	public java.util.Iterator<com.scobolsolo.application.Round> createRoundIterator();
@@ -297,7 +305,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.RoundGroup argFirst, com.scobolsolo.application.RoundGroup argSecond) {
-			int lclResult = com.scobolsolo.application.Phase.SequenceComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
+			int lclResult = com.scobolsolo.application.Phase.StandardComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
 			if (lclResult != 0) {
 				return lclResult;
 			}

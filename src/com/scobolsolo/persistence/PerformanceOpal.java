@@ -82,46 +82,46 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		return (java.lang.Integer) getReadValueSet()[2];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized PerformanceOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public PerformanceOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setGameId(final java.lang.Integer argGameId) {
+	public synchronized PerformanceOpal setGameId(final java.lang.Integer argGameId) {
 		tryMutate();
 		if (argGameId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myGameId on " + this + " to null.");
 		}
 		getNewValues()[1] = argGameId;
-		return;
+		return this;
 	}
 
-	public void setGameId(final int argGameId) {
+	public PerformanceOpal setGameId(final int argGameId) {
 		setGameId(java.lang.Integer.valueOf(argGameId));
-		return;
+		return this;
 	}
 
-	public synchronized void setPlayerId(final java.lang.Integer argPlayerId) {
+	public synchronized PerformanceOpal setPlayerId(final java.lang.Integer argPlayerId) {
 		tryMutate();
 		if (argPlayerId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPlayerId on " + this + " to null.");
 		}
 		getNewValues()[2] = argPlayerId;
-		return;
+		return this;
 	}
 
-	public void setPlayerId(final int argPlayerId) {
+	public PerformanceOpal setPlayerId(final int argPlayerId) {
 		setPlayerId(java.lang.Integer.valueOf(argPlayerId));
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -205,12 +205,12 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewGameOpal;
+		lclUO = myNewPlayerOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewPlayerOpal;
+		lclUO = myNewGameOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -224,12 +224,12 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldGameOpal;
+		lclUO = myOldPlayerOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldPlayerOpal;
+		lclUO = myOldGameOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -292,10 +292,10 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		return lclGameOpal;
 	}
 
-	public synchronized void setGameOpal(GameOpal argGameOpal) {
+	public synchronized PerformanceOpal setGameOpal(GameOpal argGameOpal) {
 		tryMutate();
 		GameOpal lclGameOpal = getGameOpal();
-		if (lclGameOpal == argGameOpal) { return; }
+		if (lclGameOpal == argGameOpal) { return this; }
 		if (lclGameOpal != null) {
 			lclGameOpal.removePerformanceOpalInternal(this);
 		}
@@ -303,7 +303,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		if (argGameOpal != null) {
 			argGameOpal.addPerformanceOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setGameOpalInternal(GameOpal argGameOpal) {
@@ -337,10 +337,10 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		return lclPlayerOpal;
 	}
 
-	public synchronized void setPlayerOpal(PlayerOpal argPlayerOpal) {
+	public synchronized PerformanceOpal setPlayerOpal(PlayerOpal argPlayerOpal) {
 		tryMutate();
 		PlayerOpal lclPlayerOpal = getPlayerOpal();
-		if (lclPlayerOpal == argPlayerOpal) { return; }
+		if (lclPlayerOpal == argPlayerOpal) { return this; }
 		if (lclPlayerOpal != null) {
 			lclPlayerOpal.removePerformanceOpalInternal(this);
 		}
@@ -348,7 +348,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		if (argPlayerOpal != null) {
 			argPlayerOpal.addPerformanceOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setPlayerOpalInternal(PlayerOpal argPlayerOpal) {

@@ -140,21 +140,21 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		return (java.lang.Boolean) getReadValueSet()[8];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized PacketOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public PacketOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized PacketOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -163,10 +163,10 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized PacketOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -175,27 +175,27 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setRoundId(final java.lang.Integer argRoundId) {
+	public synchronized PacketOpal setRoundId(final java.lang.Integer argRoundId) {
 		tryMutate();
 		getNewValues()[3] = argRoundId;
-		return;
+		return this;
 	}
 
-	public void setRoundId(final int argRoundId) {
+	public PacketOpal setRoundId(final int argRoundId) {
 		setRoundId(java.lang.Integer.valueOf(argRoundId));
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized PacketOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[4] = argNote;
-		return;
+		return this;
 	}
 
-	public synchronized void setTournamentCode(final java.lang.String argTournamentCode) {
+	public synchronized PacketOpal setTournamentCode(final java.lang.String argTournamentCode) {
 		tryMutate();
 		if (argTournamentCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
@@ -204,46 +204,46 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[5] = argTournamentCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized PacketOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[6] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public PacketOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setReplacementPacketId(final java.lang.Integer argReplacementPacketId) {
+	public synchronized PacketOpal setReplacementPacketId(final java.lang.Integer argReplacementPacketId) {
 		tryMutate();
 		getNewValues()[7] = argReplacementPacketId;
-		return;
+		return this;
 	}
 
-	public void setReplacementPacketId(final int argReplacementPacketId) {
+	public PacketOpal setReplacementPacketId(final int argReplacementPacketId) {
 		setReplacementPacketId(java.lang.Integer.valueOf(argReplacementPacketId));
-		return;
+		return this;
 	}
 
-	public synchronized void setQuestionsPublic(final java.lang.Boolean argQuestionsPublic) {
+	public synchronized PacketOpal setQuestionsPublic(final java.lang.Boolean argQuestionsPublic) {
 		tryMutate();
 		if (argQuestionsPublic == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myQuestionsPublic on " + this + " to null.");
 		}
 		getNewValues()[8] = argQuestionsPublic;
-		return;
+		return this;
 	}
 
-	public void setQuestionsPublic(final boolean argQuestionsPublic) {
+	public PacketOpal setQuestionsPublic(final boolean argQuestionsPublic) {
 		setQuestionsPublic(argQuestionsPublic ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -361,8 +361,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewReplacementPacketOpal;
-		if ((lclUO != null) && (lclUO != this) && lclUO.isNew()) {
+		lclUO = myNewRoundOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
@@ -373,8 +373,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewRoundOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
+		lclUO = myNewReplacementPacketOpal;
+		if ((lclUO != null) && (lclUO != this) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -387,8 +387,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldReplacementPacketOpal;
-		if ((lclUO != null) && (lclUO != this) && lclUO.isDeleted()) {
+		lclUO = myOldRoundOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
@@ -399,8 +399,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldRoundOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		lclUO = myOldReplacementPacketOpal;
+		if ((lclUO != null) && (lclUO != this) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -474,10 +474,10 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		return lclPacketOpal;
 	}
 
-	public synchronized void setReplacementPacketOpal(PacketOpal argPacketOpal) {
+	public synchronized PacketOpal setReplacementPacketOpal(PacketOpal argPacketOpal) {
 		tryMutate();
 		PacketOpal lclPacketOpal = getReplacementPacketOpal();
-		if (lclPacketOpal == argPacketOpal) { return; }
+		if (lclPacketOpal == argPacketOpal) { return this; }
 		if (lclPacketOpal != null) {
 			lclPacketOpal.removeReplacementPacketOpalInternal(this);
 		}
@@ -485,7 +485,7 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		if (argPacketOpal != null) {
 			argPacketOpal.addReplacementPacketOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setReplacementPacketOpalInternal(PacketOpal argPacketOpal) {
@@ -519,10 +519,10 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		return lclRoundOpal;
 	}
 
-	public synchronized void setRoundOpal(RoundOpal argRoundOpal) {
+	public synchronized PacketOpal setRoundOpal(RoundOpal argRoundOpal) {
 		tryMutate();
 		RoundOpal lclRoundOpal = getRoundOpal();
-		if (lclRoundOpal == argRoundOpal) { return; }
+		if (lclRoundOpal == argRoundOpal) { return this; }
 		if (lclRoundOpal != null) {
 			lclRoundOpal.removePacketOpalInternal(this);
 		}
@@ -530,7 +530,7 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		if (argRoundOpal != null) {
 			argRoundOpal.addPacketOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setRoundOpalInternal(RoundOpal argRoundOpal) {
@@ -564,10 +564,10 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		return lclTournamentOpal;
 	}
 
-	public synchronized void setTournamentOpal(TournamentOpal argTournamentOpal) {
+	public synchronized PacketOpal setTournamentOpal(TournamentOpal argTournamentOpal) {
 		tryMutate();
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
-		if (lclTournamentOpal == argTournamentOpal) { return; }
+		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
 			lclTournamentOpal.removePacketOpalInternal(this);
 		}
@@ -575,7 +575,7 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		if (argTournamentOpal != null) {
 			argTournamentOpal.addPacketOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setTournamentOpalInternal(TournamentOpal argTournamentOpal) {

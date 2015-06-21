@@ -46,19 +46,21 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Buzzer setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Buzzer setId(int argId);
 
 	/**
 	 * object accessor for the {@code SchoolRegistrationId}
@@ -89,19 +91,21 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code school_registration_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSchoolRegistrationId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
+	public com.scobolsolo.application.Buzzer setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSchoolRegistrationId(int argSchoolRegistrationId);
+	public com.scobolsolo.application.Buzzer setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
 	 * object accessor for the {@code RoomId}
@@ -164,15 +168,17 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 * sets the {@code RoomId} to the value of {@code argRoomId}
 	 *
 	 * @param argRoomId the new value of {@code RoomId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setRoomId(java.lang.Integer argRoomId);
+	public com.scobolsolo.application.Buzzer setRoomId(java.lang.Integer argRoomId);
 
 	/**
 	 * sets the {@code RoomId} to the value of {@code argRoomId}
 	 *
 	 * @param argRoomId the new value of {@code RoomId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setRoomId(int argRoomId);
+	public com.scobolsolo.application.Buzzer setRoomId(int argRoomId);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -203,12 +209,13 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.Buzzer setName(java.lang.String argName);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
@@ -216,7 +223,7 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
-	public void setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.Buzzer setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
@@ -224,7 +231,7 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Room getRoom();
-	public void setRoom(com.scobolsolo.application.Room argRoom);
+	public com.scobolsolo.application.Buzzer setRoom(com.scobolsolo.application.Room argRoom);
 
 	public com.scobolsolo.application.Buzzer copy();
 

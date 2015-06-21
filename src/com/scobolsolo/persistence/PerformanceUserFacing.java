@@ -46,19 +46,21 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Performance setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Performance setId(int argId);
 
 	/**
 	 * object accessor for the {@code GameId}
@@ -89,19 +91,21 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 * sets the {@code GameId} to the value of {@code argGameId}
 	 *
 	 * @param argGameId the new value of {@code GameId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code game_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argGameId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setGameId(java.lang.Integer argGameId);
+	public com.scobolsolo.application.Performance setGameId(java.lang.Integer argGameId);
 
 	/**
 	 * sets the {@code GameId} to the value of {@code argGameId}
 	 *
 	 * @param argGameId the new value of {@code GameId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setGameId(int argGameId);
+	public com.scobolsolo.application.Performance setGameId(int argGameId);
 
 	/**
 	 * object accessor for the {@code PlayerId}
@@ -132,19 +136,21 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 * sets the {@code PlayerId} to the value of {@code argPlayerId}
 	 *
 	 * @param argPlayerId the new value of {@code PlayerId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code player_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPlayerId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setPlayerId(java.lang.Integer argPlayerId);
+	public com.scobolsolo.application.Performance setPlayerId(java.lang.Integer argPlayerId);
 
 	/**
 	 * sets the {@code PlayerId} to the value of {@code argPlayerId}
 	 *
 	 * @param argPlayerId the new value of {@code PlayerId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setPlayerId(int argPlayerId);
+	public com.scobolsolo.application.Performance setPlayerId(int argPlayerId);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Game}
@@ -152,7 +158,7 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Game getGame();
-	public void setGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Performance setGame(com.scobolsolo.application.Game argGame);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
@@ -160,7 +166,7 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Player getPlayer();
-	public void setPlayer(com.scobolsolo.application.Player argPlayer);
+	public com.scobolsolo.application.Performance setPlayer(com.scobolsolo.application.Player argPlayer);
 
 	public int getResponseCount();
 	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator();

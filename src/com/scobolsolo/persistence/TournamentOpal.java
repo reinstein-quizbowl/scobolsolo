@@ -184,16 +184,16 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return (java.lang.String) getReadValueSet()[14];
 	}
 
-	public synchronized void setDate(final java.time.LocalDate argDate) {
+	public synchronized TournamentOpal setDate(final java.time.LocalDate argDate) {
 		tryMutate();
 		if (argDate == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myDate on " + this + " to null.");
 		}
 		getNewValues()[0] = argDate;
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized TournamentOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -202,10 +202,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized TournamentOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -214,10 +214,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setCode(final java.lang.String argCode) {
+	public synchronized TournamentOpal setCode(final java.lang.String argCode) {
 		tryMutate();
 		if (argCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
@@ -226,10 +226,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
 		}
 		getNewValues()[3] = argCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setWebXmlRoleCode(final java.lang.String argWebXmlRoleCode) {
+	public synchronized TournamentOpal setWebXmlRoleCode(final java.lang.String argWebXmlRoleCode) {
 		tryMutate();
 		if (argWebXmlRoleCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myWebXmlRoleCode on " + this + " to null.");
@@ -238,91 +238,91 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myWebXmlRoleCode on " + this + " is 32.", argWebXmlRoleCode.length(), 32);
 		}
 		getNewValues()[4] = argWebXmlRoleCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setTiebreakerSuddenDeath(final java.lang.Boolean argTiebreakerSuddenDeath) {
+	public synchronized TournamentOpal setTiebreakerSuddenDeath(final java.lang.Boolean argTiebreakerSuddenDeath) {
 		tryMutate();
 		if (argTiebreakerSuddenDeath == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTiebreakerSuddenDeath on " + this + " to null.");
 		}
 		getNewValues()[5] = argTiebreakerSuddenDeath;
-		return;
+		return this;
 	}
 
-	public void setTiebreakerSuddenDeath(final boolean argTiebreakerSuddenDeath) {
+	public TournamentOpal setTiebreakerSuddenDeath(final boolean argTiebreakerSuddenDeath) {
 		setTiebreakerSuddenDeath(argTiebreakerSuddenDeath ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
-	public synchronized void setUrl(final java.lang.String argUrl) {
+	public synchronized TournamentOpal setUrl(final java.lang.String argUrl) {
 		tryMutate();
 		getNewValues()[6] = argUrl;
-		return;
+		return this;
 	}
 
-	public synchronized void setTournamentDirectorContactId(final java.lang.Integer argTournamentDirectorContactId) {
+	public synchronized TournamentOpal setTournamentDirectorContactId(final java.lang.Integer argTournamentDirectorContactId) {
 		tryMutate();
 		if (argTournamentDirectorContactId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentDirectorContactId on " + this + " to null.");
 		}
 		getNewValues()[7] = argTournamentDirectorContactId;
-		return;
+		return this;
 	}
 
-	public void setTournamentDirectorContactId(final int argTournamentDirectorContactId) {
+	public TournamentOpal setTournamentDirectorContactId(final int argTournamentDirectorContactId) {
 		setTournamentDirectorContactId(java.lang.Integer.valueOf(argTournamentDirectorContactId));
-		return;
+		return this;
 	}
 
-	public synchronized void setPlayerMessage(final java.lang.String argPlayerMessage) {
+	public synchronized TournamentOpal setPlayerMessage(final java.lang.String argPlayerMessage) {
 		tryMutate();
 		getNewValues()[8] = argPlayerMessage;
-		return;
+		return this;
 	}
 
-	public synchronized void setStaffMessage(final java.lang.String argStaffMessage) {
+	public synchronized TournamentOpal setStaffMessage(final java.lang.String argStaffMessage) {
 		tryMutate();
 		getNewValues()[9] = argStaffMessage;
-		return;
+		return this;
 	}
 
-	public synchronized void setReplacementQuestionSocialMediaPolicy(final java.lang.String argReplacementQuestionSocialMediaPolicy) {
+	public synchronized TournamentOpal setReplacementQuestionSocialMediaPolicy(final java.lang.String argReplacementQuestionSocialMediaPolicy) {
 		tryMutate();
 		getNewValues()[10] = argReplacementQuestionSocialMediaPolicy;
-		return;
+		return this;
 	}
 
-	public synchronized void setSchoolMessage(final java.lang.String argSchoolMessage) {
+	public synchronized TournamentOpal setSchoolMessage(final java.lang.String argSchoolMessage) {
 		tryMutate();
 		getNewValues()[11] = argSchoolMessage;
-		return;
+		return this;
 	}
 
-	public synchronized void setControlRoomRoomId(final java.lang.Integer argControlRoomRoomId) {
+	public synchronized TournamentOpal setControlRoomRoomId(final java.lang.Integer argControlRoomRoomId) {
 		tryMutate();
 		getNewValues()[12] = argControlRoomRoomId;
-		return;
+		return this;
 	}
 
-	public void setControlRoomRoomId(final int argControlRoomRoomId) {
+	public TournamentOpal setControlRoomRoomId(final int argControlRoomRoomId) {
 		setControlRoomRoomId(java.lang.Integer.valueOf(argControlRoomRoomId));
-		return;
+		return this;
 	}
 
-	public synchronized void setChampionshipRules(final java.lang.String argChampionshipRules) {
+	public synchronized TournamentOpal setChampionshipRules(final java.lang.String argChampionshipRules) {
 		tryMutate();
 		getNewValues()[13] = argChampionshipRules;
-		return;
+		return this;
 	}
 
-	public synchronized void setChampionshipMatchUrl(final java.lang.String argChampionshipMatchUrl) {
+	public synchronized TournamentOpal setChampionshipMatchUrl(final java.lang.String argChampionshipMatchUrl) {
 		tryMutate();
 		if ((argChampionshipMatchUrl != null) && (argChampionshipMatchUrl.length() > 256)) {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myChampionshipMatchUrl on " + this + " is 256.", argChampionshipMatchUrl.length(), 256);
 		}
 		getNewValues()[14] = argChampionshipMatchUrl;
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -341,8 +341,6 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		myNewTournamentDirectorContactOpal = myOldTournamentDirectorContactOpal;
 		myNewPhaseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myPhaseOpalCachedOperations = null; /* Ditto */
-		myNewQuestionOpalHashSet = null; /* Necessary if it has been rolled back */
-		myQuestionOpalCachedOperations = null; /* Ditto */
 		myNewSchoolRegistrationOpalHashSet = null; /* Necessary if it has been rolled back */
 		mySchoolRegistrationOpalCachedOperations = null; /* Ditto */
 		myNewStaffOpalHashSet = null; /* Necessary if it has been rolled back */
@@ -370,16 +368,6 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 				myNewPhaseOpalHashSet = null;
 			} else {
 				myPhaseOpalCachedOperations = null;
-			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldQuestionOpalHashSet = null;
-			} else {
-			if (myNewQuestionOpalHashSet != null) {
-				myOldQuestionOpalHashSet = myNewQuestionOpalHashSet;
-				myNewQuestionOpalHashSet = null;
-			} else {
-				myQuestionOpalCachedOperations = null;
 			}
 		}
 		if (needsToClearOldCollections()) {
@@ -443,12 +431,6 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 			lclI = createPhaseOpalIterator();
 			while (lclI.hasNext()) {
 				((PhaseOpal) lclI.next()).setTournamentOpalInternal(null);
-			}
-		}
-		if (myNewQuestionOpalHashSet != null || myQuestionOpalCachedOperations != null) {
-			lclI = createQuestionOpalIterator();
-			while (lclI.hasNext()) {
-				((QuestionOpal) lclI.next()).setTournamentOpalInternal(null);
 			}
 		}
 		if (myNewSchoolRegistrationOpalHashSet != null || mySchoolRegistrationOpalCachedOperations != null) {
@@ -528,12 +510,12 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewControlRoomOpal;
+		lclUO = myNewTournamentDirectorContactOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewTournamentDirectorContactOpal;
+		lclUO = myNewControlRoomOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -547,12 +529,12 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldControlRoomOpal;
+		lclUO = myOldTournamentDirectorContactOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldTournamentDirectorContactOpal;
+		lclUO = myOldControlRoomOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -639,10 +621,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return lclRoomOpal;
 	}
 
-	public synchronized void setControlRoomOpal(RoomOpal argRoomOpal) {
+	public synchronized TournamentOpal setControlRoomOpal(RoomOpal argRoomOpal) {
 		tryMutate();
 		RoomOpal lclRoomOpal = getControlRoomOpal();
-		if (lclRoomOpal == argRoomOpal) { return; }
+		if (lclRoomOpal == argRoomOpal) { return this; }
 		if (lclRoomOpal != null) {
 			lclRoomOpal.removeControlRoomTournamentOpalInternal(this);
 		}
@@ -650,7 +632,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		if (argRoomOpal != null) {
 			argRoomOpal.addControlRoomTournamentOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setControlRoomOpalInternal(RoomOpal argRoomOpal) {
@@ -684,10 +666,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return lclContactOpal;
 	}
 
-	public synchronized void setTournamentDirectorContactOpal(ContactOpal argContactOpal) {
+	public synchronized TournamentOpal setTournamentDirectorContactOpal(ContactOpal argContactOpal) {
 		tryMutate();
 		ContactOpal lclContactOpal = getTournamentDirectorContactOpal();
-		if (lclContactOpal == argContactOpal) { return; }
+		if (lclContactOpal == argContactOpal) { return this; }
 		if (lclContactOpal != null) {
 			lclContactOpal.removeTournamentDirectorTournamentOpalInternal(this);
 		}
@@ -695,7 +677,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		if (argContactOpal != null) {
 			argContactOpal.addTournamentDirectorTournamentOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setTournamentDirectorContactOpalInternal(ContactOpal argContactOpal) {
@@ -781,85 +763,6 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	}
 
 	public synchronized void clearPhaseOpalInternal() { getPhaseOpalClass().clear(); }
-
-	private java.util.HashSet<QuestionOpal> myOldQuestionOpalHashSet = null;
-	private java.util.HashSet<QuestionOpal> myNewQuestionOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<QuestionOpal>> myQuestionOpalCachedOperations = null;
-
-	/* package */ java.util.HashSet<QuestionOpal> getQuestionOpalClass() {
-		if (tryAccess()) {
-			if (myNewQuestionOpalHashSet == null) {
-				if (myOldQuestionOpalHashSet == null) {
-					myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forTournamentCodeCollection(getCode());
-				}
-				myNewQuestionOpalHashSet = new java.util.HashSet<>(myOldQuestionOpalHashSet);
-				if (myQuestionOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myQuestionOpalCachedOperations, myNewQuestionOpalHashSet);
-					myQuestionOpalCachedOperations = null;
-				}
-			}
-			return myNewQuestionOpalHashSet;
-		}
-		if (myOldQuestionOpalHashSet == null) {
-			myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forTournamentCodeCollection(getCode());
-		}
-		return myOldQuestionOpalHashSet;
-	}
-
-	public synchronized void addQuestionOpal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		argQuestionOpal.setTournamentOpal(this);
-		return;
-	}
-
-	protected synchronized void addQuestionOpalInternal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		if (myNewQuestionOpalHashSet == null) {
-			if (myOldQuestionOpalHashSet == null) {
-				if (myQuestionOpalCachedOperations == null) { myQuestionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myQuestionOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argQuestionOpal));
-			} else {
-				myNewQuestionOpalHashSet = new java.util.HashSet<>(myOldQuestionOpalHashSet);
-				myNewQuestionOpalHashSet.add(argQuestionOpal);
-			}
-		} else {
-			myNewQuestionOpalHashSet.add(argQuestionOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeQuestionOpal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		argQuestionOpal.setTournamentOpal(null);
-	}
-
-	protected synchronized void removeQuestionOpalInternal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		if (myNewQuestionOpalHashSet == null) {
-			if (myOldQuestionOpalHashSet == null) {
-				if (myQuestionOpalCachedOperations == null) { myQuestionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myQuestionOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argQuestionOpal));
-			} else {
-				myNewQuestionOpalHashSet = new java.util.HashSet<>(myOldQuestionOpalHashSet);
-				myNewQuestionOpalHashSet.remove(argQuestionOpal);
-			}
-		} else {
-			myNewQuestionOpalHashSet.remove(argQuestionOpal);
-		}
-		return;
-	}
-
-	public synchronized int getQuestionOpalCount() { return getQuestionOpalClass().size(); }
-
-	public synchronized java.util.Iterator<QuestionOpal> createQuestionOpalIterator() {
-		return getQuestionOpalClass().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<QuestionOpal> streamQuestionOpal() {
-		return getQuestionOpalClass().stream();
-	}
-
-	public synchronized void clearQuestionOpalInternal() { getQuestionOpalClass().clear(); }
 
 	private java.util.HashSet<SchoolRegistrationOpal> myOldSchoolRegistrationOpalHashSet = null;
 	private java.util.HashSet<SchoolRegistrationOpal> myNewSchoolRegistrationOpalHashSet = null;

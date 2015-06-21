@@ -46,19 +46,21 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Question setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Question setId(int argId);
 
 	/**
 	 * object accessor for the {@code Description}
@@ -89,12 +91,13 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * sets the {@code Description} to the value of {@code argDescription}
 	 *
 	 * @param argDescription the new value of {@code Description}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argDescription} is longer than 2147483647 characters
 	 * <p>The database column {@code description} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setDescription(java.lang.String argDescription);
+	public com.scobolsolo.application.Question setDescription(java.lang.String argDescription);
 
 	/**
 	 * object accessor for the {@code CategoryCode}
@@ -109,6 +112,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * sets the {@code CategoryCode} to the value of {@code argCategoryCode}
 	 *
 	 * @param argCategoryCode the new value of {@code CategoryCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argCategoryCode is null
@@ -118,31 +122,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setCategoryCode(java.lang.String argCategoryCode);
-
-	/**
-	 * object accessor for the {@code TournamentCode}
-	 *
-	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code question}.</p>
-	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
-	 */
-	public java.lang.String getTournamentCode();
-
-	/**
-	 * sets the {@code TournamentCode} to the value of {@code argTournamentCode}
-	 *
-	 * @param argTournamentCode the new value of {@code TournamentCode}.  May not be <code>null</code>.
-	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws IllegalNullArgumentException if argTournamentCode is null
-	 * @throws ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
-	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
-	 *
-	 */
-	@com.opal.annotation.NotNull
-	@com.opal.annotation.Length(maximum = 32L)
-	public void setTournamentCode(java.lang.String argTournamentCode);
+	public com.scobolsolo.application.Question setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -173,12 +153,13 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.Question setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code WriterAccountId}
@@ -241,15 +222,17 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * sets the {@code WriterAccountId} to the value of {@code argWriterAccountId}
 	 *
 	 * @param argWriterAccountId the new value of {@code WriterAccountId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setWriterAccountId(java.lang.Integer argWriterAccountId);
+	public com.scobolsolo.application.Question setWriterAccountId(java.lang.Integer argWriterAccountId);
 
 	/**
 	 * sets the {@code WriterAccountId} to the value of {@code argWriterAccountId}
 	 *
 	 * @param argWriterAccountId the new value of {@code WriterAccountId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setWriterAccountId(int argWriterAccountId);
+	public com.scobolsolo.application.Question setWriterAccountId(int argWriterAccountId);
 
 	/**
 	 * object accessor for the {@code Text}
@@ -280,12 +263,13 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * sets the {@code Text} to the value of {@code argText}
 	 *
 	 * @param argText the new value of {@code Text}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argText} is longer than 2147483647 characters
 	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setText(java.lang.String argText);
+	public com.scobolsolo.application.Question setText(java.lang.String argText);
 
 	/**
 	 * object accessor for the {@code Answer}
@@ -316,12 +300,13 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * sets the {@code Answer} to the value of {@code argAnswer}
 	 *
 	 * @param argAnswer the new value of {@code Answer}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argAnswer} is longer than 2147483647 characters
 	 * <p>The database column {@code answer} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setAnswer(java.lang.String argAnswer);
+	public com.scobolsolo.application.Question setAnswer(java.lang.String argAnswer);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Category}
@@ -329,23 +314,44 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();
-	public void setCategory(com.scobolsolo.application.Category argCategory);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code question_tournament_code_fkey}.
-	 *
-	 */
-	public com.scobolsolo.application.Tournament getTournament();
-	public void setTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.Question setCategory(com.scobolsolo.application.Category argCategory);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Account}
 	 * The returned {@code com.scobolsolo.application.Account} is the {@link UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code question_writer_account_id_fkey}.
 	 *
 	 */
-	public com.scobolsolo.application.Account getWriterAccount();
-	public void setWriterAccount(com.scobolsolo.application.Account argWriterAccount);
+	public com.scobolsolo.application.Account getWriter();
+	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argWriter);
+
+	public int getDiffCount();
+	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff();
+
+	public void addDiff(com.scobolsolo.application.Diff argDiff);
+	public void removeDiff(com.scobolsolo.application.Diff argDiff);
+	public void clearDiff();
+
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
+		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Diff[] createDiffArray() {
+		int lclLength = getDiffCount();
+		com.scobolsolo.application.Diff[] lclA = new com.scobolsolo.application.Diff[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
 
 	public int getPlacementCount();
 	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator();

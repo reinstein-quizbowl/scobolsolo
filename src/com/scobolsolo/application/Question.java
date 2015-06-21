@@ -1,5 +1,10 @@
 package com.scobolsolo.application;
 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+import org.apache.commons.lang3.Validate;
+
 import com.scobolsolo.persistence.QuestionUserFacing;
 
 /**
@@ -11,7 +16,36 @@ import com.scobolsolo.persistence.QuestionUserFacing;
  */
 
 public interface Question extends QuestionUserFacing {
+	static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Question.class);
+	
+	default boolean isUsed() {
+		return getPlacementCount() > 0;
+	}
+	
 	default boolean isUnused() {
 		return getPlacementCount() == 0;
+	}
+	
+	default SortedSet<Diff> getDiffs() {
+		return acquireDiff(new TreeSet<>());
+	}
+	
+	default Diff getLastChange() {
+		SortedSet<Diff> lclDiffs = getDiffs();
+		if (lclDiffs.isEmpty()) {
+			ourLogger.debug("No diffs");
+			return null;
+		} else {
+			ourLogger.debug("Diffs: " + lclDiffs);
+			return lclDiffs.last();
+		}
+	}
+	
+	default int getNextRevisionNumber() {
+		if (isNew()) {
+			return 1;
+		} else {
+			return getDiffCount() + 1; // This assumes that revision numbers have been assigned consecutively. There might be some kind of nasty race condition in here.
+		}
 	}
 }

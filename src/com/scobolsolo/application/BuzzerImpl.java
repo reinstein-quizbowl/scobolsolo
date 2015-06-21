@@ -32,15 +32,15 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public BuzzerImpl setId(java.lang.Integer argId) {
 		getBuzzerOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public BuzzerImpl setId(int argId) {
 		getBuzzerOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -49,15 +49,15 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	}
 
 	@Override
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
+	public BuzzerImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getBuzzerOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSchoolRegistrationId(int argSchoolRegistrationId) {
+	public BuzzerImpl setSchoolRegistrationId(int argSchoolRegistrationId) {
 		getBuzzerOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -66,15 +66,15 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	}
 
 	@Override
-	public void setRoomId(java.lang.Integer argRoomId) {
+	public BuzzerImpl setRoomId(java.lang.Integer argRoomId) {
 		getBuzzerOpal().setRoomId(argRoomId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setRoomId(int argRoomId) {
+	public BuzzerImpl setRoomId(int argRoomId) {
 		getBuzzerOpal().setRoomId(argRoomId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -83,9 +83,9 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public BuzzerImpl setName(java.lang.String argName) {
 		getBuzzerOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -100,9 +100,9 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	}
 
 	@Override
-	public void setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public Buzzer setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getBuzzerOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Room object created from buzzer through reference buzzer_room_id_fkey */
@@ -114,9 +114,9 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	}
 
 	@Override
-	public void setRoom(Room argRoom) {
+	public Buzzer setRoom(Room argRoom) {
 		getBuzzerOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

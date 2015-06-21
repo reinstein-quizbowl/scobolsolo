@@ -19,6 +19,7 @@ public final class Menus {
 	private final Menu myTournamentsPublicMenu;
 	private final Menu myTournamentsInternalMenu;
 	private final Menu myTournamentsStatsMenu;
+	private final Menu myQuestionsMenu;
 	private final Map<Tournament, Menu> myStatsMenus = new ConcurrentHashMap<>(TournamentFactory.getInstance().createAllArray().length);
 	private final Map<Tournament, Menu> myTournamentAdminMenus = new ConcurrentHashMap<>(TournamentFactory.getInstance().createAllArray().length);
 	
@@ -55,6 +56,16 @@ public final class Menus {
 				.collect(Collectors.toList())
 		);
 		
+		myQuestionsMenu = new Menu(
+			"questions",
+			"Questions",
+			Arrays.asList(
+				new MenuPage("all", "All", "/questions/"),
+				new MenuPage("write", "Write", "/questions/question-edit.jsp"),
+				new MenuPage("style-guide", "Style Guide", "/questions/style-guide.jsp")
+			)
+		);
+		
 		myAdminMenu = new Menu(
 			"admin",
 			"Scobol Solo Admin",
@@ -84,6 +95,10 @@ public final class Menus {
 	
 	public static Menu TOURNAMENTS() {
 		return ourInstance.myTournamentsPublicMenu;
+	}
+	
+	public static Menu QUESTIONS() {
+		return ourInstance.myQuestionsMenu;
 	}
 	
 	public static Menu stats(final Tournament argT) {

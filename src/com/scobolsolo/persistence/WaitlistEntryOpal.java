@@ -104,66 +104,66 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 		return (java.lang.String) getReadValueSet()[4];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized WaitlistEntryOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public WaitlistEntryOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
+	public synchronized WaitlistEntryOpal setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
 		tryMutate();
 		if (argSchoolRegistrationId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySchoolRegistrationId on " + this + " to null.");
 		}
 		getNewValues()[1] = argSchoolRegistrationId;
-		return;
+		return this;
 	}
 
-	public void setSchoolRegistrationId(final int argSchoolRegistrationId) {
+	public WaitlistEntryOpal setSchoolRegistrationId(final int argSchoolRegistrationId) {
 		setSchoolRegistrationId(java.lang.Integer.valueOf(argSchoolRegistrationId));
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized WaitlistEntryOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[2] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public WaitlistEntryOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setPlayerCount(final java.lang.Integer argPlayerCount) {
+	public synchronized WaitlistEntryOpal setPlayerCount(final java.lang.Integer argPlayerCount) {
 		tryMutate();
 		if (argPlayerCount == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPlayerCount on " + this + " to null.");
 		}
 		getNewValues()[3] = argPlayerCount;
-		return;
+		return this;
 	}
 
-	public void setPlayerCount(final int argPlayerCount) {
+	public WaitlistEntryOpal setPlayerCount(final int argPlayerCount) {
 		setPlayerCount(java.lang.Integer.valueOf(argPlayerCount));
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized WaitlistEntryOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[4] = argNote;
-		return;
+		return this;
 	}
 
 	@Override
@@ -290,10 +290,10 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 		return lclSchoolRegistrationOpal;
 	}
 
-	public synchronized void setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
+	public synchronized WaitlistEntryOpal setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
-		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return; }
+		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
 			lclSchoolRegistrationOpal.removeWaitlistEntryOpalInternal(this);
 		}
@@ -301,7 +301,7 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 		if (argSchoolRegistrationOpal != null) {
 			argSchoolRegistrationOpal.addWaitlistEntryOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {

@@ -113,21 +113,21 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		return (java.lang.String) getReadValueSet()[6];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized PhaseOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public PhaseOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setTournamentCode(final java.lang.String argTournamentCode) {
+	public synchronized PhaseOpal setTournamentCode(final java.lang.String argTournamentCode) {
 		tryMutate();
 		if (argTournamentCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
@@ -136,10 +136,10 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[1] = argTournamentCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized PhaseOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -148,10 +148,10 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[2] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized PhaseOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -160,41 +160,41 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[3] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized PhaseOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[4] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public PhaseOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setCardSystem(final java.lang.Boolean argCardSystem) {
+	public synchronized PhaseOpal setCardSystem(final java.lang.Boolean argCardSystem) {
 		tryMutate();
 		if (argCardSystem == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCardSystem on " + this + " to null.");
 		}
 		getNewValues()[5] = argCardSystem;
-		return;
+		return this;
 	}
 
-	public void setCardSystem(final boolean argCardSystem) {
+	public PhaseOpal setCardSystem(final boolean argCardSystem) {
 		setCardSystem(argCardSystem ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized PhaseOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[6] = argNote;
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -375,10 +375,10 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		return lclTournamentOpal;
 	}
 
-	public synchronized void setTournamentOpal(TournamentOpal argTournamentOpal) {
+	public synchronized PhaseOpal setTournamentOpal(TournamentOpal argTournamentOpal) {
 		tryMutate();
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
-		if (lclTournamentOpal == argTournamentOpal) { return; }
+		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
 			lclTournamentOpal.removePhaseOpalInternal(this);
 		}
@@ -386,7 +386,7 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		if (argTournamentOpal != null) {
 			argTournamentOpal.addPhaseOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setTournamentOpalInternal(TournamentOpal argTournamentOpal) {

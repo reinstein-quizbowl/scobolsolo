@@ -30,12 +30,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code Date} to the value of {@code argDate}
 	 *
 	 * @param argDate the new value of {@code Date}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code date} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argDate is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setDate(java.time.LocalDate argDate);
+	public com.scobolsolo.application.Tournament setDate(java.time.LocalDate argDate);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -50,6 +51,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -59,7 +61,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.Tournament setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -74,6 +76,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -83,7 +86,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.Tournament setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code Code}
@@ -98,6 +101,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code Code} to the value of {@code argCode}
 	 *
 	 * @param argCode the new value of {@code Code}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argCode is null
@@ -107,7 +111,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setCode(java.lang.String argCode);
+	public com.scobolsolo.application.Tournament setCode(java.lang.String argCode);
 
 	/**
 	 * object accessor for the {@code WebXmlRoleCode}
@@ -122,6 +126,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code WebXmlRoleCode} to the value of {@code argWebXmlRoleCode}
 	 *
 	 * @param argWebXmlRoleCode the new value of {@code WebXmlRoleCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code web_xml_role_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argWebXmlRoleCode is null
@@ -131,7 +136,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setWebXmlRoleCode(java.lang.String argWebXmlRoleCode);
+	public com.scobolsolo.application.Tournament setWebXmlRoleCode(java.lang.String argWebXmlRoleCode);
 
 	/**
 	 * object accessor for the {@code TiebreakerSuddenDeath}
@@ -162,19 +167,21 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code TiebreakerSuddenDeath} to the value of {@code argTiebreakerSuddenDeath}
 	 *
 	 * @param argTiebreakerSuddenDeath the new value of {@code TiebreakerSuddenDeath}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tiebreaker_sudden_death} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTiebreakerSuddenDeath is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath);
+	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath);
 
 	/**
 	 * sets the {@code TiebreakerSuddenDeath} to the value of {@code argTiebreakerSuddenDeath}
 	 *
 	 * @param argTiebreakerSuddenDeath the new value of {@code TiebreakerSuddenDeath}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setTiebreakerSuddenDeath(boolean argTiebreakerSuddenDeath);
+	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(boolean argTiebreakerSuddenDeath);
 
 	/**
 	 * object accessor for the {@code Url}
@@ -205,12 +212,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code Url} to the value of {@code argUrl}
 	 *
 	 * @param argUrl the new value of {@code Url}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argUrl} is longer than 2147483647 characters
 	 * <p>The database column {@code url} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setUrl(java.lang.String argUrl);
+	public com.scobolsolo.application.Tournament setUrl(java.lang.String argUrl);
 
 	/**
 	 * object accessor for the {@code TournamentDirectorContactId}
@@ -241,19 +249,21 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code TournamentDirectorContactId} to the value of {@code argTournamentDirectorContactId}
 	 *
 	 * @param argTournamentDirectorContactId the new value of {@code TournamentDirectorContactId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_director_contact_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTournamentDirectorContactId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setTournamentDirectorContactId(java.lang.Integer argTournamentDirectorContactId);
+	public com.scobolsolo.application.Tournament setTournamentDirectorContactId(java.lang.Integer argTournamentDirectorContactId);
 
 	/**
 	 * sets the {@code TournamentDirectorContactId} to the value of {@code argTournamentDirectorContactId}
 	 *
 	 * @param argTournamentDirectorContactId the new value of {@code TournamentDirectorContactId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setTournamentDirectorContactId(int argTournamentDirectorContactId);
+	public com.scobolsolo.application.Tournament setTournamentDirectorContactId(int argTournamentDirectorContactId);
 
 	/**
 	 * object accessor for the {@code PlayerMessage}
@@ -284,12 +294,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code PlayerMessage} to the value of {@code argPlayerMessage}
 	 *
 	 * @param argPlayerMessage the new value of {@code PlayerMessage}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argPlayerMessage} is longer than 2147483647 characters
 	 * <p>The database column {@code player_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setPlayerMessage(java.lang.String argPlayerMessage);
+	public com.scobolsolo.application.Tournament setPlayerMessage(java.lang.String argPlayerMessage);
 
 	/**
 	 * object accessor for the {@code StaffMessage}
@@ -320,12 +331,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code StaffMessage} to the value of {@code argStaffMessage}
 	 *
 	 * @param argStaffMessage the new value of {@code StaffMessage}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argStaffMessage} is longer than 2147483647 characters
 	 * <p>The database column {@code staff_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setStaffMessage(java.lang.String argStaffMessage);
+	public com.scobolsolo.application.Tournament setStaffMessage(java.lang.String argStaffMessage);
 
 	/**
 	 * object accessor for the {@code ReplacementQuestionSocialMediaPolicy}
@@ -356,12 +368,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code ReplacementQuestionSocialMediaPolicy} to the value of {@code argReplacementQuestionSocialMediaPolicy}
 	 *
 	 * @param argReplacementQuestionSocialMediaPolicy the new value of {@code ReplacementQuestionSocialMediaPolicy}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argReplacementQuestionSocialMediaPolicy} is longer than 2147483647 characters
 	 * <p>The database column {@code replacement_question_social_media_policy} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setReplacementQuestionSocialMediaPolicy(java.lang.String argReplacementQuestionSocialMediaPolicy);
+	public com.scobolsolo.application.Tournament setReplacementQuestionSocialMediaPolicy(java.lang.String argReplacementQuestionSocialMediaPolicy);
 
 	/**
 	 * object accessor for the {@code SchoolMessage}
@@ -392,12 +405,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code SchoolMessage} to the value of {@code argSchoolMessage}
 	 *
 	 * @param argSchoolMessage the new value of {@code SchoolMessage}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argSchoolMessage} is longer than 2147483647 characters
 	 * <p>The database column {@code school_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setSchoolMessage(java.lang.String argSchoolMessage);
+	public com.scobolsolo.application.Tournament setSchoolMessage(java.lang.String argSchoolMessage);
 
 	/**
 	 * object accessor for the {@code ControlRoomRoomId}
@@ -460,15 +474,17 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code ControlRoomRoomId} to the value of {@code argControlRoomRoomId}
 	 *
 	 * @param argControlRoomRoomId the new value of {@code ControlRoomRoomId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setControlRoomRoomId(java.lang.Integer argControlRoomRoomId);
+	public com.scobolsolo.application.Tournament setControlRoomRoomId(java.lang.Integer argControlRoomRoomId);
 
 	/**
 	 * sets the {@code ControlRoomRoomId} to the value of {@code argControlRoomRoomId}
 	 *
 	 * @param argControlRoomRoomId the new value of {@code ControlRoomRoomId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setControlRoomRoomId(int argControlRoomRoomId);
+	public com.scobolsolo.application.Tournament setControlRoomRoomId(int argControlRoomRoomId);
 
 	/**
 	 * object accessor for the {@code ChampionshipRules}
@@ -499,12 +515,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code ChampionshipRules} to the value of {@code argChampionshipRules}
 	 *
 	 * @param argChampionshipRules the new value of {@code ChampionshipRules}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argChampionshipRules} is longer than 2147483647 characters
 	 * <p>The database column {@code championship_rules} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setChampionshipRules(java.lang.String argChampionshipRules);
+	public com.scobolsolo.application.Tournament setChampionshipRules(java.lang.String argChampionshipRules);
 
 	/**
 	 * object accessor for the {@code ChampionshipMatchUrl}
@@ -535,12 +552,13 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code ChampionshipMatchUrl} to the value of {@code argChampionshipMatchUrl}
 	 *
 	 * @param argChampionshipMatchUrl the new value of {@code ChampionshipMatchUrl}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argChampionshipMatchUrl} is longer than 256 characters
 	 * <p>The database column {@code championship_match_url} is limited to 256 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setChampionshipMatchUrl(java.lang.String argChampionshipMatchUrl);
+	public com.scobolsolo.application.Tournament setChampionshipMatchUrl(java.lang.String argChampionshipMatchUrl);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
@@ -548,7 +566,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 */
 	public com.scobolsolo.application.Room getControlRoom();
-	public void setControlRoom(com.scobolsolo.application.Room argControlRoom);
+	public com.scobolsolo.application.Tournament setControlRoom(com.scobolsolo.application.Room argControlRoom);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
@@ -556,7 +574,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 */
 	public com.scobolsolo.application.Contact getTournamentDirectorContact();
-	public void setTournamentDirectorContact(com.scobolsolo.application.Contact argTournamentDirectorContact);
+	public com.scobolsolo.application.Tournament setTournamentDirectorContact(com.scobolsolo.application.Contact argTournamentDirectorContact);
 
 	public int getPhaseCount();
 	public java.util.Iterator<com.scobolsolo.application.Phase> createPhaseIterator();
@@ -581,35 +599,6 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 		com.scobolsolo.application.Phase[] lclA = new com.scobolsolo.application.Phase[lclLength];
 		int lclIndex = 0;
 		java.util.Iterator<com.scobolsolo.application.Phase> lclI = createPhaseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
-	}
-
-	public int getQuestionCount();
-	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator();
-
-	public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion();
-
-	public void addQuestion(com.scobolsolo.application.Question argQuestion);
-	public void removeQuestion(com.scobolsolo.application.Question argQuestion);
-	public void clearQuestion();
-
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireQuestion(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
-	}
-
-	default public com.scobolsolo.application.Question[] createQuestionArray() {
-		int lclLength = getQuestionCount();
-		com.scobolsolo.application.Question[] lclA = new com.scobolsolo.application.Question[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}

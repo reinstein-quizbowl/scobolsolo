@@ -135,7 +135,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		return (java.lang.Boolean) getReadValueSet()[8];
 	}
 
-	public synchronized void setCode(final java.lang.String argCode) {
+	public synchronized ResponseTypeOpal setCode(final java.lang.String argCode) {
 		tryMutate();
 		if (argCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
@@ -144,10 +144,10 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized ResponseTypeOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -156,10 +156,10 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized ResponseTypeOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -168,38 +168,38 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized ResponseTypeOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[3] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public ResponseTypeOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setPoints(final java.lang.Integer argPoints) {
+	public synchronized ResponseTypeOpal setPoints(final java.lang.Integer argPoints) {
 		tryMutate();
 		if (argPoints == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPoints on " + this + " to null.");
 		}
 		getNewValues()[4] = argPoints;
-		return;
+		return this;
 	}
 
-	public void setPoints(final int argPoints) {
+	public ResponseTypeOpal setPoints(final int argPoints) {
 		setPoints(java.lang.Integer.valueOf(argPoints));
-		return;
+		return this;
 	}
 
-	public synchronized void setBootstrapButtonClass(final java.lang.String argBootstrapButtonClass) {
+	public synchronized ResponseTypeOpal setBootstrapButtonClass(final java.lang.String argBootstrapButtonClass) {
 		tryMutate();
 		if (argBootstrapButtonClass == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myBootstrapButtonClass on " + this + " to null.");
@@ -208,49 +208,49 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 			throw new com.opal.ArgumentTooLongException("Maximum length of myBootstrapButtonClass on " + this + " is 64.", argBootstrapButtonClass.length(), 64);
 		}
 		getNewValues()[5] = argBootstrapButtonClass;
-		return;
+		return this;
 	}
 
-	public synchronized void setDefault(final java.lang.Boolean argDefault) {
+	public synchronized ResponseTypeOpal setDefault(final java.lang.Boolean argDefault) {
 		tryMutate();
 		if (argDefault == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myDefault on " + this + " to null.");
 		}
 		getNewValues()[6] = argDefault;
-		return;
+		return this;
 	}
 
-	public void setDefault(final boolean argDefault) {
+	public ResponseTypeOpal setDefault(final boolean argDefault) {
 		setDefault(argDefault ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
-	public synchronized void setMultipleAllowedForSamePlacement(final java.lang.Boolean argMultipleAllowedForSamePlacement) {
+	public synchronized ResponseTypeOpal setMultipleAllowedForSamePlacement(final java.lang.Boolean argMultipleAllowedForSamePlacement) {
 		tryMutate();
 		if (argMultipleAllowedForSamePlacement == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myMultipleAllowedForSamePlacement on " + this + " to null.");
 		}
 		getNewValues()[7] = argMultipleAllowedForSamePlacement;
-		return;
+		return this;
 	}
 
-	public void setMultipleAllowedForSamePlacement(final boolean argMultipleAllowedForSamePlacement) {
+	public ResponseTypeOpal setMultipleAllowedForSamePlacement(final boolean argMultipleAllowedForSamePlacement) {
 		setMultipleAllowedForSamePlacement(argMultipleAllowedForSamePlacement ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
-	public synchronized void setAttempt(final java.lang.Boolean argAttempt) {
+	public synchronized ResponseTypeOpal setAttempt(final java.lang.Boolean argAttempt) {
 		tryMutate();
 		if (argAttempt == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myAttempt on " + this + " to null.");
 		}
 		getNewValues()[8] = argAttempt;
-		return;
+		return this;
 	}
 
-	public void setAttempt(final boolean argAttempt) {
+	public ResponseTypeOpal setAttempt(final boolean argAttempt) {
 		setAttempt(argAttempt ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
 	@Override

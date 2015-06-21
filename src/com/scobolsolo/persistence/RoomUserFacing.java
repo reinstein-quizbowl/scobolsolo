@@ -46,19 +46,21 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Room setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Room setId(int argId);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -73,6 +75,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -82,7 +85,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.Room setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -97,6 +100,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -106,7 +110,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.Room setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -137,12 +141,13 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.Room setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code TournamentCode}
@@ -157,6 +162,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * sets the {@code TournamentCode} to the value of {@code argTournamentCode}
 	 *
 	 * @param argTournamentCode the new value of {@code TournamentCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTournamentCode is null
@@ -166,7 +172,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setTournamentCode(java.lang.String argTournamentCode);
+	public com.scobolsolo.application.Room setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -197,19 +203,21 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.Room setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.Room setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code GameRoom}
@@ -240,19 +248,21 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * sets the {@code GameRoom} to the value of {@code argGameRoom}
 	 *
 	 * @param argGameRoom the new value of {@code GameRoom}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code game_room} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argGameRoom is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setGameRoom(java.lang.Boolean argGameRoom);
+	public com.scobolsolo.application.Room setGameRoom(java.lang.Boolean argGameRoom);
 
 	/**
 	 * sets the {@code GameRoom} to the value of {@code argGameRoom}
 	 *
 	 * @param argGameRoom the new value of {@code GameRoom}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setGameRoom(boolean argGameRoom);
+	public com.scobolsolo.application.Room setGameRoom(boolean argGameRoom);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
@@ -260,7 +270,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
-	public void setTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.Room setTournament(com.scobolsolo.application.Tournament argTournament);
 
 	public int getControlRoomTournamentCount();
 	public java.util.Iterator<com.scobolsolo.application.Tournament> createControlRoomTournamentIterator();

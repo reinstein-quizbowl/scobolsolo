@@ -11,5 +11,11 @@ import com.scobolsolo.persistence.PacketUserFacing;
  */
 
 public interface Packet extends PacketUserFacing {
-	/* This block intentionally left empty. */
+	default String getNameWithTournament() {
+		return getTournament().getName() + ": " + getName();
+	}
+	
+	default String getShortNameWithTournament() {
+		return getTournament().getShortName() + ": " + getShortName();
+	}
 }

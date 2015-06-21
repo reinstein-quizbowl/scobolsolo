@@ -36,15 +36,15 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public ContactImpl setId(java.lang.Integer argId) {
 		getContactOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public ContactImpl setId(int argId) {
 		getContactOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -53,9 +53,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setEmailAddress(java.lang.String argEmailAddress) {
+	public ContactImpl setEmailAddress(java.lang.String argEmailAddress) {
 		getContactOpal().setEmailAddress(argEmailAddress);
-		return;
+		return this;
 	}
 
 	@Override
@@ -64,9 +64,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setAdvancePhone(java.lang.String argAdvancePhone) {
+	public ContactImpl setAdvancePhone(java.lang.String argAdvancePhone) {
 		getContactOpal().setAdvancePhone(argAdvancePhone);
-		return;
+		return this;
 	}
 
 	@Override
@@ -75,9 +75,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setDayOfPhone(java.lang.String argDayOfPhone) {
+	public ContactImpl setDayOfPhone(java.lang.String argDayOfPhone) {
 		getContactOpal().setDayOfPhone(argDayOfPhone);
-		return;
+		return this;
 	}
 
 	@Override
@@ -86,9 +86,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public ContactImpl setNote(java.lang.String argNote) {
 		getContactOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -97,9 +97,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public ContactImpl setName(java.lang.String argName) {
 		getContactOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -108,9 +108,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setSortBy(java.lang.String argSortBy) {
+	public ContactImpl setSortBy(java.lang.String argSortBy) {
 		getContactOpal().setSortBy(argSortBy);
-		return;
+		return this;
 	}
 
 	@Override
@@ -119,15 +119,15 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setActive(java.lang.Boolean argActive) {
+	public ContactImpl setActive(java.lang.Boolean argActive) {
 		getContactOpal().setActive(argActive);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setActive(boolean argActive) {
+	public ContactImpl setActive(boolean argActive) {
 		getContactOpal().setActive(argActive);
-		return;
+		return this;
 	}
 
 	@Override
@@ -136,9 +136,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setAddress(java.lang.String argAddress) {
+	public ContactImpl setAddress(java.lang.String argAddress) {
 		getContactOpal().setAddress(argAddress);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -151,9 +151,9 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void setAccount(Account argAccount) {
+	public Contact setAccount(Account argAccount) {
 		getContactOpal().setAccountOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

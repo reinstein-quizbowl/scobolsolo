@@ -46,19 +46,21 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Response setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Response setId(int argId);
 
 	/**
 	 * object accessor for the {@code PerformanceId}
@@ -89,19 +91,21 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 * sets the {@code PerformanceId} to the value of {@code argPerformanceId}
 	 *
 	 * @param argPerformanceId the new value of {@code PerformanceId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code performance_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPerformanceId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setPerformanceId(java.lang.Integer argPerformanceId);
+	public com.scobolsolo.application.Response setPerformanceId(java.lang.Integer argPerformanceId);
 
 	/**
 	 * sets the {@code PerformanceId} to the value of {@code argPerformanceId}
 	 *
 	 * @param argPerformanceId the new value of {@code PerformanceId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setPerformanceId(int argPerformanceId);
+	public com.scobolsolo.application.Response setPerformanceId(int argPerformanceId);
 
 	/**
 	 * object accessor for the {@code PlacementId}
@@ -132,19 +136,21 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 * sets the {@code PlacementId} to the value of {@code argPlacementId}
 	 *
 	 * @param argPlacementId the new value of {@code PlacementId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code placement_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPlacementId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setPlacementId(java.lang.Integer argPlacementId);
+	public com.scobolsolo.application.Response setPlacementId(java.lang.Integer argPlacementId);
 
 	/**
 	 * sets the {@code PlacementId} to the value of {@code argPlacementId}
 	 *
 	 * @param argPlacementId the new value of {@code PlacementId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setPlacementId(int argPlacementId);
+	public com.scobolsolo.application.Response setPlacementId(int argPlacementId);
 
 	/**
 	 * object accessor for the {@code ResponseTypeCode}
@@ -159,6 +165,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 * sets the {@code ResponseTypeCode} to the value of {@code argResponseTypeCode}
 	 *
 	 * @param argResponseTypeCode the new value of {@code ResponseTypeCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code response_type_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argResponseTypeCode is null
@@ -168,7 +175,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setResponseTypeCode(java.lang.String argResponseTypeCode);
+	public com.scobolsolo.application.Response setResponseTypeCode(java.lang.String argResponseTypeCode);
 
 	/**
 	 * object accessor for the {@code ReplacementForPlacementId}
@@ -231,15 +238,17 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 * sets the {@code ReplacementForPlacementId} to the value of {@code argReplacementForPlacementId}
 	 *
 	 * @param argReplacementForPlacementId the new value of {@code ReplacementForPlacementId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setReplacementForPlacementId(java.lang.Integer argReplacementForPlacementId);
+	public com.scobolsolo.application.Response setReplacementForPlacementId(java.lang.Integer argReplacementForPlacementId);
 
 	/**
 	 * sets the {@code ReplacementForPlacementId} to the value of {@code argReplacementForPlacementId}
 	 *
 	 * @param argReplacementForPlacementId the new value of {@code ReplacementForPlacementId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setReplacementForPlacementId(int argReplacementForPlacementId);
+	public com.scobolsolo.application.Response setReplacementForPlacementId(int argReplacementForPlacementId);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
@@ -247,7 +256,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Performance getPerformance();
-	public void setPerformance(com.scobolsolo.application.Performance argPerformance);
+	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Placement}
@@ -255,7 +264,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Placement getPlacement();
-	public void setPlacement(com.scobolsolo.application.Placement argPlacement);
+	public com.scobolsolo.application.Response setPlacement(com.scobolsolo.application.Placement argPlacement);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Placement}
@@ -263,7 +272,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Placement getReplacementForPlacement();
-	public void setReplacementForPlacement(com.scobolsolo.application.Placement argReplacementForPlacement);
+	public com.scobolsolo.application.Response setReplacementForPlacement(com.scobolsolo.application.Placement argReplacementForPlacement);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.ResponseType}
@@ -271,7 +280,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.ResponseType getResponseType();
-	public void setResponseType(com.scobolsolo.application.ResponseType argResponseType);
+	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType);
 
 	public com.scobolsolo.application.Response copy();
 

@@ -90,52 +90,52 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		return (java.lang.String) getReadValueSet()[3];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized BuzzerOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public BuzzerOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
+	public synchronized BuzzerOpal setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
 		tryMutate();
 		if (argSchoolRegistrationId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySchoolRegistrationId on " + this + " to null.");
 		}
 		getNewValues()[1] = argSchoolRegistrationId;
-		return;
+		return this;
 	}
 
-	public void setSchoolRegistrationId(final int argSchoolRegistrationId) {
+	public BuzzerOpal setSchoolRegistrationId(final int argSchoolRegistrationId) {
 		setSchoolRegistrationId(java.lang.Integer.valueOf(argSchoolRegistrationId));
-		return;
+		return this;
 	}
 
-	public synchronized void setRoomId(final java.lang.Integer argRoomId) {
+	public synchronized BuzzerOpal setRoomId(final java.lang.Integer argRoomId) {
 		tryMutate();
 		getNewValues()[2] = argRoomId;
-		return;
+		return this;
 	}
 
-	public void setRoomId(final int argRoomId) {
+	public BuzzerOpal setRoomId(final int argRoomId) {
 		setRoomId(java.lang.Integer.valueOf(argRoomId));
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized BuzzerOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if ((argName != null) && (argName.length() > 256)) {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[3] = argName;
-		return;
+		return this;
 	}
 
 	@Override
@@ -192,12 +192,12 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewSchoolRegistrationOpal;
+		lclUO = myNewRoomOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewRoomOpal;
+		lclUO = myNewSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -211,12 +211,12 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldSchoolRegistrationOpal;
+		lclUO = myOldRoomOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldRoomOpal;
+		lclUO = myOldSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -281,10 +281,10 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		return lclSchoolRegistrationOpal;
 	}
 
-	public synchronized void setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
+	public synchronized BuzzerOpal setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
-		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return; }
+		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
 			lclSchoolRegistrationOpal.removeBuzzerOpalInternal(this);
 		}
@@ -292,7 +292,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		if (argSchoolRegistrationOpal != null) {
 			argSchoolRegistrationOpal.addBuzzerOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
@@ -326,10 +326,10 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		return lclRoomOpal;
 	}
 
-	public synchronized void setRoomOpal(RoomOpal argRoomOpal) {
+	public synchronized BuzzerOpal setRoomOpal(RoomOpal argRoomOpal) {
 		tryMutate();
 		RoomOpal lclRoomOpal = getRoomOpal();
-		if (lclRoomOpal == argRoomOpal) { return; }
+		if (lclRoomOpal == argRoomOpal) { return this; }
 		if (lclRoomOpal != null) {
 			lclRoomOpal.removeBuzzerOpalInternal(this);
 		}
@@ -337,7 +337,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		if (argRoomOpal != null) {
 			argRoomOpal.addBuzzerOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setRoomOpalInternal(RoomOpal argRoomOpal) {

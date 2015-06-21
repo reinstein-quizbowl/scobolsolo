@@ -35,9 +35,9 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setCode(java.lang.String argCode) {
+	public ResponseTypeImpl setCode(java.lang.String argCode) {
 		getResponseTypeOpal().setCode(argCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -46,9 +46,9 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public ResponseTypeImpl setName(java.lang.String argName) {
 		getResponseTypeOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -57,9 +57,9 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public ResponseTypeImpl setShortName(java.lang.String argShortName) {
 		getResponseTypeOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -68,15 +68,15 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public ResponseTypeImpl setSequence(java.lang.Integer argSequence) {
 		getResponseTypeOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public ResponseTypeImpl setSequence(int argSequence) {
 		getResponseTypeOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -85,15 +85,15 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setPoints(java.lang.Integer argPoints) {
+	public ResponseTypeImpl setPoints(java.lang.Integer argPoints) {
 		getResponseTypeOpal().setPoints(argPoints);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPoints(int argPoints) {
+	public ResponseTypeImpl setPoints(int argPoints) {
 		getResponseTypeOpal().setPoints(argPoints);
-		return;
+		return this;
 	}
 
 	@Override
@@ -102,9 +102,9 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setBootstrapButtonClass(java.lang.String argBootstrapButtonClass) {
+	public ResponseTypeImpl setBootstrapButtonClass(java.lang.String argBootstrapButtonClass) {
 		getResponseTypeOpal().setBootstrapButtonClass(argBootstrapButtonClass);
-		return;
+		return this;
 	}
 
 	@Override
@@ -113,15 +113,15 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setDefault(java.lang.Boolean argDefault) {
+	public ResponseTypeImpl setDefault(java.lang.Boolean argDefault) {
 		getResponseTypeOpal().setDefault(argDefault);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setDefault(boolean argDefault) {
+	public ResponseTypeImpl setDefault(boolean argDefault) {
 		getResponseTypeOpal().setDefault(argDefault);
-		return;
+		return this;
 	}
 
 	@Override
@@ -130,15 +130,15 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setMultipleAllowedForSamePlacement(java.lang.Boolean argMultipleAllowedForSamePlacement) {
+	public ResponseTypeImpl setMultipleAllowedForSamePlacement(java.lang.Boolean argMultipleAllowedForSamePlacement) {
 		getResponseTypeOpal().setMultipleAllowedForSamePlacement(argMultipleAllowedForSamePlacement);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setMultipleAllowedForSamePlacement(boolean argMultipleAllowedForSamePlacement) {
+	public ResponseTypeImpl setMultipleAllowedForSamePlacement(boolean argMultipleAllowedForSamePlacement) {
 		getResponseTypeOpal().setMultipleAllowedForSamePlacement(argMultipleAllowedForSamePlacement);
-		return;
+		return this;
 	}
 
 	@Override
@@ -147,15 +147,15 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public void setAttempt(java.lang.Boolean argAttempt) {
+	public ResponseTypeImpl setAttempt(java.lang.Boolean argAttempt) {
 		getResponseTypeOpal().setAttempt(argAttempt);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setAttempt(boolean argAttempt) {
+	public ResponseTypeImpl setAttempt(boolean argAttempt) {
 		getResponseTypeOpal().setAttempt(argAttempt);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which

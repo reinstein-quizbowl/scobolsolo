@@ -33,15 +33,15 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public ResponseImpl setId(java.lang.Integer argId) {
 		getResponseOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public ResponseImpl setId(int argId) {
 		getResponseOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -50,15 +50,15 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setPerformanceId(java.lang.Integer argPerformanceId) {
+	public ResponseImpl setPerformanceId(java.lang.Integer argPerformanceId) {
 		getResponseOpal().setPerformanceId(argPerformanceId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPerformanceId(int argPerformanceId) {
+	public ResponseImpl setPerformanceId(int argPerformanceId) {
 		getResponseOpal().setPerformanceId(argPerformanceId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -67,15 +67,15 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setPlacementId(java.lang.Integer argPlacementId) {
+	public ResponseImpl setPlacementId(java.lang.Integer argPlacementId) {
 		getResponseOpal().setPlacementId(argPlacementId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPlacementId(int argPlacementId) {
+	public ResponseImpl setPlacementId(int argPlacementId) {
 		getResponseOpal().setPlacementId(argPlacementId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -84,9 +84,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setResponseTypeCode(java.lang.String argResponseTypeCode) {
+	public ResponseImpl setResponseTypeCode(java.lang.String argResponseTypeCode) {
 		getResponseOpal().setResponseTypeCode(argResponseTypeCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -95,15 +95,15 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setReplacementForPlacementId(java.lang.Integer argReplacementForPlacementId) {
+	public ResponseImpl setReplacementForPlacementId(java.lang.Integer argReplacementForPlacementId) {
 		getResponseOpal().setReplacementForPlacementId(argReplacementForPlacementId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setReplacementForPlacementId(int argReplacementForPlacementId) {
+	public ResponseImpl setReplacementForPlacementId(int argReplacementForPlacementId) {
 		getResponseOpal().setReplacementForPlacementId(argReplacementForPlacementId);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -118,9 +118,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setPerformance(Performance argPerformance) {
+	public Response setPerformance(Performance argPerformance) {
 		getResponseOpal().setPerformanceOpal(argPerformance == null ? null : ((PerformanceImpl) argPerformance).getPerformanceOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Placement object created from response through reference response_placement_id_fkey */
@@ -132,9 +132,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setPlacement(Placement argPlacement) {
+	public Response setPlacement(Placement argPlacement) {
 		getResponseOpal().setPlacementOpal(argPlacement == null ? null : ((PlacementImpl) argPlacement).getPlacementOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Placement object created from response through reference response_replacement_placement_id_fkey */
@@ -146,9 +146,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setReplacementForPlacement(Placement argPlacement) {
+	public Response setReplacementForPlacement(Placement argPlacement) {
 		getResponseOpal().setReplacementForPlacementOpal(argPlacement == null ? null : ((PlacementImpl) argPlacement).getPlacementOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the ResponseType object created from response through reference response_response_type_code_fkey */
@@ -160,9 +160,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	}
 
 	@Override
-	public void setResponseType(ResponseType argResponseType) {
+	public Response setResponseType(ResponseType argResponseType) {
 		getResponseOpal().setResponseTypeOpal(argResponseType == null ? null : ((ResponseTypeImpl) argResponseType).getResponseTypeOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

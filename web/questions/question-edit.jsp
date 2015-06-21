@@ -5,6 +5,8 @@
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.opalforms.updater.QuestionUpdater" %>
+<%@ page import="com.scobolsolo.AccountUtility" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -15,11 +17,13 @@ OpalMainForm<Question> lclOF = OpalForm.create(
 	QuestionFactory.getInstance(),
 	"question_id"
 );
+lclOF.setUpdaterClass(QuestionUpdater.class);
+lclOF.setDeleteURI("/delete-confirmation.jsp?class_name=question");
 Question lclQ = lclOF.getUserFacing();
-Tournament lclT = lclOF.isNew() ? null : lclQ.getTournament();
 
-if (lclT != null) {
-	lclOF.setDeleteURI("cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=question");
+Account lclUser = AccountUtility.demandLoggedInAccount(request);
+if (!lclUser.isAdministrator()) {
+	lclOF.disable("Writer");
 }
 
 String lclTitle;
@@ -32,16 +36,12 @@ if (lclOF.alreadyExists()) {
 } else {
 	lclTitle = "New question";
 }
-if (lclT != null) {
-	lclTitle += " for " + lclT.getName();
-}
 %>
 
 <jsp:include page="/template/header.jsp">
-	<jsp:param name="tournamentCode" value="<%= lclT == null ? null : lclT.getCode() %>" />
 	<jsp:param name="pageTitle" value="<%= lclTitle %>" />
 	<jsp:param name="pageDescription" value="<%= lclTitle %>" />
-	<jsp:param name="topMenu" value="<%= (lclT == null ? Menus.ADMIN() : Menus.tournamentAdmin(lclT)).asTopLevel().output(request, \"questions-\" + (lclT == null ? \"\" : lclT.getUniqueString())) %>" />
+	<jsp:param name="topMenu" value="<%= Menus.QUESTIONS().asTopLevel().output(request, \"edit\") %>" />
 	<jsp:param name="h1" value="<%= lclTitle %>" />
 </jsp:include>
 
@@ -56,31 +56,50 @@ if (lclOF.hasErrors()) {
 	</div><%
 }
 
-%><div class="row"><%
-	if (lclOF.isNew()) {
-		%><div class="small-12 columns">
-			<label>
-				Tournament
-				<%= lclOF.dropdown("Tournament", Tournament.DateComparator.getInstance().reversed()) %>
-			</label>
-		</div><%
-	}
-	%><div class="small-12 medium-6 large-3 columns">
+%><div class="row">
+	<div class="small-12 medium-4 columns">
 		<label>
 			Description
 			<%= lclOF.text("Description", 30) %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-4 columns">
 		<label>
 			Category
-			<%= lclOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(argC -> argC.isUsedAt(lclT)) %>
+			<%= lclOF.dropdown("Category", Category.StandardComparator.getInstance()) %>
 		</label>
 	</div>
-	<div class="small-12 large-6 columns">
+	<div class="small-12 medium-4 columns">
 		<label>
-			Note
-			<%= lclOF.textarea("Note", 60, 3) %>
+			Writer
+			<%= lclOF.dropdown("Writer", Account.NameComparator.getInstance()).filter(Account::isWriter) %>
+		</label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<label>
+			Text
+			<%= lclOF.textarea("Text", 80, 5) %>
+		</label>
+	</div>
+	<div class="small-12 columns">
+		<label>
+			Answer
+			<%= lclOF.textarea("Answer", 80, 2) %>
+		</label>
+	</div>
+	<div class="small-12 columns">
+		<label>
+			<span title="This note sticks with the question.">Question Note</span>
+			<%= lclOF.textarea("Note", 80, 2) %>
+		</label>
+	</div>
+	<div class="small-12 columns">
+		<label>
+			<span title="This note is associated with the particular revision to the question you are making.">Edit Remark</span>
+			<%= lclOF.getPriorInput().text("/DiffRemark", 60) %>
 		</label>
 	</div>
 </div><%
@@ -111,7 +130,7 @@ if (lclOF.alreadyExists()) {
 						Placement lclP = lclPOF.getUserFacing();
 						%><tr>
 							<%= lclPOF.open() %>
-							<td><%= lclPOF.dropdown("Packet", Packet.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT) %></td>
+							<td><%= lclPOF.dropdown("Packet", Packet.StandardComparator.getInstance()).namer(Packet::getShortNameWithTournament) %></td>
 							<td><%= lclPOF.text("Sequence", 3) %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>
@@ -127,7 +146,7 @@ if (lclOF.alreadyExists()) {
 
 %><div class="row">
 	<div class="small-12 columns">
-		<%= lclOF.submit() %> <%= lclOF.delete("Delete") %> <%= lclOF.cancel() %>
+		<%= lclOF.submit() %> <%= lclUser.isAdministrator() ? lclOF.delete("Delete") : "" %> <%= lclOF.cancel() %>
 	</div>
 </div>
 

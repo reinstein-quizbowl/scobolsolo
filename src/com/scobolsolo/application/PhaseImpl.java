@@ -36,15 +36,15 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public PhaseImpl setId(java.lang.Integer argId) {
 		getPhaseOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public PhaseImpl setId(int argId) {
 		getPhaseOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -53,9 +53,9 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setTournamentCode(java.lang.String argTournamentCode) {
+	public PhaseImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getPhaseOpal().setTournamentCode(argTournamentCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -64,9 +64,9 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public PhaseImpl setName(java.lang.String argName) {
 		getPhaseOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -75,9 +75,9 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public PhaseImpl setShortName(java.lang.String argShortName) {
 		getPhaseOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -86,15 +86,15 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public PhaseImpl setSequence(java.lang.Integer argSequence) {
 		getPhaseOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public PhaseImpl setSequence(int argSequence) {
 		getPhaseOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -103,15 +103,15 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setCardSystem(java.lang.Boolean argCardSystem) {
+	public PhaseImpl setCardSystem(java.lang.Boolean argCardSystem) {
 		getPhaseOpal().setCardSystem(argCardSystem);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setCardSystem(boolean argCardSystem) {
+	public PhaseImpl setCardSystem(boolean argCardSystem) {
 		getPhaseOpal().setCardSystem(argCardSystem);
-		return;
+		return this;
 	}
 
 	@Override
@@ -120,9 +120,9 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public PhaseImpl setNote(java.lang.String argNote) {
 		getPhaseOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -137,9 +137,9 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void setTournament(Tournament argTournament) {
+	public Phase setTournament(Tournament argTournament) {
 		getPhaseOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

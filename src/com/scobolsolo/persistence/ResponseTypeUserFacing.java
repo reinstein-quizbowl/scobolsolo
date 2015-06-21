@@ -30,6 +30,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Code} to the value of {@code argCode}
 	 *
 	 * @param argCode the new value of {@code Code}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argCode is null
@@ -39,7 +40,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setCode(java.lang.String argCode);
+	public com.scobolsolo.application.ResponseType setCode(java.lang.String argCode);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -54,6 +55,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -63,7 +65,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.ResponseType setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -78,6 +80,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -87,7 +90,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.ResponseType setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -118,19 +121,21 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.ResponseType setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.ResponseType setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code Points}
@@ -161,19 +166,21 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Points} to the value of {@code argPoints}
 	 *
 	 * @param argPoints the new value of {@code Points}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code points} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPoints is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setPoints(java.lang.Integer argPoints);
+	public com.scobolsolo.application.ResponseType setPoints(java.lang.Integer argPoints);
 
 	/**
 	 * sets the {@code Points} to the value of {@code argPoints}
 	 *
 	 * @param argPoints the new value of {@code Points}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setPoints(int argPoints);
+	public com.scobolsolo.application.ResponseType setPoints(int argPoints);
 
 	/**
 	 * object accessor for the {@code BootstrapButtonClass}
@@ -188,6 +195,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code BootstrapButtonClass} to the value of {@code argBootstrapButtonClass}
 	 *
 	 * @param argBootstrapButtonClass the new value of {@code BootstrapButtonClass}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code bootstrap_button_class} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argBootstrapButtonClass is null
@@ -197,7 +205,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 64L)
-	public void setBootstrapButtonClass(java.lang.String argBootstrapButtonClass);
+	public com.scobolsolo.application.ResponseType setBootstrapButtonClass(java.lang.String argBootstrapButtonClass);
 
 	/**
 	 * object accessor for the {@code Default}
@@ -228,19 +236,21 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Default} to the value of {@code argDefault}
 	 *
 	 * @param argDefault the new value of {@code Default}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code is_default} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argDefault is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setDefault(java.lang.Boolean argDefault);
+	public com.scobolsolo.application.ResponseType setDefault(java.lang.Boolean argDefault);
 
 	/**
 	 * sets the {@code Default} to the value of {@code argDefault}
 	 *
 	 * @param argDefault the new value of {@code Default}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setDefault(boolean argDefault);
+	public com.scobolsolo.application.ResponseType setDefault(boolean argDefault);
 
 	/**
 	 * object accessor for the {@code MultipleAllowedForSamePlacement}
@@ -271,19 +281,21 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code MultipleAllowedForSamePlacement} to the value of {@code argMultipleAllowedForSamePlacement}
 	 *
 	 * @param argMultipleAllowedForSamePlacement the new value of {@code MultipleAllowedForSamePlacement}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code multiple_allowed_for_same_placement} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argMultipleAllowedForSamePlacement is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setMultipleAllowedForSamePlacement(java.lang.Boolean argMultipleAllowedForSamePlacement);
+	public com.scobolsolo.application.ResponseType setMultipleAllowedForSamePlacement(java.lang.Boolean argMultipleAllowedForSamePlacement);
 
 	/**
 	 * sets the {@code MultipleAllowedForSamePlacement} to the value of {@code argMultipleAllowedForSamePlacement}
 	 *
 	 * @param argMultipleAllowedForSamePlacement the new value of {@code MultipleAllowedForSamePlacement}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setMultipleAllowedForSamePlacement(boolean argMultipleAllowedForSamePlacement);
+	public com.scobolsolo.application.ResponseType setMultipleAllowedForSamePlacement(boolean argMultipleAllowedForSamePlacement);
 
 	/**
 	 * object accessor for the {@code Attempt}
@@ -314,19 +326,21 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Attempt} to the value of {@code argAttempt}
 	 *
 	 * @param argAttempt the new value of {@code Attempt}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code is_attempt} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argAttempt is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setAttempt(java.lang.Boolean argAttempt);
+	public com.scobolsolo.application.ResponseType setAttempt(java.lang.Boolean argAttempt);
 
 	/**
 	 * sets the {@code Attempt} to the value of {@code argAttempt}
 	 *
 	 * @param argAttempt the new value of {@code Attempt}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setAttempt(boolean argAttempt);
+	public com.scobolsolo.application.ResponseType setAttempt(boolean argAttempt);
 
 	public com.scobolsolo.application.ResponseType copy();
 

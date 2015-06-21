@@ -36,15 +36,15 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public WaitlistEntryImpl setId(java.lang.Integer argId) {
 		getWaitlistEntryOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public WaitlistEntryImpl setId(int argId) {
 		getWaitlistEntryOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -53,15 +53,15 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
+	public WaitlistEntryImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getWaitlistEntryOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSchoolRegistrationId(int argSchoolRegistrationId) {
+	public WaitlistEntryImpl setSchoolRegistrationId(int argSchoolRegistrationId) {
 		getWaitlistEntryOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -70,15 +70,15 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public WaitlistEntryImpl setSequence(java.lang.Integer argSequence) {
 		getWaitlistEntryOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public WaitlistEntryImpl setSequence(int argSequence) {
 		getWaitlistEntryOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -87,15 +87,15 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	public void setPlayerCount(java.lang.Integer argPlayerCount) {
+	public WaitlistEntryImpl setPlayerCount(java.lang.Integer argPlayerCount) {
 		getWaitlistEntryOpal().setPlayerCount(argPlayerCount);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPlayerCount(int argPlayerCount) {
+	public WaitlistEntryImpl setPlayerCount(int argPlayerCount) {
 		getWaitlistEntryOpal().setPlayerCount(argPlayerCount);
-		return;
+		return this;
 	}
 
 	@Override
@@ -104,9 +104,9 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public WaitlistEntryImpl setNote(java.lang.String argNote) {
 		getWaitlistEntryOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -121,9 +121,9 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	}
 
 	@Override
-	public void setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public WaitlistEntry setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getWaitlistEntryOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

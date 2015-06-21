@@ -57,7 +57,7 @@
 		<pathelement location="${lib.dir}/poi-excelant-3.10.jar" />
 		<pathelement location="${lib.dir}/poi-ooxml-3.10.jar" />
 		<pathelement location="${lib.dir}/poi-ooxml-schemas.jar" />
-		<pathelement location="${lib.dir}/postgresql-9.3-1101.jdbc41.jar" />
+		<pathelement location="${lib.dir}/postgresql-9.4-1201.jdbc41.jar" />
 		<pathelement location="${lib.dir}/sendgrid-java.jar" />
 		<pathelement location="${lib.dir}/stax-api-1.0.1.jar" />
 		<pathelement location="${lib.dir}/xmlbeans-2.3.0.jar" />

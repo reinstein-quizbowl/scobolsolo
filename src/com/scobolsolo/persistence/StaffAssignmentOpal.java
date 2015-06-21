@@ -90,52 +90,52 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		return (java.lang.Integer) getReadValueSet()[3];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized StaffAssignmentOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public StaffAssignmentOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setRoomId(final java.lang.Integer argRoomId) {
+	public synchronized StaffAssignmentOpal setRoomId(final java.lang.Integer argRoomId) {
 		tryMutate();
 		if (argRoomId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myRoomId on " + this + " to null.");
 		}
 		getNewValues()[1] = argRoomId;
-		return;
+		return this;
 	}
 
-	public void setRoomId(final int argRoomId) {
+	public StaffAssignmentOpal setRoomId(final int argRoomId) {
 		setRoomId(java.lang.Integer.valueOf(argRoomId));
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized StaffAssignmentOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[2] = argNote;
-		return;
+		return this;
 	}
 
-	public synchronized void setStaffId(final java.lang.Integer argStaffId) {
+	public synchronized StaffAssignmentOpal setStaffId(final java.lang.Integer argStaffId) {
 		tryMutate();
 		if (argStaffId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myStaffId on " + this + " to null.");
 		}
 		getNewValues()[3] = argStaffId;
-		return;
+		return this;
 	}
 
-	public void setStaffId(final int argStaffId) {
+	public StaffAssignmentOpal setStaffId(final int argStaffId) {
 		setStaffId(java.lang.Integer.valueOf(argStaffId));
-		return;
+		return this;
 	}
 
 	@Override
@@ -192,12 +192,12 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewRoomOpal;
+		lclUO = myNewStaffOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewStaffOpal;
+		lclUO = myNewRoomOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -211,12 +211,12 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldRoomOpal;
+		lclUO = myOldStaffOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldStaffOpal;
+		lclUO = myOldRoomOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -281,10 +281,10 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		return lclStaffOpal;
 	}
 
-	public synchronized void setStaffOpal(StaffOpal argStaffOpal) {
+	public synchronized StaffAssignmentOpal setStaffOpal(StaffOpal argStaffOpal) {
 		tryMutate();
 		StaffOpal lclStaffOpal = getStaffOpal();
-		if (lclStaffOpal == argStaffOpal) { return; }
+		if (lclStaffOpal == argStaffOpal) { return this; }
 		if (lclStaffOpal != null) {
 			lclStaffOpal.removeStaffAssignmentOpalInternal(this);
 		}
@@ -292,7 +292,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		if (argStaffOpal != null) {
 			argStaffOpal.addStaffAssignmentOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setStaffOpalInternal(StaffOpal argStaffOpal) {
@@ -326,10 +326,10 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		return lclRoomOpal;
 	}
 
-	public synchronized void setRoomOpal(RoomOpal argRoomOpal) {
+	public synchronized StaffAssignmentOpal setRoomOpal(RoomOpal argRoomOpal) {
 		tryMutate();
 		RoomOpal lclRoomOpal = getRoomOpal();
-		if (lclRoomOpal == argRoomOpal) { return; }
+		if (lclRoomOpal == argRoomOpal) { return this; }
 		if (lclRoomOpal != null) {
 			lclRoomOpal.removeStaffAssignmentOpalInternal(this);
 		}
@@ -337,7 +337,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		if (argRoomOpal != null) {
 			argRoomOpal.addStaffAssignmentOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setRoomOpalInternal(RoomOpal argRoomOpal) {

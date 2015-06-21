@@ -34,15 +34,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public PlayerImpl setId(java.lang.Integer argId) {
 		getPlayerOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public PlayerImpl setId(int argId) {
 		getPlayerOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -51,15 +51,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setContactId(java.lang.Integer argContactId) {
+	public PlayerImpl setContactId(java.lang.Integer argContactId) {
 		getPlayerOpal().setContactId(argContactId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setContactId(int argContactId) {
+	public PlayerImpl setContactId(int argContactId) {
 		getPlayerOpal().setContactId(argContactId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -68,15 +68,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
+	public PlayerImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getPlayerOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSchoolRegistrationId(int argSchoolRegistrationId) {
+	public PlayerImpl setSchoolRegistrationId(int argSchoolRegistrationId) {
 		getPlayerOpal().setSchoolRegistrationId(argSchoolRegistrationId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -85,9 +85,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setSchoolYearCode(java.lang.String argSchoolYearCode) {
+	public PlayerImpl setSchoolYearCode(java.lang.String argSchoolYearCode) {
 		getPlayerOpal().setSchoolYearCode(argSchoolYearCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -96,15 +96,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setRankWithinSchool(java.lang.Integer argRankWithinSchool) {
+	public PlayerImpl setRankWithinSchool(java.lang.Integer argRankWithinSchool) {
 		getPlayerOpal().setRankWithinSchool(argRankWithinSchool);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setRankWithinSchool(int argRankWithinSchool) {
+	public PlayerImpl setRankWithinSchool(int argRankWithinSchool) {
 		getPlayerOpal().setRankWithinSchool(argRankWithinSchool);
-		return;
+		return this;
 	}
 
 	@Override
@@ -113,15 +113,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setSeed(java.lang.Integer argSeed) {
+	public PlayerImpl setSeed(java.lang.Integer argSeed) {
 		getPlayerOpal().setSeed(argSeed);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSeed(int argSeed) {
+	public PlayerImpl setSeed(int argSeed) {
 		getPlayerOpal().setSeed(argSeed);
-		return;
+		return this;
 	}
 
 	@Override
@@ -130,9 +130,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public PlayerImpl setNote(java.lang.String argNote) {
 		getPlayerOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -141,15 +141,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setInitialCardId(java.lang.Integer argInitialCardId) {
+	public PlayerImpl setInitialCardId(java.lang.Integer argInitialCardId) {
 		getPlayerOpal().setInitialCardId(argInitialCardId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setInitialCardId(int argInitialCardId) {
+	public PlayerImpl setInitialCardId(int argInitialCardId) {
 		getPlayerOpal().setInitialCardId(argInitialCardId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -158,15 +158,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setExhibition(java.lang.Boolean argExhibition) {
+	public PlayerImpl setExhibition(java.lang.Boolean argExhibition) {
 		getPlayerOpal().setExhibition(argExhibition);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setExhibition(boolean argExhibition) {
+	public PlayerImpl setExhibition(boolean argExhibition) {
 		getPlayerOpal().setExhibition(argExhibition);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -181,9 +181,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setContact(Contact argContact) {
+	public Player setContact(Contact argContact) {
 		getPlayerOpal().setContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Card object created from player through reference player_initial_card_id_fkey */
@@ -195,9 +195,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setInitialCard(Card argCard) {
+	public Player setInitialCard(Card argCard) {
 		getPlayerOpal().setInitialCardOpal(argCard == null ? null : ((CardImpl) argCard).getCardOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the SchoolRegistration object created from player through reference player_registration_id_fkey */
@@ -209,9 +209,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public Player setSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getPlayerOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the SchoolYear object created from player through reference player_school_year_code_fkey */
@@ -223,9 +223,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void setSchoolYear(SchoolYear argSchoolYear) {
+	public Player setSchoolYear(SchoolYear argSchoolYear) {
 		getPlayerOpal().setSchoolYearOpal(argSchoolYear == null ? null : ((SchoolYearImpl) argSchoolYear).getSchoolYearOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

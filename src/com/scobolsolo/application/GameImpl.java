@@ -33,15 +33,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public GameImpl setId(java.lang.Integer argId) {
 		getGameOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public GameImpl setId(int argId) {
 		getGameOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -50,15 +50,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setTossupsHeard(java.lang.Integer argTossupsHeard) {
+	public GameImpl setTossupsHeard(java.lang.Integer argTossupsHeard) {
 		getGameOpal().setTossupsHeard(argTossupsHeard);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setTossupsHeard(int argTossupsHeard) {
+	public GameImpl setTossupsHeard(int argTossupsHeard) {
 		getGameOpal().setTossupsHeard(argTossupsHeard);
-		return;
+		return this;
 	}
 
 	@Override
@@ -67,15 +67,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setIncomingWinningCardPlayerId(java.lang.Integer argIncomingWinningCardPlayerId) {
+	public GameImpl setIncomingWinningCardPlayerId(java.lang.Integer argIncomingWinningCardPlayerId) {
 		getGameOpal().setIncomingWinningCardPlayerId(argIncomingWinningCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setIncomingWinningCardPlayerId(int argIncomingWinningCardPlayerId) {
+	public GameImpl setIncomingWinningCardPlayerId(int argIncomingWinningCardPlayerId) {
 		getGameOpal().setIncomingWinningCardPlayerId(argIncomingWinningCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -84,15 +84,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setIncomingLosingCardPlayerId(java.lang.Integer argIncomingLosingCardPlayerId) {
+	public GameImpl setIncomingLosingCardPlayerId(java.lang.Integer argIncomingLosingCardPlayerId) {
 		getGameOpal().setIncomingLosingCardPlayerId(argIncomingLosingCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setIncomingLosingCardPlayerId(int argIncomingLosingCardPlayerId) {
+	public GameImpl setIncomingLosingCardPlayerId(int argIncomingLosingCardPlayerId) {
 		getGameOpal().setIncomingLosingCardPlayerId(argIncomingLosingCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -101,15 +101,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setOutgoingWinningCardPlayerId(java.lang.Integer argOutgoingWinningCardPlayerId) {
+	public GameImpl setOutgoingWinningCardPlayerId(java.lang.Integer argOutgoingWinningCardPlayerId) {
 		getGameOpal().setOutgoingWinningCardPlayerId(argOutgoingWinningCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setOutgoingWinningCardPlayerId(int argOutgoingWinningCardPlayerId) {
+	public GameImpl setOutgoingWinningCardPlayerId(int argOutgoingWinningCardPlayerId) {
 		getGameOpal().setOutgoingWinningCardPlayerId(argOutgoingWinningCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -118,15 +118,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setOutgoingLosingCardPlayerId(java.lang.Integer argOutgoingLosingCardPlayerId) {
+	public GameImpl setOutgoingLosingCardPlayerId(java.lang.Integer argOutgoingLosingCardPlayerId) {
 		getGameOpal().setOutgoingLosingCardPlayerId(argOutgoingLosingCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setOutgoingLosingCardPlayerId(int argOutgoingLosingCardPlayerId) {
+	public GameImpl setOutgoingLosingCardPlayerId(int argOutgoingLosingCardPlayerId) {
 		getGameOpal().setOutgoingLosingCardPlayerId(argOutgoingLosingCardPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -135,15 +135,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setModeratorStaffId(java.lang.Integer argModeratorStaffId) {
+	public GameImpl setModeratorStaffId(java.lang.Integer argModeratorStaffId) {
 		getGameOpal().setModeratorStaffId(argModeratorStaffId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setModeratorStaffId(int argModeratorStaffId) {
+	public GameImpl setModeratorStaffId(int argModeratorStaffId) {
 		getGameOpal().setModeratorStaffId(argModeratorStaffId);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -158,9 +158,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setMatch(Match argMatch) {
+	public Game setMatch(Match argMatch) {
 		getGameOpal().setMatchOpal(argMatch == null ? null : ((MatchImpl) argMatch).getMatchOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
@@ -172,9 +172,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setIncomingLosingCardPlayer(Player argPlayer) {
+	public Game setIncomingLosingCardPlayer(Player argPlayer) {
 		getGameOpal().setIncomingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
@@ -186,9 +186,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setIncomingWinningCardPlayer(Player argPlayer) {
+	public Game setIncomingWinningCardPlayer(Player argPlayer) {
 		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Staff object created from game through reference game_moderator_staff_id_fkey */
@@ -200,9 +200,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setModeratorStaff(Staff argStaff) {
+	public Game setModeratorStaff(Staff argStaff) {
 		getGameOpal().setModeratorStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Player object created from game through reference game_outgoing_losing_card_player_id_fkey */
@@ -214,9 +214,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setOutgoingLosingCardPlayer(Player argPlayer) {
+	public Game setOutgoingLosingCardPlayer(Player argPlayer) {
 		getGameOpal().setOutgoingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Player object created from game through reference game_outgoing_winning_card_player_id_fkey */
@@ -228,9 +228,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void setOutgoingWinningCardPlayer(Player argPlayer) {
+	public Game setOutgoingWinningCardPlayer(Player argPlayer) {
 		getGameOpal().setOutgoingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

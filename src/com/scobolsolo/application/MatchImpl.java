@@ -34,15 +34,15 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public MatchImpl setId(java.lang.Integer argId) {
 		getMatchOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public MatchImpl setId(int argId) {
 		getMatchOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -51,15 +51,15 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setRoundId(java.lang.Integer argRoundId) {
+	public MatchImpl setRoundId(java.lang.Integer argRoundId) {
 		getMatchOpal().setRoundId(argRoundId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setRoundId(int argRoundId) {
+	public MatchImpl setRoundId(int argRoundId) {
 		getMatchOpal().setRoundId(argRoundId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -68,15 +68,15 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setRoomId(java.lang.Integer argRoomId) {
+	public MatchImpl setRoomId(java.lang.Integer argRoomId) {
 		getMatchOpal().setRoomId(argRoomId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setRoomId(int argRoomId) {
+	public MatchImpl setRoomId(int argRoomId) {
 		getMatchOpal().setRoomId(argRoomId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -85,15 +85,15 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setWinningCardId(java.lang.Integer argWinningCardId) {
+	public MatchImpl setWinningCardId(java.lang.Integer argWinningCardId) {
 		getMatchOpal().setWinningCardId(argWinningCardId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setWinningCardId(int argWinningCardId) {
+	public MatchImpl setWinningCardId(int argWinningCardId) {
 		getMatchOpal().setWinningCardId(argWinningCardId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -102,15 +102,15 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setLosingCardId(java.lang.Integer argLosingCardId) {
+	public MatchImpl setLosingCardId(java.lang.Integer argLosingCardId) {
 		getMatchOpal().setLosingCardId(argLosingCardId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setLosingCardId(int argLosingCardId) {
+	public MatchImpl setLosingCardId(int argLosingCardId) {
 		getMatchOpal().setLosingCardId(argLosingCardId);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -125,9 +125,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setLosingCard(Card argCard) {
+	public Match setLosingCard(Card argCard) {
 		getMatchOpal().setLosingCardOpal(argCard == null ? null : ((CardImpl) argCard).getCardOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Room object created from match through reference match_room_id_fkey */
@@ -139,9 +139,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setRoom(Room argRoom) {
+	public Match setRoom(Room argRoom) {
 		getMatchOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Round object created from match through reference match_round_id_fkey */
@@ -153,9 +153,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setRound(Round argRound) {
+	public Match setRound(Round argRound) {
 		getMatchOpal().setRoundOpal(argRound == null ? null : ((RoundImpl) argRound).getRoundOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Card object created from match through reference match_winning_card_id_fkey */
@@ -167,9 +167,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setWinningCard(Card argCard) {
+	public Match setWinningCard(Card argCard) {
 		getMatchOpal().setWinningCardOpal(argCard == null ? null : ((CardImpl) argCard).getCardOpal());
-		return;
+		return this;
 	}
 
 	@Override
@@ -179,9 +179,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	}
 
 	@Override
-	public void setGame(Game argGame) {
+	public Match setGame(Game argGame) {
 		getMatchOpal().setGameOpal(argGame == null ? null : ((GameImpl) argGame).getGameOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

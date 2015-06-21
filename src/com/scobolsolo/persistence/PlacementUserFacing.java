@@ -46,19 +46,21 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Placement setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Placement setId(int argId);
 
 	/**
 	 * object accessor for the {@code QuestionId}
@@ -89,19 +91,21 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 * sets the {@code QuestionId} to the value of {@code argQuestionId}
 	 *
 	 * @param argQuestionId the new value of {@code QuestionId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code question_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argQuestionId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setQuestionId(java.lang.Integer argQuestionId);
+	public com.scobolsolo.application.Placement setQuestionId(java.lang.Integer argQuestionId);
 
 	/**
 	 * sets the {@code QuestionId} to the value of {@code argQuestionId}
 	 *
 	 * @param argQuestionId the new value of {@code QuestionId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setQuestionId(int argQuestionId);
+	public com.scobolsolo.application.Placement setQuestionId(int argQuestionId);
 
 	/**
 	 * object accessor for the {@code PacketId}
@@ -132,19 +136,21 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 * sets the {@code PacketId} to the value of {@code argPacketId}
 	 *
 	 * @param argPacketId the new value of {@code PacketId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code packet_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPacketId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setPacketId(java.lang.Integer argPacketId);
+	public com.scobolsolo.application.Placement setPacketId(java.lang.Integer argPacketId);
 
 	/**
 	 * sets the {@code PacketId} to the value of {@code argPacketId}
 	 *
 	 * @param argPacketId the new value of {@code PacketId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setPacketId(int argPacketId);
+	public com.scobolsolo.application.Placement setPacketId(int argPacketId);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -175,19 +181,21 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.Placement setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.Placement setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code Tiebreaker}
@@ -218,19 +226,21 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 * sets the {@code Tiebreaker} to the value of {@code argTiebreaker}
 	 *
 	 * @param argTiebreaker the new value of {@code Tiebreaker}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tiebreaker} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTiebreaker is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setTiebreaker(java.lang.Boolean argTiebreaker);
+	public com.scobolsolo.application.Placement setTiebreaker(java.lang.Boolean argTiebreaker);
 
 	/**
 	 * sets the {@code Tiebreaker} to the value of {@code argTiebreaker}
 	 *
 	 * @param argTiebreaker the new value of {@code Tiebreaker}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setTiebreaker(boolean argTiebreaker);
+	public com.scobolsolo.application.Placement setTiebreaker(boolean argTiebreaker);
 
 	/**
 	 * object accessor for the {@code ScorecheckAfter}
@@ -261,19 +271,21 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 * sets the {@code ScorecheckAfter} to the value of {@code argScorecheckAfter}
 	 *
 	 * @param argScorecheckAfter the new value of {@code ScorecheckAfter}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code scorecheck_after} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argScorecheckAfter is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setScorecheckAfter(java.lang.Boolean argScorecheckAfter);
+	public com.scobolsolo.application.Placement setScorecheckAfter(java.lang.Boolean argScorecheckAfter);
 
 	/**
 	 * sets the {@code ScorecheckAfter} to the value of {@code argScorecheckAfter}
 	 *
 	 * @param argScorecheckAfter the new value of {@code ScorecheckAfter}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setScorecheckAfter(boolean argScorecheckAfter);
+	public com.scobolsolo.application.Placement setScorecheckAfter(boolean argScorecheckAfter);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Packet}
@@ -281,7 +293,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 */
 	public com.scobolsolo.application.Packet getPacket();
-	public void setPacket(com.scobolsolo.application.Packet argPacket);
+	public com.scobolsolo.application.Placement setPacket(com.scobolsolo.application.Packet argPacket);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Question}
@@ -289,7 +301,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 */
 	public com.scobolsolo.application.Question getQuestion();
-	public void setQuestion(com.scobolsolo.application.Question argQuestion);
+	public com.scobolsolo.application.Placement setQuestion(com.scobolsolo.application.Question argQuestion);
 
 	public int getResponseCount();
 	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator();

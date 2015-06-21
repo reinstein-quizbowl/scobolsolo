@@ -90,7 +90,7 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 		return (java.lang.Integer) getReadValueSet()[4];
 	}
 
-	public synchronized void setCode(final java.lang.String argCode) {
+	public synchronized SchoolYearOpal setCode(final java.lang.String argCode) {
 		tryMutate();
 		if (argCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
@@ -99,10 +99,10 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized SchoolYearOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -111,10 +111,10 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized SchoolYearOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -123,10 +123,10 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setVeryShortName(final java.lang.String argVeryShortName) {
+	public synchronized SchoolYearOpal setVeryShortName(final java.lang.String argVeryShortName) {
 		tryMutate();
 		if (argVeryShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myVeryShortName on " + this + " to null.");
@@ -135,21 +135,21 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myVeryShortName on " + this + " is 12.", argVeryShortName.length(), 12);
 		}
 		getNewValues()[3] = argVeryShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized SchoolYearOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[4] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public SchoolYearOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
 	@Override

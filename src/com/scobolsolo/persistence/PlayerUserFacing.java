@@ -46,19 +46,21 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Player setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Player setId(int argId);
 
 	/**
 	 * object accessor for the {@code ContactId}
@@ -89,19 +91,21 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code ContactId} to the value of {@code argContactId}
 	 *
 	 * @param argContactId the new value of {@code ContactId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code contact_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argContactId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setContactId(java.lang.Integer argContactId);
+	public com.scobolsolo.application.Player setContactId(java.lang.Integer argContactId);
 
 	/**
 	 * sets the {@code ContactId} to the value of {@code argContactId}
 	 *
 	 * @param argContactId the new value of {@code ContactId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setContactId(int argContactId);
+	public com.scobolsolo.application.Player setContactId(int argContactId);
 
 	/**
 	 * object accessor for the {@code SchoolRegistrationId}
@@ -164,15 +168,17 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
+	public com.scobolsolo.application.Player setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSchoolRegistrationId(int argSchoolRegistrationId);
+	public com.scobolsolo.application.Player setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
 	 * object accessor for the {@code SchoolYearCode}
@@ -203,12 +209,13 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code SchoolYearCode} to the value of {@code argSchoolYearCode}
 	 *
 	 * @param argSchoolYearCode the new value of {@code SchoolYearCode}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argSchoolYearCode} is longer than 32 characters
 	 * <p>The database column {@code school_year_code} is limited to 32 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setSchoolYearCode(java.lang.String argSchoolYearCode);
+	public com.scobolsolo.application.Player setSchoolYearCode(java.lang.String argSchoolYearCode);
 
 	/**
 	 * object accessor for the {@code RankWithinSchool}
@@ -271,15 +278,17 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code RankWithinSchool} to the value of {@code argRankWithinSchool}
 	 *
 	 * @param argRankWithinSchool the new value of {@code RankWithinSchool}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setRankWithinSchool(java.lang.Integer argRankWithinSchool);
+	public com.scobolsolo.application.Player setRankWithinSchool(java.lang.Integer argRankWithinSchool);
 
 	/**
 	 * sets the {@code RankWithinSchool} to the value of {@code argRankWithinSchool}
 	 *
 	 * @param argRankWithinSchool the new value of {@code RankWithinSchool}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setRankWithinSchool(int argRankWithinSchool);
+	public com.scobolsolo.application.Player setRankWithinSchool(int argRankWithinSchool);
 
 	/**
 	 * object accessor for the {@code Seed}
@@ -342,15 +351,17 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code Seed} to the value of {@code argSeed}
 	 *
 	 * @param argSeed the new value of {@code Seed}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setSeed(java.lang.Integer argSeed);
+	public com.scobolsolo.application.Player setSeed(java.lang.Integer argSeed);
 
 	/**
 	 * sets the {@code Seed} to the value of {@code argSeed}
 	 *
 	 * @param argSeed the new value of {@code Seed}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSeed(int argSeed);
+	public com.scobolsolo.application.Player setSeed(int argSeed);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -381,12 +392,13 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.Player setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code InitialCardId}
@@ -449,15 +461,17 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code InitialCardId} to the value of {@code argInitialCardId}
 	 *
 	 * @param argInitialCardId the new value of {@code InitialCardId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setInitialCardId(java.lang.Integer argInitialCardId);
+	public com.scobolsolo.application.Player setInitialCardId(java.lang.Integer argInitialCardId);
 
 	/**
 	 * sets the {@code InitialCardId} to the value of {@code argInitialCardId}
 	 *
 	 * @param argInitialCardId the new value of {@code InitialCardId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setInitialCardId(int argInitialCardId);
+	public com.scobolsolo.application.Player setInitialCardId(int argInitialCardId);
 
 	/**
 	 * object accessor for the {@code Exhibition}
@@ -488,19 +502,21 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 * sets the {@code Exhibition} to the value of {@code argExhibition}
 	 *
 	 * @param argExhibition the new value of {@code Exhibition}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code exhibition} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argExhibition is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setExhibition(java.lang.Boolean argExhibition);
+	public com.scobolsolo.application.Player setExhibition(java.lang.Boolean argExhibition);
 
 	/**
 	 * sets the {@code Exhibition} to the value of {@code argExhibition}
 	 *
 	 * @param argExhibition the new value of {@code Exhibition}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setExhibition(boolean argExhibition);
+	public com.scobolsolo.application.Player setExhibition(boolean argExhibition);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
@@ -508,7 +524,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Contact getContact();
-	public void setContact(com.scobolsolo.application.Contact argContact);
+	public com.scobolsolo.application.Player setContact(com.scobolsolo.application.Contact argContact);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Card}
@@ -516,7 +532,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Card getInitialCard();
-	public void setInitialCard(com.scobolsolo.application.Card argInitialCard);
+	public com.scobolsolo.application.Player setInitialCard(com.scobolsolo.application.Card argInitialCard);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
@@ -524,7 +540,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
-	public void setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.Player setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolYear}
@@ -532,7 +548,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.SchoolYear getSchoolYear();
-	public void setSchoolYear(com.scobolsolo.application.SchoolYear argSchoolYear);
+	public com.scobolsolo.application.Player setSchoolYear(com.scobolsolo.application.SchoolYear argSchoolYear);
 
 	public int getIncomingLosingCardGameCount();
 	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingLosingCardGameIterator();

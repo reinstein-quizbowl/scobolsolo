@@ -46,19 +46,21 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Game setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Game setId(int argId);
 
 	/**
 	 * object accessor for the {@code TossupsHeard}
@@ -121,15 +123,17 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * sets the {@code TossupsHeard} to the value of {@code argTossupsHeard}
 	 *
 	 * @param argTossupsHeard the new value of {@code TossupsHeard}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setTossupsHeard(java.lang.Integer argTossupsHeard);
+	public com.scobolsolo.application.Game setTossupsHeard(java.lang.Integer argTossupsHeard);
 
 	/**
 	 * sets the {@code TossupsHeard} to the value of {@code argTossupsHeard}
 	 *
 	 * @param argTossupsHeard the new value of {@code TossupsHeard}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setTossupsHeard(int argTossupsHeard);
+	public com.scobolsolo.application.Game setTossupsHeard(int argTossupsHeard);
 
 	/**
 	 * object accessor for the {@code IncomingWinningCardPlayerId}
@@ -192,15 +196,17 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * sets the {@code IncomingWinningCardPlayerId} to the value of {@code argIncomingWinningCardPlayerId}
 	 *
 	 * @param argIncomingWinningCardPlayerId the new value of {@code IncomingWinningCardPlayerId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setIncomingWinningCardPlayerId(java.lang.Integer argIncomingWinningCardPlayerId);
+	public com.scobolsolo.application.Game setIncomingWinningCardPlayerId(java.lang.Integer argIncomingWinningCardPlayerId);
 
 	/**
 	 * sets the {@code IncomingWinningCardPlayerId} to the value of {@code argIncomingWinningCardPlayerId}
 	 *
 	 * @param argIncomingWinningCardPlayerId the new value of {@code IncomingWinningCardPlayerId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setIncomingWinningCardPlayerId(int argIncomingWinningCardPlayerId);
+	public com.scobolsolo.application.Game setIncomingWinningCardPlayerId(int argIncomingWinningCardPlayerId);
 
 	/**
 	 * object accessor for the {@code IncomingLosingCardPlayerId}
@@ -263,15 +269,17 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * sets the {@code IncomingLosingCardPlayerId} to the value of {@code argIncomingLosingCardPlayerId}
 	 *
 	 * @param argIncomingLosingCardPlayerId the new value of {@code IncomingLosingCardPlayerId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setIncomingLosingCardPlayerId(java.lang.Integer argIncomingLosingCardPlayerId);
+	public com.scobolsolo.application.Game setIncomingLosingCardPlayerId(java.lang.Integer argIncomingLosingCardPlayerId);
 
 	/**
 	 * sets the {@code IncomingLosingCardPlayerId} to the value of {@code argIncomingLosingCardPlayerId}
 	 *
 	 * @param argIncomingLosingCardPlayerId the new value of {@code IncomingLosingCardPlayerId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setIncomingLosingCardPlayerId(int argIncomingLosingCardPlayerId);
+	public com.scobolsolo.application.Game setIncomingLosingCardPlayerId(int argIncomingLosingCardPlayerId);
 
 	/**
 	 * object accessor for the {@code OutgoingWinningCardPlayerId}
@@ -334,15 +342,17 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * sets the {@code OutgoingWinningCardPlayerId} to the value of {@code argOutgoingWinningCardPlayerId}
 	 *
 	 * @param argOutgoingWinningCardPlayerId the new value of {@code OutgoingWinningCardPlayerId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setOutgoingWinningCardPlayerId(java.lang.Integer argOutgoingWinningCardPlayerId);
+	public com.scobolsolo.application.Game setOutgoingWinningCardPlayerId(java.lang.Integer argOutgoingWinningCardPlayerId);
 
 	/**
 	 * sets the {@code OutgoingWinningCardPlayerId} to the value of {@code argOutgoingWinningCardPlayerId}
 	 *
 	 * @param argOutgoingWinningCardPlayerId the new value of {@code OutgoingWinningCardPlayerId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setOutgoingWinningCardPlayerId(int argOutgoingWinningCardPlayerId);
+	public com.scobolsolo.application.Game setOutgoingWinningCardPlayerId(int argOutgoingWinningCardPlayerId);
 
 	/**
 	 * object accessor for the {@code OutgoingLosingCardPlayerId}
@@ -405,15 +415,17 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * sets the {@code OutgoingLosingCardPlayerId} to the value of {@code argOutgoingLosingCardPlayerId}
 	 *
 	 * @param argOutgoingLosingCardPlayerId the new value of {@code OutgoingLosingCardPlayerId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setOutgoingLosingCardPlayerId(java.lang.Integer argOutgoingLosingCardPlayerId);
+	public com.scobolsolo.application.Game setOutgoingLosingCardPlayerId(java.lang.Integer argOutgoingLosingCardPlayerId);
 
 	/**
 	 * sets the {@code OutgoingLosingCardPlayerId} to the value of {@code argOutgoingLosingCardPlayerId}
 	 *
 	 * @param argOutgoingLosingCardPlayerId the new value of {@code OutgoingLosingCardPlayerId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setOutgoingLosingCardPlayerId(int argOutgoingLosingCardPlayerId);
+	public com.scobolsolo.application.Game setOutgoingLosingCardPlayerId(int argOutgoingLosingCardPlayerId);
 
 	/**
 	 * object accessor for the {@code ModeratorStaffId}
@@ -476,15 +488,17 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * sets the {@code ModeratorStaffId} to the value of {@code argModeratorStaffId}
 	 *
 	 * @param argModeratorStaffId the new value of {@code ModeratorStaffId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setModeratorStaffId(java.lang.Integer argModeratorStaffId);
+	public com.scobolsolo.application.Game setModeratorStaffId(java.lang.Integer argModeratorStaffId);
 
 	/**
 	 * sets the {@code ModeratorStaffId} to the value of {@code argModeratorStaffId}
 	 *
 	 * @param argModeratorStaffId the new value of {@code ModeratorStaffId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setModeratorStaffId(int argModeratorStaffId);
+	public com.scobolsolo.application.Game setModeratorStaffId(int argModeratorStaffId);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Match}
@@ -492,7 +506,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Match getMatch();
-	public void setMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Game setMatch(com.scobolsolo.application.Match argMatch);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
@@ -500,7 +514,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Player getIncomingLosingCardPlayer();
-	public void setIncomingLosingCardPlayer(com.scobolsolo.application.Player argIncomingLosingCardPlayer);
+	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argIncomingLosingCardPlayer);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
@@ -508,7 +522,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Player getIncomingWinningCardPlayer();
-	public void setIncomingWinningCardPlayer(com.scobolsolo.application.Player argIncomingWinningCardPlayer);
+	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argIncomingWinningCardPlayer);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Staff}
@@ -516,7 +530,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Staff getModeratorStaff();
-	public void setModeratorStaff(com.scobolsolo.application.Staff argModeratorStaff);
+	public com.scobolsolo.application.Game setModeratorStaff(com.scobolsolo.application.Staff argModeratorStaff);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
@@ -524,7 +538,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Player getOutgoingLosingCardPlayer();
-	public void setOutgoingLosingCardPlayer(com.scobolsolo.application.Player argOutgoingLosingCardPlayer);
+	public com.scobolsolo.application.Game setOutgoingLosingCardPlayer(com.scobolsolo.application.Player argOutgoingLosingCardPlayer);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
@@ -532,7 +546,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Player getOutgoingWinningCardPlayer();
-	public void setOutgoingWinningCardPlayer(com.scobolsolo.application.Player argOutgoingWinningCardPlayer);
+	public com.scobolsolo.application.Game setOutgoingWinningCardPlayer(com.scobolsolo.application.Player argOutgoingWinningCardPlayer);
 
 	public int getPerformanceCount();
 	public java.util.Iterator<com.scobolsolo.application.Performance> createPerformanceIterator();

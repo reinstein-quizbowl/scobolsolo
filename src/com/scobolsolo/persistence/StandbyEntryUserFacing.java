@@ -46,19 +46,21 @@ public interface StandbyEntryUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.StandbyEntry setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.StandbyEntry setId(int argId);
 
 	/**
 	 * object accessor for the {@code SchoolRegistrationId}
@@ -89,19 +91,21 @@ public interface StandbyEntryUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code school_registration_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSchoolRegistrationId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
+	public com.scobolsolo.application.StandbyEntry setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSchoolRegistrationId(int argSchoolRegistrationId);
+	public com.scobolsolo.application.StandbyEntry setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -132,19 +136,21 @@ public interface StandbyEntryUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.StandbyEntry setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.StandbyEntry setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code PlayerCount}
@@ -175,19 +181,21 @@ public interface StandbyEntryUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code PlayerCount} to the value of {@code argPlayerCount}
 	 *
 	 * @param argPlayerCount the new value of {@code PlayerCount}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code player_count} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPlayerCount is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setPlayerCount(java.lang.Integer argPlayerCount);
+	public com.scobolsolo.application.StandbyEntry setPlayerCount(java.lang.Integer argPlayerCount);
 
 	/**
 	 * sets the {@code PlayerCount} to the value of {@code argPlayerCount}
 	 *
 	 * @param argPlayerCount the new value of {@code PlayerCount}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setPlayerCount(int argPlayerCount);
+	public com.scobolsolo.application.StandbyEntry setPlayerCount(int argPlayerCount);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -218,12 +226,13 @@ public interface StandbyEntryUserFacing extends IdentityUserFacing, Comparable<c
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.StandbyEntry setNote(java.lang.String argNote);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
@@ -231,7 +240,7 @@ public interface StandbyEntryUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 */
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
-	public void setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.StandbyEntry setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	public com.scobolsolo.application.StandbyEntry copy();
 

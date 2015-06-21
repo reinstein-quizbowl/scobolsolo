@@ -33,15 +33,15 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public SchoolRegistrationImpl setId(java.lang.Integer argId) {
 		getSchoolRegistrationOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public SchoolRegistrationImpl setId(int argId) {
 		getSchoolRegistrationOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -50,15 +50,15 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setSchoolId(java.lang.Integer argSchoolId) {
+	public SchoolRegistrationImpl setSchoolId(java.lang.Integer argSchoolId) {
 		getSchoolRegistrationOpal().setSchoolId(argSchoolId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSchoolId(int argSchoolId) {
+	public SchoolRegistrationImpl setSchoolId(int argSchoolId) {
 		getSchoolRegistrationOpal().setSchoolId(argSchoolId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -67,15 +67,15 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setMainContactId(java.lang.Integer argMainContactId) {
+	public SchoolRegistrationImpl setMainContactId(java.lang.Integer argMainContactId) {
 		getSchoolRegistrationOpal().setMainContactId(argMainContactId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setMainContactId(int argMainContactId) {
+	public SchoolRegistrationImpl setMainContactId(int argMainContactId) {
 		getSchoolRegistrationOpal().setMainContactId(argMainContactId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -84,9 +84,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setAmountOwed(java.math.BigDecimal argAmountOwed) {
+	public SchoolRegistrationImpl setAmountOwed(java.math.BigDecimal argAmountOwed) {
 		getSchoolRegistrationOpal().setAmountOwed(argAmountOwed);
-		return;
+		return this;
 	}
 
 	@Override
@@ -95,9 +95,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setAmountPaid(java.math.BigDecimal argAmountPaid) {
+	public SchoolRegistrationImpl setAmountPaid(java.math.BigDecimal argAmountPaid) {
 		getSchoolRegistrationOpal().setAmountPaid(argAmountPaid);
-		return;
+		return this;
 	}
 
 	@Override
@@ -106,9 +106,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public SchoolRegistrationImpl setNote(java.lang.String argNote) {
 		getSchoolRegistrationOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -117,15 +117,15 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setSpotsReserved(java.lang.Integer argSpotsReserved) {
+	public SchoolRegistrationImpl setSpotsReserved(java.lang.Integer argSpotsReserved) {
 		getSchoolRegistrationOpal().setSpotsReserved(argSpotsReserved);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSpotsReserved(int argSpotsReserved) {
+	public SchoolRegistrationImpl setSpotsReserved(int argSpotsReserved) {
 		getSchoolRegistrationOpal().setSpotsReserved(argSpotsReserved);
-		return;
+		return this;
 	}
 
 	@Override
@@ -134,9 +134,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setTournamentCode(java.lang.String argTournamentCode) {
+	public SchoolRegistrationImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getSchoolRegistrationOpal().setTournamentCode(argTournamentCode);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -151,9 +151,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setMainContact(Contact argContact) {
+	public SchoolRegistration setMainContact(Contact argContact) {
 		getSchoolRegistrationOpal().setMainContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the School object created from school_registration through reference registration_school_id_fkey */
@@ -165,9 +165,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setSchool(School argSchool) {
+	public SchoolRegistration setSchool(School argSchool) {
 		getSchoolRegistrationOpal().setSchoolOpal(argSchool == null ? null : ((SchoolImpl) argSchool).getSchoolOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Tournament object created from school_registration through reference school_registration_tournament_code_fkey */
@@ -179,9 +179,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void setTournament(Tournament argTournament) {
+	public SchoolRegistration setTournament(Tournament argTournament) {
 		getSchoolRegistrationOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

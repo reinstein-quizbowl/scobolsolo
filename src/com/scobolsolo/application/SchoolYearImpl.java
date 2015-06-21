@@ -35,9 +35,9 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, Sc
 	}
 
 	@Override
-	public void setCode(java.lang.String argCode) {
+	public SchoolYearImpl setCode(java.lang.String argCode) {
 		getSchoolYearOpal().setCode(argCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -46,9 +46,9 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, Sc
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public SchoolYearImpl setName(java.lang.String argName) {
 		getSchoolYearOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -57,9 +57,9 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, Sc
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public SchoolYearImpl setShortName(java.lang.String argShortName) {
 		getSchoolYearOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -68,9 +68,9 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, Sc
 	}
 
 	@Override
-	public void setVeryShortName(java.lang.String argVeryShortName) {
+	public SchoolYearImpl setVeryShortName(java.lang.String argVeryShortName) {
 		getSchoolYearOpal().setVeryShortName(argVeryShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -79,15 +79,15 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, Sc
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public SchoolYearImpl setSequence(java.lang.Integer argSequence) {
 		getSchoolYearOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public SchoolYearImpl setSequence(int argSequence) {
 		getSchoolYearOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which

@@ -173,6 +173,17 @@
 	
 	-<security-constraint>
 		<web-resource-collection>
+			<web-resource-name>Writer Pages</web-resource-name>
+			<url-pattern>/questions/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>WRITER</role-name>
+			<role-name>ADMINISTRATOR</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	-<security-constraint>
+		<web-resource-collection>
 			<web-resource-name>Administrative Pages</web-resource-name>
 			<url-pattern>/admin/*</url-pattern>
 		</web-resource-collection>

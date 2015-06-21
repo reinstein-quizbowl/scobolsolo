@@ -32,15 +32,15 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public PacketImpl setId(java.lang.Integer argId) {
 		getPacketOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public PacketImpl setId(int argId) {
 		getPacketOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -49,9 +49,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public PacketImpl setName(java.lang.String argName) {
 		getPacketOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -60,9 +60,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public PacketImpl setShortName(java.lang.String argShortName) {
 		getPacketOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -71,15 +71,15 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setRoundId(java.lang.Integer argRoundId) {
+	public PacketImpl setRoundId(java.lang.Integer argRoundId) {
 		getPacketOpal().setRoundId(argRoundId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setRoundId(int argRoundId) {
+	public PacketImpl setRoundId(int argRoundId) {
 		getPacketOpal().setRoundId(argRoundId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -88,9 +88,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public PacketImpl setNote(java.lang.String argNote) {
 		getPacketOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -99,9 +99,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setTournamentCode(java.lang.String argTournamentCode) {
+	public PacketImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getPacketOpal().setTournamentCode(argTournamentCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -110,15 +110,15 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public PacketImpl setSequence(java.lang.Integer argSequence) {
 		getPacketOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public PacketImpl setSequence(int argSequence) {
 		getPacketOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -127,15 +127,15 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setReplacementPacketId(java.lang.Integer argReplacementPacketId) {
+	public PacketImpl setReplacementPacketId(java.lang.Integer argReplacementPacketId) {
 		getPacketOpal().setReplacementPacketId(argReplacementPacketId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setReplacementPacketId(int argReplacementPacketId) {
+	public PacketImpl setReplacementPacketId(int argReplacementPacketId) {
 		getPacketOpal().setReplacementPacketId(argReplacementPacketId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -144,15 +144,15 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setQuestionsPublic(java.lang.Boolean argQuestionsPublic) {
+	public PacketImpl setQuestionsPublic(java.lang.Boolean argQuestionsPublic) {
 		getPacketOpal().setQuestionsPublic(argQuestionsPublic);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setQuestionsPublic(boolean argQuestionsPublic) {
+	public PacketImpl setQuestionsPublic(boolean argQuestionsPublic) {
 		getPacketOpal().setQuestionsPublic(argQuestionsPublic);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -167,9 +167,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setReplacementPacket(Packet argPacket) {
+	public Packet setReplacementPacket(Packet argPacket) {
 		getPacketOpal().setReplacementPacketOpal(argPacket == null ? null : ((PacketImpl) argPacket).getPacketOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Round object created from packet through reference packet_round_id_fkey */
@@ -181,9 +181,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setRound(Round argRound) {
+	public Packet setRound(Round argRound) {
 		getPacketOpal().setRoundOpal(argRound == null ? null : ((RoundImpl) argRound).getRoundOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Tournament object created from packet through reference packet_tournament_code_fkey */
@@ -195,9 +195,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void setTournament(Tournament argTournament) {
+	public Packet setTournament(Tournament argTournament) {
 		getPacketOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

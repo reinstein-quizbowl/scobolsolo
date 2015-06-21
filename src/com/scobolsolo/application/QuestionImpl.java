@@ -2,7 +2,6 @@ package com.scobolsolo.application;
 
 import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.CategoryOpal;
-import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.AccountOpal;
 
 public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, QuestionOpal> implements Question {
@@ -33,15 +32,15 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public QuestionImpl setId(java.lang.Integer argId) {
 		getQuestionOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public QuestionImpl setId(int argId) {
 		getQuestionOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -50,9 +49,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setDescription(java.lang.String argDescription) {
+	public QuestionImpl setDescription(java.lang.String argDescription) {
 		getQuestionOpal().setDescription(argDescription);
-		return;
+		return this;
 	}
 
 	@Override
@@ -61,20 +60,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setCategoryCode(java.lang.String argCategoryCode) {
+	public QuestionImpl setCategoryCode(java.lang.String argCategoryCode) {
 		getQuestionOpal().setCategoryCode(argCategoryCode);
-		return;
-	}
-
-	@Override
-	public java.lang.String getTournamentCode() {
-		return getQuestionOpal().getTournamentCode();
-	}
-
-	@Override
-	public void setTournamentCode(java.lang.String argTournamentCode) {
-		getQuestionOpal().setTournamentCode(argTournamentCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -83,9 +71,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public QuestionImpl setNote(java.lang.String argNote) {
 		getQuestionOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -94,15 +82,15 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setWriterAccountId(java.lang.Integer argWriterAccountId) {
+	public QuestionImpl setWriterAccountId(java.lang.Integer argWriterAccountId) {
 		getQuestionOpal().setWriterAccountId(argWriterAccountId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setWriterAccountId(int argWriterAccountId) {
+	public QuestionImpl setWriterAccountId(int argWriterAccountId) {
 		getQuestionOpal().setWriterAccountId(argWriterAccountId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -111,9 +99,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setText(java.lang.String argText) {
+	public QuestionImpl setText(java.lang.String argText) {
 		getQuestionOpal().setText(argText);
-		return;
+		return this;
 	}
 
 	@Override
@@ -122,9 +110,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setAnswer(java.lang.String argAnswer) {
+	public QuestionImpl setAnswer(java.lang.String argAnswer) {
 		getQuestionOpal().setAnswer(argAnswer);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -139,41 +127,57 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void setCategory(Category argCategory) {
+	public Question setCategory(Category argCategory) {
 		getQuestionOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
-		return;
-	}
-
-	/** Access to the Tournament object created from question through reference question_tournament_code_fkey */
-
-	@Override
-	public Tournament getTournament() {
-		TournamentOpal lclTournamentOpal = getQuestionOpal().getTournamentOpal();
-		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
-	}
-
-	@Override
-	public void setTournament(Tournament argTournament) {
-		getQuestionOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Account object created from question through reference question_writer_account_id_fkey */
 
 	@Override
-	public Account getWriterAccount() {
-		AccountOpal lclAccountOpal = getQuestionOpal().getWriterAccountOpal();
+	public Account getWriter() {
+		AccountOpal lclAccountOpal = getQuestionOpal().getWriterOpal();
 		return lclAccountOpal == null ? null : lclAccountOpal.getUserFacing();
 	}
 
 	@Override
-	public void setWriterAccount(Account argAccount) {
-		getQuestionOpal().setWriterAccountOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
-		return;
+	public Question setWriter(Account argAccount) {
+		getQuestionOpal().setWriterOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references
 	to this object. */
+
+	@Override
+	public void addDiff(Diff argDiff) {
+		getQuestionOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+	}
+
+	@Override
+	public void removeDiff(Diff argDiff) {
+		getQuestionOpal().removeDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+	}
+
+	@Override
+	public int getDiffCount() {
+		return getQuestionOpal().getDiffOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Diff> streamDiff() {
+		return getQuestionOpal().streamDiffOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Diff> createDiffIterator() {
+		return new com.opal.OpalIterator<> (getQuestionOpal().createDiffOpalIterator());
+	}
+
+	@Override
+	public void clearDiff() {
+		throw new UnsupportedOperationException();
+	}
 
 	@Override
 	public void addPlacement(Placement argPlacement) {

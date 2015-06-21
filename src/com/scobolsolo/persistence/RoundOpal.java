@@ -120,32 +120,32 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return (java.lang.Boolean) getReadValueSet()[6];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized RoundOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public RoundOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setRoundGroupId(final java.lang.Integer argRoundGroupId) {
+	public synchronized RoundOpal setRoundGroupId(final java.lang.Integer argRoundGroupId) {
 		tryMutate();
 		getNewValues()[1] = argRoundGroupId;
-		return;
+		return this;
 	}
 
-	public void setRoundGroupId(final int argRoundGroupId) {
+	public RoundOpal setRoundGroupId(final int argRoundGroupId) {
 		setRoundGroupId(java.lang.Integer.valueOf(argRoundGroupId));
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized RoundOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -154,10 +154,10 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[2] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized RoundOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -166,44 +166,44 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[3] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized RoundOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[4] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public RoundOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setStartTime(final java.lang.String argStartTime) {
+	public synchronized RoundOpal setStartTime(final java.lang.String argStartTime) {
 		tryMutate();
 		if ((argStartTime != null) && (argStartTime.length() > 16)) {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myStartTime on " + this + " is 16.", argStartTime.length(), 16);
 		}
 		getNewValues()[5] = argStartTime;
-		return;
+		return this;
 	}
 
-	public synchronized void setLunchAfter(final java.lang.Boolean argLunchAfter) {
+	public synchronized RoundOpal setLunchAfter(final java.lang.Boolean argLunchAfter) {
 		tryMutate();
 		if (argLunchAfter == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myLunchAfter on " + this + " to null.");
 		}
 		getNewValues()[6] = argLunchAfter;
-		return;
+		return this;
 	}
 
-	public void setLunchAfter(final boolean argLunchAfter) {
+	public RoundOpal setLunchAfter(final boolean argLunchAfter) {
 		setLunchAfter(argLunchAfter ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -384,10 +384,10 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return lclRoundGroupOpal;
 	}
 
-	public synchronized void setRoundGroupOpal(RoundGroupOpal argRoundGroupOpal) {
+	public synchronized RoundOpal setRoundGroupOpal(RoundGroupOpal argRoundGroupOpal) {
 		tryMutate();
 		RoundGroupOpal lclRoundGroupOpal = getRoundGroupOpal();
-		if (lclRoundGroupOpal == argRoundGroupOpal) { return; }
+		if (lclRoundGroupOpal == argRoundGroupOpal) { return this; }
 		if (lclRoundGroupOpal != null) {
 			lclRoundGroupOpal.removeRoundOpalInternal(this);
 		}
@@ -395,7 +395,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (argRoundGroupOpal != null) {
 			argRoundGroupOpal.addRoundOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setRoundGroupOpalInternal(RoundGroupOpal argRoundGroupOpal) {

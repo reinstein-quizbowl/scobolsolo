@@ -32,15 +32,15 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public PerformanceImpl setId(java.lang.Integer argId) {
 		getPerformanceOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public PerformanceImpl setId(int argId) {
 		getPerformanceOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -49,15 +49,15 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	}
 
 	@Override
-	public void setGameId(java.lang.Integer argGameId) {
+	public PerformanceImpl setGameId(java.lang.Integer argGameId) {
 		getPerformanceOpal().setGameId(argGameId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setGameId(int argGameId) {
+	public PerformanceImpl setGameId(int argGameId) {
 		getPerformanceOpal().setGameId(argGameId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -66,15 +66,15 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	}
 
 	@Override
-	public void setPlayerId(java.lang.Integer argPlayerId) {
+	public PerformanceImpl setPlayerId(java.lang.Integer argPlayerId) {
 		getPerformanceOpal().setPlayerId(argPlayerId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPlayerId(int argPlayerId) {
+	public PerformanceImpl setPlayerId(int argPlayerId) {
 		getPerformanceOpal().setPlayerId(argPlayerId);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -89,9 +89,9 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	}
 
 	@Override
-	public void setGame(Game argGame) {
+	public Performance setGame(Game argGame) {
 		getPerformanceOpal().setGameOpal(argGame == null ? null : ((GameImpl) argGame).getGameOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Player object created from performance through reference performance_player_id_fkey */
@@ -103,9 +103,9 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	}
 
 	@Override
-	public void setPlayer(Player argPlayer) {
+	public Performance setPlayer(Player argPlayer) {
 		getPerformanceOpal().setPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

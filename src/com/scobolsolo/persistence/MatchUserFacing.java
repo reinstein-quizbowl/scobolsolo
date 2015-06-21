@@ -46,19 +46,21 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Match setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Match setId(int argId);
 
 	/**
 	 * object accessor for the {@code RoundId}
@@ -89,19 +91,21 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 * sets the {@code RoundId} to the value of {@code argRoundId}
 	 *
 	 * @param argRoundId the new value of {@code RoundId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code round_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argRoundId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setRoundId(java.lang.Integer argRoundId);
+	public com.scobolsolo.application.Match setRoundId(java.lang.Integer argRoundId);
 
 	/**
 	 * sets the {@code RoundId} to the value of {@code argRoundId}
 	 *
 	 * @param argRoundId the new value of {@code RoundId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setRoundId(int argRoundId);
+	public com.scobolsolo.application.Match setRoundId(int argRoundId);
 
 	/**
 	 * object accessor for the {@code RoomId}
@@ -132,19 +136,21 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 * sets the {@code RoomId} to the value of {@code argRoomId}
 	 *
 	 * @param argRoomId the new value of {@code RoomId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code room_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argRoomId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setRoomId(java.lang.Integer argRoomId);
+	public com.scobolsolo.application.Match setRoomId(java.lang.Integer argRoomId);
 
 	/**
 	 * sets the {@code RoomId} to the value of {@code argRoomId}
 	 *
 	 * @param argRoomId the new value of {@code RoomId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setRoomId(int argRoomId);
+	public com.scobolsolo.application.Match setRoomId(int argRoomId);
 
 	/**
 	 * object accessor for the {@code WinningCardId}
@@ -207,15 +213,17 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 * sets the {@code WinningCardId} to the value of {@code argWinningCardId}
 	 *
 	 * @param argWinningCardId the new value of {@code WinningCardId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setWinningCardId(java.lang.Integer argWinningCardId);
+	public com.scobolsolo.application.Match setWinningCardId(java.lang.Integer argWinningCardId);
 
 	/**
 	 * sets the {@code WinningCardId} to the value of {@code argWinningCardId}
 	 *
 	 * @param argWinningCardId the new value of {@code WinningCardId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setWinningCardId(int argWinningCardId);
+	public com.scobolsolo.application.Match setWinningCardId(int argWinningCardId);
 
 	/**
 	 * object accessor for the {@code LosingCardId}
@@ -278,15 +286,17 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 * sets the {@code LosingCardId} to the value of {@code argLosingCardId}
 	 *
 	 * @param argLosingCardId the new value of {@code LosingCardId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setLosingCardId(java.lang.Integer argLosingCardId);
+	public com.scobolsolo.application.Match setLosingCardId(java.lang.Integer argLosingCardId);
 
 	/**
 	 * sets the {@code LosingCardId} to the value of {@code argLosingCardId}
 	 *
 	 * @param argLosingCardId the new value of {@code LosingCardId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setLosingCardId(int argLosingCardId);
+	public com.scobolsolo.application.Match setLosingCardId(int argLosingCardId);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Card}
@@ -294,7 +304,7 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Card getLosingCard();
-	public void setLosingCard(com.scobolsolo.application.Card argLosingCard);
+	public com.scobolsolo.application.Match setLosingCard(com.scobolsolo.application.Card argLosingCard);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
@@ -302,7 +312,7 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Room getRoom();
-	public void setRoom(com.scobolsolo.application.Room argRoom);
+	public com.scobolsolo.application.Match setRoom(com.scobolsolo.application.Room argRoom);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Round}
@@ -310,7 +320,7 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Round getRound();
-	public void setRound(com.scobolsolo.application.Round argRound);
+	public com.scobolsolo.application.Match setRound(com.scobolsolo.application.Round argRound);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Card}
@@ -318,10 +328,10 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Card getWinningCard();
-	public void setWinningCard(com.scobolsolo.application.Card argWinningCard);
+	public com.scobolsolo.application.Match setWinningCard(com.scobolsolo.application.Card argWinningCard);
 
 	public com.scobolsolo.application.Game getGame();
-	public void setGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Match setGame(com.scobolsolo.application.Game argGame);
 
 	public com.scobolsolo.application.Match copy();
 

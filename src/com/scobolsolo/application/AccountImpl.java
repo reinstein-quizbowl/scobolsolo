@@ -31,15 +31,15 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public AccountImpl setId(java.lang.Integer argId) {
 		getAccountOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public AccountImpl setId(int argId) {
 		getAccountOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -48,9 +48,9 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void setUsername(java.lang.String argUsername) {
+	public AccountImpl setUsername(java.lang.String argUsername) {
 		getAccountOpal().setUsername(argUsername);
-		return;
+		return this;
 	}
 
 	@Override
@@ -59,9 +59,9 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void setPasswordHash(java.lang.String argPasswordHash) {
+	public AccountImpl setPasswordHash(java.lang.String argPasswordHash) {
 		getAccountOpal().setPasswordHash(argPasswordHash);
-		return;
+		return this;
 	}
 
 	@Override
@@ -70,15 +70,15 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void setAdministrator(java.lang.Boolean argAdministrator) {
+	public AccountImpl setAdministrator(java.lang.Boolean argAdministrator) {
 		getAccountOpal().setAdministrator(argAdministrator);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setAdministrator(boolean argAdministrator) {
+	public AccountImpl setAdministrator(boolean argAdministrator) {
 		getAccountOpal().setAdministrator(argAdministrator);
-		return;
+		return this;
 	}
 
 	@Override
@@ -87,15 +87,32 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void setActive(java.lang.Boolean argActive) {
+	public AccountImpl setActive(java.lang.Boolean argActive) {
 		getAccountOpal().setActive(argActive);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setActive(boolean argActive) {
+	public AccountImpl setActive(boolean argActive) {
 		getAccountOpal().setActive(argActive);
-		return;
+		return this;
+	}
+
+	@Override
+	public java.lang.Boolean isWriterAsObject() {
+		return getAccountOpal().isWriterAsObject();
+	}
+
+	@Override
+	public AccountImpl setWriter(java.lang.Boolean argWriter) {
+		getAccountOpal().setWriter(argWriter);
+		return this;
+	}
+
+	@Override
+	public AccountImpl setWriter(boolean argWriter) {
+		getAccountOpal().setWriter(argWriter);
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -110,9 +127,9 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void setContact(Contact argContact) {
+	public Account setContact(Contact argContact) {
 		getAccountOpal().setContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references
@@ -145,6 +162,36 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 
 	@Override
 	public void clearWriterQuestion() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void addEditorDiff(Diff argDiff) {
+		getAccountOpal().addEditorDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+	}
+
+	@Override
+	public void removeEditorDiff(Diff argDiff) {
+		getAccountOpal().removeEditorDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+	}
+
+	@Override
+	public int getEditorDiffCount() {
+		return getAccountOpal().getEditorDiffOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Diff> streamEditorDiff() {
+		return getAccountOpal().streamEditorDiffOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Diff> createEditorDiffIterator() {
+		return new com.opal.OpalIterator<> (getAccountOpal().createEditorDiffOpalIterator());
+	}
+
+	@Override
+	public void clearEditorDiff() {
 		throw new UnsupportedOperationException();
 	}
 

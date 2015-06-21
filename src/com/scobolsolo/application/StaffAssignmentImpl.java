@@ -32,15 +32,15 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public StaffAssignmentImpl setId(java.lang.Integer argId) {
 		getStaffAssignmentOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public StaffAssignmentImpl setId(int argId) {
 		getStaffAssignmentOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -49,15 +49,15 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	public void setRoomId(java.lang.Integer argRoomId) {
+	public StaffAssignmentImpl setRoomId(java.lang.Integer argRoomId) {
 		getStaffAssignmentOpal().setRoomId(argRoomId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setRoomId(int argRoomId) {
+	public StaffAssignmentImpl setRoomId(int argRoomId) {
 		getStaffAssignmentOpal().setRoomId(argRoomId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -66,9 +66,9 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	public void setNote(java.lang.String argNote) {
+	public StaffAssignmentImpl setNote(java.lang.String argNote) {
 		getStaffAssignmentOpal().setNote(argNote);
-		return;
+		return this;
 	}
 
 	@Override
@@ -77,15 +77,15 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	public void setStaffId(java.lang.Integer argStaffId) {
+	public StaffAssignmentImpl setStaffId(java.lang.Integer argStaffId) {
 		getStaffAssignmentOpal().setStaffId(argStaffId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setStaffId(int argStaffId) {
+	public StaffAssignmentImpl setStaffId(int argStaffId) {
 		getStaffAssignmentOpal().setStaffId(argStaffId);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -100,9 +100,9 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	public void setStaff(Staff argStaff) {
+	public StaffAssignment setStaff(Staff argStaff) {
 		getStaffAssignmentOpal().setStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Room object created from staff_assignment through reference staffer_assignment_room_id_fkey */
@@ -114,9 +114,9 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	}
 
 	@Override
-	public void setRoom(Room argRoom) {
+	public StaffAssignment setRoom(Room argRoom) {
 		getStaffAssignmentOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

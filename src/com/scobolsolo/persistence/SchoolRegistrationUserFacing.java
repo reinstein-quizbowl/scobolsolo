@@ -46,19 +46,21 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.SchoolRegistration setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.SchoolRegistration setId(int argId);
 
 	/**
 	 * object accessor for the {@code SchoolId}
@@ -89,19 +91,21 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code SchoolId} to the value of {@code argSchoolId}
 	 *
 	 * @param argSchoolId the new value of {@code SchoolId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code school_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSchoolId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSchoolId(java.lang.Integer argSchoolId);
+	public com.scobolsolo.application.SchoolRegistration setSchoolId(java.lang.Integer argSchoolId);
 
 	/**
 	 * sets the {@code SchoolId} to the value of {@code argSchoolId}
 	 *
 	 * @param argSchoolId the new value of {@code SchoolId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSchoolId(int argSchoolId);
+	public com.scobolsolo.application.SchoolRegistration setSchoolId(int argSchoolId);
 
 	/**
 	 * object accessor for the {@code MainContactId}
@@ -132,19 +136,21 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code MainContactId} to the value of {@code argMainContactId}
 	 *
 	 * @param argMainContactId the new value of {@code MainContactId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code main_contact_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argMainContactId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setMainContactId(java.lang.Integer argMainContactId);
+	public com.scobolsolo.application.SchoolRegistration setMainContactId(java.lang.Integer argMainContactId);
 
 	/**
 	 * sets the {@code MainContactId} to the value of {@code argMainContactId}
 	 *
 	 * @param argMainContactId the new value of {@code MainContactId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setMainContactId(int argMainContactId);
+	public com.scobolsolo.application.SchoolRegistration setMainContactId(int argMainContactId);
 
 	/**
 	 * object accessor for the {@code AmountOwed}
@@ -159,12 +165,13 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code AmountOwed} to the value of {@code argAmountOwed}
 	 *
 	 * @param argAmountOwed the new value of {@code AmountOwed}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code amount_owed} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argAmountOwed is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setAmountOwed(java.math.BigDecimal argAmountOwed);
+	public com.scobolsolo.application.SchoolRegistration setAmountOwed(java.math.BigDecimal argAmountOwed);
 
 	/**
 	 * object accessor for the {@code AmountPaid}
@@ -179,12 +186,13 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code AmountPaid} to the value of {@code argAmountPaid}
 	 *
 	 * @param argAmountPaid the new value of {@code AmountPaid}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code amount_paid} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argAmountPaid is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setAmountPaid(java.math.BigDecimal argAmountPaid);
+	public com.scobolsolo.application.SchoolRegistration setAmountPaid(java.math.BigDecimal argAmountPaid);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -215,12 +223,13 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.SchoolRegistration setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code SpotsReserved}
@@ -251,19 +260,21 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code SpotsReserved} to the value of {@code argSpotsReserved}
 	 *
 	 * @param argSpotsReserved the new value of {@code SpotsReserved}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code spots_reserved} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSpotsReserved is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSpotsReserved(java.lang.Integer argSpotsReserved);
+	public com.scobolsolo.application.SchoolRegistration setSpotsReserved(java.lang.Integer argSpotsReserved);
 
 	/**
 	 * sets the {@code SpotsReserved} to the value of {@code argSpotsReserved}
 	 *
 	 * @param argSpotsReserved the new value of {@code SpotsReserved}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSpotsReserved(int argSpotsReserved);
+	public com.scobolsolo.application.SchoolRegistration setSpotsReserved(int argSpotsReserved);
 
 	/**
 	 * object accessor for the {@code TournamentCode}
@@ -278,6 +289,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 * sets the {@code TournamentCode} to the value of {@code argTournamentCode}
 	 *
 	 * @param argTournamentCode the new value of {@code TournamentCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTournamentCode is null
@@ -287,7 +299,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setTournamentCode(java.lang.String argTournamentCode);
+	public com.scobolsolo.application.SchoolRegistration setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
@@ -295,7 +307,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Contact getMainContact();
-	public void setMainContact(com.scobolsolo.application.Contact argMainContact);
+	public com.scobolsolo.application.SchoolRegistration setMainContact(com.scobolsolo.application.Contact argMainContact);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.School}
@@ -303,7 +315,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.School getSchool();
-	public void setSchool(com.scobolsolo.application.School argSchool);
+	public com.scobolsolo.application.SchoolRegistration setSchool(com.scobolsolo.application.School argSchool);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
@@ -311,7 +323,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
-	public void setTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.SchoolRegistration setTournament(com.scobolsolo.application.Tournament argTournament);
 
 	public int getStandbyEntryCount();
 	public java.util.Iterator<com.scobolsolo.application.StandbyEntry> createStandbyEntryIterator();

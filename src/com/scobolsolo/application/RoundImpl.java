@@ -36,15 +36,15 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public RoundImpl setId(java.lang.Integer argId) {
 		getRoundOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public RoundImpl setId(int argId) {
 		getRoundOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -53,15 +53,15 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setRoundGroupId(java.lang.Integer argRoundGroupId) {
+	public RoundImpl setRoundGroupId(java.lang.Integer argRoundGroupId) {
 		getRoundOpal().setRoundGroupId(argRoundGroupId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setRoundGroupId(int argRoundGroupId) {
+	public RoundImpl setRoundGroupId(int argRoundGroupId) {
 		getRoundOpal().setRoundGroupId(argRoundGroupId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -70,9 +70,9 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public RoundImpl setName(java.lang.String argName) {
 		getRoundOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -81,9 +81,9 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public RoundImpl setShortName(java.lang.String argShortName) {
 		getRoundOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -92,15 +92,15 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public RoundImpl setSequence(java.lang.Integer argSequence) {
 		getRoundOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public RoundImpl setSequence(int argSequence) {
 		getRoundOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -109,9 +109,9 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setStartTime(java.lang.String argStartTime) {
+	public RoundImpl setStartTime(java.lang.String argStartTime) {
 		getRoundOpal().setStartTime(argStartTime);
-		return;
+		return this;
 	}
 
 	@Override
@@ -120,15 +120,15 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setLunchAfter(java.lang.Boolean argLunchAfter) {
+	public RoundImpl setLunchAfter(java.lang.Boolean argLunchAfter) {
 		getRoundOpal().setLunchAfter(argLunchAfter);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setLunchAfter(boolean argLunchAfter) {
+	public RoundImpl setLunchAfter(boolean argLunchAfter) {
 		getRoundOpal().setLunchAfter(argLunchAfter);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -143,9 +143,9 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void setRoundGroup(RoundGroup argRoundGroup) {
+	public Round setRoundGroup(RoundGroup argRoundGroup) {
 		getRoundOpal().setRoundGroupOpal(argRoundGroup == null ? null : ((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

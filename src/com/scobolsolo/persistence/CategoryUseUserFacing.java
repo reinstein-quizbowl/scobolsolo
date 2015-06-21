@@ -30,6 +30,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 * sets the {@code CategoryCode} to the value of {@code argCategoryCode}
 	 *
 	 * @param argCategoryCode the new value of {@code CategoryCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argCategoryCode is null
@@ -39,7 +40,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setCategoryCode(java.lang.String argCategoryCode);
+	public com.scobolsolo.application.CategoryUse setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
 	 * object accessor for the {@code TournamentCode}
@@ -54,6 +55,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 * sets the {@code TournamentCode} to the value of {@code argTournamentCode}
 	 *
 	 * @param argTournamentCode the new value of {@code TournamentCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTournamentCode is null
@@ -63,7 +65,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setTournamentCode(java.lang.String argTournamentCode);
+	public com.scobolsolo.application.CategoryUse setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Category}
@@ -71,7 +73,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();
-	public void setCategory(com.scobolsolo.application.Category argCategory);
+	public com.scobolsolo.application.CategoryUse setCategory(com.scobolsolo.application.Category argCategory);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
@@ -79,7 +81,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
-	public void setTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.CategoryUse setTournament(com.scobolsolo.application.Tournament argTournament);
 
 	public com.scobolsolo.application.CategoryUse copy();
 

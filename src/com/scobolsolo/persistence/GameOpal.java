@@ -117,84 +117,84 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return (java.lang.Integer) getReadValueSet()[6];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized GameOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public GameOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setTossupsHeard(final java.lang.Integer argTossupsHeard) {
+	public synchronized GameOpal setTossupsHeard(final java.lang.Integer argTossupsHeard) {
 		tryMutate();
 		getNewValues()[1] = argTossupsHeard;
-		return;
+		return this;
 	}
 
-	public void setTossupsHeard(final int argTossupsHeard) {
+	public GameOpal setTossupsHeard(final int argTossupsHeard) {
 		setTossupsHeard(java.lang.Integer.valueOf(argTossupsHeard));
-		return;
+		return this;
 	}
 
-	public synchronized void setIncomingWinningCardPlayerId(final java.lang.Integer argIncomingWinningCardPlayerId) {
+	public synchronized GameOpal setIncomingWinningCardPlayerId(final java.lang.Integer argIncomingWinningCardPlayerId) {
 		tryMutate();
 		getNewValues()[2] = argIncomingWinningCardPlayerId;
-		return;
+		return this;
 	}
 
-	public void setIncomingWinningCardPlayerId(final int argIncomingWinningCardPlayerId) {
+	public GameOpal setIncomingWinningCardPlayerId(final int argIncomingWinningCardPlayerId) {
 		setIncomingWinningCardPlayerId(java.lang.Integer.valueOf(argIncomingWinningCardPlayerId));
-		return;
+		return this;
 	}
 
-	public synchronized void setIncomingLosingCardPlayerId(final java.lang.Integer argIncomingLosingCardPlayerId) {
+	public synchronized GameOpal setIncomingLosingCardPlayerId(final java.lang.Integer argIncomingLosingCardPlayerId) {
 		tryMutate();
 		getNewValues()[3] = argIncomingLosingCardPlayerId;
-		return;
+		return this;
 	}
 
-	public void setIncomingLosingCardPlayerId(final int argIncomingLosingCardPlayerId) {
+	public GameOpal setIncomingLosingCardPlayerId(final int argIncomingLosingCardPlayerId) {
 		setIncomingLosingCardPlayerId(java.lang.Integer.valueOf(argIncomingLosingCardPlayerId));
-		return;
+		return this;
 	}
 
-	public synchronized void setOutgoingWinningCardPlayerId(final java.lang.Integer argOutgoingWinningCardPlayerId) {
+	public synchronized GameOpal setOutgoingWinningCardPlayerId(final java.lang.Integer argOutgoingWinningCardPlayerId) {
 		tryMutate();
 		getNewValues()[4] = argOutgoingWinningCardPlayerId;
-		return;
+		return this;
 	}
 
-	public void setOutgoingWinningCardPlayerId(final int argOutgoingWinningCardPlayerId) {
+	public GameOpal setOutgoingWinningCardPlayerId(final int argOutgoingWinningCardPlayerId) {
 		setOutgoingWinningCardPlayerId(java.lang.Integer.valueOf(argOutgoingWinningCardPlayerId));
-		return;
+		return this;
 	}
 
-	public synchronized void setOutgoingLosingCardPlayerId(final java.lang.Integer argOutgoingLosingCardPlayerId) {
+	public synchronized GameOpal setOutgoingLosingCardPlayerId(final java.lang.Integer argOutgoingLosingCardPlayerId) {
 		tryMutate();
 		getNewValues()[5] = argOutgoingLosingCardPlayerId;
-		return;
+		return this;
 	}
 
-	public void setOutgoingLosingCardPlayerId(final int argOutgoingLosingCardPlayerId) {
+	public GameOpal setOutgoingLosingCardPlayerId(final int argOutgoingLosingCardPlayerId) {
 		setOutgoingLosingCardPlayerId(java.lang.Integer.valueOf(argOutgoingLosingCardPlayerId));
-		return;
+		return this;
 	}
 
-	public synchronized void setModeratorStaffId(final java.lang.Integer argModeratorStaffId) {
+	public synchronized GameOpal setModeratorStaffId(final java.lang.Integer argModeratorStaffId) {
 		tryMutate();
 		getNewValues()[6] = argModeratorStaffId;
-		return;
+		return this;
 	}
 
-	public void setModeratorStaffId(final int argModeratorStaffId) {
+	public GameOpal setModeratorStaffId(final int argModeratorStaffId) {
 		setModeratorStaffId(java.lang.Integer.valueOf(argModeratorStaffId));
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -316,12 +316,19 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewOutgoingLosingCardPlayerOpal;
+		lclUO = myNewMatchOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewOutgoingWinningCardPlayerOpal;
+		lclUO = myNewIncomingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewOutgoingLosingCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -335,13 +342,6 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewIncomingLosingCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
 		lclUO = myNewIncomingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
@@ -349,7 +349,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewMatchOpal;
+		lclUO = myNewOutgoingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -363,12 +363,19 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldOutgoingLosingCardPlayerOpal;
+		lclUO = myOldMatchOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldOutgoingWinningCardPlayerOpal;
+		lclUO = myOldIncomingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldOutgoingLosingCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -382,13 +389,6 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldIncomingLosingCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
 		lclUO = myOldIncomingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
@@ -396,7 +396,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldMatchOpal;
+		lclUO = myOldOutgoingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -467,7 +467,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return lclMatchOpal;
 	}
 
-	public synchronized void setMatchOpal(MatchOpal argMatchOpal) {
+	public synchronized GameOpal setMatchOpal(MatchOpal argMatchOpal) {
 		tryMutate();
 		if (myNewMatchOpal != null && myNewMatchOpal != MatchOpal.NOT_YET_LOADED) {
 			myNewMatchOpal.setGameOpalInternal(null);
@@ -476,7 +476,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (argMatchOpal != null) {
 			argMatchOpal.setGameOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setMatchOpalInternal(MatchOpal argMatchOpal) {
@@ -510,10 +510,10 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return lclPlayerOpal;
 	}
 
-	public synchronized void setIncomingLosingCardPlayerOpal(PlayerOpal argPlayerOpal) {
+	public synchronized GameOpal setIncomingLosingCardPlayerOpal(PlayerOpal argPlayerOpal) {
 		tryMutate();
 		PlayerOpal lclPlayerOpal = getIncomingLosingCardPlayerOpal();
-		if (lclPlayerOpal == argPlayerOpal) { return; }
+		if (lclPlayerOpal == argPlayerOpal) { return this; }
 		if (lclPlayerOpal != null) {
 			lclPlayerOpal.removeIncomingLosingCardGameOpalInternal(this);
 		}
@@ -521,7 +521,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (argPlayerOpal != null) {
 			argPlayerOpal.addIncomingLosingCardGameOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setIncomingLosingCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
@@ -555,10 +555,10 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return lclPlayerOpal;
 	}
 
-	public synchronized void setIncomingWinningCardPlayerOpal(PlayerOpal argPlayerOpal) {
+	public synchronized GameOpal setIncomingWinningCardPlayerOpal(PlayerOpal argPlayerOpal) {
 		tryMutate();
 		PlayerOpal lclPlayerOpal = getIncomingWinningCardPlayerOpal();
-		if (lclPlayerOpal == argPlayerOpal) { return; }
+		if (lclPlayerOpal == argPlayerOpal) { return this; }
 		if (lclPlayerOpal != null) {
 			lclPlayerOpal.removeIncomingWinningCardGameOpalInternal(this);
 		}
@@ -566,7 +566,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (argPlayerOpal != null) {
 			argPlayerOpal.addIncomingWinningCardGameOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setIncomingWinningCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
@@ -600,10 +600,10 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return lclStaffOpal;
 	}
 
-	public synchronized void setModeratorStaffOpal(StaffOpal argStaffOpal) {
+	public synchronized GameOpal setModeratorStaffOpal(StaffOpal argStaffOpal) {
 		tryMutate();
 		StaffOpal lclStaffOpal = getModeratorStaffOpal();
-		if (lclStaffOpal == argStaffOpal) { return; }
+		if (lclStaffOpal == argStaffOpal) { return this; }
 		if (lclStaffOpal != null) {
 			lclStaffOpal.removeModeratorGameOpalInternal(this);
 		}
@@ -611,7 +611,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (argStaffOpal != null) {
 			argStaffOpal.addModeratorGameOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setModeratorStaffOpalInternal(StaffOpal argStaffOpal) {
@@ -645,10 +645,10 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return lclPlayerOpal;
 	}
 
-	public synchronized void setOutgoingLosingCardPlayerOpal(PlayerOpal argPlayerOpal) {
+	public synchronized GameOpal setOutgoingLosingCardPlayerOpal(PlayerOpal argPlayerOpal) {
 		tryMutate();
 		PlayerOpal lclPlayerOpal = getOutgoingLosingCardPlayerOpal();
-		if (lclPlayerOpal == argPlayerOpal) { return; }
+		if (lclPlayerOpal == argPlayerOpal) { return this; }
 		if (lclPlayerOpal != null) {
 			lclPlayerOpal.removeOutgoingLosingCardGameOpalInternal(this);
 		}
@@ -656,7 +656,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (argPlayerOpal != null) {
 			argPlayerOpal.addOutgoingLosingCardGameOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setOutgoingLosingCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
@@ -690,10 +690,10 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return lclPlayerOpal;
 	}
 
-	public synchronized void setOutgoingWinningCardPlayerOpal(PlayerOpal argPlayerOpal) {
+	public synchronized GameOpal setOutgoingWinningCardPlayerOpal(PlayerOpal argPlayerOpal) {
 		tryMutate();
 		PlayerOpal lclPlayerOpal = getOutgoingWinningCardPlayerOpal();
-		if (lclPlayerOpal == argPlayerOpal) { return; }
+		if (lclPlayerOpal == argPlayerOpal) { return this; }
 		if (lclPlayerOpal != null) {
 			lclPlayerOpal.removeOutgoingWinningCardGameOpalInternal(this);
 		}
@@ -701,7 +701,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (argPlayerOpal != null) {
 			argPlayerOpal.addOutgoingWinningCardGameOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setOutgoingWinningCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {

@@ -139,105 +139,105 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		return (java.lang.Boolean) getReadValueSet()[8];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized PlayerOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public PlayerOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setContactId(final java.lang.Integer argContactId) {
+	public synchronized PlayerOpal setContactId(final java.lang.Integer argContactId) {
 		tryMutate();
 		if (argContactId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myContactId on " + this + " to null.");
 		}
 		getNewValues()[1] = argContactId;
-		return;
+		return this;
 	}
 
-	public void setContactId(final int argContactId) {
+	public PlayerOpal setContactId(final int argContactId) {
 		setContactId(java.lang.Integer.valueOf(argContactId));
-		return;
+		return this;
 	}
 
-	public synchronized void setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
+	public synchronized PlayerOpal setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
 		tryMutate();
 		getNewValues()[2] = argSchoolRegistrationId;
-		return;
+		return this;
 	}
 
-	public void setSchoolRegistrationId(final int argSchoolRegistrationId) {
+	public PlayerOpal setSchoolRegistrationId(final int argSchoolRegistrationId) {
 		setSchoolRegistrationId(java.lang.Integer.valueOf(argSchoolRegistrationId));
-		return;
+		return this;
 	}
 
-	public synchronized void setSchoolYearCode(final java.lang.String argSchoolYearCode) {
+	public synchronized PlayerOpal setSchoolYearCode(final java.lang.String argSchoolYearCode) {
 		tryMutate();
 		if ((argSchoolYearCode != null) && (argSchoolYearCode.length() > 32)) {
 			throw new com.opal.ArgumentTooLongException("Maximum length of mySchoolYearCode on " + this + " is 32.", argSchoolYearCode.length(), 32);
 		}
 		getNewValues()[3] = argSchoolYearCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setRankWithinSchool(final java.lang.Integer argRankWithinSchool) {
+	public synchronized PlayerOpal setRankWithinSchool(final java.lang.Integer argRankWithinSchool) {
 		tryMutate();
 		getNewValues()[4] = argRankWithinSchool;
-		return;
+		return this;
 	}
 
-	public void setRankWithinSchool(final int argRankWithinSchool) {
+	public PlayerOpal setRankWithinSchool(final int argRankWithinSchool) {
 		setRankWithinSchool(java.lang.Integer.valueOf(argRankWithinSchool));
-		return;
+		return this;
 	}
 
-	public synchronized void setSeed(final java.lang.Integer argSeed) {
+	public synchronized PlayerOpal setSeed(final java.lang.Integer argSeed) {
 		tryMutate();
 		getNewValues()[5] = argSeed;
-		return;
+		return this;
 	}
 
-	public void setSeed(final int argSeed) {
+	public PlayerOpal setSeed(final int argSeed) {
 		setSeed(java.lang.Integer.valueOf(argSeed));
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized PlayerOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[6] = argNote;
-		return;
+		return this;
 	}
 
-	public synchronized void setInitialCardId(final java.lang.Integer argInitialCardId) {
+	public synchronized PlayerOpal setInitialCardId(final java.lang.Integer argInitialCardId) {
 		tryMutate();
 		getNewValues()[7] = argInitialCardId;
-		return;
+		return this;
 	}
 
-	public void setInitialCardId(final int argInitialCardId) {
+	public PlayerOpal setInitialCardId(final int argInitialCardId) {
 		setInitialCardId(java.lang.Integer.valueOf(argInitialCardId));
-		return;
+		return this;
 	}
 
-	public synchronized void setExhibition(final java.lang.Boolean argExhibition) {
+	public synchronized PlayerOpal setExhibition(final java.lang.Boolean argExhibition) {
 		tryMutate();
 		if (argExhibition == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myExhibition on " + this + " to null.");
 		}
 		getNewValues()[8] = argExhibition;
-		return;
+		return this;
 	}
 
-	public void setExhibition(final boolean argExhibition) {
+	public PlayerOpal setExhibition(final boolean argExhibition) {
 		setExhibition(argExhibition ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -414,19 +414,12 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewSchoolYearOpal;
+		lclUO = myNewInitialCardOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewSchoolRegistrationOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
-		lclUO = myNewInitialCardOpal;
+		lclUO = myNewSchoolYearOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -440,6 +433,13 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 			}
 			lclTAs.add(lclUO);
 		}
+		lclUO = myNewSchoolRegistrationOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
 	}
 
@@ -447,19 +447,12 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldSchoolYearOpal;
+		lclUO = myOldInitialCardOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldSchoolRegistrationOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
-		lclUO = myOldInitialCardOpal;
+		lclUO = myOldSchoolYearOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -467,6 +460,13 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 			lclTAs.add(lclUO);
 		}
 		lclUO = myOldContactOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -541,10 +541,10 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		return lclContactOpal;
 	}
 
-	public synchronized void setContactOpal(ContactOpal argContactOpal) {
+	public synchronized PlayerOpal setContactOpal(ContactOpal argContactOpal) {
 		tryMutate();
 		ContactOpal lclContactOpal = getContactOpal();
-		if (lclContactOpal == argContactOpal) { return; }
+		if (lclContactOpal == argContactOpal) { return this; }
 		if (lclContactOpal != null) {
 			lclContactOpal.removePlayerOpalInternal(this);
 		}
@@ -552,7 +552,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		if (argContactOpal != null) {
 			argContactOpal.addPlayerOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setContactOpalInternal(ContactOpal argContactOpal) {
@@ -586,7 +586,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		return lclCardOpal;
 	}
 
-	public synchronized void setInitialCardOpal(CardOpal argCardOpal) {
+	public synchronized PlayerOpal setInitialCardOpal(CardOpal argCardOpal) {
 		tryMutate();
 		if (myNewInitialCardOpal != null && myNewInitialCardOpal != CardOpal.NOT_YET_LOADED) {
 			myNewInitialCardOpal.setInitialPlayerOpalInternal(null);
@@ -595,7 +595,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		if (argCardOpal != null) {
 			argCardOpal.setInitialPlayerOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setInitialCardOpalInternal(CardOpal argCardOpal) {
@@ -629,10 +629,10 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		return lclSchoolRegistrationOpal;
 	}
 
-	public synchronized void setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
+	public synchronized PlayerOpal setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
-		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return; }
+		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
 			lclSchoolRegistrationOpal.removePlayerOpalInternal(this);
 		}
@@ -640,7 +640,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		if (argSchoolRegistrationOpal != null) {
 			argSchoolRegistrationOpal.addPlayerOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
@@ -674,10 +674,10 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		return lclSchoolYearOpal;
 	}
 
-	public synchronized void setSchoolYearOpal(SchoolYearOpal argSchoolYearOpal) {
+	public synchronized PlayerOpal setSchoolYearOpal(SchoolYearOpal argSchoolYearOpal) {
 		tryMutate();
 		myNewSchoolYearOpal = argSchoolYearOpal;
-		return;
+		return this;
 	}
 
 	private java.util.HashSet<GameOpal> myOldIncomingLosingCardGameOpalHashSet = null;

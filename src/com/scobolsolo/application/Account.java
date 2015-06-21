@@ -22,4 +22,8 @@ public interface Account extends AccountUserFacing {
 		
 		return getContact().streamStaff().filter(argS -> argS.getTournament() == argT).findAny().isPresent();
 	}
+	
+	default String getName() {
+		return getContact().getName();
+	}
 }

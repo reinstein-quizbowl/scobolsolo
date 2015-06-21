@@ -136,54 +136,54 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		return (java.lang.String) getReadValueSet()[8];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized ContactOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public ContactOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setEmailAddress(final java.lang.String argEmailAddress) {
+	public synchronized ContactOpal setEmailAddress(final java.lang.String argEmailAddress) {
 		tryMutate();
 		if ((argEmailAddress != null) && (argEmailAddress.length() > 256)) {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myEmailAddress on " + this + " is 256.", argEmailAddress.length(), 256);
 		}
 		getNewValues()[1] = argEmailAddress;
-		return;
+		return this;
 	}
 
-	public synchronized void setAdvancePhone(final java.lang.String argAdvancePhone) {
+	public synchronized ContactOpal setAdvancePhone(final java.lang.String argAdvancePhone) {
 		tryMutate();
 		if ((argAdvancePhone != null) && (argAdvancePhone.length() > 32)) {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myAdvancePhone on " + this + " is 32.", argAdvancePhone.length(), 32);
 		}
 		getNewValues()[2] = argAdvancePhone;
-		return;
+		return this;
 	}
 
-	public synchronized void setDayOfPhone(final java.lang.String argDayOfPhone) {
+	public synchronized ContactOpal setDayOfPhone(final java.lang.String argDayOfPhone) {
 		tryMutate();
 		if ((argDayOfPhone != null) && (argDayOfPhone.length() > 32)) {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myDayOfPhone on " + this + " is 32.", argDayOfPhone.length(), 32);
 		}
 		getNewValues()[3] = argDayOfPhone;
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized ContactOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[4] = argNote;
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized ContactOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -192,10 +192,10 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[5] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSortBy(final java.lang.String argSortBy) {
+	public synchronized ContactOpal setSortBy(final java.lang.String argSortBy) {
 		tryMutate();
 		if (argSortBy == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySortBy on " + this + " to null.");
@@ -204,27 +204,27 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of mySortBy on " + this + " is 256.", argSortBy.length(), 256);
 		}
 		getNewValues()[6] = argSortBy;
-		return;
+		return this;
 	}
 
-	public synchronized void setActive(final java.lang.Boolean argActive) {
+	public synchronized ContactOpal setActive(final java.lang.Boolean argActive) {
 		tryMutate();
 		if (argActive == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myActive on " + this + " to null.");
 		}
 		getNewValues()[7] = argActive;
-		return;
+		return this;
 	}
 
-	public void setActive(final boolean argActive) {
+	public ContactOpal setActive(final boolean argActive) {
 		setActive(argActive ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
-	public synchronized void setAddress(final java.lang.String argAddress) {
+	public synchronized ContactOpal setAddress(final java.lang.String argAddress) {
 		tryMutate();
 		getNewValues()[8] = argAddress;
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -430,13 +430,13 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		return lclAccountOpal;
 	}
 
-	public synchronized void setAccountOpal(AccountOpal argAccountOpal) {
+	public synchronized ContactOpal setAccountOpal(AccountOpal argAccountOpal) {
 		tryMutate();
 		myNewAccountOpal = argAccountOpal;
 		if (argAccountOpal != null) {
 			argAccountOpal.setContactOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	public synchronized void setAccountOpalInternal(AccountOpal argAccountOpal) {

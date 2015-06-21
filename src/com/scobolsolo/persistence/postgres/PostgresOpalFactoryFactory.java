@@ -120,6 +120,11 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	}
 
 	@Override
+	public DiffOpalFactory getDiffOpalFactory() {
+		return PostgresDiffOpalFactory.getInstance();
+	}
+
+	@Override
 	public RoundGroupOpalFactory getRoundGroupOpalFactory() {
 		return PostgresRoundGroupOpalFactory.getInstance();
 	}

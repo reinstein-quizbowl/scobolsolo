@@ -11,6 +11,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	public static final java.lang.String ourDefaultPasswordHash = "$2a$16$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 	public static final java.lang.Boolean ourDefaultAdministrator = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultActive = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultWriter = java.lang.Boolean.FALSE;
 
 	private AccountOpal() {
 		super();
@@ -26,6 +27,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		getNewValues()[2] = ourDefaultPasswordHash;
 		getNewValues()[3] = ourDefaultAdministrator;
 		getNewValues()[4] = ourDefaultActive;
+		getNewValues()[5] = ourDefaultWriter;
 		return;
 	}
 
@@ -41,12 +43,14 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		"PasswordHash",
 		"Administrator",
 		"Active",
+		"Writer",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
 		java.lang.Integer.class,
 		java.lang.String.class,
 		java.lang.String.class,
+		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 	};
@@ -57,9 +61,11 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		false,
 		false,
 		false,
+		false,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -107,21 +113,25 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		return (java.lang.Boolean) getReadValueSet()[4];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized java.lang.Boolean isWriterAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[5];
+	}
+
+	public synchronized AccountOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public AccountOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setUsername(final java.lang.String argUsername) {
+	public synchronized AccountOpal setUsername(final java.lang.String argUsername) {
 		tryMutate();
 		if (argUsername == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myUsername on " + this + " to null.");
@@ -130,10 +140,10 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myUsername on " + this + " is 64.", argUsername.length(), 64);
 		}
 		getNewValues()[1] = argUsername;
-		return;
+		return this;
 	}
 
-	public synchronized void setPasswordHash(final java.lang.String argPasswordHash) {
+	public synchronized AccountOpal setPasswordHash(final java.lang.String argPasswordHash) {
 		tryMutate();
 		if (argPasswordHash == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPasswordHash on " + this + " to null.");
@@ -142,35 +152,49 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myPasswordHash on " + this + " is 60.", argPasswordHash.length(), 60);
 		}
 		getNewValues()[2] = argPasswordHash;
-		return;
+		return this;
 	}
 
-	public synchronized void setAdministrator(final java.lang.Boolean argAdministrator) {
+	public synchronized AccountOpal setAdministrator(final java.lang.Boolean argAdministrator) {
 		tryMutate();
 		if (argAdministrator == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myAdministrator on " + this + " to null.");
 		}
 		getNewValues()[3] = argAdministrator;
-		return;
+		return this;
 	}
 
-	public void setAdministrator(final boolean argAdministrator) {
+	public AccountOpal setAdministrator(final boolean argAdministrator) {
 		setAdministrator(argAdministrator ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
-	public synchronized void setActive(final java.lang.Boolean argActive) {
+	public synchronized AccountOpal setActive(final java.lang.Boolean argActive) {
 		tryMutate();
 		if (argActive == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myActive on " + this + " to null.");
 		}
 		getNewValues()[4] = argActive;
-		return;
+		return this;
 	}
 
-	public void setActive(final boolean argActive) {
+	public AccountOpal setActive(final boolean argActive) {
 		setActive(argActive ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
+	}
+
+	public synchronized AccountOpal setWriter(final java.lang.Boolean argWriter) {
+		tryMutate();
+		if (argWriter == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myWriter on " + this + " to null.");
+		}
+		getNewValues()[5] = argWriter;
+		return this;
+	}
+
+	public AccountOpal setWriter(final boolean argWriter) {
+		setWriter(argWriter ? Boolean.TRUE : Boolean.FALSE);
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -188,6 +212,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		myNewContactOpal = myOldContactOpal;
 		myNewWriterQuestionOpalHashSet = null; /* Necessary if it has been rolled back */
 		myWriterQuestionOpalCachedOperations = null; /* Ditto */
+		myNewEditorDiffOpalHashSet = null; /* Necessary if it has been rolled back */
+		myEditorDiffOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -206,6 +232,16 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 				myWriterQuestionOpalCachedOperations = null;
 			}
 		}
+		if (needsToClearOldCollections()) {
+			myOldEditorDiffOpalHashSet = null;
+			} else {
+			if (myNewEditorDiffOpalHashSet != null) {
+				myOldEditorDiffOpalHashSet = myNewEditorDiffOpalHashSet;
+				myNewEditorDiffOpalHashSet = null;
+			} else {
+				myEditorDiffOpalCachedOperations = null;
+			}
+		}
 		setClearOldCollections(false);
 		return;
 	}
@@ -216,7 +252,13 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		if (myNewWriterQuestionOpalHashSet != null || myWriterQuestionOpalCachedOperations != null) {
 			lclI = createWriterQuestionOpalIterator();
 			while (lclI.hasNext()) {
-				((QuestionOpal) lclI.next()).setWriterAccountOpalInternal(null);
+				((QuestionOpal) lclI.next()).setWriterOpalInternal(null);
+			}
+		}
+		if (myNewEditorDiffOpalHashSet != null || myEditorDiffOpalCachedOperations != null) {
+			lclI = createEditorDiffOpalIterator();
+			while (lclI.hasNext()) {
+				((DiffOpal) lclI.next()).setEditorOpalInternal(null);
 			}
 		}
 		if (getContactOpal() != null) {
@@ -234,6 +276,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		lclTargetNewValues[2] = lclValues[2]; /* PasswordHash (immutable) */
 		lclTargetNewValues[3] = lclValues[3]; /* Administrator (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* Active (immutable) */
+		lclTargetNewValues[5] = lclValues[5]; /* Writer (immutable) */
 
 		return;
 	}
@@ -290,6 +333,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argPW.println("PasswordHash = " + getPasswordHash());
 		argPW.println("Administrator = " + isAdministratorAsObject());
 		argPW.println("Active = " + isActiveAsObject());
+		argPW.println("Writer = " + isWriterAsObject());
 	}
 
 	@Override
@@ -299,6 +343,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argPS.println("PasswordHash = " + getPasswordHash());
 		argPS.println("Administrator = " + isAdministratorAsObject());
 		argPS.println("Active = " + isActiveAsObject());
+		argPS.println("Writer = " + isWriterAsObject());
 	}
 
 	private ContactOpal myOldContactOpal;
@@ -327,7 +372,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		return lclContactOpal;
 	}
 
-	public synchronized void setContactOpal(ContactOpal argContactOpal) {
+	public synchronized AccountOpal setContactOpal(ContactOpal argContactOpal) {
 		tryMutate();
 		if (myNewContactOpal != null && myNewContactOpal != ContactOpal.NOT_YET_LOADED) {
 			myNewContactOpal.setAccountOpalInternal(null);
@@ -336,7 +381,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		if (argContactOpal != null) {
 			argContactOpal.setAccountOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setContactOpalInternal(ContactOpal argContactOpal) {
@@ -370,7 +415,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	public synchronized void addWriterQuestionOpal(QuestionOpal argQuestionOpal) {
 		tryMutate();
-		argQuestionOpal.setWriterAccountOpal(this);
+		argQuestionOpal.setWriterOpal(this);
 		return;
 	}
 
@@ -392,7 +437,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	public synchronized void removeWriterQuestionOpal(QuestionOpal argQuestionOpal) {
 		tryMutate();
-		argQuestionOpal.setWriterAccountOpal(null);
+		argQuestionOpal.setWriterOpal(null);
 	}
 
 	protected synchronized void removeWriterQuestionOpalInternal(QuestionOpal argQuestionOpal) {
@@ -422,6 +467,85 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	}
 
 	public synchronized void clearWriterQuestionOpalInternal() { getWriterQuestionOpalClass().clear(); }
+
+	private java.util.HashSet<DiffOpal> myOldEditorDiffOpalHashSet = null;
+	private java.util.HashSet<DiffOpal> myNewEditorDiffOpalHashSet = null;
+	private java.util.ArrayList<CachedOperation<DiffOpal>> myEditorDiffOpalCachedOperations = null;
+
+	/* package */ java.util.HashSet<DiffOpal> getEditorDiffOpalClass() {
+		if (tryAccess()) {
+			if (myNewEditorDiffOpalHashSet == null) {
+				if (myOldEditorDiffOpalHashSet == null) {
+					myOldEditorDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
+				}
+				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
+				if (myEditorDiffOpalCachedOperations != null) {
+					OpalUtility.handleCachedOperations(myEditorDiffOpalCachedOperations, myNewEditorDiffOpalHashSet);
+					myEditorDiffOpalCachedOperations = null;
+				}
+			}
+			return myNewEditorDiffOpalHashSet;
+		}
+		if (myOldEditorDiffOpalHashSet == null) {
+			myOldEditorDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
+		}
+		return myOldEditorDiffOpalHashSet;
+	}
+
+	public synchronized void addEditorDiffOpal(DiffOpal argDiffOpal) {
+		tryMutate();
+		argDiffOpal.setEditorOpal(this);
+		return;
+	}
+
+	protected synchronized void addEditorDiffOpalInternal(DiffOpal argDiffOpal) {
+		tryMutate();
+		if (myNewEditorDiffOpalHashSet == null) {
+			if (myOldEditorDiffOpalHashSet == null) {
+				if (myEditorDiffOpalCachedOperations == null) { myEditorDiffOpalCachedOperations = new java.util.ArrayList<>(); }
+				myEditorDiffOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argDiffOpal));
+			} else {
+				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
+				myNewEditorDiffOpalHashSet.add(argDiffOpal);
+			}
+		} else {
+			myNewEditorDiffOpalHashSet.add(argDiffOpal);
+		}
+		return;
+	}
+
+	public synchronized void removeEditorDiffOpal(DiffOpal argDiffOpal) {
+		tryMutate();
+		argDiffOpal.setEditorOpal(null);
+	}
+
+	protected synchronized void removeEditorDiffOpalInternal(DiffOpal argDiffOpal) {
+		tryMutate();
+		if (myNewEditorDiffOpalHashSet == null) {
+			if (myOldEditorDiffOpalHashSet == null) {
+				if (myEditorDiffOpalCachedOperations == null) { myEditorDiffOpalCachedOperations = new java.util.ArrayList<>(); }
+				myEditorDiffOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argDiffOpal));
+			} else {
+				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
+				myNewEditorDiffOpalHashSet.remove(argDiffOpal);
+			}
+		} else {
+			myNewEditorDiffOpalHashSet.remove(argDiffOpal);
+		}
+		return;
+	}
+
+	public synchronized int getEditorDiffOpalCount() { return getEditorDiffOpalClass().size(); }
+
+	public synchronized java.util.Iterator<DiffOpal> createEditorDiffOpalIterator() {
+		return getEditorDiffOpalClass().iterator();
+	}
+
+	public synchronized java.util.stream.Stream<DiffOpal> streamEditorDiffOpal() {
+		return getEditorDiffOpalClass().stream();
+	}
+
+	public synchronized void clearEditorDiffOpalInternal() { getEditorDiffOpalClass().clear(); }
 
 	@Override
 	public String toString() {

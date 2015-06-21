@@ -106,21 +106,21 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		return (java.lang.Integer) getReadValueSet()[5];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized CardOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public CardOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setName(final java.lang.String argName) {
+	public synchronized CardOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -129,10 +129,10 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
-		return;
+		return this;
 	}
 
-	public synchronized void setShortName(final java.lang.String argShortName) {
+	public synchronized CardOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -141,41 +141,41 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
-		return;
+		return this;
 	}
 
-	public synchronized void setSequence(final java.lang.Integer argSequence) {
+	public synchronized CardOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
 		getNewValues()[3] = argSequence;
-		return;
+		return this;
 	}
 
-	public void setSequence(final int argSequence) {
+	public CardOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return;
+		return this;
 	}
 
-	public synchronized void setFinalMessage(final java.lang.String argFinalMessage) {
+	public synchronized CardOpal setFinalMessage(final java.lang.String argFinalMessage) {
 		tryMutate();
 		getNewValues()[4] = argFinalMessage;
-		return;
+		return this;
 	}
 
-	public synchronized void setPhaseId(final java.lang.Integer argPhaseId) {
+	public synchronized CardOpal setPhaseId(final java.lang.Integer argPhaseId) {
 		tryMutate();
 		if (argPhaseId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myPhaseId on " + this + " to null.");
 		}
 		getNewValues()[5] = argPhaseId;
-		return;
+		return this;
 	}
 
-	public void setPhaseId(final int argPhaseId) {
+	public CardOpal setPhaseId(final int argPhaseId) {
 		setPhaseId(java.lang.Integer.valueOf(argPhaseId));
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -358,10 +358,10 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		return lclPhaseOpal;
 	}
 
-	public synchronized void setPhaseOpal(PhaseOpal argPhaseOpal) {
+	public synchronized CardOpal setPhaseOpal(PhaseOpal argPhaseOpal) {
 		tryMutate();
 		PhaseOpal lclPhaseOpal = getPhaseOpal();
-		if (lclPhaseOpal == argPhaseOpal) { return; }
+		if (lclPhaseOpal == argPhaseOpal) { return this; }
 		if (lclPhaseOpal != null) {
 			lclPhaseOpal.removeCardOpalInternal(this);
 		}
@@ -369,7 +369,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		if (argPhaseOpal != null) {
 			argPhaseOpal.addCardOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setPhaseOpalInternal(PhaseOpal argPhaseOpal) {
@@ -403,13 +403,13 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		return lclPlayerOpal;
 	}
 
-	public synchronized void setInitialPlayerOpal(PlayerOpal argPlayerOpal) {
+	public synchronized CardOpal setInitialPlayerOpal(PlayerOpal argPlayerOpal) {
 		tryMutate();
 		myNewInitialPlayerOpal = argPlayerOpal;
 		if (argPlayerOpal != null) {
 			argPlayerOpal.setInitialCardOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	public synchronized void setInitialPlayerOpalInternal(PlayerOpal argPlayerOpal) {

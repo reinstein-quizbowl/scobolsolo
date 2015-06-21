@@ -31,15 +31,15 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public RoundGroupImpl setId(java.lang.Integer argId) {
 		getRoundGroupOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public RoundGroupImpl setId(int argId) {
 		getRoundGroupOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -48,9 +48,9 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public RoundGroupImpl setName(java.lang.String argName) {
 		getRoundGroupOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -59,9 +59,9 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public RoundGroupImpl setShortName(java.lang.String argShortName) {
 		getRoundGroupOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -70,15 +70,15 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public RoundGroupImpl setSequence(java.lang.Integer argSequence) {
 		getRoundGroupOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public RoundGroupImpl setSequence(int argSequence) {
 		getRoundGroupOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -87,15 +87,15 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	}
 
 	@Override
-	public void setPhaseId(java.lang.Integer argPhaseId) {
+	public RoundGroupImpl setPhaseId(java.lang.Integer argPhaseId) {
 		getRoundGroupOpal().setPhaseId(argPhaseId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPhaseId(int argPhaseId) {
+	public RoundGroupImpl setPhaseId(int argPhaseId) {
 		getRoundGroupOpal().setPhaseId(argPhaseId);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -110,9 +110,9 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	}
 
 	@Override
-	public void setPhase(Phase argPhase) {
+	public RoundGroup setPhase(Phase argPhase) {
 		getRoundGroupOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

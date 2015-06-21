@@ -46,19 +46,21 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.School setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.School setId(int argId);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -73,6 +75,7 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -82,7 +85,7 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.School setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -97,6 +100,7 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -106,7 +110,7 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.School setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code VeryShortName}
@@ -121,6 +125,7 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 * sets the {@code VeryShortName} to the value of {@code argVeryShortName}
 	 *
 	 * @param argVeryShortName the new value of {@code VeryShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code very_short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argVeryShortName is null
@@ -130,7 +135,7 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 12L)
-	public void setVeryShortName(java.lang.String argVeryShortName);
+	public com.scobolsolo.application.School setVeryShortName(java.lang.String argVeryShortName);
 
 	/**
 	 * object accessor for the {@code Location}
@@ -161,12 +166,13 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 * sets the {@code Location} to the value of {@code argLocation}
 	 *
 	 * @param argLocation the new value of {@code Location}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argLocation} is longer than 256 characters
 	 * <p>The database column {@code location} is limited to 256 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setLocation(java.lang.String argLocation);
+	public com.scobolsolo.application.School setLocation(java.lang.String argLocation);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -197,12 +203,13 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.School setNote(java.lang.String argNote);
 
 	public int getSchoolRegistrationCount();
 	public java.util.Iterator<com.scobolsolo.application.SchoolRegistration> createSchoolRegistrationIterator();

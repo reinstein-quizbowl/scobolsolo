@@ -24,7 +24,7 @@
 		</Comparators>
 		
 		
-		<Mappings HttpRequestFactories="True">
+		<Mappings HttpRequestFactories="True" FluentMutators="True">
 			<Mapping Table="Account">
 				<Comparator Name="NameComparator">
 					<Child Name="Contact" Comparator="SortByComparator" />
@@ -132,6 +132,10 @@
 				</Comparator>
 			</Mapping>
 			
+			<Mapping Table="Diff" />
+			
+			<!-- <Mapping Table="Approval" /> -->
+			
 			<Mapping Table="School_Registration">
 				<Comparator>
 					<Child Name="Tournament" Comparator="DateComparator" />
@@ -174,12 +178,16 @@
 			<Mapping Table="Phase">
 				<Column Name="card_system" Filter="True" />
 				<Column Name="sequence" Ordering="True" />
+				<Comparator Name="StandardComparator">
+					<Child Name="Tournament" Comparator="DateComparator" />
+					<Column Name="sequence" />
+				</Comparator>
 			</Mapping>
 			
 			<Mapping Table="Round_Group">
 				<Column Name="card_system" Filter="True" />
 				<Comparator Name="StandardComparator">
-					<Child Name="Phase" Comparator="SequenceComparator" />
+					<Child Name="Phase" Comparator="StandardComparator" />
 					<Column Name="sequence" />
 				</Comparator>
 			</Mapping>
@@ -301,6 +309,21 @@
 				<Column>initial_card_id</Column>
 			</Source>
 			<Target Type="Card" OneToOne="True" />
+		</Reference>
+		
+		<!-- Renaming foreign keys -->
+		<Reference Field="Writer">
+			<Source Type="Question">
+				<Column>writer_account_id</Column>
+			</Source>
+			<Target Type="Account" />
+		</Reference>
+		
+		<Reference Field="Editor">
+			<Source Type="Diff">
+				<Column>editor_account_id</Column>
+			</Source>
+			<Target Type="Account" />
 		</Reference>
 	</Database>
 </Project>

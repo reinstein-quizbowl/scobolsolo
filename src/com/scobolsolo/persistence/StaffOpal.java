@@ -114,35 +114,35 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		return (java.lang.Boolean) getReadValueSet()[5];
 	}
 
-	public synchronized void setId(final java.lang.Integer argId) {
+	public synchronized StaffOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myId on " + this + " to null.");
 		}
 		getNewValues()[0] = argId;
-		return;
+		return this;
 	}
 
-	public void setId(final int argId) {
+	public StaffOpal setId(final int argId) {
 		setId(java.lang.Integer.valueOf(argId));
-		return;
+		return this;
 	}
 
-	public synchronized void setContactId(final java.lang.Integer argContactId) {
+	public synchronized StaffOpal setContactId(final java.lang.Integer argContactId) {
 		tryMutate();
 		if (argContactId == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myContactId on " + this + " to null.");
 		}
 		getNewValues()[1] = argContactId;
-		return;
+		return this;
 	}
 
-	public void setContactId(final int argContactId) {
+	public StaffOpal setContactId(final int argContactId) {
 		setContactId(java.lang.Integer.valueOf(argContactId));
-		return;
+		return this;
 	}
 
-	public synchronized void setTournamentCode(final java.lang.String argTournamentCode) {
+	public synchronized StaffOpal setTournamentCode(final java.lang.String argTournamentCode) {
 		tryMutate();
 		if (argTournamentCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
@@ -151,38 +151,38 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[2] = argTournamentCode;
-		return;
+		return this;
 	}
 
-	public synchronized void setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
+	public synchronized StaffOpal setSchoolRegistrationId(final java.lang.Integer argSchoolRegistrationId) {
 		tryMutate();
 		getNewValues()[3] = argSchoolRegistrationId;
-		return;
+		return this;
 	}
 
-	public void setSchoolRegistrationId(final int argSchoolRegistrationId) {
+	public StaffOpal setSchoolRegistrationId(final int argSchoolRegistrationId) {
 		setSchoolRegistrationId(java.lang.Integer.valueOf(argSchoolRegistrationId));
-		return;
+		return this;
 	}
 
-	public synchronized void setNote(final java.lang.String argNote) {
+	public synchronized StaffOpal setNote(final java.lang.String argNote) {
 		tryMutate();
 		getNewValues()[4] = argNote;
-		return;
+		return this;
 	}
 
-	public synchronized void setBringingLaptop(final java.lang.Boolean argBringingLaptop) {
+	public synchronized StaffOpal setBringingLaptop(final java.lang.Boolean argBringingLaptop) {
 		tryMutate();
 		if (argBringingLaptop == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myBringingLaptop on " + this + " to null.");
 		}
 		getNewValues()[5] = argBringingLaptop;
-		return;
+		return this;
 	}
 
-	public void setBringingLaptop(final boolean argBringingLaptop) {
+	public StaffOpal setBringingLaptop(final boolean argBringingLaptop) {
 		setBringingLaptop(argBringingLaptop ? Boolean.TRUE : Boolean.FALSE);
-		return;
+		return this;
 	}
 
 	private boolean myClearOldCollections = false;
@@ -297,19 +297,19 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewContactOpal;
+		lclUO = myNewTournamentOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewTournamentOpal;
+		lclUO = myNewSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewSchoolRegistrationOpal;
+		lclUO = myNewContactOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -323,19 +323,19 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldContactOpal;
+		lclUO = myOldTournamentOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldTournamentOpal;
+		lclUO = myOldSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldSchoolRegistrationOpal;
+		lclUO = myOldContactOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -404,10 +404,10 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		return lclContactOpal;
 	}
 
-	public synchronized void setContactOpal(ContactOpal argContactOpal) {
+	public synchronized StaffOpal setContactOpal(ContactOpal argContactOpal) {
 		tryMutate();
 		ContactOpal lclContactOpal = getContactOpal();
-		if (lclContactOpal == argContactOpal) { return; }
+		if (lclContactOpal == argContactOpal) { return this; }
 		if (lclContactOpal != null) {
 			lclContactOpal.removeStaffOpalInternal(this);
 		}
@@ -415,7 +415,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (argContactOpal != null) {
 			argContactOpal.addStaffOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setContactOpalInternal(ContactOpal argContactOpal) {
@@ -449,10 +449,10 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		return lclSchoolRegistrationOpal;
 	}
 
-	public synchronized void setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
+	public synchronized StaffOpal setSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
-		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return; }
+		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
 			lclSchoolRegistrationOpal.removeStaffOpalInternal(this);
 		}
@@ -460,7 +460,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (argSchoolRegistrationOpal != null) {
 			argSchoolRegistrationOpal.addStaffOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
@@ -494,10 +494,10 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		return lclTournamentOpal;
 	}
 
-	public synchronized void setTournamentOpal(TournamentOpal argTournamentOpal) {
+	public synchronized StaffOpal setTournamentOpal(TournamentOpal argTournamentOpal) {
 		tryMutate();
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
-		if (lclTournamentOpal == argTournamentOpal) { return; }
+		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
 			lclTournamentOpal.removeStaffOpalInternal(this);
 		}
@@ -505,7 +505,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (argTournamentOpal != null) {
 			argTournamentOpal.addStaffOpalInternal(this);
 		}
-		return;
+		return this;
 	}
 
 	protected synchronized void setTournamentOpalInternal(TournamentOpal argTournamentOpal) {

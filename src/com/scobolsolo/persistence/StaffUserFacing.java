@@ -46,19 +46,21 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Staff setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Staff setId(int argId);
 
 	/**
 	 * object accessor for the {@code ContactId}
@@ -89,19 +91,21 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 * sets the {@code ContactId} to the value of {@code argContactId}
 	 *
 	 * @param argContactId the new value of {@code ContactId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code contact_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argContactId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setContactId(java.lang.Integer argContactId);
+	public com.scobolsolo.application.Staff setContactId(java.lang.Integer argContactId);
 
 	/**
 	 * sets the {@code ContactId} to the value of {@code argContactId}
 	 *
 	 * @param argContactId the new value of {@code ContactId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setContactId(int argContactId);
+	public com.scobolsolo.application.Staff setContactId(int argContactId);
 
 	/**
 	 * object accessor for the {@code TournamentCode}
@@ -116,6 +120,7 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 * sets the {@code TournamentCode} to the value of {@code argTournamentCode}
 	 *
 	 * @param argTournamentCode the new value of {@code TournamentCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTournamentCode is null
@@ -125,7 +130,7 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setTournamentCode(java.lang.String argTournamentCode);
+	public com.scobolsolo.application.Staff setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
 	 * object accessor for the {@code SchoolRegistrationId}
@@ -188,15 +193,17 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
+	public com.scobolsolo.application.Staff setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
 	 * sets the {@code SchoolRegistrationId} to the value of {@code argSchoolRegistrationId}
 	 *
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSchoolRegistrationId(int argSchoolRegistrationId);
+	public com.scobolsolo.application.Staff setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -227,12 +234,13 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.Staff setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code BringingLaptop}
@@ -263,19 +271,21 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 * sets the {@code BringingLaptop} to the value of {@code argBringingLaptop}
 	 *
 	 * @param argBringingLaptop the new value of {@code BringingLaptop}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code bringing_laptop} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argBringingLaptop is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setBringingLaptop(java.lang.Boolean argBringingLaptop);
+	public com.scobolsolo.application.Staff setBringingLaptop(java.lang.Boolean argBringingLaptop);
 
 	/**
 	 * sets the {@code BringingLaptop} to the value of {@code argBringingLaptop}
 	 *
 	 * @param argBringingLaptop the new value of {@code BringingLaptop}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setBringingLaptop(boolean argBringingLaptop);
+	public com.scobolsolo.application.Staff setBringingLaptop(boolean argBringingLaptop);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
@@ -283,7 +293,7 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Contact getContact();
-	public void setContact(com.scobolsolo.application.Contact argContact);
+	public com.scobolsolo.application.Staff setContact(com.scobolsolo.application.Contact argContact);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
@@ -291,7 +301,7 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
-	public void setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.Staff setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
@@ -299,7 +309,7 @@ public interface StaffUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
-	public void setTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament);
 
 	public int getModeratorGameCount();
 	public java.util.Iterator<com.scobolsolo.application.Game> createModeratorGameIterator();

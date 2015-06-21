@@ -46,19 +46,21 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Packet setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Packet setId(int argId);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -73,6 +75,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -82,7 +85,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.Packet setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -97,6 +100,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -106,7 +110,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.Packet setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code RoundId}
@@ -169,15 +173,17 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code RoundId} to the value of {@code argRoundId}
 	 *
 	 * @param argRoundId the new value of {@code RoundId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setRoundId(java.lang.Integer argRoundId);
+	public com.scobolsolo.application.Packet setRoundId(java.lang.Integer argRoundId);
 
 	/**
 	 * sets the {@code RoundId} to the value of {@code argRoundId}
 	 *
 	 * @param argRoundId the new value of {@code RoundId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setRoundId(int argRoundId);
+	public com.scobolsolo.application.Packet setRoundId(int argRoundId);
 
 	/**
 	 * object accessor for the {@code Note}
@@ -208,12 +214,13 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code Note} to the value of {@code argNote}
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Length(maximum = 2147483647L)
-	public void setNote(java.lang.String argNote);
+	public com.scobolsolo.application.Packet setNote(java.lang.String argNote);
 
 	/**
 	 * object accessor for the {@code TournamentCode}
@@ -228,6 +235,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code TournamentCode} to the value of {@code argTournamentCode}
 	 *
 	 * @param argTournamentCode the new value of {@code TournamentCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argTournamentCode is null
@@ -237,7 +245,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setTournamentCode(java.lang.String argTournamentCode);
+	public com.scobolsolo.application.Packet setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -268,19 +276,21 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.Packet setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.Packet setSequence(int argSequence);
 
 	/**
 	 * object accessor for the {@code ReplacementPacketId}
@@ -343,15 +353,17 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code ReplacementPacketId} to the value of {@code argReplacementPacketId}
 	 *
 	 * @param argReplacementPacketId the new value of {@code ReplacementPacketId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 */
-	public void setReplacementPacketId(java.lang.Integer argReplacementPacketId);
+	public com.scobolsolo.application.Packet setReplacementPacketId(java.lang.Integer argReplacementPacketId);
 
 	/**
 	 * sets the {@code ReplacementPacketId} to the value of {@code argReplacementPacketId}
 	 *
 	 * @param argReplacementPacketId the new value of {@code ReplacementPacketId}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setReplacementPacketId(int argReplacementPacketId);
+	public com.scobolsolo.application.Packet setReplacementPacketId(int argReplacementPacketId);
 
 	/**
 	 * object accessor for the {@code QuestionsPublic}
@@ -382,19 +394,21 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 * sets the {@code QuestionsPublic} to the value of {@code argQuestionsPublic}
 	 *
 	 * @param argQuestionsPublic the new value of {@code QuestionsPublic}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code questions_public} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argQuestionsPublic is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setQuestionsPublic(java.lang.Boolean argQuestionsPublic);
+	public com.scobolsolo.application.Packet setQuestionsPublic(java.lang.Boolean argQuestionsPublic);
 
 	/**
 	 * sets the {@code QuestionsPublic} to the value of {@code argQuestionsPublic}
 	 *
 	 * @param argQuestionsPublic the new value of {@code QuestionsPublic}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setQuestionsPublic(boolean argQuestionsPublic);
+	public com.scobolsolo.application.Packet setQuestionsPublic(boolean argQuestionsPublic);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Packet}
@@ -402,7 +416,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Packet getReplacementPacket();
-	public void setReplacementPacket(com.scobolsolo.application.Packet argReplacementPacket);
+	public com.scobolsolo.application.Packet setReplacementPacket(com.scobolsolo.application.Packet argReplacementPacket);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Round}
@@ -410,7 +424,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Round getRound();
-	public void setRound(com.scobolsolo.application.Round argRound);
+	public com.scobolsolo.application.Packet setRound(com.scobolsolo.application.Round argRound);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
@@ -418,7 +432,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
-	public void setTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.Packet setTournament(com.scobolsolo.application.Tournament argTournament);
 
 	public int getReplacementPacketCount();
 	public java.util.Iterator<com.scobolsolo.application.Packet> createReplacementPacketIterator();

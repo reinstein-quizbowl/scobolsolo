@@ -37,15 +37,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setId(java.lang.Integer argId) {
+	public PlacementImpl setId(java.lang.Integer argId) {
 		getPlacementOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setId(int argId) {
+	public PlacementImpl setId(int argId) {
 		getPlacementOpal().setId(argId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -54,15 +54,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setQuestionId(java.lang.Integer argQuestionId) {
+	public PlacementImpl setQuestionId(java.lang.Integer argQuestionId) {
 		getPlacementOpal().setQuestionId(argQuestionId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setQuestionId(int argQuestionId) {
+	public PlacementImpl setQuestionId(int argQuestionId) {
 		getPlacementOpal().setQuestionId(argQuestionId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -71,15 +71,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setPacketId(java.lang.Integer argPacketId) {
+	public PlacementImpl setPacketId(java.lang.Integer argPacketId) {
 		getPlacementOpal().setPacketId(argPacketId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setPacketId(int argPacketId) {
+	public PlacementImpl setPacketId(int argPacketId) {
 		getPlacementOpal().setPacketId(argPacketId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -88,15 +88,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public PlacementImpl setSequence(java.lang.Integer argSequence) {
 		getPlacementOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public PlacementImpl setSequence(int argSequence) {
 		getPlacementOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -105,15 +105,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setTiebreaker(java.lang.Boolean argTiebreaker) {
+	public PlacementImpl setTiebreaker(java.lang.Boolean argTiebreaker) {
 		getPlacementOpal().setTiebreaker(argTiebreaker);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setTiebreaker(boolean argTiebreaker) {
+	public PlacementImpl setTiebreaker(boolean argTiebreaker) {
 		getPlacementOpal().setTiebreaker(argTiebreaker);
-		return;
+		return this;
 	}
 
 	@Override
@@ -122,15 +122,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setScorecheckAfter(java.lang.Boolean argScorecheckAfter) {
+	public PlacementImpl setScorecheckAfter(java.lang.Boolean argScorecheckAfter) {
 		getPlacementOpal().setScorecheckAfter(argScorecheckAfter);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setScorecheckAfter(boolean argScorecheckAfter) {
+	public PlacementImpl setScorecheckAfter(boolean argScorecheckAfter) {
 		getPlacementOpal().setScorecheckAfter(argScorecheckAfter);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -145,9 +145,9 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setPacket(Packet argPacket) {
+	public Placement setPacket(Packet argPacket) {
 		getPlacementOpal().setPacketOpal(argPacket == null ? null : ((PacketImpl) argPacket).getPacketOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Question object created from placement through reference placement_question_id_fkey */
@@ -159,9 +159,9 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void setQuestion(Question argQuestion) {
+	public Placement setQuestion(Question argQuestion) {
 		getPlacementOpal().setQuestionOpal(argQuestion == null ? null : ((QuestionImpl) argQuestion).getQuestionOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

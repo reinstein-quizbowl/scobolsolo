@@ -32,9 +32,9 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 	}
 
 	@Override
-	public void setCategoryCode(java.lang.String argCategoryCode) {
+	public CategoryUseImpl setCategoryCode(java.lang.String argCategoryCode) {
 		getCategoryUseOpal().setCategoryCode(argCategoryCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -43,9 +43,9 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 	}
 
 	@Override
-	public void setTournamentCode(java.lang.String argTournamentCode) {
+	public CategoryUseImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getCategoryUseOpal().setTournamentCode(argTournamentCode);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -60,9 +60,9 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 	}
 
 	@Override
-	public void setCategory(Category argCategory) {
+	public CategoryUse setCategory(Category argCategory) {
 		getCategoryUseOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Tournament object created from category_use through reference category_use_tournament_code_fkey */
@@ -74,9 +74,9 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 	}
 
 	@Override
-	public void setTournament(Tournament argTournament) {
+	public CategoryUse setTournament(Tournament argTournament) {
 		getCategoryUseOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

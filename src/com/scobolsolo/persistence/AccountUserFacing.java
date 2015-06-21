@@ -46,19 +46,21 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setId(java.lang.Integer argId);
+	public com.scobolsolo.application.Account setId(java.lang.Integer argId);
 
 	/**
 	 * sets the {@code Id} to the value of {@code argId}
 	 *
 	 * @param argId the new value of {@code Id}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setId(int argId);
+	public com.scobolsolo.application.Account setId(int argId);
 
 	/**
 	 * object accessor for the {@code Username}
@@ -73,6 +75,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 * sets the {@code Username} to the value of {@code argUsername}
 	 *
 	 * @param argUsername the new value of {@code Username}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code username} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argUsername is null
@@ -82,7 +85,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 64L)
-	public void setUsername(java.lang.String argUsername);
+	public com.scobolsolo.application.Account setUsername(java.lang.String argUsername);
 
 	/**
 	 * object accessor for the {@code PasswordHash}
@@ -97,6 +100,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 * sets the {@code PasswordHash} to the value of {@code argPasswordHash}
 	 *
 	 * @param argPasswordHash the new value of {@code PasswordHash}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code password_hash} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argPasswordHash is null
@@ -106,7 +110,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 60L)
-	public void setPasswordHash(java.lang.String argPasswordHash);
+	public com.scobolsolo.application.Account setPasswordHash(java.lang.String argPasswordHash);
 
 	/**
 	 * object accessor for the {@code Administrator}
@@ -137,19 +141,21 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 * sets the {@code Administrator} to the value of {@code argAdministrator}
 	 *
 	 * @param argAdministrator the new value of {@code Administrator}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code administrator} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argAdministrator is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setAdministrator(java.lang.Boolean argAdministrator);
+	public com.scobolsolo.application.Account setAdministrator(java.lang.Boolean argAdministrator);
 
 	/**
 	 * sets the {@code Administrator} to the value of {@code argAdministrator}
 	 *
 	 * @param argAdministrator the new value of {@code Administrator}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setAdministrator(boolean argAdministrator);
+	public com.scobolsolo.application.Account setAdministrator(boolean argAdministrator);
 
 	/**
 	 * object accessor for the {@code Active}
@@ -180,19 +186,66 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 * sets the {@code Active} to the value of {@code argActive}
 	 *
 	 * @param argActive the new value of {@code Active}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code active} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argActive is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setActive(java.lang.Boolean argActive);
+	public com.scobolsolo.application.Account setActive(java.lang.Boolean argActive);
 
 	/**
 	 * sets the {@code Active} to the value of {@code argActive}
 	 *
 	 * @param argActive the new value of {@code Active}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setActive(boolean argActive);
+	public com.scobolsolo.application.Account setActive(boolean argActive);
+
+	/**
+	 * object accessor for the {@code Writer}
+	 *
+	 * <p>The {@code Writer} field is a direct mapping of the {@code writer} field in {@code account}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isWriter() method.</p>
+	 *
+	 * @return an object value of {@code Writer} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.Boolean isWriterAsObject();
+
+	/**
+	 * primitive accessor for the {@code Writer}
+	 *
+	 * <p>The {@code Writer} field is a direct mapping of the {@code writer} database column in the table {@code account}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isWriterAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code Writer} (of the current {@link TransactionContext})
+	 */
+	default public boolean isWriter() {
+		java.lang.Boolean lclO = isWriterAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code Writer} to the value of {@code argWriter}
+	 *
+	 * @param argWriter the new value of {@code Writer}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code writer} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argWriter is null
+	 */
+	@com.opal.annotation.NotNull
+	public com.scobolsolo.application.Account setWriter(java.lang.Boolean argWriter);
+
+	/**
+	 * sets the {@code Writer} to the value of {@code argWriter}
+	 *
+	 * @param argWriter the new value of {@code Writer}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Account setWriter(boolean argWriter);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
@@ -200,7 +253,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Contact getContact();
-	public void setContact(com.scobolsolo.application.Contact argContact);
+	public com.scobolsolo.application.Account setContact(com.scobolsolo.application.Contact argContact);
 
 	public int getWriterQuestionCount();
 	public java.util.Iterator<com.scobolsolo.application.Question> createWriterQuestionIterator();
@@ -225,6 +278,35 @@ public interface AccountUserFacing extends IdentityUserFacing {
 		com.scobolsolo.application.Question[] lclA = new com.scobolsolo.application.Question[lclLength];
 		int lclIndex = 0;
 		java.util.Iterator<com.scobolsolo.application.Question> lclI = createWriterQuestionIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
+	public int getEditorDiffCount();
+	public java.util.Iterator<com.scobolsolo.application.Diff> createEditorDiffIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamEditorDiff();
+
+	public void addEditorDiff(com.scobolsolo.application.Diff argDiff);
+	public void removeEditorDiff(com.scobolsolo.application.Diff argDiff);
+	public void clearEditorDiff();
+
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireEditorDiff(T argC) {
+		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createEditorDiffIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Diff[] createEditorDiffArray() {
+		int lclLength = getEditorDiffCount();
+		com.scobolsolo.application.Diff[] lclA = new com.scobolsolo.application.Diff[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createEditorDiffIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}

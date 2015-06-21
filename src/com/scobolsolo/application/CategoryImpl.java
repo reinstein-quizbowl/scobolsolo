@@ -36,9 +36,9 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void setCode(java.lang.String argCode) {
+	public CategoryImpl setCode(java.lang.String argCode) {
 		getCategoryOpal().setCode(argCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -47,9 +47,9 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public CategoryImpl setName(java.lang.String argName) {
 		getCategoryOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -58,9 +58,9 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public CategoryImpl setShortName(java.lang.String argShortName) {
 		getCategoryOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -69,15 +69,15 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void setSequence(java.lang.Integer argSequence) {
+	public CategoryImpl setSequence(java.lang.Integer argSequence) {
 		getCategoryOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setSequence(int argSequence) {
+	public CategoryImpl setSequence(int argSequence) {
 		getCategoryOpal().setSequence(argSequence);
-		return;
+		return this;
 	}
 
 	@Override
@@ -86,9 +86,9 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void setCategoryGroupCode(java.lang.String argCategoryGroupCode) {
+	public CategoryImpl setCategoryGroupCode(java.lang.String argCategoryGroupCode) {
 		getCategoryOpal().setCategoryGroupCode(argCategoryGroupCode);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -103,9 +103,9 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void setCategoryGroup(CategoryGroup argCategoryGroup) {
+	public Category setCategoryGroup(CategoryGroup argCategoryGroup) {
 		getCategoryOpal().setCategoryGroupOpal(argCategoryGroup == null ? null : ((CategoryGroupImpl) argCategoryGroup).getCategoryGroupOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references

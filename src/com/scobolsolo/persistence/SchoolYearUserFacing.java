@@ -30,6 +30,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code Code} to the value of {@code argCode}
 	 *
 	 * @param argCode the new value of {@code Code}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argCode is null
@@ -39,7 +40,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setCode(java.lang.String argCode);
+	public com.scobolsolo.application.SchoolYear setCode(java.lang.String argCode);
 
 	/**
 	 * object accessor for the {@code Name}
@@ -54,6 +55,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code Name} to the value of {@code argName}
 	 *
 	 * @param argName the new value of {@code Name}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argName is null
@@ -63,7 +65,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public void setName(java.lang.String argName);
+	public com.scobolsolo.application.SchoolYear setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
@@ -78,6 +80,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code ShortName} to the value of {@code argShortName}
 	 *
 	 * @param argShortName the new value of {@code ShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argShortName is null
@@ -87,7 +90,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public void setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.SchoolYear setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code VeryShortName}
@@ -102,6 +105,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code VeryShortName} to the value of {@code argVeryShortName}
 	 *
 	 * @param argVeryShortName the new value of {@code VeryShortName}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code very_short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argVeryShortName is null
@@ -111,7 +115,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 12L)
-	public void setVeryShortName(java.lang.String argVeryShortName);
+	public com.scobolsolo.application.SchoolYear setVeryShortName(java.lang.String argVeryShortName);
 
 	/**
 	 * object accessor for the {@code Sequence}
@@ -142,19 +146,21 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public void setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.SchoolYear setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
 	 *
 	 * @param argSequence the new value of {@code Sequence}
+	 * @return itself, so that mutators may be chained fluently
 	 */
-	public void setSequence(int argSequence);
+	public com.scobolsolo.application.SchoolYear setSequence(int argSequence);
 
 	public com.scobolsolo.application.SchoolYear copy();
 

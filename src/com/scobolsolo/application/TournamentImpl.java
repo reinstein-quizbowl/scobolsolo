@@ -37,9 +37,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setDate(java.time.LocalDate argDate) {
+	public TournamentImpl setDate(java.time.LocalDate argDate) {
 		getTournamentOpal().setDate(argDate);
-		return;
+		return this;
 	}
 
 	@Override
@@ -48,9 +48,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setName(java.lang.String argName) {
+	public TournamentImpl setName(java.lang.String argName) {
 		getTournamentOpal().setName(argName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -59,9 +59,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setShortName(java.lang.String argShortName) {
+	public TournamentImpl setShortName(java.lang.String argShortName) {
 		getTournamentOpal().setShortName(argShortName);
-		return;
+		return this;
 	}
 
 	@Override
@@ -70,9 +70,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setCode(java.lang.String argCode) {
+	public TournamentImpl setCode(java.lang.String argCode) {
 		getTournamentOpal().setCode(argCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -81,9 +81,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setWebXmlRoleCode(java.lang.String argWebXmlRoleCode) {
+	public TournamentImpl setWebXmlRoleCode(java.lang.String argWebXmlRoleCode) {
 		getTournamentOpal().setWebXmlRoleCode(argWebXmlRoleCode);
-		return;
+		return this;
 	}
 
 	@Override
@@ -92,15 +92,15 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath) {
+	public TournamentImpl setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath) {
 		getTournamentOpal().setTiebreakerSuddenDeath(argTiebreakerSuddenDeath);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setTiebreakerSuddenDeath(boolean argTiebreakerSuddenDeath) {
+	public TournamentImpl setTiebreakerSuddenDeath(boolean argTiebreakerSuddenDeath) {
 		getTournamentOpal().setTiebreakerSuddenDeath(argTiebreakerSuddenDeath);
-		return;
+		return this;
 	}
 
 	@Override
@@ -109,9 +109,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setUrl(java.lang.String argUrl) {
+	public TournamentImpl setUrl(java.lang.String argUrl) {
 		getTournamentOpal().setUrl(argUrl);
-		return;
+		return this;
 	}
 
 	@Override
@@ -120,15 +120,15 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setTournamentDirectorContactId(java.lang.Integer argTournamentDirectorContactId) {
+	public TournamentImpl setTournamentDirectorContactId(java.lang.Integer argTournamentDirectorContactId) {
 		getTournamentOpal().setTournamentDirectorContactId(argTournamentDirectorContactId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setTournamentDirectorContactId(int argTournamentDirectorContactId) {
+	public TournamentImpl setTournamentDirectorContactId(int argTournamentDirectorContactId) {
 		getTournamentOpal().setTournamentDirectorContactId(argTournamentDirectorContactId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -137,9 +137,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setPlayerMessage(java.lang.String argPlayerMessage) {
+	public TournamentImpl setPlayerMessage(java.lang.String argPlayerMessage) {
 		getTournamentOpal().setPlayerMessage(argPlayerMessage);
-		return;
+		return this;
 	}
 
 	@Override
@@ -148,9 +148,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setStaffMessage(java.lang.String argStaffMessage) {
+	public TournamentImpl setStaffMessage(java.lang.String argStaffMessage) {
 		getTournamentOpal().setStaffMessage(argStaffMessage);
-		return;
+		return this;
 	}
 
 	@Override
@@ -159,9 +159,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setReplacementQuestionSocialMediaPolicy(java.lang.String argReplacementQuestionSocialMediaPolicy) {
+	public TournamentImpl setReplacementQuestionSocialMediaPolicy(java.lang.String argReplacementQuestionSocialMediaPolicy) {
 		getTournamentOpal().setReplacementQuestionSocialMediaPolicy(argReplacementQuestionSocialMediaPolicy);
-		return;
+		return this;
 	}
 
 	@Override
@@ -170,9 +170,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setSchoolMessage(java.lang.String argSchoolMessage) {
+	public TournamentImpl setSchoolMessage(java.lang.String argSchoolMessage) {
 		getTournamentOpal().setSchoolMessage(argSchoolMessage);
-		return;
+		return this;
 	}
 
 	@Override
@@ -181,15 +181,15 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setControlRoomRoomId(java.lang.Integer argControlRoomRoomId) {
+	public TournamentImpl setControlRoomRoomId(java.lang.Integer argControlRoomRoomId) {
 		getTournamentOpal().setControlRoomRoomId(argControlRoomRoomId);
-		return;
+		return this;
 	}
 
 	@Override
-	public void setControlRoomRoomId(int argControlRoomRoomId) {
+	public TournamentImpl setControlRoomRoomId(int argControlRoomRoomId) {
 		getTournamentOpal().setControlRoomRoomId(argControlRoomRoomId);
-		return;
+		return this;
 	}
 
 	@Override
@@ -198,9 +198,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setChampionshipRules(java.lang.String argChampionshipRules) {
+	public TournamentImpl setChampionshipRules(java.lang.String argChampionshipRules) {
 		getTournamentOpal().setChampionshipRules(argChampionshipRules);
-		return;
+		return this;
 	}
 
 	@Override
@@ -209,9 +209,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setChampionshipMatchUrl(java.lang.String argChampionshipMatchUrl) {
+	public TournamentImpl setChampionshipMatchUrl(java.lang.String argChampionshipMatchUrl) {
 		getTournamentOpal().setChampionshipMatchUrl(argChampionshipMatchUrl);
-		return;
+		return this;
 	}
 
 	/* The following methods allow direct access to the user objects to which
@@ -226,9 +226,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setControlRoom(Room argRoom) {
+	public Tournament setControlRoom(Room argRoom) {
 		getTournamentOpal().setControlRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
-		return;
+		return this;
 	}
 
 	/** Access to the Contact object created from tournament through reference tournament_tournament_director_contact_id_fkey */
@@ -240,9 +240,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void setTournamentDirectorContact(Contact argContact) {
+	public Tournament setTournamentDirectorContact(Contact argContact) {
 		getTournamentOpal().setTournamentDirectorContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
-		return;
+		return this;
 	}
 
 	/* The following methods allow access to the user objects that have references
@@ -275,36 +275,6 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 
 	@Override
 	public void clearPhase() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public void addQuestion(Question argQuestion) {
-		getTournamentOpal().addQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-	}
-
-	@Override
-	public void removeQuestion(Question argQuestion) {
-		getTournamentOpal().removeQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-	}
-
-	@Override
-	public int getQuestionCount() {
-		return getTournamentOpal().getQuestionOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<Question> streamQuestion() {
-		return getTournamentOpal().streamQuestionOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<Question> createQuestionIterator() {
-		return new com.opal.OpalIterator<> (getTournamentOpal().createQuestionOpalIterator());
-	}
-
-	@Override
-	public void clearQuestion() {
 		throw new UnsupportedOperationException();
 	}
 

@@ -1341,7 +1341,7 @@ table {
 // $include-html-tooltip-classes: $include-html-classes;
 
 $has-tip-border-bottom: dotted 1px $oil;
-// $has-tip-font-weight: $font-weight-bold;
+$has-tip-font-weight: inherit;
 // $has-tip-font-color: inherit;
 $has-tip-border-bottom-hover: dotted 1px $oil; // was dotted 1px scale-color($primary-color, $lightness: -55%);
 $has-tip-font-color-hover: default;

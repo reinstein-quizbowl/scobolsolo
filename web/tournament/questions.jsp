@@ -41,8 +41,8 @@ if (lclOF.hasErrors()) {
 		<table class="responsive">
 			<thead>
 				<tr>
-					<th><span title="Typically the answer to the question. Could be something longer, like 'France from opera clues'.">Description</span></th>
 					<th>Category</th>
+					<th><span title="Typically the answer to the question. Could be something longer, like 'France from opera clues'.">Description</span></th>
 					<th>Used&nbsp;in</th>
 					<th>Note</th>
 					<th>Edit</th>
@@ -61,8 +61,8 @@ if (lclOF.hasErrors()) {
 					Question lclQ = lclQOF.getUserFacing();
 					%><tr>
 						<%= lclQOF.open() %>
-						<td><%= lclQOF.text("Description", 20) %></td>
 						<td><%= lclQOF.dropdown("Category", CategoryFactory.getInstance(), Category.StandardComparator.getInstance()) %></td>
+						<td><%= lclQOF.text("Description", 20) %></td>
 						<td><%
 							if (lclQ == null) {
 								%>&nbsp;<%
