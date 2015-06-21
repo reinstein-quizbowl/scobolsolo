@@ -53,7 +53,8 @@
 						<td><%
 							Account lclA = lclC.getAccount();
 							if (lclA != null) {
-								%><%= lclA.isAdministrator() ? "Administrator" : "User" %> (username: <%= lclA.getUsername() %>)<br /><%
+								%><%= lclA.isAdministrator() ? "Administrator" : "User" %> (username: <%= lclA.getUsername() %>)<br />
+								<%= lclA.isWriter() ? "Writer" : "" %><br /><%
 							}
 							
 							SchoolRegistration[] lclMainContactFor = lclC.createMainSchoolRegistrationArray();
