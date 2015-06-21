@@ -151,7 +151,8 @@ public class Menu extends MenuItem {
 						
 						if (argUser != null) {
 							lclSB.append("			<section class=\"top-bar-section\">\n")
-							     .append("				<ul class=\"right log-out-container\">\n")
+							     .append("				<ul class=\"right logged-in-container\">\n")
+							     .append("					<li><a class=\"account\" title=\"Account settings\" href=\"/account/\"><i class=\"fa fa-gear\"></i></a></li>\n")
 							     .append("					<li><a class=\"log-out\" title=\"Log out (currently logged in as " + argUser.getContact().getName() + ")\" href=\"/logout.jsp\"><i class=\"fa fa-sign-out\"></i></a></li>\n")
 							     .append("				</ul>\n")
 							     .append("			</section>");

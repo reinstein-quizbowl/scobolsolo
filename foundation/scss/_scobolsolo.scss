@@ -50,10 +50,10 @@ abbr, acronym {
 }
 
 
-.log-out-container {
+.logged-in-container {
 	text-align: center;
 	
-	a.log-out {
+	a, a:hover {
 		color: #fff;
 		border: 0;
 	}

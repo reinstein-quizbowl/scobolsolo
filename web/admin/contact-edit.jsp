@@ -112,15 +112,15 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 	OpalForm<Account> lclAOF = lclOF.targetForm("Account", AccountFactory.getInstance());
 	lclAOF.setValidatorClass(AccountValidator.class);
 	
-	%><h2 id="account">Account</h2>
-	<%= lclAOF.open() %><%
-	if (lclAOF.hasErrors()) {
-		%><p>Error:</p><%
-		%><%= lclAOF.errors() %><%
-	}
-	
 	%><div class="row">
-		<div class="small-8 columns">
+		<h2 id="account">Account</h2>
+		<%= lclAOF.open() %><%
+		if (lclAOF.hasErrors()) {
+			%><p>Error:</p><%
+			%><%= lclAOF.errors() %><%
+		}
+		
+		%><div class="small-12 medium-4 columns">
 			<label>
 				Username<%
 				if (lclAOF.isNew()) {
@@ -131,24 +131,27 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 				}
 			%></label>
 		</div>
-		<div class="small-1 columns">
+		<div class="small-3 medium-2 columns">
 			<label>
 				Active?
 				<%= HTMLUtility.switchWidget(lclAOF, "Active") %>
 			</label>
 		</div>
-		<div class="small-2 columns">
+		<div class="small-3 medium-2 columns">
 			<label>
 				<span class="show-for-small-only">Admin?</span>
 				<span class="show-for-medium-up">Administrator?</span>
 				<%= HTMLUtility.switchWidget(lclAOF, "Administrator") %>
 			</label>
 		</div>
-		<div class="small-1 columns">
+		<div class="small-3 medium-2 columns">
 			<label>
 				Writer?
 				<%= HTMLUtility.switchWidget(lclAOF, "Writer") %>
 			</label>
+		</div>
+		<div class="small-3 medium-2 columns">
+			<a href="contact-reset-password.jsp?account_id=<%= lclAOF.getUserFacing().getId() %>">Reset password</a>
 		</div>
 	</div>
 	

@@ -44,6 +44,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		"Administrator",
 		"Active",
 		"Writer",
+		"PasswordResetToken",
+		"PasswordResetTokenExpiration",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -53,6 +55,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
+		java.lang.String.class,
+		java.time.LocalDateTime.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -62,9 +66,13 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		false,
 		false,
 		false,
+		true,
+		true,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -115,6 +123,14 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	public synchronized java.lang.Boolean isWriterAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[5];
+	}
+
+	public synchronized java.lang.String getPasswordResetToken() {
+		return (java.lang.String) getReadValueSet()[6];
+	}
+
+	public synchronized java.time.LocalDateTime getPasswordResetTokenExpiration() {
+		return (java.time.LocalDateTime) getReadValueSet()[7];
 	}
 
 	public synchronized AccountOpal setId(final java.lang.Integer argId) {
@@ -194,6 +210,21 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	public AccountOpal setWriter(final boolean argWriter) {
 		setWriter(argWriter ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
+	public synchronized AccountOpal setPasswordResetToken(final java.lang.String argPasswordResetToken) {
+		tryMutate();
+		if ((argPasswordResetToken != null) && (argPasswordResetToken.length() > 64)) {
+			throw new com.opal.ArgumentTooLongException("Maximum length of myPasswordResetToken on " + this + " is 64.", argPasswordResetToken.length(), 64);
+		}
+		getNewValues()[6] = argPasswordResetToken;
+		return this;
+	}
+
+	public synchronized AccountOpal setPasswordResetTokenExpiration(final java.time.LocalDateTime argPasswordResetTokenExpiration) {
+		tryMutate();
+		getNewValues()[7] = argPasswordResetTokenExpiration;
 		return this;
 	}
 
@@ -277,6 +308,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		lclTargetNewValues[3] = lclValues[3]; /* Administrator (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* Active (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* Writer (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* PasswordResetToken (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* PasswordResetTokenExpiration (immutable) */
 
 		return;
 	}
@@ -334,6 +367,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argPW.println("Administrator = " + isAdministratorAsObject());
 		argPW.println("Active = " + isActiveAsObject());
 		argPW.println("Writer = " + isWriterAsObject());
+		argPW.println("PasswordResetToken = " + getPasswordResetToken());
+		argPW.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
 	}
 
 	@Override
@@ -344,6 +379,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argPS.println("Administrator = " + isAdministratorAsObject());
 		argPS.println("Active = " + isActiveAsObject());
 		argPS.println("Writer = " + isWriterAsObject());
+		argPS.println("PasswordResetToken = " + getPasswordResetToken());
+		argPS.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
 	}
 
 	private ContactOpal myOldContactOpal;

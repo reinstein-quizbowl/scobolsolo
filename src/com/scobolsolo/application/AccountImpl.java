@@ -115,6 +115,28 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 		return this;
 	}
 
+	@Override
+	public java.lang.String getPasswordResetToken() {
+		return getAccountOpal().getPasswordResetToken();
+	}
+
+	@Override
+	public AccountImpl setPasswordResetToken(java.lang.String argPasswordResetToken) {
+		getAccountOpal().setPasswordResetToken(argPasswordResetToken);
+		return this;
+	}
+
+	@Override
+	public java.time.LocalDateTime getPasswordResetTokenExpiration() {
+		return getAccountOpal().getPasswordResetTokenExpiration();
+	}
+
+	@Override
+	public AccountImpl setPasswordResetTokenExpiration(java.time.LocalDateTime argPasswordResetTokenExpiration) {
+		getAccountOpal().setPasswordResetTokenExpiration(argPasswordResetTokenExpiration);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

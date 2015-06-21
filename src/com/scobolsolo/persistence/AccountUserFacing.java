@@ -248,6 +248,76 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	public com.scobolsolo.application.Account setWriter(boolean argWriter);
 
 	/**
+	 * object accessor for the {@code PasswordResetToken}
+	 *
+	 * <p>The {@code PasswordResetToken} field is a direct mapping of the {@code password_reset_token} field in {@code account}.</p>
+	 *
+	 * @return an object value of {@code PasswordResetToken} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 */
+	public java.lang.String getPasswordResetToken();
+
+	/**
+	 * object accessor for the {@code PasswordResetToken} with substitution for a null value
+	 *
+	 * <p>The {@code PasswordResetToken} field is a direct mapping of the {@code password_reset_token} database column in the table {@code account}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code PasswordResetToken} is {@code null}.
+	 * @return an object value of {@code PasswordResetToken} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getPasswordResetToken(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getPasswordResetToken();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code PasswordResetToken} to the value of {@code argPasswordResetToken}
+	 *
+	 * @param argPasswordResetToken the new value of {@code PasswordResetToken}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * @throws ArgumentTooLongException if {@code argPasswordResetToken} is longer than 64 characters
+	 * <p>The database column {@code password_reset_token} is limited to 64 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.Length(maximum = 64L)
+	public com.scobolsolo.application.Account setPasswordResetToken(java.lang.String argPasswordResetToken);
+
+	/**
+	 * object accessor for the {@code PasswordResetTokenExpiration}
+	 *
+	 * <p>The {@code PasswordResetTokenExpiration} field is a direct mapping of the {@code password_reset_token_expiration} field in {@code account}.</p>
+	 *
+	 * @return an object value of {@code PasswordResetTokenExpiration} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 */
+	public java.time.LocalDateTime getPasswordResetTokenExpiration();
+
+	/**
+	 * object accessor for the {@code PasswordResetTokenExpiration} with substitution for a null value
+	 *
+	 * <p>The {@code PasswordResetTokenExpiration} field is a direct mapping of the {@code password_reset_token_expiration} database column in the table {@code account}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code PasswordResetTokenExpiration} is {@code null}.
+	 * @return an object value of {@code PasswordResetTokenExpiration} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getPasswordResetTokenExpiration(java.lang.String argStringToSubstituteIfNull) {
+		java.time.LocalDateTime lclO = getPasswordResetTokenExpiration();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code PasswordResetTokenExpiration} to the value of {@code argPasswordResetTokenExpiration}
+	 *
+	 * @param argPasswordResetTokenExpiration the new value of {@code PasswordResetTokenExpiration}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	public com.scobolsolo.application.Account setPasswordResetTokenExpiration(java.time.LocalDateTime argPasswordResetTokenExpiration);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
 	 * The returned {@code com.scobolsolo.application.Contact} is the {@link UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code account_id_fkey}.
 	 *

@@ -1,6 +1,9 @@
 package com.scobolsolo.application;
 
+import org.apache.commons.lang3.Validate;
+
 import com.scobolsolo.persistence.AccountUserFacing;
+import com.scobolsolo.security.BCrypt;
 
 /**
  * This interface may be changed at will.
@@ -25,5 +28,13 @@ public interface Account extends AccountUserFacing {
 	
 	default String getName() {
 		return getContact().getName();
+	}
+	
+	default void setPassword(String argPassword) {
+		Validate.notNull(argPassword);
+		
+		String lclSalt = BCrypt.gensalt();
+		String lclPasswordHash = BCrypt.hashpw(argPassword,  lclSalt);
+		setPasswordHash(lclPasswordHash);
 	}
 }
