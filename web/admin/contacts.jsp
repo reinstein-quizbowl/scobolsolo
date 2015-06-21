@@ -37,8 +37,7 @@
 					<td colspan="5"><a href="contact-edit.jsp">Create</a></td>
 				</tr><%
 				List<Contact> lclCs = ContactFactory.getInstance().acquireAll(new ArrayList<>());
-				Contact.ActiveFilter.getInstance().filter(lclCs);
-				lclCs.sort(Contact.SortByComparator.getInstance());
+				lclCs.removeIf(Contact::isInactive);
 				for (Contact lclC : lclCs) {
 					%><tr>
 						<td><a href="contact-edit.jsp?contact_id=<%= lclC.getId() %>"><%= lclC.getName() %></a></td>

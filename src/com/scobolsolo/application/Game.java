@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.GameUserFacing;
  */
 
 public interface Game extends GameUserFacing {
+	/* This block intentionally left empty. */
 }

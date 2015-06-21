@@ -202,6 +202,35 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	public com.scobolsolo.application.Contact getContact();
 	public void setContact(com.scobolsolo.application.Contact argContact);
 
+	public int getWriterQuestionCount();
+	public java.util.Iterator<com.scobolsolo.application.Question> createWriterQuestionIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Question> streamWriterQuestion();
+
+	public void addWriterQuestion(com.scobolsolo.application.Question argQuestion);
+	public void removeWriterQuestion(com.scobolsolo.application.Question argQuestion);
+	public void clearWriterQuestion();
+
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireWriterQuestion(T argC) {
+		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		java.util.Iterator<com.scobolsolo.application.Question> lclI = createWriterQuestionIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Question[] createWriterQuestionArray() {
+		int lclLength = getWriterQuestionCount();
+		com.scobolsolo.application.Question[] lclA = new com.scobolsolo.application.Question[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Question> lclI = createWriterQuestionIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
 	public com.scobolsolo.application.Account copy();
 
 	/** This is a Comparator that can be used to compare Account objects based on their {@code Id} values. */

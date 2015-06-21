@@ -7,7 +7,6 @@
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.RoomAtTournament" %>
 <%@ page import="com.scobolsolo.opalforms.updater.TournamentUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -89,13 +88,13 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-4 columns">
 		<label>
 			Tournament director
-			<%= lclOF.dropdown("TournamentDirectorContact", Contact.NameComparator.getInstance()).filter(Contact.ActiveFilter.getInstance()) %>
+			<%= lclOF.dropdown("TournamentDirectorContact", Contact.NameComparator.getInstance()).filter(Contact::isActive) %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-4 columns">
 		<label>
 			Control room
-			<%= lclOF.dropdown("ControlRoom", Room.SequenceComparator.getInstance()).filter(lclT == null ? null : new RoomAtTournament(lclT)) %>
+			<%= lclOF.dropdown("ControlRoom", Room.SequenceComparator.getInstance()).filter(argT -> lclT == null || argT.getTournament() == lclT) %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-4 columns">

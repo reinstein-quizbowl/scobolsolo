@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.CategoryGroupUserFacing;
  */
 
 public interface CategoryGroup extends CategoryGroupUserFacing {
+	/* This block intentionally left empty. */
 }

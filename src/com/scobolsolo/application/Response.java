@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.ResponseUserFacing;
  */
 
 public interface Response extends ResponseUserFacing {
+	/* This block intentionally left empty. */
 }

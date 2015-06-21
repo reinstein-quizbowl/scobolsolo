@@ -242,6 +242,9 @@ CREATE TABLE Question (
 	tournament_code code_t REFERENCES Tournament ON UPDATE CASCADE ON DELETE RESTRICT,
 	description TEXT,
 	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
+	writer_account_id INTEGER REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
+	text TEXT,
+	answer TEXT,
 	UNIQUE(tournament_code, description)
 );
 ALTER SEQUENCE question_id_seq RESTART WITH 1000;

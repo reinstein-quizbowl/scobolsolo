@@ -1,13 +1,10 @@
 ﻿<%@ page import="java.util.List" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.CategoryUsedAtTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.PacketForTournament" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -77,7 +74,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Category
-			<%= lclOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(new CategoryUsedAtTournament(lclT)) %>
+			<%= lclOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(argC -> argC.isUsedAt(lclT)) %>
 		</label>
 	</div>
 	<div class="small-12 large-6 columns">
@@ -110,13 +107,11 @@ if (lclOF.alreadyExists()) {
 						Placement.StandardComparator.getInstance()
 					);
 					
-					Filter<Packet> lclPacketForTournament = new PacketForTournament(lclT);
-					
 					for (OpalForm<Placement> lclPOF : lclPOFs) {
 						Placement lclP = lclPOF.getUserFacing();
 						%><tr>
 							<%= lclPOF.open() %>
-							<td><%= lclPOF.dropdown("Packet", Packet.StandardComparator.getInstance()).filter(lclPacketForTournament) %></td>
+							<td><%= lclPOF.dropdown("Packet", Packet.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT) %></td>
 							<td><%= lclPOF.text("Sequence", 3) %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>

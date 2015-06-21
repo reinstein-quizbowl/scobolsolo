@@ -1,11 +1,8 @@
 ﻿<%@ page import="java.util.List" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.PacketForTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.RoundAtTournament" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -61,9 +58,6 @@ if (lclOF.hasErrors()) {
 					Packet.StandardComparator.getInstance()
 				);
 				
-				Filter<Round> lclRoundAtTournament = new RoundAtTournament(lclT);
-				Filter<Packet> lclPacketForTournament = new PacketForTournament(lclT);
-				
 				for (OpalForm<Packet> lclPOF : lclPOFs) {
 					Packet lclP = lclPOF.getUserFacing();
 					
@@ -71,8 +65,8 @@ if (lclOF.hasErrors()) {
 						<%= lclPOF.open() %>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getName() %>"><%= lclPOF.text("Name", 20) %></td>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getShortName() %>"><%= lclPOF.text("ShortName", 10) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(lclRoundAtTournament).namer(Round::getShortName) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.dropdown("ReplacementPacket", Packet.StandardComparator.getInstance()).filter(lclPacketForTournament).namer(Packet::getShortName) %></td>
+						<td data-tablesorter="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
+						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.dropdown("ReplacementPacket", Packet.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
 						<td data-tablesorter="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclPOF, "QuestionsPublic") %></td>
 						<td><%= lclPOF.textarea("Note", 60, 1) %></td>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.text("Sequence", 2) %></td>

@@ -1,17 +1,11 @@
 ﻿<%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.CardInPhase" %>
-<%@ page import="com.scobolsolo.opalforms.filter.MatchInPhase" %>
-<%@ page import="com.scobolsolo.opalforms.filter.RoundAtTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.SchoolRegistrationRegisteredFor" %>
-<%@ page import="com.scobolsolo.opalforms.filter.StaffForTournament" %>
 <%@ page import="com.scobolsolo.opalforms.nce.SchoolRegistrationNCE" %>
 <%@ page import="com.scobolsolo.opalforms.nce.StaffNCE" %>
 <%@ page import="com.scobolsolo.opalforms.updater.BuzzerUnassigningUpdater" %>
@@ -110,12 +104,9 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						"Match",
 						MatchFactory.getInstance(),
 						1, // row for a new match
-						new MatchInPhase(lclPhase),
+						argM -> argM.getRound().getRoundGroup().getPhase() == lclPhase,
 						Match.RoundComparator.getInstance()
 					);
-					
-					Filter<Round> lclRoundAtTournament = new RoundAtTournament(lclT);
-					Filter<Card> lclCardInPhase = new CardInPhase(lclPhase);
 					
 					for (OpalForm<Match> lclMOF : lclMOFs) {
 						Match lclM = lclMOF.getUserFacing();
@@ -124,9 +115,9 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						}
 						%><tr>
 							<%= lclMOF.open() %>
-							<td><%= lclMOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(lclRoundAtTournament) %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("WinningCard", Card.SequenceComparator.getInstance()).filter(lclCardInPhase) : "n/a" %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("LosingCard", Card.SequenceComparator.getInstance()).filter(lclCardInPhase) : "n/a" %></td>
+							<td><%= lclMOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
+							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("WinningCard", Card.SequenceComparator.getInstance()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
+							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("LosingCard", Card.SequenceComparator.getInstance()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
 							<td><%= lclM == null ? "-" : lclM.determineStatus() %></td>
 							<%= lclMOF.close() %>
 						</tr><%
@@ -154,7 +145,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 		<div class="small-12 medium-5 columns">
 			<label>
 				<%= lclSAOF.alreadyExists() ? "Staffer" : "New staffer" %>
-				<%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(new StaffForTournament(lclT)).namer(StaffNCE.getInstance()) %>
+				<%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(StaffNCE.getInstance()) %>
 			</label>
 		</div>
 		

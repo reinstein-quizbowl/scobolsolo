@@ -1,12 +1,10 @@
 ﻿<%@ page import="java.math.BigDecimal" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.SchoolNotAlreadyRegistered" %>
 <%@ page import="com.scobolsolo.opalforms.updater.SchoolRegistrationUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -65,8 +63,6 @@ Tournament lclT = lclOF.getUserFacing();
 				</tr>
 			</thead>
 			<tbody><%
-				Filter<School> lclNotAlreadyRegisteredFilter = new SchoolNotAlreadyRegistered(lclT);
-				
 				List<OpalForm<SchoolRegistration>> lclSROFs = lclOF.children(
 					"SchoolRegistration",
 					SchoolRegistrationFactory.getInstance(),
@@ -101,12 +97,12 @@ Tournament lclT = lclOF.getUserFacing();
 						<%= lclSROF.open() %>
 						<td><%
 							if (lclSR == null) {
-								%><%= lclSROF.dropdown("School", School.ShortNameComparator.getInstance()).filter(lclNotAlreadyRegisteredFilter) %><%
+								%><%= lclSROF.dropdown("School", School.ShortNameComparator.getInstance()).filter(argS -> !argS.attending(lclT)) %><%
 							} else {
 								%><a href="school-registration-edit.jsp?school_registration_id=<%= lclSR.getId() %>" class="stealth-tool-tip" title="<%= lclSR.getSchool().getName() %>"><%= lclSR.getSchool().getShortName() %></a><%
 							}
 						%></td>
-						<td data-tablesorter="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.dropdown("MainContact", Contact.SortByComparator.getInstance()).filter(Contact.ActiveFilter.getInstance()) %></td>
+						<td data-tablesorter="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.dropdown("MainContact", Contact.SortByComparator.getInstance()).filter(Contact::isActive) %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getSpotsReserved() %>"><%= lclSROF.text("SpotsReserved", 2) %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getPlayerCount() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#players\">" + lclSR.getPlayerCount() + "</a>" %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getStaffCount() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#staff\">" + lclSR.getStaffCount() + "</a>" %></td>

@@ -1,15 +1,11 @@
 ﻿<%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.opal.cma.OpalFormComparator" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.PlayerAtTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.RoomAtTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.RoundAtTournament" %>
 
 <%
 OpalMainForm<Card> lclOF = OpalForm.create(
@@ -95,15 +91,12 @@ if (lclOF.hasErrors()) {
 				lclMOFs.addAll(lclLoseOFs);
 				lclMOFs.sort(new OpalFormComparator<>(Match.RoundComparator.getInstance()));
 				
-				Filter<Round> lclRoundAtTournament = new RoundAtTournament(lclT);
-				Filter<Room> lclRoomAtTournament = new RoomAtTournament(lclT);
-				
 				for (OpalForm<Match> lclMOF : lclMOFs) {
 					Match lclM = lclMOF.getUserFacing();
 					%><tr>
 						<%= lclMOF.open() %>
-						<td><%= lclMOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(lclRoundAtTournament) %></td>
-						<td><%= lclMOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(lclRoomAtTournament) %></td>
+						<td><%= lclMOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
+						<td><%= lclMOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
 						<td><%= lclM.getWinningCard() == lclC ? lclM.getLosingCard().getName() : lclM.getWinningCard().getName() %></td>
 						<td><%= lclM.determineStatus() %></td>
 						<%= lclMOF.close() %>

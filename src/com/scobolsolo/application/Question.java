@@ -11,4 +11,7 @@ import com.scobolsolo.persistence.QuestionUserFacing;
  */
 
 public interface Question extends QuestionUserFacing {
+	default boolean isUnused() {
+		return getPlacementCount() == 0;
+	}
 }

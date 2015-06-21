@@ -1,5 +1,4 @@
-﻿<%@ page import="java.util.Collections" %>
-<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>

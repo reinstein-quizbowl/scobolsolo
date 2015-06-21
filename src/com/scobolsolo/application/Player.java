@@ -32,4 +32,8 @@ public interface Player extends PlayerUserFacing {
 	default String getNameWithSchoolShortName() {
 		return getContact().getName() + " (" + getSchoolRegistration().getSchool().getShortName() + ")";
 	}
+	
+	default Tournament getTournament() {
+		return getSchoolRegistration().getTournament();
+	}
 }

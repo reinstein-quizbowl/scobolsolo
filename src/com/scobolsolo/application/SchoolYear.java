@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.SchoolYearUserFacing;
  */
 
 public interface SchoolYear extends SchoolYearUserFacing {
+	/* This block intentionally left empty. */
 }

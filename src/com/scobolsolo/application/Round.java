@@ -34,4 +34,12 @@ public interface Round extends RoundUserFacing {
 	default boolean isAfter(final Round that) {
 		return Round.StandardComparator.getInstance().compare(this, that) > 0;
 	}
+	
+	default boolean usesCardSystem() {
+		return getRoundGroup().getPhase().isCardSystem();
+	}
+	
+	default Tournament getTournament() {
+		return getRoundGroup().getPhase().getTournament();
+	}
 }

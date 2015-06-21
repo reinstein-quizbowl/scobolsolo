@@ -1,16 +1,9 @@
 ﻿<%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.siliconage.util.Filter" %>
-<%@ page import="com.siliconage.util.UnionFilter" %>
-<%@ page import="com.siliconage.util.AutoAcceptFilter" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.CategoryUsedAtTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.PacketForTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.QuestionUnused" %>
-<%@ page import="com.scobolsolo.opalforms.filter.RoundAtTournament" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -63,14 +56,14 @@ if (lclOF.hasErrors()) {
 	<div class="small-4 large-5 columns">
 		<label>
 			Round
-			<%= lclOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(new RoundAtTournament(lclT)) %>
+			<%= lclOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %>
 		</label>
 	</div>
 	<div class="small-4 large-5 columns">
 		<label>
 			<span class="hide-for-medium-up">Replacements</span>
 			<span class="show-for-medium-up">Replacements from</span>
-			<%= lclOF.dropdown("ReplacementPacket", Packet.StandardComparator.getInstance()).filter(new PacketForTournament(lclT)) %>
+			<%= lclOF.dropdown("ReplacementPacket", Packet.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT) %>
 		</label>
 	</div>
 	<div class="small-4 large-2 columns">
@@ -113,27 +106,18 @@ if (lclOF.hasErrors()) {
 					Placement.SequenceComparator.getInstance()
 				);
 				
-				Filter<Category> lclCategoryUsedAtTournament = new CategoryUsedAtTournament(lclT);
-				
 				for (OpalForm<Placement> lclPOF : lclPOFs) {
 					Placement lclPlacement = lclPOF.getUserFacing();
 					
 					OpalForm<Question> lclQOF = lclPOF.targetForm("Question", QuestionFactory.getInstance());
 					Question lclQ = lclQOF.getUserFacing();
 					
-					Filter<Question> lclQuestionFilter;
-					if (lclPOF.alreadyExists() && lclQ != null) {
-						lclQuestionFilter = new UnionFilter<>(new AutoAcceptFilter<>(lclQ), QuestionUnused.getInstance());
-					} else {
-						lclQuestionFilter = QuestionUnused.getInstance();
-					}
-					
 					%><tr>
 						<%= lclPOF.open() %>
 						<%= lclQOF.open() %>
-						<td><%= lclPOF.dropdown("Question", Question.IdComparator.getInstance()).filter(lclQuestionFilter).namer(Question::getDescription) %></td>
+						<td><%= lclPOF.dropdown("Question", Question.IdComparator.getInstance()).filter(Question::isUnused).namer(Question::getDescription) %></td>
 						<td><%= lclPOF.text("Sequence", 3) %></td>
-						<td><%= lclQOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(lclCategoryUsedAtTournament) %></td>
+						<td><%= lclQOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(argC -> argC.isUsedAt(lclT)) %></td>
 						<td><%= lclQOF.text("Description", 30) %></td>
 						<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>
 						<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>

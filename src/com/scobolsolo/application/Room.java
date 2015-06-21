@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.RoomUserFacing;
  */
 
 public interface Room extends RoomUserFacing {
+	/* This block intentionally left empty. */
 }

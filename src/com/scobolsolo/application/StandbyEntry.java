@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.StandbyEntryUserFacing;
  */
 
 public interface StandbyEntry extends StandbyEntryUserFacing {
+	/* This block intentionally left empty. */
 }

@@ -4,7 +4,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.siliconage.util.WebDataFilter" %>
 <%@ page import="com.siliconage.web.ControllerServlet" %>
 <%@ page import="com.siliconage.web.PriorInput" %>
@@ -14,7 +13,6 @@
 <%@ page import="com.scobolsolo.matches.GameEntryResult" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.opalforms.compare.MatchEnteringPriority" %>
-<%@ page import="com.scobolsolo.opalforms.filter.*" %>
 <%@ page import="com.scobolsolo.opalforms.nce.*" %>
 <%@ page import="com.scobolsolo.matches.MatchStatus" %>
 <%@ page import="com.scobolsolo.AccountUtility" %>
@@ -49,8 +47,6 @@ if (lclG != null && lclUser.isAdministrator() == false && lclG.getIncomingLosing
 if (lclG != null && lclUser.isAdministrator() == false && lclG.getModeratorStaff() != null) {
 	lclGOF.disable("ModeratorStaff");
 }
-
-Filter<Player> lclPlayerAtTournament = new PlayerAtTournament(lclT);
 
 boolean lclFlip = Boolean.parseBoolean(request.getParameter("flip"));
 %>
@@ -212,14 +208,14 @@ boolean lclFlip = Boolean.parseBoolean(request.getParameter("flip"));
 				<div class="form-group">
 					<label for="/Room" class="col-sm-6 control-label">Room</label>
 					<div class="col-sm-6" style="margin-bottom: 1em;">
-						<%= lclOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(new RoomAtTournament(lclT)) %>
+						<%= lclOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label for="/Game/ModeratorStaff" class="col-sm-6 control-label">Moderator</label>
 					<div class="col-sm-6">
-						<%= lclGOF.dropdown("ModeratorStaff", Staff.NameComparator.getInstance()).filter(new StaffForTournament(lclT)).namer(StaffNCE.getInstance()) %>
+						<%= lclGOF.dropdown("ModeratorStaff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(StaffNCE.getInstance()) %>
 					</div>
 				</div>
 			</div>
@@ -228,14 +224,14 @@ boolean lclFlip = Boolean.parseBoolean(request.getParameter("flip"));
 				<div class="form-group">
 					<label for="/Game/IncomingWinningCardPlayer" class="col-sm-6 control-label">Incoming Holder of <%= lclM.getWinningCard().getName() %></label>
 					<div class="col-sm-6">
-						<%= lclGOF.dropdown("IncomingWinningCardPlayer", Player.NameComparator.getInstance()).filter(lclPlayerAtTournament).namer(PlayerNCE.getInstance()) %>
+						<%= lclGOF.dropdown("IncomingWinningCardPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(PlayerNCE.getInstance()) %>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label for="/Game/IncomingLosingCardPlayer" class="col-sm-6 control-label">Incoming Holder of <%= lclM.getLosingCard().getName() %></label>
 					<div class="col-sm-6">
-						<%= lclGOF.dropdown("IncomingLosingCardPlayer", Player.NameComparator.getInstance()).filter(lclPlayerAtTournament).namer(PlayerNCE.getInstance()) %>
+						<%= lclGOF.dropdown("IncomingLosingCardPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(PlayerNCE.getInstance()) %>
 					</div>
 				</div>
 			</div>

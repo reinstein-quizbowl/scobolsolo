@@ -181,6 +181,149 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	public void setNote(java.lang.String argNote);
 
 	/**
+	 * object accessor for the {@code WriterAccountId}
+	 *
+	 * <p>The {@code WriterAccountId} field is a direct mapping of the {@code writer_account_id} field in {@code question}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getWriterAccountId() method.</p>
+	 *
+	 * @return an object value of {@code WriterAccountId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 */
+	public java.lang.Integer getWriterAccountIdAsObject();
+
+	/**
+	 * object accessor for the {@code WriterAccountId} with substitution for a null value
+	 *
+	 * <p>The {@code WriterAccountId} field is a direct mapping of the {@code writer_account_id} database column in the table {@code question}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code WriterAccountId} is {@code null}.
+	 * @return an object value of {@code WriterAccountId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getWriterAccountIdAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWriterAccountIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code WriterAccountId}
+	 *
+	 * <p>The {@code WriterAccountId} field is a direct mapping of the {@code writer_account_id} database column in the table {@code question}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getWriterAccountIdAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code WriterAccountId} (of the current {@link TransactionContext})
+	 * @throws NullValueException when the internal value is null
+	 */
+	default public int getWriterAccountId() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getWriterAccountIdAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getWriterAccountId(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWriterAccountIdAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getWriterAccountId(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWriterAccountIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * sets the {@code WriterAccountId} to the value of {@code argWriterAccountId}
+	 *
+	 * @param argWriterAccountId the new value of {@code WriterAccountId}.  May be <code>null</code>.
+	 */
+	public void setWriterAccountId(java.lang.Integer argWriterAccountId);
+
+	/**
+	 * sets the {@code WriterAccountId} to the value of {@code argWriterAccountId}
+	 *
+	 * @param argWriterAccountId the new value of {@code WriterAccountId}
+	 */
+	public void setWriterAccountId(int argWriterAccountId);
+
+	/**
+	 * object accessor for the {@code Text}
+	 *
+	 * <p>The {@code Text} field is a direct mapping of the {@code text} field in {@code question}.</p>
+	 *
+	 * @return an object value of {@code Text} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 */
+	public java.lang.String getText();
+
+	/**
+	 * object accessor for the {@code Text} with substitution for a null value
+	 *
+	 * <p>The {@code Text} field is a direct mapping of the {@code text} database column in the table {@code question}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code Text} is {@code null}.
+	 * @return an object value of {@code Text} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getText(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getText();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code Text} to the value of {@code argText}
+	 *
+	 * @param argText the new value of {@code Text}.  May be <code>null</code>.
+	 * @throws ArgumentTooLongException if {@code argText} is longer than 2147483647 characters
+	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	public void setText(java.lang.String argText);
+
+	/**
+	 * object accessor for the {@code Answer}
+	 *
+	 * <p>The {@code Answer} field is a direct mapping of the {@code answer} field in {@code question}.</p>
+	 *
+	 * @return an object value of {@code Answer} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 */
+	public java.lang.String getAnswer();
+
+	/**
+	 * object accessor for the {@code Answer} with substitution for a null value
+	 *
+	 * <p>The {@code Answer} field is a direct mapping of the {@code answer} database column in the table {@code question}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code Answer} is {@code null}.
+	 * @return an object value of {@code Answer} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getAnswer(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getAnswer();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code Answer} to the value of {@code argAnswer}
+	 *
+	 * @param argAnswer the new value of {@code Answer}.  May be <code>null</code>.
+	 * @throws ArgumentTooLongException if {@code argAnswer} is longer than 2147483647 characters
+	 * <p>The database column {@code answer} is limited to 2147483647 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	public void setAnswer(java.lang.String argAnswer);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Category}
 	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code question_category_code_fkey}.
 	 *
@@ -195,6 +338,14 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
 	public void setTournament(com.scobolsolo.application.Tournament argTournament);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Account}
+	 * The returned {@code com.scobolsolo.application.Account} is the {@link UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code question_writer_account_id_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.Account getWriterAccount();
+	public void setWriterAccount(com.scobolsolo.application.Account argWriterAccount);
 
 	public int getPlacementCount();
 	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator();

@@ -48,4 +48,8 @@ public interface School extends SchoolUserFacing {
 	default String getExplainedVeryShortName() {
 		return getExplainedName(getVeryShortName());
 	}
+	
+	default boolean attending(Tournament argT) {
+		return streamSchoolRegistration().anyMatch(argSR -> argSR.getTournament() == argT);
+	}
 }

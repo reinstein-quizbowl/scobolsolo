@@ -263,6 +263,11 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 */
 	public java.lang.Boolean isActiveAsObject();
 
+	default public java.lang.Boolean isInactiveAsObject() {
+		Boolean lclB = isActiveAsObject();
+		return lclB != null ? (lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE) : null;
+	}
+
 	/**
 	 * primitive accessor for the {@code Active}
 	 *
@@ -275,6 +280,10 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	default public boolean isActive() {
 		java.lang.Boolean lclO = isActiveAsObject();
 		return lclO.booleanValue();
+	}
+
+	default public java.lang.Boolean isInactive() {
+		return !isActive();
 	}
 
 	/**

@@ -119,6 +119,36 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	to this object. */
 
 	@Override
+	public void addWriterQuestion(Question argQuestion) {
+		getAccountOpal().addWriterQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
+	}
+
+	@Override
+	public void removeWriterQuestion(Question argQuestion) {
+		getAccountOpal().removeWriterQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
+	}
+
+	@Override
+	public int getWriterQuestionCount() {
+		return getAccountOpal().getWriterQuestionOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Question> streamWriterQuestion() {
+		return getAccountOpal().streamWriterQuestionOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Question> createWriterQuestionIterator() {
+		return new com.opal.OpalIterator<> (getAccountOpal().createWriterQuestionOpalIterator());
+	}
+
+	@Override
+	public void clearWriterQuestion() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
 	public void unlink() {
 		getAccountOpal().unlink();
 	}

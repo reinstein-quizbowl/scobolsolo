@@ -414,7 +414,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewInitialCardOpal;
+		lclUO = myNewSchoolYearOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
@@ -426,7 +426,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewSchoolYearOpal;
+		lclUO = myNewInitialCardOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -447,7 +447,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldInitialCardOpal;
+		lclUO = myOldSchoolYearOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
@@ -459,7 +459,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldSchoolYearOpal;
+		lclUO = myOldInitialCardOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

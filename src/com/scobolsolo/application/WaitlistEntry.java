@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.WaitlistEntryUserFacing;
  */
 
 public interface WaitlistEntry extends WaitlistEntryUserFacing {
+	/* This block intentionally left empty. */
 }

@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.PlayerMatchVUserFacing;
  */
 
 public interface PlayerMatchV extends PlayerMatchVUserFacing {
+	/* This block intentionally left empty. */
 }

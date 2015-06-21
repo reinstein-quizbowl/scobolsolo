@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.CategoryConversionVUserFacing;
  */
 
 public interface CategoryConversionV extends CategoryConversionVUserFacing {
+	/* This block intentionally left empty. */
 }

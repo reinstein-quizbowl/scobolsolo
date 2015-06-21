@@ -303,12 +303,12 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewPacketOpal;
+		lclUO = myNewQuestionOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewQuestionOpal;
+		lclUO = myNewPacketOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -322,12 +322,12 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldPacketOpal;
+		lclUO = myOldQuestionOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldQuestionOpal;
+		lclUO = myOldPacketOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

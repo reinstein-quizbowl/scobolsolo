@@ -1,15 +1,8 @@
 ﻿<%@ page import="java.util.List" %>
-<%@ page import="com.siliconage.util.Filter" %>
-<%@ page import="com.siliconage.util.AutoAcceptFilter" %>
-<%@ page import="com.siliconage.util.IntersectionFilter" %>
-<%@ page import="com.siliconage.util.UnionFilter" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.ContactNotPlayerAtTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.RoomAtTournament" %>
-<%@ page import="com.scobolsolo.opalforms.filter.SchoolNotAlreadyRegistered" %>
 <%@ page import="com.scobolsolo.opalforms.updater.*" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -55,7 +48,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-8 large-6 columns">
 		<label>
 			Main contact
-			<%= lclOF.dropdown("MainContact", Contact.NameComparator.getInstance()).filter(Contact.ActiveFilter.getInstance()) %>
+			<%= lclOF.dropdown("MainContact", Contact.NameComparator.getInstance()).filter(Contact::isActive) %>
 		</label>
 	</div>
 	<div class="small-12 medium-4 large-2 columns">
@@ -107,16 +100,12 @@ if (lclOF.hasErrors()) {
 					Player.RankWithinSchoolComparator.getInstance()
 				);
 				
-				Filter<Contact> lclGeneralFilter = new IntersectionFilter<>(Contact.ActiveFilter.getInstance(), new ContactNotPlayerAtTournament(lclT));
-				
 				for (OpalForm<Player> lclPOF : lclPOFs) {
 					Player lclP = lclPOF.getUserFacing();
 					
-					Filter<Contact> lclFilter = lclP == null ? lclGeneralFilter : new UnionFilter<>(new AutoAcceptFilter<>(lclP.getContact()), lclGeneralFilter);
-					
 					%><tr>
 						<%= lclPOF.open() %>
-						<td><%= lclPOF.dropdown("Contact", Contact.SortByComparator.getInstance()).filter(lclFilter) %></td>
+						<td><%= lclPOF.dropdown("Contact", Contact.SortByComparator.getInstance()).filter(argC -> argC.isActive() && !argC.isPlayerAt(lclT)) %></td>
 						<td><%= lclPOF.dropdown("SchoolYear", SchoolYear.SequenceComparator.getInstance()) %></td>
 						<td><%= lclPOF.text("RankWithinSchool", 3) %></td>
 						<td><%= lclPOF.text("Seed", 3) %></td>
@@ -268,13 +257,12 @@ if (lclOF.hasErrors()) {
 				</tr>
 			</thead>
 			<tbody><%
-				Filter<Room> lclRoomFilter = new RoomAtTournament(lclT);
 				for (OpalForm<Buzzer> lclBOF : lclOF.children("Buzzer", BuzzerFactory.getInstance(), 1)) {
 					Buzzer lclB = lclBOF.getUserFacing();
 					%><tr>
 						<%= lclBOF.open() %>
 						<td><%= lclBOF.text("Name", 20) %></td>
-						<td><%= lclBOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(lclRoomFilter) %></td>
+						<td><%= lclBOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclBOF) %></td>
 						<%= lclBOF.close() %>
 					</tr><%

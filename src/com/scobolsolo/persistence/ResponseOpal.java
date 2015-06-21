@@ -233,12 +233,19 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewResponseTypeOpal;
+		lclUO = myNewPerformanceOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewPlacementOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewResponseTypeOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -252,13 +259,6 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewPerformanceOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
 		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
 	}
 
@@ -266,7 +266,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldResponseTypeOpal;
+		lclUO = myOldPerformanceOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
@@ -278,14 +278,14 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldReplacementForPlacementOpal;
+		lclUO = myOldResponseTypeOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldPerformanceOpal;
+		lclUO = myOldReplacementForPlacementOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

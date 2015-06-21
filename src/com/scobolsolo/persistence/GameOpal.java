@@ -316,12 +316,12 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewMatchOpal;
+		lclUO = myNewOutgoingLosingCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewIncomingLosingCardPlayerOpal;
+		lclUO = myNewOutgoingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -335,6 +335,13 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
+		lclUO = myNewIncomingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		lclUO = myNewIncomingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
@@ -342,14 +349,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewOutgoingLosingCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
-		lclUO = myNewOutgoingWinningCardPlayerOpal;
+		lclUO = myNewMatchOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -363,12 +363,12 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldMatchOpal;
+		lclUO = myOldOutgoingLosingCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldIncomingLosingCardPlayerOpal;
+		lclUO = myOldOutgoingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -382,6 +382,13 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
+		lclUO = myOldIncomingLosingCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		lclUO = myOldIncomingWinningCardPlayerOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
@@ -389,14 +396,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldOutgoingLosingCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
-		lclUO = myOldOutgoingWinningCardPlayerOpal;
+		lclUO = myOldMatchOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

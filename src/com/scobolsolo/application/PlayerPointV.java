@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.PlayerPointVUserFacing;
  */
 
 public interface PlayerPointV extends PlayerPointVUserFacing {
+	/* This block intentionally left empty. */
 }

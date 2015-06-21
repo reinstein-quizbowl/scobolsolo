@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,7 +16,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.scobolsolo.ScobolSoloConfiguration;
 import com.scobolsolo.application.*;
-import com.scobolsolo.opalforms.filter.RoundUsesCardSystem;
 import com.scobolsolo.servlets.DownloadServlet;
 
 public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
@@ -41,7 +40,8 @@ public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
 		
 		int lclColumn = 1;
 		final List<Round> lclRounds = lclPhase.getRounds();
-		RoundUsesCardSystem.getInstance().filter(lclRounds);
+		lclRounds.removeIf(argR -> !argR.usesCardSystem());
+		
 		for (final Round lclR : lclRounds) {
 			final Cell lclRoundHeaderCell = lclHeaderRow.createCell(lclColumn);
 			lclRoundHeaderCell.setCellValue(lclR.getName());
@@ -52,10 +52,7 @@ public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
 			lclColumn += 2;
 		}
 		
-		final List<Room> lclRooms = new ArrayList<>(lclT.getRoomCount());
-		lclT.acquireRoom(lclRooms);
-		Room.GameRoomFilter.getInstance().filter(lclRooms);
-		lclRooms.sort(null);
+		final List<Room> lclRooms = lclT.streamRoom().filter(Room::isGameRoom).sorted().collect(Collectors.toList());
 		
 		int lclRow = 1;
 		for (final Room lclR : lclRooms) {

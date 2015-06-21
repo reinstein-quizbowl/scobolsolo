@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.TournamentOpal;
+import com.scobolsolo.persistence.AccountOpal;
 
 public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, QuestionOpal> implements Question {
 	private final QuestionOpal myQuestionOpal;
@@ -87,6 +88,45 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return;
 	}
 
+	@Override
+	public java.lang.Integer getWriterAccountIdAsObject() {
+		return getQuestionOpal().getWriterAccountIdAsObject();
+	}
+
+	@Override
+	public void setWriterAccountId(java.lang.Integer argWriterAccountId) {
+		getQuestionOpal().setWriterAccountId(argWriterAccountId);
+		return;
+	}
+
+	@Override
+	public void setWriterAccountId(int argWriterAccountId) {
+		getQuestionOpal().setWriterAccountId(argWriterAccountId);
+		return;
+	}
+
+	@Override
+	public java.lang.String getText() {
+		return getQuestionOpal().getText();
+	}
+
+	@Override
+	public void setText(java.lang.String argText) {
+		getQuestionOpal().setText(argText);
+		return;
+	}
+
+	@Override
+	public java.lang.String getAnswer() {
+		return getQuestionOpal().getAnswer();
+	}
+
+	@Override
+	public void setAnswer(java.lang.String argAnswer) {
+		getQuestionOpal().setAnswer(argAnswer);
+		return;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -115,6 +155,20 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	@Override
 	public void setTournament(Tournament argTournament) {
 		getQuestionOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		return;
+	}
+
+	/** Access to the Account object created from question through reference question_writer_account_id_fkey */
+
+	@Override
+	public Account getWriterAccount() {
+		AccountOpal lclAccountOpal = getQuestionOpal().getWriterAccountOpal();
+		return lclAccountOpal == null ? null : lclAccountOpal.getUserFacing();
+	}
+
+	@Override
+	public void setWriterAccount(Account argAccount) {
+		getQuestionOpal().setWriterAccountOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
 		return;
 	}
 

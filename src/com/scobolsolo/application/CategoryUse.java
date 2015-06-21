@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.CategoryUseUserFacing;
  */
 
 public interface CategoryUse extends CategoryUseUserFacing {
+	/* This block intentionally left empty. */
 }

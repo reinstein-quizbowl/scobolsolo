@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.PacketUserFacing;
  */
 
 public interface Packet extends PacketUserFacing {
+	/* This block intentionally left empty. */
 }

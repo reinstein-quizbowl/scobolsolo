@@ -1,11 +1,9 @@
 ﻿<%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.filter.PlayerAtTournament" %>
 <%@ page import="com.scobolsolo.opalforms.nce.PlayerNCE" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -59,8 +57,6 @@ if (lclOF.hasErrors()) {
 					Card.SequenceComparator.getInstance()
 				);
 				
-				Filter<Player> lclPlayerAtTournament = new PlayerAtTournament(lclT);
-				
 				for (OpalForm<Card> lclCOF : lclCOFs) {
 					Card lclC = lclCOF.getUserFacing();
 					
@@ -68,7 +64,7 @@ if (lclOF.hasErrors()) {
 						<%= lclCOF.open() %>
 						<td><%= lclCOF.text("Name", 20) %></td>
 						<td><%= lclCOF.text("ShortName", 10) %></td>
-						<td><%= lclCOF.dropdown("InitialPlayer", Player.NameComparator.getInstance()).filter(lclPlayerAtTournament).namer(PlayerNCE.getInstance()) %></td>
+						<td><%= lclCOF.dropdown("InitialPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(PlayerNCE.getInstance()) %></td>
 						<td><%= lclCOF.text("Sequence", 3) %></td>
 						<td><%= lclC == null ? "&nbsp;" : "<a href=\"card-edit.jsp?card_id=" + lclC.getId() + "\">Edit</a>" %></td>
 						<td><%= HTMLUtility.deleteWidget(lclCOF) %></td>

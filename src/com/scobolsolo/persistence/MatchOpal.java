@@ -239,19 +239,12 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewWinningCardOpal;
+		lclUO = myNewRoomOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewRoomOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
-		lclUO = myNewRoundOpal;
+		lclUO = myNewWinningCardOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -265,6 +258,13 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 			}
 			lclTAs.add(lclUO);
 		}
+		lclUO = myNewRoundOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
 	}
 
@@ -272,19 +272,12 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldWinningCardOpal;
+		lclUO = myOldRoomOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldRoomOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
-			if (lclTAs == null) {
-				lclTAs = new com.siliconage.util.Fast3Set<>();
-			}
-			lclTAs.add(lclUO);
-		}
-		lclUO = myOldRoundOpal;
+		lclUO = myOldWinningCardOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -292,6 +285,13 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 			lclTAs.add(lclUO);
 		}
 		lclUO = myOldLosingCardOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldRoundOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

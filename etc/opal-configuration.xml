@@ -23,10 +23,6 @@
 			<Column>date</Column>
 		</Comparators>
 		
-		<Filters>
-			<Column>active</Column>
-		</Filters>
-		
 		
 		<Mappings HttpRequestFactories="True">
 			<Mapping Table="Account">
@@ -75,6 +71,7 @@
 			</Mapping>
 			
 			<Mapping Table="Contact">
+				<Column Name="active" Inverse="True" InverseAccessor="isInactive" />
 				<Column Name="sort_by" Ordering="True" Comparator="True" />
 			</Mapping>
 			
@@ -157,7 +154,7 @@
 			
 			<Mapping Table="Response" />
 			
-			<Mapping Table="Response_Type">
+			<Mapping Table="Response_Type" BackCollection="False">
 				<Column Name="sequence" Ordering="True" />
 			</Mapping>
 			
@@ -199,7 +196,7 @@
 				<Column Name="name" Ordering="True" />
 			</Mapping>
 			
-			<Mapping Table="School_Year">
+			<Mapping Table="School_Year" BackCollection="False">
 				<Column Name="sequence" Ordering="True" />
 			</Mapping>
 			
@@ -304,22 +301,6 @@
 				<Column>initial_card_id</Column>
 			</Source>
 			<Target Type="Card" OneToOne="True" />
-		</Reference>
-		
-		
-		<!-- Eliminate unneeded back collections -->
-		<Reference>
-			<Source Type="Player">
-				<Column>school_year_code</Column>
-			</Source>
-			<Target Type="SchoolYear" CollectionClass="None" />
-		</Reference>
-		
-		<Reference>
-			<Source Type="Response">
-				<Column>response_type_code</Column>
-			</Source>
-			<Target Type="ResponseType" CollectionClass="None" />
 		</Reference>
 	</Database>
 </Project>

@@ -11,4 +11,5 @@ import com.scobolsolo.persistence.StaffAssignmentUserFacing;
  */
 
 public interface StaffAssignment extends StaffAssignmentUserFacing {
+	/* This block intentionally left empty. */
 }

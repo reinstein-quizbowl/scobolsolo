@@ -11,4 +11,7 @@ import com.scobolsolo.persistence.CategoryUserFacing;
  */
 
 public interface Category extends CategoryUserFacing {
+	default boolean isUsedAt(Tournament argT) {
+		return argT != null && streamCategoryUse().anyMatch(argCU -> argCU.getTournament() == argT);
+	}
 }

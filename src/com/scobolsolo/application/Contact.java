@@ -11,4 +11,7 @@ import com.scobolsolo.persistence.ContactUserFacing;
  */
 
 public interface Contact extends ContactUserFacing {
+	default boolean isPlayerAt(Tournament argT) {
+		return streamPlayer().anyMatch(argP -> argP.getTournament() == argT);
+	}
 }

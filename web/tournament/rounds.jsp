@@ -1,5 +1,4 @@
 ﻿<%@ page import="java.util.List" %>
-<%@ page import="com.siliconage.util.Filter" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>

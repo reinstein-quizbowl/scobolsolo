@@ -192,12 +192,12 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewRoomOpal;
+		lclUO = myNewSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewSchoolRegistrationOpal;
+		lclUO = myNewRoomOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -211,12 +211,12 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldRoomOpal;
+		lclUO = myOldSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldSchoolRegistrationOpal;
+		lclUO = myOldRoomOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
