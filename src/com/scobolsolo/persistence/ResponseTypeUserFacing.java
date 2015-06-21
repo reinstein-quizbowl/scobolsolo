@@ -183,31 +183,6 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	public com.scobolsolo.application.ResponseType setPoints(int argPoints);
 
 	/**
-	 * object accessor for the {@code BootstrapButtonClass}
-	 *
-	 * <p>The {@code BootstrapButtonClass} field is a direct mapping of the {@code bootstrap_button_class} field in {@code response_type}.</p>
-	 *
-	 * @return an object value of {@code BootstrapButtonClass} (of the current {@link TransactionContext})  Will not be <code>null</code>.
-	 */
-	public java.lang.String getBootstrapButtonClass();
-
-	/**
-	 * sets the {@code BootstrapButtonClass} to the value of {@code argBootstrapButtonClass}
-	 *
-	 * @param argBootstrapButtonClass the new value of {@code BootstrapButtonClass}.  May not be <code>null</code>.
-	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code bootstrap_button_class} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws IllegalNullArgumentException if argBootstrapButtonClass is null
-	 * @throws ArgumentTooLongException if {@code argBootstrapButtonClass} is longer than 64 characters
-	 * <p>The database column {@code bootstrap_button_class} is limited to 64 characters.</p>
-	 *
-	 */
-	@com.opal.annotation.NotNull
-	@com.opal.annotation.Length(maximum = 64L)
-	public com.scobolsolo.application.ResponseType setBootstrapButtonClass(java.lang.String argBootstrapButtonClass);
-
-	/**
 	 * object accessor for the {@code Default}
 	 *
 	 * <p>The {@code Default} field is a direct mapping of the {@code is_default} field in {@code response_type}.</p>

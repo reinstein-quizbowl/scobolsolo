@@ -97,17 +97,6 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 	}
 
 	@Override
-	public java.lang.String getBootstrapButtonClass() {
-		return getResponseTypeOpal().getBootstrapButtonClass();
-	}
-
-	@Override
-	public ResponseTypeImpl setBootstrapButtonClass(java.lang.String argBootstrapButtonClass) {
-		getResponseTypeOpal().setBootstrapButtonClass(argBootstrapButtonClass);
-		return this;
-	}
-
-	@Override
 	public java.lang.Boolean isDefaultAsObject() {
 		return getResponseTypeOpal().isDefaultAsObject();
 	}

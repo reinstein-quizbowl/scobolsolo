@@ -8,7 +8,6 @@ import com.opal.*;
 import com.scobolsolo.application.*;
 
 public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType> {
-	public static final java.lang.String ourDefaultBootstrapButtonClass = "btn-default";
 	public static final java.lang.Boolean ourDefaultDefault = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultMultipleAllowedForSamePlacement = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultAttempt = java.lang.Boolean.TRUE;
@@ -24,10 +23,9 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 
 	@Override
 	protected void applyDefaults() {
-		getNewValues()[5] = ourDefaultBootstrapButtonClass;
-		getNewValues()[6] = ourDefaultDefault;
-		getNewValues()[7] = ourDefaultMultipleAllowedForSamePlacement;
-		getNewValues()[8] = ourDefaultAttempt;
+		getNewValues()[5] = ourDefaultDefault;
+		getNewValues()[6] = ourDefaultMultipleAllowedForSamePlacement;
+		getNewValues()[7] = ourDefaultAttempt;
 		return;
 	}
 
@@ -37,7 +35,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		"ShortName",
 		"Sequence",
 		"Points",
-		"BootstrapButtonClass",
 		"Default",
 		"MultipleAllowedForSamePlacement",
 		"Attempt",
@@ -49,7 +46,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		java.lang.String.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
-		java.lang.String.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
@@ -64,11 +60,9 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		false,
 		false,
 		false,
-		false,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
-		null,
 		null,
 		null,
 		null,
@@ -119,20 +113,16 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		return (java.lang.Integer) getReadValueSet()[4];
 	}
 
-	public synchronized java.lang.String getBootstrapButtonClass() {
-		return (java.lang.String) getReadValueSet()[5];
-	}
-
 	public synchronized java.lang.Boolean isDefaultAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[6];
+		return (java.lang.Boolean) getReadValueSet()[5];
 	}
 
 	public synchronized java.lang.Boolean isMultipleAllowedForSamePlacementAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[7];
+		return (java.lang.Boolean) getReadValueSet()[6];
 	}
 
 	public synchronized java.lang.Boolean isAttemptAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[8];
+		return (java.lang.Boolean) getReadValueSet()[7];
 	}
 
 	public synchronized ResponseTypeOpal setCode(final java.lang.String argCode) {
@@ -199,24 +189,12 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		return this;
 	}
 
-	public synchronized ResponseTypeOpal setBootstrapButtonClass(final java.lang.String argBootstrapButtonClass) {
-		tryMutate();
-		if (argBootstrapButtonClass == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myBootstrapButtonClass on " + this + " to null.");
-		}
-		if (argBootstrapButtonClass.length() > 64) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myBootstrapButtonClass on " + this + " is 64.", argBootstrapButtonClass.length(), 64);
-		}
-		getNewValues()[5] = argBootstrapButtonClass;
-		return this;
-	}
-
 	public synchronized ResponseTypeOpal setDefault(final java.lang.Boolean argDefault) {
 		tryMutate();
 		if (argDefault == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myDefault on " + this + " to null.");
 		}
-		getNewValues()[6] = argDefault;
+		getNewValues()[5] = argDefault;
 		return this;
 	}
 
@@ -230,7 +208,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		if (argMultipleAllowedForSamePlacement == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myMultipleAllowedForSamePlacement on " + this + " to null.");
 		}
-		getNewValues()[7] = argMultipleAllowedForSamePlacement;
+		getNewValues()[6] = argMultipleAllowedForSamePlacement;
 		return this;
 	}
 
@@ -244,7 +222,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		if (argAttempt == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myAttempt on " + this + " to null.");
 		}
-		getNewValues()[8] = argAttempt;
+		getNewValues()[7] = argAttempt;
 		return this;
 	}
 
@@ -279,10 +257,9 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		/* Field 2 (ShortName) is part of a unique key. */
 		lclTargetNewValues[3] = lclValues[3]; /* Sequence (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* Points (immutable) */
-		lclTargetNewValues[5] = lclValues[5]; /* BootstrapButtonClass (immutable) */
-		lclTargetNewValues[6] = lclValues[6]; /* Default (immutable) */
-		lclTargetNewValues[7] = lclValues[7]; /* MultipleAllowedForSamePlacement (immutable) */
-		lclTargetNewValues[8] = lclValues[8]; /* Attempt (immutable) */
+		lclTargetNewValues[5] = lclValues[5]; /* Default (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* MultipleAllowedForSamePlacement (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* Attempt (immutable) */
 
 		return;
 	}
@@ -322,7 +299,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argPW.println("ShortName = " + getShortName());
 		argPW.println("Sequence = " + getSequenceAsObject());
 		argPW.println("Points = " + getPointsAsObject());
-		argPW.println("BootstrapButtonClass = " + getBootstrapButtonClass());
 		argPW.println("Default = " + isDefaultAsObject());
 		argPW.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argPW.println("Attempt = " + isAttemptAsObject());
@@ -335,7 +311,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argPS.println("ShortName = " + getShortName());
 		argPS.println("Sequence = " + getSequenceAsObject());
 		argPS.println("Points = " + getPointsAsObject());
-		argPS.println("BootstrapButtonClass = " + getBootstrapButtonClass());
 		argPS.println("Default = " + isDefaultAsObject());
 		argPS.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argPS.println("Attempt = " + isAttemptAsObject());

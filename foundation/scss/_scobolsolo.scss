@@ -29,8 +29,20 @@ abbr, acronym {
 	font-weight: 400;
 }
 
+.alert {
+	background-color: $alert-color !important;
+}
+
 .warning {
-	background-color: $warning-color;
+	background-color: $warning-color !important;
+}
+
+.info {
+	background-color: $info-color !important;
+}
+
+.success {
+	background-color: $success-color !important;
 }
 
 

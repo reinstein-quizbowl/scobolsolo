@@ -72,6 +72,9 @@ if (argDescriptionParameter == null) {
 	<link rel="stylesheet" href="/template/foundation/datepicker/foundation-datepicker.css">
 	<script src="/template/foundation/datepicker/foundation-datepicker.js"></script>
 	
+	<!-- Foundation Icons -->
+	<link rel="stylesheet" href="/template/foundation/icons/foundation-icons.css">
+	
 	<!-- Responsive Tables -->
 	<link rel="stylesheet" href="/template/foundation/responsive-tables/responsive-tables.css">
 	<script src="/template/foundation/responsive-tables/responsive-tables.js"></script>
