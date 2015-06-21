@@ -78,8 +78,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 						%></td>
 						<td><%
 							if (lclG != null && (lclG.getIncomingWinningCardPlayer() != null || lclG.getIncomingLosingCardPlayer() != null)) {
-								%><%= lclG.getIncomingWinningCardPlayer() == null ? "" : lclG.getIncomingWinningCardPlayer().getNameWithSchool() + "<br />" %>
-								<%= lclG.getIncomingLosingCardPlayer() == null ? "" : lclG.getIncomingLosingCardPlayer().getNameWithSchool() %><%
+								%><%= lclG.getIncomingWinningCardPlayer() == null ? "" : lclG.getIncomingWinningCardPlayer().getNameWithSchoolShortName() + "<br />" %>
+								<%= lclG.getIncomingLosingCardPlayer() == null ? "" : lclG.getIncomingLosingCardPlayer().getNameWithSchoolShortName() %><%
 							} else {
 								%>&nbsp;<%
 							}
