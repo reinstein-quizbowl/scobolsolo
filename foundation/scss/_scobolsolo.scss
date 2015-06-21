@@ -29,6 +29,10 @@ abbr, acronym {
 	font-weight: 400;
 }
 
+[title].stealth-tool-tip:hover {
+	border-bottom: none;
+}
+
 .alert {
 	background-color: $alert-color !important;
 }

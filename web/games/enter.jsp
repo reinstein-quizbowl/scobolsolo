@@ -72,13 +72,15 @@ boolean lclFlip = Boolean.parseBoolean(request.getParameter("flip"));
 		font-weight: 700 !important;
 	}
 	
-	.current-score th, .current-score-value {
-		font-size: 200%;
-		vertical-align: middle;
-		font-weight: 700;
+	.current-score-header {
+		padding-left: 0.5em !important;
 	}
 	
 	.current-score-value {
+		padding: 0.5em 0;
+		vertical-align: middle;
+		font-size: 200%;
+		font-weight: 700;
 		text-align: center;
 	}
 	
@@ -397,12 +399,19 @@ if (lclM.determineStatus().mayEnterData()) {
 					}
 					%></tbody>
 					<tfoot>
+						<tr>
+							<th colspan="2">&nbsp;</th>
+							<th class="text-center"><%= lclLeftPlayer.getContact().getName() %></th>
+							<th>&nbsp;</td>
+							<th class="text-center"><%= lclRightPlayer.getContact().getName() %></th>
+							<th>&nbsp;</td>
+						</tr>
 						<tr class="current-score info">
-							<th colspan="2">Score</th>
-							<td class="current-score-value" id="current_score_left">&nbsp;</td>
-							<td>&nbsp;</td>
-							<td class="current-score-value" id="current_score_right">&nbsp;</td>
-							<td>&nbsp;</td>
+							<th colspan="2" class="current-score-header">Score</th>
+							<th class="current-score-value" id="current_score_left">&nbsp;</th>
+							<th>&nbsp;</th>
+							<th class="current-score-value" id="current_score_right">&nbsp;</th>
+							<th>&nbsp;</th>
 						</tr>
 					</tfoot>
 				</table>
