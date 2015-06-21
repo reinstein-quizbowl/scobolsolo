@@ -97,22 +97,36 @@ List<OpalForm<StaffAssignment>> lclSAOFs = lclOF.children(
 );
 
 for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
+	StaffAssignment lclSA = lclSAOF.getUserFacing();
 	%><%= lclSAOF.open() %>
 	
 	<div class="row">
 		<div class="small-12 columns">
-			<h2><%= lclSAOF.isNew() ? "Add assignment" : "Assignment to " + lclSAOF.getUserFacing().getRoom().getName() %></h2>
+			<h2><%= lclSAOF.isNew() ? "Add assignment" : "Assignment to " + lclSA.getRoom().getName() + " for " + lclSA.getPhase().getName() %></h2>
 		</div>
 	</div>
 	
 	<div class="row">
-		<div class="small-12 medium-6 columns">
+		<div class="small-12 large-4 columns">
+			<label>
+				Phase
+				<%= lclSAOF.dropdown("Phase", Phase.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT) %>
+			</label>
+		</div>
+		<div class="small-12 large-4 columns">
 			<label>
 				Room
 				<%= lclSAOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %>
 			</label>
 		</div>
-		<div class="small-10 medium-4 columns">
+		<div class="small-12 large-4 columns">
+			<label>
+				Role
+				<%= lclSAOF.dropdown("StaffRole", StaffRole.SequenceComparator.getInstance()) %>
+			</label>
+		</div>
+		
+		<div class="small-10 large-5 columns">
 			<label>
 				Note
 				<%= lclSAOF.textarea("Note", 60, 3) %>

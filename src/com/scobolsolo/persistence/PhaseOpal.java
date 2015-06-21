@@ -210,6 +210,8 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewTournamentOpal = myOldTournamentOpal;
+		myNewStaffAssignmentOpalHashSet = null; /* Necessary if it has been rolled back */
+		myStaffAssignmentOpalCachedOperations = null; /* Ditto */
 		myNewRoundGroupOpalHashSet = null; /* Necessary if it has been rolled back */
 		myRoundGroupOpalCachedOperations = null; /* Ditto */
 		myNewCardOpalHashSet = null; /* Necessary if it has been rolled back */
@@ -222,6 +224,16 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldTournamentOpal = myNewTournamentOpal;
 
+		if (needsToClearOldCollections()) {
+			myOldStaffAssignmentOpalHashSet = null;
+			} else {
+			if (myNewStaffAssignmentOpalHashSet != null) {
+				myOldStaffAssignmentOpalHashSet = myNewStaffAssignmentOpalHashSet;
+				myNewStaffAssignmentOpalHashSet = null;
+			} else {
+				myStaffAssignmentOpalCachedOperations = null;
+			}
+		}
 		if (needsToClearOldCollections()) {
 			myOldRoundGroupOpalHashSet = null;
 			} else {
@@ -249,6 +261,12 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
+		if (myNewStaffAssignmentOpalHashSet != null || myStaffAssignmentOpalCachedOperations != null) {
+			lclI = createStaffAssignmentOpalIterator();
+			while (lclI.hasNext()) {
+				((StaffAssignmentOpal) lclI.next()).setPhaseOpalInternal(null);
+			}
+		}
 		if (myNewRoundGroupOpalHashSet != null || myRoundGroupOpalCachedOperations != null) {
 			lclI = createRoundGroupOpalIterator();
 			while (lclI.hasNext()) {
@@ -393,6 +411,85 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		tryMutate();
 		myNewTournamentOpal = argTournamentOpal;
 	}
+
+	private java.util.HashSet<StaffAssignmentOpal> myOldStaffAssignmentOpalHashSet = null;
+	private java.util.HashSet<StaffAssignmentOpal> myNewStaffAssignmentOpalHashSet = null;
+	private java.util.ArrayList<CachedOperation<StaffAssignmentOpal>> myStaffAssignmentOpalCachedOperations = null;
+
+	/* package */ java.util.HashSet<StaffAssignmentOpal> getStaffAssignmentOpalClass() {
+		if (tryAccess()) {
+			if (myNewStaffAssignmentOpalHashSet == null) {
+				if (myOldStaffAssignmentOpalHashSet == null) {
+					myOldStaffAssignmentOpalHashSet = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forPhaseIdCollection(getIdAsObject());
+				}
+				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
+				if (myStaffAssignmentOpalCachedOperations != null) {
+					OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalHashSet);
+					myStaffAssignmentOpalCachedOperations = null;
+				}
+			}
+			return myNewStaffAssignmentOpalHashSet;
+		}
+		if (myOldStaffAssignmentOpalHashSet == null) {
+			myOldStaffAssignmentOpalHashSet = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forPhaseIdCollection(getIdAsObject());
+		}
+		return myOldStaffAssignmentOpalHashSet;
+	}
+
+	public synchronized void addStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
+		tryMutate();
+		argStaffAssignmentOpal.setPhaseOpal(this);
+		return;
+	}
+
+	protected synchronized void addStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
+		tryMutate();
+		if (myNewStaffAssignmentOpalHashSet == null) {
+			if (myOldStaffAssignmentOpalHashSet == null) {
+				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
+				myStaffAssignmentOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argStaffAssignmentOpal));
+			} else {
+				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
+				myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
+			}
+		} else {
+			myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
+		}
+		return;
+	}
+
+	public synchronized void removeStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
+		tryMutate();
+		argStaffAssignmentOpal.setPhaseOpal(null);
+	}
+
+	protected synchronized void removeStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
+		tryMutate();
+		if (myNewStaffAssignmentOpalHashSet == null) {
+			if (myOldStaffAssignmentOpalHashSet == null) {
+				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
+				myStaffAssignmentOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argStaffAssignmentOpal));
+			} else {
+				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
+				myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
+			}
+		} else {
+			myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
+		}
+		return;
+	}
+
+	public synchronized int getStaffAssignmentOpalCount() { return getStaffAssignmentOpalClass().size(); }
+
+	public synchronized java.util.Iterator<StaffAssignmentOpal> createStaffAssignmentOpalIterator() {
+		return getStaffAssignmentOpalClass().iterator();
+	}
+
+	public synchronized java.util.stream.Stream<StaffAssignmentOpal> streamStaffAssignmentOpal() {
+		return getStaffAssignmentOpalClass().stream();
+	}
+
+	public synchronized void clearStaffAssignmentOpalInternal() { getStaffAssignmentOpalClass().clear(); }
 
 	private java.util.HashSet<RoundGroupOpal> myOldRoundGroupOpalHashSet = null;
 	private java.util.HashSet<RoundGroupOpal> myNewRoundGroupOpalHashSet = null;

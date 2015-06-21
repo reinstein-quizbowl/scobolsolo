@@ -41,9 +41,9 @@ public class StaffWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputter
 			} else if (lclS.getStaffAssignmentCount() == 1) {
 				StaffAssignment lclSA = lclS.createStaffAssignmentIterator().next();
 				if (lclSA.getNote() == null) {
-					getWriter().println("You are assigned to " + escape(lclSA.getRoom().getName()) + '.');
+					getWriter().println("You are assigned to " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getStaffRole().getName()) + ") during " + escape(lclSA.getPhase().getName()) + '.');
 				} else {
-					getWriter().println("You are assigned to " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getNote()) + ").");
+					getWriter().println("You are assigned to " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getStaffRole().getName()) + ") during " + escape(lclSA.getPhase().getName()) + " (" + escape(lclSA.getNote()) + ").");
 				}
 				getWriter().println();
 			} else {
@@ -51,9 +51,9 @@ public class StaffWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputter
 				getWriter().println("\\begin{compactitem}");
 				for (StaffAssignment lclSA : lclS.createStaffAssignmentArray()) {
 					if (lclSA.getNote() == null) {
-						getWriter().println("\\item " + escape(lclSA.getRoom().getName()));
+						getWriter().println("\\item " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getStaffRole().getName()) + ") during " + escape(lclSA.getPhase().getName()));
 					} else {
-						getWriter().println("\\item " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getNote()) + ")");
+						getWriter().println("\\item " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getStaffRole().getName()) + ") during " + escape(lclSA.getPhase().getName()) + " (" + escape(lclSA.getNote()) + ")");
 					}
 				}
 				getWriter().println("\\end{compactitem}");

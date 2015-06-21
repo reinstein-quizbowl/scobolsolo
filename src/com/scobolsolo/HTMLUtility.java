@@ -26,7 +26,7 @@ public class HTMLUtility {
 		Validate.notNull(argOF);
 		Validate.notEmpty(argSize);
 		
-		return "<div class=\"switch " + argSize + "\">" + argOF.delete() + argOF.label("Delete", "") + "</div>";
+		return "<div class=\"switch " + argSize + "\">" + argOF.delete() + "<label for=\"" + argOF.id("Delete") + "\"></label></div>";
 	}
 	
 	public static String deleteWidget(OpalForm<?> argOF) {

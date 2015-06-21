@@ -3,6 +3,8 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.StaffAssignmentOpal;
 import com.scobolsolo.persistence.StaffOpal;
 import com.scobolsolo.persistence.RoomOpal;
+import com.scobolsolo.persistence.PhaseOpal;
+import com.scobolsolo.persistence.StaffRoleOpal;
 
 public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssignment, StaffAssignmentOpal> implements StaffAssignment {
 	private final StaffAssignmentOpal myStaffAssignmentOpal;
@@ -88,6 +90,34 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
+	@Override
+	public java.lang.Integer getPhaseIdAsObject() {
+		return getStaffAssignmentOpal().getPhaseIdAsObject();
+	}
+
+	@Override
+	public StaffAssignmentImpl setPhaseId(java.lang.Integer argPhaseId) {
+		getStaffAssignmentOpal().setPhaseId(argPhaseId);
+		return this;
+	}
+
+	@Override
+	public StaffAssignmentImpl setPhaseId(int argPhaseId) {
+		getStaffAssignmentOpal().setPhaseId(argPhaseId);
+		return this;
+	}
+
+	@Override
+	public java.lang.String getStaffRoleCode() {
+		return getStaffAssignmentOpal().getStaffRoleCode();
+	}
+
+	@Override
+	public StaffAssignmentImpl setStaffRoleCode(java.lang.String argStaffRoleCode) {
+		getStaffAssignmentOpal().setStaffRoleCode(argStaffRoleCode);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -116,6 +146,34 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	@Override
 	public StaffAssignment setRoom(Room argRoom) {
 		getStaffAssignmentOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
+		return this;
+	}
+
+	/** Access to the Phase object created from staff_assignment through reference staff_assignment_phase_id_fkey */
+
+	@Override
+	public Phase getPhase() {
+		PhaseOpal lclPhaseOpal = getStaffAssignmentOpal().getPhaseOpal();
+		return lclPhaseOpal == null ? null : lclPhaseOpal.getUserFacing();
+	}
+
+	@Override
+	public StaffAssignment setPhase(Phase argPhase) {
+		getStaffAssignmentOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
+		return this;
+	}
+
+	/** Access to the StaffRole object created from staff_assignment through reference staff_assignment_staff_role_code_fkey */
+
+	@Override
+	public StaffRole getStaffRole() {
+		StaffRoleOpal lclStaffRoleOpal = getStaffAssignmentOpal().getStaffRoleOpal();
+		return lclStaffRoleOpal == null ? null : lclStaffRoleOpal.getUserFacing();
+	}
+
+	@Override
+	public StaffAssignment setStaffRole(StaffRole argStaffRole) {
+		getStaffAssignmentOpal().setStaffRoleOpal(argStaffRole == null ? null : ((StaffRoleImpl) argStaffRole).getStaffRoleOpal());
 		return this;
 	}
 

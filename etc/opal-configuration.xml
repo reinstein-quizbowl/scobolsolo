@@ -221,11 +221,17 @@
 				</Comparator>
 			</Mapping>
 			
+			<Mapping Table="Staff_Role" BackCollection="False">
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
+			
 			<Mapping Table="Staff_Assignment">
-				<Comparator>
+				<Comparator Name="StaffNameComparator">
+					<Child Name="Phase" Comparator="StandardComparator" />
 					<Child Name="Staff" Comparator="NameComparator" />
 				</Comparator>
-				<Comparator>
+				<Comparator Name="RoomSequenceComparator">
+					<Child Name="Phase" Comparator="StandardComparator" />
 					<Child Name="Room" Comparator="SequenceComparator" />
 				</Comparator>
 			</Mapping>

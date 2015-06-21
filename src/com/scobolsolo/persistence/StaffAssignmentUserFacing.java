@@ -190,6 +190,76 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	public com.scobolsolo.application.StaffAssignment setStaffId(int argStaffId);
 
 	/**
+	 * object accessor for the {@code PhaseId}
+	 *
+	 * <p>The {@code PhaseId} field is a direct mapping of the {@code phase_id} field in {@code staff_assignment}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPhaseId() method.</p>
+	 *
+	 * @return an object value of {@code PhaseId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.Integer getPhaseIdAsObject();
+
+	/**
+	 * primitive accessor for the {@code PhaseId}
+	 *
+	 * <p>The {@code PhaseId} field is a direct mapping of the {@code phase_id} database column in the table {@code staff_assignment}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPhaseIdAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code PhaseId} (of the current {@link TransactionContext})
+	 */
+	default public int getPhaseId() {
+		java.lang.Integer lclO = getPhaseIdAsObject();
+		return lclO.intValue();
+	}
+
+	/**
+	 * sets the {@code PhaseId} to the value of {@code argPhaseId}
+	 *
+	 * @param argPhaseId the new value of {@code PhaseId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code phase_id} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argPhaseId is null
+	 */
+	@com.opal.annotation.NotNull
+	public com.scobolsolo.application.StaffAssignment setPhaseId(java.lang.Integer argPhaseId);
+
+	/**
+	 * sets the {@code PhaseId} to the value of {@code argPhaseId}
+	 *
+	 * @param argPhaseId the new value of {@code PhaseId}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.StaffAssignment setPhaseId(int argPhaseId);
+
+	/**
+	 * object accessor for the {@code StaffRoleCode}
+	 *
+	 * <p>The {@code StaffRoleCode} field is a direct mapping of the {@code staff_role_code} field in {@code staff_assignment}.</p>
+	 *
+	 * @return an object value of {@code StaffRoleCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.String getStaffRoleCode();
+
+	/**
+	 * sets the {@code StaffRoleCode} to the value of {@code argStaffRoleCode}
+	 *
+	 * @param argStaffRoleCode the new value of {@code StaffRoleCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code staff_role_code} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argStaffRoleCode is null
+	 * @throws ArgumentTooLongException if {@code argStaffRoleCode} is longer than 32 characters
+	 * <p>The database column {@code staff_role_code} is limited to 32 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.NotNull
+	@com.opal.annotation.Length(maximum = 32L)
+	public com.scobolsolo.application.StaffAssignment setStaffRoleCode(java.lang.String argStaffRoleCode);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Staff}
 	 * The returned {@code com.scobolsolo.application.Staff} is the {@link UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code staff_assignment_staff_id_fkey}.
 	 *
@@ -204,6 +274,22 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 */
 	public com.scobolsolo.application.Room getRoom();
 	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Phase}
+	 * The returned {@code com.scobolsolo.application.Phase} is the {@link UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code staff_assignment_phase_id_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.Phase getPhase();
+	public com.scobolsolo.application.StaffAssignment setPhase(com.scobolsolo.application.Phase argPhase);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.StaffRole}
+	 * The returned {@code com.scobolsolo.application.StaffRole} is the {@link UserFacing} object corresponding to the entry in {@code staff_role} that is referenced by {@code staff_assignment_staff_role_code_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.StaffRole getStaffRole();
+	public com.scobolsolo.application.StaffAssignment setStaffRole(com.scobolsolo.application.StaffRole argStaffRole);
 
 	public com.scobolsolo.application.StaffAssignment copy();
 
@@ -229,6 +315,10 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.StaffAssignment argFirst, com.scobolsolo.application.StaffAssignment argSecond) {
+			int lclResult = com.scobolsolo.application.Phase.StandardComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
+			if (lclResult != 0) {
+				return lclResult;
+			}
 			return com.scobolsolo.application.Staff.NameComparator.getInstance().compare(argFirst.getStaff(),  argSecond.getStaff());
 		}
 	}
@@ -241,6 +331,10 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.StaffAssignment argFirst, com.scobolsolo.application.StaffAssignment argSecond) {
+			int lclResult = com.scobolsolo.application.Phase.StandardComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
+			if (lclResult != 0) {
+				return lclResult;
+			}
 			return com.scobolsolo.application.Room.SequenceComparator.getInstance().compare(argFirst.getRoom(),  argSecond.getRoom());
 		}
 	}

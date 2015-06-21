@@ -272,6 +272,35 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	public com.scobolsolo.application.Tournament getTournament();
 	public com.scobolsolo.application.Phase setTournament(com.scobolsolo.application.Tournament argTournament);
 
+	public int getStaffAssignmentCount();
+	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
+
+	public void addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public void removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public void clearStaffAssignment();
+
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
+		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.StaffAssignment[] createStaffAssignmentArray() {
+		int lclLength = getStaffAssignmentCount();
+		com.scobolsolo.application.StaffAssignment[] lclA = new com.scobolsolo.application.StaffAssignment[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
 	public int getRoundGroupCount();
 	public java.util.Iterator<com.scobolsolo.application.RoundGroup> createRoundGroupIterator();
 

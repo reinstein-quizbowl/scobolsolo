@@ -22,6 +22,8 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 		"room_id", 
 		"note", 
 		"staff_id", 
+		"phase_id", 
+		"staff_role_code", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -113,7 +115,7 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 
 	protected void registerOpal(StaffAssignmentOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 4) { throw new IllegalStateException(); }
+		if (argValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -124,7 +126,7 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	protected void unregisterOpal(StaffAssignmentOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 4) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -136,10 +138,10 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 4) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 4) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			OpalKey<StaffAssignmentOpal> lclOldKey = null;
@@ -182,6 +184,15 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	public java.util.HashSet<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoomId };
 		final String[] lclFieldNames = new String[] { "room_id" };
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<StaffAssignmentOpal> forPhaseIdCollection(java.lang.Integer argPhaseId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argPhaseId };
+		final String[] lclFieldNames = new String[] { "phase_id" };
 		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

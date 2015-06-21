@@ -170,6 +170,11 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	}
 
 	@Override
+	public StaffRoleOpalFactory getStaffRoleOpalFactory() {
+		return PostgresStaffRoleOpalFactory.getInstance();
+	}
+
+	@Override
 	public PlayerRecordVOpalFactory getPlayerRecordVOpalFactory() {
 		return PostgresPlayerRecordVOpalFactory.getInstance();
 	}

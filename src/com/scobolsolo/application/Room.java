@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import org.apache.commons.lang3.Validate;
+
 import com.scobolsolo.persistence.RoomUserFacing;
 
 /**
@@ -11,5 +13,9 @@ import com.scobolsolo.persistence.RoomUserFacing;
  */
 
 public interface Room extends RoomUserFacing {
-	/* This block intentionally left empty. */
+	default int countMatchesIn(Phase argP) {
+		Validate.notNull(argP);
+		
+		return (int) streamMatch().filter(argM -> argM.getRound().getRoundGroup().getPhase() == argP).count();
+	}
 }

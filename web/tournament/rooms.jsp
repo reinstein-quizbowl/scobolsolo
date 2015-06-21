@@ -44,11 +44,11 @@ if (lclOF.hasErrors()) {
 					<th>Short&nbsp;name</th>
 					<th>Note</th>
 					<th><span title="Buzzers">Bz</span></th>
-					<th>Games?</th>
-					<th><span title="Sequence">Seq.</span></th>
+					<th><span title="Is this a game room?">Gm</span></th>
+					<th><span title="Sequence">Seq</span></th>
 					<th>Staff</th>
 					<th>Edit</th>
-					<th>Delete?</th>
+					<th><span title="Delete this room?">Del</span></th>
 				</tr>
 			</thead>
 			<tbody><%
@@ -67,15 +67,16 @@ if (lclOF.hasErrors()) {
 						<%= lclROF.open() %>
 						<td><%= lclROF.text("Name", 20) %></td>
 						<td><%= lclROF.text("ShortName", 10) %></td>
-						<td><%= lclROF.textarea("Note", 60, 1) %></td>
+						<td><%= lclROF.textarea("Note", 30, 1) %></td>
 						<td><%= lclR == null ? "-" : lclR.getBuzzerCount() %></td>
 						<td><%= lclROF.checkbox("GameRoom") %></td>
 						<td><%= lclROF.text("Sequence", 3) %></td>
 						<td><%
 							for (OpalForm<StaffAssignment> lclSAOF : lclROF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.StaffNameComparator.getInstance())) {
-								Staff lclS = lclSAOF.getUserFacing().getStaff();
+								StaffAssignment lclSA = lclSAOF.getUserFacing();
+								Staff lclS = lclSA.getStaff();
 								%><%= lclSAOF.open() %>
-									<a href="staff-edit.jsp?staff_id=<%= lclS.getId() %>"><%= lclS.getContact().getName() %></a> (<label class="my-inline">Unassign?&nbsp;<%= lclSAOF.delete() %></label>)<br />
+									<a href="staff-edit.jsp?staff_id=<%= lclS.getId() %>" title="<%= lclSA.getStaffRole().getName() %> during <%= lclSA.getPhase().getShortName() %><%= lclSA.getNote() == null ? "" : " (" + lclSA.getNote() + ")" %>"><%= lclS.getContact().getName() %></a><br />
 								<%= lclSAOF.close() %><%
 							}
 							

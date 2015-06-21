@@ -89,7 +89,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 	Phase lclPhase = Validate.notNull(lclPOF.getUserFacing());
 	%><div class="row">
 		<div class="small-12 columns">
-			<h2>Matches in <%= lclPhase.getName() %> (<%= lclR.getMatchCount() %>)</h2>
+			<h2>Matches in <%= lclPhase.getName() %> (<%= lclR.countMatchesIn(lclPhase) %>)</h2>
 			<table class="responsive">
 				<thead>
 					<tr>
@@ -131,43 +131,42 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 %><div class="row">
 	<div class="small-12 columns">
 		<h2>Staff</h2>
-	</div><%
-	List<OpalForm<StaffAssignment>> lclSAOFs = lclOF.children(
-		"StaffAssignment",
-		StaffAssignmentFactory.getInstance(),
-		1, // rows for new staff assignments
-		StaffAssignment.StaffNameComparator.getInstance()
-	);
-
-	for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
-		%><%= lclSAOF.open() %>
-		
-		<div class="small-12 medium-5 columns">
-			<label>
-				<%= lclSAOF.alreadyExists() ? "Staffer" : "New staffer" %>
-				<%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(StaffNCE.getInstance()) %>
-			</label>
-		</div>
-		
-		<div class="small-10 medium-5 columns">
-			<label>
-				Note
-				<%= lclOF.textarea("Note", 60, 3) %>
-			</label>
-		</div>
-		
-		<div class="small-2 columns"><%
-			if (lclSAOF.alreadyExists()) {
-				%><label>
-					Unassign?
-					<%= HTMLUtility.deleteWidget(lclSAOF) %>
-				</label><%
-			}
-		%></div>
-		
-		<%= lclSAOF.close() %><%
-	}
-%></div>
+	</div>
+	
+	<div class="small-12 columns">
+		<table class="responsive">
+			<thead>
+				<tr>
+					<th>Phase</th>
+					<th>Staffer</th>
+					<th>Role</th>
+					<th>Note</th>
+					<th>Unassign?</th>
+				</tr>
+			</thead>
+			<tbody><%
+				List<OpalForm<StaffAssignment>> lclSAOFs = lclOF.children(
+					"StaffAssignment",
+					StaffAssignmentFactory.getInstance(),
+					1, // rows for a new staff assignment
+					StaffAssignment.StaffNameComparator.getInstance()
+				);
+			
+				for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
+					%><%= lclSAOF.open() %>
+					<tr>
+						<td><%= lclSAOF.dropdown("Phase", Phase.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
+						<td><%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(StaffNCE.getInstance()) %></td>
+						<td><%= lclSAOF.dropdown("StaffRole", StaffRole.SequenceComparator.getInstance()) %></td>
+						<td><%= lclOF.textarea("Note", 30, 1) %></td>
+						<td><%= HTMLUtility.deleteWidget(lclSAOF) %></td>
+					</tr>
+					<%= lclSAOF.close() %><%
+				}
+			%></tbody>
+		</table>
+	</div>
+</div>
 
 <div class="row">
 	<div class="small-12 columns">

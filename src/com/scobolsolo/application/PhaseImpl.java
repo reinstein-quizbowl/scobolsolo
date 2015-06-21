@@ -146,6 +146,36 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	to this object. */
 
 	@Override
+	public void addStaffAssignment(StaffAssignment argStaffAssignment) {
+		getPhaseOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+	}
+
+	@Override
+	public void removeStaffAssignment(StaffAssignment argStaffAssignment) {
+		getPhaseOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+	}
+
+	@Override
+	public int getStaffAssignmentCount() {
+		return getPhaseOpal().getStaffAssignmentOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<StaffAssignment> streamStaffAssignment() {
+		return getPhaseOpal().streamStaffAssignmentOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<StaffAssignment> createStaffAssignmentIterator() {
+		return new com.opal.OpalIterator<> (getPhaseOpal().createStaffAssignmentOpalIterator());
+	}
+
+	@Override
+	public void clearStaffAssignment() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
 	public void addRoundGroup(RoundGroup argRoundGroup) {
 		getPhaseOpal().addRoundGroupOpal(((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
 	}

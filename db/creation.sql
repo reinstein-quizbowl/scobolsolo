@@ -80,12 +80,35 @@ CREATE TABLE Standby_Entry (
 );
 ALTER SEQUENCE standby_entry_id_seq RESTART WITH 1000;
 
-CREATE TABLE Staffer (
+CREATE TABLE Staff (
 	id SERIAL PRIMARY KEY,
 	contact_id INTEGER NOT NULL REFERENCES Contact ON UPDATE CASCADE ON DELETE RESTRICT,
 	tournament_code code_t REFERENCES Tournament ON UPDATE CASCADE ON DELETE RESTRICT,
 	school_registration_id INTEGER REFERENCES Registration ON UPDATE CASCADE ON DELETE RESTRICT, -- implies tournament
 	note note_t
+);
+
+CREATE TABLE Staff_Role (
+	code code_t PRIMARY KEY,
+	name name_t UNIQUE,
+	short_name short_name_t UNIQUE,
+	very_short_name very_short_name_t UNIQUE,
+	sequence sequence_t
+);
+INSERT INTO Staff_Role (name, short_name, very_short_name, code, sequence) VALUES
+('Tournament Director', 'TD', 'TD', 'TOURNAMENT_DIRECTOR', 0),
+('Moderator', 'Moderator', 'Mod', 'MODERATOR', 100),
+('Scorekeeper', 'Scorekeeper', 'SK', 'SCOREKEEPER', 200),
+('Statistician', 'Statistician', 'Stats', 'STATISTICIAN', 300),
+('On Call', 'On Call', 'On Call', 'ON_CALL', 999);
+
+CREATE TABLE Staff_Assignment (
+	id SERIAL PRIMARY KEY,
+	staff_id INTEGER NOT NULL REFERENCES Staff ON UPDATE CASCADE ON DELETE RESTRICT, -- implies tournament
+	room_id INTEGER NOT NULL REFERENCES Room ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies tournament
+	note TEXT,
+	phase_id INTEGER NOT NULL REFERENCES Phase ON UPDATE CASCADE ON DELETE RESTRICT,
+	staff_role_code code_t REFERENCES Staff_Role ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE School_Year (
@@ -199,7 +222,7 @@ ALTER SEQUENCE match_id_seq RESTART WITH 1000;
 
 CREATE TABLE Game (-- 1-1 with Match
 	id INTEGER PRIMARY KEY REFERENCES Match ON UPDATE CASCADE ON DELETE RESTRICT,
-	moderator_staffer_id INTEGER REFERENCES Staffer ON UPDATE CASCADE ON DELETE RESTRICT,
+	moderator_staff_id INTEGER REFERENCES Staff ON UPDATE CASCADE ON DELETE RESTRICT,
 	tossups_heard INTEGER CHECK(tossups_heard IS NULL OR tossups_heard > 0),
 	incoming_winning_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up from the first feeding result and the second isn't in yet
 	incoming_losing_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up from the first feeding result and the second isn't in yet
