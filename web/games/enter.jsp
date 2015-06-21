@@ -487,12 +487,19 @@ if (lclM.determineStatus().mayEnterData()) {
 		}
 		%>];
 		
+		var lclHasChanged = false;
+		
 		$(document).ready(function() {
-			$('.responses label:has(input[type=radio]:checked)').addClass('active active-response').siblings().removeClass('active active-response');
+			$('.responses label:has(input[type=radio]:checked)')
+				.addClass('active active-response')
+				.siblings().removeClass('active active-response');
 			
-			$('.responses label').click( function() {
-				$(this).addClass('active active-response').siblings().removeClass('active active-response');
-			});
+			$('.responses label').click(
+				function() {
+					$(this).addClass('active active-response').siblings().removeClass('active active-response');
+					lclHasChanged = true;
+				}
+			);
 			
 			function calculateAndDisplayScores() {
 				var lclLeftScore = 0;
@@ -520,6 +527,8 @@ if (lclM.determineStatus().mayEnterData()) {
 			document.game.reset();
 			calculateAndDisplayScores();
 		});
+		
+		window.onbeforeunload = function() {if (lclHasChanged) {return "Data you have entered may not be saved.";}};
 	</script><%
 	// TODO: only allow tiebreaker if tied after regulation
 }
