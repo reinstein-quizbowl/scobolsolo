@@ -301,7 +301,7 @@ if (lclM.determineStatus().mayEnterData()) {
 							<th>Category</th>
 							<th class="response-column">Response for <%= lclLeftPlayer.getContact().getName() %></th>
 							<th class="center">
-								<a href="enter.jsp?match_id=<%= lclM.getId() %>&flip=<%= !lclFlip %>" title="Swap sides" class="info button tiny stealth-tool-tip">
+								<a href="dual-game-enter.jsp?match_id=<%= lclM.getId() %>&flip=<%= !lclFlip %>" title="Swap sides" class="info button tiny stealth-tool-tip">
 									<span class="swap-button fi-loop"></span>
 								</a>
 							</th>

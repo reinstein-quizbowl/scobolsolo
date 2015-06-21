@@ -46,7 +46,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					Game lclG = lclM.getGame();
 					%><tr>
 						<td>
-							<a href="enter.jsp?match_id=<%= lclM.getId() %>"><%
+							<a href="dual-game-enter.jsp?match_id=<%= lclM.getId() %>"><%
 								MatchStatus lclS = lclM.determineStatus();
 								%><%= lclS %><%
 								if (lclS.hasResults() && lclM.isDual()) {

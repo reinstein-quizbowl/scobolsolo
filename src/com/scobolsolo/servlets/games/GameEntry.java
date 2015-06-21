@@ -16,7 +16,7 @@ import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 public class GameEntry extends ScobolSoloControllerServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static final String RETURN_URL = "/games/enter.jsp";
+	private static final String RETURN_URL = "/games/dual-game-enter.jsp";
 	
 	@Override
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
