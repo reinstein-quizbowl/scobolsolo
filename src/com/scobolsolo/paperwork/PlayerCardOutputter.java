@@ -95,6 +95,7 @@ public class PlayerCardOutputter extends PhaseSpecificLaTeXOutputter {
 			getWriter().println("\\end{tabular}");
 			
 			if (lclC.getFinalMessage() != null) {
+				getWriter().println();
 				getWriter().println("\\vspace{20pt}");
 				getWriter().println("\\CardFinalMessage{" + escape(lclC.getFinalMessage()) + "}");
 			}

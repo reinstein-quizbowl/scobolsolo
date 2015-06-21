@@ -10,7 +10,7 @@ import java.nio.file.DirectoryNotEmptyException;
 import org.apache.commons.lang3.Validate;
 
 public class LaTeXCompiler {
-//	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(LaTeXCompiler.class);
+	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(LaTeXCompiler.class);
 	
 	public static final String LATEX_PATH = "/usr/local/texlive/2014/bin/x86_64-linux/pdflatex";
 	public static final String TEX_MIME_TYPE = "application/x-tex";
@@ -52,7 +52,7 @@ public class LaTeXCompiler {
 					@SuppressWarnings("unused") String lclOutputLine;
 					while ((lclOutputLine = lclOutput.readLine()) != null) {
 						// We need to read this output to avoid the process blocking.  But we don't want to actually see it or anything.
-						// System.out.println(lclOutputLine);
+						ourLogger.debug(lclOutputLine);
 					}
 				}
 			} catch (IOException lclIOE) {

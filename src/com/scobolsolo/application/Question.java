@@ -33,10 +33,8 @@ public interface Question extends QuestionUserFacing {
 	default Diff getLastChange() {
 		SortedSet<Diff> lclDiffs = getDiffs();
 		if (lclDiffs.isEmpty()) {
-			ourLogger.debug("No diffs");
 			return null;
 		} else {
-			ourLogger.debug("Diffs: " + lclDiffs);
 			return lclDiffs.last();
 		}
 	}
