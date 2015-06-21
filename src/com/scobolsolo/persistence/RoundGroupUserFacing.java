@@ -24,18 +24,18 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code round_group}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code round_group}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -65,7 +65,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code round_group}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -89,7 +89,7 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code round_group}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -115,18 +115,18 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
 	 * primitive accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code round_group}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code round_group}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();
@@ -158,18 +158,18 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPhaseId() method.</p>
 	 *
-	 * @return an object value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PhaseId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getPhaseIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code PhaseId}
 	 *
-	 * <p>The {@code PhaseId} field is a direct mapping of the {@code phase_id} field in {@code round_group}.</p>
+	 * <p>The {@code PhaseId} field is a direct mapping of the {@code phase_id} database column in the table {@code round_group}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPhaseIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code PhaseId} (of the current {@link TransactionContext})
 	 */
 	default public int getPhaseId() {
 		java.lang.Integer lclO = getPhaseIdAsObject();
@@ -297,11 +297,11 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.RoundGroup argFirst, com.scobolsolo.application.RoundGroup argSecond) {
-			int lclResult = com.scobolsolo.application.Phase.SequenceComparator.getInstance().compare(argFirst.getPhase(), argSecond.getPhase());
+			int lclResult = com.scobolsolo.application.Phase.SequenceComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
 			if (lclResult != 0) {
 				return lclResult;
 			}
-			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
+			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

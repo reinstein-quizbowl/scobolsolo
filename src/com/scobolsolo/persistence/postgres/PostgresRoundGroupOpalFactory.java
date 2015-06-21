@@ -56,19 +56,6 @@ public class PostgresRoundGroupOpalFactory extends com.opal.AbstractDatabaseIden
 	}
 
 	@Override
-	public RoundGroupOpal create(RoundGroup argUF) {
-		assert argUF != null;
-		RoundGroupOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public RoundGroupOpal create() {
 		RoundGroupOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

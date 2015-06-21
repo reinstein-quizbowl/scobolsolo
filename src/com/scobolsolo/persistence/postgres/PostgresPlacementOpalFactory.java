@@ -57,19 +57,6 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	}
 
 	@Override
-	public PlacementOpal create(Placement argUF) {
-		assert argUF != null;
-		PlacementOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public PlacementOpal create() {
 		PlacementOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

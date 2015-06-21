@@ -60,19 +60,6 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public PlayerOpal create(Player argUF) {
-		assert argUF != null;
-		PlayerOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public PlayerOpal create() {
 		PlayerOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.PlacementOpalFactory;
 import com.scobolsolo.persistence.PlacementOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class PlacementFactory extends com.opal.AbstractFactory<Placement, PlacementOpal> implements com.opal.FactoryCreator<Placement> , com.opal.IdentityFactory<Placement> {
+public class PlacementFactory extends com.opal.AbstractFactory<Placement, PlacementOpal> implements com.opal.FactoryCreator<Placement>, com.opal.IdentityFactory<Placement> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

@@ -58,19 +58,6 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	}
 
 	@Override
-	public GameOpal create(Game argUF) {
-		assert argUF != null;
-		GameOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public GameOpal create() {
 		GameOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

@@ -55,19 +55,6 @@ public class PostgresCategoryGroupOpalFactory extends com.opal.AbstractDatabaseI
 	}
 
 	@Override
-	public CategoryGroupOpal create(CategoryGroup argUF) {
-		assert argUF != null;
-		CategoryGroupOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public CategoryGroupOpal create() {
 		CategoryGroupOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.RoomOpalFactory;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class RoomFactory extends com.opal.AbstractFactory<Room, RoomOpal> implements com.opal.FactoryCreator<Room> , com.opal.IdentityFactory<Room> {
+public class RoomFactory extends com.opal.AbstractFactory<Room, RoomOpal> implements com.opal.FactoryCreator<Room>, com.opal.IdentityFactory<Room> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

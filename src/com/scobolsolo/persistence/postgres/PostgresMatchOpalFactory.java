@@ -56,19 +56,6 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public MatchOpal create(Match argUF) {
-		assert argUF != null;
-		MatchOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public MatchOpal create() {
 		MatchOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

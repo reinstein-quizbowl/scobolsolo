@@ -60,19 +60,6 @@ public class PostgresResponseTypeOpalFactory extends com.opal.AbstractDatabaseId
 	}
 
 	@Override
-	public ResponseTypeOpal create(ResponseType argUF) {
-		assert argUF != null;
-		ResponseTypeOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public ResponseTypeOpal create() {
 		ResponseTypeOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

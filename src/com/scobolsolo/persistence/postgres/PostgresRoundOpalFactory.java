@@ -58,19 +58,6 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public RoundOpal create(Round argUF) {
-		assert argUF != null;
-		RoundOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public RoundOpal create() {
 		RoundOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

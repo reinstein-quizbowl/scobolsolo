@@ -22,7 +22,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>The {@code Code} field is a direct mapping of the {@code code} field in {@code response_type}.</p>
 	 *
-	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Code} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getCode();
 
@@ -46,7 +46,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code response_type}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -70,7 +70,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code response_type}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -96,18 +96,18 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
 	 * primitive accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code response_type}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code response_type}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();
@@ -139,18 +139,18 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPoints() method.</p>
 	 *
-	 * @return an object value of {@code Points} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Points} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getPointsAsObject();
 
 	/**
 	 * primitive accessor for the {@code Points}
 	 *
-	 * <p>The {@code Points} field is a direct mapping of the {@code points} field in {@code response_type}.</p>
+	 * <p>The {@code Points} field is a direct mapping of the {@code points} database column in the table {@code response_type}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPointsAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Points} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Points} (of the current {@link TransactionContext})
 	 */
 	default public int getPoints() {
 		java.lang.Integer lclO = getPointsAsObject();
@@ -180,7 +180,7 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>The {@code BootstrapButtonClass} field is a direct mapping of the {@code bootstrap_button_class} field in {@code response_type}.</p>
 	 *
-	 * @return an object value of {@code BootstrapButtonClass} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code BootstrapButtonClass} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getBootstrapButtonClass();
 
@@ -206,18 +206,18 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isDefault() method.</p>
 	 *
-	 * @return an object value of {@code Default} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Default} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isDefaultAsObject();
 
 	/**
 	 * primitive accessor for the {@code Default}
 	 *
-	 * <p>The {@code Default} field is a direct mapping of the {@code is_default} field in {@code response_type}.</p>
+	 * <p>The {@code Default} field is a direct mapping of the {@code is_default} database column in the table {@code response_type}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isDefaultAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Default} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Default} (of the current {@link TransactionContext})
 	 */
 	default public boolean isDefault() {
 		java.lang.Boolean lclO = isDefaultAsObject();
@@ -249,18 +249,18 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isMultipleAllowedForSamePlacement() method.</p>
 	 *
-	 * @return an object value of {@code MultipleAllowedForSamePlacement} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code MultipleAllowedForSamePlacement} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isMultipleAllowedForSamePlacementAsObject();
 
 	/**
 	 * primitive accessor for the {@code MultipleAllowedForSamePlacement}
 	 *
-	 * <p>The {@code MultipleAllowedForSamePlacement} field is a direct mapping of the {@code multiple_allowed_for_same_placement} field in {@code response_type}.</p>
+	 * <p>The {@code MultipleAllowedForSamePlacement} field is a direct mapping of the {@code multiple_allowed_for_same_placement} database column in the table {@code response_type}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isMultipleAllowedForSamePlacementAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code MultipleAllowedForSamePlacement} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code MultipleAllowedForSamePlacement} (of the current {@link TransactionContext})
 	 */
 	default public boolean isMultipleAllowedForSamePlacement() {
 		java.lang.Boolean lclO = isMultipleAllowedForSamePlacementAsObject();
@@ -292,18 +292,18 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isAttempt() method.</p>
 	 *
-	 * @return an object value of {@code Attempt} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Attempt} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isAttemptAsObject();
 
 	/**
 	 * primitive accessor for the {@code Attempt}
 	 *
-	 * <p>The {@code Attempt} field is a direct mapping of the {@code is_attempt} field in {@code response_type}.</p>
+	 * <p>The {@code Attempt} field is a direct mapping of the {@code is_attempt} database column in the table {@code response_type}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isAttemptAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Attempt} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Attempt} (of the current {@link TransactionContext})
 	 */
 	default public boolean isAttempt() {
 		java.lang.Boolean lclO = isAttemptAsObject();

@@ -58,19 +58,6 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	}
 
 	@Override
-	public RoomOpal create(Room argUF) {
-		assert argUF != null;
-		RoomOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public RoomOpal create() {
 		RoomOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

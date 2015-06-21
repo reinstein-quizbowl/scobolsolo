@@ -53,19 +53,6 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 	}
 
 	@Override
-	public CategoryUseOpal create(CategoryUse argUF) {
-		assert argUF != null;
-		CategoryUseOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public CategoryUseOpal create() {
 		CategoryUseOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

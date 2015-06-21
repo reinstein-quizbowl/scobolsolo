@@ -56,19 +56,6 @@ public class PostgresSchoolYearOpalFactory extends com.opal.AbstractDatabaseIden
 	}
 
 	@Override
-	public SchoolYearOpal create(SchoolYear argUF) {
-		assert argUF != null;
-		SchoolYearOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public SchoolYearOpal create() {
 		SchoolYearOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

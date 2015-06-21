@@ -59,19 +59,6 @@ public class PostgresSchoolRegistrationOpalFactory extends com.opal.AbstractData
 	}
 
 	@Override
-	public SchoolRegistrationOpal create(SchoolRegistration argUF) {
-		assert argUF != null;
-		SchoolRegistrationOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public SchoolRegistrationOpal create() {
 		SchoolRegistrationOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

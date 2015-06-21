@@ -56,19 +56,6 @@ public class PostgresStandbyEntryOpalFactory extends com.opal.AbstractDatabaseId
 	}
 
 	@Override
-	public StandbyEntryOpal create(StandbyEntry argUF) {
-		assert argUF != null;
-		StandbyEntryOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public StandbyEntryOpal create() {
 		StandbyEntryOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

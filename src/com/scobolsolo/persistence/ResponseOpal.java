@@ -238,7 +238,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewPerformanceOpal;
+		lclUO = myNewPlacementOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -252,7 +252,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewPlacementOpal;
+		lclUO = myNewPerformanceOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -271,7 +271,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldPerformanceOpal;
+		lclUO = myOldPlacementOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -285,7 +285,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldPlacementOpal;
+		lclUO = myOldPerformanceOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

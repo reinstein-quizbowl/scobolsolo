@@ -24,18 +24,18 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code match}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code match}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,18 +67,18 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRoundId() method.</p>
 	 *
-	 * @return an object value of {@code RoundId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code RoundId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getRoundIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code RoundId}
 	 *
-	 * <p>The {@code RoundId} field is a direct mapping of the {@code round_id} field in {@code match}.</p>
+	 * <p>The {@code RoundId} field is a direct mapping of the {@code round_id} database column in the table {@code match}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRoundIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code RoundId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code RoundId} (of the current {@link TransactionContext})
 	 */
 	default public int getRoundId() {
 		java.lang.Integer lclO = getRoundIdAsObject();
@@ -110,18 +110,18 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRoomId() method.</p>
 	 *
-	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code RoomId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getRoomIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code RoomId}
 	 *
-	 * <p>The {@code RoomId} field is a direct mapping of the {@code room_id} field in {@code match}.</p>
+	 * <p>The {@code RoomId} field is a direct mapping of the {@code room_id} database column in the table {@code match}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRoomIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code RoomId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code RoomId} (of the current {@link TransactionContext})
 	 */
 	default public int getRoomId() {
 		java.lang.Integer lclO = getRoomIdAsObject();
@@ -153,19 +153,19 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getWinningCardId() method.</p>
 	 *
-	 * @return an object value of {@code WinningCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code WinningCardId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getWinningCardIdAsObject();
 
 	/**
 	 * object accessor for the {@code WinningCardId} with substitution for a null value
 	 *
-	 * <p>The {@code WinningCardId} field is a direct mapping of the {@code winning_card_id} field in {@code match}.</p>
+	 * <p>The {@code WinningCardId} field is a direct mapping of the {@code winning_card_id} database column in the table {@code match}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code WinningCardId} is {@code null}.
-	 * @return an object value of {@code WinningCardId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code WinningCardId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getWinningCardIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getWinningCardIdAsObject();
@@ -176,13 +176,13 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code WinningCardId}
 	 *
-	 * <p>The {@code WinningCardId} field is a direct mapping of the {@code winning_card_id} field in {@code match}.</p>
+	 * <p>The {@code WinningCardId} field is a direct mapping of the {@code winning_card_id} database column in the table {@code match}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getWinningCardIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code WinningCardId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code WinningCardId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getWinningCardId() throws com.opal.NullValueException {
@@ -224,19 +224,19 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getLosingCardId() method.</p>
 	 *
-	 * @return an object value of {@code LosingCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code LosingCardId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getLosingCardIdAsObject();
 
 	/**
 	 * object accessor for the {@code LosingCardId} with substitution for a null value
 	 *
-	 * <p>The {@code LosingCardId} field is a direct mapping of the {@code losing_card_id} field in {@code match}.</p>
+	 * <p>The {@code LosingCardId} field is a direct mapping of the {@code losing_card_id} database column in the table {@code match}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code LosingCardId} is {@code null}.
-	 * @return an object value of {@code LosingCardId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code LosingCardId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getLosingCardIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getLosingCardIdAsObject();
@@ -247,13 +247,13 @@ public interface MatchUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code LosingCardId}
 	 *
-	 * <p>The {@code LosingCardId} field is a direct mapping of the {@code losing_card_id} field in {@code match}.</p>
+	 * <p>The {@code LosingCardId} field is a direct mapping of the {@code losing_card_id} database column in the table {@code match}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getLosingCardIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code LosingCardId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code LosingCardId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getLosingCardId() throws com.opal.NullValueException {
@@ -347,7 +347,7 @@ public interface MatchUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Match argFirst, com.scobolsolo.application.Match argSecond) {
-			return com.scobolsolo.application.Round.StandardComparator.getInstance().compare(argFirst.getRound(), argSecond.getRound());
+			return com.scobolsolo.application.Round.StandardComparator.getInstance().compare(argFirst.getRound(),  argSecond.getRound());
 		}
 	}
 

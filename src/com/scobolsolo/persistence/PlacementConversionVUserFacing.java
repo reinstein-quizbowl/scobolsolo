@@ -22,7 +22,7 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code placement_conversion_v}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -33,19 +33,19 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPlacementId() method.</p>
 	 *
-	 * @return an object value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code PlacementId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getPlacementIdAsObject();
 
 	/**
 	 * object accessor for the {@code PlacementId} with substitution for a null value
 	 *
-	 * <p>The {@code PlacementId} field is a direct mapping of the {@code placement_id} field in {@code placement_conversion_v}.</p>
+	 * <p>The {@code PlacementId} field is a direct mapping of the {@code placement_id} database column in the table {@code placement_conversion_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code PlacementId} is {@code null}.
-	 * @return an object value of {@code PlacementId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code PlacementId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getPlacementIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getPlacementIdAsObject();
@@ -56,13 +56,13 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code PlacementId}
 	 *
-	 * <p>The {@code PlacementId} field is a direct mapping of the {@code placement_id} field in {@code placement_conversion_v}.</p>
+	 * <p>The {@code PlacementId} field is a direct mapping of the {@code placement_id} database column in the table {@code placement_conversion_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPlacementIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code PlacementId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getPlacementId() throws com.opal.NullValueException {
@@ -90,19 +90,19 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getQuestionId() method.</p>
 	 *
-	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code QuestionId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getQuestionIdAsObject();
 
 	/**
 	 * object accessor for the {@code QuestionId} with substitution for a null value
 	 *
-	 * <p>The {@code QuestionId} field is a direct mapping of the {@code question_id} field in {@code placement_conversion_v}.</p>
+	 * <p>The {@code QuestionId} field is a direct mapping of the {@code question_id} database column in the table {@code placement_conversion_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code QuestionId} is {@code null}.
-	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code QuestionId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getQuestionIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getQuestionIdAsObject();
@@ -113,13 +113,13 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code QuestionId}
 	 *
-	 * <p>The {@code QuestionId} field is a direct mapping of the {@code question_id} field in {@code placement_conversion_v}.</p>
+	 * <p>The {@code QuestionId} field is a direct mapping of the {@code question_id} database column in the table {@code placement_conversion_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getQuestionIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code QuestionId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getQuestionId() throws com.opal.NullValueException {
@@ -145,7 +145,7 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	 *
 	 * <p>The {@code ResponseTypeCode} field is a direct mapping of the {@code response_type_code} field in {@code placement_conversion_v}.</p>
 	 *
-	 * @return an object value of {@code ResponseTypeCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ResponseTypeCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getResponseTypeCode();
 
@@ -156,19 +156,19 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getResponseTypeCount() method.</p>
 	 *
-	 * @return an object value of {@code ResponseTypeCount} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ResponseTypeCount} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getResponseTypeCountAsObject();
 
 	/**
 	 * object accessor for the {@code ResponseTypeCount} with substitution for a null value
 	 *
-	 * <p>The {@code ResponseTypeCount} field is a direct mapping of the {@code response_type_count} field in {@code placement_conversion_v}.</p>
+	 * <p>The {@code ResponseTypeCount} field is a direct mapping of the {@code response_type_count} database column in the table {@code placement_conversion_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ResponseTypeCount} is {@code null}.
-	 * @return an object value of {@code ResponseTypeCount} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ResponseTypeCount} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getResponseTypeCountAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getResponseTypeCountAsObject();
@@ -179,13 +179,13 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code ResponseTypeCount}
 	 *
-	 * <p>The {@code ResponseTypeCount} field is a direct mapping of the {@code response_type_count} field in {@code placement_conversion_v}.</p>
+	 * <p>The {@code ResponseTypeCount} field is a direct mapping of the {@code response_type_count} database column in the table {@code placement_conversion_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getResponseTypeCountAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code ResponseTypeCount} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code ResponseTypeCount} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getResponseTypeCount() throws com.opal.NullValueException {
@@ -238,7 +238,7 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.PlacementConversionV argFirst, com.scobolsolo.application.PlacementConversionV argSecond) {
-			return com.scobolsolo.application.Placement.StandardComparator.getInstance().compare(argFirst.getPlacement(), argSecond.getPlacement());
+			return com.scobolsolo.application.Placement.StandardComparator.getInstance().compare(argFirst.getPlacement(),  argSecond.getPlacement());
 		}
 	}
 

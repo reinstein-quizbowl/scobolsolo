@@ -22,7 +22,7 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code player_match_v}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -33,19 +33,19 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPlayerId() method.</p>
 	 *
-	 * @return an object value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code PlayerId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getPlayerIdAsObject();
 
 	/**
 	 * object accessor for the {@code PlayerId} with substitution for a null value
 	 *
-	 * <p>The {@code PlayerId} field is a direct mapping of the {@code player_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code PlayerId} field is a direct mapping of the {@code player_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code PlayerId} is {@code null}.
-	 * @return an object value of {@code PlayerId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code PlayerId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getPlayerIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getPlayerIdAsObject();
@@ -56,13 +56,13 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code PlayerId}
 	 *
-	 * <p>The {@code PlayerId} field is a direct mapping of the {@code player_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code PlayerId} field is a direct mapping of the {@code player_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPlayerIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code PlayerId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getPlayerId() throws com.opal.NullValueException {
@@ -90,19 +90,19 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPerformanceId() method.</p>
 	 *
-	 * @return an object value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code PerformanceId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getPerformanceIdAsObject();
 
 	/**
 	 * object accessor for the {@code PerformanceId} with substitution for a null value
 	 *
-	 * <p>The {@code PerformanceId} field is a direct mapping of the {@code performance_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code PerformanceId} field is a direct mapping of the {@code performance_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code PerformanceId} is {@code null}.
-	 * @return an object value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code PerformanceId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getPerformanceIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getPerformanceIdAsObject();
@@ -113,13 +113,13 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code PerformanceId}
 	 *
-	 * <p>The {@code PerformanceId} field is a direct mapping of the {@code performance_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code PerformanceId} field is a direct mapping of the {@code performance_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPerformanceIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code PerformanceId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getPerformanceId() throws com.opal.NullValueException {
@@ -147,19 +147,19 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getOpponentPlayerId() method.</p>
 	 *
-	 * @return an object value of {@code OpponentPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code OpponentPlayerId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getOpponentPlayerIdAsObject();
 
 	/**
 	 * object accessor for the {@code OpponentPlayerId} with substitution for a null value
 	 *
-	 * <p>The {@code OpponentPlayerId} field is a direct mapping of the {@code opponent_player_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code OpponentPlayerId} field is a direct mapping of the {@code opponent_player_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code OpponentPlayerId} is {@code null}.
-	 * @return an object value of {@code OpponentPlayerId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code OpponentPlayerId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getOpponentPlayerIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getOpponentPlayerIdAsObject();
@@ -170,13 +170,13 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code OpponentPlayerId}
 	 *
-	 * <p>The {@code OpponentPlayerId} field is a direct mapping of the {@code opponent_player_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code OpponentPlayerId} field is a direct mapping of the {@code opponent_player_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getOpponentPlayerIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code OpponentPlayerId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code OpponentPlayerId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getOpponentPlayerId() throws com.opal.NullValueException {
@@ -204,19 +204,19 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getOpponentPerformanceId() method.</p>
 	 *
-	 * @return an object value of {@code OpponentPerformanceId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code OpponentPerformanceId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getOpponentPerformanceIdAsObject();
 
 	/**
 	 * object accessor for the {@code OpponentPerformanceId} with substitution for a null value
 	 *
-	 * <p>The {@code OpponentPerformanceId} field is a direct mapping of the {@code opponent_performance_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code OpponentPerformanceId} field is a direct mapping of the {@code opponent_performance_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code OpponentPerformanceId} is {@code null}.
-	 * @return an object value of {@code OpponentPerformanceId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code OpponentPerformanceId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getOpponentPerformanceIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getOpponentPerformanceIdAsObject();
@@ -227,13 +227,13 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code OpponentPerformanceId}
 	 *
-	 * <p>The {@code OpponentPerformanceId} field is a direct mapping of the {@code opponent_performance_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code OpponentPerformanceId} field is a direct mapping of the {@code opponent_performance_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getOpponentPerformanceIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code OpponentPerformanceId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code OpponentPerformanceId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getOpponentPerformanceId() throws com.opal.NullValueException {
@@ -261,19 +261,19 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getMatchId() method.</p>
 	 *
-	 * @return an object value of {@code MatchId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code MatchId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getMatchIdAsObject();
 
 	/**
 	 * object accessor for the {@code MatchId} with substitution for a null value
 	 *
-	 * <p>The {@code MatchId} field is a direct mapping of the {@code match_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code MatchId} field is a direct mapping of the {@code match_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code MatchId} is {@code null}.
-	 * @return an object value of {@code MatchId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code MatchId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getMatchIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getMatchIdAsObject();
@@ -284,13 +284,13 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code MatchId}
 	 *
-	 * <p>The {@code MatchId} field is a direct mapping of the {@code match_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code MatchId} field is a direct mapping of the {@code match_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getMatchIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code MatchId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code MatchId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getMatchId() throws com.opal.NullValueException {
@@ -318,19 +318,19 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getGameId() method.</p>
 	 *
-	 * @return an object value of {@code GameId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code GameId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getGameIdAsObject();
 
 	/**
 	 * object accessor for the {@code GameId} with substitution for a null value
 	 *
-	 * <p>The {@code GameId} field is a direct mapping of the {@code game_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code GameId} field is a direct mapping of the {@code game_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code GameId} is {@code null}.
-	 * @return an object value of {@code GameId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code GameId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getGameIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getGameIdAsObject();
@@ -341,13 +341,13 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	/**
 	 * primitive accessor for the {@code GameId}
 	 *
-	 * <p>The {@code GameId} field is a direct mapping of the {@code game_id} field in {@code player_match_v}.</p>
+	 * <p>The {@code GameId} field is a direct mapping of the {@code game_id} database column in the table {@code player_match_v}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getGameIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code GameId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code GameId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getGameId() throws com.opal.NullValueException {
@@ -418,7 +418,7 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.PlayerMatchV argFirst, com.scobolsolo.application.PlayerMatchV argSecond) {
-			return com.scobolsolo.application.Match.RoundComparator.getInstance().compare(argFirst.getMatch(), argSecond.getMatch());
+			return com.scobolsolo.application.Match.RoundComparator.getInstance().compare(argFirst.getMatch(),  argSecond.getMatch());
 		}
 	}
 

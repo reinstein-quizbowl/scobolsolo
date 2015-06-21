@@ -24,18 +24,18 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code account}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code account}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -65,7 +65,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Username} field is a direct mapping of the {@code username} field in {@code account}.</p>
 	 *
-	 * @return an object value of {@code Username} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Username} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getUsername();
 
@@ -89,7 +89,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code PasswordHash} field is a direct mapping of the {@code password_hash} field in {@code account}.</p>
 	 *
-	 * @return an object value of {@code PasswordHash} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PasswordHash} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getPasswordHash();
 
@@ -115,18 +115,18 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isAdministrator() method.</p>
 	 *
-	 * @return an object value of {@code Administrator} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Administrator} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isAdministratorAsObject();
 
 	/**
 	 * primitive accessor for the {@code Administrator}
 	 *
-	 * <p>The {@code Administrator} field is a direct mapping of the {@code administrator} field in {@code account}.</p>
+	 * <p>The {@code Administrator} field is a direct mapping of the {@code administrator} database column in the table {@code account}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isAdministratorAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Administrator} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Administrator} (of the current {@link TransactionContext})
 	 */
 	default public boolean isAdministrator() {
 		java.lang.Boolean lclO = isAdministratorAsObject();
@@ -158,18 +158,18 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isActive() method.</p>
 	 *
-	 * @return an object value of {@code Active} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Active} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isActiveAsObject();
 
 	/**
 	 * primitive accessor for the {@code Active}
 	 *
-	 * <p>The {@code Active} field is a direct mapping of the {@code active} field in {@code account}.</p>
+	 * <p>The {@code Active} field is a direct mapping of the {@code active} database column in the table {@code account}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isActiveAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Active} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Active} (of the current {@link TransactionContext})
 	 */
 	default public boolean isActive() {
 		java.lang.Boolean lclO = isActiveAsObject();
@@ -226,25 +226,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Account argFirst, com.scobolsolo.application.Account argSecond) {
-			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(), argSecond.getContact());
-		}
-	}
-
-	/** This is a Filter that will pass Account objects if their {@code Active} value is {@code true}. */
-
-	public static class ActiveFilter extends com.siliconage.util.Filter<com.scobolsolo.application.Account> {
-		private static final ActiveFilter ourInstance = new ActiveFilter();
-		public static final ActiveFilter getInstance() { return ourInstance; }
-
-		private ActiveFilter() { super(); }
-
-		@Override
-		public boolean accept(com.scobolsolo.application.Account argObject) {
-			if (argObject == null) {
-				return false;
-			} else {
-				return Boolean.TRUE.equals(argObject.isActiveAsObject());
-			}
+			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(),  argSecond.getContact());
 		}
 	}
 

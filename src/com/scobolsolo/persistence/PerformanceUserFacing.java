@@ -24,18 +24,18 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code performance}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code performance}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,18 +67,18 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getGameId() method.</p>
 	 *
-	 * @return an object value of {@code GameId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code GameId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getGameIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code GameId}
 	 *
-	 * <p>The {@code GameId} field is a direct mapping of the {@code game_id} field in {@code performance}.</p>
+	 * <p>The {@code GameId} field is a direct mapping of the {@code game_id} database column in the table {@code performance}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getGameIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code GameId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code GameId} (of the current {@link TransactionContext})
 	 */
 	default public int getGameId() {
 		java.lang.Integer lclO = getGameIdAsObject();
@@ -110,18 +110,18 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPlayerId() method.</p>
 	 *
-	 * @return an object value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PlayerId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getPlayerIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code PlayerId}
 	 *
-	 * <p>The {@code PlayerId} field is a direct mapping of the {@code player_id} field in {@code performance}.</p>
+	 * <p>The {@code PlayerId} field is a direct mapping of the {@code player_id} database column in the table {@code performance}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPlayerIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code PlayerId} (of the current {@link TransactionContext})
 	 */
 	default public int getPlayerId() {
 		java.lang.Integer lclO = getPlayerIdAsObject();

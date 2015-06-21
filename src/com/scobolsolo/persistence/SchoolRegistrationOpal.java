@@ -392,7 +392,7 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewMainContactOpal;
+		lclUO = myNewSchoolOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
@@ -404,7 +404,7 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewSchoolOpal;
+		lclUO = myNewMainContactOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -418,7 +418,7 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldMainContactOpal;
+		lclUO = myOldSchoolOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
@@ -430,7 +430,7 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldSchoolOpal;
+		lclUO = myOldMainContactOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

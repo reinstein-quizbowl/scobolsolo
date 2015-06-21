@@ -66,19 +66,6 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 	}
 
 	@Override
-	public TournamentOpal create(Tournament argUF) {
-		assert argUF != null;
-		TournamentOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public TournamentOpal create() {
 		TournamentOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

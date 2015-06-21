@@ -24,18 +24,18 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code round}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code round}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,19 +67,19 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRoundGroupId() method.</p>
 	 *
-	 * @return an object value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code RoundGroupId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getRoundGroupIdAsObject();
 
 	/**
 	 * object accessor for the {@code RoundGroupId} with substitution for a null value
 	 *
-	 * <p>The {@code RoundGroupId} field is a direct mapping of the {@code round_group_id} field in {@code round}.</p>
+	 * <p>The {@code RoundGroupId} field is a direct mapping of the {@code round_group_id} database column in the table {@code round}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code RoundGroupId} is {@code null}.
-	 * @return an object value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code RoundGroupId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getRoundGroupIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getRoundGroupIdAsObject();
@@ -90,13 +90,13 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	/**
 	 * primitive accessor for the {@code RoundGroupId}
 	 *
-	 * <p>The {@code RoundGroupId} field is a direct mapping of the {@code round_group_id} field in {@code round}.</p>
+	 * <p>The {@code RoundGroupId} field is a direct mapping of the {@code round_group_id} database column in the table {@code round}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRoundGroupIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code RoundGroupId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getRoundGroupId() throws com.opal.NullValueException {
@@ -136,7 +136,7 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code round}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -160,7 +160,7 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code round}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -186,18 +186,18 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
 	 * primitive accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code round}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code round}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();
@@ -227,19 +227,19 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>The {@code StartTime} field is a direct mapping of the {@code start_time} field in {@code round}.</p>
 	 *
-	 * @return an object value of {@code StartTime} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code StartTime} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getStartTime();
 
 	/**
 	 * object accessor for the {@code StartTime} with substitution for a null value
 	 *
-	 * <p>The {@code StartTime} field is a direct mapping of the {@code start_time} field in {@code round}.</p>
+	 * <p>The {@code StartTime} field is a direct mapping of the {@code start_time} database column in the table {@code round}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code StartTime} is {@code null}.
-	 * @return an object value of {@code StartTime} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code StartTime} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getStartTime(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getStartTime();
@@ -265,18 +265,18 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isLunchAfter() method.</p>
 	 *
-	 * @return an object value of {@code LunchAfter} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code LunchAfter} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isLunchAfterAsObject();
 
 	/**
 	 * primitive accessor for the {@code LunchAfter}
 	 *
-	 * <p>The {@code LunchAfter} field is a direct mapping of the {@code lunch_after} field in {@code round}.</p>
+	 * <p>The {@code LunchAfter} field is a direct mapping of the {@code lunch_after} database column in the table {@code round}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isLunchAfterAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code LunchAfter} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code LunchAfter} (of the current {@link TransactionContext})
 	 */
 	default public boolean isLunchAfter() {
 		java.lang.Boolean lclO = isLunchAfterAsObject();
@@ -433,11 +433,11 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Round argFirst, com.scobolsolo.application.Round argSecond) {
-			int lclResult = com.scobolsolo.application.RoundGroup.StandardComparator.getInstance().compare(argFirst.getRoundGroup(), argSecond.getRoundGroup());
+			int lclResult = com.scobolsolo.application.RoundGroup.StandardComparator.getInstance().compare(argFirst.getRoundGroup(),  argSecond.getRoundGroup());
 			if (lclResult != 0) {
 				return lclResult;
 			}
-			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
+			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

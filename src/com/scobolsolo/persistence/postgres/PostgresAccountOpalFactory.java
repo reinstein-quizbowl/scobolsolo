@@ -56,19 +56,6 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 	}
 
 	@Override
-	public AccountOpal create(Account argUF) {
-		assert argUF != null;
-		AccountOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public AccountOpal create() {
 		AccountOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

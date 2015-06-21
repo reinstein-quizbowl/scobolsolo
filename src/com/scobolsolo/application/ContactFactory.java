@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.ContactOpalFactory;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class ContactFactory extends com.opal.AbstractFactory<Contact, ContactOpal> implements com.opal.FactoryCreator<Contact> , com.opal.IdentityFactory<Contact> {
+public class ContactFactory extends com.opal.AbstractFactory<Contact, ContactOpal> implements com.opal.FactoryCreator<Contact>, com.opal.IdentityFactory<Contact> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

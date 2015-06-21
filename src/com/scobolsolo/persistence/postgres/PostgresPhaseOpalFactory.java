@@ -58,19 +58,6 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public PhaseOpal create(Phase argUF) {
-		assert argUF != null;
-		PhaseOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public PhaseOpal create() {
 		PhaseOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

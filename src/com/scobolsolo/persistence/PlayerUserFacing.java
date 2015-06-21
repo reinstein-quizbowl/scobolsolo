@@ -24,18 +24,18 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code player}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,18 +67,18 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getContactId() method.</p>
 	 *
-	 * @return an object value of {@code ContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ContactId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getContactIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code ContactId}
 	 *
-	 * <p>The {@code ContactId} field is a direct mapping of the {@code contact_id} field in {@code player}.</p>
+	 * <p>The {@code ContactId} field is a direct mapping of the {@code contact_id} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getContactIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code ContactId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code ContactId} (of the current {@link TransactionContext})
 	 */
 	default public int getContactId() {
 		java.lang.Integer lclO = getContactIdAsObject();
@@ -110,19 +110,19 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSchoolRegistrationId() method.</p>
 	 *
-	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
 	/**
 	 * object accessor for the {@code SchoolRegistrationId} with substitution for a null value
 	 *
-	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} field in {@code player}.</p>
+	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code SchoolRegistrationId} is {@code null}.
-	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getSchoolRegistrationIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getSchoolRegistrationIdAsObject();
@@ -133,13 +133,13 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code SchoolRegistrationId}
 	 *
-	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} field in {@code player}.</p>
+	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSchoolRegistrationIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code SchoolRegistrationId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getSchoolRegistrationId() throws com.opal.NullValueException {
@@ -179,19 +179,19 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code SchoolYearCode} field is a direct mapping of the {@code school_year_code} field in {@code player}.</p>
 	 *
-	 * @return an object value of {@code SchoolYearCode} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code SchoolYearCode} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getSchoolYearCode();
 
 	/**
 	 * object accessor for the {@code SchoolYearCode} with substitution for a null value
 	 *
-	 * <p>The {@code SchoolYearCode} field is a direct mapping of the {@code school_year_code} field in {@code player}.</p>
+	 * <p>The {@code SchoolYearCode} field is a direct mapping of the {@code school_year_code} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code SchoolYearCode} is {@code null}.
-	 * @return an object value of {@code SchoolYearCode} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code SchoolYearCode} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getSchoolYearCode(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getSchoolYearCode();
@@ -217,19 +217,19 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRankWithinSchool() method.</p>
 	 *
-	 * @return an object value of {@code RankWithinSchool} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code RankWithinSchool} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getRankWithinSchoolAsObject();
 
 	/**
 	 * object accessor for the {@code RankWithinSchool} with substitution for a null value
 	 *
-	 * <p>The {@code RankWithinSchool} field is a direct mapping of the {@code rank_within_school} field in {@code player}.</p>
+	 * <p>The {@code RankWithinSchool} field is a direct mapping of the {@code rank_within_school} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code RankWithinSchool} is {@code null}.
-	 * @return an object value of {@code RankWithinSchool} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code RankWithinSchool} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getRankWithinSchoolAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getRankWithinSchoolAsObject();
@@ -240,13 +240,13 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code RankWithinSchool}
 	 *
-	 * <p>The {@code RankWithinSchool} field is a direct mapping of the {@code rank_within_school} field in {@code player}.</p>
+	 * <p>The {@code RankWithinSchool} field is a direct mapping of the {@code rank_within_school} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRankWithinSchoolAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code RankWithinSchool} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code RankWithinSchool} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getRankWithinSchool() throws com.opal.NullValueException {
@@ -288,19 +288,19 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSeed() method.</p>
 	 *
-	 * @return an object value of {@code Seed} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Seed} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getSeedAsObject();
 
 	/**
 	 * object accessor for the {@code Seed} with substitution for a null value
 	 *
-	 * <p>The {@code Seed} field is a direct mapping of the {@code seed} field in {@code player}.</p>
+	 * <p>The {@code Seed} field is a direct mapping of the {@code seed} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Seed} is {@code null}.
-	 * @return an object value of {@code Seed} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Seed} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getSeedAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getSeedAsObject();
@@ -311,13 +311,13 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code Seed}
 	 *
-	 * <p>The {@code Seed} field is a direct mapping of the {@code seed} field in {@code player}.</p>
+	 * <p>The {@code Seed} field is a direct mapping of the {@code seed} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSeedAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code Seed} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Seed} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getSeed() throws com.opal.NullValueException {
@@ -357,19 +357,19 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code player}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
 	/**
 	 * object accessor for the {@code Note} with substitution for a null value
 	 *
-	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code player}.</p>
+	 * <p>The {@code Note} field is a direct mapping of the {@code note} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -395,19 +395,19 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getInitialCardId() method.</p>
 	 *
-	 * @return an object value of {@code InitialCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code InitialCardId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getInitialCardIdAsObject();
 
 	/**
 	 * object accessor for the {@code InitialCardId} with substitution for a null value
 	 *
-	 * <p>The {@code InitialCardId} field is a direct mapping of the {@code initial_card_id} field in {@code player}.</p>
+	 * <p>The {@code InitialCardId} field is a direct mapping of the {@code initial_card_id} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code InitialCardId} is {@code null}.
-	 * @return an object value of {@code InitialCardId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code InitialCardId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getInitialCardIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getInitialCardIdAsObject();
@@ -418,13 +418,13 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code InitialCardId}
 	 *
-	 * <p>The {@code InitialCardId} field is a direct mapping of the {@code initial_card_id} field in {@code player}.</p>
+	 * <p>The {@code InitialCardId} field is a direct mapping of the {@code initial_card_id} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getInitialCardIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code InitialCardId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code InitialCardId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getInitialCardId() throws com.opal.NullValueException {
@@ -466,18 +466,18 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isExhibition() method.</p>
 	 *
-	 * @return an object value of {@code Exhibition} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Exhibition} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isExhibitionAsObject();
 
 	/**
 	 * primitive accessor for the {@code Exhibition}
 	 *
-	 * <p>The {@code Exhibition} field is a direct mapping of the {@code exhibition} field in {@code player}.</p>
+	 * <p>The {@code Exhibition} field is a direct mapping of the {@code exhibition} database column in the table {@code player}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isExhibitionAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Exhibition} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Exhibition} (of the current {@link TransactionContext})
 	 */
 	default public boolean isExhibition() {
 		java.lang.Boolean lclO = isExhibitionAsObject();
@@ -703,7 +703,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Player argFirst, com.scobolsolo.application.Player argSecond) {
-			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(), argSecond.getContact());
+			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(),  argSecond.getContact());
 		}
 	}
 
@@ -719,7 +719,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 			if (lclResult != 0) {
 				return lclResult;
 			}
-			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(), argSecond.getContact());
+			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(),  argSecond.getContact());
 		}
 	}
 
@@ -735,7 +735,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 			if (lclResult != 0) {
 				return lclResult;
 			}
-			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(), argSecond.getContact());
+			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(),  argSecond.getContact());
 		}
 	}
 
@@ -747,7 +747,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Player argFirst, com.scobolsolo.application.Player argSecond) {
-			return com.scobolsolo.application.SchoolRegistration.TournamentDateComparator.getInstance().compare(argFirst.getSchoolRegistration(), argSecond.getSchoolRegistration());
+			return com.scobolsolo.application.SchoolRegistration.TournamentDateComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
 		}
 	}
 
@@ -759,7 +759,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Player argFirst, com.scobolsolo.application.Player argSecond) {
-			return com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(), argSecond.getSchoolRegistration());
+			return com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
 		}
 	}
 
@@ -771,7 +771,7 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Player argFirst, com.scobolsolo.application.Player argSecond) {
-			return com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(), argSecond.getSchoolRegistration());
+			return com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
 		}
 	}
 

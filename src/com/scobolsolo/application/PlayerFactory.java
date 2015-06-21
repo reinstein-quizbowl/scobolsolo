@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.PlayerOpalFactory;
 import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class PlayerFactory extends com.opal.AbstractFactory<Player, PlayerOpal> implements com.opal.FactoryCreator<Player> , com.opal.IdentityFactory<Player> {
+public class PlayerFactory extends com.opal.AbstractFactory<Player, PlayerOpal> implements com.opal.FactoryCreator<Player>, com.opal.IdentityFactory<Player> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

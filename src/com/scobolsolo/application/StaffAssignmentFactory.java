@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.StaffAssignmentOpalFactory;
 import com.scobolsolo.persistence.StaffAssignmentOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class StaffAssignmentFactory extends com.opal.AbstractFactory<StaffAssignment, StaffAssignmentOpal> implements com.opal.FactoryCreator<StaffAssignment> , com.opal.IdentityFactory<StaffAssignment> {
+public class StaffAssignmentFactory extends com.opal.AbstractFactory<StaffAssignment, StaffAssignmentOpal> implements com.opal.FactoryCreator<StaffAssignment>, com.opal.IdentityFactory<StaffAssignment> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

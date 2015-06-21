@@ -54,19 +54,6 @@ public class PostgresPerformanceOpalFactory extends com.opal.AbstractDatabaseIde
 	}
 
 	@Override
-	public PerformanceOpal create(Performance argUF) {
-		assert argUF != null;
-		PerformanceOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public PerformanceOpal create() {
 		PerformanceOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

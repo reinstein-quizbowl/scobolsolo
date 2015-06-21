@@ -55,19 +55,6 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	}
 
 	@Override
-	public StaffAssignmentOpal create(StaffAssignment argUF) {
-		assert argUF != null;
-		StaffAssignmentOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public StaffAssignmentOpal create() {
 		StaffAssignmentOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

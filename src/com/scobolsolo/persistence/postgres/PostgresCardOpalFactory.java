@@ -57,19 +57,6 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	}
 
 	@Override
-	public CardOpal create(Card argUF) {
-		assert argUF != null;
-		CardOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public CardOpal create() {
 		CardOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

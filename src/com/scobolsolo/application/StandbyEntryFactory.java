@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.StandbyEntryOpalFactory;
 import com.scobolsolo.persistence.StandbyEntryOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class StandbyEntryFactory extends com.opal.AbstractFactory<StandbyEntry, StandbyEntryOpal> implements com.opal.FactoryCreator<StandbyEntry> , com.opal.IdentityFactory<StandbyEntry> {
+public class StandbyEntryFactory extends com.opal.AbstractFactory<StandbyEntry, StandbyEntryOpal> implements com.opal.FactoryCreator<StandbyEntry>, com.opal.IdentityFactory<StandbyEntry> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

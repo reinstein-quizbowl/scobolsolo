@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.CardOpalFactory;
 import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class CardFactory extends com.opal.AbstractFactory<Card, CardOpal> implements com.opal.FactoryCreator<Card> , com.opal.IdentityFactory<Card> {
+public class CardFactory extends com.opal.AbstractFactory<Card, CardOpal> implements com.opal.FactoryCreator<Card>, com.opal.IdentityFactory<Card> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

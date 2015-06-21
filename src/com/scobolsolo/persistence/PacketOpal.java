@@ -361,8 +361,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewReplacementPacketOpal;
-		if ((lclUO != null) && (lclUO != this) && lclUO.isNew()) {
+		lclUO = myNewTournamentOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
@@ -373,8 +373,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewTournamentOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
+		lclUO = myNewReplacementPacketOpal;
+		if ((lclUO != null) && (lclUO != this) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -387,8 +387,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldReplacementPacketOpal;
-		if ((lclUO != null) && (lclUO != this) && lclUO.isDeleted()) {
+		lclUO = myOldTournamentOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
@@ -399,8 +399,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldTournamentOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		lclUO = myOldReplacementPacketOpal;
+		if ((lclUO != null) && (lclUO != this) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}

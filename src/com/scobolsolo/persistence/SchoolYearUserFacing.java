@@ -22,7 +22,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code Code} field is a direct mapping of the {@code code} field in {@code school_year}.</p>
 	 *
-	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Code} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getCode();
 
@@ -46,7 +46,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code school_year}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -70,7 +70,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code school_year}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -94,7 +94,7 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code VeryShortName} field is a direct mapping of the {@code very_short_name} field in {@code school_year}.</p>
 	 *
-	 * @return an object value of {@code VeryShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code VeryShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getVeryShortName();
 
@@ -120,18 +120,18 @@ public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
 	 * primitive accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code school_year}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code school_year}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();

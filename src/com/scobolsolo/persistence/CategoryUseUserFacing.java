@@ -22,7 +22,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code CategoryCode} field is a direct mapping of the {@code category_code} field in {@code category_use}.</p>
 	 *
-	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code CategoryCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getCategoryCode();
 
@@ -46,7 +46,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code category_use}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -91,7 +91,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.CategoryUse argFirst, com.scobolsolo.application.CategoryUse argSecond) {
-			return com.scobolsolo.application.Category.StandardComparator.getInstance().compare(argFirst.getCategory(), argSecond.getCategory());
+			return com.scobolsolo.application.Category.StandardComparator.getInstance().compare(argFirst.getCategory(),  argSecond.getCategory());
 		}
 	}
 
@@ -103,7 +103,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.CategoryUse argFirst, com.scobolsolo.application.CategoryUse argSecond) {
-			return com.scobolsolo.application.Tournament.DateComparator.getInstance().compare(argFirst.getTournament(), argSecond.getTournament());
+			return com.scobolsolo.application.Tournament.DateComparator.getInstance().compare(argFirst.getTournament(),  argSecond.getTournament());
 		}
 	}
 

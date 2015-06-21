@@ -5,7 +5,7 @@ import com.scobolsolo.persistence.PerformanceOpalFactory;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class PerformanceFactory extends com.opal.AbstractFactory<Performance, PerformanceOpal> implements com.opal.FactoryCreator<Performance> , com.opal.IdentityFactory<Performance> {
+public class PerformanceFactory extends com.opal.AbstractFactory<Performance, PerformanceOpal> implements com.opal.FactoryCreator<Performance>, com.opal.IdentityFactory<Performance> {
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

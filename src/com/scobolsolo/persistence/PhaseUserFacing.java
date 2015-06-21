@@ -24,18 +24,18 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code phase}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code phase}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -65,7 +65,7 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code phase}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -89,7 +89,7 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code phase}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -113,7 +113,7 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code phase}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -139,18 +139,18 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
 	 * primitive accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code phase}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code phase}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();
@@ -182,18 +182,18 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isCardSystem() method.</p>
 	 *
-	 * @return an object value of {@code CardSystem} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code CardSystem} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isCardSystemAsObject();
 
 	/**
 	 * primitive accessor for the {@code CardSystem}
 	 *
-	 * <p>The {@code CardSystem} field is a direct mapping of the {@code card_system} field in {@code phase}.</p>
+	 * <p>The {@code CardSystem} field is a direct mapping of the {@code card_system} database column in the table {@code phase}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isCardSystemAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code CardSystem} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code CardSystem} (of the current {@link TransactionContext})
 	 */
 	default public boolean isCardSystem() {
 		java.lang.Boolean lclO = isCardSystemAsObject();
@@ -223,19 +223,19 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code phase}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
 	/**
 	 * object accessor for the {@code Note} with substitution for a null value
 	 *
-	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code phase}.</p>
+	 * <p>The {@code Note} field is a direct mapping of the {@code note} database column in the table {@code phase}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -375,24 +375,6 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 		@Override
 		public int compareInternal(com.scobolsolo.application.Phase argFirst, com.scobolsolo.application.Phase argSecond) {
 			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-		}
-	}
-
-	/** This is a Filter that will pass Phase objects if their {@code CardSystem} value is {@code true}. */
-
-	public static class CardSystemFilter extends com.siliconage.util.Filter<com.scobolsolo.application.Phase> {
-		private static final CardSystemFilter ourInstance = new CardSystemFilter();
-		public static final CardSystemFilter getInstance() { return ourInstance; }
-
-		private CardSystemFilter() { super(); }
-
-		@Override
-		public boolean accept(com.scobolsolo.application.Phase argObject) {
-			if (argObject == null) {
-				return false;
-			} else {
-				return Boolean.TRUE.equals(argObject.isCardSystemAsObject());
-			}
 		}
 	}
 

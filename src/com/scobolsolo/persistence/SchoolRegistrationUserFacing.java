@@ -24,18 +24,18 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code school_registration}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code school_registration}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,18 +67,18 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSchoolId() method.</p>
 	 *
-	 * @return an object value of {@code SchoolId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code SchoolId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSchoolIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code SchoolId}
 	 *
-	 * <p>The {@code SchoolId} field is a direct mapping of the {@code school_id} field in {@code school_registration}.</p>
+	 * <p>The {@code SchoolId} field is a direct mapping of the {@code school_id} database column in the table {@code school_registration}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSchoolIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code SchoolId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code SchoolId} (of the current {@link TransactionContext})
 	 */
 	default public int getSchoolId() {
 		java.lang.Integer lclO = getSchoolIdAsObject();
@@ -110,18 +110,18 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getMainContactId() method.</p>
 	 *
-	 * @return an object value of {@code MainContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code MainContactId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getMainContactIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code MainContactId}
 	 *
-	 * <p>The {@code MainContactId} field is a direct mapping of the {@code main_contact_id} field in {@code school_registration}.</p>
+	 * <p>The {@code MainContactId} field is a direct mapping of the {@code main_contact_id} database column in the table {@code school_registration}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getMainContactIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code MainContactId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code MainContactId} (of the current {@link TransactionContext})
 	 */
 	default public int getMainContactId() {
 		java.lang.Integer lclO = getMainContactIdAsObject();
@@ -151,7 +151,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code AmountOwed} field is a direct mapping of the {@code amount_owed} field in {@code school_registration}.</p>
 	 *
-	 * @return an object value of {@code AmountOwed} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code AmountOwed} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.math.BigDecimal getAmountOwed();
 
@@ -171,7 +171,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code AmountPaid} field is a direct mapping of the {@code amount_paid} field in {@code school_registration}.</p>
 	 *
-	 * @return an object value of {@code AmountPaid} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code AmountPaid} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.math.BigDecimal getAmountPaid();
 
@@ -191,19 +191,19 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code school_registration}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
 	/**
 	 * object accessor for the {@code Note} with substitution for a null value
 	 *
-	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code school_registration}.</p>
+	 * <p>The {@code Note} field is a direct mapping of the {@code note} database column in the table {@code school_registration}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -229,18 +229,18 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSpotsReserved() method.</p>
 	 *
-	 * @return an object value of {@code SpotsReserved} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code SpotsReserved} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSpotsReservedAsObject();
 
 	/**
 	 * primitive accessor for the {@code SpotsReserved}
 	 *
-	 * <p>The {@code SpotsReserved} field is a direct mapping of the {@code spots_reserved} field in {@code school_registration}.</p>
+	 * <p>The {@code SpotsReserved} field is a direct mapping of the {@code spots_reserved} database column in the table {@code school_registration}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSpotsReservedAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code SpotsReserved} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code SpotsReserved} (of the current {@link TransactionContext})
 	 */
 	default public int getSpotsReserved() {
 		java.lang.Integer lclO = getSpotsReservedAsObject();
@@ -270,7 +270,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code school_registration}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -482,7 +482,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.SchoolRegistration argFirst, com.scobolsolo.application.SchoolRegistration argSecond) {
-			return com.scobolsolo.application.Tournament.DateComparator.getInstance().compare(argFirst.getTournament(), argSecond.getTournament());
+			return com.scobolsolo.application.Tournament.DateComparator.getInstance().compare(argFirst.getTournament(),  argSecond.getTournament());
 		}
 	}
 
@@ -494,7 +494,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.SchoolRegistration argFirst, com.scobolsolo.application.SchoolRegistration argSecond) {
-			return com.scobolsolo.application.School.NameComparator.getInstance().compare(argFirst.getSchool(), argSecond.getSchool());
+			return com.scobolsolo.application.School.NameComparator.getInstance().compare(argFirst.getSchool(),  argSecond.getSchool());
 		}
 	}
 
@@ -506,7 +506,7 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.SchoolRegistration argFirst, com.scobolsolo.application.SchoolRegistration argSecond) {
-			return com.scobolsolo.application.School.ShortNameComparator.getInstance().compare(argFirst.getSchool(), argSecond.getSchool());
+			return com.scobolsolo.application.School.ShortNameComparator.getInstance().compare(argFirst.getSchool(),  argSecond.getSchool());
 		}
 	}
 

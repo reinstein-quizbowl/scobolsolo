@@ -24,18 +24,18 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code buzzer}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code buzzer}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,18 +67,18 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSchoolRegistrationId() method.</p>
 	 *
-	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code SchoolRegistrationId}
 	 *
-	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} field in {@code buzzer}.</p>
+	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} database column in the table {@code buzzer}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSchoolRegistrationIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code SchoolRegistrationId} (of the current {@link TransactionContext})
 	 */
 	default public int getSchoolRegistrationId() {
 		java.lang.Integer lclO = getSchoolRegistrationIdAsObject();
@@ -110,19 +110,19 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRoomId() method.</p>
 	 *
-	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code RoomId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getRoomIdAsObject();
 
 	/**
 	 * object accessor for the {@code RoomId} with substitution for a null value
 	 *
-	 * <p>The {@code RoomId} field is a direct mapping of the {@code room_id} field in {@code buzzer}.</p>
+	 * <p>The {@code RoomId} field is a direct mapping of the {@code room_id} database column in the table {@code buzzer}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code RoomId} is {@code null}.
-	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code RoomId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getRoomIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getRoomIdAsObject();
@@ -133,13 +133,13 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code RoomId}
 	 *
-	 * <p>The {@code RoomId} field is a direct mapping of the {@code room_id} field in {@code buzzer}.</p>
+	 * <p>The {@code RoomId} field is a direct mapping of the {@code room_id} database column in the table {@code buzzer}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRoomIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code RoomId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code RoomId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getRoomId() throws com.opal.NullValueException {
@@ -179,19 +179,19 @@ public interface BuzzerUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code buzzer}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
 	/**
 	 * object accessor for the {@code Name} with substitution for a null value
 	 *
-	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code buzzer}.</p>
+	 * <p>The {@code Name} field is a direct mapping of the {@code name} database column in the table {@code buzzer}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Name} is {@code null}.
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getName(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getName();

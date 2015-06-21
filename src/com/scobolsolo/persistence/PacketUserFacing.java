@@ -24,18 +24,18 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
 	/**
 	 * primitive accessor for the {@code Id}
 	 *
-	 * <p>The {@code Id} field is a direct mapping of the {@code id} field in {@code packet}.</p>
+	 * <p>The {@code Id} field is a direct mapping of the {@code id} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -65,7 +65,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code packet}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -89,7 +89,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code packet}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -115,19 +115,19 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRoundId() method.</p>
 	 *
-	 * @return an object value of {@code RoundId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code RoundId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getRoundIdAsObject();
 
 	/**
 	 * object accessor for the {@code RoundId} with substitution for a null value
 	 *
-	 * <p>The {@code RoundId} field is a direct mapping of the {@code round_id} field in {@code packet}.</p>
+	 * <p>The {@code RoundId} field is a direct mapping of the {@code round_id} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code RoundId} is {@code null}.
-	 * @return an object value of {@code RoundId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code RoundId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getRoundIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getRoundIdAsObject();
@@ -138,13 +138,13 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code RoundId}
 	 *
-	 * <p>The {@code RoundId} field is a direct mapping of the {@code round_id} field in {@code packet}.</p>
+	 * <p>The {@code RoundId} field is a direct mapping of the {@code round_id} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRoundIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code RoundId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code RoundId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getRoundId() throws com.opal.NullValueException {
@@ -184,19 +184,19 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code packet}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
 	/**
 	 * object accessor for the {@code Note} with substitution for a null value
 	 *
-	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code packet}.</p>
+	 * <p>The {@code Note} field is a direct mapping of the {@code note} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -220,7 +220,7 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code packet}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -246,18 +246,18 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
 	 * primitive accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code packet}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();
@@ -289,19 +289,19 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getReplacementPacketId() method.</p>
 	 *
-	 * @return an object value of {@code ReplacementPacketId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ReplacementPacketId} (of the current {@link TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getReplacementPacketIdAsObject();
 
 	/**
 	 * object accessor for the {@code ReplacementPacketId} with substitution for a null value
 	 *
-	 * <p>The {@code ReplacementPacketId} field is a direct mapping of the {@code replacement_packet_id} field in {@code packet}.</p>
+	 * <p>The {@code ReplacementPacketId} field is a direct mapping of the {@code replacement_packet_id} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ReplacementPacketId} is {@code null}.
-	 * @return an object value of {@code ReplacementPacketId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ReplacementPacketId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getReplacementPacketIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getReplacementPacketIdAsObject();
@@ -312,13 +312,13 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	/**
 	 * primitive accessor for the {@code ReplacementPacketId}
 	 *
-	 * <p>The {@code ReplacementPacketId} field is a direct mapping of the {@code replacement_packet_id} field in {@code packet}.</p>
+	 * <p>The {@code ReplacementPacketId} field is a direct mapping of the {@code replacement_packet_id} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getReplacementPacketIdAsObject() method.</p>
 	 *
-	 * <p>The underlying permanent storage allows a {@code NULL} value for this field; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code ReplacementPacketId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code ReplacementPacketId} (of the current {@link TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getReplacementPacketId() throws com.opal.NullValueException {
@@ -360,18 +360,18 @@ public interface PacketUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isQuestionsPublic() method.</p>
 	 *
-	 * @return an object value of {@code QuestionsPublic} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code QuestionsPublic} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isQuestionsPublicAsObject();
 
 	/**
 	 * primitive accessor for the {@code QuestionsPublic}
 	 *
-	 * <p>The {@code QuestionsPublic} field is a direct mapping of the {@code questions_public} field in {@code packet}.</p>
+	 * <p>The {@code QuestionsPublic} field is a direct mapping of the {@code questions_public} database column in the table {@code packet}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isQuestionsPublicAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code QuestionsPublic} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code QuestionsPublic} (of the current {@link TransactionContext})
 	 */
 	default public boolean isQuestionsPublic() {
 		java.lang.Boolean lclO = isQuestionsPublicAsObject();
@@ -544,11 +544,11 @@ public interface PacketUserFacing extends IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Packet argFirst, com.scobolsolo.application.Packet argSecond) {
-			int lclResult = com.scobolsolo.application.Round.StandardComparator.getInstance().compare(argFirst.getRound(), argSecond.getRound());
+			int lclResult = com.scobolsolo.application.Round.StandardComparator.getInstance().compare(argFirst.getRound(),  argSecond.getRound());
 			if (lclResult != 0) {
 				return lclResult;
 			}
-			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
+			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

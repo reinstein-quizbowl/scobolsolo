@@ -57,19 +57,6 @@ public class PostgresStaffOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public StaffOpal create(Staff argUF) {
-		assert argUF != null;
-		StaffOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public StaffOpal create() {
 		StaffOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {

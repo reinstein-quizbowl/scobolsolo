@@ -60,19 +60,6 @@ public class PostgresContactOpalFactory extends com.opal.AbstractDatabaseIdentit
 	}
 
 	@Override
-	public ContactOpal create(Contact argUF) {
-		assert argUF != null;
-		ContactOpal lclOpal;
-		synchronized (lclOpal = instantiate((Object[]) null/*, argUF */)) {
-			assert lclOpal.getUserFacing() == null;
-			lclOpal.setUserFacing(argUF);
-			lclOpal.newObject();
-			newObject(lclOpal);
-		}
-		return lclOpal;
-	}
-
-	@Override
 	public ContactOpal create() {
 		ContactOpal lclOpal;
 		synchronized (lclOpal = instantiate((Object[]) null)) {
