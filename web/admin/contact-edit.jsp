@@ -149,11 +149,13 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 				Writer?
 				<%= HTMLUtility.switchWidget(lclAOF, "Writer") %>
 			</label>
-		</div>
-		<div class="small-3 medium-2 columns">
-			<a href="contact-reset-password.jsp?account_id=<%= lclAOF.getUserFacing().getId() %>">Reset password</a>
-		</div>
-	</div>
+		</div><%
+		if (lclAOF.alreadyExists()) {
+			%><div class="small-3 medium-2 columns">
+				<a href="contact-reset-password.jsp?account_id=<%= lclAOF.getUserFacing().getId() %>">Reset password</a>
+			</div><%
+		}
+	%></div>
 	
 	<%= lclAOF.close() %><%
 } else if (lclC != null && lclC.getAccount() == null) {
