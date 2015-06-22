@@ -170,7 +170,7 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		Validate.notNull(argA.getContact().getEmailAddress());
 		Validate.notNull(argExpiration);
 		
-		DateTimeFormatter lclF = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' h:mm aa zzzz");
+		DateTimeFormatter lclF = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' h:mm a zzzz");
 		
 		String lclSubject = "Scobol Solo password reset token generated for " + argA.getContact().getName();
 		
@@ -178,7 +178,7 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		
 		lclSB.append("A password reset token has been generated for " + argA.getUsername() + " (" + argA.getContact().getName()
 				+ ", #" + argA.getId() + ", " + argA.getContact().getEmailAddress() + ").\n\n");
-		lclSB.append("The token will expire on " + argExpiration.format(lclF) + ".\n");
+		lclSB.append("The token will expire on " + argExpiration.atZone(ZoneId.systemDefault()).format(lclF) + ".\n");
 		
 		try {
 			Mail.createEmail()
