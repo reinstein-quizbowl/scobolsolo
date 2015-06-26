@@ -302,14 +302,14 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewTournamentOpal;
+		lclUO = myNewSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewSchoolRegistrationOpal;
+		lclUO = myNewTournamentOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -328,14 +328,14 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldTournamentOpal;
+		lclUO = myOldSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldSchoolRegistrationOpal;
+		lclUO = myOldTournamentOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();

@@ -366,14 +366,14 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewTournamentOpal;
+		lclUO = myNewRoundOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewRoundOpal;
+		lclUO = myNewTournamentOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -392,14 +392,14 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldTournamentOpal;
+		lclUO = myOldRoundOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldRoundOpal;
+		lclUO = myOldTournamentOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
