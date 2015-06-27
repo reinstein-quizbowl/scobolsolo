@@ -28,19 +28,23 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	/* package */ static final String[] ourFieldNames = new String[] {
 		"CategoryCode",
 		"TournamentCode",
+		"Needs",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
 		java.lang.String.class,
 		java.lang.String.class,
+		java.lang.Integer.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
 		false,
 		false,
+		true,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
 		null,
 		null,
 	};
@@ -73,6 +77,10 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		return (java.lang.String) getReadValueSet()[1];
 	}
 
+	public synchronized java.lang.Integer getNeedsAsObject() {
+		return (java.lang.Integer) getReadValueSet()[2];
+	}
+
 	public synchronized CategoryUseOpal setCategoryCode(final java.lang.String argCategoryCode) {
 		tryMutate();
 		if (argCategoryCode == null) {
@@ -94,6 +102,17 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[1] = argTournamentCode;
+		return this;
+	}
+
+	public synchronized CategoryUseOpal setNeeds(final java.lang.Integer argNeeds) {
+		tryMutate();
+		getNewValues()[2] = argNeeds;
+		return this;
+	}
+
+	public CategoryUseOpal setNeeds(final int argNeeds) {
+		setNeeds(java.lang.Integer.valueOf(argNeeds));
 		return this;
 	}
 
@@ -126,8 +145,11 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 
 	@Override
 	protected void copyFieldsToInternal(UpdatableOpal<CategoryUse> argTarget) {
+		Object[] lclValues = getReadValueSet();
+		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (CategoryCode) is part of a unique key. */
 		/* Field 1 (TournamentCode) is part of a unique key. */
+		lclTargetNewValues[2] = lclValues[2]; /* Needs (immutable) */
 
 		return;
 	}
@@ -198,12 +220,14 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	public synchronized void output(final PrintWriter argPW) {
 		argPW.println("CategoryCode = " + getCategoryCode());
 		argPW.println("TournamentCode = " + getTournamentCode());
+		argPW.println("Needs = " + getNeedsAsObject());
 	}
 
 	@Override
 	public synchronized void output(final PrintStream argPS) {
 		argPS.println("CategoryCode = " + getCategoryCode());
 		argPS.println("TournamentCode = " + getTournamentCode());
+		argPS.println("Needs = " + getNeedsAsObject());
 	}
 
 	private CategoryOpal myOldCategoryOpal;

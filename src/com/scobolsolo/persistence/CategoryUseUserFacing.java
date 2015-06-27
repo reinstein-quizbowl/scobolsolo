@@ -68,6 +68,79 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	public com.scobolsolo.application.CategoryUse setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
+	 * object accessor for the {@code Needs}
+	 *
+	 * <p>The {@code Needs} field is a direct mapping of the {@code needs} field in {@code category_use}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getNeeds() method.</p>
+	 *
+	 * @return an object value of {@code Needs} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 */
+	public java.lang.Integer getNeedsAsObject();
+
+	/**
+	 * object accessor for the {@code Needs} with substitution for a null value
+	 *
+	 * <p>The {@code Needs} field is a direct mapping of the {@code needs} database column in the table {@code category_use}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code Needs} is {@code null}.
+	 * @return an object value of {@code Needs} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getNeedsAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getNeedsAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code Needs}
+	 *
+	 * <p>The {@code Needs} field is a direct mapping of the {@code needs} database column in the table {@code category_use}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getNeedsAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code Needs} (of the current {@link TransactionContext})
+	 * @throws NullValueException when the internal value is null
+	 */
+	default public int getNeeds() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getNeedsAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getNeeds(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getNeedsAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getNeeds(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getNeedsAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * sets the {@code Needs} to the value of {@code argNeeds}
+	 *
+	 * @param argNeeds the new value of {@code Needs}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	public com.scobolsolo.application.CategoryUse setNeeds(java.lang.Integer argNeeds);
+
+	/**
+	 * sets the {@code Needs} to the value of {@code argNeeds}
+	 *
+	 * @param argNeeds the new value of {@code Needs}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.CategoryUse setNeeds(int argNeeds);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Category}
 	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code category_use_category_code_fkey}.
 	 *

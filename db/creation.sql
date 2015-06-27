@@ -260,6 +260,7 @@ CREATE TABLE Category (
 CREATE TABLE Category_Use (
 	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
 	tournament_code code_t REFERENCES Tournament ON UPDATE CASCADE ON DELETE RESTRICT,
+	needs INTEGER CHECK (needs IS NULL OR needs > 0),
 	PRIMARY KEY (category_code, tournament_code)
 );
 

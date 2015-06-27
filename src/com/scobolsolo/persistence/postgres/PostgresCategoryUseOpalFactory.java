@@ -20,6 +20,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 	private static final String[] ourColumnNames = new String[] {
 		"category_code", 
 		"tournament_code", 
+		"needs", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -93,7 +94,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 
 	protected void registerOpal(CategoryUseOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 2) { throw new IllegalStateException(); }
+		if (argValues.length != 3) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new CategoryCodeTournamentCodeOpalKey((java.lang.String) argValues[0], (java.lang.String) argValues[1]), argOpal, true);
@@ -104,7 +105,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 	protected void unregisterOpal(CategoryUseOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 2) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 3) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new CategoryCodeTournamentCodeOpalKey((java.lang.String) lclOldValues[0], (java.lang.String) lclOldValues[1]));
@@ -116,10 +117,10 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 2) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 3) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 2) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 3) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			OpalKey<CategoryUseOpal> lclOldKey = null;

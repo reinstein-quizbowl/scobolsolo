@@ -1,7 +1,6 @@
 ﻿<%@ page import="java.util.Arrays" %>
-<%@ page import="java.util.Set" %>
-<%@ page import="java.util.HashSet" %>
-<%@ page import="java.util.stream.Collectors" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="com.google.common.collect.Maps" %>
 <%@ page import="com.scobolsolo.application.Category" %>
 <%@ page import="com.scobolsolo.application.CategoryFactory" %>
 <%@ page import="com.scobolsolo.application.CategoryUse" %>
@@ -24,7 +23,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 Category[] lclCs = CategoryFactory.getInstance().createAllArray();
 Arrays.sort(lclCs, Category.StandardComparator.getInstance());
 
-Set<Category> lclInUse = lclT.streamCategoryUse().map(CategoryUse::getCategory).collect(Collectors.toSet());
+Map<Category, CategoryUse> lclUses = Maps.uniqueIndex(lclT.createCategoryUseIterator(), CategoryUse::getCategory);
 
 %>
 <div class="row">
@@ -38,6 +37,7 @@ Set<Category> lclInUse = lclT.streamCategoryUse().map(CategoryUse::getCategory).
 					<th>Category</th>
 					<th>Group</th>
 					<th>In&nbsp;use?</th>
+					<th>Needs</th>
 				</tr>
 			</thead>
 			<tbody><%
@@ -47,11 +47,12 @@ Set<Category> lclInUse = lclT.streamCategoryUse().map(CategoryUse::getCategory).
 						<td><%= lclC.getCategoryGroup().getName() %></td>
 						<td>
 							<div class="switch tiny">
-									<input type="checkbox" id="<%= lclC.getCode() %>" name="<%= lclC.getCode() %>" value="True"<%= lclInUse.contains(lclC) ? " checked" : "" %>>
+									<input type="checkbox" id="<%= lclC.getCode() %>" name="<%= lclC.getCode() %>" value="True"<%= lclUses.containsKey(lclC) ? " checked" : "" %>>
 								<label for="<%= lclC.getCode() %>">
 								</label>
 							</div>
 						</td>
+						<td><input type="text" id="<%= lclC.getCode() %>_needs" name="<%= lclC.getCode() %>_needs" value="<%= lclUses.containsKey(lclC) ? lclUses.get(lclC).getNeeds("") : "" %>" size="2" /></td>
 					</tr><%
 				}
 			%></tbody>

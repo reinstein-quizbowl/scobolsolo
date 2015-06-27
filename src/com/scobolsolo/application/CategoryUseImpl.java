@@ -48,6 +48,23 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 		return this;
 	}
 
+	@Override
+	public java.lang.Integer getNeedsAsObject() {
+		return getCategoryUseOpal().getNeedsAsObject();
+	}
+
+	@Override
+	public CategoryUseImpl setNeeds(java.lang.Integer argNeeds) {
+		getCategoryUseOpal().setNeeds(argNeeds);
+		return this;
+	}
+
+	@Override
+	public CategoryUseImpl setNeeds(int argNeeds) {
+		getCategoryUseOpal().setNeeds(argNeeds);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

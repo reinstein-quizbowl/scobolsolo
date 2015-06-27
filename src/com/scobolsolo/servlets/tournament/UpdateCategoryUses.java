@@ -38,28 +38,34 @@ public class UpdateCategoryUses extends ScobolSoloControllerServlet {
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			for (final Category lclC : lclCs) {
-				final CategoryUse lclCU = lclCurrentlyInUse.get(lclC);
-				if (lclCU == null) {
+				final CategoryUse lclExistingUse = lclCurrentlyInUse.get(lclC);
+				final boolean lclUse = getBooleanParameter(argRequest, lclC.getCode());
+				final int lclNeeds = getOptionalIntParameter(argRequest, lclC.getCode() + "_needs", -1);
+				
+				if (lclExistingUse == null) {
 					// The combination is not currently possible.
-					final String lclParam = argRequest.getParameter(lclC.getCode());
-					if (lclParam != null) {
+					
+					if (lclUse) {
+						
 						// The user decided to make it possible. We create an object representing that fact.
-						Validate.isTrue(Boolean.parseBoolean(lclParam));
-						final CategoryUse lclNewCU = CategoryUseFactory.getInstance().create();
-						lclNewCU.setCategory(lclC);
-						lclNewCU.setTournament(lclT);
+						final CategoryUse lclNewCU = CategoryUseFactory.getInstance().create()
+							.setCategory(lclC)
+							.setTournament(lclT)
+							.setNeeds(lclNeeds > 0 ? lclNeeds : null);
 					} else {
 						// The input decided to keep it not-possible. We do nothing.
 					}
 				} else {
 					// The category is currently in use.
-					final String lclParam = argRequest.getParameter(lclC.getCode());
-					if (lclParam == null) {
+					
+					if (!lclUse) {
 						// The input decided to make it not-possible. We delete the object that currently exists.
-						lclCU.unlink();
+						lclExistingUse.unlink();
 					} else {
-						// It's possible according to the user input, too. Just to be safe, we'll make sure the parameter value is consistent with that.
-						Validate.isTrue(Boolean.parseBoolean(lclParam));
+						// It's being kept possible
+						
+						// Update the needs
+						lclExistingUse.setNeeds(lclNeeds > 0 ? lclNeeds : null);
 					}
 				}
 			}
