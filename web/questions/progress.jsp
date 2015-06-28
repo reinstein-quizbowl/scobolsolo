@@ -2,6 +2,7 @@
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.format.FormatStyle" %>
+<%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -83,7 +84,9 @@ if (lclIncompleteTournaments.isEmpty()) {
 						</tr>
 					</thead>
 					<tbody><%
-						for (Category lclC : lclCG.createCategoryArray()) {
+						Category[] lclCs = lclCG.createCategoryArray();
+						Arrays.sort(lclCs, Category.StandardComparator.getInstance());
+						for (Category lclC : lclCs) {
 							if (lclAllRelevantCategories.contains(lclC)) {
 								Validate.isTrue(lclNeeded.get(lclC) > 0);
 								
