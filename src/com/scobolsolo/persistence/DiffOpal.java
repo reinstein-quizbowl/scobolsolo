@@ -29,6 +29,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	protected void initializeReferences() {
 		myOldEditorOpal = AccountOpal.NOT_YET_LOADED;
 		myOldQuestionOpal = QuestionOpal.NOT_YET_LOADED;
+		myOldStatusOpal = QuestionStatusOpal.NOT_YET_LOADED;
+		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -43,6 +45,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		"Timestamp",
 		"QuestionId",
 		"RevisionNumber",
+		"QuestionStatusCode",
+		"CategoryCode",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -56,6 +60,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		java.time.LocalDateTime.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.String.class,
+		java.lang.String.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -69,9 +75,13 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		true,
 		false,
 		false,
+		false,
+		false,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -142,6 +152,14 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 
 	public synchronized java.lang.Integer getRevisionNumberAsObject() {
 		return (java.lang.Integer) getReadValueSet()[9];
+	}
+
+	public synchronized java.lang.String getQuestionStatusCode() {
+		return (java.lang.String) getReadValueSet()[10];
+	}
+
+	public synchronized java.lang.String getCategoryCode() {
+		return (java.lang.String) getReadValueSet()[11];
 	}
 
 	public synchronized DiffOpal setId(final java.lang.Integer argId) {
@@ -250,10 +268,36 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		return this;
 	}
 
+	public synchronized DiffOpal setQuestionStatusCode(final java.lang.String argQuestionStatusCode) {
+		tryMutate();
+		if (argQuestionStatusCode == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myQuestionStatusCode on " + this + " to null.");
+		}
+		if (argQuestionStatusCode.length() > 32) {
+			throw new com.opal.ArgumentTooLongException("Maximum length of myQuestionStatusCode on " + this + " is 32.", argQuestionStatusCode.length(), 32);
+		}
+		getNewValues()[10] = argQuestionStatusCode;
+		return this;
+	}
+
+	public synchronized DiffOpal setCategoryCode(final java.lang.String argCategoryCode) {
+		tryMutate();
+		if (argCategoryCode == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myCategoryCode on " + this + " to null.");
+		}
+		if (argCategoryCode.length() > 32) {
+			throw new com.opal.ArgumentTooLongException("Maximum length of myCategoryCode on " + this + " is 32.", argCategoryCode.length(), 32);
+		}
+		getNewValues()[11] = argCategoryCode;
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewEditorOpal = myOldEditorOpal;
 		myNewQuestionOpal = myOldQuestionOpal;
+		myNewStatusOpal = myOldStatusOpal;
+		myNewCategoryOpal = myOldCategoryOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -262,6 +306,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldEditorOpal = myNewEditorOpal;
 		myOldQuestionOpal = myNewQuestionOpal;
+		myOldStatusOpal = myNewStatusOpal;
+		myOldCategoryOpal = myNewCategoryOpal;
 
 		return;
 	}
@@ -273,6 +319,12 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		}
 		if (getQuestionOpal() != null) {
 			getQuestionOpal().removeDiffOpalInternal(this);
+		}
+		if (getStatusOpal() != null) {
+			getStatusOpal().removeDiffOpalInternal(this);
+		}
+		if (getCategoryOpal() != null) {
+			getCategoryOpal().removeDiffOpalInternal(this);
 		}
 		return;
 	}
@@ -291,6 +343,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		lclTargetNewValues[7] = lclValues[7]; /* Timestamp (immutable) */
 		lclTargetNewValues[8] = lclValues[8]; /* QuestionId (immutable) */
 		lclTargetNewValues[9] = lclValues[9]; /* RevisionNumber (immutable) */
+		lclTargetNewValues[10] = lclValues[10]; /* QuestionStatusCode (immutable) */
+		lclTargetNewValues[11] = lclValues[11]; /* CategoryCode (immutable) */
 
 		return;
 	}
@@ -303,6 +357,12 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		if (myNewQuestionOpal != QuestionOpal.NOT_YET_LOADED) {
 			setQuestionId(myNewQuestionOpal == null ? null : myNewQuestionOpal.getIdAsObject());
 		}
+		if (myNewStatusOpal != QuestionStatusOpal.NOT_YET_LOADED) {
+			setQuestionStatusCode(myNewStatusOpal == null ? null : myNewStatusOpal.getCode());
+		}
+		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
+			setCategoryCode(myNewCategoryOpal == null ? null : myNewCategoryOpal.getCode());
+		}
 		return;
 	}
 
@@ -310,12 +370,26 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewEditorOpal;
+		lclUO = myNewCategoryOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
+		lclUO = myNewEditorOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		lclUO = myNewQuestionOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewStatusOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -329,12 +403,26 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldEditorOpal;
+		lclUO = myOldCategoryOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
+		lclUO = myOldEditorOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		lclUO = myOldQuestionOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldStatusOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -369,6 +457,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		argPW.println("Timestamp = " + getTimestamp());
 		argPW.println("QuestionId = " + getQuestionIdAsObject());
 		argPW.println("RevisionNumber = " + getRevisionNumberAsObject());
+		argPW.println("QuestionStatusCode = " + getQuestionStatusCode());
+		argPW.println("CategoryCode = " + getCategoryCode());
 	}
 
 	@Override
@@ -383,6 +473,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		argPS.println("Timestamp = " + getTimestamp());
 		argPS.println("QuestionId = " + getQuestionIdAsObject());
 		argPS.println("RevisionNumber = " + getRevisionNumberAsObject());
+		argPS.println("QuestionStatusCode = " + getQuestionStatusCode());
+		argPS.println("CategoryCode = " + getCategoryCode());
 	}
 
 	private AccountOpal myOldEditorOpal;
@@ -475,6 +567,96 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		myNewQuestionOpal = argQuestionOpal;
 	}
 
+	private QuestionStatusOpal myOldStatusOpal;
+	private QuestionStatusOpal myNewStatusOpal;
+
+	protected QuestionStatusOpal retrieveStatusOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[10] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getQuestionStatusOpalFactory().forCode(getQuestionStatusCode());
+	}
+
+	public synchronized QuestionStatusOpal getStatusOpal() {
+		QuestionStatusOpal lclQuestionStatusOpal;
+		boolean lclAccess = tryAccess();
+		lclQuestionStatusOpal = lclAccess ? myNewStatusOpal : myOldStatusOpal;
+		if (lclQuestionStatusOpal == QuestionStatusOpal.NOT_YET_LOADED) {
+			lclQuestionStatusOpal = retrieveStatusOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewStatusOpal = lclQuestionStatusOpal;
+			} else {
+				myOldStatusOpal = lclQuestionStatusOpal;
+			}
+		}
+		return lclQuestionStatusOpal;
+	}
+
+	public synchronized DiffOpal setStatusOpal(QuestionStatusOpal argQuestionStatusOpal) {
+		tryMutate();
+		QuestionStatusOpal lclQuestionStatusOpal = getStatusOpal();
+		if (lclQuestionStatusOpal == argQuestionStatusOpal) { return this; }
+		if (lclQuestionStatusOpal != null) {
+			lclQuestionStatusOpal.removeDiffOpalInternal(this);
+		}
+		myNewStatusOpal = argQuestionStatusOpal;
+		if (argQuestionStatusOpal != null) {
+			argQuestionStatusOpal.addDiffOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setStatusOpalInternal(QuestionStatusOpal argQuestionStatusOpal) {
+		tryMutate();
+		myNewStatusOpal = argQuestionStatusOpal;
+	}
+
+	private CategoryOpal myOldCategoryOpal;
+	private CategoryOpal myNewCategoryOpal;
+
+	protected CategoryOpal retrieveCategoryOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[11] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCode(getCategoryCode());
+	}
+
+	public synchronized CategoryOpal getCategoryOpal() {
+		CategoryOpal lclCategoryOpal;
+		boolean lclAccess = tryAccess();
+		lclCategoryOpal = lclAccess ? myNewCategoryOpal : myOldCategoryOpal;
+		if (lclCategoryOpal == CategoryOpal.NOT_YET_LOADED) {
+			lclCategoryOpal = retrieveCategoryOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewCategoryOpal = lclCategoryOpal;
+			} else {
+				myOldCategoryOpal = lclCategoryOpal;
+			}
+		}
+		return lclCategoryOpal;
+	}
+
+	public synchronized DiffOpal setCategoryOpal(CategoryOpal argCategoryOpal) {
+		tryMutate();
+		CategoryOpal lclCategoryOpal = getCategoryOpal();
+		if (lclCategoryOpal == argCategoryOpal) { return this; }
+		if (lclCategoryOpal != null) {
+			lclCategoryOpal.removeDiffOpalInternal(this);
+		}
+		myNewCategoryOpal = argCategoryOpal;
+		if (argCategoryOpal != null) {
+			argCategoryOpal.addDiffOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setCategoryOpalInternal(CategoryOpal argCategoryOpal) {
+		tryMutate();
+		myNewCategoryOpal = argCategoryOpal;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder lclSB =  new StringBuilder(64);
@@ -492,6 +674,12 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		}
 		if (myNewQuestionOpal != QuestionOpal.NOT_YET_LOADED) {
 			setQuestionOpal(retrieveQuestionOpal(getNewValues()));
+		}
+		if (myNewStatusOpal != QuestionStatusOpal.NOT_YET_LOADED) {
+			setStatusOpal(retrieveStatusOpal(getNewValues()));
+		}
+		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
+			setCategoryOpal(retrieveCategoryOpal(getNewValues()));
 		}
 	}
 

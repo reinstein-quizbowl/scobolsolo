@@ -69,10 +69,18 @@ if (lclOF.hasErrors()) {
 			<%= lclOF.dropdown("Category", Category.StandardComparator.getInstance()) %>
 		</label>
 	</div>
+</div>
+<div class="row">
 	<div class="small-12 medium-4 columns">
 		<label>
 			Writer
 			<%= lclOF.dropdown("Writer", Account.NameComparator.getInstance()).filter(Account::isWriter) %>
+		</label>
+	</div>
+	<div class="small-12 medium-4 columns">
+		<label>
+			Status
+			<%= lclOF.dropdown("Status", QuestionStatus.SequenceComparator.getInstance()).filter(new Question.StatusFilter(lclUser, lclQ)) %>
 		</label>
 	</div>
 </div>

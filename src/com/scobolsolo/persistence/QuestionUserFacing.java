@@ -309,6 +309,31 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	public com.scobolsolo.application.Question setAnswer(java.lang.String argAnswer);
 
 	/**
+	 * object accessor for the {@code QuestionStatusCode}
+	 *
+	 * <p>The {@code QuestionStatusCode} field is a direct mapping of the {@code question_status_code} field in {@code question}.</p>
+	 *
+	 * @return an object value of {@code QuestionStatusCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.String getQuestionStatusCode();
+
+	/**
+	 * sets the {@code QuestionStatusCode} to the value of {@code argQuestionStatusCode}
+	 *
+	 * @param argQuestionStatusCode the new value of {@code QuestionStatusCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code question_status_code} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argQuestionStatusCode is null
+	 * @throws ArgumentTooLongException if {@code argQuestionStatusCode} is longer than 32 characters
+	 * <p>The database column {@code question_status_code} is limited to 32 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.NotNull
+	@com.opal.annotation.Length(maximum = 32L)
+	public com.scobolsolo.application.Question setQuestionStatusCode(java.lang.String argQuestionStatusCode);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Category}
 	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code question_category_code_fkey}.
 	 *
@@ -323,6 +348,14 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 */
 	public com.scobolsolo.application.Account getWriter();
 	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argWriter);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.QuestionStatus}
+	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code question_question_status_code_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.QuestionStatus getStatus();
+	public com.scobolsolo.application.Question setStatus(com.scobolsolo.application.QuestionStatus argStatus);
 
 	public int getDiffCount();
 	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator();

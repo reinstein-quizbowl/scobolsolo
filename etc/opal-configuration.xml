@@ -132,9 +132,13 @@
 				</Comparator>
 			</Mapping>
 			
-			<Mapping Table="Diff" />
+			<Mapping Table="Question_Status">
+				<Column Name="sequence" Ordering="True" />
+			</Mapping>
 			
-			<!-- <Mapping Table="Approval" /> -->
+			<Mapping Table="Diff">
+				<Column Name="revision_number" Comparator="True" />
+			</Mapping>
 			
 			<Mapping Table="School_Registration">
 				<Comparator>
@@ -330,6 +334,20 @@
 				<Column>editor_account_id</Column>
 			</Source>
 			<Target Type="Account" />
+		</Reference>
+		
+		<Reference Field="Status">
+			<Source Type="Question">
+				<Column>question_status_code</Column>
+			</Source>
+			<Target Type="QuestionStatus" />
+		</Reference>
+		
+		<Reference Field="Status">
+			<Source Type="Diff">
+				<Column>question_status_code</Column>
+			</Source>
+			<Target Type="QuestionStatus" />
 		</Reference>
 	</Database>
 </Project>

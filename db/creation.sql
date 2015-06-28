@@ -283,15 +283,30 @@ CREATE TABLE Question (
 	text TEXT,
 	answer TEXT,
 	note TEXT,
+	question_status_code code_t DEFAULT 'ANSWER_CHOSEN' REFERENCES Question_Status ON UPDATE CASCADE ON DELETE RESTRICT,
 	UNIQUE(tournament_code, description)
 );
 ALTER SEQUENCE question_id_seq RESTART WITH 1000;
+
+CREATE TABLE Question_Status (
+	code code_t PRIMARY KEY,
+	name name_t UNIQUE,
+	short_name short_name_t UNIQUE,
+	sequence sequence_t
+);
+INSERT INTO Question_Status (code, name, short_name, sequence) VALUES
+('ANSWER_CHOSEN', 'Answer Chosen', 'Answer', 100),
+('DRAFTED', 'Drafted', 'Draft', 200),
+('READY_FOR_REVIEW', 'Ready for Review', 'Review', 300),
+('APPROVED', 'Approved', 'Approved', 400);
 
 CREATE TABLE Diff (
 	id SERIAL PRIMARY KEY,
 	question_id INTEGER NOT NULL REFERENCES Question ON UPDATE CASCADE ON DELETE RESTRICT,
 	revision_number INTEGER NOT NULL,
 	editor_account_id INTEGER NOT NULL REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
+	question_status_code code_t REFERENCES Question_Status ON UPDATE CASCADE ON DELETE RESTRICT,
+	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
 	text TEXT NOT NULL,
 	answer TEXT NOT NULL,
 	note TEXT, -- Question.note

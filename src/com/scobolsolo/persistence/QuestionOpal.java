@@ -9,6 +9,7 @@ import com.scobolsolo.application.*;
 
 @StoreGeneratedPrimaryKey
 public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
+	public static final java.lang.String ourDefaultQuestionStatusCode = "ANSWER_CHOSEN";
 
 	private QuestionOpal() {
 		super();
@@ -20,9 +21,16 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	}
 
 	@Override
+	protected void applyDefaults() {
+		getNewValues()[7] = ourDefaultQuestionStatusCode;
+		return;
+	}
+
+	@Override
 	protected void initializeReferences() {
 		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
 		myOldWriterOpal = AccountOpal.NOT_YET_LOADED;
+		myOldStatusOpal = QuestionStatusOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -34,6 +42,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		"WriterAccountId",
 		"Text",
 		"Answer",
+		"QuestionStatusCode",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -42,6 +51,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
+		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.String.class,
 	};
@@ -54,9 +64,11 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		true,
 		true,
 		true,
+		false,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -112,6 +124,10 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 
 	public synchronized java.lang.String getAnswer() {
 		return (java.lang.String) getReadValueSet()[6];
+	}
+
+	public synchronized java.lang.String getQuestionStatusCode() {
+		return (java.lang.String) getReadValueSet()[7];
 	}
 
 	public synchronized QuestionOpal setId(final java.lang.Integer argId) {
@@ -175,6 +191,18 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		return this;
 	}
 
+	public synchronized QuestionOpal setQuestionStatusCode(final java.lang.String argQuestionStatusCode) {
+		tryMutate();
+		if (argQuestionStatusCode == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myQuestionStatusCode on " + this + " to null.");
+		}
+		if (argQuestionStatusCode.length() > 32) {
+			throw new com.opal.ArgumentTooLongException("Maximum length of myQuestionStatusCode on " + this + " is 32.", argQuestionStatusCode.length(), 32);
+		}
+		getNewValues()[7] = argQuestionStatusCode;
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -189,6 +217,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewCategoryOpal = myOldCategoryOpal;
 		myNewWriterOpal = myOldWriterOpal;
+		myNewStatusOpal = myOldStatusOpal;
 		myNewDiffOpalHashSet = null; /* Necessary if it has been rolled back */
 		myDiffOpalCachedOperations = null; /* Ditto */
 		myNewPlacementOpalHashSet = null; /* Necessary if it has been rolled back */
@@ -201,6 +230,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldCategoryOpal = myNewCategoryOpal;
 		myOldWriterOpal = myNewWriterOpal;
+		myOldStatusOpal = myNewStatusOpal;
 
 		if (needsToClearOldCollections()) {
 			myOldDiffOpalHashSet = null;
@@ -247,6 +277,9 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		if (getWriterOpal() != null) {
 			getWriterOpal().removeWriterQuestionOpalInternal(this);
 		}
+		if (getStatusOpal() != null) {
+			getStatusOpal().removeQuestionOpalInternal(this);
+		}
 		return;
 	}
 
@@ -261,6 +294,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		lclTargetNewValues[4] = lclValues[4]; /* WriterAccountId (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* Text (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* Answer (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* QuestionStatusCode (immutable) */
 
 		return;
 	}
@@ -273,6 +307,9 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		if (myNewWriterOpal != AccountOpal.NOT_YET_LOADED) {
 			setWriterAccountId(myNewWriterOpal == null ? null : myNewWriterOpal.getIdAsObject());
 		}
+		if (myNewStatusOpal != QuestionStatusOpal.NOT_YET_LOADED) {
+			setQuestionStatusCode(myNewStatusOpal == null ? null : myNewStatusOpal.getCode());
+		}
 		return;
 	}
 
@@ -283,6 +320,13 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		lclUO = myNewCategoryOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewStatusOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewWriterOpal;
@@ -302,6 +346,13 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		lclUO = myOldCategoryOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldStatusOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		lclUO = myOldWriterOpal;
@@ -336,6 +387,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		argPW.println("WriterAccountId = " + getWriterAccountIdAsObject());
 		argPW.println("Text = " + getText());
 		argPW.println("Answer = " + getAnswer());
+		argPW.println("QuestionStatusCode = " + getQuestionStatusCode());
 	}
 
 	@Override
@@ -347,6 +399,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		argPS.println("WriterAccountId = " + getWriterAccountIdAsObject());
 		argPS.println("Text = " + getText());
 		argPS.println("Answer = " + getAnswer());
+		argPS.println("QuestionStatusCode = " + getQuestionStatusCode());
 	}
 
 	private CategoryOpal myOldCategoryOpal;
@@ -437,6 +490,51 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	protected synchronized void setWriterOpalInternal(AccountOpal argAccountOpal) {
 		tryMutate();
 		myNewWriterOpal = argAccountOpal;
+	}
+
+	private QuestionStatusOpal myOldStatusOpal;
+	private QuestionStatusOpal myNewStatusOpal;
+
+	protected QuestionStatusOpal retrieveStatusOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[7] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getQuestionStatusOpalFactory().forCode(getQuestionStatusCode());
+	}
+
+	public synchronized QuestionStatusOpal getStatusOpal() {
+		QuestionStatusOpal lclQuestionStatusOpal;
+		boolean lclAccess = tryAccess();
+		lclQuestionStatusOpal = lclAccess ? myNewStatusOpal : myOldStatusOpal;
+		if (lclQuestionStatusOpal == QuestionStatusOpal.NOT_YET_LOADED) {
+			lclQuestionStatusOpal = retrieveStatusOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewStatusOpal = lclQuestionStatusOpal;
+			} else {
+				myOldStatusOpal = lclQuestionStatusOpal;
+			}
+		}
+		return lclQuestionStatusOpal;
+	}
+
+	public synchronized QuestionOpal setStatusOpal(QuestionStatusOpal argQuestionStatusOpal) {
+		tryMutate();
+		QuestionStatusOpal lclQuestionStatusOpal = getStatusOpal();
+		if (lclQuestionStatusOpal == argQuestionStatusOpal) { return this; }
+		if (lclQuestionStatusOpal != null) {
+			lclQuestionStatusOpal.removeQuestionOpalInternal(this);
+		}
+		myNewStatusOpal = argQuestionStatusOpal;
+		if (argQuestionStatusOpal != null) {
+			argQuestionStatusOpal.addQuestionOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setStatusOpalInternal(QuestionStatusOpal argQuestionStatusOpal) {
+		tryMutate();
+		myNewStatusOpal = argQuestionStatusOpal;
 	}
 
 	private java.util.HashSet<DiffOpal> myOldDiffOpalHashSet = null;
@@ -614,6 +712,9 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		}
 		if (myNewWriterOpal != AccountOpal.NOT_YET_LOADED) {
 			setWriterOpal(retrieveWriterOpal(getNewValues()));
+		}
+		if (myNewStatusOpal != QuestionStatusOpal.NOT_YET_LOADED) {
+			setStatusOpal(retrieveStatusOpal(getNewValues()));
 		}
 	}
 

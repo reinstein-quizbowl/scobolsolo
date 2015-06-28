@@ -13,9 +13,12 @@ import com.opal.cma.Validator;
 
 import com.scobolsolo.application.Account;
 import com.scobolsolo.application.AccountFactory;
+import com.scobolsolo.application.Category;
 import com.scobolsolo.application.Diff;
 import com.scobolsolo.application.DiffFactory;
 import com.scobolsolo.application.Question;
+import com.scobolsolo.application.QuestionStatus;
+import com.scobolsolo.application.QuestionStatusFactory;
 
 public class QuestionUpdater extends OpalFormUpdater<Question> {
 	public QuestionUpdater(final HttpServletRequest argRequest, final String argPrefix, final String argParameterName) {
@@ -30,6 +33,8 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		super(argRequest, argPrefix, argValidator);
 	}
 	
+	private Category myInitialCategory = null;
+	private QuestionStatus myInitialStatus = null;
 	private String myInitialText = null;
 	private String myInitialAnswer = null;
 	private String myInitialNote = null;
@@ -39,6 +44,8 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		Question lclQ = getUserFacing();
 		
 		if (lclQ != null && !lclQ.isNew()) {
+			myInitialCategory = lclQ.getCategory();
+			myInitialStatus = lclQ.getStatus();
 			myInitialText = lclQ.getText();
 			myInitialAnswer = lclQ.getAnswer();
 			myInitialNote = lclQ.getNote();
@@ -55,29 +62,46 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		if (lclQ.isNew() && lclQ.getWriter() == null) {
 			lclQ.setWriter(lclUser);
 		}
+		
+		if (lclQ.isNew() && lclQ.getStatus() == null) {
+			lclQ.setStatus(QuestionStatusFactory.ANSWER_CHOSEN()); // This is the database column's default, so this line isn't necessary. But I like being clear.
+		}
+		
+		if (lclQ.getText() == null && lclQ.getStatus() == QuestionStatusFactory.ANSWER_CHOSEN()) {
+			lclQ.setText("Answer claim only");
+		} else {
+			if (lclQ.getText() == null) {
+				addError("Text", "You must input question text.");
+			}
+		}
+		
+		if (lclQ.getAnswer() == null) {
+			addError("Answer", "You must input the answer line.");
+		}
 	}
 	
 	@Override
 	protected void afterUpdate() {
+		if (hasErrors()) {
+			return;
+		}
+		
 		Question lclQ = Validate.notNull(getUserFacing());
 		
 		Account lclUser = getUser();
 		Validate.isTrue(lclUser.isWriter(), "User is not a writer!");
 		
-		boolean lclChange = false;
 		String lclRemark = StringUtils.trimToNull(getPrefixedParameter("DiffRemark"));
 		
-		if (lclQ.isNew()) {
-			lclChange = true;
-		} else if (!Objects.equals(myInitialText, lclQ.getText())) {
-			lclChange = true;
-		} else if (!Objects.equals(myInitialAnswer, lclQ.getAnswer())) {
-			lclChange = true;
-		} else if (!Objects.equals(myInitialNote, lclQ.getNote())) {
-			lclChange = true;
-		} else if (lclRemark != null) {
-			lclChange = true;
-		}
+		boolean lclChange = 
+			lclQ.isNew() ||
+			myInitialCategory != lclQ.getCategory() ||
+			myInitialStatus != lclQ.getStatus() ||
+			!Objects.equals(myInitialText, lclQ.getText()) ||
+			!Objects.equals(myInitialAnswer, lclQ.getAnswer()) ||
+			!Objects.equals(myInitialNote, lclQ.getNote()) ||
+			lclRemark != null ||
+			0 == 1; // final irrelevant line so that all the above ones can end with || and I don't have to muck around with the last one being different
 		
 		if (lclChange) {
 			int lclRevisionNumber = lclQ.getNextRevisionNumber();
@@ -86,6 +110,8 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 				.setQuestion(lclQ)
 				.setRevisionNumber(lclRevisionNumber)
 				.setEditor(lclUser)
+				.setCategory(lclQ.getCategory())
+				.setStatus(lclQ.getStatus())
 				.setText(lclQ.getText())
 				.setAnswer(lclQ.getAnswer())
 				.setNote(lclQ.getNote())

@@ -40,6 +40,11 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	}
 
 	@Override
+	public QuestionStatusOpalFactory getQuestionStatusOpalFactory() {
+		return PostgresQuestionStatusOpalFactory.getInstance();
+	}
+
+	@Override
 	public TournamentOpalFactory getTournamentOpalFactory() {
 		return PostgresTournamentOpalFactory.getInstance();
 	}

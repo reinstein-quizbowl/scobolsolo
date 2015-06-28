@@ -28,6 +28,8 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		"timestamp", 
 		"question_id", 
 		"revision_number", 
+		"question_status_code", 
+		"category_code", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -119,7 +121,7 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	protected void registerOpal(DiffOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 10) { throw new IllegalStateException(); }
+		if (argValues.length != 12) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -130,7 +132,7 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void unregisterOpal(DiffOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 12) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -142,10 +144,10 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 12) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 10) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 12) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			OpalKey<DiffOpal> lclOldKey = null;
@@ -188,6 +190,24 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	public java.util.HashSet<DiffOpal> forQuestionIdCollection(java.lang.Integer argQuestionId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argQuestionId };
 		final String[] lclFieldNames = new String[] { "question_id" };
+		java.util.HashSet<DiffOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<DiffOpal> forQuestionStatusCodeCollection(java.lang.String argQuestionStatusCode) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argQuestionStatusCode };
+		final String[] lclFieldNames = new String[] { "question_status_code" };
+		java.util.HashSet<DiffOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<DiffOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argCategoryCode };
+		final String[] lclFieldNames = new String[] { "category_code" };
 		java.util.HashSet<DiffOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

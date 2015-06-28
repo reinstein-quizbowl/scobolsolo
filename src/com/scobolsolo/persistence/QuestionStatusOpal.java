@@ -7,21 +7,15 @@ import com.opal.*;
 
 import com.scobolsolo.application.*;
 
-public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
+public final class QuestionStatusOpal extends com.opal.UpdatableOpal<QuestionStatus> {
 
-	private CategoryOpal() {
+	private QuestionStatusOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public CategoryOpal(OpalFactory<Category, CategoryOpal> argOpalFactory, Object[] argValues) {
+	public QuestionStatusOpal(OpalFactory<QuestionStatus, QuestionStatusOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
-	}
-
-	@Override
-	protected void initializeReferences() {
-		myOldCategoryGroupOpal = CategoryGroupOpal.NOT_YET_LOADED;
-		return;
 	}
 
 	/* package */ static final String[] ourFieldNames = new String[] {
@@ -29,7 +23,6 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		"Name",
 		"ShortName",
 		"Sequence",
-		"CategoryGroupCode",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -37,11 +30,9 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
-		java.lang.String.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
-		false,
 		false,
 		false,
 		false,
@@ -53,10 +44,9 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		null,
 		null,
 		null,
-		null,
 	};
 
-	public static final CategoryOpal NOT_YET_LOADED = new CategoryOpal();
+	public static final QuestionStatusOpal NOT_YET_LOADED = new QuestionStatusOpal();
 
 	public static String[] getStaticFieldNames() { return ourFieldNames; }
 
@@ -92,11 +82,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return (java.lang.Integer) getReadValueSet()[3];
 	}
 
-	public synchronized java.lang.String getCategoryGroupCode() {
-		return (java.lang.String) getReadValueSet()[4];
-	}
-
-	public synchronized CategoryOpal setCode(final java.lang.String argCode) {
+	public synchronized QuestionStatusOpal setCode(final java.lang.String argCode) {
 		tryMutate();
 		if (argCode == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
@@ -108,7 +94,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return this;
 	}
 
-	public synchronized CategoryOpal setName(final java.lang.String argName) {
+	public synchronized QuestionStatusOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
@@ -120,7 +106,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return this;
 	}
 
-	public synchronized CategoryOpal setShortName(final java.lang.String argShortName) {
+	public synchronized QuestionStatusOpal setShortName(final java.lang.String argShortName) {
 		tryMutate();
 		if (argShortName == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
@@ -132,7 +118,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return this;
 	}
 
-	public synchronized CategoryOpal setSequence(final java.lang.Integer argSequence) {
+	public synchronized QuestionStatusOpal setSequence(final java.lang.Integer argSequence) {
 		tryMutate();
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
@@ -141,20 +127,8 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return this;
 	}
 
-	public CategoryOpal setSequence(final int argSequence) {
+	public QuestionStatusOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return this;
-	}
-
-	public synchronized CategoryOpal setCategoryGroupCode(final java.lang.String argCategoryGroupCode) {
-		tryMutate();
-		if (argCategoryGroupCode == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myCategoryGroupCode on " + this + " to null.");
-		}
-		if (argCategoryGroupCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myCategoryGroupCode on " + this + " is 32.", argCategoryGroupCode.length(), 32);
-		}
-		getNewValues()[4] = argCategoryGroupCode;
 		return this;
 	}
 
@@ -170,21 +144,17 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewCategoryGroupOpal = myOldCategoryGroupOpal;
 		myNewQuestionOpalHashSet = null; /* Necessary if it has been rolled back */
 		myQuestionOpalCachedOperations = null; /* Ditto */
 		myNewDiffOpalHashSet = null; /* Necessary if it has been rolled back */
 		myDiffOpalCachedOperations = null; /* Ditto */
-		myNewCategoryUseOpalHashSet = null; /* Necessary if it has been rolled back */
-		myCategoryUseOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
 
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
-		myOldCategoryGroupOpal = myNewCategoryGroupOpal;
-
+		/** This Opal has no references to other Opals that need to be copied. */
 		if (needsToClearOldCollections()) {
 			myOldQuestionOpalHashSet = null;
 			} else {
@@ -205,16 +175,6 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 				myDiffOpalCachedOperations = null;
 			}
 		}
-		if (needsToClearOldCollections()) {
-			myOldCategoryUseOpalHashSet = null;
-			} else {
-			if (myNewCategoryUseOpalHashSet != null) {
-				myOldCategoryUseOpalHashSet = myNewCategoryUseOpalHashSet;
-				myNewCategoryUseOpalHashSet = null;
-			} else {
-				myCategoryUseOpalCachedOperations = null;
-			}
-		}
 		setClearOldCollections(false);
 		return;
 	}
@@ -225,70 +185,43 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		if (myNewQuestionOpalHashSet != null || myQuestionOpalCachedOperations != null) {
 			lclI = createQuestionOpalIterator();
 			while (lclI.hasNext()) {
-				((QuestionOpal) lclI.next()).setCategoryOpalInternal(null);
+				((QuestionOpal) lclI.next()).setStatusOpalInternal(null);
 			}
 		}
 		if (myNewDiffOpalHashSet != null || myDiffOpalCachedOperations != null) {
 			lclI = createDiffOpalIterator();
 			while (lclI.hasNext()) {
-				((DiffOpal) lclI.next()).setCategoryOpalInternal(null);
+				((DiffOpal) lclI.next()).setStatusOpalInternal(null);
 			}
-		}
-		if (myNewCategoryUseOpalHashSet != null || myCategoryUseOpalCachedOperations != null) {
-			lclI = createCategoryUseOpalIterator();
-			while (lclI.hasNext()) {
-				((CategoryUseOpal) lclI.next()).setCategoryOpalInternal(null);
-			}
-		}
-		if (getCategoryGroupOpal() != null) {
-			getCategoryGroupOpal().removeCategoryOpalInternal(this);
 		}
 		return;
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Category> argTarget) {
+	protected void copyFieldsToInternal(UpdatableOpal<QuestionStatus> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Code) is part of a unique key. */
 		/* Field 1 (Name) is part of a unique key. */
 		/* Field 2 (ShortName) is part of a unique key. */
 		lclTargetNewValues[3] = lclValues[3]; /* Sequence (immutable) */
-		lclTargetNewValues[4] = lclValues[4]; /* CategoryGroupCode (immutable) */
 
 		return;
 	}
 
 	@Override
 	public synchronized void translateReferencesToFields() {
-		if (myNewCategoryGroupOpal != CategoryGroupOpal.NOT_YET_LOADED) {
-			setCategoryGroupCode(myNewCategoryGroupOpal == null ? null : myNewCategoryGroupOpal.getCode());
-		}
 		return;
 	}
 
 	@Override
 	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
-		lclUO = myNewCategoryGroupOpal;
-		if ((lclUO != null) && lclUO.isNew()) {
-			lclTAs = new com.siliconage.util.Fast3Set<>();
-			lclTAs.add(lclUO);
-		}
-		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+		return java.util.Collections.emptySet();
 	}
 
 	@Override
 	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
-		lclUO = myOldCategoryGroupOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
-			lclTAs = new com.siliconage.util.Fast3Set<>();
-			lclTAs.add(lclUO);
-		}
-		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
+		return java.util.Collections.emptySet();
 	}
 
 	@Override
@@ -310,7 +243,6 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		argPW.println("Name = " + getName());
 		argPW.println("ShortName = " + getShortName());
 		argPW.println("Sequence = " + getSequenceAsObject());
-		argPW.println("CategoryGroupCode = " + getCategoryGroupCode());
 	}
 
 	@Override
@@ -319,52 +251,6 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		argPS.println("Name = " + getName());
 		argPS.println("ShortName = " + getShortName());
 		argPS.println("Sequence = " + getSequenceAsObject());
-		argPS.println("CategoryGroupCode = " + getCategoryGroupCode());
-	}
-
-	private CategoryGroupOpal myOldCategoryGroupOpal;
-	private CategoryGroupOpal myNewCategoryGroupOpal;
-
-	protected CategoryGroupOpal retrieveCategoryGroupOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[4] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getCategoryGroupOpalFactory().forCode(getCategoryGroupCode());
-	}
-
-	public synchronized CategoryGroupOpal getCategoryGroupOpal() {
-		CategoryGroupOpal lclCategoryGroupOpal;
-		boolean lclAccess = tryAccess();
-		lclCategoryGroupOpal = lclAccess ? myNewCategoryGroupOpal : myOldCategoryGroupOpal;
-		if (lclCategoryGroupOpal == CategoryGroupOpal.NOT_YET_LOADED) {
-			lclCategoryGroupOpal = retrieveCategoryGroupOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewCategoryGroupOpal = lclCategoryGroupOpal;
-			} else {
-				myOldCategoryGroupOpal = lclCategoryGroupOpal;
-			}
-		}
-		return lclCategoryGroupOpal;
-	}
-
-	public synchronized CategoryOpal setCategoryGroupOpal(CategoryGroupOpal argCategoryGroupOpal) {
-		tryMutate();
-		CategoryGroupOpal lclCategoryGroupOpal = getCategoryGroupOpal();
-		if (lclCategoryGroupOpal == argCategoryGroupOpal) { return this; }
-		if (lclCategoryGroupOpal != null) {
-			lclCategoryGroupOpal.removeCategoryOpalInternal(this);
-		}
-		myNewCategoryGroupOpal = argCategoryGroupOpal;
-		if (argCategoryGroupOpal != null) {
-			argCategoryGroupOpal.addCategoryOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setCategoryGroupOpalInternal(CategoryGroupOpal argCategoryGroupOpal) {
-		tryMutate();
-		myNewCategoryGroupOpal = argCategoryGroupOpal;
 	}
 
 	private java.util.HashSet<QuestionOpal> myOldQuestionOpalHashSet = null;
@@ -375,7 +261,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		if (tryAccess()) {
 			if (myNewQuestionOpalHashSet == null) {
 				if (myOldQuestionOpalHashSet == null) {
-					myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forCategoryCodeCollection(getCode());
+					myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forQuestionStatusCodeCollection(getCode());
 				}
 				myNewQuestionOpalHashSet = new java.util.HashSet<>(myOldQuestionOpalHashSet);
 				if (myQuestionOpalCachedOperations != null) {
@@ -386,14 +272,14 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			return myNewQuestionOpalHashSet;
 		}
 		if (myOldQuestionOpalHashSet == null) {
-			myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forCategoryCodeCollection(getCode());
+			myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forQuestionStatusCodeCollection(getCode());
 		}
 		return myOldQuestionOpalHashSet;
 	}
 
 	public synchronized void addQuestionOpal(QuestionOpal argQuestionOpal) {
 		tryMutate();
-		argQuestionOpal.setCategoryOpal(this);
+		argQuestionOpal.setStatusOpal(this);
 		return;
 	}
 
@@ -415,7 +301,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	public synchronized void removeQuestionOpal(QuestionOpal argQuestionOpal) {
 		tryMutate();
-		argQuestionOpal.setCategoryOpal(null);
+		argQuestionOpal.setStatusOpal(null);
 	}
 
 	protected synchronized void removeQuestionOpalInternal(QuestionOpal argQuestionOpal) {
@@ -454,7 +340,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		if (tryAccess()) {
 			if (myNewDiffOpalHashSet == null) {
 				if (myOldDiffOpalHashSet == null) {
-					myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forCategoryCodeCollection(getCode());
+					myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionStatusCodeCollection(getCode());
 				}
 				myNewDiffOpalHashSet = new java.util.HashSet<>(myOldDiffOpalHashSet);
 				if (myDiffOpalCachedOperations != null) {
@@ -465,14 +351,14 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			return myNewDiffOpalHashSet;
 		}
 		if (myOldDiffOpalHashSet == null) {
-			myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forCategoryCodeCollection(getCode());
+			myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionStatusCodeCollection(getCode());
 		}
 		return myOldDiffOpalHashSet;
 	}
 
 	public synchronized void addDiffOpal(DiffOpal argDiffOpal) {
 		tryMutate();
-		argDiffOpal.setCategoryOpal(this);
+		argDiffOpal.setStatusOpal(this);
 		return;
 	}
 
@@ -494,7 +380,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	public synchronized void removeDiffOpal(DiffOpal argDiffOpal) {
 		tryMutate();
-		argDiffOpal.setCategoryOpal(null);
+		argDiffOpal.setStatusOpal(null);
 	}
 
 	protected synchronized void removeDiffOpalInternal(DiffOpal argDiffOpal) {
@@ -525,100 +411,14 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	public synchronized void clearDiffOpalInternal() { getDiffOpalClass().clear(); }
 
-	private java.util.HashSet<CategoryUseOpal> myOldCategoryUseOpalHashSet = null;
-	private java.util.HashSet<CategoryUseOpal> myNewCategoryUseOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<CategoryUseOpal>> myCategoryUseOpalCachedOperations = null;
-
-	/* package */ java.util.HashSet<CategoryUseOpal> getCategoryUseOpalClass() {
-		if (tryAccess()) {
-			if (myNewCategoryUseOpalHashSet == null) {
-				if (myOldCategoryUseOpalHashSet == null) {
-					myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
-				}
-				myNewCategoryUseOpalHashSet = new java.util.HashSet<>(myOldCategoryUseOpalHashSet);
-				if (myCategoryUseOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myCategoryUseOpalCachedOperations, myNewCategoryUseOpalHashSet);
-					myCategoryUseOpalCachedOperations = null;
-				}
-			}
-			return myNewCategoryUseOpalHashSet;
-		}
-		if (myOldCategoryUseOpalHashSet == null) {
-			myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
-		}
-		return myOldCategoryUseOpalHashSet;
-	}
-
-	public synchronized void addCategoryUseOpal(CategoryUseOpal argCategoryUseOpal) {
-		tryMutate();
-		argCategoryUseOpal.setCategoryOpal(this);
-		return;
-	}
-
-	protected synchronized void addCategoryUseOpalInternal(CategoryUseOpal argCategoryUseOpal) {
-		tryMutate();
-		if (myNewCategoryUseOpalHashSet == null) {
-			if (myOldCategoryUseOpalHashSet == null) {
-				if (myCategoryUseOpalCachedOperations == null) { myCategoryUseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myCategoryUseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argCategoryUseOpal));
-			} else {
-				myNewCategoryUseOpalHashSet = new java.util.HashSet<>(myOldCategoryUseOpalHashSet);
-				myNewCategoryUseOpalHashSet.add(argCategoryUseOpal);
-			}
-		} else {
-			myNewCategoryUseOpalHashSet.add(argCategoryUseOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeCategoryUseOpal(CategoryUseOpal argCategoryUseOpal) {
-		tryMutate();
-		argCategoryUseOpal.setCategoryOpal(null);
-	}
-
-	protected synchronized void removeCategoryUseOpalInternal(CategoryUseOpal argCategoryUseOpal) {
-		tryMutate();
-		if (myNewCategoryUseOpalHashSet == null) {
-			if (myOldCategoryUseOpalHashSet == null) {
-				if (myCategoryUseOpalCachedOperations == null) { myCategoryUseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myCategoryUseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argCategoryUseOpal));
-			} else {
-				myNewCategoryUseOpalHashSet = new java.util.HashSet<>(myOldCategoryUseOpalHashSet);
-				myNewCategoryUseOpalHashSet.remove(argCategoryUseOpal);
-			}
-		} else {
-			myNewCategoryUseOpalHashSet.remove(argCategoryUseOpal);
-		}
-		return;
-	}
-
-	public synchronized int getCategoryUseOpalCount() { return getCategoryUseOpalClass().size(); }
-
-	public synchronized java.util.Iterator<CategoryUseOpal> createCategoryUseOpalIterator() {
-		return getCategoryUseOpalClass().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<CategoryUseOpal> streamCategoryUseOpal() {
-		return getCategoryUseOpalClass().stream();
-	}
-
-	public synchronized void clearCategoryUseOpalInternal() { getCategoryUseOpalClass().clear(); }
-
 	@Override
 	public String toString() {
 		StringBuilder lclSB =  new StringBuilder(64);
-		lclSB.append("CategoryOpal[");
+		lclSB.append("QuestionStatusOpal[");
 		lclSB.append("myCode=");
 		lclSB.append(toStringField(0));
 		lclSB.append(']');
 		return lclSB.toString();
-	}
-
-	@Override
-	protected void updateReferencesAfterReload() {
-		if (myNewCategoryGroupOpal != CategoryGroupOpal.NOT_YET_LOADED) {
-			setCategoryGroupOpal(retrieveCategoryGroupOpal(getNewValues()));
-		}
 	}
 
 	@Override

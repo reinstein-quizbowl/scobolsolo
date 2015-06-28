@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.AccountOpal;
+import com.scobolsolo.persistence.QuestionStatusOpal;
 
 public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, QuestionOpal> implements Question {
 	private final QuestionOpal myQuestionOpal;
@@ -115,6 +116,17 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return this;
 	}
 
+	@Override
+	public java.lang.String getQuestionStatusCode() {
+		return getQuestionOpal().getQuestionStatusCode();
+	}
+
+	@Override
+	public QuestionImpl setQuestionStatusCode(java.lang.String argQuestionStatusCode) {
+		getQuestionOpal().setQuestionStatusCode(argQuestionStatusCode);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -143,6 +155,20 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	@Override
 	public Question setWriter(Account argAccount) {
 		getQuestionOpal().setWriterOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
+		return this;
+	}
+
+	/** Access to the QuestionStatus object created from question through reference question_question_status_code_fkey */
+
+	@Override
+	public QuestionStatus getStatus() {
+		QuestionStatusOpal lclQuestionStatusOpal = getQuestionOpal().getStatusOpal();
+		return lclQuestionStatusOpal == null ? null : lclQuestionStatusOpal.getUserFacing();
+	}
+
+	@Override
+	public Question setStatus(QuestionStatus argQuestionStatus) {
+		getQuestionOpal().setStatusOpal(argQuestionStatus == null ? null : ((QuestionStatusImpl) argQuestionStatus).getQuestionStatusOpal());
 		return this;
 	}
 

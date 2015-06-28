@@ -142,6 +142,36 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
+	public void addDiff(Diff argDiff) {
+		getCategoryOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+	}
+
+	@Override
+	public void removeDiff(Diff argDiff) {
+		getCategoryOpal().removeDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+	}
+
+	@Override
+	public int getDiffCount() {
+		return getCategoryOpal().getDiffOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Diff> streamDiff() {
+		return getCategoryOpal().streamDiffOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Diff> createDiffIterator() {
+		return new com.opal.OpalIterator<> (getCategoryOpal().createDiffOpalIterator());
+	}
+
+	@Override
+	public void clearDiff() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
 	public void addCategoryUse(CategoryUse argCategoryUse) {
 		getCategoryOpal().addCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
 	}

@@ -3,6 +3,8 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.DiffOpal;
 import com.scobolsolo.persistence.AccountOpal;
 import com.scobolsolo.persistence.QuestionOpal;
+import com.scobolsolo.persistence.QuestionStatusOpal;
+import com.scobolsolo.persistence.CategoryOpal;
 
 public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> implements Diff {
 	private final DiffOpal myDiffOpal;
@@ -166,6 +168,28 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
+	@Override
+	public java.lang.String getQuestionStatusCode() {
+		return getDiffOpal().getQuestionStatusCode();
+	}
+
+	@Override
+	public DiffImpl setQuestionStatusCode(java.lang.String argQuestionStatusCode) {
+		getDiffOpal().setQuestionStatusCode(argQuestionStatusCode);
+		return this;
+	}
+
+	@Override
+	public java.lang.String getCategoryCode() {
+		return getDiffOpal().getCategoryCode();
+	}
+
+	@Override
+	public DiffImpl setCategoryCode(java.lang.String argCategoryCode) {
+		getDiffOpal().setCategoryCode(argCategoryCode);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -194,6 +218,34 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 	@Override
 	public Diff setQuestion(Question argQuestion) {
 		getDiffOpal().setQuestionOpal(argQuestion == null ? null : ((QuestionImpl) argQuestion).getQuestionOpal());
+		return this;
+	}
+
+	/** Access to the QuestionStatus object created from diff through reference diff_question_status_code_fkey */
+
+	@Override
+	public QuestionStatus getStatus() {
+		QuestionStatusOpal lclQuestionStatusOpal = getDiffOpal().getStatusOpal();
+		return lclQuestionStatusOpal == null ? null : lclQuestionStatusOpal.getUserFacing();
+	}
+
+	@Override
+	public Diff setStatus(QuestionStatus argQuestionStatus) {
+		getDiffOpal().setStatusOpal(argQuestionStatus == null ? null : ((QuestionStatusImpl) argQuestionStatus).getQuestionStatusOpal());
+		return this;
+	}
+
+	/** Access to the Category object created from diff through reference diff_category_code_fkey */
+
+	@Override
+	public Category getCategory() {
+		CategoryOpal lclCategoryOpal = getDiffOpal().getCategoryOpal();
+		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
+	}
+
+	@Override
+	public Diff setCategory(Category argCategory) {
+		getDiffOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
 		return this;
 	}
 

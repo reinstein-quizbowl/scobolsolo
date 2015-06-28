@@ -3,24 +3,24 @@ package com.scobolsolo.persistence;
 import com.opal.*;
 
 /**
- * represents a {@code Category} from the persistent store
+ * represents a {@code QuestionStatus} from the persistent store
  *
- * <p>This interface was automatically generated to represent objects loaded from {@code category}.  Do not modify this class directly; instead, alter the permanent storage on which it is based, the Opal configuration file for the project, and/or the {@link com.scobolsolo.application.Category}, and then regenerate the opals.  Any changes made to this file will be lost if the opals are regenerated.</p>
+ * <p>This interface was automatically generated to represent objects loaded from {@code question_status}.  Do not modify this class directly; instead, alter the permanent storage on which it is based, the Opal configuration file for the project, and/or the {@link com.scobolsolo.application.QuestionStatus}, and then regenerate the opals.  Any changes made to this file will be lost if the opals are regenerated.</p>
  *
- * <p>To create objects of this type from persistent data, use one of the various {@code forXXX} methods on the {@link com.scobolsolo.application.CategoryFactory} factory class.  To create new instances, use the {@code create()} method on the factory.</p>
+ * <p>To create objects of this type from persistent data, use one of the various {@code forXXX} methods on the {@link com.scobolsolo.application.QuestionStatusFactory} factory class.  To create new instances, use the {@code create()} method on the factory.</p>
  *
  * <p>Objects that implement this interface must provide Opal thread semantics; among other things this means that all modification of such objects must be done with an active {@link com.opal.TransactionContext}.</p>
  *
- * <p>This interface is not meant to be referenced in user code.  Only the {@link com.scobolsolo.application.Category} and the {@link com.scobolsolo.application.CategoryFactory} class should be referenced directly.</p>
+ * <p>This interface is not meant to be referenced in user code.  Only the {@link com.scobolsolo.application.QuestionStatus} and the {@link com.scobolsolo.application.QuestionStatusFactory} class should be referenced directly.</p>
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Category> {
+public interface QuestionStatusUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.QuestionStatus> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
 	 *
-	 * <p>The {@code Code} field is a direct mapping of the {@code code} field in {@code category}.</p>
+	 * <p>The {@code Code} field is a direct mapping of the {@code code} field in {@code question_status}.</p>
 	 *
 	 * @return an object value of {@code Code} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
@@ -40,12 +40,12 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public com.scobolsolo.application.Category setCode(java.lang.String argCode);
+	public com.scobolsolo.application.QuestionStatus setCode(java.lang.String argCode);
 
 	/**
 	 * object accessor for the {@code Name}
 	 *
-	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code category}.</p>
+	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code question_status}.</p>
 	 *
 	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
@@ -65,12 +65,12 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 256L)
-	public com.scobolsolo.application.Category setName(java.lang.String argName);
+	public com.scobolsolo.application.QuestionStatus setName(java.lang.String argName);
 
 	/**
 	 * object accessor for the {@code ShortName}
 	 *
-	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code category}.</p>
+	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code question_status}.</p>
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
 	 */
@@ -90,12 +90,12 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 */
 	@com.opal.annotation.NotNull
 	@com.opal.annotation.Length(maximum = 32L)
-	public com.scobolsolo.application.Category setShortName(java.lang.String argShortName);
+	public com.scobolsolo.application.QuestionStatus setShortName(java.lang.String argShortName);
 
 	/**
 	 * object accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code category}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code question_status}.</p>
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
@@ -106,7 +106,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	/**
 	 * primitive accessor for the {@code Sequence}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code category}.</p>
+	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code question_status}.</p>
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
@@ -127,7 +127,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 * @throws IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
-	public com.scobolsolo.application.Category setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.QuestionStatus setSequence(java.lang.Integer argSequence);
 
 	/**
 	 * sets the {@code Sequence} to the value of {@code argSequence}
@@ -135,40 +135,7 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
-	public com.scobolsolo.application.Category setSequence(int argSequence);
-
-	/**
-	 * object accessor for the {@code CategoryGroupCode}
-	 *
-	 * <p>The {@code CategoryGroupCode} field is a direct mapping of the {@code category_group_code} field in {@code category}.</p>
-	 *
-	 * @return an object value of {@code CategoryGroupCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
-	 */
-	public java.lang.String getCategoryGroupCode();
-
-	/**
-	 * sets the {@code CategoryGroupCode} to the value of {@code argCategoryGroupCode}
-	 *
-	 * @param argCategoryGroupCode the new value of {@code CategoryGroupCode}.  May not be <code>null</code>.
-	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code category_group_code} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws IllegalNullArgumentException if argCategoryGroupCode is null
-	 * @throws ArgumentTooLongException if {@code argCategoryGroupCode} is longer than 32 characters
-	 * <p>The database column {@code category_group_code} is limited to 32 characters.</p>
-	 *
-	 */
-	@com.opal.annotation.NotNull
-	@com.opal.annotation.Length(maximum = 32L)
-	public com.scobolsolo.application.Category setCategoryGroupCode(java.lang.String argCategoryGroupCode);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.CategoryGroup}
-	 * The returned {@code com.scobolsolo.application.CategoryGroup} is the {@link UserFacing} object corresponding to the entry in {@code category_group} that is referenced by {@code category_category_group_code_fkey}.
-	 *
-	 */
-	public com.scobolsolo.application.CategoryGroup getCategoryGroup();
-	public com.scobolsolo.application.Category setCategoryGroup(com.scobolsolo.application.CategoryGroup argCategoryGroup);
+	public com.scobolsolo.application.QuestionStatus setSequence(int argSequence);
 
 	public int getQuestionCount();
 	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator();
@@ -228,106 +195,61 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 		return lclA;
 	}
 
-	public int getCategoryUseCount();
-	public java.util.Iterator<com.scobolsolo.application.CategoryUse> createCategoryUseIterator();
+	public com.scobolsolo.application.QuestionStatus copy();
 
-	public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse();
+	/** This is a Comparator that can be used to compare QuestionStatus objects based on their {@code Code} values. */
 
-	public void addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public void removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public void clearCategoryUse();
-
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.CategoryUse>> T acquireCategoryUse(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
-		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
-	}
-
-	default public com.scobolsolo.application.CategoryUse[] createCategoryUseArray() {
-		int lclLength = getCategoryUseCount();
-		com.scobolsolo.application.CategoryUse[] lclA = new com.scobolsolo.application.CategoryUse[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
-	}
-
-	public com.scobolsolo.application.Category copy();
-
-	/** This is a Comparator that can be used to compare Category objects based on their {@code Code} values. */
-
-	public static class CodeComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Category> {
+	public static class CodeComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.QuestionStatus> {
 		private static final CodeComparator ourInstance = new CodeComparator();
 		public static final CodeComparator getInstance() { return ourInstance; }
 
 		private CodeComparator() { super(); }
 
 		@Override
-		public int compareInternal(com.scobolsolo.application.Category argFirst, com.scobolsolo.application.Category argSecond) {
+		public int compareInternal(com.scobolsolo.application.QuestionStatus argFirst, com.scobolsolo.application.QuestionStatus argSecond) {
 			return argFirst.getCode().compareToIgnoreCase(argSecond.getCode());
 		}
 	}
 
-	/** This is a Comparator that can be used to compare Category objects based on their {@code Name} values. */
+	/** This is a Comparator that can be used to compare QuestionStatus objects based on their {@code Name} values. */
 
-	public static class NameComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Category> {
+	public static class NameComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.QuestionStatus> {
 		private static final NameComparator ourInstance = new NameComparator();
 		public static final NameComparator getInstance() { return ourInstance; }
 
 		private NameComparator() { super(); }
 
 		@Override
-		public int compareInternal(com.scobolsolo.application.Category argFirst, com.scobolsolo.application.Category argSecond) {
+		public int compareInternal(com.scobolsolo.application.QuestionStatus argFirst, com.scobolsolo.application.QuestionStatus argSecond) {
 			return argFirst.getName().compareToIgnoreCase(argSecond.getName());
 		}
 	}
 
-	/** This is a Comparator that can be used to compare Category objects based on their {@code ShortName} values. */
+	/** This is a Comparator that can be used to compare QuestionStatus objects based on their {@code ShortName} values. */
 
-	public static class ShortNameComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Category> {
+	public static class ShortNameComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.QuestionStatus> {
 		private static final ShortNameComparator ourInstance = new ShortNameComparator();
 		public static final ShortNameComparator getInstance() { return ourInstance; }
 
 		private ShortNameComparator() { super(); }
 
 		@Override
-		public int compareInternal(com.scobolsolo.application.Category argFirst, com.scobolsolo.application.Category argSecond) {
+		public int compareInternal(com.scobolsolo.application.QuestionStatus argFirst, com.scobolsolo.application.QuestionStatus argSecond) {
 			return argFirst.getShortName().compareToIgnoreCase(argSecond.getShortName());
 		}
 	}
 
-	/** This is a Comparator that can be used to compare Category objects based on their {@code Sequence} values. */
+	/** This is a Comparator that can be used to compare QuestionStatus objects based on their {@code Sequence} values. */
 
-	public static class SequenceComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Category> {
+	public static class SequenceComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.QuestionStatus> {
 		private static final SequenceComparator ourInstance = new SequenceComparator();
 		public static final SequenceComparator getInstance() { return ourInstance; }
 
 		private SequenceComparator() { super(); }
 
 		@Override
-		public int compareInternal(com.scobolsolo.application.Category argFirst, com.scobolsolo.application.Category argSecond) {
+		public int compareInternal(com.scobolsolo.application.QuestionStatus argFirst, com.scobolsolo.application.QuestionStatus argSecond) {
 			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-		}
-	}
-
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Category> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Category argFirst, com.scobolsolo.application.Category argSecond) {
-			int lclResult = com.scobolsolo.application.CategoryGroup.SequenceComparator.getInstance().compare(argFirst.getCategoryGroup(),  argSecond.getCategoryGroup());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

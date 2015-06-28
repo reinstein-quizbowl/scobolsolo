@@ -400,6 +400,56 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	public com.scobolsolo.application.Diff setRevisionNumber(int argRevisionNumber);
 
 	/**
+	 * object accessor for the {@code QuestionStatusCode}
+	 *
+	 * <p>The {@code QuestionStatusCode} field is a direct mapping of the {@code question_status_code} field in {@code diff}.</p>
+	 *
+	 * @return an object value of {@code QuestionStatusCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.String getQuestionStatusCode();
+
+	/**
+	 * sets the {@code QuestionStatusCode} to the value of {@code argQuestionStatusCode}
+	 *
+	 * @param argQuestionStatusCode the new value of {@code QuestionStatusCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code question_status_code} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argQuestionStatusCode is null
+	 * @throws ArgumentTooLongException if {@code argQuestionStatusCode} is longer than 32 characters
+	 * <p>The database column {@code question_status_code} is limited to 32 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.NotNull
+	@com.opal.annotation.Length(maximum = 32L)
+	public com.scobolsolo.application.Diff setQuestionStatusCode(java.lang.String argQuestionStatusCode);
+
+	/**
+	 * object accessor for the {@code CategoryCode}
+	 *
+	 * <p>The {@code CategoryCode} field is a direct mapping of the {@code category_code} field in {@code diff}.</p>
+	 *
+	 * @return an object value of {@code CategoryCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.String getCategoryCode();
+
+	/**
+	 * sets the {@code CategoryCode} to the value of {@code argCategoryCode}
+	 *
+	 * @param argCategoryCode the new value of {@code CategoryCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argCategoryCode is null
+	 * @throws ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
+	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.NotNull
+	@com.opal.annotation.Length(maximum = 32L)
+	public com.scobolsolo.application.Diff setCategoryCode(java.lang.String argCategoryCode);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Account}
 	 * The returned {@code com.scobolsolo.application.Account} is the {@link UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code diff_editor_account_id_fkey}.
 	 *
@@ -415,6 +465,22 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	public com.scobolsolo.application.Question getQuestion();
 	public com.scobolsolo.application.Diff setQuestion(com.scobolsolo.application.Question argQuestion);
 
+	/**
+	 * @return the {@code com.scobolsolo.application.QuestionStatus}
+	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code diff_question_status_code_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.QuestionStatus getStatus();
+	public com.scobolsolo.application.Diff setStatus(com.scobolsolo.application.QuestionStatus argStatus);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Category}
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code diff_category_code_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.Category getCategory();
+	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory);
+
 	public com.scobolsolo.application.Diff copy();
 
 	/** This is a Comparator that can be used to compare Diff objects based on their {@code Id} values. */
@@ -428,6 +494,20 @@ public interface DiffUserFacing extends IdentityUserFacing {
 		@Override
 		public int compareInternal(com.scobolsolo.application.Diff argFirst, com.scobolsolo.application.Diff argSecond) {
 			return argFirst.getIdAsObject().compareTo(argSecond.getIdAsObject());
+		}
+	}
+
+	/** This is a Comparator that can be used to compare Diff objects based on their {@code RevisionNumber} values. */
+
+	public static class RevisionNumberComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Diff> {
+		private static final RevisionNumberComparator ourInstance = new RevisionNumberComparator();
+		public static final RevisionNumberComparator getInstance() { return ourInstance; }
+
+		private RevisionNumberComparator() { super(); }
+
+		@Override
+		public int compareInternal(com.scobolsolo.application.Diff argFirst, com.scobolsolo.application.Diff argSecond) {
+			return argFirst.getRevisionNumberAsObject().compareTo(argSecond.getRevisionNumberAsObject());
 		}
 	}
 

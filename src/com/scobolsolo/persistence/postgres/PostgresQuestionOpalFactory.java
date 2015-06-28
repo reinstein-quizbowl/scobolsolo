@@ -25,6 +25,7 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 		"writer_account_id", 
 		"text", 
 		"answer", 
+		"question_status_code", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -116,7 +117,7 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 
 	protected void registerOpal(QuestionOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 7) { throw new IllegalStateException(); }
+		if (argValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -127,7 +128,7 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 	protected void unregisterOpal(QuestionOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -139,10 +140,10 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			OpalKey<QuestionOpal> lclOldKey = null;
@@ -185,6 +186,15 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 	public java.util.HashSet<QuestionOpal> forWriterAccountIdCollection(java.lang.Integer argWriterAccountId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argWriterAccountId };
 		final String[] lclFieldNames = new String[] { "writer_account_id" };
+		java.util.HashSet<QuestionOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<QuestionOpal> forQuestionStatusCodeCollection(java.lang.String argQuestionStatusCode) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argQuestionStatusCode };
+		final String[] lclFieldNames = new String[] { "question_status_code" };
 		java.util.HashSet<QuestionOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

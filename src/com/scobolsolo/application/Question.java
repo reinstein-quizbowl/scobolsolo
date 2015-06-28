@@ -2,6 +2,7 @@ package com.scobolsolo.application;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 
 import org.apache.commons.lang3.Validate;
 
@@ -44,6 +45,95 @@ public interface Question extends QuestionUserFacing {
 			return 1;
 		} else {
 			return getDiffCount() + 1; // This assumes that revision numbers have been assigned consecutively. There might be some kind of nasty race condition in here.
+		}
+	}
+	
+	
+	public static class StatusFilter implements Predicate<QuestionStatus> { // This is a static class because we want it to be able to exist without an instance of Question, for use in an OpalForm that is creating a new Question
+		private final Account myUser;
+		private final QuestionStatus myStartingStatus;
+		
+		public StatusFilter(Account argUser, Question argQ) {
+			myUser = Validate.notNull(argUser);
+			
+			if (argQ == null) { // a new Question
+				myStartingStatus = null;
+			} else {
+				myStartingStatus = argQ.getStatus();
+			}
+		}
+		
+		public Account getUser() {
+			return myUser;
+		}
+		
+		public QuestionStatus getStartingStatus() {
+			return myStartingStatus;
+		}
+		
+		@Override
+		public boolean test(QuestionStatus argNewStatus) {
+			Validate.notNull(argNewStatus);
+			
+			if (getUser().isAdministrator()) {
+				return true;
+			} else if (!getUser().isWriter()) {
+				return false;
+			} else {
+				if (getStartingStatus() == null) {
+					if (argNewStatus == QuestionStatusFactory.ANSWER_CHOSEN()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.DRAFTED()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.READY_FOR_REVIEW()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.APPROVED()) {
+						return false;
+					} else {
+						throw new IllegalArgumentException("Unknown target status " + argNewStatus.getCode());
+					}
+				} else if (getStartingStatus() == QuestionStatusFactory.ANSWER_CHOSEN()) {
+					if (argNewStatus == QuestionStatusFactory.ANSWER_CHOSEN()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.DRAFTED()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.READY_FOR_REVIEW()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.APPROVED()) {
+						return false;
+					} else {
+						throw new IllegalArgumentException("Unknown target status " + argNewStatus.getCode());
+					}
+				} else if (getStartingStatus() == QuestionStatusFactory.DRAFTED()) {
+					if (argNewStatus == QuestionStatusFactory.ANSWER_CHOSEN()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.DRAFTED()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.READY_FOR_REVIEW()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.APPROVED()) {
+						return false;
+					} else {
+						throw new IllegalArgumentException("Unknown target status " + argNewStatus.getCode());
+					}
+				} else if (getStartingStatus() == QuestionStatusFactory.READY_FOR_REVIEW()) {
+					if (argNewStatus == QuestionStatusFactory.ANSWER_CHOSEN()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.DRAFTED()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.READY_FOR_REVIEW()) {
+						return true;
+					} else if (argNewStatus == QuestionStatusFactory.APPROVED()) {
+						return true;
+					} else {
+						throw new IllegalArgumentException("Unknown target status " + argNewStatus.getCode());
+					}
+				} else if (getStartingStatus() == QuestionStatusFactory.APPROVED()) {
+					return false;
+				} else {
+					throw new IllegalArgumentException("Unknown starting status " + getStartingStatus().getCode());
+				}
+			}
 		}
 	}
 }
