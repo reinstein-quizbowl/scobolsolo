@@ -17,7 +17,7 @@
 <div class="row">
 	<div class="small-12 columns">
 		<h2>Pronunciation guides</h2>
-		<p>Write pronunciation guides as follows: <code class="success">\pg{Jonah Greenthal}{JOH-nuh "GREEN"-thawl}</code>. That is: a backslash, the letters <code>pg</code>, the text for which a pronunciation guide is being provided enclosed in <code>curly braces</code>, and the actual pronunciation guide enclosed in <code>curly braces</code>. The pronunciation guide itself should be written according to NAQT's style; <a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a> if you have any questions about that.</p>
+		<p>Write pronunciation guides as follows: <code class="success">\pg{Jonah Greenthal}{JOH-nuh "GREEN"-thawl}</code>. That is: a backslash, the letters <code>pg</code>, the text for which a pronunciation guide is being provided enclosed in <code>{</code>curly braces<code>}</code>, and the actual pronunciation guide enclosed in <code>curly braces</code>. The pronunciation guide itself should be written according to NAQT's style; <a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a> if you have any questions about that.</p>
 	</div>
 </div>
 
