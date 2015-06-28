@@ -24,6 +24,7 @@
 					<th>ID</th>
 					<th>Category</th>
 					<th><span title="Typically the answer to the question. Could be something longer, like 'France from opera clues'.">Description</span></th>
+					<th>Status</th>
 					<th>Preview</th>
 					<th>Last Updated</th>
 					<th>Used?</th>
@@ -31,7 +32,7 @@
 			</thead>
 			<tbody><%
 				List<Question> lclQs = QuestionFactory.getInstance().acquireAll(new ArrayList<>());
-				lclQs.sort(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 0 : 1).thenComparing(Question.CategoryComparator.getInstance()));
+				lclQs.sort(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CategoryComparator.getInstance()));
 				
 				DateTimeFormatter lclDTF = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
 				
@@ -40,6 +41,7 @@
 						<td><a href="question-edit.jsp?question_id=<%= lclQ.getId() %>"><%= lclQ.getId() %></a></td>
 						<td><%= lclQ.getCategory().getName() %></td>
 						<td><%= lclQ.getDescription() %></td>
+						<td><%= lclQ.getStatus().getName() %></td>
 						<td><%
 							List<Pair<String, String>> lclPreviews = new ArrayList<>(3);
 							if (lclQ.getText() != null) {

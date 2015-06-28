@@ -3,6 +3,7 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.format.FormatStyle" %>
 <%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.Collection" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -15,6 +16,7 @@
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.Utility" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Progress" />
@@ -34,9 +36,44 @@ if (lclIncompleteTournaments.isEmpty()) {
 		</div>
 	</div><%
 } else {
+	Collection<QuestionStatus> lclChosenStatuses = QuestionStatusFactory.getInstance().multipleFromHttpRequest(request);
+	if (lclChosenStatuses.isEmpty()) {
+		lclChosenStatuses = QuestionStatusFactory.getInstance().acquireAll(new ArrayList<>());
+		lclChosenStatuses.remove(QuestionStatusFactory.ANSWER_CHOSEN());
+	}
+	Validate.notEmpty(lclChosenStatuses);
+	
+	QuestionStatus[] lclAllStatuses = QuestionStatusFactory.getInstance().createAllArray();
+	Arrays.sort(lclAllStatuses);
+	
+	%><div class="row">
+		<div class="small-12 columns text-center">
+			<form action="progress.jsp" method="get">
+				<p>
+					Consider questions whose status is...
+					&nbsp;&nbsp;&nbsp;&nbsp;<%
+					for (QuestionStatus lclS : lclAllStatuses) {
+						%><label class="my-inline">
+							<input type="checkbox" name="question_status_code" value="<%= lclS.getCode() %>"<%= lclChosenStatuses.contains(lclS) ? " checked=\"checked\"" : "" %> />&nbsp;<%= lclS.getName() %>
+						</label>
+						&nbsp;&nbsp;&nbsp;&nbsp;<%
+					}
+					%><input type="submit" value="Recalculate" />
+				</p>
+			</form>
+		</div>
+	</div><%
+	
 	List<Question> lclUnusedQuestions = QuestionFactory.getInstance().acquireForQuery(
 		new ArrayList<>(),
-		new DatabaseQuery("SELECT Q.* FROM Question Q WHERE id NOT IN (SELECT question_id FROM Placement) or id IN (SELECT question_id FROM Placement PL JOIN Packet P ON PL.packet_id = P.id JOIN Tournament T ON P.tournament_code = T.code WHERE T.questions_complete = false)")
+		new DatabaseQuery(
+			"SELECT Q.* FROM Question Q WHERE " +
+			"( " +
+				"id NOT IN (SELECT question_id FROM Placement) OR " +
+				"id IN (SELECT question_id FROM Placement PL JOIN Packet P ON PL.packet_id = P.id JOIN Tournament T ON P.tournament_code = T.code WHERE T.questions_complete = false) " + 
+			") AND question_status_code IN (" + Utility.nParameters(lclChosenStatuses.size()) + ")",
+			lclChosenStatuses.stream().map(QuestionStatus::getCode).collect(Collectors.toList())
+		)
 	);
 	
 	Tally<Category> lclWritten = new Tally<>();
@@ -109,6 +146,38 @@ if (lclIncompleteTournaments.isEmpty()) {
 							}
 						}
 					%></tbody>
+				</table><%
+			}
+			
+			if (lclAllRelevantCategories.size() > 1) {
+				int lclTotalWritten = lclWritten.getTotal();
+				int lclTotalNeeded = lclNeeded.getTotal();
+				
+				double lclCompletion = 1.0d * lclTotalWritten / lclTotalNeeded;
+				%><h2>Total</h2>
+				<table class="responsive full-width">
+					<thead>
+						<tr>
+							<th style="width: 20%">&nbsp;</th>
+							<th style="width: 10%">Written</th>
+							<th style="width: 10%">Needed</th>
+							<th style="width: 10%">Completion</th>
+							<th style="width: 50%">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="<%= determineClass(lclCompletion) %>">
+							<td>&nbsp;</td>
+							<td><%= lclTotalWritten %></td>
+							<td><%= lclTotalNeeded %></td>
+							<td><%= lclPct.format(lclCompletion) %></td>
+							<td>
+								<div class="progress">
+									<span class="meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
 				</table><%
 			}
 		%></div>
