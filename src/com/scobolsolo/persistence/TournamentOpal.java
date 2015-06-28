@@ -9,6 +9,7 @@ import com.scobolsolo.application.*;
 
 public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	public static final java.lang.Boolean ourDefaultTiebreakerSuddenDeath = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultQuestionsComplete = java.lang.Boolean.FALSE;
 
 	private TournamentOpal() {
 		super();
@@ -22,6 +23,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	@Override
 	protected void applyDefaults() {
 		getNewValues()[5] = ourDefaultTiebreakerSuddenDeath;
+		getNewValues()[15] = ourDefaultQuestionsComplete;
 		return;
 	}
 
@@ -48,6 +50,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		"ControlRoomRoomId",
 		"ChampionshipRules",
 		"ChampionshipMatchUrl",
+		"QuestionsComplete",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -66,6 +69,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		java.lang.Integer.class,
 		java.lang.String.class,
 		java.lang.String.class,
+		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -84,9 +88,11 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		true,
 		true,
 		true,
+		false,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -182,6 +188,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	public synchronized java.lang.String getChampionshipMatchUrl() {
 		return (java.lang.String) getReadValueSet()[14];
+	}
+
+	public synchronized java.lang.Boolean isQuestionsCompleteAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[15];
 	}
 
 	public synchronized TournamentOpal setDate(final java.time.LocalDate argDate) {
@@ -322,6 +332,20 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 			throw new com.opal.ArgumentTooLongException("Maximum length of myChampionshipMatchUrl on " + this + " is 256.", argChampionshipMatchUrl.length(), 256);
 		}
 		getNewValues()[14] = argChampionshipMatchUrl;
+		return this;
+	}
+
+	public synchronized TournamentOpal setQuestionsComplete(final java.lang.Boolean argQuestionsComplete) {
+		tryMutate();
+		if (argQuestionsComplete == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myQuestionsComplete on " + this + " to null.");
+		}
+		getNewValues()[15] = argQuestionsComplete;
+		return this;
+	}
+
+	public TournamentOpal setQuestionsComplete(final boolean argQuestionsComplete) {
+		setQuestionsComplete(argQuestionsComplete ? Boolean.TRUE : Boolean.FALSE);
 		return this;
 	}
 
@@ -491,6 +515,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		lclTargetNewValues[12] = lclValues[12]; /* ControlRoomRoomId (immutable) */
 		lclTargetNewValues[13] = lclValues[13]; /* ChampionshipRules (immutable) */
 		lclTargetNewValues[14] = lclValues[14]; /* ChampionshipMatchUrl (immutable) */
+		lclTargetNewValues[15] = lclValues[15]; /* QuestionsComplete (immutable) */
 
 		return;
 	}
@@ -574,6 +599,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argPW.println("ControlRoomRoomId = " + getControlRoomRoomIdAsObject());
 		argPW.println("ChampionshipRules = " + getChampionshipRules());
 		argPW.println("ChampionshipMatchUrl = " + getChampionshipMatchUrl());
+		argPW.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
 	}
 
 	@Override
@@ -593,6 +619,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argPS.println("ControlRoomRoomId = " + getControlRoomRoomIdAsObject());
 		argPS.println("ChampionshipRules = " + getChampionshipRules());
 		argPS.println("ChampionshipMatchUrl = " + getChampionshipMatchUrl());
+		argPS.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
 	}
 
 	private RoomOpal myOldControlRoomOpal;

@@ -8,15 +8,6 @@ CREATE DOMAIN note_t TEXT;
 CREATE DOMAIN phone_number_t VARCHAR(32);
 CREATE DOMAIN email_t VARCHAR(256) CHECK(VALUE LIKE '%@%'); -- Pretty crappy check
 
-CREATE TABLE Tournament (
-	code code_t PRIMARY KEY,
-	date DATE NOT NULL,
-	name name_t UNIQUE,
-	short_name short_name_t UNIQUE,
-	web_xml_role_code code_t UNIQUE,
-	tiebreaker_sudden_death BOOLEAN NOT NULL DEFAULT TRUE
-);
-
 CREATE TABLE Contact (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(256) NOT NULL,
@@ -28,6 +19,25 @@ CREATE TABLE Contact (
 	active BOOLEAN NOT NULL DEFAULT TRUE
 );
 ALTER SEQUENCE contact_id_seq RESTART WITH 1000;
+
+CREATE TABLE Tournament (
+	code code_t PRIMARY KEY,
+	date DATE NOT NULL,
+	name name_t UNIQUE,
+	short_name short_name_t UNIQUE,
+	web_xml_role_code code_t UNIQUE,
+	tiebreaker_sudden_death BOOLEAN NOT NULL DEFAULT TRUE,
+	url TEXT,
+	tournament_director_contact_id INTEGER NOT NULL REFERENCES Contact ON UPDATE CASCADE ON DELETE RESTRICT,
+	player_message TEXT,
+	staff_message TEXT,
+	school_message TEXT,
+	replacement_question_social_media_policy TEXT,
+	championship_rules TEXT,
+	championship_match_url VARCHAR(256),
+	control_room_room_id INTEGER REFERENCES ROOM ON UPDATE CASCADE ON DELETE RESTRICT,
+	questions_complete BOOLEAN NOT NULL DEFAULT FALSE
+);
 
 CREATE TABLE Account (
 	id INTEGER PRIMARY KEY REFERENCES Contact ON UPDATE CASCADE ON DELETE RESTRICT,

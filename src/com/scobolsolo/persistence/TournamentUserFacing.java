@@ -561,6 +561,51 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	public com.scobolsolo.application.Tournament setChampionshipMatchUrl(java.lang.String argChampionshipMatchUrl);
 
 	/**
+	 * object accessor for the {@code QuestionsComplete}
+	 *
+	 * <p>The {@code QuestionsComplete} field is a direct mapping of the {@code questions_complete} field in {@code tournament}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isQuestionsComplete() method.</p>
+	 *
+	 * @return an object value of {@code QuestionsComplete} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.Boolean isQuestionsCompleteAsObject();
+
+	/**
+	 * primitive accessor for the {@code QuestionsComplete}
+	 *
+	 * <p>The {@code QuestionsComplete} field is a direct mapping of the {@code questions_complete} database column in the table {@code tournament}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isQuestionsCompleteAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code QuestionsComplete} (of the current {@link TransactionContext})
+	 */
+	default public boolean isQuestionsComplete() {
+		java.lang.Boolean lclO = isQuestionsCompleteAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code QuestionsComplete} to the value of {@code argQuestionsComplete}
+	 *
+	 * @param argQuestionsComplete the new value of {@code QuestionsComplete}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code questions_complete} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argQuestionsComplete is null
+	 */
+	@com.opal.annotation.NotNull
+	public com.scobolsolo.application.Tournament setQuestionsComplete(java.lang.Boolean argQuestionsComplete);
+
+	/**
+	 * sets the {@code QuestionsComplete} to the value of {@code argQuestionsComplete}
+	 *
+	 * @param argQuestionsComplete the new value of {@code QuestionsComplete}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Tournament setQuestionsComplete(boolean argQuestionsComplete);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Room}
 	 * The returned {@code com.scobolsolo.application.Room} is the {@link UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code tournament_control_room_room_id_fkey}.
 	 *

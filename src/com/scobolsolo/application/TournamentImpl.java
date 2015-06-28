@@ -214,6 +214,23 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 		return this;
 	}
 
+	@Override
+	public java.lang.Boolean isQuestionsCompleteAsObject() {
+		return getTournamentOpal().isQuestionsCompleteAsObject();
+	}
+
+	@Override
+	public TournamentImpl setQuestionsComplete(java.lang.Boolean argQuestionsComplete) {
+		getTournamentOpal().setQuestionsComplete(argQuestionsComplete);
+		return this;
+	}
+
+	@Override
+	public TournamentImpl setQuestionsComplete(boolean argQuestionsComplete) {
+		getTournamentOpal().setQuestionsComplete(argQuestionsComplete);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
