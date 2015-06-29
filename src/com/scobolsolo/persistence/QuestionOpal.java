@@ -9,7 +9,7 @@ import com.scobolsolo.application.*;
 
 @StoreGeneratedPrimaryKey
 public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
-	public static final java.lang.String ourDefaultQuestionStatusCode = "ANSWER_CHOSEN";
+	public static final java.lang.String ourDefaultQuestionStatusCode = "DRAFTED";
 
 	private QuestionOpal() {
 		super();

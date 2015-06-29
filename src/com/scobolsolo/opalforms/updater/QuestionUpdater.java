@@ -64,7 +64,11 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		}
 		
 		if (lclQ.isNew() && lclQ.getStatus() == null) {
-			lclQ.setStatus(QuestionStatusFactory.ANSWER_CHOSEN()); // This is the database column's default, so this line isn't necessary. But I like being clear.
+			if (lclQ.getText() == null) {
+				lclQ.setStatus(QuestionStatusFactory.ANSWER_CHOSEN());
+			} else {
+				lclQ.setStatus(QuestionStatusFactory.DRAFTED()); // This is the database column's default, so this line isn't necessary. But I like being clear.
+			}
 		}
 		
 		if (lclQ.getText() == null && lclQ.getStatus() == QuestionStatusFactory.ANSWER_CHOSEN()) {

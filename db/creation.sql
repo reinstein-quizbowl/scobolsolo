@@ -283,7 +283,7 @@ CREATE TABLE Question (
 	text TEXT,
 	answer TEXT,
 	note TEXT,
-	question_status_code code_t DEFAULT 'ANSWER_CHOSEN' REFERENCES Question_Status ON UPDATE CASCADE ON DELETE RESTRICT,
+	question_status_code code_t DEFAULT 'DRAFTED' REFERENCES Question_Status ON UPDATE CASCADE ON DELETE RESTRICT,
 	UNIQUE(tournament_code, description)
 );
 ALTER SEQUENCE question_id_seq RESTART WITH 1000;
