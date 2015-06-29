@@ -270,12 +270,12 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		return java.util.Collections.emptySet();
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
 		return java.util.Collections.emptySet();
 	}
 

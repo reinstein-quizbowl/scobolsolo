@@ -389,8 +389,8 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewMainContactOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -415,8 +415,8 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldMainContactOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -614,13 +614,17 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	private java.util.HashSet<StandbyEntryOpal> myOldStandbyEntryOpalHashSet = null;
 	private java.util.HashSet<StandbyEntryOpal> myNewStandbyEntryOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<StandbyEntryOpal>> myStandbyEntryOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<StandbyEntryOpal>> myStandbyEntryOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<StandbyEntryOpal> getStandbyEntryOpalClass() {
+	/* package */ java.util.HashSet<StandbyEntryOpal> getStandbyEntryOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewStandbyEntryOpalHashSet == null) {
 				if (myOldStandbyEntryOpalHashSet == null) {
-					myOldStandbyEntryOpalHashSet = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldStandbyEntryOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldStandbyEntryOpalHashSet = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					}
 				}
 				myNewStandbyEntryOpalHashSet = new java.util.HashSet<>(myOldStandbyEntryOpalHashSet);
 				if (myStandbyEntryOpalCachedOperations != null) {
@@ -629,11 +633,12 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 				}
 			}
 			return myNewStandbyEntryOpalHashSet;
+		} else {
+			if (myOldStandbyEntryOpalHashSet == null) {
+				myOldStandbyEntryOpalHashSet = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			}
+			return myOldStandbyEntryOpalHashSet;
 		}
-		if (myOldStandbyEntryOpalHashSet == null) {
-			myOldStandbyEntryOpalHashSet = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
-		}
-		return myOldStandbyEntryOpalHashSet;
 	}
 
 	public synchronized void addStandbyEntryOpal(StandbyEntryOpal argStandbyEntryOpal) {
@@ -679,27 +684,31 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		return;
 	}
 
-	public synchronized int getStandbyEntryOpalCount() { return getStandbyEntryOpalClass().size(); }
+	public synchronized int getStandbyEntryOpalCount() { return getStandbyEntryOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<StandbyEntryOpal> createStandbyEntryOpalIterator() {
-		return getStandbyEntryOpalClass().iterator();
+		return getStandbyEntryOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<StandbyEntryOpal> streamStandbyEntryOpal() {
-		return getStandbyEntryOpalClass().stream();
+		return getStandbyEntryOpalHashSet().stream();
 	}
 
-	public synchronized void clearStandbyEntryOpalInternal() { getStandbyEntryOpalClass().clear(); }
+	public synchronized void clearStandbyEntryOpalInternal() { getStandbyEntryOpalHashSet().clear(); }
 
 	private java.util.HashSet<PlayerOpal> myOldPlayerOpalHashSet = null;
 	private java.util.HashSet<PlayerOpal> myNewPlayerOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<PlayerOpal>> myPlayerOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<PlayerOpal>> myPlayerOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<PlayerOpal> getPlayerOpalClass() {
+	/* package */ java.util.HashSet<PlayerOpal> getPlayerOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewPlayerOpalHashSet == null) {
 				if (myOldPlayerOpalHashSet == null) {
-					myOldPlayerOpalHashSet = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldPlayerOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldPlayerOpalHashSet = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					}
 				}
 				myNewPlayerOpalHashSet = new java.util.HashSet<>(myOldPlayerOpalHashSet);
 				if (myPlayerOpalCachedOperations != null) {
@@ -708,11 +717,12 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 				}
 			}
 			return myNewPlayerOpalHashSet;
+		} else {
+			if (myOldPlayerOpalHashSet == null) {
+				myOldPlayerOpalHashSet = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			}
+			return myOldPlayerOpalHashSet;
 		}
-		if (myOldPlayerOpalHashSet == null) {
-			myOldPlayerOpalHashSet = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
-		}
-		return myOldPlayerOpalHashSet;
 	}
 
 	public synchronized void addPlayerOpal(PlayerOpal argPlayerOpal) {
@@ -758,27 +768,31 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		return;
 	}
 
-	public synchronized int getPlayerOpalCount() { return getPlayerOpalClass().size(); }
+	public synchronized int getPlayerOpalCount() { return getPlayerOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<PlayerOpal> createPlayerOpalIterator() {
-		return getPlayerOpalClass().iterator();
+		return getPlayerOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PlayerOpal> streamPlayerOpal() {
-		return getPlayerOpalClass().stream();
+		return getPlayerOpalHashSet().stream();
 	}
 
-	public synchronized void clearPlayerOpalInternal() { getPlayerOpalClass().clear(); }
+	public synchronized void clearPlayerOpalInternal() { getPlayerOpalHashSet().clear(); }
 
 	private java.util.HashSet<BuzzerOpal> myOldBuzzerOpalHashSet = null;
 	private java.util.HashSet<BuzzerOpal> myNewBuzzerOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<BuzzerOpal>> myBuzzerOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<BuzzerOpal>> myBuzzerOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<BuzzerOpal> getBuzzerOpalClass() {
+	/* package */ java.util.HashSet<BuzzerOpal> getBuzzerOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewBuzzerOpalHashSet == null) {
 				if (myOldBuzzerOpalHashSet == null) {
-					myOldBuzzerOpalHashSet = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldBuzzerOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldBuzzerOpalHashSet = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					}
 				}
 				myNewBuzzerOpalHashSet = new java.util.HashSet<>(myOldBuzzerOpalHashSet);
 				if (myBuzzerOpalCachedOperations != null) {
@@ -787,11 +801,12 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 				}
 			}
 			return myNewBuzzerOpalHashSet;
+		} else {
+			if (myOldBuzzerOpalHashSet == null) {
+				myOldBuzzerOpalHashSet = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			}
+			return myOldBuzzerOpalHashSet;
 		}
-		if (myOldBuzzerOpalHashSet == null) {
-			myOldBuzzerOpalHashSet = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
-		}
-		return myOldBuzzerOpalHashSet;
 	}
 
 	public synchronized void addBuzzerOpal(BuzzerOpal argBuzzerOpal) {
@@ -837,27 +852,31 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		return;
 	}
 
-	public synchronized int getBuzzerOpalCount() { return getBuzzerOpalClass().size(); }
+	public synchronized int getBuzzerOpalCount() { return getBuzzerOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<BuzzerOpal> createBuzzerOpalIterator() {
-		return getBuzzerOpalClass().iterator();
+		return getBuzzerOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<BuzzerOpal> streamBuzzerOpal() {
-		return getBuzzerOpalClass().stream();
+		return getBuzzerOpalHashSet().stream();
 	}
 
-	public synchronized void clearBuzzerOpalInternal() { getBuzzerOpalClass().clear(); }
+	public synchronized void clearBuzzerOpalInternal() { getBuzzerOpalHashSet().clear(); }
 
 	private java.util.HashSet<WaitlistEntryOpal> myOldWaitlistEntryOpalHashSet = null;
 	private java.util.HashSet<WaitlistEntryOpal> myNewWaitlistEntryOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<WaitlistEntryOpal>> myWaitlistEntryOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<WaitlistEntryOpal>> myWaitlistEntryOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<WaitlistEntryOpal> getWaitlistEntryOpalClass() {
+	/* package */ java.util.HashSet<WaitlistEntryOpal> getWaitlistEntryOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewWaitlistEntryOpalHashSet == null) {
 				if (myOldWaitlistEntryOpalHashSet == null) {
-					myOldWaitlistEntryOpalHashSet = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldWaitlistEntryOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldWaitlistEntryOpalHashSet = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					}
 				}
 				myNewWaitlistEntryOpalHashSet = new java.util.HashSet<>(myOldWaitlistEntryOpalHashSet);
 				if (myWaitlistEntryOpalCachedOperations != null) {
@@ -866,11 +885,12 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 				}
 			}
 			return myNewWaitlistEntryOpalHashSet;
+		} else {
+			if (myOldWaitlistEntryOpalHashSet == null) {
+				myOldWaitlistEntryOpalHashSet = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			}
+			return myOldWaitlistEntryOpalHashSet;
 		}
-		if (myOldWaitlistEntryOpalHashSet == null) {
-			myOldWaitlistEntryOpalHashSet = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
-		}
-		return myOldWaitlistEntryOpalHashSet;
 	}
 
 	public synchronized void addWaitlistEntryOpal(WaitlistEntryOpal argWaitlistEntryOpal) {
@@ -916,27 +936,31 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		return;
 	}
 
-	public synchronized int getWaitlistEntryOpalCount() { return getWaitlistEntryOpalClass().size(); }
+	public synchronized int getWaitlistEntryOpalCount() { return getWaitlistEntryOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<WaitlistEntryOpal> createWaitlistEntryOpalIterator() {
-		return getWaitlistEntryOpalClass().iterator();
+		return getWaitlistEntryOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<WaitlistEntryOpal> streamWaitlistEntryOpal() {
-		return getWaitlistEntryOpalClass().stream();
+		return getWaitlistEntryOpalHashSet().stream();
 	}
 
-	public synchronized void clearWaitlistEntryOpalInternal() { getWaitlistEntryOpalClass().clear(); }
+	public synchronized void clearWaitlistEntryOpalInternal() { getWaitlistEntryOpalHashSet().clear(); }
 
 	private java.util.HashSet<StaffOpal> myOldStaffOpalHashSet = null;
 	private java.util.HashSet<StaffOpal> myNewStaffOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<StaffOpal>> myStaffOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<StaffOpal>> myStaffOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<StaffOpal> getStaffOpalClass() {
+	/* package */ java.util.HashSet<StaffOpal> getStaffOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewStaffOpalHashSet == null) {
 				if (myOldStaffOpalHashSet == null) {
-					myOldStaffOpalHashSet = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldStaffOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldStaffOpalHashSet = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+					}
 				}
 				myNewStaffOpalHashSet = new java.util.HashSet<>(myOldStaffOpalHashSet);
 				if (myStaffOpalCachedOperations != null) {
@@ -945,11 +969,12 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 				}
 			}
 			return myNewStaffOpalHashSet;
+		} else {
+			if (myOldStaffOpalHashSet == null) {
+				myOldStaffOpalHashSet = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			}
+			return myOldStaffOpalHashSet;
 		}
-		if (myOldStaffOpalHashSet == null) {
-			myOldStaffOpalHashSet = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
-		}
-		return myOldStaffOpalHashSet;
 	}
 
 	public synchronized void addStaffOpal(StaffOpal argStaffOpal) {
@@ -995,17 +1020,17 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		return;
 	}
 
-	public synchronized int getStaffOpalCount() { return getStaffOpalClass().size(); }
+	public synchronized int getStaffOpalCount() { return getStaffOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<StaffOpal> createStaffOpalIterator() {
-		return getStaffOpalClass().iterator();
+		return getStaffOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<StaffOpal> streamStaffOpal() {
-		return getStaffOpalClass().stream();
+		return getStaffOpalHashSet().stream();
 	}
 
-	public synchronized void clearStaffOpalInternal() { getStaffOpalClass().clear(); }
+	public synchronized void clearStaffOpalInternal() { getStaffOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

@@ -197,12 +197,12 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		return java.util.Collections.emptySet();
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
 		return java.util.Collections.emptySet();
 	}
 
@@ -237,13 +237,17 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 
 	private java.util.HashSet<CategoryOpal> myOldCategoryOpalHashSet = null;
 	private java.util.HashSet<CategoryOpal> myNewCategoryOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<CategoryOpal>> myCategoryOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<CategoryOpal>> myCategoryOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<CategoryOpal> getCategoryOpalClass() {
+	/* package */ java.util.HashSet<CategoryOpal> getCategoryOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewCategoryOpalHashSet == null) {
 				if (myOldCategoryOpalHashSet == null) {
-					myOldCategoryOpalHashSet = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
+					if (isNew()) {
+						myOldCategoryOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldCategoryOpalHashSet = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
+					}
 				}
 				myNewCategoryOpalHashSet = new java.util.HashSet<>(myOldCategoryOpalHashSet);
 				if (myCategoryOpalCachedOperations != null) {
@@ -252,11 +256,12 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 				}
 			}
 			return myNewCategoryOpalHashSet;
+		} else {
+			if (myOldCategoryOpalHashSet == null) {
+				myOldCategoryOpalHashSet = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
+			}
+			return myOldCategoryOpalHashSet;
 		}
-		if (myOldCategoryOpalHashSet == null) {
-			myOldCategoryOpalHashSet = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
-		}
-		return myOldCategoryOpalHashSet;
 	}
 
 	public synchronized void addCategoryOpal(CategoryOpal argCategoryOpal) {
@@ -302,17 +307,17 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 		return;
 	}
 
-	public synchronized int getCategoryOpalCount() { return getCategoryOpalClass().size(); }
+	public synchronized int getCategoryOpalCount() { return getCategoryOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<CategoryOpal> createCategoryOpalIterator() {
-		return getCategoryOpalClass().iterator();
+		return getCategoryOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<CategoryOpal> streamCategoryOpal() {
-		return getCategoryOpalClass().stream();
+		return getCategoryOpalHashSet().stream();
 	}
 
-	public synchronized void clearCategoryOpalInternal() { getCategoryOpalClass().clear(); }
+	public synchronized void clearCategoryOpalInternal() { getCategoryOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

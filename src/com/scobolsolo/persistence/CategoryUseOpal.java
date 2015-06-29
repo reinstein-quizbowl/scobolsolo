@@ -166,8 +166,8 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewCategoryOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -185,8 +185,8 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldCategoryOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {

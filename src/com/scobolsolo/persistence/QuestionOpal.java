@@ -314,8 +314,8 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewCategoryOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -340,8 +340,8 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldCategoryOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -539,13 +539,17 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 
 	private java.util.HashSet<DiffOpal> myOldDiffOpalHashSet = null;
 	private java.util.HashSet<DiffOpal> myNewDiffOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<DiffOpal>> myDiffOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<DiffOpal>> myDiffOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<DiffOpal> getDiffOpalClass() {
+	/* package */ java.util.HashSet<DiffOpal> getDiffOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewDiffOpalHashSet == null) {
 				if (myOldDiffOpalHashSet == null) {
-					myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldDiffOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionIdCollection(getIdAsObject());
+					}
 				}
 				myNewDiffOpalHashSet = new java.util.HashSet<>(myOldDiffOpalHashSet);
 				if (myDiffOpalCachedOperations != null) {
@@ -554,11 +558,12 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 				}
 			}
 			return myNewDiffOpalHashSet;
+		} else {
+			if (myOldDiffOpalHashSet == null) {
+				myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionIdCollection(getIdAsObject());
+			}
+			return myOldDiffOpalHashSet;
 		}
-		if (myOldDiffOpalHashSet == null) {
-			myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionIdCollection(getIdAsObject());
-		}
-		return myOldDiffOpalHashSet;
 	}
 
 	public synchronized void addDiffOpal(DiffOpal argDiffOpal) {
@@ -604,27 +609,31 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		return;
 	}
 
-	public synchronized int getDiffOpalCount() { return getDiffOpalClass().size(); }
+	public synchronized int getDiffOpalCount() { return getDiffOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<DiffOpal> createDiffOpalIterator() {
-		return getDiffOpalClass().iterator();
+		return getDiffOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<DiffOpal> streamDiffOpal() {
-		return getDiffOpalClass().stream();
+		return getDiffOpalHashSet().stream();
 	}
 
-	public synchronized void clearDiffOpalInternal() { getDiffOpalClass().clear(); }
+	public synchronized void clearDiffOpalInternal() { getDiffOpalHashSet().clear(); }
 
 	private java.util.HashSet<PlacementOpal> myOldPlacementOpalHashSet = null;
 	private java.util.HashSet<PlacementOpal> myNewPlacementOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<PlacementOpal> getPlacementOpalClass() {
+	/* package */ java.util.HashSet<PlacementOpal> getPlacementOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewPlacementOpalHashSet == null) {
 				if (myOldPlacementOpalHashSet == null) {
-					myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldPlacementOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
+					}
 				}
 				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
 				if (myPlacementOpalCachedOperations != null) {
@@ -633,11 +642,12 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 				}
 			}
 			return myNewPlacementOpalHashSet;
+		} else {
+			if (myOldPlacementOpalHashSet == null) {
+				myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
+			}
+			return myOldPlacementOpalHashSet;
 		}
-		if (myOldPlacementOpalHashSet == null) {
-			myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
-		}
-		return myOldPlacementOpalHashSet;
 	}
 
 	public synchronized void addPlacementOpal(PlacementOpal argPlacementOpal) {
@@ -683,17 +693,17 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		return;
 	}
 
-	public synchronized int getPlacementOpalCount() { return getPlacementOpalClass().size(); }
+	public synchronized int getPlacementOpalCount() { return getPlacementOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<PlacementOpal> createPlacementOpalIterator() {
-		return getPlacementOpalClass().iterator();
+		return getPlacementOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PlacementOpal> streamPlacementOpal() {
-		return getPlacementOpalClass().stream();
+		return getPlacementOpalHashSet().stream();
 	}
 
-	public synchronized void clearPlacementOpalInternal() { getPlacementOpalClass().clear(); }
+	public synchronized void clearPlacementOpalInternal() { getPlacementOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

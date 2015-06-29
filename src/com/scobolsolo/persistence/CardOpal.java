@@ -276,8 +276,8 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewPhaseOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -288,8 +288,8 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldPhaseOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -419,13 +419,17 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	private java.util.HashSet<MatchOpal> myOldLosingMatchOpalHashSet = null;
 	private java.util.HashSet<MatchOpal> myNewLosingMatchOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<MatchOpal>> myLosingMatchOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myLosingMatchOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<MatchOpal> getLosingMatchOpalClass() {
+	/* package */ java.util.HashSet<MatchOpal> getLosingMatchOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewLosingMatchOpalHashSet == null) {
 				if (myOldLosingMatchOpalHashSet == null) {
-					myOldLosingMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldLosingMatchOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldLosingMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
+					}
 				}
 				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
 				if (myLosingMatchOpalCachedOperations != null) {
@@ -434,11 +438,12 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 				}
 			}
 			return myNewLosingMatchOpalHashSet;
+		} else {
+			if (myOldLosingMatchOpalHashSet == null) {
+				myOldLosingMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
+			}
+			return myOldLosingMatchOpalHashSet;
 		}
-		if (myOldLosingMatchOpalHashSet == null) {
-			myOldLosingMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
-		}
-		return myOldLosingMatchOpalHashSet;
 	}
 
 	public synchronized void addLosingMatchOpal(MatchOpal argMatchOpal) {
@@ -484,27 +489,31 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		return;
 	}
 
-	public synchronized int getLosingMatchOpalCount() { return getLosingMatchOpalClass().size(); }
+	public synchronized int getLosingMatchOpalCount() { return getLosingMatchOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<MatchOpal> createLosingMatchOpalIterator() {
-		return getLosingMatchOpalClass().iterator();
+		return getLosingMatchOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<MatchOpal> streamLosingMatchOpal() {
-		return getLosingMatchOpalClass().stream();
+		return getLosingMatchOpalHashSet().stream();
 	}
 
-	public synchronized void clearLosingMatchOpalInternal() { getLosingMatchOpalClass().clear(); }
+	public synchronized void clearLosingMatchOpalInternal() { getLosingMatchOpalHashSet().clear(); }
 
 	private java.util.HashSet<MatchOpal> myOldWinningMatchOpalHashSet = null;
 	private java.util.HashSet<MatchOpal> myNewWinningMatchOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<MatchOpal>> myWinningMatchOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myWinningMatchOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<MatchOpal> getWinningMatchOpalClass() {
+	/* package */ java.util.HashSet<MatchOpal> getWinningMatchOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewWinningMatchOpalHashSet == null) {
 				if (myOldWinningMatchOpalHashSet == null) {
-					myOldWinningMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldWinningMatchOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldWinningMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
+					}
 				}
 				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
 				if (myWinningMatchOpalCachedOperations != null) {
@@ -513,11 +522,12 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 				}
 			}
 			return myNewWinningMatchOpalHashSet;
+		} else {
+			if (myOldWinningMatchOpalHashSet == null) {
+				myOldWinningMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
+			}
+			return myOldWinningMatchOpalHashSet;
 		}
-		if (myOldWinningMatchOpalHashSet == null) {
-			myOldWinningMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
-		}
-		return myOldWinningMatchOpalHashSet;
 	}
 
 	public synchronized void addWinningMatchOpal(MatchOpal argMatchOpal) {
@@ -563,17 +573,17 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		return;
 	}
 
-	public synchronized int getWinningMatchOpalCount() { return getWinningMatchOpalClass().size(); }
+	public synchronized int getWinningMatchOpalCount() { return getWinningMatchOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<MatchOpal> createWinningMatchOpalIterator() {
-		return getWinningMatchOpalClass().iterator();
+		return getWinningMatchOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<MatchOpal> streamWinningMatchOpal() {
-		return getWinningMatchOpalClass().stream();
+		return getWinningMatchOpalHashSet().stream();
 	}
 
-	public synchronized void clearWinningMatchOpalInternal() { getWinningMatchOpalClass().clear(); }
+	public synchronized void clearWinningMatchOpalInternal() { getWinningMatchOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

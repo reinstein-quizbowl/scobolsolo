@@ -231,12 +231,12 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		return java.util.Collections.emptySet();
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
 		return java.util.Collections.emptySet();
 	}
 
@@ -275,13 +275,17 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 	private java.util.HashSet<SchoolRegistrationOpal> myOldSchoolRegistrationOpalHashSet = null;
 	private java.util.HashSet<SchoolRegistrationOpal> myNewSchoolRegistrationOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<SchoolRegistrationOpal>> mySchoolRegistrationOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<SchoolRegistrationOpal>> mySchoolRegistrationOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<SchoolRegistrationOpal> getSchoolRegistrationOpalClass() {
+	/* package */ java.util.HashSet<SchoolRegistrationOpal> getSchoolRegistrationOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewSchoolRegistrationOpalHashSet == null) {
 				if (myOldSchoolRegistrationOpalHashSet == null) {
-					myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldSchoolRegistrationOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+					}
 				}
 				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
 				if (mySchoolRegistrationOpalCachedOperations != null) {
@@ -290,11 +294,12 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 				}
 			}
 			return myNewSchoolRegistrationOpalHashSet;
+		} else {
+			if (myOldSchoolRegistrationOpalHashSet == null) {
+				myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+			}
+			return myOldSchoolRegistrationOpalHashSet;
 		}
-		if (myOldSchoolRegistrationOpalHashSet == null) {
-			myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
-		}
-		return myOldSchoolRegistrationOpalHashSet;
 	}
 
 	public synchronized void addSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
@@ -340,17 +345,17 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		return;
 	}
 
-	public synchronized int getSchoolRegistrationOpalCount() { return getSchoolRegistrationOpalClass().size(); }
+	public synchronized int getSchoolRegistrationOpalCount() { return getSchoolRegistrationOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<SchoolRegistrationOpal> createSchoolRegistrationOpalIterator() {
-		return getSchoolRegistrationOpalClass().iterator();
+		return getSchoolRegistrationOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<SchoolRegistrationOpal> streamSchoolRegistrationOpal() {
-		return getSchoolRegistrationOpalClass().stream();
+		return getSchoolRegistrationOpalHashSet().stream();
 	}
 
-	public synchronized void clearSchoolRegistrationOpalInternal() { getSchoolRegistrationOpalClass().clear(); }
+	public synchronized void clearSchoolRegistrationOpalInternal() { getSchoolRegistrationOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

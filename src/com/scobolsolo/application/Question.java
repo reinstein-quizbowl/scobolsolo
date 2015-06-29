@@ -41,11 +41,7 @@ public interface Question extends QuestionUserFacing {
 	}
 	
 	default int getNextRevisionNumber() {
-		if (isNew()) {
-			return 1;
-		} else {
-			return getDiffCount() + 1; // This assumes that revision numbers have been assigned consecutively. There might be some kind of nasty race condition in here.
-		}
+		return 1 + streamDiff().mapToInt(Diff::getRevisionNumber).max().orElse(0);
 	}
 	
 	

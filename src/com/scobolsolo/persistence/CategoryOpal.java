@@ -268,8 +268,8 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewCategoryGroupOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -280,8 +280,8 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldCategoryGroupOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -369,13 +369,17 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	private java.util.HashSet<QuestionOpal> myOldQuestionOpalHashSet = null;
 	private java.util.HashSet<QuestionOpal> myNewQuestionOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<QuestionOpal>> myQuestionOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<QuestionOpal>> myQuestionOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<QuestionOpal> getQuestionOpalClass() {
+	/* package */ java.util.HashSet<QuestionOpal> getQuestionOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewQuestionOpalHashSet == null) {
 				if (myOldQuestionOpalHashSet == null) {
-					myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forCategoryCodeCollection(getCode());
+					if (isNew()) {
+						myOldQuestionOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forCategoryCodeCollection(getCode());
+					}
 				}
 				myNewQuestionOpalHashSet = new java.util.HashSet<>(myOldQuestionOpalHashSet);
 				if (myQuestionOpalCachedOperations != null) {
@@ -384,11 +388,12 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 				}
 			}
 			return myNewQuestionOpalHashSet;
+		} else {
+			if (myOldQuestionOpalHashSet == null) {
+				myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forCategoryCodeCollection(getCode());
+			}
+			return myOldQuestionOpalHashSet;
 		}
-		if (myOldQuestionOpalHashSet == null) {
-			myOldQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forCategoryCodeCollection(getCode());
-		}
-		return myOldQuestionOpalHashSet;
 	}
 
 	public synchronized void addQuestionOpal(QuestionOpal argQuestionOpal) {
@@ -434,27 +439,31 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return;
 	}
 
-	public synchronized int getQuestionOpalCount() { return getQuestionOpalClass().size(); }
+	public synchronized int getQuestionOpalCount() { return getQuestionOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<QuestionOpal> createQuestionOpalIterator() {
-		return getQuestionOpalClass().iterator();
+		return getQuestionOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<QuestionOpal> streamQuestionOpal() {
-		return getQuestionOpalClass().stream();
+		return getQuestionOpalHashSet().stream();
 	}
 
-	public synchronized void clearQuestionOpalInternal() { getQuestionOpalClass().clear(); }
+	public synchronized void clearQuestionOpalInternal() { getQuestionOpalHashSet().clear(); }
 
 	private java.util.HashSet<DiffOpal> myOldDiffOpalHashSet = null;
 	private java.util.HashSet<DiffOpal> myNewDiffOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<DiffOpal>> myDiffOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<DiffOpal>> myDiffOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<DiffOpal> getDiffOpalClass() {
+	/* package */ java.util.HashSet<DiffOpal> getDiffOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewDiffOpalHashSet == null) {
 				if (myOldDiffOpalHashSet == null) {
-					myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forCategoryCodeCollection(getCode());
+					if (isNew()) {
+						myOldDiffOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forCategoryCodeCollection(getCode());
+					}
 				}
 				myNewDiffOpalHashSet = new java.util.HashSet<>(myOldDiffOpalHashSet);
 				if (myDiffOpalCachedOperations != null) {
@@ -463,11 +472,12 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 				}
 			}
 			return myNewDiffOpalHashSet;
+		} else {
+			if (myOldDiffOpalHashSet == null) {
+				myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forCategoryCodeCollection(getCode());
+			}
+			return myOldDiffOpalHashSet;
 		}
-		if (myOldDiffOpalHashSet == null) {
-			myOldDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forCategoryCodeCollection(getCode());
-		}
-		return myOldDiffOpalHashSet;
 	}
 
 	public synchronized void addDiffOpal(DiffOpal argDiffOpal) {
@@ -513,27 +523,31 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return;
 	}
 
-	public synchronized int getDiffOpalCount() { return getDiffOpalClass().size(); }
+	public synchronized int getDiffOpalCount() { return getDiffOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<DiffOpal> createDiffOpalIterator() {
-		return getDiffOpalClass().iterator();
+		return getDiffOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<DiffOpal> streamDiffOpal() {
-		return getDiffOpalClass().stream();
+		return getDiffOpalHashSet().stream();
 	}
 
-	public synchronized void clearDiffOpalInternal() { getDiffOpalClass().clear(); }
+	public synchronized void clearDiffOpalInternal() { getDiffOpalHashSet().clear(); }
 
 	private java.util.HashSet<CategoryUseOpal> myOldCategoryUseOpalHashSet = null;
 	private java.util.HashSet<CategoryUseOpal> myNewCategoryUseOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<CategoryUseOpal>> myCategoryUseOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<CategoryUseOpal>> myCategoryUseOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<CategoryUseOpal> getCategoryUseOpalClass() {
+	/* package */ java.util.HashSet<CategoryUseOpal> getCategoryUseOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewCategoryUseOpalHashSet == null) {
 				if (myOldCategoryUseOpalHashSet == null) {
-					myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
+					if (isNew()) {
+						myOldCategoryUseOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
+					}
 				}
 				myNewCategoryUseOpalHashSet = new java.util.HashSet<>(myOldCategoryUseOpalHashSet);
 				if (myCategoryUseOpalCachedOperations != null) {
@@ -542,11 +556,12 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 				}
 			}
 			return myNewCategoryUseOpalHashSet;
+		} else {
+			if (myOldCategoryUseOpalHashSet == null) {
+				myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
+			}
+			return myOldCategoryUseOpalHashSet;
 		}
-		if (myOldCategoryUseOpalHashSet == null) {
-			myOldCategoryUseOpalHashSet = OpalFactoryFactory.getInstance().getCategoryUseOpalFactory().forCategoryCodeCollection(getCode());
-		}
-		return myOldCategoryUseOpalHashSet;
 	}
 
 	public synchronized void addCategoryUseOpal(CategoryUseOpal argCategoryUseOpal) {
@@ -592,17 +607,17 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return;
 	}
 
-	public synchronized int getCategoryUseOpalCount() { return getCategoryUseOpalClass().size(); }
+	public synchronized int getCategoryUseOpalCount() { return getCategoryUseOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<CategoryUseOpal> createCategoryUseOpalIterator() {
-		return getCategoryUseOpalClass().iterator();
+		return getCategoryUseOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<CategoryUseOpal> streamCategoryUseOpal() {
-		return getCategoryUseOpalClass().stream();
+		return getCategoryUseOpalHashSet().stream();
 	}
 
-	public synchronized void clearCategoryUseOpalInternal() { getCategoryUseOpalClass().clear(); }
+	public synchronized void clearCategoryUseOpalInternal() { getCategoryUseOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

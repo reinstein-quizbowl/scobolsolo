@@ -323,8 +323,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewContactOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -335,8 +335,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldContactOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -428,13 +428,17 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	private java.util.HashSet<QuestionOpal> myOldWriterQuestionOpalHashSet = null;
 	private java.util.HashSet<QuestionOpal> myNewWriterQuestionOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<QuestionOpal>> myWriterQuestionOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<QuestionOpal>> myWriterQuestionOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<QuestionOpal> getWriterQuestionOpalClass() {
+	/* package */ java.util.HashSet<QuestionOpal> getWriterQuestionOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewWriterQuestionOpalHashSet == null) {
 				if (myOldWriterQuestionOpalHashSet == null) {
-					myOldWriterQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forWriterAccountIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldWriterQuestionOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldWriterQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forWriterAccountIdCollection(getIdAsObject());
+					}
 				}
 				myNewWriterQuestionOpalHashSet = new java.util.HashSet<>(myOldWriterQuestionOpalHashSet);
 				if (myWriterQuestionOpalCachedOperations != null) {
@@ -443,11 +447,12 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 				}
 			}
 			return myNewWriterQuestionOpalHashSet;
+		} else {
+			if (myOldWriterQuestionOpalHashSet == null) {
+				myOldWriterQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forWriterAccountIdCollection(getIdAsObject());
+			}
+			return myOldWriterQuestionOpalHashSet;
 		}
-		if (myOldWriterQuestionOpalHashSet == null) {
-			myOldWriterQuestionOpalHashSet = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forWriterAccountIdCollection(getIdAsObject());
-		}
-		return myOldWriterQuestionOpalHashSet;
 	}
 
 	public synchronized void addWriterQuestionOpal(QuestionOpal argQuestionOpal) {
@@ -493,27 +498,31 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		return;
 	}
 
-	public synchronized int getWriterQuestionOpalCount() { return getWriterQuestionOpalClass().size(); }
+	public synchronized int getWriterQuestionOpalCount() { return getWriterQuestionOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<QuestionOpal> createWriterQuestionOpalIterator() {
-		return getWriterQuestionOpalClass().iterator();
+		return getWriterQuestionOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<QuestionOpal> streamWriterQuestionOpal() {
-		return getWriterQuestionOpalClass().stream();
+		return getWriterQuestionOpalHashSet().stream();
 	}
 
-	public synchronized void clearWriterQuestionOpalInternal() { getWriterQuestionOpalClass().clear(); }
+	public synchronized void clearWriterQuestionOpalInternal() { getWriterQuestionOpalHashSet().clear(); }
 
 	private java.util.HashSet<DiffOpal> myOldEditorDiffOpalHashSet = null;
 	private java.util.HashSet<DiffOpal> myNewEditorDiffOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<DiffOpal>> myEditorDiffOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<DiffOpal>> myEditorDiffOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<DiffOpal> getEditorDiffOpalClass() {
+	/* package */ java.util.HashSet<DiffOpal> getEditorDiffOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewEditorDiffOpalHashSet == null) {
 				if (myOldEditorDiffOpalHashSet == null) {
-					myOldEditorDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldEditorDiffOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldEditorDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
+					}
 				}
 				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
 				if (myEditorDiffOpalCachedOperations != null) {
@@ -522,11 +531,12 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 				}
 			}
 			return myNewEditorDiffOpalHashSet;
+		} else {
+			if (myOldEditorDiffOpalHashSet == null) {
+				myOldEditorDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
+			}
+			return myOldEditorDiffOpalHashSet;
 		}
-		if (myOldEditorDiffOpalHashSet == null) {
-			myOldEditorDiffOpalHashSet = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
-		}
-		return myOldEditorDiffOpalHashSet;
 	}
 
 	public synchronized void addEditorDiffOpal(DiffOpal argDiffOpal) {
@@ -572,17 +582,17 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		return;
 	}
 
-	public synchronized int getEditorDiffOpalCount() { return getEditorDiffOpalClass().size(); }
+	public synchronized int getEditorDiffOpalCount() { return getEditorDiffOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<DiffOpal> createEditorDiffOpalIterator() {
-		return getEditorDiffOpalClass().iterator();
+		return getEditorDiffOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<DiffOpal> streamEditorDiffOpal() {
-		return getEditorDiffOpalClass().stream();
+		return getEditorDiffOpalHashSet().stream();
 	}
 
-	public synchronized void clearEditorDiffOpalInternal() { getEditorDiffOpalClass().clear(); }
+	public synchronized void clearEditorDiffOpalInternal() { getEditorDiffOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

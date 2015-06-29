@@ -300,8 +300,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewRoundGroupOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -312,8 +312,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldRoundGroupOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -405,13 +405,17 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	private java.util.HashSet<MatchOpal> myOldMatchOpalHashSet = null;
 	private java.util.HashSet<MatchOpal> myNewMatchOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<MatchOpal>> myMatchOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myMatchOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<MatchOpal> getMatchOpalClass() {
+	/* package */ java.util.HashSet<MatchOpal> getMatchOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewMatchOpalHashSet == null) {
 				if (myOldMatchOpalHashSet == null) {
-					myOldMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldMatchOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
+					}
 				}
 				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
 				if (myMatchOpalCachedOperations != null) {
@@ -420,11 +424,12 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 				}
 			}
 			return myNewMatchOpalHashSet;
+		} else {
+			if (myOldMatchOpalHashSet == null) {
+				myOldMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
+			}
+			return myOldMatchOpalHashSet;
 		}
-		if (myOldMatchOpalHashSet == null) {
-			myOldMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
-		}
-		return myOldMatchOpalHashSet;
 	}
 
 	public synchronized void addMatchOpal(MatchOpal argMatchOpal) {
@@ -470,27 +475,31 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return;
 	}
 
-	public synchronized int getMatchOpalCount() { return getMatchOpalClass().size(); }
+	public synchronized int getMatchOpalCount() { return getMatchOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<MatchOpal> createMatchOpalIterator() {
-		return getMatchOpalClass().iterator();
+		return getMatchOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<MatchOpal> streamMatchOpal() {
-		return getMatchOpalClass().stream();
+		return getMatchOpalHashSet().stream();
 	}
 
-	public synchronized void clearMatchOpalInternal() { getMatchOpalClass().clear(); }
+	public synchronized void clearMatchOpalInternal() { getMatchOpalHashSet().clear(); }
 
 	private java.util.HashSet<PacketOpal> myOldPacketOpalHashSet = null;
 	private java.util.HashSet<PacketOpal> myNewPacketOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<PacketOpal>> myPacketOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<PacketOpal>> myPacketOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<PacketOpal> getPacketOpalClass() {
+	/* package */ java.util.HashSet<PacketOpal> getPacketOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewPacketOpalHashSet == null) {
 				if (myOldPacketOpalHashSet == null) {
-					myOldPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forRoundIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldPacketOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forRoundIdCollection(getIdAsObject());
+					}
 				}
 				myNewPacketOpalHashSet = new java.util.HashSet<>(myOldPacketOpalHashSet);
 				if (myPacketOpalCachedOperations != null) {
@@ -499,11 +508,12 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 				}
 			}
 			return myNewPacketOpalHashSet;
+		} else {
+			if (myOldPacketOpalHashSet == null) {
+				myOldPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forRoundIdCollection(getIdAsObject());
+			}
+			return myOldPacketOpalHashSet;
 		}
-		if (myOldPacketOpalHashSet == null) {
-			myOldPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forRoundIdCollection(getIdAsObject());
-		}
-		return myOldPacketOpalHashSet;
 	}
 
 	public synchronized void addPacketOpal(PacketOpal argPacketOpal) {
@@ -549,17 +559,17 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return;
 	}
 
-	public synchronized int getPacketOpalCount() { return getPacketOpalClass().size(); }
+	public synchronized int getPacketOpalCount() { return getPacketOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<PacketOpal> createPacketOpalIterator() {
-		return getPacketOpalClass().iterator();
+		return getPacketOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PacketOpal> streamPacketOpal() {
-		return getPacketOpalClass().stream();
+		return getPacketOpalHashSet().stream();
 	}
 
-	public synchronized void clearPacketOpalInternal() { getPacketOpalClass().clear(); }
+	public synchronized void clearPacketOpalInternal() { getPacketOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

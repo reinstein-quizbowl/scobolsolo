@@ -300,8 +300,8 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewPacketOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -319,8 +319,8 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldPacketOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -462,13 +462,17 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	private java.util.HashSet<ResponseOpal> myOldResponseOpalHashSet = null;
 	private java.util.HashSet<ResponseOpal> myNewResponseOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<ResponseOpal>> myResponseOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<ResponseOpal>> myResponseOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<ResponseOpal> getResponseOpalClass() {
+	/* package */ java.util.HashSet<ResponseOpal> getResponseOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewResponseOpalHashSet == null) {
 				if (myOldResponseOpalHashSet == null) {
-					myOldResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forPlacementIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldResponseOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forPlacementIdCollection(getIdAsObject());
+					}
 				}
 				myNewResponseOpalHashSet = new java.util.HashSet<>(myOldResponseOpalHashSet);
 				if (myResponseOpalCachedOperations != null) {
@@ -477,11 +481,12 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 				}
 			}
 			return myNewResponseOpalHashSet;
+		} else {
+			if (myOldResponseOpalHashSet == null) {
+				myOldResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forPlacementIdCollection(getIdAsObject());
+			}
+			return myOldResponseOpalHashSet;
 		}
-		if (myOldResponseOpalHashSet == null) {
-			myOldResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forPlacementIdCollection(getIdAsObject());
-		}
-		return myOldResponseOpalHashSet;
 	}
 
 	public synchronized void addResponseOpal(ResponseOpal argResponseOpal) {
@@ -527,27 +532,31 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return;
 	}
 
-	public synchronized int getResponseOpalCount() { return getResponseOpalClass().size(); }
+	public synchronized int getResponseOpalCount() { return getResponseOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<ResponseOpal> createResponseOpalIterator() {
-		return getResponseOpalClass().iterator();
+		return getResponseOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<ResponseOpal> streamResponseOpal() {
-		return getResponseOpalClass().stream();
+		return getResponseOpalHashSet().stream();
 	}
 
-	public synchronized void clearResponseOpalInternal() { getResponseOpalClass().clear(); }
+	public synchronized void clearResponseOpalInternal() { getResponseOpalHashSet().clear(); }
 
 	private java.util.HashSet<ResponseOpal> myOldReplacementForResponseOpalHashSet = null;
 	private java.util.HashSet<ResponseOpal> myNewReplacementForResponseOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<ResponseOpal>> myReplacementForResponseOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<ResponseOpal>> myReplacementForResponseOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<ResponseOpal> getReplacementForResponseOpalClass() {
+	/* package */ java.util.HashSet<ResponseOpal> getReplacementForResponseOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewReplacementForResponseOpalHashSet == null) {
 				if (myOldReplacementForResponseOpalHashSet == null) {
-					myOldReplacementForResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldReplacementForResponseOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldReplacementForResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
+					}
 				}
 				myNewReplacementForResponseOpalHashSet = new java.util.HashSet<>(myOldReplacementForResponseOpalHashSet);
 				if (myReplacementForResponseOpalCachedOperations != null) {
@@ -556,11 +565,12 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 				}
 			}
 			return myNewReplacementForResponseOpalHashSet;
+		} else {
+			if (myOldReplacementForResponseOpalHashSet == null) {
+				myOldReplacementForResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
+			}
+			return myOldReplacementForResponseOpalHashSet;
 		}
-		if (myOldReplacementForResponseOpalHashSet == null) {
-			myOldReplacementForResponseOpalHashSet = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementForPlacementIdCollection(getIdAsObject());
-		}
-		return myOldReplacementForResponseOpalHashSet;
 	}
 
 	public synchronized void addReplacementForResponseOpal(ResponseOpal argResponseOpal) {
@@ -606,17 +616,17 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return;
 	}
 
-	public synchronized int getReplacementForResponseOpalCount() { return getReplacementForResponseOpalClass().size(); }
+	public synchronized int getReplacementForResponseOpalCount() { return getReplacementForResponseOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<ResponseOpal> createReplacementForResponseOpalIterator() {
-		return getReplacementForResponseOpalClass().iterator();
+		return getReplacementForResponseOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<ResponseOpal> streamReplacementForResponseOpal() {
-		return getReplacementForResponseOpalClass().stream();
+		return getReplacementForResponseOpalHashSet().stream();
 	}
 
-	public synchronized void clearReplacementForResponseOpalInternal() { getReplacementForResponseOpalClass().clear(); }
+	public synchronized void clearReplacementForResponseOpalInternal() { getReplacementForResponseOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

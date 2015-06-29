@@ -358,8 +358,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewReplacementPacketOpal;
 		if ((lclUO != null) && (lclUO != this) && lclUO.isNew()) {
@@ -384,8 +384,8 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldReplacementPacketOpal;
 		if ((lclUO != null) && (lclUO != this) && lclUO.isDeleted()) {
@@ -585,13 +585,17 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 
 	private java.util.HashSet<PacketOpal> myOldReplacementPacketOpalHashSet = null;
 	private java.util.HashSet<PacketOpal> myNewReplacementPacketOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<PacketOpal>> myReplacementPacketOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<PacketOpal>> myReplacementPacketOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<PacketOpal> getReplacementPacketOpalClass() {
+	/* package */ java.util.HashSet<PacketOpal> getReplacementPacketOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewReplacementPacketOpalHashSet == null) {
 				if (myOldReplacementPacketOpalHashSet == null) {
-					myOldReplacementPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forReplacementPacketIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldReplacementPacketOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldReplacementPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forReplacementPacketIdCollection(getIdAsObject());
+					}
 				}
 				myNewReplacementPacketOpalHashSet = new java.util.HashSet<>(myOldReplacementPacketOpalHashSet);
 				if (myReplacementPacketOpalCachedOperations != null) {
@@ -600,11 +604,12 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 				}
 			}
 			return myNewReplacementPacketOpalHashSet;
+		} else {
+			if (myOldReplacementPacketOpalHashSet == null) {
+				myOldReplacementPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forReplacementPacketIdCollection(getIdAsObject());
+			}
+			return myOldReplacementPacketOpalHashSet;
 		}
-		if (myOldReplacementPacketOpalHashSet == null) {
-			myOldReplacementPacketOpalHashSet = OpalFactoryFactory.getInstance().getPacketOpalFactory().forReplacementPacketIdCollection(getIdAsObject());
-		}
-		return myOldReplacementPacketOpalHashSet;
 	}
 
 	public synchronized void addReplacementPacketOpal(PacketOpal argPacketOpal) {
@@ -650,27 +655,31 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		return;
 	}
 
-	public synchronized int getReplacementPacketOpalCount() { return getReplacementPacketOpalClass().size(); }
+	public synchronized int getReplacementPacketOpalCount() { return getReplacementPacketOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<PacketOpal> createReplacementPacketOpalIterator() {
-		return getReplacementPacketOpalClass().iterator();
+		return getReplacementPacketOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PacketOpal> streamReplacementPacketOpal() {
-		return getReplacementPacketOpalClass().stream();
+		return getReplacementPacketOpalHashSet().stream();
 	}
 
-	public synchronized void clearReplacementPacketOpalInternal() { getReplacementPacketOpalClass().clear(); }
+	public synchronized void clearReplacementPacketOpalInternal() { getReplacementPacketOpalHashSet().clear(); }
 
 	private java.util.HashSet<PlacementOpal> myOldPlacementOpalHashSet = null;
 	private java.util.HashSet<PlacementOpal> myNewPlacementOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<PlacementOpal> getPlacementOpalClass() {
+	/* package */ java.util.HashSet<PlacementOpal> getPlacementOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewPlacementOpalHashSet == null) {
 				if (myOldPlacementOpalHashSet == null) {
-					myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forPacketIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldPlacementOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forPacketIdCollection(getIdAsObject());
+					}
 				}
 				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
 				if (myPlacementOpalCachedOperations != null) {
@@ -679,11 +688,12 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 				}
 			}
 			return myNewPlacementOpalHashSet;
+		} else {
+			if (myOldPlacementOpalHashSet == null) {
+				myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forPacketIdCollection(getIdAsObject());
+			}
+			return myOldPlacementOpalHashSet;
 		}
-		if (myOldPlacementOpalHashSet == null) {
-			myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forPacketIdCollection(getIdAsObject());
-		}
-		return myOldPlacementOpalHashSet;
 	}
 
 	public synchronized void addPlacementOpal(PlacementOpal argPlacementOpal) {
@@ -729,17 +739,17 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		return;
 	}
 
-	public synchronized int getPlacementOpalCount() { return getPlacementOpalClass().size(); }
+	public synchronized int getPlacementOpalCount() { return getPlacementOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<PlacementOpal> createPlacementOpalIterator() {
-		return getPlacementOpalClass().iterator();
+		return getPlacementOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PlacementOpal> streamPlacementOpal() {
-		return getPlacementOpalClass().stream();
+		return getPlacementOpalHashSet().stream();
 	}
 
-	public synchronized void clearPlacementOpalInternal() { getPlacementOpalClass().clear(); }
+	public synchronized void clearPlacementOpalInternal() { getPlacementOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

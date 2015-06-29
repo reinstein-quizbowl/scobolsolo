@@ -237,8 +237,8 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredPriorCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myNewPhaseOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
@@ -249,8 +249,8 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 	}
 
 	@Override
-	public java.util.Set<TransactionAware> getRequiredSubsequentCommits() {
-		java.util.Set<TransactionAware> lclTAs = null;
+	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
 		lclUO = myOldPhaseOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
@@ -338,13 +338,17 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 
 	private java.util.HashSet<RoundOpal> myOldRoundOpalHashSet = null;
 	private java.util.HashSet<RoundOpal> myNewRoundOpalHashSet = null;
-	private java.util.ArrayList<CachedOperation<RoundOpal>> myRoundOpalCachedOperations = null;
+	private java.util.ArrayList<com.opal.CachedOperation<RoundOpal>> myRoundOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<RoundOpal> getRoundOpalClass() {
+	/* package */ java.util.HashSet<RoundOpal> getRoundOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewRoundOpalHashSet == null) {
 				if (myOldRoundOpalHashSet == null) {
-					myOldRoundOpalHashSet = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
+					if (isNew()) {
+						myOldRoundOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldRoundOpalHashSet = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
+					}
 				}
 				myNewRoundOpalHashSet = new java.util.HashSet<>(myOldRoundOpalHashSet);
 				if (myRoundOpalCachedOperations != null) {
@@ -353,11 +357,12 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 				}
 			}
 			return myNewRoundOpalHashSet;
+		} else {
+			if (myOldRoundOpalHashSet == null) {
+				myOldRoundOpalHashSet = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
+			}
+			return myOldRoundOpalHashSet;
 		}
-		if (myOldRoundOpalHashSet == null) {
-			myOldRoundOpalHashSet = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
-		}
-		return myOldRoundOpalHashSet;
 	}
 
 	public synchronized void addRoundOpal(RoundOpal argRoundOpal) {
@@ -403,17 +408,17 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 		return;
 	}
 
-	public synchronized int getRoundOpalCount() { return getRoundOpalClass().size(); }
+	public synchronized int getRoundOpalCount() { return getRoundOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<RoundOpal> createRoundOpalIterator() {
-		return getRoundOpalClass().iterator();
+		return getRoundOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<RoundOpal> streamRoundOpal() {
-		return getRoundOpalClass().stream();
+		return getRoundOpalHashSet().stream();
 	}
 
-	public synchronized void clearRoundOpalInternal() { getRoundOpalClass().clear(); }
+	public synchronized void clearRoundOpalInternal() { getRoundOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {
