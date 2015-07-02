@@ -123,8 +123,12 @@ if (lclIncompleteTournaments.isEmpty()) {
 					<tbody><%
 						Category[] lclCs = lclCG.createCategoryArray();
 						Arrays.sort(lclCs, Category.StandardComparator.getInstance());
+						
+						int lclWrittenThisCG = 0;
+						int lclNeededThisCG = 0;
 						for (Category lclC : lclCs) {
 							if (lclAllRelevantCategories.contains(lclC)) {
+								Validate.isTrue(lclWritten.get(lclC) >= 0);
 								Validate.isTrue(lclNeeded.get(lclC) > 0);
 								
 								int lclWrittenThisCategory = lclWritten.get(lclC);
@@ -143,10 +147,31 @@ if (lclIncompleteTournaments.isEmpty()) {
 										</div>
 									</td>
 								</tr><%
+								
+								lclWrittenThisCG += lclWritten.get(lclC);
+								lclNeededThisCG += lclNeeded.get(lclC);
 							}
 						}
-					%></tbody>
-				</table><%
+					%></tbody><%
+					if (lclCs.length > 1) {
+						Validate.isTrue(lclWrittenThisCG >= 0);
+						Validate.isTrue(lclNeededThisCG > 0);
+						double lclCompletion = 1.0d * lclWrittenThisCG / lclNeededThisCG;
+						%><tfoot>
+							<tr class="<%= determineClass(lclCompletion) %>">
+								<th><%= lclCG.getName() %> Total</th>
+								<th><%= lclWrittenThisCG %></th>
+								<th><%= lclNeededThisCG %></th>
+								<th><%= lclPct.format(lclCompletion) %></th>
+								<td>
+									<div class="progress">
+										<span class="meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></span>
+									</div>
+								</td>
+							</tr>
+						</tfoot><%
+					}
+				%></table><%
 			}
 			
 			if (lclAllRelevantCategories.size() > 1) {
