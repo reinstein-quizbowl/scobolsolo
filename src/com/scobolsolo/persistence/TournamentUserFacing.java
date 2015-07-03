@@ -22,7 +22,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code Date} field is a direct mapping of the {@code date} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code Date} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Date} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.time.LocalDate getDate();
 
@@ -43,7 +43,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -68,7 +68,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -93,7 +93,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code Code} field is a direct mapping of the {@code code} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code Code} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getCode();
 
@@ -118,7 +118,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code WebXmlRoleCode} field is a direct mapping of the {@code web_xml_role_code} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code WebXmlRoleCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code WebXmlRoleCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getWebXmlRoleCode();
 
@@ -145,7 +145,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isTiebreakerSuddenDeath() method.</p>
 	 *
-	 * @return an object value of {@code TiebreakerSuddenDeath} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TiebreakerSuddenDeath} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isTiebreakerSuddenDeathAsObject();
 
@@ -156,7 +156,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isTiebreakerSuddenDeathAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code TiebreakerSuddenDeath} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code TiebreakerSuddenDeath} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isTiebreakerSuddenDeath() {
 		java.lang.Boolean lclO = isTiebreakerSuddenDeathAsObject();
@@ -188,7 +188,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code Url} field is a direct mapping of the {@code url} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code Url} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Url} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getUrl();
 
@@ -200,7 +200,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Url} is {@code null}.
-	 * @return an object value of {@code Url} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Url} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getUrl(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getUrl();
@@ -227,7 +227,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getTournamentDirectorContactId() method.</p>
 	 *
-	 * @return an object value of {@code TournamentDirectorContactId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentDirectorContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getTournamentDirectorContactIdAsObject();
 
@@ -238,7 +238,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getTournamentDirectorContactIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code TournamentDirectorContactId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code TournamentDirectorContactId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getTournamentDirectorContactId() {
 		java.lang.Integer lclO = getTournamentDirectorContactIdAsObject();
@@ -270,7 +270,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code PlayerMessage} field is a direct mapping of the {@code player_message} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code PlayerMessage} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code PlayerMessage} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getPlayerMessage();
 
@@ -282,7 +282,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code PlayerMessage} is {@code null}.
-	 * @return an object value of {@code PlayerMessage} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code PlayerMessage} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getPlayerMessage(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getPlayerMessage();
@@ -307,7 +307,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code StaffMessage} field is a direct mapping of the {@code staff_message} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code StaffMessage} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code StaffMessage} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getStaffMessage();
 
@@ -319,7 +319,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code StaffMessage} is {@code null}.
-	 * @return an object value of {@code StaffMessage} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code StaffMessage} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getStaffMessage(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getStaffMessage();
@@ -344,7 +344,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code ReplacementQuestionSocialMediaPolicy} field is a direct mapping of the {@code replacement_question_social_media_policy} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code ReplacementQuestionSocialMediaPolicy} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ReplacementQuestionSocialMediaPolicy} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getReplacementQuestionSocialMediaPolicy();
 
@@ -356,7 +356,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ReplacementQuestionSocialMediaPolicy} is {@code null}.
-	 * @return an object value of {@code ReplacementQuestionSocialMediaPolicy} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ReplacementQuestionSocialMediaPolicy} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getReplacementQuestionSocialMediaPolicy(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getReplacementQuestionSocialMediaPolicy();
@@ -381,7 +381,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code SchoolMessage} field is a direct mapping of the {@code school_message} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code SchoolMessage} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code SchoolMessage} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getSchoolMessage();
 
@@ -393,7 +393,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code SchoolMessage} is {@code null}.
-	 * @return an object value of {@code SchoolMessage} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code SchoolMessage} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getSchoolMessage(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getSchoolMessage();
@@ -420,7 +420,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getControlRoomRoomId() method.</p>
 	 *
-	 * @return an object value of {@code ControlRoomRoomId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ControlRoomRoomId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getControlRoomRoomIdAsObject();
 
@@ -432,7 +432,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ControlRoomRoomId} is {@code null}.
-	 * @return an object value of {@code ControlRoomRoomId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ControlRoomRoomId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getControlRoomRoomIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getControlRoomRoomIdAsObject();
@@ -449,7 +449,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code ControlRoomRoomId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code ControlRoomRoomId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getControlRoomRoomId() throws com.opal.NullValueException {
@@ -491,7 +491,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code ChampionshipRules} field is a direct mapping of the {@code championship_rules} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code ChampionshipRules} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ChampionshipRules} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getChampionshipRules();
 
@@ -503,7 +503,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ChampionshipRules} is {@code null}.
-	 * @return an object value of {@code ChampionshipRules} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ChampionshipRules} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getChampionshipRules(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getChampionshipRules();
@@ -528,7 +528,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>The {@code ChampionshipMatchUrl} field is a direct mapping of the {@code championship_match_url} field in {@code tournament}.</p>
 	 *
-	 * @return an object value of {@code ChampionshipMatchUrl} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ChampionshipMatchUrl} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getChampionshipMatchUrl();
 
@@ -540,7 +540,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ChampionshipMatchUrl} is {@code null}.
-	 * @return an object value of {@code ChampionshipMatchUrl} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ChampionshipMatchUrl} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getChampionshipMatchUrl(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getChampionshipMatchUrl();
@@ -567,7 +567,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isQuestionsComplete() method.</p>
 	 *
-	 * @return an object value of {@code QuestionsComplete} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code QuestionsComplete} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isQuestionsCompleteAsObject();
 
@@ -578,7 +578,7 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isQuestionsCompleteAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code QuestionsComplete} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code QuestionsComplete} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isQuestionsComplete() {
 		java.lang.Boolean lclO = isQuestionsCompleteAsObject();

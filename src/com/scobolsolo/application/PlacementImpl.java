@@ -136,7 +136,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Packet object created from placement through reference placement_packet_id_fkey */
+	/** @return the Packet object created from placement through reference placement_packet_id_fkey */
 
 	@Override
 	public Packet getPacket() {
@@ -150,7 +150,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
-	/** Access to the Question object created from placement through reference placement_question_id_fkey */
+	/** @return the Question object created from placement through reference placement_question_id_fkey */
 
 	@Override
 	public Question getQuestion() {

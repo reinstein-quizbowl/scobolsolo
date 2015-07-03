@@ -48,12 +48,12 @@ public class CategoryUseFactory extends com.opal.AbstractFactory<CategoryUse, Ca
 	public CategoryUse fromHttpRequest(javax.servlet.http.HttpServletRequest argRequest, String argCategoryCode, String argTournamentCode) {
 		org.apache.commons.lang3.Validate.notNull(argRequest);
 		String lclCategoryCodeString = argRequest.getParameter(argCategoryCode);
-		if (lclCategoryCodeString == null || lclCategoryCodeString.equals("")) {
+		if (org.apache.commons.lang3.StringUtils.isBlank(lclCategoryCodeString)) {
 			return null;
 		}
 		java.lang.String lclCategoryCode = lclCategoryCodeString;
 		String lclTournamentCodeString = argRequest.getParameter(argTournamentCode);
-		if (lclTournamentCodeString == null || lclTournamentCodeString.equals("")) {
+		if (org.apache.commons.lang3.StringUtils.isBlank(lclTournamentCodeString)) {
 			return null;
 		}
 		java.lang.String lclTournamentCode = lclTournamentCodeString;

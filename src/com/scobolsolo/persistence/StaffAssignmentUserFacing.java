@@ -24,7 +24,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -69,7 +69,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRoomId() method.</p>
 	 *
-	 * @return an object value of {@code RoomId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getRoomIdAsObject();
 
@@ -80,7 +80,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRoomIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code RoomId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code RoomId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getRoomId() {
 		java.lang.Integer lclO = getRoomIdAsObject();
@@ -112,7 +112,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code staff_assignment}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
@@ -124,7 +124,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -151,7 +151,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getStaffId() method.</p>
 	 *
-	 * @return an object value of {@code StaffId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code StaffId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getStaffIdAsObject();
 
@@ -162,7 +162,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getStaffIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code StaffId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code StaffId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getStaffId() {
 		java.lang.Integer lclO = getStaffIdAsObject();
@@ -196,7 +196,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPhaseId() method.</p>
 	 *
-	 * @return an object value of {@code PhaseId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getPhaseIdAsObject();
 
@@ -207,7 +207,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPhaseIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code PhaseId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getPhaseId() {
 		java.lang.Integer lclO = getPhaseIdAsObject();
@@ -239,7 +239,7 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code StaffRoleCode} field is a direct mapping of the {@code staff_role_code} field in {@code staff_assignment}.</p>
 	 *
-	 * @return an object value of {@code StaffRoleCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code StaffRoleCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getStaffRoleCode();
 

@@ -24,7 +24,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -69,7 +69,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getTossupsHeard() method.</p>
 	 *
-	 * @return an object value of {@code TossupsHeard} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code TossupsHeard} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getTossupsHeardAsObject();
 
@@ -81,7 +81,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code TossupsHeard} is {@code null}.
-	 * @return an object value of {@code TossupsHeard} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code TossupsHeard} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getTossupsHeardAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getTossupsHeardAsObject();
@@ -98,7 +98,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code TossupsHeard} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code TossupsHeard} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getTossupsHeard() throws com.opal.NullValueException {
@@ -142,7 +142,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getIncomingWinningCardPlayerId() method.</p>
 	 *
-	 * @return an object value of {@code IncomingWinningCardPlayerId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code IncomingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getIncomingWinningCardPlayerIdAsObject();
 
@@ -154,7 +154,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code IncomingWinningCardPlayerId} is {@code null}.
-	 * @return an object value of {@code IncomingWinningCardPlayerId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code IncomingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getIncomingWinningCardPlayerIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getIncomingWinningCardPlayerIdAsObject();
@@ -171,7 +171,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code IncomingWinningCardPlayerId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code IncomingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getIncomingWinningCardPlayerId() throws com.opal.NullValueException {
@@ -215,7 +215,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getIncomingLosingCardPlayerId() method.</p>
 	 *
-	 * @return an object value of {@code IncomingLosingCardPlayerId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code IncomingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getIncomingLosingCardPlayerIdAsObject();
 
@@ -227,7 +227,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code IncomingLosingCardPlayerId} is {@code null}.
-	 * @return an object value of {@code IncomingLosingCardPlayerId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code IncomingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getIncomingLosingCardPlayerIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getIncomingLosingCardPlayerIdAsObject();
@@ -244,7 +244,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code IncomingLosingCardPlayerId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code IncomingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getIncomingLosingCardPlayerId() throws com.opal.NullValueException {
@@ -288,7 +288,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getOutgoingWinningCardPlayerId() method.</p>
 	 *
-	 * @return an object value of {@code OutgoingWinningCardPlayerId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code OutgoingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getOutgoingWinningCardPlayerIdAsObject();
 
@@ -300,7 +300,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code OutgoingWinningCardPlayerId} is {@code null}.
-	 * @return an object value of {@code OutgoingWinningCardPlayerId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code OutgoingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getOutgoingWinningCardPlayerIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getOutgoingWinningCardPlayerIdAsObject();
@@ -317,7 +317,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code OutgoingWinningCardPlayerId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code OutgoingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getOutgoingWinningCardPlayerId() throws com.opal.NullValueException {
@@ -361,7 +361,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getOutgoingLosingCardPlayerId() method.</p>
 	 *
-	 * @return an object value of {@code OutgoingLosingCardPlayerId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code OutgoingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getOutgoingLosingCardPlayerIdAsObject();
 
@@ -373,7 +373,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code OutgoingLosingCardPlayerId} is {@code null}.
-	 * @return an object value of {@code OutgoingLosingCardPlayerId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code OutgoingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getOutgoingLosingCardPlayerIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getOutgoingLosingCardPlayerIdAsObject();
@@ -390,7 +390,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code OutgoingLosingCardPlayerId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code OutgoingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getOutgoingLosingCardPlayerId() throws com.opal.NullValueException {
@@ -434,7 +434,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getModeratorStaffId() method.</p>
 	 *
-	 * @return an object value of {@code ModeratorStaffId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ModeratorStaffId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getModeratorStaffIdAsObject();
 
@@ -446,7 +446,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ModeratorStaffId} is {@code null}.
-	 * @return an object value of {@code ModeratorStaffId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ModeratorStaffId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getModeratorStaffIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getModeratorStaffIdAsObject();
@@ -463,7 +463,7 @@ public interface GameUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code ModeratorStaffId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code ModeratorStaffId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getModeratorStaffId() throws com.opal.NullValueException {

@@ -121,7 +121,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Staff object created from staff_assignment through reference staff_assignment_staff_id_fkey */
+	/** @return the Staff object created from staff_assignment through reference staff_assignment_staff_id_fkey */
 
 	@Override
 	public Staff getStaff() {
@@ -135,7 +135,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
-	/** Access to the Room object created from staff_assignment through reference staffer_assignment_room_id_fkey */
+	/** @return the Room object created from staff_assignment through reference staffer_assignment_room_id_fkey */
 
 	@Override
 	public Room getRoom() {
@@ -149,7 +149,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
-	/** Access to the Phase object created from staff_assignment through reference staff_assignment_phase_id_fkey */
+	/** @return the Phase object created from staff_assignment through reference staff_assignment_phase_id_fkey */
 
 	@Override
 	public Phase getPhase() {
@@ -163,7 +163,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
-	/** Access to the StaffRole object created from staff_assignment through reference staff_assignment_staff_role_code_fkey */
+	/** @return the StaffRole object created from staff_assignment through reference staff_assignment_staff_role_code_fkey */
 
 	@Override
 	public StaffRole getStaffRole() {

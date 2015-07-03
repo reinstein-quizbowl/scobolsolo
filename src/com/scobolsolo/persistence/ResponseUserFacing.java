@@ -24,7 +24,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -69,7 +69,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPerformanceId() method.</p>
 	 *
-	 * @return an object value of {@code PerformanceId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getPerformanceIdAsObject();
 
@@ -80,7 +80,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPerformanceIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code PerformanceId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getPerformanceId() {
 		java.lang.Integer lclO = getPerformanceIdAsObject();
@@ -114,7 +114,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPlacementId() method.</p>
 	 *
-	 * @return an object value of {@code PlacementId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getPlacementIdAsObject();
 
@@ -125,7 +125,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPlacementIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code PlacementId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getPlacementId() {
 		java.lang.Integer lclO = getPlacementIdAsObject();
@@ -157,7 +157,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code ResponseTypeCode} field is a direct mapping of the {@code response_type_code} field in {@code response}.</p>
 	 *
-	 * @return an object value of {@code ResponseTypeCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ResponseTypeCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getResponseTypeCode();
 
@@ -184,7 +184,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getReplacementForPlacementId() method.</p>
 	 *
-	 * @return an object value of {@code ReplacementForPlacementId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getReplacementForPlacementIdAsObject();
 
@@ -196,7 +196,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code ReplacementForPlacementId} is {@code null}.
-	 * @return an object value of {@code ReplacementForPlacementId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getReplacementForPlacementIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getReplacementForPlacementIdAsObject();
@@ -213,7 +213,7 @@ public interface ResponseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code ReplacementForPlacementId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getReplacementForPlacementId() throws com.opal.NullValueException {

@@ -91,7 +91,7 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the SchoolRegistration object created from buzzer through reference buzzer_registration_id_fkey */
+	/** @return the SchoolRegistration object created from buzzer through reference buzzer_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -105,7 +105,7 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return this;
 	}
 
-	/** Access to the Room object created from buzzer through reference buzzer_room_id_fkey */
+	/** @return the Room object created from buzzer through reference buzzer_room_id_fkey */
 
 	@Override
 	public Room getRoom() {

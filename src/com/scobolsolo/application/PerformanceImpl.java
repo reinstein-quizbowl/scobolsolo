@@ -80,7 +80,7 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Game object created from performance through reference performance_game_id_fkey */
+	/** @return the Game object created from performance through reference performance_game_id_fkey */
 
 	@Override
 	public Game getGame() {
@@ -94,7 +94,7 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 		return this;
 	}
 
-	/** Access to the Player object created from performance through reference performance_player_id_fkey */
+	/** @return the Player object created from performance through reference performance_player_id_fkey */
 
 	@Override
 	public Player getPlayer() {

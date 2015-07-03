@@ -24,7 +24,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -69,7 +69,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getQuestionId() method.</p>
 	 *
-	 * @return an object value of {@code QuestionId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getQuestionIdAsObject();
 
@@ -80,7 +80,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getQuestionIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code QuestionId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getQuestionId() {
 		java.lang.Integer lclO = getQuestionIdAsObject();
@@ -114,7 +114,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPacketId() method.</p>
 	 *
-	 * @return an object value of {@code PacketId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PacketId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getPacketIdAsObject();
 
@@ -125,7 +125,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPacketIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code PacketId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code PacketId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getPacketId() {
 		java.lang.Integer lclO = getPacketIdAsObject();
@@ -159,7 +159,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
@@ -170,7 +170,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();
@@ -204,7 +204,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isTiebreaker() method.</p>
 	 *
-	 * @return an object value of {@code Tiebreaker} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Tiebreaker} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isTiebreakerAsObject();
 
@@ -215,7 +215,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isTiebreakerAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Tiebreaker} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Tiebreaker} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isTiebreaker() {
 		java.lang.Boolean lclO = isTiebreakerAsObject();
@@ -249,7 +249,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isScorecheckAfter() method.</p>
 	 *
-	 * @return an object value of {@code ScorecheckAfter} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ScorecheckAfter} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isScorecheckAfterAsObject();
 
@@ -260,7 +260,7 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isScorecheckAfterAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code ScorecheckAfter} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code ScorecheckAfter} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isScorecheckAfter() {
 		java.lang.Boolean lclO = isScorecheckAfterAsObject();

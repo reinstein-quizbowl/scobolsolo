@@ -24,7 +24,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -69,7 +69,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getEditorAccountId() method.</p>
 	 *
-	 * @return an object value of {@code EditorAccountId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code EditorAccountId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getEditorAccountIdAsObject();
 
@@ -80,7 +80,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getEditorAccountIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code EditorAccountId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code EditorAccountId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getEditorAccountId() {
 		java.lang.Integer lclO = getEditorAccountIdAsObject();
@@ -112,7 +112,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Text} field is a direct mapping of the {@code text} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code Text} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getText();
 
@@ -137,7 +137,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Answer} field is a direct mapping of the {@code answer} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code Answer} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getAnswer();
 
@@ -162,7 +162,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
@@ -174,7 +174,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -199,7 +199,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Remark} field is a direct mapping of the {@code remark} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code Remark} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Remark} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getRemark();
 
@@ -211,7 +211,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Remark} is {@code null}.
-	 * @return an object value of {@code Remark} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Remark} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getRemark(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getRemark();
@@ -238,7 +238,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getEditDistance() method.</p>
 	 *
-	 * @return an object value of {@code EditDistance} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code EditDistance} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getEditDistanceAsObject();
 
@@ -249,7 +249,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getEditDistanceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code EditDistance} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code EditDistance} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getEditDistance() {
 		java.lang.Integer lclO = getEditDistanceAsObject();
@@ -281,7 +281,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Timestamp} field is a direct mapping of the {@code timestamp} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code Timestamp} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Timestamp} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.time.LocalDateTime getTimestamp();
 
@@ -293,7 +293,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Timestamp} is {@code null}.
-	 * @return an object value of {@code Timestamp} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Timestamp} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getTimestamp(java.lang.String argStringToSubstituteIfNull) {
 		java.time.LocalDateTime lclO = getTimestamp();
@@ -316,7 +316,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getQuestionId() method.</p>
 	 *
-	 * @return an object value of {@code QuestionId} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getQuestionIdAsObject();
 
@@ -327,7 +327,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getQuestionIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code QuestionId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getQuestionId() {
 		java.lang.Integer lclO = getQuestionIdAsObject();
@@ -361,7 +361,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRevisionNumber() method.</p>
 	 *
-	 * @return an object value of {@code RevisionNumber} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code RevisionNumber} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getRevisionNumberAsObject();
 
@@ -372,7 +372,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRevisionNumberAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code RevisionNumber} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code RevisionNumber} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getRevisionNumber() {
 		java.lang.Integer lclO = getRevisionNumberAsObject();
@@ -404,7 +404,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code QuestionStatusCode} field is a direct mapping of the {@code question_status_code} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code QuestionStatusCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code QuestionStatusCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getQuestionStatusCode();
 
@@ -429,7 +429,7 @@ public interface DiffUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code CategoryCode} field is a direct mapping of the {@code category_code} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code CategoryCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getCategoryCode();
 

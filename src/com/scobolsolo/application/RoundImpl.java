@@ -134,7 +134,7 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the RoundGroup object created from round through reference round_round_group_id_fkey */
+	/** @return the RoundGroup object created from round through reference round_round_group_id_fkey */
 
 	@Override
 	public RoundGroup getRoundGroup() {

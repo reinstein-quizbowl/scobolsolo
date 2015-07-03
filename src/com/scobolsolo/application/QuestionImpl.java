@@ -130,7 +130,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Category object created from question through reference question_category_code_fkey */
+	/** @return the Category object created from question through reference question_category_code_fkey */
 
 	@Override
 	public Category getCategory() {
@@ -144,7 +144,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return this;
 	}
 
-	/** Access to the Account object created from question through reference question_writer_account_id_fkey */
+	/** @return the Account object created from question through reference question_writer_account_id_fkey */
 
 	@Override
 	public Account getWriter() {
@@ -158,7 +158,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return this;
 	}
 
-	/** Access to the QuestionStatus object created from question through reference question_question_status_code_fkey */
+	/** @return the QuestionStatus object created from question through reference question_question_status_code_fkey */
 
 	@Override
 	public QuestionStatus getStatus() {

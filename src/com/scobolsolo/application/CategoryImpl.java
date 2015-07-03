@@ -94,7 +94,7 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the CategoryGroup object created from category through reference category_category_group_code_fkey */
+	/** @return the CategoryGroup object created from category through reference category_category_group_code_fkey */
 
 	@Override
 	public CategoryGroup getCategoryGroup() {

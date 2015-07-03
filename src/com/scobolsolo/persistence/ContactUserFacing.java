@@ -24,7 +24,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,7 +67,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>The {@code EmailAddress} field is a direct mapping of the {@code email_address} field in {@code contact}.</p>
 	 *
-	 * @return an object value of {@code EmailAddress} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code EmailAddress} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getEmailAddress();
 
@@ -79,7 +79,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code EmailAddress} is {@code null}.
-	 * @return an object value of {@code EmailAddress} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code EmailAddress} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getEmailAddress(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getEmailAddress();
@@ -104,7 +104,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>The {@code AdvancePhone} field is a direct mapping of the {@code advance_phone} field in {@code contact}.</p>
 	 *
-	 * @return an object value of {@code AdvancePhone} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code AdvancePhone} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getAdvancePhone();
 
@@ -116,7 +116,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code AdvancePhone} is {@code null}.
-	 * @return an object value of {@code AdvancePhone} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code AdvancePhone} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getAdvancePhone(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getAdvancePhone();
@@ -141,7 +141,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>The {@code DayOfPhone} field is a direct mapping of the {@code day_of_phone} field in {@code contact}.</p>
 	 *
-	 * @return an object value of {@code DayOfPhone} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code DayOfPhone} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getDayOfPhone();
 
@@ -153,7 +153,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code DayOfPhone} is {@code null}.
-	 * @return an object value of {@code DayOfPhone} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code DayOfPhone} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getDayOfPhone(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getDayOfPhone();
@@ -178,7 +178,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code contact}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
@@ -190,7 +190,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -215,7 +215,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code contact}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -240,7 +240,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>The {@code SortBy} field is a direct mapping of the {@code sort_by} field in {@code contact}.</p>
 	 *
-	 * @return an object value of {@code SortBy} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code SortBy} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getSortBy();
 
@@ -267,7 +267,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isActive() method.</p>
 	 *
-	 * @return an object value of {@code Active} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Active} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isActiveAsObject();
 
@@ -283,7 +283,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isActiveAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Active} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Active} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isActive() {
 		java.lang.Boolean lclO = isActiveAsObject();
@@ -319,7 +319,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 *
 	 * <p>The {@code Address} field is a direct mapping of the {@code address} field in {@code contact}.</p>
 	 *
-	 * @return an object value of {@code Address} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Address} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getAddress();
 
@@ -331,7 +331,7 @@ public interface ContactUserFacing extends IdentityUserFacing, Comparable<com.sc
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Address} is {@code null}.
-	 * @return an object value of {@code Address} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Address} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getAddress(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getAddress();

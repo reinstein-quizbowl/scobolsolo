@@ -78,20 +78,16 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	protected void afterInsert(TransactionParameter argTP, RoundOpal argOpal) throws PersistenceException {
-		assert argTP != null;
-		assert argOpal != null;
+	public boolean hasGeneratedKeys() {
+		return true;
+	}
+
+	@Override
+	protected void processGeneratedKeys(java.sql.ResultSet argRS, RoundOpal argOpal) {
 		try {
-			argOpal.setId(
-				com.siliconage.database.DatabaseUtility.executeIntQuery(
-					((DatabaseTransactionParameter) argTP).getConnection(),
-					"SELECT last_value FROM round_id_seq AS id_value",
-					null
-				)
-			);
-			return;
+			argOpal.setId(argRS.getInt("id"));
 		} catch (SQLException lclE) {
-			throw new PersistenceException("Unable to retrieve last value for sequence column round_id_seq", lclE);
+			throw new PersistenceException("Could not process generated keys.");
 		}
 	}
 

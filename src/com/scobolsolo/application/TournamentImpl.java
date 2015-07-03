@@ -234,7 +234,7 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Room object created from tournament through reference tournament_control_room_room_id_fkey */
+	/** @return the Room object created from tournament through reference tournament_control_room_room_id_fkey */
 
 	@Override
 	public Room getControlRoom() {
@@ -248,7 +248,7 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 		return this;
 	}
 
-	/** Access to the Contact object created from tournament through reference tournament_tournament_director_contact_id_fkey */
+	/** @return the Contact object created from tournament through reference tournament_tournament_director_contact_id_fkey */
 
 	@Override
 	public Contact getTournamentDirectorContact() {

@@ -24,7 +24,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,7 +67,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Description} field is a direct mapping of the {@code description} field in {@code question}.</p>
 	 *
-	 * @return an object value of {@code Description} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Description} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getDescription();
 
@@ -79,7 +79,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Description} is {@code null}.
-	 * @return an object value of {@code Description} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Description} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getDescription(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getDescription();
@@ -104,7 +104,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code CategoryCode} field is a direct mapping of the {@code category_code} field in {@code question}.</p>
 	 *
-	 * @return an object value of {@code CategoryCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getCategoryCode();
 
@@ -129,7 +129,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code question}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
@@ -141,7 +141,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -168,7 +168,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getWriterAccountId() method.</p>
 	 *
-	 * @return an object value of {@code WriterAccountId} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code WriterAccountId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getWriterAccountIdAsObject();
 
@@ -180,7 +180,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code WriterAccountId} is {@code null}.
-	 * @return an object value of {@code WriterAccountId} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code WriterAccountId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getWriterAccountIdAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getWriterAccountIdAsObject();
@@ -197,7 +197,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code WriterAccountId} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code WriterAccountId} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getWriterAccountId() throws com.opal.NullValueException {
@@ -239,7 +239,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Text} field is a direct mapping of the {@code text} field in {@code question}.</p>
 	 *
-	 * @return an object value of {@code Text} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getText();
 
@@ -251,7 +251,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Text} is {@code null}.
-	 * @return an object value of {@code Text} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getText(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getText();
@@ -276,7 +276,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Answer} field is a direct mapping of the {@code answer} field in {@code question}.</p>
 	 *
-	 * @return an object value of {@code Answer} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getAnswer();
 
@@ -288,7 +288,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Answer} is {@code null}.
-	 * @return an object value of {@code Answer} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getAnswer(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getAnswer();
@@ -313,7 +313,7 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code QuestionStatusCode} field is a direct mapping of the {@code question_status_code} field in {@code question}.</p>
 	 *
-	 * @return an object value of {@code QuestionStatusCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code QuestionStatusCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getQuestionStatusCode();
 

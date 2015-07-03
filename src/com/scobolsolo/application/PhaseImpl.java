@@ -128,7 +128,7 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Tournament object created from phase through reference phase_tournament_code_fkey */
+	/** @return the Tournament object created from phase through reference phase_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {

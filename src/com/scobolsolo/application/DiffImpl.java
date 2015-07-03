@@ -193,7 +193,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Account object created from diff through reference diff_editor_account_id_fkey */
+	/** @return the Account object created from diff through reference diff_editor_account_id_fkey */
 
 	@Override
 	public Account getEditor() {
@@ -207,7 +207,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
-	/** Access to the Question object created from diff through reference diff_question_id_fkey */
+	/** @return the Question object created from diff through reference diff_question_id_fkey */
 
 	@Override
 	public Question getQuestion() {
@@ -221,7 +221,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
-	/** Access to the QuestionStatus object created from diff through reference diff_question_status_code_fkey */
+	/** @return the QuestionStatus object created from diff through reference diff_question_status_code_fkey */
 
 	@Override
 	public QuestionStatus getStatus() {
@@ -235,7 +235,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
-	/** Access to the Category object created from diff through reference diff_category_code_fkey */
+	/** @return the Category object created from diff through reference diff_category_code_fkey */
 
 	@Override
 	public Category getCategory() {

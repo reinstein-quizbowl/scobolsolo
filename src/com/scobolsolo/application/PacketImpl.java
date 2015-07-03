@@ -158,7 +158,7 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Packet object created from packet through reference packet_replacement_packet_id_fkey */
+	/** @return the Packet object created from packet through reference packet_replacement_packet_id_fkey */
 
 	@Override
 	public Packet getReplacementPacket() {
@@ -172,7 +172,7 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 		return this;
 	}
 
-	/** Access to the Round object created from packet through reference packet_round_id_fkey */
+	/** @return the Round object created from packet through reference packet_round_id_fkey */
 
 	@Override
 	public Round getRound() {
@@ -186,7 +186,7 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 		return this;
 	}
 
-	/** Access to the Tournament object created from packet through reference packet_tournament_code_fkey */
+	/** @return the Tournament object created from packet through reference packet_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {

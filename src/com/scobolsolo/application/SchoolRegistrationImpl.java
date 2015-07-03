@@ -142,7 +142,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Contact object created from school_registration through reference registration_main_contact_id_fkey */
+	/** @return the Contact object created from school_registration through reference registration_main_contact_id_fkey */
 
 	@Override
 	public Contact getMainContact() {
@@ -156,7 +156,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return this;
 	}
 
-	/** Access to the School object created from school_registration through reference registration_school_id_fkey */
+	/** @return the School object created from school_registration through reference registration_school_id_fkey */
 
 	@Override
 	public School getSchool() {
@@ -170,7 +170,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return this;
 	}
 
-	/** Access to the Tournament object created from school_registration through reference school_registration_tournament_code_fkey */
+	/** @return the Tournament object created from school_registration through reference school_registration_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {

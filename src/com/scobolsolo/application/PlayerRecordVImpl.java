@@ -59,7 +59,7 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Tournament object created from player_record_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the Tournament object created from player_record_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -67,7 +67,7 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Player object created from player_record_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the Player object created from player_record_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Player getPlayer() {

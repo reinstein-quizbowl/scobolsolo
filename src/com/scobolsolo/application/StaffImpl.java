@@ -120,7 +120,7 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Contact object created from staff through reference staff_contact_id_fkey */
+	/** @return the Contact object created from staff through reference staff_contact_id_fkey */
 
 	@Override
 	public Contact getContact() {
@@ -134,7 +134,7 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 		return this;
 	}
 
-	/** Access to the SchoolRegistration object created from staff through reference staff_school_registration_id_fkey */
+	/** @return the SchoolRegistration object created from staff through reference staff_school_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -148,7 +148,7 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 		return this;
 	}
 
-	/** Access to the Tournament object created from staff through reference staff_tournament_code_fkey */
+	/** @return the Tournament object created from staff through reference staff_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {

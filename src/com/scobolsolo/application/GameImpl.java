@@ -149,7 +149,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Match object created from game through reference game_id_fkey */
+	/** @return the Match object created from game through reference game_id_fkey */
 
 	@Override
 	public Match getMatch() {
@@ -163,7 +163,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
-	/** Access to the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
+	/** @return the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
 
 	@Override
 	public Player getIncomingLosingCardPlayer() {
@@ -177,7 +177,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
-	/** Access to the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
+	/** @return the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
 
 	@Override
 	public Player getIncomingWinningCardPlayer() {
@@ -191,7 +191,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
-	/** Access to the Staff object created from game through reference game_moderator_staff_id_fkey */
+	/** @return the Staff object created from game through reference game_moderator_staff_id_fkey */
 
 	@Override
 	public Staff getModeratorStaff() {
@@ -205,7 +205,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
-	/** Access to the Player object created from game through reference game_outgoing_losing_card_player_id_fkey */
+	/** @return the Player object created from game through reference game_outgoing_losing_card_player_id_fkey */
 
 	@Override
 	public Player getOutgoingLosingCardPlayer() {
@@ -219,7 +219,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
-	/** Access to the Player object created from game through reference game_outgoing_winning_card_player_id_fkey */
+	/** @return the Player object created from game through reference game_outgoing_winning_card_player_id_fkey */
 
 	@Override
 	public Player getOutgoingWinningCardPlayer() {

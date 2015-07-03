@@ -50,7 +50,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the ResponseType object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the ResponseType object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public ResponseType getResponseType() {
@@ -58,7 +58,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 		return lclResponseTypeOpal == null ? null : lclResponseTypeOpal.getUserFacing();
 	}
 
-	/** Access to the Tournament object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the Tournament object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -66,7 +66,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Category object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the Category object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Category getCategory() {

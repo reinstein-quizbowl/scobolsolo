@@ -116,7 +116,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Card object created from match through reference match_losing_card_id_fkey */
+	/** @return the Card object created from match through reference match_losing_card_id_fkey */
 
 	@Override
 	public Card getLosingCard() {
@@ -130,7 +130,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return this;
 	}
 
-	/** Access to the Room object created from match through reference match_room_id_fkey */
+	/** @return the Room object created from match through reference match_room_id_fkey */
 
 	@Override
 	public Room getRoom() {
@@ -144,7 +144,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return this;
 	}
 
-	/** Access to the Round object created from match through reference match_round_id_fkey */
+	/** @return the Round object created from match through reference match_round_id_fkey */
 
 	@Override
 	public Round getRound() {
@@ -158,7 +158,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return this;
 	}
 
-	/** Access to the Card object created from match through reference match_winning_card_id_fkey */
+	/** @return the Card object created from match through reference match_winning_card_id_fkey */
 
 	@Override
 	public Card getWinningCard() {

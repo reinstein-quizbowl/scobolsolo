@@ -22,7 +22,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code CategoryCode} field is a direct mapping of the {@code category_code} field in {@code category_use}.</p>
 	 *
-	 * @return an object value of {@code CategoryCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getCategoryCode();
 
@@ -47,7 +47,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code category_use}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -74,7 +74,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getNeeds() method.</p>
 	 *
-	 * @return an object value of {@code Needs} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Needs} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getNeedsAsObject();
 
@@ -86,7 +86,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Needs} is {@code null}.
-	 * @return an object value of {@code Needs} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Needs} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNeedsAsObject(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.Integer lclO = getNeedsAsObject();
@@ -103,7 +103,7 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code Needs} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Needs} (of the current {@link com.opal.TransactionContext})
 	 * @throws NullValueException when the internal value is null
 	 */
 	default public int getNeeds() throws com.opal.NullValueException {

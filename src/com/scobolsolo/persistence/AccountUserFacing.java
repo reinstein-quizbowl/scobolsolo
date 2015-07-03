@@ -24,7 +24,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,7 +67,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code Username} field is a direct mapping of the {@code username} field in {@code account}.</p>
 	 *
-	 * @return an object value of {@code Username} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Username} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getUsername();
 
@@ -92,7 +92,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code PasswordHash} field is a direct mapping of the {@code password_hash} field in {@code account}.</p>
 	 *
-	 * @return an object value of {@code PasswordHash} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code PasswordHash} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getPasswordHash();
 
@@ -119,7 +119,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isAdministrator() method.</p>
 	 *
-	 * @return an object value of {@code Administrator} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Administrator} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isAdministratorAsObject();
 
@@ -130,7 +130,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isAdministratorAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Administrator} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Administrator} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isAdministrator() {
 		java.lang.Boolean lclO = isAdministratorAsObject();
@@ -164,7 +164,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isActive() method.</p>
 	 *
-	 * @return an object value of {@code Active} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Active} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isActiveAsObject();
 
@@ -175,7 +175,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isActiveAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Active} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Active} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isActive() {
 		java.lang.Boolean lclO = isActiveAsObject();
@@ -209,7 +209,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isWriter() method.</p>
 	 *
-	 * @return an object value of {@code Writer} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Writer} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isWriterAsObject();
 
@@ -220,7 +220,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isWriterAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Writer} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Writer} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isWriter() {
 		java.lang.Boolean lclO = isWriterAsObject();
@@ -252,7 +252,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code PasswordResetToken} field is a direct mapping of the {@code password_reset_token} field in {@code account}.</p>
 	 *
-	 * @return an object value of {@code PasswordResetToken} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code PasswordResetToken} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getPasswordResetToken();
 
@@ -264,7 +264,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code PasswordResetToken} is {@code null}.
-	 * @return an object value of {@code PasswordResetToken} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code PasswordResetToken} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getPasswordResetToken(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getPasswordResetToken();
@@ -289,7 +289,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 *
 	 * <p>The {@code PasswordResetTokenExpiration} field is a direct mapping of the {@code password_reset_token_expiration} field in {@code account}.</p>
 	 *
-	 * @return an object value of {@code PasswordResetTokenExpiration} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code PasswordResetTokenExpiration} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.time.LocalDateTime getPasswordResetTokenExpiration();
 
@@ -301,7 +301,7 @@ public interface AccountUserFacing extends IdentityUserFacing {
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code PasswordResetTokenExpiration} is {@code null}.
-	 * @return an object value of {@code PasswordResetTokenExpiration} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code PasswordResetTokenExpiration} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getPasswordResetTokenExpiration(java.lang.String argStringToSubstituteIfNull) {
 		java.time.LocalDateTime lclO = getPasswordResetTokenExpiration();

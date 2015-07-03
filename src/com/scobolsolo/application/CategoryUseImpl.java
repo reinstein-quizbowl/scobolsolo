@@ -68,7 +68,7 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Category object created from category_use through reference category_use_category_code_fkey */
+	/** @return the Category object created from category_use through reference category_use_category_code_fkey */
 
 	@Override
 	public Category getCategory() {
@@ -82,7 +82,7 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 		return this;
 	}
 
-	/** Access to the Tournament object created from category_use through reference category_use_tournament_code_fkey */
+	/** @return the Tournament object created from category_use through reference category_use_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {

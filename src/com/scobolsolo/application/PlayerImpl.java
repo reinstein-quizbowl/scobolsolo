@@ -172,7 +172,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Contact object created from player through reference player_contact_id_fkey */
+	/** @return the Contact object created from player through reference player_contact_id_fkey */
 
 	@Override
 	public Contact getContact() {
@@ -186,7 +186,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
-	/** Access to the Card object created from player through reference player_initial_card_id_fkey */
+	/** @return the Card object created from player through reference player_initial_card_id_fkey */
 
 	@Override
 	public Card getInitialCard() {
@@ -200,7 +200,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
-	/** Access to the SchoolRegistration object created from player through reference player_registration_id_fkey */
+	/** @return the SchoolRegistration object created from player through reference player_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
@@ -214,7 +214,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
-	/** Access to the SchoolYear object created from player through reference player_school_year_code_fkey */
+	/** @return the SchoolYear object created from player through reference player_school_year_code_fkey */
 
 	@Override
 	public SchoolYear getSchoolYear() {

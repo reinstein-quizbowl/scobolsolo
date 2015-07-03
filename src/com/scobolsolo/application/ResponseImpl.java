@@ -109,7 +109,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Performance object created from response through reference response_performance_id_fkey */
+	/** @return the Performance object created from response through reference response_performance_id_fkey */
 
 	@Override
 	public Performance getPerformance() {
@@ -123,7 +123,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return this;
 	}
 
-	/** Access to the Placement object created from response through reference response_placement_id_fkey */
+	/** @return the Placement object created from response through reference response_placement_id_fkey */
 
 	@Override
 	public Placement getPlacement() {
@@ -137,7 +137,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return this;
 	}
 
-	/** Access to the Placement object created from response through reference response_replacement_placement_id_fkey */
+	/** @return the Placement object created from response through reference response_replacement_placement_id_fkey */
 
 	@Override
 	public Placement getReplacementForPlacement() {
@@ -151,7 +151,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return this;
 	}
 
-	/** Access to the ResponseType object created from response through reference response_response_type_code_fkey */
+	/** @return the ResponseType object created from response through reference response_response_type_code_fkey */
 
 	@Override
 	public ResponseType getResponseType() {

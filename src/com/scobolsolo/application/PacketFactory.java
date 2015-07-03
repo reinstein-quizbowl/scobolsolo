@@ -58,7 +58,7 @@ public class PacketFactory extends com.opal.AbstractFactory<Packet, PacketOpal> 
 	public Packet fromHttpRequest(javax.servlet.http.HttpServletRequest argRequest, String argId) {
 		org.apache.commons.lang3.Validate.notNull(argRequest);
 		String lclIdString = argRequest.getParameter(argId);
-		if (lclIdString == null || lclIdString.equals("")) {
+		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
 		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);

@@ -101,7 +101,7 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Phase object created from round_group through reference round_group_phase_id_fkey */
+	/** @return the Phase object created from round_group through reference round_group_phase_id_fkey */
 
 	@Override
 	public Phase getPhase() {

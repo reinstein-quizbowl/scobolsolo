@@ -68,7 +68,7 @@ public class QuestionStatusFactory extends com.opal.AbstractFactory<QuestionStat
 	public QuestionStatus fromHttpRequest(javax.servlet.http.HttpServletRequest argRequest, String argCode) {
 		org.apache.commons.lang3.Validate.notNull(argRequest);
 		String lclCodeString = argRequest.getParameter(argCode);
-		if (lclCodeString == null || lclCodeString.equals("")) {
+		if (org.apache.commons.lang3.StringUtils.isBlank(lclCodeString)) {
 			return null;
 		}
 		java.lang.String lclCode = lclCodeString;

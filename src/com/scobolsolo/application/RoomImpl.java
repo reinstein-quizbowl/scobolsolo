@@ -128,7 +128,7 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Tournament object created from room through reference room_tournament_code_fkey */
+	/** @return the Tournament object created from room through reference room_tournament_code_fkey */
 
 	@Override
 	public Tournament getTournament() {

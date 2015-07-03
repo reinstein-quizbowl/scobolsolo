@@ -140,7 +140,7 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the Contact object created from account through reference account_id_fkey */
+	/** @return the Contact object created from account through reference account_id_fkey */
 
 	@Override
 	public Contact getContact() {

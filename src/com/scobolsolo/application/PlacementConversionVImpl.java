@@ -56,7 +56,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the ResponseType object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the ResponseType object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public ResponseType getResponseType() {
@@ -64,7 +64,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return lclResponseTypeOpal == null ? null : lclResponseTypeOpal.getUserFacing();
 	}
 
-	/** Access to the Tournament object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the Tournament object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Tournament getTournament() {
@@ -72,7 +72,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
 	}
 
-	/** Access to the Question object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the Question object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Question getQuestion() {
@@ -80,7 +80,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return lclQuestionOpal == null ? null : lclQuestionOpal.getUserFacing();
 	}
 
-	/** Access to the Placement object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
+	/** @return the Placement object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@Override
 	public Placement getPlacement() {

@@ -112,7 +112,7 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** Access to the SchoolRegistration object created from waitlist_entry through reference waitlist_entry_school_registration_id_fkey */
+	/** @return the SchoolRegistration object created from waitlist_entry through reference waitlist_entry_school_registration_id_fkey */
 
 	@Override
 	public SchoolRegistration getSchoolRegistration() {

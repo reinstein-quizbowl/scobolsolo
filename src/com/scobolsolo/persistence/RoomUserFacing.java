@@ -24,7 +24,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getId() method.</p>
 	 *
-	 * @return an object value of {@code Id} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getIdAsObject();
 
@@ -35,7 +35,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getIdAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Id} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Id} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getId() {
 		java.lang.Integer lclO = getIdAsObject();
@@ -67,7 +67,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code room}.</p>
 	 *
-	 * @return an object value of {@code Name} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getName();
 
@@ -92,7 +92,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>The {@code ShortName} field is a direct mapping of the {@code short_name} field in {@code room}.</p>
 	 *
-	 * @return an object value of {@code ShortName} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getShortName();
 
@@ -117,7 +117,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>The {@code Note} field is a direct mapping of the {@code note} field in {@code room}.</p>
 	 *
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.String getNote();
 
@@ -129,7 +129,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
 	 * @param argStringToSubstituteIfNull the value to return if the {@code Note} is {@code null}.
-	 * @return an object value of {@code Note} (of the current {@link TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
 	default public java.lang.String getNote(java.lang.String argStringToSubstituteIfNull) {
 		java.lang.String lclO = getNote();
@@ -154,7 +154,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>The {@code TournamentCode} field is a direct mapping of the {@code tournament_code} field in {@code room}.</p>
 	 *
-	 * @return an object value of {@code TournamentCode} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.String getTournamentCode();
 
@@ -181,7 +181,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Integer getSequenceAsObject();
 
@@ -192,7 +192,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public int getSequence() {
 		java.lang.Integer lclO = getSequenceAsObject();
@@ -226,7 +226,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isGameRoom() method.</p>
 	 *
-	 * @return an object value of {@code GameRoom} (of the current {@link TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code GameRoom} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	public java.lang.Boolean isGameRoomAsObject();
 
@@ -237,7 +237,7 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isGameRoomAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code GameRoom} (of the current {@link TransactionContext})
+	 * @return the primitive value of {@code GameRoom} (of the current {@link com.opal.TransactionContext})
 	 */
 	default public boolean isGameRoom() {
 		java.lang.Boolean lclO = isGameRoomAsObject();
