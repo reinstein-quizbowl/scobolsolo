@@ -69,7 +69,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 		new DatabaseQuery(
 			"SELECT Q.* FROM Question Q WHERE " +
 			"( " +
-				"id NOT IN (SELECT question_id FROM Placement) OR " +
+				"id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL) OR " +
 				"id IN (SELECT question_id FROM Placement PL JOIN Packet P ON PL.packet_id = P.id JOIN Tournament T ON P.tournament_code = T.code WHERE T.questions_complete = false) " + 
 			") AND question_status_code IN (" + Utility.nParameters(lclChosenStatuses.size()) + ")",
 			lclChosenStatuses.stream().map(QuestionStatus::getCode).collect(Collectors.toList())
