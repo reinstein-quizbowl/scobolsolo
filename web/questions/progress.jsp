@@ -108,6 +108,10 @@ if (lclIncompleteTournaments.isEmpty()) {
 			NumberFormat lclPct = new DecimalFormat("0.0%");
 			NumberFormat lclIntPct = new DecimalFormat("#%");
 			
+			int lclWrittenTotal = 0;
+			int lclNeededTotal = 0;
+			int lclCappedWrittenTotal = 0;
+			
 			for (CategoryGroup lclCG : lclCategoryGroups) {
 				%><h2><%= lclCG.getName() %></h2>
 				<table class="responsive full-width">
@@ -126,6 +130,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 						
 						int lclWrittenThisCG = 0;
 						int lclNeededThisCG = 0;
+						int lclCappedWrittenThisCG = 0;
 						for (Category lclC : lclCs) {
 							if (lclAllRelevantCategories.contains(lclC)) {
 								Validate.isTrue(lclWritten.get(lclC) >= 0);
@@ -133,13 +138,14 @@ if (lclIncompleteTournaments.isEmpty()) {
 								
 								int lclWrittenThisCategory = lclWritten.get(lclC);
 								int lclNeededThisCategory = lclNeeded.get(lclC);
+								int lclCappedWrittenThisCategory = Math.min(lclWrittenThisCategory, lclNeededThisCategory); // Prevent overages from screwing with averages
 								
-								double lclCompletion = 1.0d * lclWrittenThisCategory / lclNeededThisCategory;
+								double lclCompletion = 1.0d * lclCappedWrittenThisCategory / lclNeededThisCategory;
 								
 								%><tr class="<%= determineClass(lclCompletion) %>">
 									<td><%= lclC.getName() %></td>
-									<td><%= lclWritten.get(lclC) %></td>
-									<td><%= lclNeeded.get(lclC) %></td>
+									<td><%= lclWrittenThisCategory %></td>
+									<td><%= lclNeededThisCategory %></td>
 									<td><%= lclPct.format(lclCompletion) %></td>
 									<td>
 										<div class="progress">
@@ -148,15 +154,20 @@ if (lclIncompleteTournaments.isEmpty()) {
 									</td>
 								</tr><%
 								
-								lclWrittenThisCG += lclWritten.get(lclC);
-								lclNeededThisCG += lclNeeded.get(lclC);
+								lclWrittenThisCG += lclWrittenThisCategory;
+								lclNeededThisCG += lclNeededThisCategory;
+								lclCappedWrittenThisCG += lclCappedWrittenThisCategory;
+								
+								lclWrittenTotal += lclWrittenThisCategory;
+								lclNeededTotal += lclNeededThisCategory;
+								lclCappedWrittenTotal += lclCappedWrittenThisCategory;
 							}
 						}
 					%></tbody><%
 					if (lclCs.length > 1) {
 						Validate.isTrue(lclWrittenThisCG >= 0);
 						Validate.isTrue(lclNeededThisCG > 0);
-						double lclCompletion = 1.0d * lclWrittenThisCG / lclNeededThisCG;
+						double lclCompletion = 1.0d * lclCappedWrittenThisCG / lclNeededThisCG;
 						%><tfoot>
 							<tr class="<%= determineClass(lclCompletion) %>">
 								<th><%= lclCG.getName() %> Total</th>
@@ -175,10 +186,8 @@ if (lclIncompleteTournaments.isEmpty()) {
 			}
 			
 			if (lclAllRelevantCategories.size() > 1) {
-				int lclTotalWritten = lclWritten.getTotal();
-				int lclTotalNeeded = lclNeeded.getTotal();
+				double lclCompletion = 1.0d * lclCappedWrittenTotal / lclNeededTotal;
 				
-				double lclCompletion = 1.0d * lclTotalWritten / lclTotalNeeded;
 				%><h2>Total</h2>
 				<table class="responsive full-width">
 					<thead>
@@ -193,8 +202,8 @@ if (lclIncompleteTournaments.isEmpty()) {
 					<tbody>
 						<tr class="<%= determineClass(lclCompletion) %>">
 							<td>&nbsp;</td>
-							<td><%= lclTotalWritten %></td>
-							<td><%= lclTotalNeeded %></td>
+							<td><%= lclWrittenTotal %></td>
+							<td><%= lclNeededTotal %></td>
 							<td><%= lclPct.format(lclCompletion) %></td>
 							<td>
 								<div class="progress">
