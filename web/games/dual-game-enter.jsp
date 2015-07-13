@@ -6,14 +6,13 @@
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.siliconage.util.WebDataFilter" %>
 <%@ page import="com.siliconage.web.ControllerServlet" %>
-<%@ page import="com.siliconage.web.PriorInput" %>
+<%@ page import="com.siliconage.web.form.PriorInput" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.matches.GameEntryResult" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.opalforms.compare.MatchEnteringPriority" %>
-<%@ page import="com.scobolsolo.opalforms.nce.*" %>
 <%@ page import="com.scobolsolo.matches.MatchStatus" %>
 <%@ page import="com.scobolsolo.AccountUtility" %>
 
@@ -219,21 +218,21 @@ boolean lclFlip = Boolean.parseBoolean(request.getParameter("flip"));
 	<div class="small-12 medium-6 columns">
 		<label>
 			Moderator
-			<%= lclGOF.dropdown("ModeratorStaff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(StaffNCE.getInstance()) %>
+			<%= lclGOF.dropdown("ModeratorStaff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(argS -> argS.getContact().getName()) %>
 		</label>
 	</div>
 	
 	<div class="small-12 medium-6 columns">
 		<label>
 			Incoming Holder of <%= lclM.getWinningCard().getName() %>
-			<%= lclGOF.dropdown("IncomingWinningCardPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(PlayerNCE.getInstance()) %>
+			<%= lclGOF.dropdown("IncomingWinningCardPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(argP -> argP.getContact().getName()) %>
 		</label>
 	</div>
 	
 	<div class="small-12 medium-6 columns">
 		<label>
 			Incoming Holder of <%= lclM.getLosingCard().getName() %>
-			<%= lclGOF.dropdown("IncomingLosingCardPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(PlayerNCE.getInstance()) %>
+			<%= lclGOF.dropdown("IncomingLosingCardPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(argP-> argP.getContact().getName()) %>
 		</label>
 	</div>
 	
@@ -422,8 +421,7 @@ if (lclM.determineStatus().mayEnterData()) {
 			<div class="small-2 small-centered text-center columns">
 				<label>
 					Tossups Heard
-					<%= lclPI.text("tossups_heard", lclG.getTossupsHeardAsObject(String.valueOf(lclTotalRegulationQuestions))) %>
-					<!-- FIXME Use input type=number when PriorInput supports that -->
+					<%= lclPI.number("tossups_heard", lclG.getTossupsHeard(lclTotalRegulationQuestions)).min(1) %>
 				</label>
 			</div>
 		</div>

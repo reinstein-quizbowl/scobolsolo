@@ -3,7 +3,6 @@
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.nce.SchoolRegistrationNCE" %>
 <%@ page import="com.scobolsolo.opalforms.updater.WaitlistEntryDefaultToEndOfList" %>
 
 <%
@@ -84,7 +83,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 				<div class="small-12 medium-6 large-3 columns">
 					<label>
 						School
-						<%= lclNewWEOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(SchoolRegistrationNCE.getInstance()) %>
+						<%= lclNewWEOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %>
 					</label>
 				</div>
 				<div class="small-12 medium-3 large-2 columns">

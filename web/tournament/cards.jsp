@@ -4,7 +4,6 @@
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.nce.PlayerNCE" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -64,7 +63,7 @@ if (lclOF.hasErrors()) {
 						<%= lclCOF.open() %>
 						<td><%= lclCOF.text("Name", 20) %></td>
 						<td><%= lclCOF.text("ShortName", 10) %></td>
-						<td><%= lclCOF.dropdown("InitialPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(PlayerNCE.getInstance()) %></td>
+						<td><%= lclCOF.dropdown("InitialPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(argP -> argP.getContact().getName()) %></td>
 						<td><%= lclCOF.text("Sequence", 3) %></td>
 						<td><%= lclC == null ? "&nbsp;" : "<a href=\"card-edit.jsp?card_id=" + lclC.getId() + "\">Edit</a>" %></td>
 						<td><%= HTMLUtility.deleteWidget(lclCOF) %></td>

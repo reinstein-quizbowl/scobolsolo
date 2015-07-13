@@ -3,7 +3,6 @@
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.nce.SchoolRegistrationNCE" %>
 <%@ page import="com.scobolsolo.opalforms.updater.ContactUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -61,7 +60,7 @@ Tournament lclT = lclOF.getUserFacing();
 						<%= lclSOF.open() %>
 						<td data-tablesorter="<%= lclSOF.isNew() ? "" : lclStaff.getContact().getSortBy() %>"><%= lclSOF.dropdown("Contact", Contact.SortByComparator.getInstance()).filter(Contact::isActive) %></td>
 						<td data-tablesorter="<%= lclSOF.isNew() ? "?" : (lclStaff.isBringingLaptop() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclSOF, "BringingLaptop") %></td>
-						<td data-tablesorter="<%= lclSOF.isNew() ? "" : (lclStaff.getSchoolRegistration() == null ? "" : lclStaff.getSchoolRegistration().getSchool().getName()) %>"><%= lclSOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(SchoolRegistrationNCE.getInstance()) %></td>
+						<td data-tablesorter="<%= lclSOF.isNew() ? "" : (lclStaff.getSchoolRegistration() == null ? "" : lclStaff.getSchoolRegistration().getSchool().getName()) %>"><%= lclSOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %></td>
 						<td><%= lclSOF.text("Note", 30) %></td>
 						<td><%
 							for (OpalForm<StaffAssignment> lclSAOF : lclSOF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.RoomSequenceComparator.getInstance())) {

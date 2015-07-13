@@ -3,7 +3,6 @@
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.nce.SchoolRegistrationNCE" %>
 <%@ page import="com.scobolsolo.opalforms.updater.ContactUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -62,7 +61,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-9 medium-6 columns">
 		<label>
 			School
-			<%= lclOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(SchoolRegistrationNCE.getInstance()) %>
+			<%= lclOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %>
 		</label>
 	</div>
 	<div class="small-3 medium-6 columns">

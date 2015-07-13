@@ -6,8 +6,6 @@
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.nce.SchoolRegistrationNCE" %>
-<%@ page import="com.scobolsolo.opalforms.nce.StaffNCE" %>
 <%@ page import="com.scobolsolo.opalforms.updater.BuzzerUnassigningUpdater" %>
 <%@ page import="com.scobolsolo.opalforms.updater.RoomUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
@@ -156,7 +154,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 					%><%= lclSAOF.open() %>
 					<tr>
 						<td><%= lclSAOF.dropdown("Phase", Phase.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
-						<td><%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(StaffNCE.getInstance()) %></td>
+						<td><%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(argS -> argS.getContact().getName()) %></td>
 						<td><%= lclSAOF.dropdown("StaffRole", StaffRole.SequenceComparator.getInstance()) %></td>
 						<td><%= lclOF.textarea("Note", 40, 1) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSAOF) %></td>
