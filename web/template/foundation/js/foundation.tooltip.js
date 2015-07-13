@@ -106,9 +106,6 @@
           } else {
             self.hide($(this));
           }
-        })
-        .on('DOMNodeRemoved DOMAttrModified', '[' + this.attr_name() + ']:not(a)', function (e) {
-          self.hide(S(this));
         });
     },
 
