@@ -251,7 +251,7 @@
 			</Reference>
 			
 			<!-- Stats views -->
-			<Mapping Entity="Player_Point_v" View="True">
+			<Mapping View="Player_Point_v">
 				<Column Name="points" Type="java.lang.Integer" />
 				<Comparator>
 					<Column Name="points" Inverted="True" />
@@ -259,7 +259,7 @@
 				</Comparator>
 			</Mapping>
 			
-			<Mapping Entity="Player_Category_Point_v" View="True">
+			<Mapping View="Player_Category_Point_v">
 				<Column Name="tossups_heard" Type="java.lang.Integer" />
 				<Column Name="points" Type="java.lang.Integer" />
 				<Comparator Name="CategoryComparator">
@@ -269,7 +269,7 @@
 				</Comparator>
 			</Mapping>
 			
-			<Mapping Entity="Game_v" View="True">
+			<Mapping View="Game_v">
 				<Column Name="winner_score" Type="java.lang.Integer" />
 				<Column Name="loser_score" Type="java.lang.Integer" />
 				<Comparator Name="RoundComparator">
@@ -277,27 +277,27 @@
 				</Comparator>
 			</Mapping>
 			
-			<Mapping Entity="Player_Match_v" View="True">
+			<Mapping View="Player_Match_v">
 				<Comparator Name="RoundComparator">
 					<Child Name="Match" Comparator="RoundComparator" />
 				</Comparator>
 			</Mapping>
 			
-			<Mapping Entity="Player_Record_v" View="True">
+			<Mapping View="Player_Record_v">
 				<Column Name="tossups_heard" Type="java.lang.Integer" />
 				<Comparator Name="PlayerComparator">
 					<Child Name="Player" Comparator="NameComparator" />
 				</Comparator>
 			</Mapping>
 			
-			<Mapping Entity="Category_Conversion_v" View="True">
+			<Mapping View="Category_Conversion_v">
 				<Column Name="response_type_count" Type="java.lang.Integer" />
 				<Comparator>
 					<Child Name="Category" Comparator="SequenceComparator" />
 				</Comparator>
 			</Mapping>
 			
-			<Mapping Entity="Placement_Conversion_v" View="True">
+			<Mapping View="Placement_Conversion_v">
 				<Column Name="response_type_count" Type="java.lang.Integer" />
 				<Comparator Name="PlacementComparator">
 					<Child Name="Placement" Comparator="StandardComparator" />
