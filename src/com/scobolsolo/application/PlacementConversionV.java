@@ -11,4 +11,6 @@ import com.scobolsolo.persistence.PlacementConversionVUserFacing;
  */
 
 public interface PlacementConversionV extends PlacementConversionVUserFacing {
+	/* Developers may add default and static methods to this interface without fear of them being overwritten
+	by subsequent re-generation of the Opals (and related classes). */
 }
