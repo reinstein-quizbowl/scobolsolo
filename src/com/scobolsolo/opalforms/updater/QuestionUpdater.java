@@ -110,7 +110,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		if (lclChange) {
 			int lclRevisionNumber = lclQ.getNextRevisionNumber();
 			
-			Diff lclD = DiffFactory.getInstance().create()
+			DiffFactory.getInstance().create()
 				.setQuestion(lclQ)
 				.setRevisionNumber(lclRevisionNumber)
 				.setEditor(lclUser)

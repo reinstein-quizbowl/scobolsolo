@@ -24,6 +24,7 @@ public class PasswordResetFromToken extends ScobolSoloControllerServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@SuppressWarnings("hiding")
 	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(PasswordResetFromToken.class);
 	
 	@Override

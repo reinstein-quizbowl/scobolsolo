@@ -116,7 +116,7 @@ public class LaTeXCompiler {
 		}
 		
 		for (final File lclF : argDirectory.listFiles()) {
-			if (lclF.getName().equals(lclFilenameWithExtension)) {
+			if (lclFilenameWithExtension.equals(lclF.getName())) {
 				return lclF;
 			}
 		}

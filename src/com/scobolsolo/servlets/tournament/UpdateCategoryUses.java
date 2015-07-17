@@ -48,7 +48,7 @@ public class UpdateCategoryUses extends ScobolSoloControllerServlet {
 					if (lclUse) {
 						
 						// The user decided to make it possible. We create an object representing that fact.
-						final CategoryUse lclNewCU = CategoryUseFactory.getInstance().create()
+						CategoryUseFactory.getInstance().create()
 							.setCategory(lclC)
 							.setTournament(lclT)
 							.setNeeds(lclNeeds > 0 ? lclNeeds : null);
