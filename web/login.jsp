@@ -32,6 +32,9 @@
 				<div class="small-12 columns">
 					<input type="submit" class="expand" value="Log In" />
 				</div>
+				<div class="small-12 columns">
+					<p>If you have forgotten your login information, you may <a href="/password-reset/">reset your password</a>.</p>
+				</div>
 			</div>
 		</form>
 	</div>
