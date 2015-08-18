@@ -317,6 +317,51 @@ public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<c
 	 */
 	public com.scobolsolo.application.ResponseType setAttempt(boolean argAttempt);
 
+	/**
+	 * object accessor for the {@code FurtherAttemptsToSameQuestionInMatch}
+	 *
+	 * <p>The {@code FurtherAttemptsToSameQuestionInMatch} field is a direct mapping of the {@code allows_further_attempts_to_same_question_in_match} field in {@code response_type}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the allowsFurtherAttemptsToSameQuestionInMatch() method.</p>
+	 *
+	 * @return an object value of {@code FurtherAttemptsToSameQuestionInMatch} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.Boolean allowsFurtherAttemptsToSameQuestionInMatchAsObject();
+
+	/**
+	 * primitive accessor for the {@code FurtherAttemptsToSameQuestionInMatch}
+	 *
+	 * <p>The {@code FurtherAttemptsToSameQuestionInMatch} field is a direct mapping of the {@code allows_further_attempts_to_same_question_in_match} database column in the table {@code response_type}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the allowsFurtherAttemptsToSameQuestionInMatchAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code FurtherAttemptsToSameQuestionInMatch} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean allowsFurtherAttemptsToSameQuestionInMatch() {
+		java.lang.Boolean lclO = allowsFurtherAttemptsToSameQuestionInMatchAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code FurtherAttemptsToSameQuestionInMatch} to the value of {@code argFurtherAttemptsToSameQuestionInMatch}
+	 *
+	 * @param argFurtherAttemptsToSameQuestionInMatch the new value of {@code FurtherAttemptsToSameQuestionInMatch}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code allows_further_attempts_to_same_question_in_match} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argFurtherAttemptsToSameQuestionInMatch is null
+	 */
+	@com.opal.annotation.NotNull
+	public com.scobolsolo.application.ResponseType setFurtherAttemptsToSameQuestionInMatch(java.lang.Boolean argFurtherAttemptsToSameQuestionInMatch);
+
+	/**
+	 * sets the {@code FurtherAttemptsToSameQuestionInMatch} to the value of {@code argFurtherAttemptsToSameQuestionInMatch}
+	 *
+	 * @param argFurtherAttemptsToSameQuestionInMatch the new value of {@code FurtherAttemptsToSameQuestionInMatch}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.ResponseType setFurtherAttemptsToSameQuestionInMatch(boolean argFurtherAttemptsToSameQuestionInMatch);
+
 	public com.scobolsolo.application.ResponseType copy();
 
 	/** This is a Comparator that can be used to compare ResponseType objects based on their {@code Code} values. */

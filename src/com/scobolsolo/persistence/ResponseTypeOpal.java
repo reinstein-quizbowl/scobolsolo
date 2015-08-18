@@ -11,6 +11,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	public static final java.lang.Boolean ourDefaultDefault = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultMultipleAllowedForSamePlacement = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultAttempt = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultFurtherAttemptsToSameQuestionInMatch = java.lang.Boolean.FALSE;
 
 	private ResponseTypeOpal() {
 		super();
@@ -26,6 +27,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		getNewValues()[5] = ourDefaultDefault;
 		getNewValues()[6] = ourDefaultMultipleAllowedForSamePlacement;
 		getNewValues()[7] = ourDefaultAttempt;
+		getNewValues()[8] = ourDefaultFurtherAttemptsToSameQuestionInMatch;
 		return;
 	}
 
@@ -38,6 +40,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		"Default",
 		"MultipleAllowedForSamePlacement",
 		"Attempt",
+		"FurtherAttemptsToSameQuestionInMatch",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -46,6 +49,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		java.lang.String.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
@@ -60,9 +64,11 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		false,
 		false,
 		false,
+		false,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -123,6 +129,10 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 
 	public synchronized java.lang.Boolean isAttemptAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[7];
+	}
+
+	public synchronized java.lang.Boolean allowsFurtherAttemptsToSameQuestionInMatchAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[8];
 	}
 
 	public synchronized ResponseTypeOpal setCode(final java.lang.String argCode) {
@@ -231,6 +241,20 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		return this;
 	}
 
+	public synchronized ResponseTypeOpal setFurtherAttemptsToSameQuestionInMatch(final java.lang.Boolean argFurtherAttemptsToSameQuestionInMatch) {
+		tryMutate();
+		if (argFurtherAttemptsToSameQuestionInMatch == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myFurtherAttemptsToSameQuestionInMatch on " + this + " to null.");
+		}
+		getNewValues()[8] = argFurtherAttemptsToSameQuestionInMatch;
+		return this;
+	}
+
+	public ResponseTypeOpal setFurtherAttemptsToSameQuestionInMatch(final boolean argFurtherAttemptsToSameQuestionInMatch) {
+		setFurtherAttemptsToSameQuestionInMatch(argFurtherAttemptsToSameQuestionInMatch ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -260,6 +284,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		lclTargetNewValues[5] = lclValues[5]; /* Default (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* MultipleAllowedForSamePlacement (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* Attempt (immutable) */
+		lclTargetNewValues[8] = lclValues[8]; /* FurtherAttemptsToSameQuestionInMatch (immutable) */
 
 		return;
 	}
@@ -302,6 +327,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argPW.println("Default = " + isDefaultAsObject());
 		argPW.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argPW.println("Attempt = " + isAttemptAsObject());
+		argPW.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
 	}
 
 	@Override
@@ -314,6 +340,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argPS.println("Default = " + isDefaultAsObject());
 		argPS.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argPS.println("Attempt = " + isAttemptAsObject());
+		argPS.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
 	}
 
 	@Override

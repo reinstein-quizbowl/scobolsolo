@@ -356,9 +356,10 @@ CREATE TABLE Response_Type (
 	short_name short_name_t UNIQUE,
 	sequence sequence_t,
 	points INTEGER NOT NULL,
-	bootstrap_button_class VARCHAR(64) NOT NULL DEFAULT 'btn-default',
 	is_default BOOLEAN NOT NULL DEFAULT FALSE,
-	multiple_allowed_for_same_placement BOOLEAN NOT NULL DEFAULT FALSE
+	multiple_allowed_for_same_placement BOOLEAN NOT NULL DEFAULT FALSE,
+	is_attempt BOOLEAN NOT NULL DEFAULT TRUE,
+	allows_further_attempts_to_same_question_in_match BOOLEAN NOT NULL DEFAULT FALSE,
 );
 INSERT INTO Response_Type (code, name, short_name, sequence, points) VALUES
 ('CORRECT', 'Correct Answer', 'Correct', 100, 1),
