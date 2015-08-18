@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 
+import com.scobolsolo.application.Packet;
 import com.scobolsolo.application.Tournament;
 import com.scobolsolo.application.TournamentFactory;
 
@@ -63,7 +64,29 @@ public final class Menus {
 				new MenuPage("all", "All", "/questions/"),
 				new MenuPage("write", "Write", "/questions/question-edit.jsp"),
 				new MenuPage("progress", "Progress", "/questions/progress.jsp"),
-				new MenuPage("style-guide", "Style Guide", "/questions/style-guide.jsp")
+				new MenuPage("style-guide", "Style Guide", "/questions/style-guide.jsp"),
+				new Menu(
+					"tournament-packets",
+					"Tournament Packet Sets",
+					lclTournaments.stream()
+						.filter(argT -> argT.getPacketCount() > 0)
+						.map(argT ->
+							new Menu(
+								argT.getCode() + "-packets",
+								"/tournament/packets.jsp?object=" + argT.getUniqueString(),
+								argT.getShortName(),
+								argT.streamPacket()
+									.sorted(Packet.StandardComparator.getInstance())
+									.map(argP ->
+										new MenuPage(
+											argP.getUniqueString(),
+											argP.getName(),
+											"/tournament/packet-edit.jsp?packet_id=" + argP.getId()
+										)
+									).collect(Collectors.toList())
+							)
+						).collect(Collectors.toList())
+				)
 			)
 		);
 		

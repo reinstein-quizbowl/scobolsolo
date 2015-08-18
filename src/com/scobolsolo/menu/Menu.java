@@ -8,13 +8,23 @@ import org.apache.commons.lang3.Validate;
 import com.scobolsolo.application.Account;
 
 public class Menu extends MenuItem {
+	private final String myUrl;
 	private final List<MenuItem> myItems;
 	private TopLevelMenu myTopLevelInstance = null; // will be lazily initialized
 	
-	public Menu(final String argName, final String argTitle, final List<MenuItem> argItems, final DisplayDeterminer argDD) {
+	public Menu(final String argName, final String argUrl, final String argTitle, final List<MenuItem> argItems, final DisplayDeterminer argDD) {
 		super(argName, argTitle, argDD);
 		
+		myUrl = argUrl; // may be null
 		myItems = Validate.notEmpty(argItems);
+	}
+	
+	public Menu(final String argName, final String argTitle, final List<MenuItem> argItems, final DisplayDeterminer argDD) {
+		this(argName, null, argTitle, argItems, argDD);
+	}
+	
+	public Menu(final String argName, final String argUrl, final String argTitle, final List<MenuItem> argItems) {
+		this(argName, argUrl, argTitle, argItems, DisplayDeterminer.Always);
 	}
 	
 	public Menu(final String argName, final String argTitle, final List<MenuItem> argItems) {
@@ -29,6 +39,14 @@ public class Menu extends MenuItem {
 	// For renaming a Menu, basically
 	public Menu(final String argName, final String argTitle, final Menu argBase, final DisplayDeterminer argDD) {
 		this(argName, argTitle, argBase.getItems(), argDD);
+	}
+	
+	public boolean hasUrl() {
+		return myUrl != null;
+	}
+	
+	public String getUrl() {
+		return myUrl;
 	}
 	
 	public List<MenuItem> getItems() {
@@ -136,7 +154,7 @@ public class Menu extends MenuItem {
 						     .append("			<ul class=\"left\">\n");
 					} else {
 						lclSB.append("				<li class=\"has-dropdown\">")
-						     .append("					<a href=\"#\">" + getTitle() + "</a>\n")
+						     .append("					<a href=\"" + (hasUrl() ? getUrl() : "#") + "\">" + getTitle() + "</a>\n")
 						     .append("					<ul class=\"dropdown\">\n");
 					}
 					
