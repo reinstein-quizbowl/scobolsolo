@@ -91,7 +91,6 @@ if (lclOF.hasErrors()) {
 					<th>Question</th>
 					<th>Sequence</th>
 					<th>Category</th>
-					<th>Description</th>
 					<th>Tiebreaker?</th>
 					<th>Score check after?</th>
 					<th>Edit</th>
@@ -109,26 +108,21 @@ if (lclOF.hasErrors()) {
 				for (OpalForm<Placement> lclPLOF : lclPOFs) {
 					Placement lclPL = lclPLOF.getUserFacing();
 					
-					OpalForm<Question> lclQOF = lclPLOF.isNew() ? null : lclPLOF.targetForm("Question", QuestionFactory.getInstance());
-					
 					%><tr>
 						<%= lclPLOF.open() %>
-						<%= lclQOF != null ? lclQOF.open() : "" %>
 						<td><%= lclPLOF.dropdown("Question", Question.IdComparator.getInstance()).filter(new Question.PlacingFilter(lclPL)).namer(Question::getDescriptionSafe) %></td>
 						<td><%= lclPLOF.text("Sequence", 3) %></td>
 						<td><%= lclPLOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(argC -> argC.isUsedAt(lclT)) %></td>
-						<td><%= lclQOF != null ? lclQOF.text("Description", 30) : "&nbsp" %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "ScorecheckAfter") %></td>
 						<td><%
 							if (lclPLOF.alreadyExists() && lclPL.isFilled()) {
-								%><a href="question-edit.jsp?question_id=<%= lclQOF.getUserFacing().getId() %>">Edit</a><%
+								%><a href="/questions/question-edit.jsp?question_id=<%= lclPLOF.getUserFacing().getQuestion().getId() %>">Edit</a><%
 							} else {
 								%>&nbsp;<%
 							}
 						%></td>
 						<td><%= HTMLUtility.deleteWidget(lclPLOF) %></td>
-						<%= lclQOF != null ? lclQOF.close() : "" %>
 						<%= lclPLOF.close() %>
 					</tr><%
 				}
