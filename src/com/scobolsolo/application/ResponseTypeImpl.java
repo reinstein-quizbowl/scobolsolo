@@ -147,6 +147,23 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 		return this;
 	}
 
+	@Override
+	public java.lang.Boolean allowsFurtherAttemptsToSameQuestionInMatchAsObject() {
+		return getResponseTypeOpal().allowsFurtherAttemptsToSameQuestionInMatchAsObject();
+	}
+
+	@Override
+	public ResponseTypeImpl setFurtherAttemptsToSameQuestionInMatch(java.lang.Boolean argFurtherAttemptsToSameQuestionInMatch) {
+		getResponseTypeOpal().setFurtherAttemptsToSameQuestionInMatch(argFurtherAttemptsToSameQuestionInMatch);
+		return this;
+	}
+
+	@Override
+	public ResponseTypeImpl setFurtherAttemptsToSameQuestionInMatch(boolean argFurtherAttemptsToSameQuestionInMatch) {
+		getResponseTypeOpal().setFurtherAttemptsToSameQuestionInMatch(argFurtherAttemptsToSameQuestionInMatch);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
