@@ -177,6 +177,8 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		myDiffOpalCachedOperations = null; /* Ditto */
 		myNewCategoryUseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myCategoryUseOpalCachedOperations = null; /* Ditto */
+		myNewPlacementOpalHashSet = null; /* Necessary if it has been rolled back */
+		myPlacementOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -215,6 +217,16 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 				myCategoryUseOpalCachedOperations = null;
 			}
 		}
+		if (needsToClearOldCollections()) {
+			myOldPlacementOpalHashSet = null;
+			} else {
+			if (myNewPlacementOpalHashSet != null) {
+				myOldPlacementOpalHashSet = myNewPlacementOpalHashSet;
+				myNewPlacementOpalHashSet = null;
+			} else {
+				myPlacementOpalCachedOperations = null;
+			}
+		}
 		setClearOldCollections(false);
 		return;
 	}
@@ -238,6 +250,12 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 			lclI = createCategoryUseOpalIterator();
 			while (lclI.hasNext()) {
 				((CategoryUseOpal) lclI.next()).setCategoryOpalInternal(null);
+			}
+		}
+		if (myNewPlacementOpalHashSet != null || myPlacementOpalCachedOperations != null) {
+			lclI = createPlacementOpalIterator();
+			while (lclI.hasNext()) {
+				((PlacementOpal) lclI.next()).setCategoryOpalInternal(null);
 			}
 		}
 		if (getCategoryGroupOpal() != null) {
@@ -618,6 +636,90 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 	}
 
 	public synchronized void clearCategoryUseOpalInternal() { getCategoryUseOpalHashSet().clear(); }
+
+	private java.util.HashSet<PlacementOpal> myOldPlacementOpalHashSet = null;
+	private java.util.HashSet<PlacementOpal> myNewPlacementOpalHashSet = null;
+	private java.util.ArrayList<com.opal.CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
+
+	/* package */ java.util.HashSet<PlacementOpal> getPlacementOpalHashSet() {
+		if (tryAccess()) {
+			if (myNewPlacementOpalHashSet == null) {
+				if (myOldPlacementOpalHashSet == null) {
+					if (isNew()) {
+						myOldPlacementOpalHashSet = new java.util.HashSet<>();
+					} else {
+						myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forCategoryCodeCollection(getCode());
+					}
+				}
+				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
+				if (myPlacementOpalCachedOperations != null) {
+					OpalUtility.handleCachedOperations(myPlacementOpalCachedOperations, myNewPlacementOpalHashSet);
+					myPlacementOpalCachedOperations = null;
+				}
+			}
+			return myNewPlacementOpalHashSet;
+		} else {
+			if (myOldPlacementOpalHashSet == null) {
+				myOldPlacementOpalHashSet = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forCategoryCodeCollection(getCode());
+			}
+			return myOldPlacementOpalHashSet;
+		}
+	}
+
+	public synchronized void addPlacementOpal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		argPlacementOpal.setCategoryOpal(this);
+		return;
+	}
+
+	protected synchronized void addPlacementOpalInternal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		if (myNewPlacementOpalHashSet == null) {
+			if (myOldPlacementOpalHashSet == null) {
+				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
+				myPlacementOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argPlacementOpal));
+			} else {
+				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
+				myNewPlacementOpalHashSet.add(argPlacementOpal);
+			}
+		} else {
+			myNewPlacementOpalHashSet.add(argPlacementOpal);
+		}
+		return;
+	}
+
+	public synchronized void removePlacementOpal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		argPlacementOpal.setCategoryOpal(null);
+	}
+
+	protected synchronized void removePlacementOpalInternal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		if (myNewPlacementOpalHashSet == null) {
+			if (myOldPlacementOpalHashSet == null) {
+				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
+				myPlacementOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argPlacementOpal));
+			} else {
+				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
+				myNewPlacementOpalHashSet.remove(argPlacementOpal);
+			}
+		} else {
+			myNewPlacementOpalHashSet.remove(argPlacementOpal);
+		}
+		return;
+	}
+
+	public synchronized int getPlacementOpalCount() { return getPlacementOpalHashSet().size(); }
+
+	public synchronized java.util.Iterator<PlacementOpal> createPlacementOpalIterator() {
+		return getPlacementOpalHashSet().iterator();
+	}
+
+	public synchronized java.util.stream.Stream<PlacementOpal> streamPlacementOpal() {
+		return getPlacementOpalHashSet().stream();
+	}
+
+	public synchronized void clearPlacementOpalInternal() { getPlacementOpalHashSet().clear(); }
 
 	@Override
 	public String toString() {

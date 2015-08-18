@@ -24,6 +24,7 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 		"sequence", 
 		"tiebreaker", 
 		"scorecheck_after", 
+		"category_code", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -111,11 +112,13 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 
 	protected void registerOpal(PlacementOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 6) { throw new IllegalStateException(); }
+		if (argValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
-			lclOC.addOpal(new QuestionIdPacketIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[2]), argOpal, true);
+			if (true && argValues[1] != null) {
+				lclOC.addOpal(new QuestionIdPacketIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[2]), argOpal, true);
+			}
 		}
 	}
 
@@ -123,11 +126,13 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	protected void unregisterOpal(PlacementOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
-			lclOC.removeOpal(new QuestionIdPacketIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]));
+			if (true && lclOldValues[1] != null) {
+				lclOC.removeOpal(new QuestionIdPacketIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]));
+			}
 		}
 	}
 
@@ -136,10 +141,10 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 6) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache lclOC = getOpalCache();
 		synchronized (lclOC) {
 			OpalKey<PlacementOpal> lclOldKey = null;
@@ -154,12 +159,16 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
+			if (true && lclNewValues[1] != null) {
 				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[2].equals(lclOldValues[2]))) {
 					lclNewKey = new QuestionIdPacketIdOpalKey((java.lang.Integer) lclNewValues[1], (java.lang.Integer) lclNewValues[2]);
-					if (true) {
+					if (true && lclOldValues[1] != null) {
 						lclOldKey = new QuestionIdPacketIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]);
 					}
+				}
+			} else {
+				if (true && lclOldValues[1] != null) {
+					lclOldKey = new QuestionIdPacketIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]);
 				}
 			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
@@ -192,6 +201,15 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	public java.util.HashSet<PlacementOpal> forQuestionIdCollection(java.lang.Integer argQuestionId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argQuestionId };
 		final String[] lclFieldNames = new String[] { "question_id" };
+		java.util.HashSet<PlacementOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<PlacementOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argCategoryCode };
+		final String[] lclFieldNames = new String[] { "category_code" };
 		java.util.HashSet<PlacementOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

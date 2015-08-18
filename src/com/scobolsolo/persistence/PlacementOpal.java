@@ -32,6 +32,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	protected void initializeReferences() {
 		myOldPacketOpal = PacketOpal.NOT_YET_LOADED;
 		myOldQuestionOpal = QuestionOpal.NOT_YET_LOADED;
+		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -42,6 +43,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		"Sequence",
 		"Tiebreaker",
 		"ScorecheckAfter",
+		"CategoryCode",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -51,10 +53,12 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		java.lang.Integer.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
+		java.lang.String.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
 		false,
+		true,
 		false,
 		false,
 		false,
@@ -63,6 +67,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -115,6 +120,10 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return (java.lang.Boolean) getReadValueSet()[5];
 	}
 
+	public synchronized java.lang.String getCategoryCode() {
+		return (java.lang.String) getReadValueSet()[6];
+	}
+
 	public synchronized PlacementOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
@@ -131,9 +140,6 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	public synchronized PlacementOpal setQuestionId(final java.lang.Integer argQuestionId) {
 		tryMutate();
-		if (argQuestionId == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myQuestionId on " + this + " to null.");
-		}
 		getNewValues()[1] = argQuestionId;
 		return this;
 	}
@@ -199,6 +205,18 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return this;
 	}
 
+	public synchronized PlacementOpal setCategoryCode(final java.lang.String argCategoryCode) {
+		tryMutate();
+		if (argCategoryCode == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myCategoryCode on " + this + " to null.");
+		}
+		if (argCategoryCode.length() > 32) {
+			throw new com.opal.ArgumentTooLongException("Maximum length of myCategoryCode on " + this + " is 32.", argCategoryCode.length(), 32);
+		}
+		getNewValues()[6] = argCategoryCode;
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -213,6 +231,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewPacketOpal = myOldPacketOpal;
 		myNewQuestionOpal = myOldQuestionOpal;
+		myNewCategoryOpal = myOldCategoryOpal;
 		myNewResponseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myResponseOpalCachedOperations = null; /* Ditto */
 		myNewReplacementForResponseOpalHashSet = null; /* Necessary if it has been rolled back */
@@ -225,6 +244,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldPacketOpal = myNewPacketOpal;
 		myOldQuestionOpal = myNewQuestionOpal;
+		myOldCategoryOpal = myNewCategoryOpal;
 
 		if (needsToClearOldCollections()) {
 			myOldResponseOpalHashSet = null;
@@ -271,6 +291,9 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		if (getQuestionOpal() != null) {
 			getQuestionOpal().removePlacementOpalInternal(this);
 		}
+		if (getCategoryOpal() != null) {
+			getCategoryOpal().removePlacementOpalInternal(this);
+		}
 		return;
 	}
 
@@ -284,6 +307,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		lclTargetNewValues[3] = lclValues[3]; /* Sequence (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* Tiebreaker (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* ScorecheckAfter (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* CategoryCode (immutable) */
 
 		return;
 	}
@@ -296,6 +320,9 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		if (myNewQuestionOpal != QuestionOpal.NOT_YET_LOADED) {
 			setQuestionId(myNewQuestionOpal == null ? null : myNewQuestionOpal.getIdAsObject());
 		}
+		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
+			setCategoryCode(myNewCategoryOpal == null ? null : myNewCategoryOpal.getCode());
+		}
 		return;
 	}
 
@@ -303,9 +330,16 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myNewPacketOpal;
+		lclUO = myNewCategoryOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewPacketOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewQuestionOpal;
@@ -322,9 +356,16 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldPacketOpal;
+		lclUO = myOldCategoryOpal;
 		if ((lclUO != null) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myOldPacketOpal;
+		if ((lclUO != null) && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		lclUO = myOldQuestionOpal;
@@ -358,6 +399,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		argPW.println("Sequence = " + getSequenceAsObject());
 		argPW.println("Tiebreaker = " + isTiebreakerAsObject());
 		argPW.println("ScorecheckAfter = " + isScorecheckAfterAsObject());
+		argPW.println("CategoryCode = " + getCategoryCode());
 	}
 
 	@Override
@@ -368,6 +410,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		argPS.println("Sequence = " + getSequenceAsObject());
 		argPS.println("Tiebreaker = " + isTiebreakerAsObject());
 		argPS.println("ScorecheckAfter = " + isScorecheckAfterAsObject());
+		argPS.println("CategoryCode = " + getCategoryCode());
 	}
 
 	private PacketOpal myOldPacketOpal;
@@ -458,6 +501,51 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	protected synchronized void setQuestionOpalInternal(QuestionOpal argQuestionOpal) {
 		tryMutate();
 		myNewQuestionOpal = argQuestionOpal;
+	}
+
+	private CategoryOpal myOldCategoryOpal;
+	private CategoryOpal myNewCategoryOpal;
+
+	protected CategoryOpal retrieveCategoryOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[6] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCode(getCategoryCode());
+	}
+
+	public synchronized CategoryOpal getCategoryOpal() {
+		CategoryOpal lclCategoryOpal;
+		boolean lclAccess = tryAccess();
+		lclCategoryOpal = lclAccess ? myNewCategoryOpal : myOldCategoryOpal;
+		if (lclCategoryOpal == CategoryOpal.NOT_YET_LOADED) {
+			lclCategoryOpal = retrieveCategoryOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewCategoryOpal = lclCategoryOpal;
+			} else {
+				myOldCategoryOpal = lclCategoryOpal;
+			}
+		}
+		return lclCategoryOpal;
+	}
+
+	public synchronized PlacementOpal setCategoryOpal(CategoryOpal argCategoryOpal) {
+		tryMutate();
+		CategoryOpal lclCategoryOpal = getCategoryOpal();
+		if (lclCategoryOpal == argCategoryOpal) { return this; }
+		if (lclCategoryOpal != null) {
+			lclCategoryOpal.removePlacementOpalInternal(this);
+		}
+		myNewCategoryOpal = argCategoryOpal;
+		if (argCategoryOpal != null) {
+			argCategoryOpal.addPlacementOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setCategoryOpalInternal(CategoryOpal argCategoryOpal) {
+		tryMutate();
+		myNewCategoryOpal = argCategoryOpal;
 	}
 
 	private java.util.HashSet<ResponseOpal> myOldResponseOpalHashSet = null;
@@ -645,6 +733,9 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		}
 		if (myNewQuestionOpal != QuestionOpal.NOT_YET_LOADED) {
 			setQuestionOpal(retrieveQuestionOpal(getNewValues()));
+		}
+		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
+			setCategoryOpal(retrieveCategoryOpal(getNewValues()));
 		}
 	}
 

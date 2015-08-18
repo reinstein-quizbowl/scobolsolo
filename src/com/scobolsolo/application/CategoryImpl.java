@@ -202,6 +202,36 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
+	public void addPlacement(Placement argPlacement) {
+		getCategoryOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+	}
+
+	@Override
+	public void removePlacement(Placement argPlacement) {
+		getCategoryOpal().removePlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+	}
+
+	@Override
+	public int getPlacementCount() {
+		return getCategoryOpal().getPlacementOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Placement> streamPlacement() {
+		return getCategoryOpal().streamPlacementOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Placement> createPlacementIterator() {
+		return new com.opal.OpalIterator<> (getCategoryOpal().createPlacementOpalIterator());
+	}
+
+	@Override
+	public void clearPlacement() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
 	public void unlink() {
 		getCategoryOpal().unlink();
 	}

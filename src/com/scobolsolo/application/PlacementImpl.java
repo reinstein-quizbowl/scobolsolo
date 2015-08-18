@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.PlacementOpal;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.QuestionOpal;
+import com.scobolsolo.persistence.CategoryOpal;
 
 public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, PlacementOpal> implements Placement {
 	private final PlacementOpal myPlacementOpal;
@@ -133,6 +134,17 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
+	@Override
+	public java.lang.String getCategoryCode() {
+		return getPlacementOpal().getCategoryCode();
+	}
+
+	@Override
+	public PlacementImpl setCategoryCode(java.lang.String argCategoryCode) {
+		getPlacementOpal().setCategoryCode(argCategoryCode);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -161,6 +173,20 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	@Override
 	public Placement setQuestion(Question argQuestion) {
 		getPlacementOpal().setQuestionOpal(argQuestion == null ? null : ((QuestionImpl) argQuestion).getQuestionOpal());
+		return this;
+	}
+
+	/** @return the Category object created from placement through reference placement_category_code_fkey */
+
+	@Override
+	public Category getCategory() {
+		CategoryOpal lclCategoryOpal = getPlacementOpal().getCategoryOpal();
+		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
+	}
+
+	@Override
+	public Placement setCategory(Category argCategory) {
+		getPlacementOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
 		return this;
 	}
 

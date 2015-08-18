@@ -341,7 +341,8 @@ ALTER SEQUENCE packet_id_seq RESTART WITH 1000;
 
 CREATE TABLE Placement (
 	id SERIAL PRIMARY KEY,
-	question_id INTEGER NOT NULL REFERENCES Question ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament
+	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
+	question_id INTEGER REFERENCES Question ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament, if not NULL
 	packet_id INTEGER NOT NULL REFERENCES Packet ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies the tournament; it would be nice to check against contradictions
 	sequence sequence_t,
 	tiebreaker BOOLEAN NOT NULL DEFAULT FALSE,

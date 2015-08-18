@@ -257,6 +257,35 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 		return lclA;
 	}
 
+	public int getPlacementCount();
+	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement();
+
+	public void addPlacement(com.scobolsolo.application.Placement argPlacement);
+	public void removePlacement(com.scobolsolo.application.Placement argPlacement);
+	public void clearPlacement();
+
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
+		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Placement[] createPlacementArray() {
+		int lclLength = getPlacementCount();
+		com.scobolsolo.application.Placement[] lclA = new com.scobolsolo.application.Placement[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
 	public com.scobolsolo.application.Category copy();
 
 	/** This is a Comparator that can be used to compare Category objects based on their {@code Code} values. */

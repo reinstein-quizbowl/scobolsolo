@@ -69,9 +69,25 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getQuestionId() method.</p>
 	 *
-	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	public java.lang.Integer getQuestionIdAsObject();
+
+	/**
+	 * object accessor for the {@code QuestionId} with substitution for a null value
+	 *
+	 * <p>The {@code QuestionId} field is a direct mapping of the {@code question_id} database column in the table {@code placement}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code QuestionId} is {@code null}.
+	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getQuestionIdAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getQuestionIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
 
 	/**
 	 * primitive accessor for the {@code QuestionId}
@@ -80,23 +96,35 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 *
 	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getQuestionIdAsObject() method.</p>
 	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
 	 * @return the primitive value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})
+	 * @throws NullValueException when the internal value is null
 	 */
-	default public int getQuestionId() {
+	default public int getQuestionId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getQuestionIdAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
 		return lclO.intValue();
+	}
+
+	default public int getQuestionId(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getQuestionIdAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getQuestionId(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getQuestionIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
 	}
 
 	/**
 	 * sets the {@code QuestionId} to the value of {@code argQuestionId}
 	 *
-	 * @param argQuestionId the new value of {@code QuestionId}.  May not be <code>null</code>.
+	 * @param argQuestionId the new value of {@code QuestionId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code question_id} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws IllegalNullArgumentException if argQuestionId is null
 	 */
-	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Placement setQuestionId(java.lang.Integer argQuestionId);
 
 	/**
@@ -288,6 +316,31 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	public com.scobolsolo.application.Placement setScorecheckAfter(boolean argScorecheckAfter);
 
 	/**
+	 * object accessor for the {@code CategoryCode}
+	 *
+	 * <p>The {@code CategoryCode} field is a direct mapping of the {@code category_code} field in {@code placement}.</p>
+	 *
+	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.String getCategoryCode();
+
+	/**
+	 * sets the {@code CategoryCode} to the value of {@code argCategoryCode}
+	 *
+	 * @param argCategoryCode the new value of {@code CategoryCode}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws IllegalNullArgumentException if argCategoryCode is null
+	 * @throws ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
+	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.NotNull
+	@com.opal.annotation.Length(maximum = 32L)
+	public com.scobolsolo.application.Placement setCategoryCode(java.lang.String argCategoryCode);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Packet}
 	 * The returned {@code com.scobolsolo.application.Packet} is the {@link UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code placement_packet_id_fkey}.
 	 *
@@ -302,6 +355,14 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 */
 	public com.scobolsolo.application.Question getQuestion();
 	public com.scobolsolo.application.Placement setQuestion(com.scobolsolo.application.Question argQuestion);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Category}
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code placement_category_code_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.Category getCategory();
+	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory);
 
 	public int getResponseCount();
 	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator();
