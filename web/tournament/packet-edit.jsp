@@ -106,31 +106,30 @@ if (lclOF.hasErrors()) {
 					Placement.SequenceComparator.getInstance()
 				);
 				
-				for (OpalForm<Placement> lclPOF : lclPOFs) {
-					Placement lclPlacement = lclPOF.getUserFacing();
+				for (OpalForm<Placement> lclPLOF : lclPOFs) {
+					Placement lclPL = lclPLOF.getUserFacing();
 					
-					OpalForm<Question> lclQOF = lclPOF.targetForm("Question", QuestionFactory.getInstance());
-					Question lclQ = lclQOF.getUserFacing();
+					OpalForm<Question> lclQOF = lclPLOF.isNew() ? null : lclPLOF.targetForm("Question", QuestionFactory.getInstance());
 					
 					%><tr>
-						<%= lclPOF.open() %>
-						<%= lclQOF.open() %>
-						<td><%= lclPOF.dropdown("Question", Question.IdComparator.getInstance()).filter(Question::isUnused).namer(Question::getDescription) %></td>
-						<td><%= lclPOF.text("Sequence", 3) %></td>
-						<td><%= lclQOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(argC -> argC.isUsedAt(lclT)) %></td>
-						<td><%= lclQOF.text("Description", 30) %></td>
-						<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>
-						<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>
+						<%= lclPLOF.open() %>
+						<%= lclQOF != null ? lclQOF.open() : "" %>
+						<td><%= lclPLOF.dropdown("Question", Question.IdComparator.getInstance()).filter(new Question.PlacingFilter(lclPL)).namer(Question::getDescriptionSafe) %></td>
+						<td><%= lclPLOF.text("Sequence", 3) %></td>
+						<td><%= lclPLOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(argC -> argC.isUsedAt(lclT)) %></td>
+						<td><%= lclQOF != null ? lclQOF.text("Description", 30) : "&nbsp" %></td>
+						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>
+						<td><%= HTMLUtility.switchWidget(lclPLOF, "ScorecheckAfter") %></td>
 						<td><%
-							if (lclPlacement != null && lclQ != null) {
-								%><a href="question-edit.jsp?question_id=<%= lclQ.getId() %>">Edit</a><%
+							if (lclPLOF.alreadyExists() && lclPL.isFilled()) {
+								%><a href="question-edit.jsp?question_id=<%= lclQOF.getUserFacing().getId() %>">Edit</a><%
 							} else {
 								%>&nbsp;<%
 							}
 						%></td>
-						<td><%= HTMLUtility.deleteWidget(lclPOF) %></td>
-						<%= lclQOF.close() %>
-						<%= lclPOF.close() %>
+						<td><%= HTMLUtility.deleteWidget(lclPLOF) %></td>
+						<%= lclQOF != null ? lclQOF.close() : "" %>
+						<%= lclPLOF.close() %>
 					</tr><%
 				}
 			%></tbody>

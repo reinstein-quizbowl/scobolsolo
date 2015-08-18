@@ -4,6 +4,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
 
 import com.scobolsolo.persistence.QuestionUserFacing;
@@ -42,6 +43,40 @@ public interface Question extends QuestionUserFacing {
 	
 	default int getNextRevisionNumber() {
 		return 1 + streamDiff().mapToInt(Diff::getRevisionNumber).max().orElse(0);
+	}
+	
+	default String getDescriptionSafe() {
+		return ObjectUtils.firstNonNull(
+			getDescription(),
+			"TBD: " + getStatus().getName()
+		);
+	}
+	
+	public static class PlacingFilter implements Predicate<Question> {
+		private final Placement myPlacement;
+		
+		public PlacingFilter(Placement argPL) {
+			myPlacement = argPL; // may be null
+		}
+		
+		public Placement getPlacement() {
+			return myPlacement;
+		}
+		
+		@Override
+		public boolean test(Question argQ) {
+			Validate.notNull(argQ);
+			
+			if (argQ.isUsed()) {
+				return false;
+			} else {
+				if (getPlacement() == null) {
+					return true;
+				} else {
+					return argQ.getCategory() == getPlacement().getCategory();
+				}
+			}
+		}
 	}
 	
 	

@@ -63,4 +63,12 @@ public interface Placement extends PlacementUserFacing {
 	default Tournament getTournament() {
 		return getPacket().getTournament();
 	}
+	
+	default boolean isFilled() {
+		return getQuestion() != null;
+	}
+	
+	default boolean isEmpty() {
+		return !isFilled();
+	}
 }
