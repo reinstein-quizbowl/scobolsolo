@@ -127,6 +127,7 @@
 			</Mapping>
 			
 			<Mapping Table="Question">
+				<Column Name="description" Comparator="True" />
 				<Comparator Name="CategoryComparator">
 					<Child Name="Category" Comparator="StandardComparator" />
 				</Comparator>

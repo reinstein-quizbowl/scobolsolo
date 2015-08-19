@@ -2,8 +2,16 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
-<%@ page import="com.scobolsolo.application.*" %>
+<%@ page import="com.scobolsolo.application.Category" %>
+<%@ page import="com.scobolsolo.application.Packet" %>
+<%@ page import="com.scobolsolo.application.PacketFactory" %>
+<%@ page import="com.scobolsolo.application.Placement" %>
+<%@ page import="com.scobolsolo.application.PlacementFactory" %>
+<%@ page import="com.scobolsolo.application.Round" %>
+<%@ page import="com.scobolsolo.application.Question" %>
+<%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.opalforms.updater.PlacementUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -106,11 +114,12 @@ if (lclOF.hasErrors()) {
 				);
 				
 				for (OpalForm<Placement> lclPLOF : lclPOFs) {
+					lclPLOF.setUpdaterClass(PlacementUpdater.class);
 					Placement lclPL = lclPLOF.getUserFacing();
 					
 					%><tr>
 						<%= lclPLOF.open() %>
-						<td><%= lclPLOF.dropdown("Question", Question.IdComparator.getInstance()).filter(new Question.PlacingFilter(lclPL)).namer(Question::getDescriptionSafe) %></td>
+						<td><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).filter(new Question.PlacingFilter(lclPL)).namer(Question::getDescriptionSafe) %></td>
 						<td><%= lclPLOF.text("Sequence", 3) %></td>
 						<td><%= lclPLOF.dropdown("Category", Category.StandardComparator.getInstance()).filter(argC -> argC.isUsedAt(lclT)) %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>

@@ -431,6 +431,20 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 		}
 	}
 
+	/** This is a Comparator that can be used to compare Question objects based on their {@code Description} values. */
+
+	public static class DescriptionComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Question> {
+		private static final DescriptionComparator ourInstance = new DescriptionComparator();
+		public static final DescriptionComparator getInstance() { return ourInstance; }
+
+		private DescriptionComparator() { super(); }
+
+		@Override
+		public int compareInternal(com.scobolsolo.application.Question argFirst, com.scobolsolo.application.Question argSecond) {
+			return nullSafeCompareIgnoreCase(argFirst.getDescription(), argSecond.getDescription());
+		}
+	}
+
 	public static class CategoryComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Question> {
 		private static final CategoryComparator ourInstance = new CategoryComparator();
 		public static final CategoryComparator getInstance() { return ourInstance; }

@@ -18,4 +18,8 @@ public interface Packet extends PacketUserFacing {
 	default String getShortNameWithTournament() {
 		return getTournament().getShortName() + ": " + getShortName();
 	}
+	
+	default int getNextSequenceNumber() {
+		return 1 + streamPlacement().filter(argPL -> argPL.getSequenceAsObject() != null).mapToInt(Placement::getSequence).max().orElse(0);
+	}
 }
