@@ -183,9 +183,11 @@ public final class Menus {
 		// We don't cache these menus because they change as games are entered.
 		
 		final Tournament lclT = argS.getTournament();
-		String lclMenuTitle = argS.getContact().getName() + " @ " + lclT.getName();
+		final String lclMenuTitle;
 		if (argS.getStaffAssignmentCount() == 1) {
-			lclMenuTitle += ": " + argS.createStaffAssignmentIterator().next().getRoom().getName();
+			lclMenuTitle = lclT.getName() + ": " + argS.createStaffAssignmentIterator().next().getRoom().getName();
+		} else {
+			lclMenuTitle = argS.getContact().getName() + " @ " + lclT.getName();
 		}
 		
 		List<Match> lclMatches = argS.findMatches();
