@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
@@ -18,7 +13,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		setUserFacing(null);
 	}
 
-	public AccountOpal(OpalFactory<Account, AccountOpal> argOpalFactory, Object[] argValues) {
+	public AccountOpal(com.opal.OpalFactory<Account, AccountOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -70,7 +65,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -93,12 +88,12 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -299,7 +294,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Account> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Account> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is part of a unique key. */
@@ -325,7 +320,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewContactOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -340,7 +335,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldContactOpal) == ContactOpal.NOT_YET_LOADED) {
 			lclUO = myOldContactOpal = retrieveContactOpal(getOldValues());
 		}
@@ -365,27 +360,27 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("Username = " + getUsername());
-		argPW.println("PasswordHash = " + getPasswordHash());
-		argPW.println("Administrator = " + isAdministratorAsObject());
-		argPW.println("Active = " + isActiveAsObject());
-		argPW.println("Writer = " + isWriterAsObject());
-		argPW.println("PasswordResetToken = " + getPasswordResetToken());
-		argPW.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("Username = " + getUsername());
+		argOutput.println("PasswordHash = " + getPasswordHash());
+		argOutput.println("Administrator = " + isAdministratorAsObject());
+		argOutput.println("Active = " + isActiveAsObject());
+		argOutput.println("Writer = " + isWriterAsObject());
+		argOutput.println("PasswordResetToken = " + getPasswordResetToken());
+		argOutput.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("Username = " + getUsername());
-		argPS.println("PasswordHash = " + getPasswordHash());
-		argPS.println("Administrator = " + isAdministratorAsObject());
-		argPS.println("Active = " + isActiveAsObject());
-		argPS.println("Writer = " + isWriterAsObject());
-		argPS.println("PasswordResetToken = " + getPasswordResetToken());
-		argPS.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("Username = " + getUsername());
+		argOutput.println("PasswordHash = " + getPasswordHash());
+		argOutput.println("Administrator = " + isAdministratorAsObject());
+		argOutput.println("Active = " + isActiveAsObject());
+		argOutput.println("Writer = " + isWriterAsObject());
+		argOutput.println("PasswordResetToken = " + getPasswordResetToken());
+		argOutput.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
 	}
 
 	private ContactOpal myOldContactOpal;
@@ -447,7 +442,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 				}
 				myNewWriterQuestionOpalHashSet = new java.util.HashSet<>(myOldWriterQuestionOpalHashSet);
 				if (myWriterQuestionOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myWriterQuestionOpalCachedOperations, myNewWriterQuestionOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myWriterQuestionOpalCachedOperations, myNewWriterQuestionOpalHashSet);
 					myWriterQuestionOpalCachedOperations = null;
 				}
 			}
@@ -471,7 +466,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		if (myNewWriterQuestionOpalHashSet == null) {
 			if (myOldWriterQuestionOpalHashSet == null) {
 				if (myWriterQuestionOpalCachedOperations == null) { myWriterQuestionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWriterQuestionOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argQuestionOpal));
+				myWriterQuestionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argQuestionOpal));
 			} else {
 				myNewWriterQuestionOpalHashSet = new java.util.HashSet<>(myOldWriterQuestionOpalHashSet);
 				myNewWriterQuestionOpalHashSet.add(argQuestionOpal);
@@ -492,7 +487,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		if (myNewWriterQuestionOpalHashSet == null) {
 			if (myOldWriterQuestionOpalHashSet == null) {
 				if (myWriterQuestionOpalCachedOperations == null) { myWriterQuestionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWriterQuestionOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argQuestionOpal));
+				myWriterQuestionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argQuestionOpal));
 			} else {
 				myNewWriterQuestionOpalHashSet = new java.util.HashSet<>(myOldWriterQuestionOpalHashSet);
 				myNewWriterQuestionOpalHashSet.remove(argQuestionOpal);
@@ -531,7 +526,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 				}
 				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
 				if (myEditorDiffOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myEditorDiffOpalCachedOperations, myNewEditorDiffOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myEditorDiffOpalCachedOperations, myNewEditorDiffOpalHashSet);
 					myEditorDiffOpalCachedOperations = null;
 				}
 			}
@@ -555,7 +550,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		if (myNewEditorDiffOpalHashSet == null) {
 			if (myOldEditorDiffOpalHashSet == null) {
 				if (myEditorDiffOpalCachedOperations == null) { myEditorDiffOpalCachedOperations = new java.util.ArrayList<>(); }
-				myEditorDiffOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argDiffOpal));
+				myEditorDiffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argDiffOpal));
 			} else {
 				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
 				myNewEditorDiffOpalHashSet.add(argDiffOpal);
@@ -576,7 +571,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		if (myNewEditorDiffOpalHashSet == null) {
 			if (myOldEditorDiffOpalHashSet == null) {
 				if (myEditorDiffOpalCachedOperations == null) { myEditorDiffOpalCachedOperations = new java.util.ArrayList<>(); }
-				myEditorDiffOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argDiffOpal));
+				myEditorDiffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argDiffOpal));
 			} else {
 				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
 				myNewEditorDiffOpalHashSet.remove(argDiffOpal);

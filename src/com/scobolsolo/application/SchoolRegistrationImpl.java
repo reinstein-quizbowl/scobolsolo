@@ -188,13 +188,15 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	to this object. */
 
 	@Override
-	public void addStandbyEntry(StandbyEntry argStandbyEntry) {
+	public com.scobolsolo.application.SchoolRegistration addStandbyEntry(StandbyEntry argStandbyEntry) {
 		getSchoolRegistrationOpal().addStandbyEntryOpal(((StandbyEntryImpl) argStandbyEntry).getStandbyEntryOpal());
+		return this;
 	}
 
 	@Override
-	public void removeStandbyEntry(StandbyEntry argStandbyEntry) {
+	public com.scobolsolo.application.SchoolRegistration removeStandbyEntry(StandbyEntry argStandbyEntry) {
 		getSchoolRegistrationOpal().removeStandbyEntryOpal(((StandbyEntryImpl) argStandbyEntry).getStandbyEntryOpal());
+		return this;
 	}
 
 	@Override
@@ -213,18 +215,20 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void clearStandbyEntry() {
+	public com.scobolsolo.application.SchoolRegistration clearStandbyEntry() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addPlayer(Player argPlayer) {
+	public com.scobolsolo.application.SchoolRegistration addPlayer(Player argPlayer) {
 		getSchoolRegistrationOpal().addPlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
 	}
 
 	@Override
-	public void removePlayer(Player argPlayer) {
+	public com.scobolsolo.application.SchoolRegistration removePlayer(Player argPlayer) {
 		getSchoolRegistrationOpal().removePlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
 	}
 
 	@Override
@@ -243,18 +247,20 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void clearPlayer() {
+	public com.scobolsolo.application.SchoolRegistration clearPlayer() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addBuzzer(Buzzer argBuzzer) {
+	public com.scobolsolo.application.SchoolRegistration addBuzzer(Buzzer argBuzzer) {
 		getSchoolRegistrationOpal().addBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
+		return this;
 	}
 
 	@Override
-	public void removeBuzzer(Buzzer argBuzzer) {
+	public com.scobolsolo.application.SchoolRegistration removeBuzzer(Buzzer argBuzzer) {
 		getSchoolRegistrationOpal().removeBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
+		return this;
 	}
 
 	@Override
@@ -273,18 +279,20 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void clearBuzzer() {
+	public com.scobolsolo.application.SchoolRegistration clearBuzzer() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addWaitlistEntry(WaitlistEntry argWaitlistEntry) {
+	public com.scobolsolo.application.SchoolRegistration addWaitlistEntry(WaitlistEntry argWaitlistEntry) {
 		getSchoolRegistrationOpal().addWaitlistEntryOpal(((WaitlistEntryImpl) argWaitlistEntry).getWaitlistEntryOpal());
+		return this;
 	}
 
 	@Override
-	public void removeWaitlistEntry(WaitlistEntry argWaitlistEntry) {
+	public com.scobolsolo.application.SchoolRegistration removeWaitlistEntry(WaitlistEntry argWaitlistEntry) {
 		getSchoolRegistrationOpal().removeWaitlistEntryOpal(((WaitlistEntryImpl) argWaitlistEntry).getWaitlistEntryOpal());
+		return this;
 	}
 
 	@Override
@@ -303,18 +311,20 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void clearWaitlistEntry() {
+	public com.scobolsolo.application.SchoolRegistration clearWaitlistEntry() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addStaff(Staff argStaff) {
+	public com.scobolsolo.application.SchoolRegistration addStaff(Staff argStaff) {
 		getSchoolRegistrationOpal().addStaffOpal(((StaffImpl) argStaff).getStaffOpal());
+		return this;
 	}
 
 	@Override
-	public void removeStaff(Staff argStaff) {
+	public com.scobolsolo.application.SchoolRegistration removeStaff(Staff argStaff) {
 		getSchoolRegistrationOpal().removeStaffOpal(((StaffImpl) argStaff).getStaffOpal());
+		return this;
 	}
 
 	@Override
@@ -333,7 +343,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public void clearStaff() {
+	public com.scobolsolo.application.SchoolRegistration clearStaff() {
 		throw new UnsupportedOperationException();
 	}
 

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.ResponseTypeOpalFactory;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class ResponseTypeFactory extends com.opal.AbstractFactory<ResponseType, 
 
 	public ResponseTypeOpalFactory getResponseTypeOpalFactory() { return (ResponseTypeOpalFactory) getOpalFactory(); }
 
-	protected ResponseTypeFactory(OpalFactory<ResponseType, ResponseTypeOpal> argOpalFactory) {
+	protected ResponseTypeFactory(com.opal.OpalFactory<ResponseType, ResponseTypeOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Performance} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface PerformanceUserFacing extends IdentityUserFacing {
+public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -173,12 +172,12 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse();
 
-	public void addResponse(com.scobolsolo.application.Response argResponse);
-	public void removeResponse(com.scobolsolo.application.Response argResponse);
-	public void clearResponse();
+	public com.scobolsolo.application.Performance addResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Performance removeResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Performance clearResponse();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireResponse(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

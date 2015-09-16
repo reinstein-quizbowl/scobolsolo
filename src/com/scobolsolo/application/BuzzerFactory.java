@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.BuzzerOpalFactory;
 import com.scobolsolo.persistence.BuzzerOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class BuzzerFactory extends com.opal.AbstractFactory<Buzzer, BuzzerOpal> 
 
 	public BuzzerOpalFactory getBuzzerOpalFactory() { return (BuzzerOpalFactory) getOpalFactory(); }
 
-	protected BuzzerFactory(OpalFactory<Buzzer, BuzzerOpal> argOpalFactory) {
+	protected BuzzerFactory(com.opal.OpalFactory<Buzzer, BuzzerOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.CategoryConversionVOpalFactory;
 import com.scobolsolo.persistence.CategoryConversionVOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class CategoryConversionVFactory extends com.opal.AbstractFactory<Categor
 
 	public CategoryConversionVOpalFactory getCategoryConversionVOpalFactory() { return (CategoryConversionVOpalFactory) getOpalFactory(); }
 
-	protected CategoryConversionVFactory(OpalFactory<CategoryConversionV, CategoryConversionVOpal> argOpalFactory) {
+	protected CategoryConversionVFactory(com.opal.OpalFactory<CategoryConversionV, CategoryConversionVOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

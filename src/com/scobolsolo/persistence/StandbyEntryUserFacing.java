@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code StandbyEntry} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface StandbyEntryUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.StandbyEntry> {
+public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.StandbyEntry> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}

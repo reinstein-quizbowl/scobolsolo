@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.StaffAssignmentOpalFactory;
 import com.scobolsolo.persistence.StaffAssignmentOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class StaffAssignmentFactory extends com.opal.AbstractFactory<StaffAssign
 
 	public StaffAssignmentOpalFactory getStaffAssignmentOpalFactory() { return (StaffAssignmentOpalFactory) getOpalFactory(); }
 
-	protected StaffAssignmentFactory(OpalFactory<StaffAssignment, StaffAssignmentOpal> argOpalFactory) {
+	protected StaffAssignmentFactory(com.opal.OpalFactory<StaffAssignment, StaffAssignmentOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

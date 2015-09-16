@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
@@ -14,7 +9,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		setUserFacing(null);
 	}
 
-	public StaffRoleOpal(OpalFactory<StaffRole, StaffRoleOpal> argOpalFactory, Object[] argValues) {
+	public StaffRoleOpal(com.opal.OpalFactory<StaffRole, StaffRoleOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -42,7 +37,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -62,12 +57,12 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.String getCode() {
@@ -170,7 +165,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<StaffRole> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<StaffRole> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Code) is part of a unique key. */
@@ -211,21 +206,21 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Code = " + getCode());
-		argPW.println("Name = " + getName());
-		argPW.println("ShortName = " + getShortName());
-		argPW.println("VeryShortName = " + getVeryShortName());
-		argPW.println("Sequence = " + getSequenceAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Code = " + getCode());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("VeryShortName = " + getVeryShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Code = " + getCode());
-		argPS.println("Name = " + getName());
-		argPS.println("ShortName = " + getShortName());
-		argPS.println("VeryShortName = " + getVeryShortName());
-		argPS.println("Sequence = " + getSequenceAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Code = " + getCode());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("VeryShortName = " + getVeryShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
 	}
 
 	@Override

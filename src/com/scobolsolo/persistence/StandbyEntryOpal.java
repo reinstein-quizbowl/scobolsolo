@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry> {
 	public static final java.lang.Integer ourDefaultPlayerCount = java.lang.Integer.valueOf(1);
 
@@ -16,7 +11,7 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 		setUserFacing(null);
 	}
 
-	public StandbyEntryOpal(OpalFactory<StandbyEntry, StandbyEntryOpal> argOpalFactory, Object[] argValues) {
+	public StandbyEntryOpal(com.opal.OpalFactory<StandbyEntry, StandbyEntryOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -56,7 +51,7 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -76,12 +71,12 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -189,7 +184,7 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<StandbyEntry> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<StandbyEntry> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -212,7 +207,7 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -227,7 +222,7 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldSchoolRegistrationOpal) == SchoolRegistrationOpal.NOT_YET_LOADED) {
 			lclUO = myOldSchoolRegistrationOpal = retrieveSchoolRegistrationOpal(getOldValues());
 		}
@@ -252,21 +247,21 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
-		argPW.println("Sequence = " + getSequenceAsObject());
-		argPW.println("PlayerCount = " + getPlayerCountAsObject());
-		argPW.println("Note = " + getNote());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("PlayerCount = " + getPlayerCountAsObject());
+		argOutput.println("Note = " + getNote());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
-		argPS.println("Sequence = " + getSequenceAsObject());
-		argPS.println("PlayerCount = " + getPlayerCountAsObject());
-		argPS.println("Note = " + getNote());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("PlayerCount = " + getPlayerCountAsObject());
+		argOutput.println("Note = " + getNote());
 	}
 
 	private SchoolRegistrationOpal myOldSchoolRegistrationOpal;

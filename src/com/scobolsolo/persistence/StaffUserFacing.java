@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Staff} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface StaffUserFacing extends IdentityUserFacing {
+public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -316,12 +315,12 @@ public interface StaffUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Game> streamModeratorGame();
 
-	public void addModeratorGame(com.scobolsolo.application.Game argGame);
-	public void removeModeratorGame(com.scobolsolo.application.Game argGame);
-	public void clearModeratorGame();
+	public com.scobolsolo.application.Staff addModeratorGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Staff removeModeratorGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Staff clearModeratorGame();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireModeratorGame(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createModeratorGameIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -345,12 +344,12 @@ public interface StaffUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
 
-	public void addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public void removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public void clearStaffAssignment();
+	public com.scobolsolo.application.Staff addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public com.scobolsolo.application.Staff removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public com.scobolsolo.application.Staff clearStaffAssignment();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

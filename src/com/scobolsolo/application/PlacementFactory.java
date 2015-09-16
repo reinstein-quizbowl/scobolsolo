@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.PlacementOpalFactory;
 import com.scobolsolo.persistence.PlacementOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class PlacementFactory extends com.opal.AbstractFactory<Placement, Placem
 
 	public PlacementOpalFactory getPlacementOpalFactory() { return (PlacementOpalFactory) getOpalFactory(); }
 
-	protected PlacementFactory(OpalFactory<Placement, PlacementOpal> argOpalFactory) {
+	protected PlacementFactory(com.opal.OpalFactory<Placement, PlacementOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

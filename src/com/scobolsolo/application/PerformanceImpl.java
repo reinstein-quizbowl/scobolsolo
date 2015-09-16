@@ -112,13 +112,15 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	to this object. */
 
 	@Override
-	public void addResponse(Response argResponse) {
+	public com.scobolsolo.application.Performance addResponse(Response argResponse) {
 		getPerformanceOpal().addResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
 	}
 
 	@Override
-	public void removeResponse(Response argResponse) {
+	public com.scobolsolo.application.Performance removeResponse(Response argResponse) {
 		getPerformanceOpal().removeResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
 	}
 
 	@Override
@@ -137,7 +139,7 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	}
 
 	@Override
-	public void clearResponse() {
+	public com.scobolsolo.application.Performance clearResponse() {
 		throw new UnsupportedOperationException();
 	}
 

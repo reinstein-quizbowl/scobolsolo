@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.CardOpalFactory;
 import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class CardFactory extends com.opal.AbstractFactory<Card, CardOpal> implem
 
 	public CardOpalFactory getCardOpalFactory() { return (CardOpalFactory) getOpalFactory(); }
 
-	protected CardFactory(OpalFactory<Card, CardOpal> argOpalFactory) {
+	protected CardFactory(com.opal.OpalFactory<Card, CardOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

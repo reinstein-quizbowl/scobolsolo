@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Account} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface AccountUserFacing extends IdentityUserFacing {
+public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -330,12 +329,12 @@ public interface AccountUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Question> streamWriterQuestion();
 
-	public void addWriterQuestion(com.scobolsolo.application.Question argQuestion);
-	public void removeWriterQuestion(com.scobolsolo.application.Question argQuestion);
-	public void clearWriterQuestion();
+	public com.scobolsolo.application.Account addWriterQuestion(com.scobolsolo.application.Question argQuestion);
+	public com.scobolsolo.application.Account removeWriterQuestion(com.scobolsolo.application.Question argQuestion);
+	public com.scobolsolo.application.Account clearWriterQuestion();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireWriterQuestion(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Question> lclI = createWriterQuestionIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -359,12 +358,12 @@ public interface AccountUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamEditorDiff();
 
-	public void addEditorDiff(com.scobolsolo.application.Diff argDiff);
-	public void removeEditorDiff(com.scobolsolo.application.Diff argDiff);
-	public void clearEditorDiff();
+	public com.scobolsolo.application.Account addEditorDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.Account removeEditorDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.Account clearEditorDiff();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireEditorDiff(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createEditorDiffIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

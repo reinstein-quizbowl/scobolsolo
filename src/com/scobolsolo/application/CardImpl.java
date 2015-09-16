@@ -143,13 +143,15 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	to this object. */
 
 	@Override
-	public void addLosingMatch(Match argMatch) {
+	public com.scobolsolo.application.Card addLosingMatch(Match argMatch) {
 		getCardOpal().addLosingMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
-	public void removeLosingMatch(Match argMatch) {
+	public com.scobolsolo.application.Card removeLosingMatch(Match argMatch) {
 		getCardOpal().removeLosingMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
@@ -168,18 +170,20 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void clearLosingMatch() {
+	public com.scobolsolo.application.Card clearLosingMatch() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addWinningMatch(Match argMatch) {
+	public com.scobolsolo.application.Card addWinningMatch(Match argMatch) {
 		getCardOpal().addWinningMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
-	public void removeWinningMatch(Match argMatch) {
+	public com.scobolsolo.application.Card removeWinningMatch(Match argMatch) {
 		getCardOpal().removeWinningMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
@@ -198,7 +202,7 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public void clearWinningMatch() {
+	public com.scobolsolo.application.Card clearWinningMatch() {
 		throw new UnsupportedOperationException();
 	}
 

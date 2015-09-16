@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Question} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface QuestionUserFacing extends IdentityUserFacing {
+public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -362,12 +361,12 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff();
 
-	public void addDiff(com.scobolsolo.application.Diff argDiff);
-	public void removeDiff(com.scobolsolo.application.Diff argDiff);
-	public void clearDiff();
+	public com.scobolsolo.application.Question addDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.Question removeDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.Question clearDiff();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -391,12 +390,12 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement();
 
-	public void addPlacement(com.scobolsolo.application.Placement argPlacement);
-	public void removePlacement(com.scobolsolo.application.Placement argPlacement);
-	public void clearPlacement();
+	public com.scobolsolo.application.Question addPlacement(com.scobolsolo.application.Placement argPlacement);
+	public com.scobolsolo.application.Question removePlacement(com.scobolsolo.application.Placement argPlacement);
+	public com.scobolsolo.application.Question clearPlacement();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

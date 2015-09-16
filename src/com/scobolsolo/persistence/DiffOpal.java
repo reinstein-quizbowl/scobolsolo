@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 
 	private DiffOpal() {
@@ -15,7 +10,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		setUserFacing(null);
 	}
 
-	public DiffOpal(OpalFactory<Diff, DiffOpal> argOpalFactory, Object[] argValues) {
+	public DiffOpal(com.opal.OpalFactory<Diff, DiffOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -79,7 +74,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -106,12 +101,12 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -330,7 +325,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Diff> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Diff> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -369,7 +364,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewCategoryOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -405,7 +400,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldCategoryOpal) == CategoryOpal.NOT_YET_LOADED) {
 			lclUO = myOldCategoryOpal = retrieveCategoryOpal(getOldValues());
 		}
@@ -457,35 +452,35 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("EditorAccountId = " + getEditorAccountIdAsObject());
-		argPW.println("Text = " + getText());
-		argPW.println("Answer = " + getAnswer());
-		argPW.println("Note = " + getNote());
-		argPW.println("Remark = " + getRemark());
-		argPW.println("EditDistance = " + getEditDistanceAsObject());
-		argPW.println("Timestamp = " + getTimestamp());
-		argPW.println("QuestionId = " + getQuestionIdAsObject());
-		argPW.println("RevisionNumber = " + getRevisionNumberAsObject());
-		argPW.println("QuestionStatusCode = " + getQuestionStatusCode());
-		argPW.println("CategoryCode = " + getCategoryCode());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("EditorAccountId = " + getEditorAccountIdAsObject());
+		argOutput.println("Text = " + getText());
+		argOutput.println("Answer = " + getAnswer());
+		argOutput.println("Note = " + getNote());
+		argOutput.println("Remark = " + getRemark());
+		argOutput.println("EditDistance = " + getEditDistanceAsObject());
+		argOutput.println("Timestamp = " + getTimestamp());
+		argOutput.println("QuestionId = " + getQuestionIdAsObject());
+		argOutput.println("RevisionNumber = " + getRevisionNumberAsObject());
+		argOutput.println("QuestionStatusCode = " + getQuestionStatusCode());
+		argOutput.println("CategoryCode = " + getCategoryCode());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("EditorAccountId = " + getEditorAccountIdAsObject());
-		argPS.println("Text = " + getText());
-		argPS.println("Answer = " + getAnswer());
-		argPS.println("Note = " + getNote());
-		argPS.println("Remark = " + getRemark());
-		argPS.println("EditDistance = " + getEditDistanceAsObject());
-		argPS.println("Timestamp = " + getTimestamp());
-		argPS.println("QuestionId = " + getQuestionIdAsObject());
-		argPS.println("RevisionNumber = " + getRevisionNumberAsObject());
-		argPS.println("QuestionStatusCode = " + getQuestionStatusCode());
-		argPS.println("CategoryCode = " + getCategoryCode());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("EditorAccountId = " + getEditorAccountIdAsObject());
+		argOutput.println("Text = " + getText());
+		argOutput.println("Answer = " + getAnswer());
+		argOutput.println("Note = " + getNote());
+		argOutput.println("Remark = " + getRemark());
+		argOutput.println("EditDistance = " + getEditDistanceAsObject());
+		argOutput.println("Timestamp = " + getTimestamp());
+		argOutput.println("QuestionId = " + getQuestionIdAsObject());
+		argOutput.println("RevisionNumber = " + getRevisionNumberAsObject());
+		argOutput.println("QuestionStatusCode = " + getQuestionStatusCode());
+		argOutput.println("CategoryCode = " + getCategoryCode());
 	}
 
 	private AccountOpal myOldEditorOpal;

@@ -232,13 +232,15 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	to this object. */
 
 	@Override
-	public void addIncomingLosingCardGame(Game argGame) {
+	public com.scobolsolo.application.Player addIncomingLosingCardGame(Game argGame) {
 		getPlayerOpal().addIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
-	public void removeIncomingLosingCardGame(Game argGame) {
+	public com.scobolsolo.application.Player removeIncomingLosingCardGame(Game argGame) {
 		getPlayerOpal().removeIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
@@ -257,18 +259,20 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void clearIncomingLosingCardGame() {
+	public com.scobolsolo.application.Player clearIncomingLosingCardGame() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addIncomingWinningCardGame(Game argGame) {
+	public com.scobolsolo.application.Player addIncomingWinningCardGame(Game argGame) {
 		getPlayerOpal().addIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
-	public void removeIncomingWinningCardGame(Game argGame) {
+	public com.scobolsolo.application.Player removeIncomingWinningCardGame(Game argGame) {
 		getPlayerOpal().removeIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
@@ -287,18 +291,20 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void clearIncomingWinningCardGame() {
+	public com.scobolsolo.application.Player clearIncomingWinningCardGame() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addOutgoingLosingCardGame(Game argGame) {
+	public com.scobolsolo.application.Player addOutgoingLosingCardGame(Game argGame) {
 		getPlayerOpal().addOutgoingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
-	public void removeOutgoingLosingCardGame(Game argGame) {
+	public com.scobolsolo.application.Player removeOutgoingLosingCardGame(Game argGame) {
 		getPlayerOpal().removeOutgoingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
@@ -317,18 +323,20 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void clearOutgoingLosingCardGame() {
+	public com.scobolsolo.application.Player clearOutgoingLosingCardGame() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addOutgoingWinningCardGame(Game argGame) {
+	public com.scobolsolo.application.Player addOutgoingWinningCardGame(Game argGame) {
 		getPlayerOpal().addOutgoingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
-	public void removeOutgoingWinningCardGame(Game argGame) {
+	public com.scobolsolo.application.Player removeOutgoingWinningCardGame(Game argGame) {
 		getPlayerOpal().removeOutgoingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
@@ -347,18 +355,20 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void clearOutgoingWinningCardGame() {
+	public com.scobolsolo.application.Player clearOutgoingWinningCardGame() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addPerformance(Performance argPerformance) {
+	public com.scobolsolo.application.Player addPerformance(Performance argPerformance) {
 		getPlayerOpal().addPerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
+		return this;
 	}
 
 	@Override
-	public void removePerformance(Performance argPerformance) {
+	public com.scobolsolo.application.Player removePerformance(Performance argPerformance) {
 		getPlayerOpal().removePerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
+		return this;
 	}
 
 	@Override
@@ -377,7 +387,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public void clearPerformance() {
+	public com.scobolsolo.application.Player clearPerformance() {
 		throw new UnsupportedOperationException();
 	}
 

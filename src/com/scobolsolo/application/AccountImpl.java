@@ -158,13 +158,15 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	to this object. */
 
 	@Override
-	public void addWriterQuestion(Question argQuestion) {
+	public com.scobolsolo.application.Account addWriterQuestion(Question argQuestion) {
 		getAccountOpal().addWriterQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
+		return this;
 	}
 
 	@Override
-	public void removeWriterQuestion(Question argQuestion) {
+	public com.scobolsolo.application.Account removeWriterQuestion(Question argQuestion) {
 		getAccountOpal().removeWriterQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
+		return this;
 	}
 
 	@Override
@@ -183,18 +185,20 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void clearWriterQuestion() {
+	public com.scobolsolo.application.Account clearWriterQuestion() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addEditorDiff(Diff argDiff) {
+	public com.scobolsolo.application.Account addEditorDiff(Diff argDiff) {
 		getAccountOpal().addEditorDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+		return this;
 	}
 
 	@Override
-	public void removeEditorDiff(Diff argDiff) {
+	public com.scobolsolo.application.Account removeEditorDiff(Diff argDiff) {
 		getAccountOpal().removeEditorDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+		return this;
 	}
 
 	@Override
@@ -213,7 +217,7 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public void clearEditorDiff() {
+	public com.scobolsolo.application.Account clearEditorDiff() {
 		throw new UnsupportedOperationException();
 	}
 

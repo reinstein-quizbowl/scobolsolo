@@ -119,13 +119,15 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	to this object. */
 
 	@Override
-	public void addRound(Round argRound) {
+	public com.scobolsolo.application.RoundGroup addRound(Round argRound) {
 		getRoundGroupOpal().addRoundOpal(((RoundImpl) argRound).getRoundOpal());
+		return this;
 	}
 
 	@Override
-	public void removeRound(Round argRound) {
+	public com.scobolsolo.application.RoundGroup removeRound(Round argRound) {
 		getRoundGroupOpal().removeRoundOpal(((RoundImpl) argRound).getRoundOpal());
+		return this;
 	}
 
 	@Override
@@ -144,7 +146,7 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	}
 
 	@Override
-	public void clearRound() {
+	public com.scobolsolo.application.RoundGroup clearRound() {
 		throw new UnsupportedOperationException();
 	}
 

@@ -176,13 +176,15 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	to this object. */
 
 	@Override
-	public void addDiff(Diff argDiff) {
+	public com.scobolsolo.application.Question addDiff(Diff argDiff) {
 		getQuestionOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+		return this;
 	}
 
 	@Override
-	public void removeDiff(Diff argDiff) {
+	public com.scobolsolo.application.Question removeDiff(Diff argDiff) {
 		getQuestionOpal().removeDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+		return this;
 	}
 
 	@Override
@@ -201,18 +203,20 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void clearDiff() {
+	public com.scobolsolo.application.Question clearDiff() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addPlacement(Placement argPlacement) {
+	public com.scobolsolo.application.Question addPlacement(Placement argPlacement) {
 		getQuestionOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
 	}
 
 	@Override
-	public void removePlacement(Placement argPlacement) {
+	public com.scobolsolo.application.Question removePlacement(Placement argPlacement) {
 		getQuestionOpal().removePlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
 	}
 
 	@Override
@@ -231,7 +235,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public void clearPlacement() {
+	public com.scobolsolo.application.Question clearPlacement() {
 		throw new UnsupportedOperationException();
 	}
 

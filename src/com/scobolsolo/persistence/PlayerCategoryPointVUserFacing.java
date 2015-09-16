@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code PlayerCategoryPointV} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface PlayerCategoryPointVUserFacing extends UserFacing {
+public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code TournamentCode}

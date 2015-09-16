@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 
 	private MatchOpal() {
@@ -15,7 +10,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		setUserFacing(null);
 	}
 
-	public MatchOpal(OpalFactory<Match, MatchOpal> argOpalFactory, Object[] argValues) {
+	public MatchOpal(com.opal.OpalFactory<Match, MatchOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -53,7 +48,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -73,12 +68,12 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -208,7 +203,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Match> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Match> argTarget) {
 		/* Field 0 (Id) is database generated. */
 		/* Field 1 (RoundId) is part of a unique key. */
 		/* Field 2 (RoomId) is part of a unique key. */
@@ -238,7 +233,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewLosingCardOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -274,7 +269,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldLosingCardOpal) == CardOpal.NOT_YET_LOADED) {
 			lclUO = myOldLosingCardOpal = retrieveLosingCardOpal(getOldValues());
 		}
@@ -326,21 +321,21 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("RoundId = " + getRoundIdAsObject());
-		argPW.println("RoomId = " + getRoomIdAsObject());
-		argPW.println("WinningCardId = " + getWinningCardIdAsObject());
-		argPW.println("LosingCardId = " + getLosingCardIdAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("RoundId = " + getRoundIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
+		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("RoundId = " + getRoundIdAsObject());
-		argPS.println("RoomId = " + getRoomIdAsObject());
-		argPS.println("WinningCardId = " + getWinningCardIdAsObject());
-		argPS.println("LosingCardId = " + getLosingCardIdAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("RoundId = " + getRoundIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
+		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
 	}
 
 	private CardOpal myOldLosingCardOpal;

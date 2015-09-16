@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
 	private ResponseOpal() {
@@ -15,7 +10,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		setUserFacing(null);
 	}
 
-	public ResponseOpal(OpalFactory<Response, ResponseOpal> argOpalFactory, Object[] argValues) {
+	public ResponseOpal(com.opal.OpalFactory<Response, ResponseOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -52,7 +47,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -72,12 +67,12 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -200,7 +195,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Response> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Response> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -232,7 +227,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewPerformanceOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -268,7 +263,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldPerformanceOpal) == PerformanceOpal.NOT_YET_LOADED) {
 			lclUO = myOldPerformanceOpal = retrievePerformanceOpal(getOldValues());
 		}
@@ -320,21 +315,21 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("PerformanceId = " + getPerformanceIdAsObject());
-		argPW.println("PlacementId = " + getPlacementIdAsObject());
-		argPW.println("ResponseTypeCode = " + getResponseTypeCode());
-		argPW.println("ReplacementForPlacementId = " + getReplacementForPlacementIdAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("PerformanceId = " + getPerformanceIdAsObject());
+		argOutput.println("PlacementId = " + getPlacementIdAsObject());
+		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
+		argOutput.println("ReplacementForPlacementId = " + getReplacementForPlacementIdAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("PerformanceId = " + getPerformanceIdAsObject());
-		argPS.println("PlacementId = " + getPlacementIdAsObject());
-		argPS.println("ResponseTypeCode = " + getResponseTypeCode());
-		argPS.println("ReplacementForPlacementId = " + getReplacementForPlacementIdAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("PerformanceId = " + getPerformanceIdAsObject());
+		argOutput.println("PlacementId = " + getPlacementIdAsObject());
+		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
+		argOutput.println("ReplacementForPlacementId = " + getReplacementForPlacementIdAsObject());
 	}
 
 	private PerformanceOpal myOldPerformanceOpal;

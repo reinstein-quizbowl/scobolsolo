@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Category} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface CategoryUserFacing extends IdentityUserFacing {
+public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -175,12 +174,12 @@ public interface CategoryUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion();
 
-	public void addQuestion(com.scobolsolo.application.Question argQuestion);
-	public void removeQuestion(com.scobolsolo.application.Question argQuestion);
-	public void clearQuestion();
+	public com.scobolsolo.application.Category addQuestion(com.scobolsolo.application.Question argQuestion);
+	public com.scobolsolo.application.Category removeQuestion(com.scobolsolo.application.Question argQuestion);
+	public com.scobolsolo.application.Category clearQuestion();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireQuestion(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -204,12 +203,12 @@ public interface CategoryUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff();
 
-	public void addDiff(com.scobolsolo.application.Diff argDiff);
-	public void removeDiff(com.scobolsolo.application.Diff argDiff);
-	public void clearDiff();
+	public com.scobolsolo.application.Category addDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.Category removeDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.Category clearDiff();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -233,12 +232,12 @@ public interface CategoryUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse();
 
-	public void addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public void removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public void clearCategoryUse();
+	public com.scobolsolo.application.Category addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
+	public com.scobolsolo.application.Category removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
+	public com.scobolsolo.application.Category clearCategoryUse();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.CategoryUse>> T acquireCategoryUse(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -262,12 +261,12 @@ public interface CategoryUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement();
 
-	public void addPlacement(com.scobolsolo.application.Placement argPlacement);
-	public void removePlacement(com.scobolsolo.application.Placement argPlacement);
-	public void clearPlacement();
+	public com.scobolsolo.application.Category addPlacement(com.scobolsolo.application.Placement argPlacement);
+	public com.scobolsolo.application.Category removePlacement(com.scobolsolo.application.Placement argPlacement);
+	public com.scobolsolo.application.Category clearPlacement();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

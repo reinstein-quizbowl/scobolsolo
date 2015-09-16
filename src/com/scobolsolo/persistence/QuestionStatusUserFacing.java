@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code QuestionStatus} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface QuestionStatusUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.QuestionStatus> {
+public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.QuestionStatus> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -142,12 +141,12 @@ public interface QuestionStatusUserFacing extends IdentityUserFacing, Comparable
 
 	public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion();
 
-	public void addQuestion(com.scobolsolo.application.Question argQuestion);
-	public void removeQuestion(com.scobolsolo.application.Question argQuestion);
-	public void clearQuestion();
+	public com.scobolsolo.application.QuestionStatus addQuestion(com.scobolsolo.application.Question argQuestion);
+	public com.scobolsolo.application.QuestionStatus removeQuestion(com.scobolsolo.application.Question argQuestion);
+	public com.scobolsolo.application.QuestionStatus clearQuestion();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireQuestion(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -171,12 +170,12 @@ public interface QuestionStatusUserFacing extends IdentityUserFacing, Comparable
 
 	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff();
 
-	public void addDiff(com.scobolsolo.application.Diff argDiff);
-	public void removeDiff(com.scobolsolo.application.Diff argDiff);
-	public void clearDiff();
+	public com.scobolsolo.application.QuestionStatus addDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.QuestionStatus removeDiff(com.scobolsolo.application.Diff argDiff);
+	public com.scobolsolo.application.QuestionStatus clearDiff();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

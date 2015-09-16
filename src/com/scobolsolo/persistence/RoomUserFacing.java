@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Room} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Room> {
+public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Room> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -277,12 +276,12 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 
 	public java.util.stream.Stream<com.scobolsolo.application.Tournament> streamControlRoomTournament();
 
-	public void addControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
-	public void removeControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
-	public void clearControlRoomTournament();
+	public com.scobolsolo.application.Room addControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.Room removeControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
+	public com.scobolsolo.application.Room clearControlRoomTournament();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Tournament>> T acquireControlRoomTournament(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Tournament> lclI = createControlRoomTournamentIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -306,12 +305,12 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 
 	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
 
-	public void addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public void removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public void clearStaffAssignment();
+	public com.scobolsolo.application.Room addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public com.scobolsolo.application.Room removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public com.scobolsolo.application.Room clearStaffAssignment();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -335,12 +334,12 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 
 	public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer();
 
-	public void addBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	public void removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	public void clearBuzzer();
+	public com.scobolsolo.application.Room addBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
+	public com.scobolsolo.application.Room removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
+	public com.scobolsolo.application.Room clearBuzzer();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Buzzer>> T acquireBuzzer(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Buzzer> lclI = createBuzzerIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -364,12 +363,12 @@ public interface RoomUserFacing extends IdentityUserFacing, Comparable<com.scobo
 
 	public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch();
 
-	public void addMatch(com.scobolsolo.application.Match argMatch);
-	public void removeMatch(com.scobolsolo.application.Match argMatch);
-	public void clearMatch();
+	public com.scobolsolo.application.Room addMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Room removeMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Room clearMatch();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireMatch(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

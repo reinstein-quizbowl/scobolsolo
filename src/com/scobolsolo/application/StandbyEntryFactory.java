@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.StandbyEntryOpalFactory;
 import com.scobolsolo.persistence.StandbyEntryOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class StandbyEntryFactory extends com.opal.AbstractFactory<StandbyEntry, 
 
 	public StandbyEntryOpalFactory getStandbyEntryOpalFactory() { return (StandbyEntryOpalFactory) getOpalFactory(); }
 
-	protected StandbyEntryFactory(OpalFactory<StandbyEntry, StandbyEntryOpal> argOpalFactory) {
+	protected StandbyEntryFactory(com.opal.OpalFactory<StandbyEntry, StandbyEntryOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

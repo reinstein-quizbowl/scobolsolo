@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<PlacementConversionV> {
@@ -14,7 +9,7 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		setUserFacing(null);
 	}
 
-	public PlacementConversionVOpal(OpalFactory<PlacementConversionV, PlacementConversionVOpal> argOpalFactory, Object[] argValues) {
+	public PlacementConversionVOpal(com.opal.OpalFactory<PlacementConversionV, PlacementConversionVOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -51,7 +46,7 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -71,12 +66,12 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public java.lang.String getTournamentCode() {
@@ -133,21 +128,21 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("TournamentCode = " + getTournamentCode());
-		argPW.println("PlacementId = " + getPlacementIdAsObject());
-		argPW.println("QuestionId = " + getQuestionIdAsObject());
-		argPW.println("ResponseTypeCode = " + getResponseTypeCode());
-		argPW.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("PlacementId = " + getPlacementIdAsObject());
+		argOutput.println("QuestionId = " + getQuestionIdAsObject());
+		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
+		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("TournamentCode = " + getTournamentCode());
-		argPS.println("PlacementId = " + getPlacementIdAsObject());
-		argPS.println("QuestionId = " + getQuestionIdAsObject());
-		argPS.println("ResponseTypeCode = " + getResponseTypeCode());
-		argPS.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("PlacementId = " + getPlacementIdAsObject());
+		argOutput.println("QuestionId = " + getQuestionIdAsObject());
+		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
+		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
 	}
 
 	private ResponseTypeOpal myOldResponseTypeOpal;

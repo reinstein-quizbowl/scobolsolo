@@ -237,13 +237,15 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	to this object. */
 
 	@Override
-	public void addPerformance(Performance argPerformance) {
+	public com.scobolsolo.application.Game addPerformance(Performance argPerformance) {
 		getGameOpal().addPerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
+		return this;
 	}
 
 	@Override
-	public void removePerformance(Performance argPerformance) {
+	public com.scobolsolo.application.Game removePerformance(Performance argPerformance) {
 		getGameOpal().removePerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
+		return this;
 	}
 
 	@Override
@@ -262,7 +264,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	}
 
 	@Override
-	public void clearPerformance() {
+	public com.scobolsolo.application.Game clearPerformance() {
 		throw new UnsupportedOperationException();
 	}
 

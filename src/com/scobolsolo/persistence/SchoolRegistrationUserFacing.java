@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code SchoolRegistration} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
+public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -330,12 +329,12 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.StandbyEntry> streamStandbyEntry();
 
-	public void addStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry);
-	public void removeStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry);
-	public void clearStandbyEntry();
+	public com.scobolsolo.application.SchoolRegistration addStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry);
+	public com.scobolsolo.application.SchoolRegistration removeStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry);
+	public com.scobolsolo.application.SchoolRegistration clearStandbyEntry();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.StandbyEntry>> T acquireStandbyEntry(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.StandbyEntry> lclI = createStandbyEntryIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -359,12 +358,12 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Player> streamPlayer();
 
-	public void addPlayer(com.scobolsolo.application.Player argPlayer);
-	public void removePlayer(com.scobolsolo.application.Player argPlayer);
-	public void clearPlayer();
+	public com.scobolsolo.application.SchoolRegistration addPlayer(com.scobolsolo.application.Player argPlayer);
+	public com.scobolsolo.application.SchoolRegistration removePlayer(com.scobolsolo.application.Player argPlayer);
+	public com.scobolsolo.application.SchoolRegistration clearPlayer();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Player>> T acquirePlayer(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Player> lclI = createPlayerIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -388,12 +387,12 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer();
 
-	public void addBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	public void removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	public void clearBuzzer();
+	public com.scobolsolo.application.SchoolRegistration addBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
+	public com.scobolsolo.application.SchoolRegistration removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
+	public com.scobolsolo.application.SchoolRegistration clearBuzzer();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Buzzer>> T acquireBuzzer(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Buzzer> lclI = createBuzzerIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -417,12 +416,12 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.WaitlistEntry> streamWaitlistEntry();
 
-	public void addWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry);
-	public void removeWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry);
-	public void clearWaitlistEntry();
+	public com.scobolsolo.application.SchoolRegistration addWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry);
+	public com.scobolsolo.application.SchoolRegistration removeWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry);
+	public com.scobolsolo.application.SchoolRegistration clearWaitlistEntry();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.WaitlistEntry>> T acquireWaitlistEntry(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.WaitlistEntry> lclI = createWaitlistEntryIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -446,12 +445,12 @@ public interface SchoolRegistrationUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff();
 
-	public void addStaff(com.scobolsolo.application.Staff argStaff);
-	public void removeStaff(com.scobolsolo.application.Staff argStaff);
-	public void clearStaff();
+	public com.scobolsolo.application.SchoolRegistration addStaff(com.scobolsolo.application.Staff argStaff);
+	public com.scobolsolo.application.SchoolRegistration removeStaff(com.scobolsolo.application.Staff argStaff);
+	public com.scobolsolo.application.SchoolRegistration clearStaff();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Staff>> T acquireStaff(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 	private SchoolOpal() {
@@ -15,7 +10,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		setUserFacing(null);
 	}
 
-	public SchoolOpal(OpalFactory<School, SchoolOpal> argOpalFactory, Object[] argValues) {
+	public SchoolOpal(com.opal.OpalFactory<School, SchoolOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -46,7 +41,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -67,12 +62,12 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -212,7 +207,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<School> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<School> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -254,23 +249,23 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("Name = " + getName());
-		argPW.println("ShortName = " + getShortName());
-		argPW.println("VeryShortName = " + getVeryShortName());
-		argPW.println("Location = " + getLocation());
-		argPW.println("Note = " + getNote());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("VeryShortName = " + getVeryShortName());
+		argOutput.println("Location = " + getLocation());
+		argOutput.println("Note = " + getNote());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("Name = " + getName());
-		argPS.println("ShortName = " + getShortName());
-		argPS.println("VeryShortName = " + getVeryShortName());
-		argPS.println("Location = " + getLocation());
-		argPS.println("Note = " + getNote());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("VeryShortName = " + getVeryShortName());
+		argOutput.println("Location = " + getLocation());
+		argOutput.println("Note = " + getNote());
 	}
 
 	private java.util.HashSet<SchoolRegistrationOpal> myOldSchoolRegistrationOpalHashSet = null;
@@ -289,7 +284,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 				}
 				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
 				if (mySchoolRegistrationOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(mySchoolRegistrationOpalCachedOperations, myNewSchoolRegistrationOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(mySchoolRegistrationOpalCachedOperations, myNewSchoolRegistrationOpalHashSet);
 					mySchoolRegistrationOpalCachedOperations = null;
 				}
 			}
@@ -313,7 +308,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		if (myNewSchoolRegistrationOpalHashSet == null) {
 			if (myOldSchoolRegistrationOpalHashSet == null) {
 				if (mySchoolRegistrationOpalCachedOperations == null) { mySchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
-				mySchoolRegistrationOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argSchoolRegistrationOpal));
+				mySchoolRegistrationOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argSchoolRegistrationOpal));
 			} else {
 				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
 				myNewSchoolRegistrationOpalHashSet.add(argSchoolRegistrationOpal);
@@ -334,7 +329,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		if (myNewSchoolRegistrationOpalHashSet == null) {
 			if (myOldSchoolRegistrationOpalHashSet == null) {
 				if (mySchoolRegistrationOpalCachedOperations == null) { mySchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
-				mySchoolRegistrationOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argSchoolRegistrationOpal));
+				mySchoolRegistrationOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argSchoolRegistrationOpal));
 			} else {
 				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
 				myNewSchoolRegistrationOpalHashSet.remove(argSchoolRegistrationOpal);

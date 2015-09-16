@@ -204,13 +204,15 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	to this object. */
 
 	@Override
-	public void addReplacementPacket(Packet argPacket) {
+	public com.scobolsolo.application.Packet addReplacementPacket(Packet argPacket) {
 		getPacketOpal().addReplacementPacketOpal(((PacketImpl) argPacket).getPacketOpal());
+		return this;
 	}
 
 	@Override
-	public void removeReplacementPacket(Packet argPacket) {
+	public com.scobolsolo.application.Packet removeReplacementPacket(Packet argPacket) {
 		getPacketOpal().removeReplacementPacketOpal(((PacketImpl) argPacket).getPacketOpal());
+		return this;
 	}
 
 	@Override
@@ -229,18 +231,20 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void clearReplacementPacket() {
+	public com.scobolsolo.application.Packet clearReplacementPacket() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addPlacement(Placement argPlacement) {
+	public com.scobolsolo.application.Packet addPlacement(Placement argPlacement) {
 		getPacketOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
 	}
 
 	@Override
-	public void removePlacement(Placement argPlacement) {
+	public com.scobolsolo.application.Packet removePlacement(Placement argPlacement) {
 		getPacketOpal().removePlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
 	}
 
 	@Override
@@ -259,7 +263,7 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<Packet, PacketOpal
 	}
 
 	@Override
-	public void clearPlacement() {
+	public com.scobolsolo.application.Packet clearPlacement() {
 		throw new UnsupportedOperationException();
 	}
 

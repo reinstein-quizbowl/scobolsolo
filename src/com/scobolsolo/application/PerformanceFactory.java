@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.PerformanceOpalFactory;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class PerformanceFactory extends com.opal.AbstractFactory<Performance, Pe
 
 	public PerformanceOpalFactory getPerformanceOpalFactory() { return (PerformanceOpalFactory) getOpalFactory(); }
 
-	protected PerformanceFactory(OpalFactory<Performance, PerformanceOpal> argOpalFactory) {
+	protected PerformanceFactory(com.opal.OpalFactory<Performance, PerformanceOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

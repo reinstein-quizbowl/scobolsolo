@@ -146,13 +146,15 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	to this object. */
 
 	@Override
-	public void addControlRoomTournament(Tournament argTournament) {
+	public com.scobolsolo.application.Room addControlRoomTournament(Tournament argTournament) {
 		getRoomOpal().addControlRoomTournamentOpal(((TournamentImpl) argTournament).getTournamentOpal());
+		return this;
 	}
 
 	@Override
-	public void removeControlRoomTournament(Tournament argTournament) {
+	public com.scobolsolo.application.Room removeControlRoomTournament(Tournament argTournament) {
 		getRoomOpal().removeControlRoomTournamentOpal(((TournamentImpl) argTournament).getTournamentOpal());
+		return this;
 	}
 
 	@Override
@@ -171,18 +173,20 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void clearControlRoomTournament() {
+	public com.scobolsolo.application.Room clearControlRoomTournament() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addStaffAssignment(StaffAssignment argStaffAssignment) {
+	public com.scobolsolo.application.Room addStaffAssignment(StaffAssignment argStaffAssignment) {
 		getRoomOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
 	}
 
 	@Override
-	public void removeStaffAssignment(StaffAssignment argStaffAssignment) {
+	public com.scobolsolo.application.Room removeStaffAssignment(StaffAssignment argStaffAssignment) {
 		getRoomOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
 	}
 
 	@Override
@@ -201,18 +205,20 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void clearStaffAssignment() {
+	public com.scobolsolo.application.Room clearStaffAssignment() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addBuzzer(Buzzer argBuzzer) {
+	public com.scobolsolo.application.Room addBuzzer(Buzzer argBuzzer) {
 		getRoomOpal().addBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
+		return this;
 	}
 
 	@Override
-	public void removeBuzzer(Buzzer argBuzzer) {
+	public com.scobolsolo.application.Room removeBuzzer(Buzzer argBuzzer) {
 		getRoomOpal().removeBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
+		return this;
 	}
 
 	@Override
@@ -231,18 +237,20 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void clearBuzzer() {
+	public com.scobolsolo.application.Room clearBuzzer() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addMatch(Match argMatch) {
+	public com.scobolsolo.application.Room addMatch(Match argMatch) {
 		getRoomOpal().addMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
-	public void removeMatch(Match argMatch) {
+	public com.scobolsolo.application.Room removeMatch(Match argMatch) {
 		getRoomOpal().removeMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
@@ -261,7 +269,7 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 	}
 
 	@Override
-	public void clearMatch() {
+	public com.scobolsolo.application.Room clearMatch() {
 		throw new UnsupportedOperationException();
 	}
 

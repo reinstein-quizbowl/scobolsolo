@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.RoomOpalFactory;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class RoomFactory extends com.opal.AbstractFactory<Room, RoomOpal> implem
 
 	public RoomOpalFactory getRoomOpalFactory() { return (RoomOpalFactory) getOpalFactory(); }
 
-	protected RoomFactory(OpalFactory<Room, RoomOpal> argOpalFactory) {
+	protected RoomFactory(com.opal.OpalFactory<Room, RoomOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecordV> {
@@ -14,7 +9,7 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		setUserFacing(null);
 	}
 
-	public PlayerRecordVOpal(OpalFactory<PlayerRecordV, PlayerRecordVOpal> argOpalFactory, Object[] argValues) {
+	public PlayerRecordVOpal(com.opal.OpalFactory<PlayerRecordV, PlayerRecordVOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -52,7 +47,7 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -73,12 +68,12 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public java.lang.String getTournamentCode() {
@@ -135,23 +130,23 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("TournamentCode = " + getTournamentCode());
-		argPW.println("PlayerId = " + getPlayerIdAsObject());
-		argPW.println("WinCount = " + getWinCountAsObject());
-		argPW.println("LossCount = " + getLossCountAsObject());
-		argPW.println("Points = " + getPointsAsObject());
-		argPW.println("TossupsHeard = " + getTossupsHeardAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("PlayerId = " + getPlayerIdAsObject());
+		argOutput.println("WinCount = " + getWinCountAsObject());
+		argOutput.println("LossCount = " + getLossCountAsObject());
+		argOutput.println("Points = " + getPointsAsObject());
+		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("TournamentCode = " + getTournamentCode());
-		argPS.println("PlayerId = " + getPlayerIdAsObject());
-		argPS.println("WinCount = " + getWinCountAsObject());
-		argPS.println("LossCount = " + getLossCountAsObject());
-		argPS.println("Points = " + getPointsAsObject());
-		argPS.println("TossupsHeard = " + getTossupsHeardAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("PlayerId = " + getPlayerIdAsObject());
+		argOutput.println("WinCount = " + getWinCountAsObject());
+		argOutput.println("LossCount = " + getLossCountAsObject());
+		argOutput.println("Points = " + getPointsAsObject());
+		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
 	}
 
 	private TournamentOpal myOldTournamentOpal;

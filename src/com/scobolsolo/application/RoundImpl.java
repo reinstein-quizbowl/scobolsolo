@@ -160,13 +160,15 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	to this object. */
 
 	@Override
-	public void addMatch(Match argMatch) {
+	public com.scobolsolo.application.Round addMatch(Match argMatch) {
 		getRoundOpal().addMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
-	public void removeMatch(Match argMatch) {
+	public com.scobolsolo.application.Round removeMatch(Match argMatch) {
 		getRoundOpal().removeMatchOpal(((MatchImpl) argMatch).getMatchOpal());
+		return this;
 	}
 
 	@Override
@@ -185,7 +187,7 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	}
 
 	@Override
-	public void clearMatch() {
+	public com.scobolsolo.application.Round clearMatch() {
 		throw new UnsupportedOperationException();
 	}
 

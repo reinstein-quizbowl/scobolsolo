@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code CategoryGroup} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface CategoryGroupUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.CategoryGroup> {
+public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.CategoryGroup> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -142,12 +141,12 @@ public interface CategoryGroupUserFacing extends IdentityUserFacing, Comparable<
 
 	public java.util.stream.Stream<com.scobolsolo.application.Category> streamCategory();
 
-	public void addCategory(com.scobolsolo.application.Category argCategory);
-	public void removeCategory(com.scobolsolo.application.Category argCategory);
-	public void clearCategory();
+	public com.scobolsolo.application.CategoryGroup addCategory(com.scobolsolo.application.Category argCategory);
+	public com.scobolsolo.application.CategoryGroup removeCategory(com.scobolsolo.application.Category argCategory);
+	public com.scobolsolo.application.CategoryGroup clearCategory();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Category>> T acquireCategory(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Category> lclI = createCategoryIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

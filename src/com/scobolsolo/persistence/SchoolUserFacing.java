@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code School} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.School> {
+public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.School> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -216,12 +215,12 @@ public interface SchoolUserFacing extends IdentityUserFacing, Comparable<com.sco
 
 	public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration();
 
-	public void addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public void removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public void clearSchoolRegistration();
+	public com.scobolsolo.application.School addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.School removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.School clearSchoolRegistration();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.SchoolRegistration>> T acquireSchoolRegistration(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createSchoolRegistrationIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

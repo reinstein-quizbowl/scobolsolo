@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Tournament} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Tournament> {
+public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Tournament> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Date}
@@ -626,12 +625,12 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 
 	public java.util.stream.Stream<com.scobolsolo.application.Phase> streamPhase();
 
-	public void addPhase(com.scobolsolo.application.Phase argPhase);
-	public void removePhase(com.scobolsolo.application.Phase argPhase);
-	public void clearPhase();
+	public com.scobolsolo.application.Tournament addPhase(com.scobolsolo.application.Phase argPhase);
+	public com.scobolsolo.application.Tournament removePhase(com.scobolsolo.application.Phase argPhase);
+	public com.scobolsolo.application.Tournament clearPhase();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Phase>> T acquirePhase(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Phase> lclI = createPhaseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -655,12 +654,12 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 
 	public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration();
 
-	public void addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public void removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public void clearSchoolRegistration();
+	public com.scobolsolo.application.Tournament addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.Tournament removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
+	public com.scobolsolo.application.Tournament clearSchoolRegistration();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.SchoolRegistration>> T acquireSchoolRegistration(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createSchoolRegistrationIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -684,12 +683,12 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 
 	public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff();
 
-	public void addStaff(com.scobolsolo.application.Staff argStaff);
-	public void removeStaff(com.scobolsolo.application.Staff argStaff);
-	public void clearStaff();
+	public com.scobolsolo.application.Tournament addStaff(com.scobolsolo.application.Staff argStaff);
+	public com.scobolsolo.application.Tournament removeStaff(com.scobolsolo.application.Staff argStaff);
+	public com.scobolsolo.application.Tournament clearStaff();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Staff>> T acquireStaff(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -713,12 +712,12 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 
 	public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse();
 
-	public void addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public void removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public void clearCategoryUse();
+	public com.scobolsolo.application.Tournament addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
+	public com.scobolsolo.application.Tournament removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
+	public com.scobolsolo.application.Tournament clearCategoryUse();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.CategoryUse>> T acquireCategoryUse(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -742,12 +741,12 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 
 	public java.util.stream.Stream<com.scobolsolo.application.Packet> streamPacket();
 
-	public void addPacket(com.scobolsolo.application.Packet argPacket);
-	public void removePacket(com.scobolsolo.application.Packet argPacket);
-	public void clearPacket();
+	public com.scobolsolo.application.Tournament addPacket(com.scobolsolo.application.Packet argPacket);
+	public com.scobolsolo.application.Tournament removePacket(com.scobolsolo.application.Packet argPacket);
+	public com.scobolsolo.application.Tournament clearPacket();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Packet>> T acquirePacket(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createPacketIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -771,12 +770,12 @@ public interface TournamentUserFacing extends IdentityUserFacing, Comparable<com
 
 	public java.util.stream.Stream<com.scobolsolo.application.Room> streamRoom();
 
-	public void addRoom(com.scobolsolo.application.Room argRoom);
-	public void removeRoom(com.scobolsolo.application.Room argRoom);
-	public void clearRoom();
+	public com.scobolsolo.application.Tournament addRoom(com.scobolsolo.application.Room argRoom);
+	public com.scobolsolo.application.Tournament removeRoom(com.scobolsolo.application.Room argRoom);
+	public com.scobolsolo.application.Tournament clearRoom();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Room>> T acquireRoom(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Room> lclI = createRoomIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

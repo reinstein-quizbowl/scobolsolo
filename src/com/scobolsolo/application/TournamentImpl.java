@@ -266,13 +266,15 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	to this object. */
 
 	@Override
-	public void addPhase(Phase argPhase) {
+	public com.scobolsolo.application.Tournament addPhase(Phase argPhase) {
 		getTournamentOpal().addPhaseOpal(((PhaseImpl) argPhase).getPhaseOpal());
+		return this;
 	}
 
 	@Override
-	public void removePhase(Phase argPhase) {
+	public com.scobolsolo.application.Tournament removePhase(Phase argPhase) {
 		getTournamentOpal().removePhaseOpal(((PhaseImpl) argPhase).getPhaseOpal());
+		return this;
 	}
 
 	@Override
@@ -291,18 +293,20 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void clearPhase() {
+	public com.scobolsolo.application.Tournament clearPhase() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public com.scobolsolo.application.Tournament addSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getTournamentOpal().addSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		return this;
 	}
 
 	@Override
-	public void removeSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public com.scobolsolo.application.Tournament removeSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getTournamentOpal().removeSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		return this;
 	}
 
 	@Override
@@ -321,18 +325,20 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void clearSchoolRegistration() {
+	public com.scobolsolo.application.Tournament clearSchoolRegistration() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addStaff(Staff argStaff) {
+	public com.scobolsolo.application.Tournament addStaff(Staff argStaff) {
 		getTournamentOpal().addStaffOpal(((StaffImpl) argStaff).getStaffOpal());
+		return this;
 	}
 
 	@Override
-	public void removeStaff(Staff argStaff) {
+	public com.scobolsolo.application.Tournament removeStaff(Staff argStaff) {
 		getTournamentOpal().removeStaffOpal(((StaffImpl) argStaff).getStaffOpal());
+		return this;
 	}
 
 	@Override
@@ -351,18 +357,20 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void clearStaff() {
+	public com.scobolsolo.application.Tournament clearStaff() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addCategoryUse(CategoryUse argCategoryUse) {
+	public com.scobolsolo.application.Tournament addCategoryUse(CategoryUse argCategoryUse) {
 		getTournamentOpal().addCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
+		return this;
 	}
 
 	@Override
-	public void removeCategoryUse(CategoryUse argCategoryUse) {
+	public com.scobolsolo.application.Tournament removeCategoryUse(CategoryUse argCategoryUse) {
 		getTournamentOpal().removeCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
+		return this;
 	}
 
 	@Override
@@ -381,18 +389,20 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void clearCategoryUse() {
+	public com.scobolsolo.application.Tournament clearCategoryUse() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addPacket(Packet argPacket) {
+	public com.scobolsolo.application.Tournament addPacket(Packet argPacket) {
 		getTournamentOpal().addPacketOpal(((PacketImpl) argPacket).getPacketOpal());
+		return this;
 	}
 
 	@Override
-	public void removePacket(Packet argPacket) {
+	public com.scobolsolo.application.Tournament removePacket(Packet argPacket) {
 		getTournamentOpal().removePacketOpal(((PacketImpl) argPacket).getPacketOpal());
+		return this;
 	}
 
 	@Override
@@ -411,18 +421,20 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void clearPacket() {
+	public com.scobolsolo.application.Tournament clearPacket() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addRoom(Room argRoom) {
+	public com.scobolsolo.application.Tournament addRoom(Room argRoom) {
 		getTournamentOpal().addRoomOpal(((RoomImpl) argRoom).getRoomOpal());
+		return this;
 	}
 
 	@Override
-	public void removeRoom(Room argRoom) {
+	public com.scobolsolo.application.Tournament removeRoom(Room argRoom) {
 		getTournamentOpal().removeRoomOpal(((RoomImpl) argRoom).getRoomOpal());
+		return this;
 	}
 
 	@Override
@@ -441,7 +453,7 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 	}
 
 	@Override
-	public void clearRoom() {
+	public com.scobolsolo.application.Tournament clearRoom() {
 		throw new UnsupportedOperationException();
 	}
 

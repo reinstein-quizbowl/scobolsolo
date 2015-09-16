@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.PhaseOpalFactory;
 import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class PhaseFactory extends com.opal.AbstractFactory<Phase, PhaseOpal> imp
 
 	public PhaseOpalFactory getPhaseOpalFactory() { return (PhaseOpalFactory) getOpalFactory(); }
 
-	protected PhaseFactory(OpalFactory<Phase, PhaseOpal> argOpalFactory) {
+	protected PhaseFactory(com.opal.OpalFactory<Phase, PhaseOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

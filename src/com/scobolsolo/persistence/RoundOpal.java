@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	public static final java.lang.Boolean ourDefaultLunchAfter = java.lang.Boolean.FALSE;
 
@@ -16,7 +11,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		setUserFacing(null);
 	}
 
-	public RoundOpal(OpalFactory<Round, RoundOpal> argOpalFactory, Object[] argValues) {
+	public RoundOpal(com.opal.OpalFactory<Round, RoundOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -63,7 +58,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -85,12 +80,12 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -265,7 +260,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Round> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Round> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -290,7 +285,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewRoundGroupOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -305,7 +300,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldRoundGroupOpal) == RoundGroupOpal.NOT_YET_LOADED) {
 			lclUO = myOldRoundGroupOpal = retrieveRoundGroupOpal(getOldValues());
 		}
@@ -330,25 +325,25 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("RoundGroupId = " + getRoundGroupIdAsObject());
-		argPW.println("Name = " + getName());
-		argPW.println("ShortName = " + getShortName());
-		argPW.println("Sequence = " + getSequenceAsObject());
-		argPW.println("StartTime = " + getStartTime());
-		argPW.println("LunchAfter = " + isLunchAfterAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("RoundGroupId = " + getRoundGroupIdAsObject());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("StartTime = " + getStartTime());
+		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("RoundGroupId = " + getRoundGroupIdAsObject());
-		argPS.println("Name = " + getName());
-		argPS.println("ShortName = " + getShortName());
-		argPS.println("Sequence = " + getSequenceAsObject());
-		argPS.println("StartTime = " + getStartTime());
-		argPS.println("LunchAfter = " + isLunchAfterAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("RoundGroupId = " + getRoundGroupIdAsObject());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("StartTime = " + getStartTime());
+		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
 	}
 
 	private RoundGroupOpal myOldRoundGroupOpal;
@@ -452,7 +447,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 				}
 				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
 				if (myMatchOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myMatchOpalCachedOperations, myNewMatchOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myMatchOpalCachedOperations, myNewMatchOpalHashSet);
 					myMatchOpalCachedOperations = null;
 				}
 			}
@@ -476,7 +471,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (myNewMatchOpalHashSet == null) {
 			if (myOldMatchOpalHashSet == null) {
 				if (myMatchOpalCachedOperations == null) { myMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myMatchOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argMatchOpal));
+				myMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMatchOpal));
 			} else {
 				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
 				myNewMatchOpalHashSet.add(argMatchOpal);
@@ -497,7 +492,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (myNewMatchOpalHashSet == null) {
 			if (myOldMatchOpalHashSet == null) {
 				if (myMatchOpalCachedOperations == null) { myMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myMatchOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argMatchOpal));
+				myMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMatchOpal));
 			} else {
 				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
 				myNewMatchOpalHashSet.remove(argMatchOpal);

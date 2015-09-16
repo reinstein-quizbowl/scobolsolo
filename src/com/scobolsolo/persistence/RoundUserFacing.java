@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Round} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface RoundUserFacing extends IdentityUserFacing {
+public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -328,12 +327,12 @@ public interface RoundUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch();
 
-	public void addMatch(com.scobolsolo.application.Match argMatch);
-	public void removeMatch(com.scobolsolo.application.Match argMatch);
-	public void clearMatch();
+	public com.scobolsolo.application.Round addMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Round removeMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Round clearMatch();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireMatch(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

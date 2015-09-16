@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Game} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface GameUserFacing extends IdentityUserFacing {
+public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -553,12 +552,12 @@ public interface GameUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance();
 
-	public void addPerformance(com.scobolsolo.application.Performance argPerformance);
-	public void removePerformance(com.scobolsolo.application.Performance argPerformance);
-	public void clearPerformance();
+	public com.scobolsolo.application.Game addPerformance(com.scobolsolo.application.Performance argPerformance);
+	public com.scobolsolo.application.Game removePerformance(com.scobolsolo.application.Performance argPerformance);
+	public com.scobolsolo.application.Game clearPerformance();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Performance>> T acquirePerformance(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

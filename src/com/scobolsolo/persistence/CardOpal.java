@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	private CardOpal() {
@@ -15,7 +10,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		setUserFacing(null);
 	}
 
-	public CardOpal(OpalFactory<Card, CardOpal> argOpalFactory, Object[] argValues) {
+	public CardOpal(com.opal.OpalFactory<Card, CardOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -53,7 +48,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -74,12 +69,12 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -254,7 +249,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Card> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Card> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -278,7 +273,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewPhaseOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -293,7 +288,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldPhaseOpal) == PhaseOpal.NOT_YET_LOADED) {
 			lclUO = myOldPhaseOpal = retrievePhaseOpal(getOldValues());
 		}
@@ -318,23 +313,23 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("Name = " + getName());
-		argPW.println("ShortName = " + getShortName());
-		argPW.println("Sequence = " + getSequenceAsObject());
-		argPW.println("FinalMessage = " + getFinalMessage());
-		argPW.println("PhaseId = " + getPhaseIdAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("FinalMessage = " + getFinalMessage());
+		argOutput.println("PhaseId = " + getPhaseIdAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("Name = " + getName());
-		argPS.println("ShortName = " + getShortName());
-		argPS.println("Sequence = " + getSequenceAsObject());
-		argPS.println("FinalMessage = " + getFinalMessage());
-		argPS.println("PhaseId = " + getPhaseIdAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("FinalMessage = " + getFinalMessage());
+		argOutput.println("PhaseId = " + getPhaseIdAsObject());
 	}
 
 	private PhaseOpal myOldPhaseOpal;
@@ -438,7 +433,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 				}
 				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
 				if (myLosingMatchOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myLosingMatchOpalCachedOperations, myNewLosingMatchOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myLosingMatchOpalCachedOperations, myNewLosingMatchOpalHashSet);
 					myLosingMatchOpalCachedOperations = null;
 				}
 			}
@@ -462,7 +457,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		if (myNewLosingMatchOpalHashSet == null) {
 			if (myOldLosingMatchOpalHashSet == null) {
 				if (myLosingMatchOpalCachedOperations == null) { myLosingMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myLosingMatchOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argMatchOpal));
+				myLosingMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMatchOpal));
 			} else {
 				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
 				myNewLosingMatchOpalHashSet.add(argMatchOpal);
@@ -483,7 +478,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		if (myNewLosingMatchOpalHashSet == null) {
 			if (myOldLosingMatchOpalHashSet == null) {
 				if (myLosingMatchOpalCachedOperations == null) { myLosingMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myLosingMatchOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argMatchOpal));
+				myLosingMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMatchOpal));
 			} else {
 				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
 				myNewLosingMatchOpalHashSet.remove(argMatchOpal);
@@ -522,7 +517,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 				}
 				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
 				if (myWinningMatchOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myWinningMatchOpalCachedOperations, myNewWinningMatchOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myWinningMatchOpalCachedOperations, myNewWinningMatchOpalHashSet);
 					myWinningMatchOpalCachedOperations = null;
 				}
 			}
@@ -546,7 +541,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		if (myNewWinningMatchOpalHashSet == null) {
 			if (myOldWinningMatchOpalHashSet == null) {
 				if (myWinningMatchOpalCachedOperations == null) { myWinningMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWinningMatchOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argMatchOpal));
+				myWinningMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMatchOpal));
 			} else {
 				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
 				myNewWinningMatchOpalHashSet.add(argMatchOpal);
@@ -567,7 +562,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		if (myNewWinningMatchOpalHashSet == null) {
 			if (myOldWinningMatchOpalHashSet == null) {
 				if (myWinningMatchOpalCachedOperations == null) { myWinningMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWinningMatchOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argMatchOpal));
+				myWinningMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMatchOpal));
 			} else {
 				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
 				myNewWinningMatchOpalHashSet.remove(argMatchOpal);

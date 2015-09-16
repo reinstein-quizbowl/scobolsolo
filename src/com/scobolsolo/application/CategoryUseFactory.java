@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.CategoryUseOpalFactory;
 import com.scobolsolo.persistence.CategoryUseOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class CategoryUseFactory extends com.opal.AbstractFactory<CategoryUse, Ca
 
 	public CategoryUseOpalFactory getCategoryUseOpalFactory() { return (CategoryUseOpalFactory) getOpalFactory(); }
 
-	protected CategoryUseFactory(OpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory) {
+	protected CategoryUseFactory(com.opal.OpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

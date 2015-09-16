@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.DiffOpalFactory;
 import com.scobolsolo.persistence.DiffOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class DiffFactory extends com.opal.AbstractFactory<Diff, DiffOpal> implem
 
 	public DiffOpalFactory getDiffOpalFactory() { return (DiffOpalFactory) getOpalFactory(); }
 
-	protected DiffFactory(OpalFactory<Diff, DiffOpal> argOpalFactory) {
+	protected DiffFactory(com.opal.OpalFactory<Diff, DiffOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

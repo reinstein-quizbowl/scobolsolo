@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.TournamentOpalFactory;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class TournamentFactory extends com.opal.AbstractFactory<Tournament, Tour
 
 	public TournamentOpalFactory getTournamentOpalFactory() { return (TournamentOpalFactory) getOpalFactory(); }
 
-	protected TournamentFactory(OpalFactory<Tournament, TournamentOpal> argOpalFactory) {
+	protected TournamentFactory(com.opal.OpalFactory<Tournament, TournamentOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

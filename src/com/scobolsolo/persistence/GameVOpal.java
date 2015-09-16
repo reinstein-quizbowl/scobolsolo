@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
@@ -14,7 +9,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		setUserFacing(null);
 	}
 
-	public GameVOpal(OpalFactory<GameV, GameVOpal> argOpalFactory, Object[] argValues) {
+	public GameVOpal(com.opal.OpalFactory<GameV, GameVOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -93,7 +88,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -124,12 +119,12 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public java.lang.String getTournamentCode() {
@@ -248,43 +243,43 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("TournamentCode = " + getTournamentCode());
-		argPW.println("GameId = " + getGameIdAsObject());
-		argPW.println("RoundId = " + getRoundIdAsObject());
-		argPW.println("RoomId = " + getRoomIdAsObject());
-		argPW.println("WinningCardId = " + getWinningCardIdAsObject());
-		argPW.println("LosingCardId = " + getLosingCardIdAsObject());
-		argPW.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
-		argPW.println("TossupsHeard = " + getTossupsHeardAsObject());
-		argPW.println("IncomingWinningCardPlayerId = " + getIncomingWinningCardPlayerIdAsObject());
-		argPW.println("IncomingLosingCardPlayerId = " + getIncomingLosingCardPlayerIdAsObject());
-		argPW.println("WinnerPlayerId = " + getWinnerPlayerIdAsObject());
-		argPW.println("LoserPlayerId = " + getLoserPlayerIdAsObject());
-		argPW.println("WinnerPerformanceId = " + getWinnerPerformanceIdAsObject());
-		argPW.println("LoserPerformanceId = " + getLoserPerformanceIdAsObject());
-		argPW.println("WinnerScore = " + getWinnerScoreAsObject());
-		argPW.println("LoserScore = " + getLoserScoreAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("GameId = " + getGameIdAsObject());
+		argOutput.println("RoundId = " + getRoundIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
+		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
+		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
+		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
+		argOutput.println("IncomingWinningCardPlayerId = " + getIncomingWinningCardPlayerIdAsObject());
+		argOutput.println("IncomingLosingCardPlayerId = " + getIncomingLosingCardPlayerIdAsObject());
+		argOutput.println("WinnerPlayerId = " + getWinnerPlayerIdAsObject());
+		argOutput.println("LoserPlayerId = " + getLoserPlayerIdAsObject());
+		argOutput.println("WinnerPerformanceId = " + getWinnerPerformanceIdAsObject());
+		argOutput.println("LoserPerformanceId = " + getLoserPerformanceIdAsObject());
+		argOutput.println("WinnerScore = " + getWinnerScoreAsObject());
+		argOutput.println("LoserScore = " + getLoserScoreAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("TournamentCode = " + getTournamentCode());
-		argPS.println("GameId = " + getGameIdAsObject());
-		argPS.println("RoundId = " + getRoundIdAsObject());
-		argPS.println("RoomId = " + getRoomIdAsObject());
-		argPS.println("WinningCardId = " + getWinningCardIdAsObject());
-		argPS.println("LosingCardId = " + getLosingCardIdAsObject());
-		argPS.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
-		argPS.println("TossupsHeard = " + getTossupsHeardAsObject());
-		argPS.println("IncomingWinningCardPlayerId = " + getIncomingWinningCardPlayerIdAsObject());
-		argPS.println("IncomingLosingCardPlayerId = " + getIncomingLosingCardPlayerIdAsObject());
-		argPS.println("WinnerPlayerId = " + getWinnerPlayerIdAsObject());
-		argPS.println("LoserPlayerId = " + getLoserPlayerIdAsObject());
-		argPS.println("WinnerPerformanceId = " + getWinnerPerformanceIdAsObject());
-		argPS.println("LoserPerformanceId = " + getLoserPerformanceIdAsObject());
-		argPS.println("WinnerScore = " + getWinnerScoreAsObject());
-		argPS.println("LoserScore = " + getLoserScoreAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("GameId = " + getGameIdAsObject());
+		argOutput.println("RoundId = " + getRoundIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
+		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
+		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
+		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
+		argOutput.println("IncomingWinningCardPlayerId = " + getIncomingWinningCardPlayerIdAsObject());
+		argOutput.println("IncomingLosingCardPlayerId = " + getIncomingLosingCardPlayerIdAsObject());
+		argOutput.println("WinnerPlayerId = " + getWinnerPlayerIdAsObject());
+		argOutput.println("LoserPlayerId = " + getLoserPlayerIdAsObject());
+		argOutput.println("WinnerPerformanceId = " + getWinnerPerformanceIdAsObject());
+		argOutput.println("LoserPerformanceId = " + getLoserPerformanceIdAsObject());
+		argOutput.println("WinnerScore = " + getWinnerScoreAsObject());
+		argOutput.println("LoserScore = " + getLoserScoreAsObject());
 	}
 
 	private GameOpal myOldGameOpal;

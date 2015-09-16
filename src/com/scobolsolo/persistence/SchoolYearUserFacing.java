@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code SchoolYear} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface SchoolYearUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.SchoolYear> {
+public interface SchoolYearUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.SchoolYear> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}

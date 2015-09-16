@@ -107,13 +107,15 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	to this object. */
 
 	@Override
-	public void addQuestion(Question argQuestion) {
+	public com.scobolsolo.application.Category addQuestion(Question argQuestion) {
 		getCategoryOpal().addQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
+		return this;
 	}
 
 	@Override
-	public void removeQuestion(Question argQuestion) {
+	public com.scobolsolo.application.Category removeQuestion(Question argQuestion) {
 		getCategoryOpal().removeQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
+		return this;
 	}
 
 	@Override
@@ -132,18 +134,20 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void clearQuestion() {
+	public com.scobolsolo.application.Category clearQuestion() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addDiff(Diff argDiff) {
+	public com.scobolsolo.application.Category addDiff(Diff argDiff) {
 		getCategoryOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+		return this;
 	}
 
 	@Override
-	public void removeDiff(Diff argDiff) {
+	public com.scobolsolo.application.Category removeDiff(Diff argDiff) {
 		getCategoryOpal().removeDiffOpal(((DiffImpl) argDiff).getDiffOpal());
+		return this;
 	}
 
 	@Override
@@ -162,18 +166,20 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void clearDiff() {
+	public com.scobolsolo.application.Category clearDiff() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addCategoryUse(CategoryUse argCategoryUse) {
+	public com.scobolsolo.application.Category addCategoryUse(CategoryUse argCategoryUse) {
 		getCategoryOpal().addCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
+		return this;
 	}
 
 	@Override
-	public void removeCategoryUse(CategoryUse argCategoryUse) {
+	public com.scobolsolo.application.Category removeCategoryUse(CategoryUse argCategoryUse) {
 		getCategoryOpal().removeCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
+		return this;
 	}
 
 	@Override
@@ -192,18 +198,20 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void clearCategoryUse() {
+	public com.scobolsolo.application.Category clearCategoryUse() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addPlacement(Placement argPlacement) {
+	public com.scobolsolo.application.Category addPlacement(Placement argPlacement) {
 		getCategoryOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
 	}
 
 	@Override
-	public void removePlacement(Placement argPlacement) {
+	public com.scobolsolo.application.Category removePlacement(Placement argPlacement) {
 		getCategoryOpal().removePlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
 	}
 
 	@Override
@@ -222,7 +230,7 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public void clearPlacement() {
+	public com.scobolsolo.application.Category clearPlacement() {
 		throw new UnsupportedOperationException();
 	}
 

@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssignment> {
 
 	private StaffAssignmentOpal() {
@@ -15,7 +10,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		setUserFacing(null);
 	}
 
-	public StaffAssignmentOpal(OpalFactory<StaffAssignment, StaffAssignmentOpal> argOpalFactory, Object[] argValues) {
+	public StaffAssignmentOpal(com.opal.OpalFactory<StaffAssignment, StaffAssignmentOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -55,7 +50,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -76,12 +71,12 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -217,7 +212,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<StaffAssignment> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<StaffAssignment> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -250,7 +245,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewPhaseOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -286,7 +281,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldPhaseOpal) == PhaseOpal.NOT_YET_LOADED) {
 			lclUO = myOldPhaseOpal = retrievePhaseOpal(getOldValues());
 		}
@@ -338,23 +333,23 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("RoomId = " + getRoomIdAsObject());
-		argPW.println("Note = " + getNote());
-		argPW.println("StaffId = " + getStaffIdAsObject());
-		argPW.println("PhaseId = " + getPhaseIdAsObject());
-		argPW.println("StaffRoleCode = " + getStaffRoleCode());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("Note = " + getNote());
+		argOutput.println("StaffId = " + getStaffIdAsObject());
+		argOutput.println("PhaseId = " + getPhaseIdAsObject());
+		argOutput.println("StaffRoleCode = " + getStaffRoleCode());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("RoomId = " + getRoomIdAsObject());
-		argPS.println("Note = " + getNote());
-		argPS.println("StaffId = " + getStaffIdAsObject());
-		argPS.println("PhaseId = " + getPhaseIdAsObject());
-		argPS.println("StaffRoleCode = " + getStaffRoleCode());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("Note = " + getNote());
+		argOutput.println("StaffId = " + getStaffIdAsObject());
+		argOutput.println("PhaseId = " + getPhaseIdAsObject());
+		argOutput.println("StaffRoleCode = " + getStaffRoleCode());
 	}
 
 	private StaffOpal myOldStaffOpal;

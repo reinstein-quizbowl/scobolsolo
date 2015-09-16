@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code RoundGroup} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface RoundGroupUserFacing extends IdentityUserFacing {
+public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -215,12 +214,12 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Round> streamRound();
 
-	public void addRound(com.scobolsolo.application.Round argRound);
-	public void removeRound(com.scobolsolo.application.Round argRound);
-	public void clearRound();
+	public com.scobolsolo.application.RoundGroup addRound(com.scobolsolo.application.Round argRound);
+	public com.scobolsolo.application.RoundGroup removeRound(com.scobolsolo.application.Round argRound);
+	public com.scobolsolo.application.RoundGroup clearRound();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Round>> T acquireRound(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Round> lclI = createRoundIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

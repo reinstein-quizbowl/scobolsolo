@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class PlayerPointVOpal extends com.opal.EphemeralOpal<PlayerPointV> {
@@ -14,7 +9,7 @@ public final class PlayerPointVOpal extends com.opal.EphemeralOpal<PlayerPointV>
 		setUserFacing(null);
 	}
 
-	public PlayerPointVOpal(OpalFactory<PlayerPointV, PlayerPointVOpal> argOpalFactory, Object[] argValues) {
+	public PlayerPointVOpal(com.opal.OpalFactory<PlayerPointV, PlayerPointVOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -43,7 +38,7 @@ public final class PlayerPointVOpal extends com.opal.EphemeralOpal<PlayerPointV>
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -61,12 +56,12 @@ public final class PlayerPointVOpal extends com.opal.EphemeralOpal<PlayerPointV>
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public java.lang.String getTournamentCode() {
@@ -111,17 +106,17 @@ public final class PlayerPointVOpal extends com.opal.EphemeralOpal<PlayerPointV>
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("TournamentCode = " + getTournamentCode());
-		argPW.println("PlayerId = " + getPlayerIdAsObject());
-		argPW.println("Points = " + getPointsAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("PlayerId = " + getPlayerIdAsObject());
+		argOutput.println("Points = " + getPointsAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("TournamentCode = " + getTournamentCode());
-		argPS.println("PlayerId = " + getPlayerIdAsObject());
-		argPS.println("Points = " + getPointsAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("PlayerId = " + getPlayerIdAsObject());
+		argOutput.println("Points = " + getPointsAsObject());
 	}
 
 	private TournamentOpal myOldTournamentOpal;

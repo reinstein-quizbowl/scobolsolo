@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Card} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface CardUserFacing extends IdentityUserFacing {
+public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -255,12 +254,12 @@ public interface CardUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Match> streamLosingMatch();
 
-	public void addLosingMatch(com.scobolsolo.application.Match argMatch);
-	public void removeLosingMatch(com.scobolsolo.application.Match argMatch);
-	public void clearLosingMatch();
+	public com.scobolsolo.application.Card addLosingMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Card removeLosingMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Card clearLosingMatch();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireLosingMatch(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Match> lclI = createLosingMatchIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -284,12 +283,12 @@ public interface CardUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Match> streamWinningMatch();
 
-	public void addWinningMatch(com.scobolsolo.application.Match argMatch);
-	public void removeWinningMatch(com.scobolsolo.application.Match argMatch);
-	public void clearWinningMatch();
+	public com.scobolsolo.application.Card addWinningMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Card removeWinningMatch(com.scobolsolo.application.Match argMatch);
+	public com.scobolsolo.application.Card clearWinningMatch();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireWinningMatch(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Match> lclI = createWinningMatchIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

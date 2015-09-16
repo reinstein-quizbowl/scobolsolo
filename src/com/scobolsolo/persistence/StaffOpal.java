@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	public static final java.lang.Boolean ourDefaultBringingLaptop = java.lang.Boolean.FALSE;
 
@@ -16,7 +11,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		setUserFacing(null);
 	}
 
-	public StaffOpal(OpalFactory<Staff, StaffOpal> argOpalFactory, Object[] argValues) {
+	public StaffOpal(com.opal.OpalFactory<Staff, StaffOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -61,7 +56,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -82,12 +77,12 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -266,7 +261,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Staff> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Staff> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -296,7 +291,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewContactOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -325,7 +320,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldContactOpal) == ContactOpal.NOT_YET_LOADED) {
 			lclUO = myOldContactOpal = retrieveContactOpal(getOldValues());
 		}
@@ -368,23 +363,23 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("ContactId = " + getContactIdAsObject());
-		argPW.println("TournamentCode = " + getTournamentCode());
-		argPW.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
-		argPW.println("Note = " + getNote());
-		argPW.println("BringingLaptop = " + isBringingLaptopAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("ContactId = " + getContactIdAsObject());
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
+		argOutput.println("Note = " + getNote());
+		argOutput.println("BringingLaptop = " + isBringingLaptopAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("ContactId = " + getContactIdAsObject());
-		argPS.println("TournamentCode = " + getTournamentCode());
-		argPS.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
-		argPS.println("Note = " + getNote());
-		argPS.println("BringingLaptop = " + isBringingLaptopAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("ContactId = " + getContactIdAsObject());
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
+		argOutput.println("Note = " + getNote());
+		argOutput.println("BringingLaptop = " + isBringingLaptopAsObject());
 	}
 
 	private ContactOpal myOldContactOpal;
@@ -538,7 +533,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 				}
 				myNewModeratorGameOpalHashSet = new java.util.HashSet<>(myOldModeratorGameOpalHashSet);
 				if (myModeratorGameOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myModeratorGameOpalCachedOperations, myNewModeratorGameOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myModeratorGameOpalCachedOperations, myNewModeratorGameOpalHashSet);
 					myModeratorGameOpalCachedOperations = null;
 				}
 			}
@@ -562,7 +557,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (myNewModeratorGameOpalHashSet == null) {
 			if (myOldModeratorGameOpalHashSet == null) {
 				if (myModeratorGameOpalCachedOperations == null) { myModeratorGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myModeratorGameOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argGameOpal));
+				myModeratorGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
 			} else {
 				myNewModeratorGameOpalHashSet = new java.util.HashSet<>(myOldModeratorGameOpalHashSet);
 				myNewModeratorGameOpalHashSet.add(argGameOpal);
@@ -583,7 +578,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (myNewModeratorGameOpalHashSet == null) {
 			if (myOldModeratorGameOpalHashSet == null) {
 				if (myModeratorGameOpalCachedOperations == null) { myModeratorGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myModeratorGameOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argGameOpal));
+				myModeratorGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
 			} else {
 				myNewModeratorGameOpalHashSet = new java.util.HashSet<>(myOldModeratorGameOpalHashSet);
 				myNewModeratorGameOpalHashSet.remove(argGameOpal);
@@ -622,7 +617,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 				}
 				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
 				if (myStaffAssignmentOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalHashSet);
 					myStaffAssignmentOpalCachedOperations = null;
 				}
 			}
@@ -646,7 +641,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (myNewStaffAssignmentOpalHashSet == null) {
 			if (myOldStaffAssignmentOpalHashSet == null) {
 				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argStaffAssignmentOpal));
+				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argStaffAssignmentOpal));
 			} else {
 				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
 				myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
@@ -667,7 +662,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (myNewStaffAssignmentOpalHashSet == null) {
 			if (myOldStaffAssignmentOpalHashSet == null) {
 				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argStaffAssignmentOpal));
+				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argStaffAssignmentOpal));
 			} else {
 				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
 				myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);

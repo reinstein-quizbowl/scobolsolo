@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.SchoolRegistrationOpalFactory;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class SchoolRegistrationFactory extends com.opal.AbstractFactory<SchoolRe
 
 	public SchoolRegistrationOpalFactory getSchoolRegistrationOpalFactory() { return (SchoolRegistrationOpalFactory) getOpalFactory(); }
 
-	protected SchoolRegistrationFactory(OpalFactory<SchoolRegistration, SchoolRegistrationOpal> argOpalFactory) {
+	protected SchoolRegistrationFactory(com.opal.OpalFactory<SchoolRegistration, SchoolRegistrationOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

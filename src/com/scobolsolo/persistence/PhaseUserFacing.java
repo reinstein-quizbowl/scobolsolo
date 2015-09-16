@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Phase} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface PhaseUserFacing extends IdentityUserFacing {
+public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -277,12 +276,12 @@ public interface PhaseUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
 
-	public void addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public void removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public void clearStaffAssignment();
+	public com.scobolsolo.application.Phase addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public com.scobolsolo.application.Phase removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
+	public com.scobolsolo.application.Phase clearStaffAssignment();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -306,12 +305,12 @@ public interface PhaseUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.RoundGroup> streamRoundGroup();
 
-	public void addRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
-	public void removeRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
-	public void clearRoundGroup();
+	public com.scobolsolo.application.Phase addRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
+	public com.scobolsolo.application.Phase removeRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
+	public com.scobolsolo.application.Phase clearRoundGroup();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.RoundGroup>> T acquireRoundGroup(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.RoundGroup> lclI = createRoundGroupIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -335,12 +334,12 @@ public interface PhaseUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Card> streamCard();
 
-	public void addCard(com.scobolsolo.application.Card argCard);
-	public void removeCard(com.scobolsolo.application.Card argCard);
-	public void clearCard();
+	public com.scobolsolo.application.Phase addCard(com.scobolsolo.application.Card argCard);
+	public com.scobolsolo.application.Phase removeCard(com.scobolsolo.application.Card argCard);
+	public com.scobolsolo.application.Phase clearCard();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Card>> T acquireCard(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Card> lclI = createCardIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

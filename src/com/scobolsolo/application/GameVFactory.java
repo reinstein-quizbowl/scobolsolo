@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.GameVOpalFactory;
 import com.scobolsolo.persistence.GameVOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class GameVFactory extends com.opal.AbstractFactory<GameV, GameVOpal> {
 
 	public GameVOpalFactory getGameVOpalFactory() { return (GameVOpalFactory) getOpalFactory(); }
 
-	protected GameVFactory(OpalFactory<GameV, GameVOpal> argOpalFactory) {
+	protected GameVFactory(com.opal.OpalFactory<GameV, GameVOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

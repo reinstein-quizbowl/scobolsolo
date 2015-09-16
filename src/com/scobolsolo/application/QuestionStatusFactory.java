@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.QuestionStatusOpalFactory;
 import com.scobolsolo.persistence.QuestionStatusOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class QuestionStatusFactory extends com.opal.AbstractFactory<QuestionStat
 
 	public QuestionStatusOpalFactory getQuestionStatusOpalFactory() { return (QuestionStatusOpalFactory) getOpalFactory(); }
 
-	protected QuestionStatusFactory(OpalFactory<QuestionStatus, QuestionStatusOpal> argOpalFactory) {
+	protected QuestionStatusFactory(com.opal.OpalFactory<QuestionStatus, QuestionStatusOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

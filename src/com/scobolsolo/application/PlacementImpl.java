@@ -189,13 +189,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	to this object. */
 
 	@Override
-	public void addResponse(Response argResponse) {
+	public com.scobolsolo.application.Placement addResponse(Response argResponse) {
 		getPlacementOpal().addResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
 	}
 
 	@Override
-	public void removeResponse(Response argResponse) {
+	public com.scobolsolo.application.Placement removeResponse(Response argResponse) {
 		getPlacementOpal().removeResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
 	}
 
 	@Override
@@ -214,18 +216,20 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void clearResponse() {
+	public com.scobolsolo.application.Placement clearResponse() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addReplacementForResponse(Response argResponse) {
+	public com.scobolsolo.application.Placement addReplacementForResponse(Response argResponse) {
 		getPlacementOpal().addReplacementForResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
 	}
 
 	@Override
-	public void removeReplacementForResponse(Response argResponse) {
+	public com.scobolsolo.application.Placement removeReplacementForResponse(Response argResponse) {
 		getPlacementOpal().removeReplacementForResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
 	}
 
 	@Override
@@ -244,7 +248,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public void clearReplacementForResponse() {
+	public com.scobolsolo.application.Placement clearReplacementForResponse() {
 		throw new UnsupportedOperationException();
 	}
 

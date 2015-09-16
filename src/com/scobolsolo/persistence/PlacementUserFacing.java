@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Placement} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface PlacementUserFacing extends IdentityUserFacing {
+public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -378,12 +377,12 @@ public interface PlacementUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse();
 
-	public void addResponse(com.scobolsolo.application.Response argResponse);
-	public void removeResponse(com.scobolsolo.application.Response argResponse);
-	public void clearResponse();
+	public com.scobolsolo.application.Placement addResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Placement removeResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Placement clearResponse();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireResponse(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -407,12 +406,12 @@ public interface PlacementUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Response> streamReplacementForResponse();
 
-	public void addReplacementForResponse(com.scobolsolo.application.Response argResponse);
-	public void removeReplacementForResponse(com.scobolsolo.application.Response argResponse);
-	public void clearReplacementForResponse();
+	public com.scobolsolo.application.Placement addReplacementForResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Placement removeReplacementForResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Placement clearReplacementForResponse();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireReplacementForResponse(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementForResponseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

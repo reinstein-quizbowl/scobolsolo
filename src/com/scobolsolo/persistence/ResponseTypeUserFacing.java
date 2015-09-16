@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code ResponseType} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface ResponseTypeUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.ResponseType> {
+public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.ResponseType> {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}

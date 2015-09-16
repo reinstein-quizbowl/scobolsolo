@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType> {
@@ -20,7 +15,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		setUserFacing(null);
 	}
 
-	public ResponseTypeOpal(OpalFactory<ResponseType, ResponseTypeOpal> argOpalFactory, Object[] argValues) {
+	public ResponseTypeOpal(com.opal.OpalFactory<ResponseType, ResponseTypeOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -77,7 +72,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -103,12 +98,12 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.String getCode() {
@@ -321,7 +316,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<ResponseType> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<ResponseType> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Code) is part of a unique key. */
@@ -368,33 +363,33 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Code = " + getCode());
-		argPW.println("Name = " + getName());
-		argPW.println("ShortName = " + getShortName());
-		argPW.println("Sequence = " + getSequenceAsObject());
-		argPW.println("Points = " + getPointsAsObject());
-		argPW.println("Default = " + isDefaultAsObject());
-		argPW.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
-		argPW.println("Attempt = " + isAttemptAsObject());
-		argPW.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
-		argPW.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
-		argPW.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Code = " + getCode());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("Points = " + getPointsAsObject());
+		argOutput.println("Default = " + isDefaultAsObject());
+		argOutput.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
+		argOutput.println("Attempt = " + isAttemptAsObject());
+		argOutput.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
+		argOutput.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
+		argOutput.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Code = " + getCode());
-		argPS.println("Name = " + getName());
-		argPS.println("ShortName = " + getShortName());
-		argPS.println("Sequence = " + getSequenceAsObject());
-		argPS.println("Points = " + getPointsAsObject());
-		argPS.println("Default = " + isDefaultAsObject());
-		argPS.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
-		argPS.println("Attempt = " + isAttemptAsObject());
-		argPS.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
-		argPS.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
-		argPS.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Code = " + getCode());
+		argOutput.println("Name = " + getName());
+		argOutput.println("ShortName = " + getShortName());
+		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("Points = " + getPointsAsObject());
+		argOutput.println("Default = " + isDefaultAsObject());
+		argOutput.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
+		argOutput.println("Attempt = " + isAttemptAsObject());
+		argOutput.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
+		argOutput.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
+		argOutput.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
 	}
 
 	@Override

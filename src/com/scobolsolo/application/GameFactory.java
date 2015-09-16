@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.GameOpalFactory;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class GameFactory extends com.opal.AbstractFactory<Game, GameOpal> implem
 
 	public GameOpalFactory getGameOpalFactory() { return (GameOpalFactory) getOpalFactory(); }
 
-	protected GameFactory(OpalFactory<Game, GameOpal> argOpalFactory) {
+	protected GameFactory(com.opal.OpalFactory<Game, GameOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

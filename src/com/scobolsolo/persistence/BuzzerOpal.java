@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 
 	private BuzzerOpal() {
@@ -15,7 +10,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		setUserFacing(null);
 	}
 
-	public BuzzerOpal(OpalFactory<Buzzer, BuzzerOpal> argOpalFactory, Object[] argValues) {
+	public BuzzerOpal(com.opal.OpalFactory<Buzzer, BuzzerOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -47,7 +42,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -66,12 +61,12 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -166,7 +161,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Buzzer> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Buzzer> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
@@ -191,7 +186,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewSchoolRegistrationOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -213,7 +208,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldSchoolRegistrationOpal) == SchoolRegistrationOpal.NOT_YET_LOADED) {
 			lclUO = myOldSchoolRegistrationOpal = retrieveSchoolRegistrationOpal(getOldValues());
 		}
@@ -247,19 +242,19 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
-		argPW.println("RoomId = " + getRoomIdAsObject());
-		argPW.println("Name = " + getName());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("Name = " + getName());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
-		argPS.println("RoomId = " + getRoomIdAsObject());
-		argPS.println("Name = " + getName());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
+		argOutput.println("RoomId = " + getRoomIdAsObject());
+		argOutput.println("Name = " + getName());
 	}
 
 	private SchoolRegistrationOpal myOldSchoolRegistrationOpal;

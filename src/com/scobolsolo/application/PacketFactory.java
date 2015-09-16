@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.PacketOpalFactory;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class PacketFactory extends com.opal.AbstractFactory<Packet, PacketOpal> 
 
 	public PacketOpalFactory getPacketOpalFactory() { return (PacketOpalFactory) getOpalFactory(); }
 
-	protected PacketFactory(OpalFactory<Packet, PacketOpal> argOpalFactory) {
+	protected PacketFactory(com.opal.OpalFactory<Packet, PacketOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

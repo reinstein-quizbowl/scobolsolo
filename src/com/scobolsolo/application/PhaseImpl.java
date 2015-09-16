@@ -141,13 +141,15 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	to this object. */
 
 	@Override
-	public void addStaffAssignment(StaffAssignment argStaffAssignment) {
+	public com.scobolsolo.application.Phase addStaffAssignment(StaffAssignment argStaffAssignment) {
 		getPhaseOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
 	}
 
 	@Override
-	public void removeStaffAssignment(StaffAssignment argStaffAssignment) {
+	public com.scobolsolo.application.Phase removeStaffAssignment(StaffAssignment argStaffAssignment) {
 		getPhaseOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
 	}
 
 	@Override
@@ -166,18 +168,20 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void clearStaffAssignment() {
+	public com.scobolsolo.application.Phase clearStaffAssignment() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addRoundGroup(RoundGroup argRoundGroup) {
+	public com.scobolsolo.application.Phase addRoundGroup(RoundGroup argRoundGroup) {
 		getPhaseOpal().addRoundGroupOpal(((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
+		return this;
 	}
 
 	@Override
-	public void removeRoundGroup(RoundGroup argRoundGroup) {
+	public com.scobolsolo.application.Phase removeRoundGroup(RoundGroup argRoundGroup) {
 		getPhaseOpal().removeRoundGroupOpal(((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
+		return this;
 	}
 
 	@Override
@@ -196,18 +200,20 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void clearRoundGroup() {
+	public com.scobolsolo.application.Phase clearRoundGroup() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addCard(Card argCard) {
+	public com.scobolsolo.application.Phase addCard(Card argCard) {
 		getPhaseOpal().addCardOpal(((CardImpl) argCard).getCardOpal());
+		return this;
 	}
 
 	@Override
-	public void removeCard(Card argCard) {
+	public com.scobolsolo.application.Phase removeCard(Card argCard) {
 		getPhaseOpal().removeCardOpal(((CardImpl) argCard).getCardOpal());
+		return this;
 	}
 
 	@Override
@@ -226,7 +232,7 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public void clearCard() {
+	public com.scobolsolo.application.Phase clearCard() {
 		throw new UnsupportedOperationException();
 	}
 

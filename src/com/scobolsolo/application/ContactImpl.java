@@ -160,13 +160,15 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	to this object. */
 
 	@Override
-	public void addTournamentDirectorTournament(Tournament argTournament) {
+	public com.scobolsolo.application.Contact addTournamentDirectorTournament(Tournament argTournament) {
 		getContactOpal().addTournamentDirectorTournamentOpal(((TournamentImpl) argTournament).getTournamentOpal());
+		return this;
 	}
 
 	@Override
-	public void removeTournamentDirectorTournament(Tournament argTournament) {
+	public com.scobolsolo.application.Contact removeTournamentDirectorTournament(Tournament argTournament) {
 		getContactOpal().removeTournamentDirectorTournamentOpal(((TournamentImpl) argTournament).getTournamentOpal());
+		return this;
 	}
 
 	@Override
@@ -185,18 +187,20 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void clearTournamentDirectorTournament() {
+	public com.scobolsolo.application.Contact clearTournamentDirectorTournament() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addPlayer(Player argPlayer) {
+	public com.scobolsolo.application.Contact addPlayer(Player argPlayer) {
 		getContactOpal().addPlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
 	}
 
 	@Override
-	public void removePlayer(Player argPlayer) {
+	public com.scobolsolo.application.Contact removePlayer(Player argPlayer) {
 		getContactOpal().removePlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
 	}
 
 	@Override
@@ -215,18 +219,20 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void clearPlayer() {
+	public com.scobolsolo.application.Contact clearPlayer() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addMainSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public com.scobolsolo.application.Contact addMainSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getContactOpal().addMainSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		return this;
 	}
 
 	@Override
-	public void removeMainSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public com.scobolsolo.application.Contact removeMainSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getContactOpal().removeMainSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		return this;
 	}
 
 	@Override
@@ -245,18 +251,20 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void clearMainSchoolRegistration() {
+	public com.scobolsolo.application.Contact clearMainSchoolRegistration() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addStaff(Staff argStaff) {
+	public com.scobolsolo.application.Contact addStaff(Staff argStaff) {
 		getContactOpal().addStaffOpal(((StaffImpl) argStaff).getStaffOpal());
+		return this;
 	}
 
 	@Override
-	public void removeStaff(Staff argStaff) {
+	public com.scobolsolo.application.Contact removeStaff(Staff argStaff) {
 		getContactOpal().removeStaffOpal(((StaffImpl) argStaff).getStaffOpal());
+		return this;
 	}
 
 	@Override
@@ -275,7 +283,7 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public void clearStaff() {
+	public com.scobolsolo.application.Contact clearStaff() {
 		throw new UnsupportedOperationException();
 	}
 

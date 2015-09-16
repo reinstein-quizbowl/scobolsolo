@@ -166,13 +166,15 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	to this object. */
 
 	@Override
-	public void addModeratorGame(Game argGame) {
+	public com.scobolsolo.application.Staff addModeratorGame(Game argGame) {
 		getStaffOpal().addModeratorGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
-	public void removeModeratorGame(Game argGame) {
+	public com.scobolsolo.application.Staff removeModeratorGame(Game argGame) {
 		getStaffOpal().removeModeratorGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
 	}
 
 	@Override
@@ -191,18 +193,20 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void clearModeratorGame() {
+	public com.scobolsolo.application.Staff clearModeratorGame() {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void addStaffAssignment(StaffAssignment argStaffAssignment) {
+	public com.scobolsolo.application.Staff addStaffAssignment(StaffAssignment argStaffAssignment) {
 		getStaffOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
 	}
 
 	@Override
-	public void removeStaffAssignment(StaffAssignment argStaffAssignment) {
+	public com.scobolsolo.application.Staff removeStaffAssignment(StaffAssignment argStaffAssignment) {
 		getStaffOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
 	}
 
 	@Override
@@ -221,7 +225,7 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public void clearStaffAssignment() {
+	public com.scobolsolo.application.Staff clearStaffAssignment() {
 		throw new UnsupportedOperationException();
 	}
 

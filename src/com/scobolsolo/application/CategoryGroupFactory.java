@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.CategoryGroupOpalFactory;
 import com.scobolsolo.persistence.CategoryGroupOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class CategoryGroupFactory extends com.opal.AbstractFactory<CategoryGroup
 
 	public CategoryGroupOpalFactory getCategoryGroupOpalFactory() { return (CategoryGroupOpalFactory) getOpalFactory(); }
 
-	protected CategoryGroupFactory(OpalFactory<CategoryGroup, CategoryGroupOpal> argOpalFactory) {
+	protected CategoryGroupFactory(com.opal.OpalFactory<CategoryGroup, CategoryGroupOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

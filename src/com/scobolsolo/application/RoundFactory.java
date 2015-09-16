@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.RoundOpalFactory;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class RoundFactory extends com.opal.AbstractFactory<Round, RoundOpal> imp
 
 	public RoundOpalFactory getRoundOpalFactory() { return (RoundOpalFactory) getOpalFactory(); }
 
-	protected RoundFactory(OpalFactory<Round, RoundOpal> argOpalFactory) {
+	protected RoundFactory(com.opal.OpalFactory<Round, RoundOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

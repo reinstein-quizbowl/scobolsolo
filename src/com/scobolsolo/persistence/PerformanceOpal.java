@@ -1,13 +1,8 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
-@StoreGeneratedPrimaryKey
+@com.opal.StoreGeneratedPrimaryKey
 public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 
 	private PerformanceOpal() {
@@ -15,7 +10,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		setUserFacing(null);
 	}
 
-	public PerformanceOpal(OpalFactory<Performance, PerformanceOpal> argOpalFactory, Object[] argValues) {
+	public PerformanceOpal(com.opal.OpalFactory<Performance, PerformanceOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -44,7 +39,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		false,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -62,12 +57,12 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.Integer getIdAsObject() {
@@ -182,7 +177,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<Performance> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Performance> argTarget) {
 		/* Field 0 (Id) is database generated. */
 		/* Field 1 (GameId) is part of a unique key. */
 		/* Field 2 (PlayerId) is part of a unique key. */
@@ -204,7 +199,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewGameOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -226,7 +221,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldGameOpal) == GameOpal.NOT_YET_LOADED) {
 			lclUO = myOldGameOpal = retrieveGameOpal(getOldValues());
 		}
@@ -260,17 +255,17 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("Id = " + getIdAsObject());
-		argPW.println("GameId = " + getGameIdAsObject());
-		argPW.println("PlayerId = " + getPlayerIdAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("GameId = " + getGameIdAsObject());
+		argOutput.println("PlayerId = " + getPlayerIdAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("Id = " + getIdAsObject());
-		argPS.println("GameId = " + getGameIdAsObject());
-		argPS.println("PlayerId = " + getPlayerIdAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("Id = " + getIdAsObject());
+		argOutput.println("GameId = " + getGameIdAsObject());
+		argOutput.println("PlayerId = " + getPlayerIdAsObject());
 	}
 
 	private GameOpal myOldGameOpal;
@@ -379,7 +374,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 				}
 				myNewResponseOpalHashSet = new java.util.HashSet<>(myOldResponseOpalHashSet);
 				if (myResponseOpalCachedOperations != null) {
-					OpalUtility.handleCachedOperations(myResponseOpalCachedOperations, myNewResponseOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myResponseOpalCachedOperations, myNewResponseOpalHashSet);
 					myResponseOpalCachedOperations = null;
 				}
 			}
@@ -403,7 +398,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		if (myNewResponseOpalHashSet == null) {
 			if (myOldResponseOpalHashSet == null) {
 				if (myResponseOpalCachedOperations == null) { myResponseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myResponseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.ADD, argResponseOpal));
+				myResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argResponseOpal));
 			} else {
 				myNewResponseOpalHashSet = new java.util.HashSet<>(myOldResponseOpalHashSet);
 				myNewResponseOpalHashSet.add(argResponseOpal);
@@ -424,7 +419,7 @@ public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {
 		if (myNewResponseOpalHashSet == null) {
 			if (myOldResponseOpalHashSet == null) {
 				if (myResponseOpalCachedOperations == null) { myResponseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myResponseOpalCachedOperations.add(new CachedOperation<>(CachedOperation.REMOVE, argResponseOpal));
+				myResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argResponseOpal));
 			} else {
 				myNewResponseOpalHashSet = new java.util.HashSet<>(myOldResponseOpalHashSet);
 				myNewResponseOpalHashSet.remove(argResponseOpal);

@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<CategoryConversionV> {
@@ -14,7 +9,7 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		setUserFacing(null);
 	}
 
-	public CategoryConversionVOpal(OpalFactory<CategoryConversionV, CategoryConversionVOpal> argOpalFactory, Object[] argValues) {
+	public CategoryConversionVOpal(com.opal.OpalFactory<CategoryConversionV, CategoryConversionVOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -47,7 +42,7 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -66,12 +61,12 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public java.lang.String getTournamentCode() {
@@ -122,19 +117,19 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("TournamentCode = " + getTournamentCode());
-		argPW.println("CategoryCode = " + getCategoryCode());
-		argPW.println("ResponseTypeCode = " + getResponseTypeCode());
-		argPW.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("CategoryCode = " + getCategoryCode());
+		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
+		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("TournamentCode = " + getTournamentCode());
-		argPS.println("CategoryCode = " + getCategoryCode());
-		argPS.println("ResponseTypeCode = " + getResponseTypeCode());
-		argPS.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("CategoryCode = " + getCategoryCode());
+		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
+		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
 	}
 
 	private ResponseTypeOpal myOldResponseTypeOpal;

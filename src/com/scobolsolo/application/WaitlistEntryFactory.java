@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.WaitlistEntryOpalFactory;
 import com.scobolsolo.persistence.WaitlistEntryOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class WaitlistEntryFactory extends com.opal.AbstractFactory<WaitlistEntry
 
 	public WaitlistEntryOpalFactory getWaitlistEntryOpalFactory() { return (WaitlistEntryOpalFactory) getOpalFactory(); }
 
-	protected WaitlistEntryFactory(OpalFactory<WaitlistEntry, WaitlistEntryOpal> argOpalFactory) {
+	protected WaitlistEntryFactory(com.opal.OpalFactory<WaitlistEntry, WaitlistEntryOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

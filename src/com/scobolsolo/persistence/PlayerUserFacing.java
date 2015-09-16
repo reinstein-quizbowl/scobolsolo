@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-import com.opal.*;
 
 /**
  * represents a {@code Player} from the persistent store
@@ -15,7 +14,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface PlayerUserFacing extends IdentityUserFacing {
+public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -555,12 +554,12 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingLosingCardGame();
 
-	public void addIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public void removeIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public void clearIncomingLosingCardGame();
+	public com.scobolsolo.application.Player addIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player clearIncomingLosingCardGame();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingLosingCardGame(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -584,12 +583,12 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingWinningCardGame();
 
-	public void addIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public void removeIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public void clearIncomingWinningCardGame();
+	public com.scobolsolo.application.Player addIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player clearIncomingWinningCardGame();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingWinningCardGame(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -613,12 +612,12 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingLosingCardGame();
 
-	public void addOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public void removeOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public void clearOutgoingLosingCardGame();
+	public com.scobolsolo.application.Player addOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player clearOutgoingLosingCardGame();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingLosingCardGame(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -642,12 +641,12 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingWinningCardGame();
 
-	public void addOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public void removeOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public void clearOutgoingWinningCardGame();
+	public com.scobolsolo.application.Player addOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player clearOutgoingWinningCardGame();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingWinningCardGame(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
@@ -671,12 +670,12 @@ public interface PlayerUserFacing extends IdentityUserFacing {
 
 	public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance();
 
-	public void addPerformance(com.scobolsolo.application.Performance argPerformance);
-	public void removePerformance(com.scobolsolo.application.Performance argPerformance);
-	public void clearPerformance();
+	public com.scobolsolo.application.Player addPerformance(com.scobolsolo.application.Performance argPerformance);
+	public com.scobolsolo.application.Player removePerformance(com.scobolsolo.application.Performance argPerformance);
+	public com.scobolsolo.application.Player clearPerformance();
 
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Performance>> T acquirePerformance(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());

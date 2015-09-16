@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.ContactOpalFactory;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class ContactFactory extends com.opal.AbstractFactory<Contact, ContactOpa
 
 	public ContactOpalFactory getContactOpalFactory() { return (ContactOpalFactory) getOpalFactory(); }
 
-	protected ContactFactory(OpalFactory<Contact, ContactOpal> argOpalFactory) {
+	protected ContactFactory(com.opal.OpalFactory<Contact, ContactOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

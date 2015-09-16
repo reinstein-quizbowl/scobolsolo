@@ -1,10 +1,5 @@
 package com.scobolsolo.persistence;
 
-import java.io.PrintWriter;
-import java.io.PrintStream;
-
-import com.opal.*;
-
 import com.scobolsolo.application.*;
 
 public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
@@ -14,7 +9,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		setUserFacing(null);
 	}
 
-	public CategoryUseOpal(OpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory, Object[] argValues) {
+	public CategoryUseOpal(com.opal.OpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -43,7 +38,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		true,
 	};
 
-	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
 		null,
 		null,
 		null,
@@ -61,12 +56,12 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	public static boolean[] getStaticFieldNullability() { return ourFieldNullability; }
 
 	@Override
-	public FieldValidator[] getFieldValidators() { return ourFieldValidators; }
+	public com.opal.FieldValidator[] getFieldValidators() { return ourFieldValidators; }
 
 	@Override
 	public boolean[] getFieldNullability() { return ourFieldNullability; }
 
-	public static FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
+	public static com.opal.FieldValidator[] getStaticFieldValidators() { return ourFieldValidators; }
 
 
 	public synchronized java.lang.String getCategoryCode() {
@@ -144,7 +139,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	}
 
 	@Override
-	protected void copyFieldsToInternal(UpdatableOpal<CategoryUse> argTarget) {
+	protected void copyFieldsToInternal(com.opal.UpdatableOpal<CategoryUse> argTarget) {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (CategoryCode) is part of a unique key. */
@@ -168,7 +163,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		lclUO = myNewCategoryOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -190,7 +185,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 			return java.util.Collections.emptySet();
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
-		UpdatableOpal<?> lclUO;
+		com.opal.UpdatableOpal<?> lclUO;
 		if ((lclUO = myOldCategoryOpal) == CategoryOpal.NOT_YET_LOADED) {
 			lclUO = myOldCategoryOpal = retrieveCategoryOpal(getOldValues());
 		}
@@ -224,17 +219,17 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	protected String[] getFieldNames() { return ourFieldNames; }
 
 	@Override
-	public synchronized void output(final PrintWriter argPW) {
-		argPW.println("CategoryCode = " + getCategoryCode());
-		argPW.println("TournamentCode = " + getTournamentCode());
-		argPW.println("Needs = " + getNeedsAsObject());
+	public synchronized void output(final java.io.PrintStream argOutput) {
+		argOutput.println("CategoryCode = " + getCategoryCode());
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("Needs = " + getNeedsAsObject());
 	}
 
 	@Override
-	public synchronized void output(final PrintStream argPS) {
-		argPS.println("CategoryCode = " + getCategoryCode());
-		argPS.println("TournamentCode = " + getTournamentCode());
-		argPS.println("Needs = " + getNeedsAsObject());
+	public synchronized void output(final java.io.PrintWriter argOutput) {
+		argOutput.println("CategoryCode = " + getCategoryCode());
+		argOutput.println("TournamentCode = " + getTournamentCode());
+		argOutput.println("Needs = " + getNeedsAsObject());
 	}
 
 	private CategoryOpal myOldCategoryOpal;

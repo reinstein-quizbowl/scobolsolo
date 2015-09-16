@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.MatchOpalFactory;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class MatchFactory extends com.opal.AbstractFactory<Match, MatchOpal> imp
 
 	public MatchOpalFactory getMatchOpalFactory() { return (MatchOpalFactory) getOpalFactory(); }
 
-	protected MatchFactory(OpalFactory<Match, MatchOpal> argOpalFactory) {
+	protected MatchFactory(com.opal.OpalFactory<Match, MatchOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

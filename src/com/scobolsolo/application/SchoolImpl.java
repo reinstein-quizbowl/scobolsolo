@@ -108,13 +108,15 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	to this object. */
 
 	@Override
-	public void addSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public com.scobolsolo.application.School addSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getSchoolOpal().addSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		return this;
 	}
 
 	@Override
-	public void removeSchoolRegistration(SchoolRegistration argSchoolRegistration) {
+	public com.scobolsolo.application.School removeSchoolRegistration(SchoolRegistration argSchoolRegistration) {
 		getSchoolOpal().removeSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		return this;
 	}
 
 	@Override
@@ -133,7 +135,7 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<School, SchoolOpal
 	}
 
 	@Override
-	public void clearSchoolRegistration() {
+	public com.scobolsolo.application.School clearSchoolRegistration() {
 		throw new UnsupportedOperationException();
 	}
 

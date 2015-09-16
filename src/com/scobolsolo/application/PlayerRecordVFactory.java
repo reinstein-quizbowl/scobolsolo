@@ -1,6 +1,5 @@
 package com.scobolsolo.application;
 
-import com.opal.*;
 import com.scobolsolo.persistence.PlayerRecordVOpalFactory;
 import com.scobolsolo.persistence.PlayerRecordVOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -16,7 +15,7 @@ public class PlayerRecordVFactory extends com.opal.AbstractFactory<PlayerRecordV
 
 	public PlayerRecordVOpalFactory getPlayerRecordVOpalFactory() { return (PlayerRecordVOpalFactory) getOpalFactory(); }
 
-	protected PlayerRecordVFactory(OpalFactory<PlayerRecordV, PlayerRecordVOpal> argOpalFactory) {
+	protected PlayerRecordVFactory(com.opal.OpalFactory<PlayerRecordV, PlayerRecordVOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 
