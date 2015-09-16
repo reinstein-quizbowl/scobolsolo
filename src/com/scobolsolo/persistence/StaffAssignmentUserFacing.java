@@ -307,36 +307,4 @@ public interface StaffAssignmentUserFacing extends IdentityUserFacing {
 		}
 	}
 
-	public static class StaffNameComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.StaffAssignment> {
-		private static final StaffNameComparator ourInstance = new StaffNameComparator();
-		public static final StaffNameComparator getInstance() { return ourInstance; }
-
-		private StaffNameComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.StaffAssignment argFirst, com.scobolsolo.application.StaffAssignment argSecond) {
-			int lclResult = com.scobolsolo.application.Phase.StandardComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return com.scobolsolo.application.Staff.NameComparator.getInstance().compare(argFirst.getStaff(),  argSecond.getStaff());
-		}
-	}
-
-	public static class RoomSequenceComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.StaffAssignment> {
-		private static final RoomSequenceComparator ourInstance = new RoomSequenceComparator();
-		public static final RoomSequenceComparator getInstance() { return ourInstance; }
-
-		private RoomSequenceComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.StaffAssignment argFirst, com.scobolsolo.application.StaffAssignment argSecond) {
-			int lclResult = com.scobolsolo.application.Phase.StandardComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return com.scobolsolo.application.Room.SequenceComparator.getInstance().compare(argFirst.getRoom(),  argSecond.getRoom());
-		}
-	}
-
 }

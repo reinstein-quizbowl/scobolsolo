@@ -222,14 +222,4 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 	/* The following methods allow access to the user objects that have references
 	to this object. */
 
-	@Override
-	public void unlink() {
-		getGameVOpal().unlink();
-	}
-
-	@Override
-	public void reload() {
-		getGameVOpal().reload();
-	}
-
 }

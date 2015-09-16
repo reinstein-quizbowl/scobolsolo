@@ -331,7 +331,7 @@ CREATE TABLE Packet (
 	tournament_code code_t REFERENCES Tournament ON UPDATE CASCADE ON DELETE RESTRICT,
 	name name_t UNIQUE,
 	short_name short_name_t UNIQUE,
-	round_id INTEGER REFERENCES Round ON UPDATE CASCADE ON DELETE RESTRICT,
+	round_id INTEGER UNIQUE REFERENCES Round ON UPDATE CASCADE ON DELETE RESTRICT,
 	sequence sequence_t DEFAULT 0,
 	note note_t,
 	replacement_packet_id INTEGER REFERENCES Packet ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -361,6 +361,8 @@ CREATE TABLE Response_Type (
 	multiple_allowed_for_same_placement BOOLEAN NOT NULL DEFAULT FALSE,
 	is_attempt BOOLEAN NOT NULL DEFAULT TRUE,
 	allows_further_attempts_to_same_question_in_match BOOLEAN NOT NULL DEFAULT FALSE,
+	show_for_non_exhibition_players BOOLEAN NOT NULL DEFAULT TRUE,
+	show_for_exhibition_players BOOLEAN NOT NULL DEFAULT FALSE
 );
 INSERT INTO Response_Type (code, name, short_name, sequence, points) VALUES
 ('CORRECT', 'Correct Answer', 'Correct', 100, 1),

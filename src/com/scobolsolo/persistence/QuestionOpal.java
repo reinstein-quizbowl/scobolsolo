@@ -341,22 +341,31 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		if (isNew()) {
+			return java.util.Collections.emptySet();
+		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldCategoryOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldCategoryOpal) == CategoryOpal.NOT_YET_LOADED) {
+			lclUO = myOldCategoryOpal = retrieveCategoryOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldStatusOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldStatusOpal) == QuestionStatusOpal.NOT_YET_LOADED) {
+			lclUO = myOldStatusOpal = retrieveStatusOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldWriterOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldWriterOpal) == AccountOpal.NOT_YET_LOADED) {
+			lclUO = myOldWriterOpal = retrieveWriterOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}

@@ -32,7 +32,7 @@
 			</thead>
 			<tbody><%
 				List<Question> lclQs = QuestionFactory.getInstance().acquireAll(new ArrayList<>());
-				lclQs.sort(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CategoryComparator.getInstance()));
+				lclQs.sort(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR));
 				
 				DateTimeFormatter lclDTF = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
 				
@@ -83,7 +83,7 @@
 								%>-<%
 							} else {
 								List<Placement> lclPLs = lclQ.acquirePlacement(new ArrayList<>(lclQ.getPlacementCount()));
-								lclPLs.sort(Placement.StandardComparator.getInstance());
+								lclPLs.sort(null);
 								for (Placement lclPL : lclPLs) {
 									%><%= lclPL.getTournament().getShortName() %>: <%= lclPL.getString() %><br /><%
 								}

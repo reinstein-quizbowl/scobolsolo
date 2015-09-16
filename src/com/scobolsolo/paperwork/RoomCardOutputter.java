@@ -32,7 +32,7 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 		
 		final List<Round> lclRounds = getPhase().getRounds();
 		
-		final RowSortedTable<Room, Round, Match> lclTable = TreeBasedTable.create(Room.SequenceComparator.getInstance(), Round.StandardComparator.getInstance());
+		final RowSortedTable<Room, Round, Match> lclTable = TreeBasedTable.create();
 		for (Round lclRound : lclRounds) {
 			for (Match lclM : lclRound.createMatchArray()) {
 				lclTable.put(lclM.getRoom(), lclRound, lclM);
@@ -40,7 +40,7 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 		}
 		
 		final Card[] lclCards = getPhase().createCardArray();
-		Arrays.sort(lclCards, Card.SequenceComparator.getInstance());
+		Arrays.sort(lclCards);
 		final Card lclFirstCard = lclCards[0];
 		final Card lclLastCard = lclCards[lclCards.length - 1];
 		
@@ -55,7 +55,7 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 			
 			if (lclRoom.getStaffAssignmentCount() > 0) {
 				StaffAssignment[] lclSAs = lclRoom.createStaffAssignmentArray();
-				Arrays.sort(lclSAs, StaffAssignment.StaffNameComparator.getInstance());
+				Arrays.sort(lclSAs, StaffAssignment.STAFF_NAME_COMPARATOR);
 				for (StaffAssignment lclSA : lclSAs) {
 					if (lclSA.getPhase() == getPhase()) {
 						if (lclSA.getNote() == null) {

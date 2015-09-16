@@ -289,10 +289,15 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		if (isNew()) {
+			return java.util.Collections.emptySet();
+		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldPhaseOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldPhaseOpal) == PhaseOpal.NOT_YET_LOADED) {
+			lclUO = myOldPhaseOpal = retrievePhaseOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}

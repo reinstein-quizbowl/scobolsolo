@@ -361,43 +361,58 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		if (isNew()) {
+			return java.util.Collections.emptySet();
+		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldMatchOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldMatchOpal) == MatchOpal.NOT_YET_LOADED) {
+			lclUO = myOldMatchOpal = retrieveMatchOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldIncomingLosingCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldIncomingLosingCardPlayerOpal) == PlayerOpal.NOT_YET_LOADED) {
+			lclUO = myOldIncomingLosingCardPlayerOpal = retrieveIncomingLosingCardPlayerOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldIncomingWinningCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldIncomingWinningCardPlayerOpal) == PlayerOpal.NOT_YET_LOADED) {
+			lclUO = myOldIncomingWinningCardPlayerOpal = retrieveIncomingWinningCardPlayerOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldModeratorStaffOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldModeratorStaffOpal) == StaffOpal.NOT_YET_LOADED) {
+			lclUO = myOldModeratorStaffOpal = retrieveModeratorStaffOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldOutgoingLosingCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldOutgoingLosingCardPlayerOpal) == PlayerOpal.NOT_YET_LOADED) {
+			lclUO = myOldOutgoingLosingCardPlayerOpal = retrieveOutgoingLosingCardPlayerOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldOutgoingWinningCardPlayerOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldOutgoingWinningCardPlayerOpal) == PlayerOpal.NOT_YET_LOADED) {
+			lclUO = myOldOutgoingWinningCardPlayerOpal = retrieveOutgoingWinningCardPlayerOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}

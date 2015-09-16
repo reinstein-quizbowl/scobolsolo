@@ -164,6 +164,40 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 		return this;
 	}
 
+	@Override
+	public java.lang.Boolean isShowForNonExhibitionPlayersAsObject() {
+		return getResponseTypeOpal().isShowForNonExhibitionPlayersAsObject();
+	}
+
+	@Override
+	public ResponseTypeImpl setShowForNonExhibitionPlayers(java.lang.Boolean argShowForNonExhibitionPlayers) {
+		getResponseTypeOpal().setShowForNonExhibitionPlayers(argShowForNonExhibitionPlayers);
+		return this;
+	}
+
+	@Override
+	public ResponseTypeImpl setShowForNonExhibitionPlayers(boolean argShowForNonExhibitionPlayers) {
+		getResponseTypeOpal().setShowForNonExhibitionPlayers(argShowForNonExhibitionPlayers);
+		return this;
+	}
+
+	@Override
+	public java.lang.Boolean isShowForExhibitionPlayersAsObject() {
+		return getResponseTypeOpal().isShowForExhibitionPlayersAsObject();
+	}
+
+	@Override
+	public ResponseTypeImpl setShowForExhibitionPlayers(java.lang.Boolean argShowForExhibitionPlayers) {
+		getResponseTypeOpal().setShowForExhibitionPlayers(argShowForExhibitionPlayers);
+		return this;
+	}
+
+	@Override
+	public ResponseTypeImpl setShowForExhibitionPlayers(boolean argShowForExhibitionPlayers) {
+		getResponseTypeOpal().setShowForExhibitionPlayers(argShowForExhibitionPlayers);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

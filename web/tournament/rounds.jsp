@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
@@ -161,7 +162,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 							"Round",
 							RoundFactory.getInstance(),
 							1, // row for a new round
-							Round.StandardComparator.getInstance()
+							Comparator.naturalOrder()
 						);
 						
 						for (OpalForm<Round> lclROF : lclROFs) {

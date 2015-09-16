@@ -32,7 +32,7 @@ public class MasterByRoomOutputter extends PhaseSpecificLaTeXOutputter {
 		Validate.isTrue(getPhase().isCardSystem());
 		final List<Round> lclRounds = getPhase().getRounds();
 		
-		final RowSortedTable<Room, Round, Match> lclTable = TreeBasedTable.create(Room.SequenceComparator.getInstance(), Round.StandardComparator.getInstance());
+		final RowSortedTable<Room, Round, Match> lclTable = TreeBasedTable.create();
 		for (Round lclRound : lclRounds) {
 			for (Match lclM : lclRound.createMatchArray()) {
 				lclTable.put(lclM.getRoom(), lclRound, lclM);

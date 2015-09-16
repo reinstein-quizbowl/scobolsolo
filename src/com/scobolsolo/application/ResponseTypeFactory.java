@@ -34,6 +34,7 @@ public class ResponseTypeFactory extends com.opal.AbstractFactory<ResponseType, 
 	public static final ResponseType INCORRECT_AT_END() { return getInstance().forCode("INCORRECT_AT_END"); }
 	public static final ResponseType INTERRUPT() { return getInstance().forCode("INTERRUPT"); }
 	public static final ResponseType NO_ATTEMPT() { return getInstance().forCode("NO_ATTEMPT"); }
+	public static final ResponseType PHANTOM() { return getInstance().forCode("PHANTOM"); }
 
 	@Override
 	public ResponseType create() {

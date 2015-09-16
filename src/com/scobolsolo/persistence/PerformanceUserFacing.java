@@ -213,4 +213,16 @@ public interface PerformanceUserFacing extends IdentityUserFacing {
 		}
 	}
 
+	public static class PlayerNameComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Performance> {
+		private static final PlayerNameComparator ourInstance = new PlayerNameComparator();
+		public static final PlayerNameComparator getInstance() { return ourInstance; }
+
+		private PlayerNameComparator() { super(); }
+
+		@Override
+		public int compareInternal(com.scobolsolo.application.Performance argFirst, com.scobolsolo.application.Performance argSecond) {
+			return com.scobolsolo.application.Player.NameComparator.getInstance().compare(argFirst.getPlayer(),  argSecond.getPlayer());
+		}
+	}
+
 }

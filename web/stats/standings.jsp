@@ -9,7 +9,6 @@
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.compare.PlayerRecordVRecordThenPPTUH" %>
 
 <%
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
@@ -43,7 +42,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					lclPRVs,
 					new ImplicitTableDatabaseQuery("tournament_code = ?", lclT.getCode())
 				);
-				lclPRVs.sort(PlayerRecordVRecordThenPPTUH.getInstance());
+				lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				
 				for (PlayerRecordV lclPRV : lclPRVs) {
 					%><tr>

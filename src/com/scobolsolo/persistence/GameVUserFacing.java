@@ -959,16 +959,4 @@ public interface GameVUserFacing extends UserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Card getLosingCard();
-	public static class RoundComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.GameV> {
-		private static final RoundComparator ourInstance = new RoundComparator();
-		public static final RoundComparator getInstance() { return ourInstance; }
-
-		private RoundComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.GameV argFirst, com.scobolsolo.application.GameV argSecond) {
-			return com.scobolsolo.application.Round.StandardComparator.getInstance().compare(argFirst.getRound(),  argSecond.getRound());
-		}
-	}
-
 }

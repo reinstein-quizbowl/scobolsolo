@@ -15,7 +15,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Phase> {
+public interface PhaseUserFacing extends IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -414,22 +414,6 @@ public interface PhaseUserFacing extends IdentityUserFacing, Comparable<com.scob
 		@Override
 		public int compareInternal(com.scobolsolo.application.Phase argFirst, com.scobolsolo.application.Phase argSecond) {
 			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-		}
-	}
-
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Phase> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Phase argFirst, com.scobolsolo.application.Phase argSecond) {
-			int lclResult = com.scobolsolo.application.Tournament.DateComparator.getInstance().compare(argFirst.getTournament(),  argSecond.getTournament());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

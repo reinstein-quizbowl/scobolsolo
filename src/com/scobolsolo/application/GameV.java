@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
 import com.scobolsolo.persistence.GameVUserFacing;
 
 /**
@@ -11,5 +13,5 @@ import com.scobolsolo.persistence.GameVUserFacing;
  */
 
 public interface GameV extends GameVUserFacing {
-	/* This block intentionally left empty. */
+	public static final Comparator<GameV> ROUND_COMPARATOR = Comparator.comparing(GameV::getRound);
 }

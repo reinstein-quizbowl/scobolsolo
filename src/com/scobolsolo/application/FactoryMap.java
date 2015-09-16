@@ -4,8 +4,6 @@ import com.opal.AbstractFactoryMap;
 
 public class FactoryMap extends AbstractFactoryMap {
 
-	private static final long serialVersionUID = 1L;
-
 	private static final FactoryMap ourInstance = new FactoryMap();
 
 	public static final FactoryMap getInstance() {

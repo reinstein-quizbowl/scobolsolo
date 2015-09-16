@@ -317,11 +317,11 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		if (getReplacementPacketOpal() != null) {
 			getReplacementPacketOpal().removeReplacementPacketOpalInternal(this);
 		}
-		if (getRoundOpal() != null) {
-			getRoundOpal().removePacketOpalInternal(this);
-		}
 		if (getTournamentOpal() != null) {
 			getTournamentOpal().removePacketOpalInternal(this);
+		}
+		if (getRoundOpal() != null) {
+			getRoundOpal().setPacketOpalInternal(null);
 		}
 		return;
 	}
@@ -333,7 +333,7 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		/* Field 0 (Id) is database generated. */
 		/* Field 1 (Name) is part of a unique key. */
 		/* Field 2 (ShortName) is part of a unique key. */
-		lclTargetNewValues[3] = lclValues[3]; /* RoundId (immutable) */
+		/* Field 3 (RoundId) is part of a unique key. */
 		lclTargetNewValues[4] = lclValues[4]; /* Note (immutable) */
 		/* Field 5 (TournamentCode) is part of a unique key. */
 		lclTargetNewValues[6] = lclValues[6]; /* Sequence (immutable) */
@@ -385,22 +385,31 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		if (isNew()) {
+			return java.util.Collections.emptySet();
+		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldReplacementPacketOpal;
-		if ((lclUO != null) && (lclUO != this) && lclUO.isDeleted()) {
+		if ((lclUO = myOldReplacementPacketOpal) == PacketOpal.NOT_YET_LOADED) {
+			lclUO = myOldReplacementPacketOpal = retrieveReplacementPacketOpal(getOldValues());
+		}
+		if (lclUO != null && (lclUO != this) && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldRoundOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldRoundOpal) == RoundOpal.NOT_YET_LOADED) {
+			lclUO = myOldRoundOpal = retrieveRoundOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldTournamentOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldTournamentOpal) == TournamentOpal.NOT_YET_LOADED) {
+			lclUO = myOldTournamentOpal = retrieveTournamentOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -521,14 +530,12 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 
 	public synchronized PacketOpal setRoundOpal(RoundOpal argRoundOpal) {
 		tryMutate();
-		RoundOpal lclRoundOpal = getRoundOpal();
-		if (lclRoundOpal == argRoundOpal) { return this; }
-		if (lclRoundOpal != null) {
-			lclRoundOpal.removePacketOpalInternal(this);
+		if (myNewRoundOpal != null && myNewRoundOpal != RoundOpal.NOT_YET_LOADED) {
+			myNewRoundOpal.setPacketOpalInternal(null);
 		}
 		myNewRoundOpal = argRoundOpal;
 		if (argRoundOpal != null) {
-			argRoundOpal.addPacketOpalInternal(this);
+			argRoundOpal.setPacketOpalInternal(this);
 		}
 		return this;
 	}

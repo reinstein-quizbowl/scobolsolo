@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
@@ -56,7 +57,7 @@ if (lclOF.hasErrors()) {
 					"Room",
 					RoomFactory.getInstance(),
 					1, // row for a new room
-					Room.SequenceComparator.getInstance()
+					Comparator.naturalOrder()
 				);
 				
 				for (OpalForm<Room> lclROF : lclROFs) {
@@ -72,7 +73,7 @@ if (lclOF.hasErrors()) {
 						<td><%= lclROF.checkbox("GameRoom") %></td>
 						<td><%= lclROF.text("Sequence", 3) %></td>
 						<td><%
-							for (OpalForm<StaffAssignment> lclSAOF : lclROF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.StaffNameComparator.getInstance())) {
+							for (OpalForm<StaffAssignment> lclSAOF : lclROF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.STAFF_NAME_COMPARATOR)) {
 								StaffAssignment lclSA = lclSAOF.getUserFacing();
 								Staff lclS = lclSA.getStaff();
 								%><%= lclSAOF.open() %>

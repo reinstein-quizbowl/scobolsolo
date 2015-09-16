@@ -15,7 +15,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Category> {
+public interface CategoryUserFacing extends IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -341,22 +341,6 @@ public interface CategoryUserFacing extends IdentityUserFacing, Comparable<com.s
 		@Override
 		public int compareInternal(com.scobolsolo.application.Category argFirst, com.scobolsolo.application.Category argSecond) {
 			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-		}
-	}
-
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Category> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Category argFirst, com.scobolsolo.application.Category argSecond) {
-			int lclResult = com.scobolsolo.application.CategoryGroup.SequenceComparator.getInstance().compare(argFirst.getCategoryGroup(),  argSecond.getCategoryGroup());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

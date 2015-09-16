@@ -6,6 +6,9 @@ import com.opal.cma.OpalForm;
 import com.opal.cma.OpalMainForm;
 
 public class HTMLUtility {
+	public static final String DEFAULT_TRUE_STRING = com.siliconage.web.HTMLUtility.DEFAULT_TRUE_STRING;
+	public static final String DEFAULT_FALSE_STRING = com.siliconage.web.HTMLUtility.DEFAULT_FALSE_STRING;
+	
 	private HTMLUtility() {
 		throw new UnsupportedOperationException();
 	}

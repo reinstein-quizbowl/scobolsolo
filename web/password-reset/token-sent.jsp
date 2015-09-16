@@ -1,7 +1,6 @@
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.AccountFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.AccountUtility" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Password Reset Token Sent" />
@@ -12,7 +11,7 @@
 
 <div class="row">
 	<div class="small-12 columns"><%
-		Account lclUser = AccountUtility.getLoggedInAccount(request);
+		Account lclUser = Account.determineCurrent(request);
 
 		if (lclUser == null) {
 			Account lclA = AccountFactory.getInstance().fromHttpRequest(request);

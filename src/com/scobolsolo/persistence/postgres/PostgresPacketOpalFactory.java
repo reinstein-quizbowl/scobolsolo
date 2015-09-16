@@ -119,6 +119,9 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
 			lclOC.addOpal(new TournamentCodeNameOpalKey((java.lang.String) argValues[5], (java.lang.String) argValues[1]), argOpal, true);
+			if (true && argValues[3] != null) {
+				lclOC.addOpal(new RoundIdOpalKey((java.lang.Integer) argValues[3]), argOpal, true);
+			}
 			lclOC.addOpal(new TournamentCodeShortNameOpalKey((java.lang.String) argValues[5], (java.lang.String) argValues[2]), argOpal, true);
 		}
 	}
@@ -132,6 +135,9 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
 			lclOC.removeOpal(new TournamentCodeNameOpalKey((java.lang.String) lclOldValues[5], (java.lang.String) lclOldValues[1]));
+			if (true && lclOldValues[3] != null) {
+				lclOC.removeOpal(new RoundIdOpalKey((java.lang.Integer) lclOldValues[3]));
+			}
 			lclOC.removeOpal(new TournamentCodeShortNameOpalKey((java.lang.String) lclOldValues[5], (java.lang.String) lclOldValues[2]));
 		}
 	}
@@ -165,6 +171,20 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 					if (true) {
 						lclOldKey = new TournamentCodeNameOpalKey((java.lang.String) lclOldValues[5], (java.lang.String) lclOldValues[1]);
 					}
+				}
+			}
+			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
+			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
+			if (true && lclNewValues[3] != null) {
+				if (!(lclNewValues[3].equals(lclOldValues[3]))) {
+					lclNewKey = new RoundIdOpalKey((java.lang.Integer) lclNewValues[3]);
+					if (true && lclOldValues[3] != null) {
+						lclOldKey = new RoundIdOpalKey((java.lang.Integer) lclOldValues[3]);
+					}
+				}
+			} else {
+				if (true && lclOldValues[3] != null) {
+					lclOldKey = new RoundIdOpalKey((java.lang.Integer) lclOldValues[3]);
 				}
 			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
@@ -204,15 +224,6 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public java.util.HashSet<PacketOpal> forRoundIdCollection(java.lang.Integer argRoundId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argRoundId };
-		final String[] lclFieldNames = new String[] { "round_id" };
-		java.util.HashSet<PacketOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
 	public java.util.HashSet<PacketOpal> forTournamentCodeCollection(java.lang.String argTournamentCode) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argTournamentCode };
 		final String[] lclFieldNames = new String[] { "tournament_code" };
@@ -230,6 +241,12 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 	@Override
 	public PacketOpal forTournamentCodeName(java.lang.String argTournamentCode, java.lang.String argName) throws PersistenceException {
 		OpalKey<PacketOpal> lclOpalKey = new TournamentCodeNameOpalKey(argTournamentCode, argName);
+		return forOpalKey(lclOpalKey);
+	}
+
+	@Override
+	public PacketOpal forRoundId(java.lang.Integer argRoundId) throws PersistenceException {
+		OpalKey<PacketOpal> lclOpalKey = new RoundIdOpalKey(argRoundId);
 		return forOpalKey(lclOpalKey);
 	}
 
@@ -266,6 +283,21 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 
 		public TournamentCodeNameOpalKey(java.lang.String argTournamentCode, java.lang.String argName) {
 			super(new Object[] {argTournamentCode, argName, });
+		}
+
+		@Override
+		protected Object[] getParameters() { return getFields(); }
+
+		@Override
+		protected String[] getColumnNames() { return ourKeyColumnNames; }
+
+	}
+
+	/* package */ static class RoundIdOpalKey extends com.opal.DatabaseOpalKey<PacketOpal> {
+		private static final String[] ourKeyColumnNames = new String[] {"round_id", };
+
+		public RoundIdOpalKey(java.lang.Integer argRoundId) {
+			super(new Object[] {argRoundId, });
 		}
 
 		@Override

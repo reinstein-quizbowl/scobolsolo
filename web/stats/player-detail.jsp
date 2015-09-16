@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.Map" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -23,7 +24,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 <div class="row">
 	<div class="small-12 large-9 columns"><%
 		List<Player> lclPlayers = lclT.getPlayers();
-		SetMultimap<School, Player> lclSchoolToPlayers = TreeMultimap.create(School.NameComparator.getInstance(), Player.NameComparator.getInstance());
+		SetMultimap<School, Player> lclSchoolToPlayers = TreeMultimap.create(School.NameComparator.getInstance(), Comparator.naturalOrder());
 		for (Player lclP : lclPlayers) {
 			lclSchoolToPlayers.put(lclP.getSchoolRegistration().getSchool(), lclP);
 		}
@@ -33,7 +34,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 			lclPMVList,
 			new ImplicitTableDatabaseQuery("tournament_code = ?", lclT.getCode())
 		);
-		SetMultimap<Player, PlayerMatchV> lclPlayerToPMVs = TreeMultimap.create(Player.NameComparator.getInstance(), PlayerMatchV.RoundComparator.getInstance());
+		SetMultimap<Player, PlayerMatchV> lclPlayerToPMVs = TreeMultimap.create(Comparator.naturalOrder(), PlayerMatchV.ROUND_COMPARATOR);
 		for (PlayerMatchV lclPMV : lclPMVList) {
 			lclPlayerToPMVs.put(lclPMV.getPlayer(), lclPMV);
 		}

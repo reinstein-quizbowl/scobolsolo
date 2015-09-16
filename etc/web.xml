@@ -28,6 +28,16 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>SetSides</servlet-name>
+		<servlet-class>com.scobolsolo.matches.SetSides</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>QuestionResponse</servlet-name>
+		<servlet-class>com.scobolsolo.matches.QuestionResponse</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>GameEntry</servlet-name>
 		<servlet-class>com.scobolsolo.servlets.games.GameEntry</servlet-class>
 	</servlet>
@@ -123,6 +133,16 @@
 		<servlet-class>com.scobolsolo.Initializer</servlet-class>
 		<load-on-startup>100</load-on-startup>
 	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>SetSides</servlet-name>
+		<url-pattern>/game/SetSides</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>QuestionResponse</servlet-name>
+		<url-pattern>/game/QuestionResponse</url-pattern>
+	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>GameEntry</servlet-name>
@@ -230,6 +250,7 @@
 		<web-resource-collection>
 			<web-resource-name>Valid User Pages</web-resource-name>
 			<url-pattern>/account/*</url-pattern>
+			<url-pattern>/game/*</url-pattern>
 			<url-pattern>/games/*</url-pattern>
 			<url-pattern>/tournament/*</url-pattern>
 		</web-resource-collection>

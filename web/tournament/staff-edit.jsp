@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
@@ -92,7 +93,7 @@ List<OpalForm<StaffAssignment>> lclSAOFs = lclOF.children(
 	"StaffAssignment",
 	StaffAssignmentFactory.getInstance(),
 	1, // row for a new staff assignments
-	StaffAssignment.RoomSequenceComparator.getInstance()
+	StaffAssignment.ROOM_COMPARATOR
 );
 
 for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
@@ -109,13 +110,13 @@ for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
 		<div class="small-12 large-4 columns">
 			<label>
 				Phase
-				<%= lclSAOF.dropdown("Phase", Phase.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT) %>
+				<%= lclSAOF.dropdown("Phase", Comparator.<Phase>naturalOrder()).filter(argP -> argP.getTournament() == lclT) %>
 			</label>
 		</div>
 		<div class="small-12 large-4 columns">
 			<label>
 				Room
-				<%= lclSAOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %>
+				<%= lclSAOF.dropdown("Room", Comparator.<Room>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %>
 			</label>
 		</div>
 		<div class="small-12 large-4 columns">

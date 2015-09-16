@@ -1,5 +1,8 @@
 package com.scobolsolo.application;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.scobolsolo.persistence.PacketUserFacing;
 
 /**
@@ -10,7 +13,20 @@ import com.scobolsolo.persistence.PacketUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Packet extends PacketUserFacing {
+public interface Packet extends PacketUserFacing, Comparable<Packet> {
+	@Override
+	default int compareTo(Packet that) {
+		if ((this.getRound() == null && that.getRound() == null) || (this.getRound() == that.getRound())) {
+			return this.getSequence() - that.getSequence();
+		} else if (this.getRound() == null && that.getRound() != null) {
+			return 1;
+		} else if (this.getRound() != null && that.getRound() == null) {
+			return -1;
+		} else {
+			return this.getRound().compareTo(that.getRound());
+		}
+	}
+	
 	default String getNameWithTournament() {
 		return getTournament().getName() + ": " + getName();
 	}
@@ -21,5 +37,17 @@ public interface Packet extends PacketUserFacing {
 	
 	default int getNextSequenceNumber() {
 		return 1 + streamPlacement().filter(argPL -> argPL.getSequenceAsObject() != null).mapToInt(Placement::getSequence).max().orElse(0);
+	}
+	
+	default List<Placement> getAllPlacements() {
+		return streamPlacement().sorted().collect(Collectors.toList());
+	}
+	
+	default List<Placement> getRegulationPlacements() {
+		return streamPlacement().filter(Placement::isRegulation).sorted().collect(Collectors.toList());
+	}
+	
+	default List<Placement> getOvertimePlacements() {
+		return streamPlacement().filter(Placement::isTiebreaker).sorted().collect(Collectors.toList());
 	}
 }

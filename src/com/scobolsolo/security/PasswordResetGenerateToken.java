@@ -20,7 +20,6 @@ import com.scobolsolo.application.Account;
 import com.scobolsolo.application.AccountFactory;
 import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 import com.scobolsolo.Mail;
-import com.scobolsolo.AccountUtility;
 
 public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 	private static final String FROM_ADDRESS = "jonah@jonahgreenthal.com";
@@ -57,8 +56,8 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		}
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
-			String lclToken = AccountUtility.generatePasswordResetToken();
-			LocalDateTime lclExpiration = AccountUtility.generatePasswordResetTokenExpiration();
+			String lclToken = Account.generatePasswordResetToken();
+			LocalDateTime lclExpiration = Account.generatePasswordResetTokenExpiration();
 			
 			lclA.setPasswordResetToken(lclToken);
 			lclA.setPasswordResetTokenExpiration(lclExpiration);

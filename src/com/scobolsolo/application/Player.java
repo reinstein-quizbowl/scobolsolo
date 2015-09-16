@@ -1,5 +1,10 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.scobolsolo.persistence.PlayerUserFacing;
 
 /**
@@ -10,7 +15,12 @@ import com.scobolsolo.persistence.PlayerUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Player extends PlayerUserFacing {
+public interface Player extends PlayerUserFacing, Comparable<Player> {
+	@Override
+	default public int compareTo(Player that) {
+		return this.getNameWithSchool().compareTo(that.getNameWithSchool());
+	}
+	
 	default Performance findPerformance(Game argG) {
 		if (argG == null) {
 			return null;
@@ -25,6 +35,10 @@ public interface Player extends PlayerUserFacing {
 		return null;
 	}
 	
+	default String getName() {
+		return getContact().getName();
+	}
+	
 	default String getNameWithSchool() {
 		return getContact().getName() + " (" + getSchoolRegistration().getSchool().getName() + ")";
 	}
@@ -35,5 +49,20 @@ public interface Player extends PlayerUserFacing {
 	
 	default Tournament getTournament() {
 		return getSchoolRegistration().getTournament();
+	}
+	
+	default List<ResponseType> determineResponseTypesToOffer() {
+		return Arrays.stream(ResponseTypeFactory.getInstance().createAllArray())
+			.filter(isExhibition() ? ResponseType::isShowForExhibitionPlayers : ResponseType::isShowForNonExhibitionPlayers)
+			.sorted()
+			.collect(Collectors.toList());
+	}
+	
+	default ResponseType determineDefaultResponseType() {
+		if (isExhibition()) {
+			return null;
+		} else {
+			return ResponseTypeFactory.NO_ATTEMPT();
+		}
 	}
 }

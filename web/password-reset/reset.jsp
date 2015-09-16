@@ -3,7 +3,6 @@
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.AccountFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.AccountUtility" %>
 <%@ page import="com.scobolsolo.ScobolSoloConfiguration" %>
 
 <jsp:include page="/template/header.jsp">
@@ -14,7 +13,7 @@
 </jsp:include>
 
 <div class="row"><%
-	Account lclUser = AccountUtility.getLoggedInAccount(request);
+	Account lclUser = Account.determineCurrent(request);
 	
 	int lclMinLength = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_LENGTH_MIN");
 	int lclMaxLength = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_LENGTH_MAX");

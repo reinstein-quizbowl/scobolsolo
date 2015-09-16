@@ -28,11 +28,6 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public int compareTo(Placement argSecond) {
-		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-	}
-
-	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getPlacementOpal().getIdAsObject();
 	}

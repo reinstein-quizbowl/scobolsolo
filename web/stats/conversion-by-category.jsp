@@ -16,8 +16,6 @@
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.compare.PlayerCategoryPointVPPTUH" %>
-<%@ page import="com.scobolsolo.opalforms.compare.PlayerRecordVRecordThenPPTUH" %>
 
 <%
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
@@ -38,9 +36,8 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 		ResponseTypeFactory.getInstance().acquireAll(lclRTs);
 		lclRTs.sort(null);
 
-		List<Category> lclCategories = new ArrayList<>();
-		CategoryFactory.getInstance().acquireAll(lclCategories);
-		lclCategories.sort(Category.StandardComparator.getInstance());
+		List<Category> lclCategories = CategoryFactory.getInstance().acquireAll(new ArrayList<>());
+		lclCategories.sort(null);
 
 		%><table class="reponsive">
 			<thead>

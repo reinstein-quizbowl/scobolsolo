@@ -145,3 +145,27 @@ a.subtle-highlight {
 	color: inherit;
 	border-bottom: 1px dotted $primary-color;
 }
+
+.has-pronunciation-guide {
+	color: $steel;
+}
+
+.pronunciation-guide {
+	color: $steel;
+}
+
+.pronunciation-guide::before {
+	content: "[";
+}
+
+.pronunciation-guide::after {
+	content: "]";
+}
+
+img.math {
+	vertical-align: text-bottom;
+}
+
+.question-answer::before {
+	content: "answer: ";
+}

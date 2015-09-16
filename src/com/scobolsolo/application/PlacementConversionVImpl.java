@@ -91,14 +91,4 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 	/* The following methods allow access to the user objects that have references
 	to this object. */
 
-	@Override
-	public void unlink() {
-		getPlacementConversionVOpal().unlink();
-	}
-
-	@Override
-	public void reload() {
-		getPlacementConversionVOpal().reload();
-	}
-
 }

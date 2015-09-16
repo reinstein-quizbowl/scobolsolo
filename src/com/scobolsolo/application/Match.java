@@ -1,5 +1,9 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
+import org.apache.commons.lang3.Validate;
+
 import com.scobolsolo.persistence.MatchUserFacing;
 
 import com.scobolsolo.matches.MatchStatus;
@@ -13,7 +17,14 @@ import com.scobolsolo.matches.MatchStatus;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Match extends MatchUserFacing {
+public interface Match extends MatchUserFacing, Comparable<Match> {
+	@Override
+	default public int compareTo(final Match that) {
+		return this.getRound().compareTo(that.getRound());
+	}
+	
+	public static final Comparator<Match> ENTERING_PRIORITY_COMPARATOR = Comparator.comparing(Match::determineStatus).thenComparing(Match::getRound);
+	
 	default MatchStatus determineStatus() {
 		final Game lclG = getGame();
 		if (lclG == null) {
@@ -64,5 +75,48 @@ public interface Match extends MatchUserFacing {
 		} else {
 			return null;
 		}
+	}
+	
+	default boolean mayBeEnteredBy(final Account argA) {
+		Validate.notNull(argA);
+		
+		if (argA.isAdministrator()) {
+			return true;
+		}
+		
+		Game lclG = getGame();
+		if (lclG == null) {
+			return argA.getContact() == determineLikelyModerator().getContact();
+		} else if (argA.getContact() == lclG.getModeratorStaff().getContact()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	default RoundGroup getRoundGroup() {
+		return getRound().getRoundGroup();
+	}
+	
+	default Phase getPhase() {
+		return getRoundGroup().getPhase();
+	}
+	
+	default Tournament getTournament() {
+		return getPhase().getTournament();
+	}
+	
+	default boolean requiresIdentificationOfWinningAndLosingCardPlayers() {
+		return getGame() == null || (getGame().getIncomingWinningCardPlayer() == null && getGame().getIncomingLosingCardPlayer() == null);
+	}
+	
+	// Only looks within the current phase
+	default Match getNextForWinner() {
+		return getWinningCard().getNextMatch(getRound());
+	}
+	
+	// Only looks within the current phase
+	default Match getNextForLoser() {
+		return getLosingCard().getNextMatch(getRound());
 	}
 }

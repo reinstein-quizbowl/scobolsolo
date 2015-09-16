@@ -224,24 +224,4 @@ public interface PlayerCategoryPointVUserFacing extends UserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();
-	public static class CategoryComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.PlayerCategoryPointV> {
-		private static final CategoryComparator ourInstance = new CategoryComparator();
-		public static final CategoryComparator getInstance() { return ourInstance; }
-
-		private CategoryComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.PlayerCategoryPointV argFirst, com.scobolsolo.application.PlayerCategoryPointV argSecond) {
-			int lclResult = com.scobolsolo.application.Category.StandardComparator.getInstance().compare(argFirst.getCategory(),  argSecond.getCategory());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			lclResult = nullSafeCompare(argFirst.getPointsAsObject(), argSecond.getPointsAsObject());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return com.scobolsolo.application.Player.NameComparator.getInstance().compare(argFirst.getPlayer(),  argSecond.getPlayer());
-		}
-	}
-
 }

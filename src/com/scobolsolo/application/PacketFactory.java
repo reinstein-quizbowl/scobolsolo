@@ -40,6 +40,11 @@ public class PacketFactory extends com.opal.AbstractFactory<Packet, PacketOpal> 
 		return (lclPacketOpal == null) ? null : lclPacketOpal.getUserFacing();
 	}
 
+	public Packet forRoundId(java.lang.Integer argRoundId) {
+		PacketOpal lclPacketOpal = getPacketOpalFactory().forRoundId(argRoundId);
+		return (lclPacketOpal == null) ? null : lclPacketOpal.getUserFacing();
+	}
+
 	public Packet forTournamentCodeShortName(java.lang.String argTournamentCode, java.lang.String argShortName) {
 		PacketOpal lclPacketOpal = getPacketOpalFactory().forTournamentCodeShortName(argTournamentCode, argShortName);
 		return (lclPacketOpal == null) ? null : lclPacketOpal.getUserFacing();

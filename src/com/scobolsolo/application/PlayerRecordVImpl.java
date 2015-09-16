@@ -78,14 +78,4 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 	/* The following methods allow access to the user objects that have references
 	to this object. */
 
-	@Override
-	public void unlink() {
-		getPlayerRecordVOpal().unlink();
-	}
-
-	@Override
-	public void reload() {
-		getPlayerRecordVOpal().reload();
-	}
-
 }

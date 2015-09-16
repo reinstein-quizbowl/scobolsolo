@@ -410,16 +410,4 @@ public interface PlayerMatchVUserFacing extends UserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Performance getOpponentPerformance();
-	public static class RoundComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.PlayerMatchV> {
-		private static final RoundComparator ourInstance = new RoundComparator();
-		public static final RoundComparator getInstance() { return ourInstance; }
-
-		private RoundComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.PlayerMatchV argFirst, com.scobolsolo.application.PlayerMatchV argSecond) {
-			return com.scobolsolo.application.Match.RoundComparator.getInstance().compare(argFirst.getMatch(),  argSecond.getMatch());
-		}
-	}
-
 }

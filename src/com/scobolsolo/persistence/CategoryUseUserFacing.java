@@ -158,28 +158,4 @@ public interface CategoryUseUserFacing extends IdentityUserFacing {
 
 	public com.scobolsolo.application.CategoryUse copy();
 
-	public static class CategoryComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.CategoryUse> {
-		private static final CategoryComparator ourInstance = new CategoryComparator();
-		public static final CategoryComparator getInstance() { return ourInstance; }
-
-		private CategoryComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.CategoryUse argFirst, com.scobolsolo.application.CategoryUse argSecond) {
-			return com.scobolsolo.application.Category.StandardComparator.getInstance().compare(argFirst.getCategory(),  argSecond.getCategory());
-		}
-	}
-
-	public static class TournamentComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.CategoryUse> {
-		private static final TournamentComparator ourInstance = new TournamentComparator();
-		public static final TournamentComparator getInstance() { return ourInstance; }
-
-		private TournamentComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.CategoryUse argFirst, com.scobolsolo.application.CategoryUse argSecond) {
-			return com.scobolsolo.application.Tournament.DateComparator.getInstance().compare(argFirst.getTournament(),  argSecond.getTournament());
-		}
-	}
-
 }

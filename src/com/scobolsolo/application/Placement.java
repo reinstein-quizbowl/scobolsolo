@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
 import java.util.Arrays;
 
 import org.apache.commons.lang3.Validate;
@@ -14,7 +15,12 @@ import com.scobolsolo.persistence.PlacementUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Placement extends PlacementUserFacing {
+public interface Placement extends PlacementUserFacing, Comparable<Placement> {
+	@Override
+	default int compareTo(Placement that) {
+		return Comparator.comparing(Placement::getPacket).thenComparingInt(Placement::getSequence).compare(this, that);
+	}
+	
 	default Placement findReplacement() {
 		// TODO: Add arguments for the players involved (Player[] because of the championship) and make sure the question returned hasn't been heard by any of them!
 		
@@ -26,7 +32,7 @@ public interface Placement extends PlacementUserFacing {
 		}
 		
 		final Placement[] lclReplacements = lclReplacementPacket.createPlacementArray();
-		Arrays.sort(lclReplacements, Placement.StandardComparator.getInstance());
+		Arrays.sort(lclReplacements);
 		
 		// Try to find a question in the replacement packet with the same Category
 		for (final Placement lclReplacementCandidate : lclReplacements) {
@@ -53,7 +59,11 @@ public interface Placement extends PlacementUserFacing {
 	}
 	
 	default String getString() {
-		return getPacket().getName() + ", #" + getSequence() + (isTiebreaker() ? " (TB)" : "");
+		return getPacket().getName() + ", #" + getSequenceString();
+	}
+	
+	default String getSequenceString() {
+		return getSequence() + (isTiebreaker() ? " (TB)" : "");
 	}
 	
 	default String getDescription() {

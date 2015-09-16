@@ -77,14 +77,4 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 	/* The following methods allow access to the user objects that have references
 	to this object. */
 
-	@Override
-	public void unlink() {
-		getCategoryConversionVOpal().unlink();
-	}
-
-	@Override
-	public void reload() {
-		getCategoryConversionVOpal().reload();
-	}
-
 }

@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
 import com.scobolsolo.persistence.RoundUserFacing;
 
 /**
@@ -10,7 +12,12 @@ import com.scobolsolo.persistence.RoundUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Round extends RoundUserFacing {
+public interface Round extends RoundUserFacing, Comparable<Round> {
+	@Override
+	default int compareTo(Round that) {
+		return Comparator.comparing(Round::getRoundGroup).thenComparingInt(Round::getSequence).compare(this, that);
+	}
+	
 	default String getNameWithStartTime() {
 		if (getStartTime() == null) {
 			return getName();
@@ -28,11 +35,11 @@ public interface Round extends RoundUserFacing {
 	}
 	
 	default boolean isBefore(final Round that) {
-		return Round.StandardComparator.getInstance().compare(this, that) < 0;
+		return this.compareTo(that) < 0;
 	}
 	
 	default boolean isAfter(final Round that) {
-		return Round.StandardComparator.getInstance().compare(this, that) > 0;
+		return this.compareTo(that) > 0;
 	}
 	
 	default boolean usesCardSystem() {

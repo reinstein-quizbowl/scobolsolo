@@ -1,6 +1,7 @@
 package com.scobolsolo.menu;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -10,7 +11,9 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 
+import com.scobolsolo.application.Match;
 import com.scobolsolo.application.Packet;
+import com.scobolsolo.application.Staff;
 import com.scobolsolo.application.Tournament;
 import com.scobolsolo.application.TournamentFactory;
 
@@ -31,7 +34,7 @@ public final class Menus {
 		
 		final List<Tournament> lclTournaments = new ArrayList<>();
 		TournamentFactory.getInstance().acquireAll(lclTournaments);
-		lclTournaments.sort(Tournament.DateComparator.getInstance().reversed());
+		lclTournaments.sort(Comparator.<Tournament>naturalOrder().reversed());
 		
 		myTournamentsPublicMenu = new Menu(
 			"tournaments",
@@ -76,7 +79,7 @@ public final class Menus {
 								"/tournament/packets.jsp?object=" + argT.getUniqueString(),
 								argT.getShortName(),
 								argT.streamPacket()
-									.sorted(Packet.StandardComparator.getInstance())
+									.sorted()
 									.map(argP ->
 										new MenuPage(
 											argP.getUniqueString(),
@@ -131,25 +134,37 @@ public final class Menus {
 		if (!ourInstance.myStatsMenus.containsKey(argT)) {
 			final List<MenuItem> lclItems = new ArrayList<>(7);
 			
-			if (argT.getDate().isAfter(LocalDate.now())) {
+			LocalDate lclTodayDate = LocalDate.now();
+			LocalDate lclTournamentDate = argT.getDate();
+			boolean lclFuture = lclTournamentDate.isAfter(lclTodayDate);
+			boolean lclSoon = lclFuture && lclTournamentDate.minusDays(6).isBefore(lclTodayDate);
+			boolean lclToday = lclTournamentDate.equals(lclTodayDate);
+			boolean lclPast = lclTournamentDate.isBefore(lclTodayDate);
+			
+			if (lclFuture) {
 				lclItems.add(new MenuPage("registrations", "Registrations", "/stats/registrations.jsp?object=" + argT.getUniqueString()));
 			}
-			lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argT.getUniqueString()));
-			lclItems.add(new MenuPage("standings", "Standings", "/stats/standings.jsp?object=" + argT.getUniqueString()));
-			lclItems.add(new MenuPage("points", "Points", "/stats/points.jsp?object=" + argT.getUniqueString()));
-			lclItems.add(new MenuPage("player-detail", "Player Detail", "/stats/player-detail.jsp?object=" + argT.getUniqueString()));
-			lclItems.add(new MenuPage("conversion-by-category", "Conversion by Category", "/stats/conversion-by-category.jsp?object=" + argT.getUniqueString()));
 			
-			if (argT.hasPublicQuestions()) {
-				lclItems.add(new MenuPage("conversion-by-question", "Conversion by Question", "/stats/conversion-by-question.jsp?object=" + argT.getUniqueString()));
+			if (lclPast || lclToday) {
+				lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argT.getUniqueString()));
+				lclItems.add(new MenuPage("standings", "Standings", "/stats/standings.jsp?object=" + argT.getUniqueString()));
+				lclItems.add(new MenuPage("points", "Points", "/stats/points.jsp?object=" + argT.getUniqueString()));
+				lclItems.add(new MenuPage("player-detail", "Player Detail", "/stats/player-detail.jsp?object=" + argT.getUniqueString()));
+				lclItems.add(new MenuPage("conversion-by-category", "Conversion by Category", "/stats/conversion-by-category.jsp?object=" + argT.getUniqueString()));
+				
+				if (argT.hasPublicQuestions()) {
+					lclItems.add(new MenuPage("conversion-by-question", "Conversion by Question", "/stats/conversion-by-question.jsp?object=" + argT.getUniqueString()));
+				}
 			}
 			
-			if (argT.getDate().equals(LocalDate.now()) || argT.getDate().minusDays(6).isAfter(LocalDate.now())) {
+			if (lclSoon || lclToday) {
 				lclItems.add(new MenuPage("coming-up-next", "Coming Up Next", "/stats/coming-up-next.jsp?object=" + argT.getUniqueString()));
 			}
 			
-			if (argT.getChampionshipMatchUrl() != null) {
-				lclItems.add(new MenuPage("championship-match", "Championship", argT.getChampionshipMatchUrl()));
+			if (lclPast || lclToday) {
+				if (argT.getChampionshipMatchUrl() != null) {
+					lclItems.add(new MenuPage("championship-match", "Championship", argT.getChampionshipMatchUrl()));
+				}
 			}
 			
 			ourInstance.myStatsMenus.put(
@@ -159,6 +174,37 @@ public final class Menus {
 		}
 		
 		return ourInstance.myStatsMenus.get(argT);
+	}
+	
+	private static final int MAXIMUM_MATCHES_TO_SHOW_IN_MENU = 5;
+	
+	public static Menu staff(final Staff argS) {
+		Validate.notNull(argS);
+		// We don't cache these menus because they change as games are entered.
+		
+		final Tournament lclT = argS.getTournament();
+		String lclMenuTitle = argS.getContact().getName() + " @ " + lclT.getName();
+		if (argS.getStaffAssignmentCount() == 1) {
+			lclMenuTitle += ": " + argS.createStaffAssignmentIterator().next().getRoom().getName();
+		}
+		
+		List<Match> lclMatches = argS.findMatches();
+		lclMatches.sort(Match.ENTERING_PRIORITY_COMPARATOR);
+		
+		if (lclMatches.size() > MAXIMUM_MATCHES_TO_SHOW_IN_MENU) {
+			lclMatches = lclMatches.subList(0, MAXIMUM_MATCHES_TO_SHOW_IN_MENU);
+		}
+		
+		final List<MenuItem> lclMenuItems = new ArrayList<>(2 + lclMatches.size());
+		if (argS.getContact().getAccount() != null && argS.getContact().getAccount().isAdministrator()) {
+			lclMenuItems.add(new MenuPage("all-matches", "All Matches", "/game/all.jsp?object=" + lclT.getUniqueString()));
+		}
+		lclMenuItems.add(new MenuPage("my-matches", "My Matches", "/game/index.jsp?object=" + lclT.getUniqueString()));
+		for (final Match lclM : lclMatches) {
+			lclMenuItems.add(new MenuPage("match-" + lclM.getUniqueString(), lclM.getRound().getName(), "/game/sides.jsp?match_id=" + lclM.getId()));
+		}
+		
+		return new Menu(argS.getUniqueString() + "-staff", lclMenuTitle, lclMenuItems);
 	}
 	
 	public static Menu tournamentAdmin(final Tournament argT) {

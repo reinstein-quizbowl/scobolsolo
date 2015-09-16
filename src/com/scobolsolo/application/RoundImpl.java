@@ -2,6 +2,7 @@ package com.scobolsolo.application;
 
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.RoundGroupOpal;
+import com.scobolsolo.persistence.PacketOpal;
 
 public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> implements Round {
 	private final RoundOpal myRoundOpal;
@@ -23,11 +24,6 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	@Override
 	protected com.opal.IdentityOpal<? extends Round> getBottomOpal() {
 		return getRoundOpal();
-	}
-
-	@Override
-	public int compareTo(Round argSecond) {
-		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
 	@Override
@@ -148,6 +144,18 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return this;
 	}
 
+	@Override
+	public Packet getPacket() {
+		PacketOpal lclO = getRoundOpal().getPacketOpal();
+		return lclO == null ? null : lclO.getUserFacing();
+	}
+
+	@Override
+	public Round setPacket(Packet argPacket) {
+		getRoundOpal().setPacketOpal(argPacket == null ? null : ((PacketImpl) argPacket).getPacketOpal());
+		return this;
+	}
+
 	/* The following methods allow access to the user objects that have references
 	to this object. */
 
@@ -178,36 +186,6 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 
 	@Override
 	public void clearMatch() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public void addPacket(Packet argPacket) {
-		getRoundOpal().addPacketOpal(((PacketImpl) argPacket).getPacketOpal());
-	}
-
-	@Override
-	public void removePacket(Packet argPacket) {
-		getRoundOpal().removePacketOpal(((PacketImpl) argPacket).getPacketOpal());
-	}
-
-	@Override
-	public int getPacketCount() {
-		return getRoundOpal().getPacketOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<Packet> streamPacket() {
-		return getRoundOpal().streamPacketOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<Packet> createPacketIterator() {
-		return new com.opal.OpalIterator<> (getRoundOpal().createPacketOpalIterator());
-	}
-
-	@Override
-	public void clearPacket() {
 		throw new UnsupportedOperationException();
 	}
 

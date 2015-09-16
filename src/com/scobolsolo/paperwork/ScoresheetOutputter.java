@@ -29,12 +29,12 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 		final List<Room> lclRooms = new ArrayList<>(getTournament().getRoomCount());
 		getTournament().acquireRoom(lclRooms);
 		lclRooms.removeIf(argRoom -> !argRoom.isGameRoom());
-		lclRooms.sort(Room.SequenceComparator.getInstance());
+		lclRooms.sort(null);
 		
 		// Rooms:
 		for (final Room lclRoom : lclRooms) {
 			final Match[] lclMatches = lclRoom.createMatchArray();
-			Arrays.sort(lclMatches, Match.RoundComparator.getInstance());
+			Arrays.sort(lclMatches);
 			
 			// Matches:
 			for (final Match lclM : lclMatches) {
@@ -63,44 +63,29 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 				getWriter().println("\\small Correct & \\small Interrupt & \\small Incorrect & \\small No Try & \\# & \\small Correct & \\small Interrupt & \\small Incorrect & \\small No Try \\tabularnewline");
 				getWriter().println("\\hline");
 				
-				final Packet[] lclPackets = lclRound.createPacketArray();
-				final boolean lclMultiplePackets = lclPackets.length > 1;
-				if (lclMultiplePackets) {
-					Arrays.sort(lclPackets, Packet.StandardComparator.getInstance());
-				}
+				final Packet lclPacket = lclRound.getPacket();
+				boolean lclJustDidTiebreaker = false;
 				
-				// Packets:
-				for (final Packet lclPacket : lclPackets) {
-					final Placement[] lclPlacements = lclPacket.createPlacementArray();
-					Arrays.sort(lclPlacements, Placement.StandardComparator.getInstance());
-					
-					boolean lclJustDidTiebreaker = false;
-					
-					Placements:
-					for (final Placement lclPL : lclPlacements) {
-						if (lclPL.isTiebreaker()) {
-							if (getTournament().isTiebreakerSuddenDeath() && lclJustDidTiebreaker) {
-								continue Placements;
-							}
-							
-							getWriter().println("\\vstrut & & & & \\textsc{(tiebreaker)} & & & & \\tabularnewline");
+				Placements:
+				for (final Placement lclPL : lclPacket.getAllPlacements()) {
+					if (lclPL.isTiebreaker()) {
+						if (getTournament().isTiebreakerSuddenDeath() && lclJustDidTiebreaker) {
+							continue Placements;
+						}
+						
+						getWriter().println("\\vstrut & & & & \\textsc{(tiebreaker)} & & & & \\tabularnewline");
+						getWriter().println("\\hline");
+						lclJustDidTiebreaker = true;
+					} else {
+						lclJustDidTiebreaker = false;
+						
+						getWriter().println("\\vstrut & & & & \\textbf{" + lclPL.getSequenceString() + "} & & & & \\tabularnewline");
+						
+						getWriter().println("\\hline");
+						
+						if (lclPL.isScorecheckAfter()) {
+							getWriter().println("\\vstrut & & & & \\textsc{score check} & & & & \\tabularnewline");
 							getWriter().println("\\hline");
-							lclJustDidTiebreaker = true;
-						} else {
-							lclJustDidTiebreaker = false;
-							
-							if (lclMultiplePackets) {
-								getWriter().println("\\vstrut & & & & \\textbf{" + escape(lclPacket.getName()) + "\\#" + lclPL.getSequence() + "} & & & & \\tabularnewline");
-							} else {
-								getWriter().println("\\vstrut & & & & \\textbf{" + lclPL.getSequence() + "} & & & & \\tabularnewline");
-							}
-							
-							getWriter().println("\\hline");
-							
-							if (lclPL.isScorecheckAfter()) {
-								getWriter().println("\\vstrut & & & & \\textsc{score check} & & & & \\tabularnewline");
-								getWriter().println("\\hline");
-							}
 						}
 					}
 				}

@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,12 +14,17 @@ import com.scobolsolo.persistence.PhaseUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Phase extends PhaseUserFacing {
+public interface Phase extends PhaseUserFacing, Comparable<Phase> {
+	@Override
+	default public int compareTo(Phase that) {
+		return Comparator.comparing(Phase::getTournament).thenComparingInt(Phase::getSequence).compare(this, that);
+	}
+	
 	default List<Round> getRounds() {
-		return streamRoundGroup().flatMap(RoundGroup::streamRound).sorted(Round.StandardComparator.getInstance()).collect(Collectors.toList());
+		return streamRoundGroup().flatMap(RoundGroup::streamRound).sorted().collect(Collectors.toList());
 	}
 	
 	default List<Card> getCards() {
-		return streamCard().sorted(Card.StandardComparator.getInstance()).collect(Collectors.toList());
+		return streamCard().sorted().collect(Collectors.toList());
 	}
 }

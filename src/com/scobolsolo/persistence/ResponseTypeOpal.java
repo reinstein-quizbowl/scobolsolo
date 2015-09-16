@@ -12,6 +12,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	public static final java.lang.Boolean ourDefaultMultipleAllowedForSamePlacement = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultAttempt = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultFurtherAttemptsToSameQuestionInMatch = java.lang.Boolean.FALSE;
+	public static final java.lang.Boolean ourDefaultShowForNonExhibitionPlayers = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultShowForExhibitionPlayers = java.lang.Boolean.TRUE;
 
 	private ResponseTypeOpal() {
 		super();
@@ -28,6 +30,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		getNewValues()[6] = ourDefaultMultipleAllowedForSamePlacement;
 		getNewValues()[7] = ourDefaultAttempt;
 		getNewValues()[8] = ourDefaultFurtherAttemptsToSameQuestionInMatch;
+		getNewValues()[9] = ourDefaultShowForNonExhibitionPlayers;
+		getNewValues()[10] = ourDefaultShowForExhibitionPlayers;
 		return;
 	}
 
@@ -41,6 +45,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		"MultipleAllowedForSamePlacement",
 		"Attempt",
 		"FurtherAttemptsToSameQuestionInMatch",
+		"ShowForNonExhibitionPlayers",
+		"ShowForExhibitionPlayers",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -49,6 +55,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		java.lang.String.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.Boolean.class,
+		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
@@ -65,9 +73,13 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		false,
 		false,
 		false,
+		false,
+		false,
 	};
 
 	/* package */ static final FieldValidator[] ourFieldValidators = new FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -133,6 +145,14 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 
 	public synchronized java.lang.Boolean allowsFurtherAttemptsToSameQuestionInMatchAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[8];
+	}
+
+	public synchronized java.lang.Boolean isShowForNonExhibitionPlayersAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[9];
+	}
+
+	public synchronized java.lang.Boolean isShowForExhibitionPlayersAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[10];
 	}
 
 	public synchronized ResponseTypeOpal setCode(final java.lang.String argCode) {
@@ -255,6 +275,34 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		return this;
 	}
 
+	public synchronized ResponseTypeOpal setShowForNonExhibitionPlayers(final java.lang.Boolean argShowForNonExhibitionPlayers) {
+		tryMutate();
+		if (argShowForNonExhibitionPlayers == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myShowForNonExhibitionPlayers on " + this + " to null.");
+		}
+		getNewValues()[9] = argShowForNonExhibitionPlayers;
+		return this;
+	}
+
+	public ResponseTypeOpal setShowForNonExhibitionPlayers(final boolean argShowForNonExhibitionPlayers) {
+		setShowForNonExhibitionPlayers(argShowForNonExhibitionPlayers ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
+	public synchronized ResponseTypeOpal setShowForExhibitionPlayers(final java.lang.Boolean argShowForExhibitionPlayers) {
+		tryMutate();
+		if (argShowForExhibitionPlayers == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myShowForExhibitionPlayers on " + this + " to null.");
+		}
+		getNewValues()[10] = argShowForExhibitionPlayers;
+		return this;
+	}
+
+	public ResponseTypeOpal setShowForExhibitionPlayers(final boolean argShowForExhibitionPlayers) {
+		setShowForExhibitionPlayers(argShowForExhibitionPlayers ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -285,6 +333,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		lclTargetNewValues[6] = lclValues[6]; /* MultipleAllowedForSamePlacement (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* Attempt (immutable) */
 		lclTargetNewValues[8] = lclValues[8]; /* FurtherAttemptsToSameQuestionInMatch (immutable) */
+		lclTargetNewValues[9] = lclValues[9]; /* ShowForNonExhibitionPlayers (immutable) */
+		lclTargetNewValues[10] = lclValues[10]; /* ShowForExhibitionPlayers (immutable) */
 
 		return;
 	}
@@ -328,6 +378,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argPW.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argPW.println("Attempt = " + isAttemptAsObject());
 		argPW.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
+		argPW.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
+		argPW.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
 	}
 
 	@Override
@@ -341,6 +393,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argPS.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argPS.println("Attempt = " + isAttemptAsObject());
 		argPS.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
+		argPS.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
+		argPS.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
 	}
 
 	@Override

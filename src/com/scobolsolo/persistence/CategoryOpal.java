@@ -299,10 +299,15 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		if (isNew()) {
+			return java.util.Collections.emptySet();
+		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldCategoryGroupOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldCategoryGroupOpal) == CategoryGroupOpal.NOT_YET_LOADED) {
+			lclUO = myOldCategoryGroupOpal = retrieveCategoryGroupOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}

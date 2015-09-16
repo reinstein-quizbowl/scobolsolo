@@ -12,7 +12,6 @@ import com.scobolsolo.application.Card;
 import com.scobolsolo.application.Match;
 import com.scobolsolo.application.Phase;
 import com.scobolsolo.application.Round;
-import com.scobolsolo.opalforms.compare.CardInitialPlayerSchoolName;
 
 public class PlayerCardOutputter extends PhaseSpecificLaTeXOutputter {
 	public PlayerCardOutputter(final File argOutputFile, final Phase argP) {
@@ -29,10 +28,10 @@ public class PlayerCardOutputter extends PhaseSpecificLaTeXOutputter {
 		Validate.isTrue(getPhase().isCardSystem());
 		
 		final Card[] lclCards = getPhase().createCardArray();
-		Arrays.sort(lclCards, Card.SequenceComparator.getInstance());
+		Arrays.sort(lclCards);
 		final Card lclFirstCard = lclCards[0];
 		final Card lclLastCard = lclCards[lclCards.length - 1];
-		Arrays.sort(lclCards, CardInitialPlayerSchoolName.getInstance());
+		Arrays.sort(lclCards, Card.InitialPlayerSchoolNameComparator.getInstance());
 		
 		final List<Round> lclRounds = getPhase().getRounds();
 		

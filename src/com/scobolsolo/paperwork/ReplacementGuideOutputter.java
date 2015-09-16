@@ -38,46 +38,36 @@ public class ReplacementGuideOutputter extends TournamentSpecificLaTeXOutputter 
 			
 			getWriter().println("\\section*{Replacements for " + escape(lclR.getName()) + "}");
 			
-			final Packet[] lclPackets = lclR.createPacketArray();
-			final boolean lclMultiplePackets = lclPackets.length > 1;
-			if (lclMultiplePackets) {
-				Arrays.sort(lclPackets, Packet.StandardComparator.getInstance());
-			}
+			final Packet lclP = lclR.getPacket();
 			
-			for (final Packet lclP : lclPackets) {
-				if (lclMultiplePackets) {
-					getWriter().println("\\subsection*{" + escape(lclP.getName()) + "}");
+			getWriter().println("\\begin{compactdesc}");
+			
+			final Placement[] lclPlacements = lclP.createPlacementArray();
+			Arrays.sort(lclPlacements);
+			
+			for (final Placement lclPL : lclPlacements) {
+				final Question lclQ = lclPL.getQuestion();
+				final Placement lclReplacement = lclPL.findReplacement();
+				
+				getWriter().print("\\item[\\#" + escape(String.valueOf(lclPL.getSequence())));
+				
+				if (lclPL.isTiebreaker()) {
+					getWriter().print(" (TB)");
 				}
 				
-				getWriter().println("\\begin{compactdesc}");
+				getWriter().println(": \\textit{" + escape(lclQ.getDescription()) + " (" + escape(lclQ.getCategory().getName()) + ")}]\\hfill\\\\");
 				
-				final Placement[] lclPlacements = lclP.createPlacementArray();
-				Arrays.sort(lclPlacements, Placement.StandardComparator.getInstance());
-				
-				for (final Placement lclPL : lclPlacements) {
-					final Question lclQ = lclPL.getQuestion();
-					final Placement lclReplacement = lclPL.findReplacement();
-					
-					getWriter().print("\\item[\\#" + escape(String.valueOf(lclPL.getSequence())));
-					
-					if (lclPL.isTiebreaker()) {
-						getWriter().print(" (TB)");
-					}
-					
-					getWriter().println(": \\textit{" + escape(lclQ.getDescription()) + " (" + escape(lclQ.getCategory().getName()) + ")}]\\hfill\\\\");
-					
-					if (lclReplacement == null) {
-						getWriter().println("No replacement available; contact the control room for assistance if necessary.");
-					} else {
-						getWriter().println("Use " + escape(lclReplacement.getPacket().getName()) + " \\#" + escape(String.valueOf(lclReplacement.getSequence())) + ": " + escape(lclReplacement.getQuestion().getDescription()));
-					}
-					
-					getWriter().println();
+				if (lclReplacement == null) {
+					getWriter().println("No replacement available; contact the control room for assistance if necessary.");
+				} else {
+					getWriter().println("Use " + escape(lclReplacement.getPacket().getName()) + " \\#" + escape(String.valueOf(lclReplacement.getSequence())) + ": " + escape(lclReplacement.getQuestion().getDescription()));
 				}
 				
-				getWriter().println("\\end{compactdesc}");
 				getWriter().println();
 			}
+			
+			getWriter().println("\\end{compactdesc}");
+			getWriter().println();
 			
 			getWriter().println("\\newpage");
 		}

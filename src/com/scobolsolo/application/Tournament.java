@@ -26,11 +26,15 @@ public interface Tournament extends TournamentUserFacing {
 	}
 	
 	default List<RoundGroup> getRoundGroups() {
-		return streamPhase().flatMap(Phase::streamRoundGroup).sorted(RoundGroup.StandardComparator.getInstance()).collect(Collectors.toList());
+		return streamPhase().flatMap(Phase::streamRoundGroup).sorted().collect(Collectors.toList());
 	}
 	
 	default List<Round> getRounds() {
-		return streamPhase().flatMap(Phase::streamRoundGroup).flatMap(RoundGroup::streamRound).sorted(Round.StandardComparator.getInstance()).collect(Collectors.toList());
+		return streamPhase().flatMap(Phase::streamRoundGroup).flatMap(RoundGroup::streamRound).sorted().collect(Collectors.toList());
+	}
+	
+	default List<Staff> getStaff() {
+		return streamStaff().sorted(Staff.NameComparator.getInstance()).collect(Collectors.toList());
 	}
 	
 	default boolean hasValidSeeds() {

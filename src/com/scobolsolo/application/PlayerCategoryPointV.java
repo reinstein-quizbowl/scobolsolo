@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
 import com.scobolsolo.persistence.PlayerCategoryPointVUserFacing;
 
 /**
@@ -11,6 +13,12 @@ import com.scobolsolo.persistence.PlayerCategoryPointVUserFacing;
  */
 
 public interface PlayerCategoryPointV extends PlayerCategoryPointVUserFacing {
+	public static final Comparator<PlayerCategoryPointV> CATEGORY_COMPARATOR = Comparator.comparing(PlayerCategoryPointV::getCategory)
+		.thenComparingInt(argPCPV -> -1 * argPCPV.getPoints(0)) // descending order of points
+		.thenComparing(PlayerCategoryPointV::getPlayer);
+	
+	public static final Comparator<PlayerCategoryPointV> PPTUH_COMPARATOR = Comparator.comparingDouble(PlayerCategoryPointV::getPPTUH).reversed();
+	
 	default double getPPTUH() {
 		if (getTossupsHeard(0) == 0) {
 			return 0.0d;

@@ -21,7 +21,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 <%
 
 Category[] lclCs = CategoryFactory.getInstance().createAllArray();
-Arrays.sort(lclCs, Category.StandardComparator.getInstance());
+Arrays.sort(lclCs);
 
 Map<Category, CategoryUse> lclUses = Maps.uniqueIndex(lclT.createCategoryUseIterator(), CategoryUse::getCategory);
 

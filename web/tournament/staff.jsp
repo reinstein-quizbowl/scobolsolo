@@ -63,7 +63,7 @@ Tournament lclT = lclOF.getUserFacing();
 						<td data-tablesorter="<%= lclSOF.isNew() ? "" : (lclStaff.getSchoolRegistration() == null ? "" : lclStaff.getSchoolRegistration().getSchool().getName()) %>"><%= lclSOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %></td>
 						<td><%= lclSOF.text("Note", 30) %></td>
 						<td><%
-							for (OpalForm<StaffAssignment> lclSAOF : lclSOF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.RoomSequenceComparator.getInstance())) {
+							for (OpalForm<StaffAssignment> lclSAOF : lclSOF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.ROOM_COMPARATOR)) {
 								Room lclR = lclSAOF.getUserFacing().getRoom();
 								%><%= lclSAOF.open() %>
 									<a href="room-edit.jsp?staff_id=<%= lclR.getId() %>"><%= lclR.getShortName() %></a> <label class="my-inline">(Unassign?&nbsp;<%= lclSAOF.delete() %>)</label><br />

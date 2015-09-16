@@ -82,14 +82,4 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 	/* The following methods allow access to the user objects that have references
 	to this object. */
 
-	@Override
-	public void unlink() {
-		getPlayerCategoryPointVOpal().unlink();
-	}
-
-	@Override
-	public void reload() {
-		getPlayerCategoryPointVOpal().reload();
-	}
-
 }

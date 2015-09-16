@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.Collections" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.opal.cma.OpalForm" %>
@@ -89,14 +90,14 @@ if (lclOF.hasErrors()) {
 				List<OpalForm<Match>> lclMOFs = new ArrayList<>(lclWinOFs.size() + lclLoseOFs.size());
 				lclMOFs.addAll(lclWinOFs);
 				lclMOFs.addAll(lclLoseOFs);
-				lclMOFs.sort(new OpalFormComparator<>(Match.RoundComparator.getInstance()));
+				lclMOFs.sort(new OpalFormComparator<>(Comparator.<Match>naturalOrder()));
 				
 				for (OpalForm<Match> lclMOF : lclMOFs) {
 					Match lclM = lclMOF.getUserFacing();
 					%><tr>
 						<%= lclMOF.open() %>
-						<td><%= lclMOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
-						<td><%= lclMOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
+						<td><%= lclMOF.dropdown("Round", Comparator.<Round>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %></td>
+						<td><%= lclMOF.dropdown("Room", Comparator.<Room>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %></td>
 						<td><%= lclM.getWinningCard() == lclC ? lclM.getLosingCard().getName() : lclM.getWinningCard().getName() %></td>
 						<td><%= lclM.determineStatus() %></td>
 						<%= lclMOF.close() %>

@@ -297,20 +297,4 @@ public interface RoundGroupUserFacing extends IdentityUserFacing {
 		}
 	}
 
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.RoundGroup> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.RoundGroup argFirst, com.scobolsolo.application.RoundGroup argSecond) {
-			int lclResult = com.scobolsolo.application.Phase.StandardComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
-		}
-	}
-
 }

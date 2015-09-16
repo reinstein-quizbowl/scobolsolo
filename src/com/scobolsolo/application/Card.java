@@ -1,5 +1,9 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
+import com.siliconage.util.NullSafeComparator;
+
 import org.apache.commons.lang3.Validate;
 
 import com.scobolsolo.persistence.CardUserFacing;
@@ -12,11 +16,17 @@ import com.scobolsolo.persistence.CardUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Card extends CardUserFacing {
+public interface Card extends CardUserFacing, Comparable<Card> {
+	@Override
+	default int compareTo(final Card that) {
+		return Comparator.comparing(Card::getPhase).thenComparingInt(Card::getSequence).compare(this, that);
+	}
+	
 	default Tournament getTournament() {
 		return getPhase().getTournament();
 	}
 	
+	// Only looks within the current phase
 	default Match getNextMatch(final Round argAfterWhen) {
 		Validate.notNull(argAfterWhen);
 		
@@ -31,5 +41,36 @@ public interface Card extends CardUserFacing {
 		}
 		
 		return null;
+	}
+	
+	public static final class InitialPlayerSchoolNameComparator extends NullSafeComparator<Card> {
+		private static final InitialPlayerSchoolNameComparator ourInstance = new InitialPlayerSchoolNameComparator();
+		
+		public static InitialPlayerSchoolNameComparator getInstance() {
+			return ourInstance;
+		}
+		
+		private InitialPlayerSchoolNameComparator() {
+			super();
+		}
+		
+		@Override
+		protected int compareInternal(final Card argA, final Card argB) {
+			if (argA.getInitialPlayer() == null && argB.getInitialPlayer() == null) {
+				return argA.getSequence() - argB.getSequence();
+			} else if (argA.getInitialPlayer() == null) {
+				return -1;
+			} else if (argB.getInitialPlayer() == null) {
+				return 1;
+			} else {
+				final int lclSchoolComparison = Player.SchoolNameComparator.getInstance().compare(argA.getInitialPlayer(), argB.getInitialPlayer());
+				
+				if (lclSchoolComparison != 0) {
+					return lclSchoolComparison;
+				} else {
+					return Player.NameComparator.getInstance().compare(argA.getInitialPlayer(), argB.getInitialPlayer());
+				}
+			}
+		}
 	}
 }

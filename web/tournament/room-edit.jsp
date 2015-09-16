@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
@@ -81,7 +82,7 @@ if (lclOF.hasErrors()) {
 </div><%
 
 OpalForm<Tournament> lclTOF = lclOF.targetForm("Tournament", TournamentFactory.getInstance());
-List<OpalForm<Phase>> lclPOFs = lclTOF.children("Phase", PhaseFactory.getInstance(), Phase.SequenceComparator.getInstance());
+List<OpalForm<Phase>> lclPOFs = lclTOF.children("Phase", PhaseFactory.getInstance(), Comparator.naturalOrder());
 
 for (OpalForm<Phase> lclPOF : lclPOFs) {
 	Phase lclPhase = Validate.notNull(lclPOF.getUserFacing());
@@ -103,7 +104,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						MatchFactory.getInstance(),
 						1, // row for a new match
 						argM -> argM.getRound().getRoundGroup().getPhase() == lclPhase,
-						Match.RoundComparator.getInstance()
+						Comparator.naturalOrder()
 					);
 					
 					for (OpalForm<Match> lclMOF : lclMOFs) {
@@ -113,9 +114,9 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						}
 						%><tr>
 							<%= lclMOF.open() %>
-							<td><%= lclMOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("WinningCard", Card.SequenceComparator.getInstance()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("LosingCard", Card.SequenceComparator.getInstance()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
+							<td><%= lclMOF.dropdown("Round", Comparator.<Round>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %></td>
+							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("WinningCard", Comparator.<Card>naturalOrder()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
+							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("LosingCard", Comparator.<Card>naturalOrder()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
 							<td><%= lclM == null ? "-" : lclM.determineStatus() %></td>
 							<%= lclMOF.close() %>
 						</tr><%
@@ -147,15 +148,15 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 					"StaffAssignment",
 					StaffAssignmentFactory.getInstance(),
 					1, // rows for a new staff assignment
-					StaffAssignment.StaffNameComparator.getInstance()
+					StaffAssignment.STAFF_NAME_COMPARATOR
 				);
 			
 				for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
 					%><%= lclSAOF.open() %>
 					<tr>
-						<td><%= lclSAOF.dropdown("Phase", Phase.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
+						<td><%= lclSAOF.dropdown("Phase", Comparator.<Phase>naturalOrder()).filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
 						<td><%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(argS -> argS.getContact().getName()) %></td>
-						<td><%= lclSAOF.dropdown("StaffRole", StaffRole.SequenceComparator.getInstance()) %></td>
+						<td><%= lclSAOF.dropdown("StaffRole", Comparator.<StaffRole>naturalOrder()) %></td>
 						<td><%= lclOF.textarea("Note", 40, 1) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSAOF) %></td>
 					</tr>

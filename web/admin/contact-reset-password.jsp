@@ -2,7 +2,6 @@
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.AccountFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.AccountUtility" %>
 <%@ page import="com.scobolsolo.ScobolSoloConfiguration" %>
 
 <jsp:include page="/template/header.jsp">
@@ -13,7 +12,7 @@
 </jsp:include>
 
 <div class="row"><%
-	Account lclUser = AccountUtility.demandLoggedInAccount(request);
+	Account lclUser = Account.demand(request);
 	Validate.isTrue(lclUser.isAdministrator());
 	
 	Account lclResetFor = Validate.notNull(AccountFactory.getInstance().fromHttpRequest(request));

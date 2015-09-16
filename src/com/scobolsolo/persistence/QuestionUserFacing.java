@@ -445,16 +445,4 @@ public interface QuestionUserFacing extends IdentityUserFacing {
 		}
 	}
 
-	public static class CategoryComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Question> {
-		private static final CategoryComparator ourInstance = new CategoryComparator();
-		public static final CategoryComparator getInstance() { return ourInstance; }
-
-		private CategoryComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Question argFirst, com.scobolsolo.application.Question argSecond) {
-			return com.scobolsolo.application.Category.StandardComparator.getInstance().compare(argFirst.getCategory(),  argSecond.getCategory());
-		}
-	}
-
 }

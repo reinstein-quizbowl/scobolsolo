@@ -8,7 +8,6 @@
 <%@ page import="com.scobolsolo.application.MatchFactory" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
-<%@ page import="com.scobolsolo.opalforms.compare.MatchEnteringPriority" %>
 <%@ page import="com.scobolsolo.matches.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
@@ -48,7 +47,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 						lclT.getCode()
 					)
 				);
-				lclMatches.sort(Match.RoundComparator.getInstance());
+				lclMatches.sort(null);
 				
 				for (Match lclM : lclMatches) {
 					Game lclG = lclM.getGame();

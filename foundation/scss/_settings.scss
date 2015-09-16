@@ -1207,10 +1207,10 @@ $side-nav-font-size: rem-calc(12);
 // We use this to control the definition
 // $sub-nav-font-family: $body-font-family;
 // $sub-nav-font-size: rem-calc(14);
-// $sub-nav-font-color: $aluminum;
+$sub-nav-font-color: $steel;
 // $sub-nav-font-weight: $font-weight-normal;
 // $sub-nav-text-decoration: none;
-// $sub-nav-padding: rem-calc(3 16);
+$sub-nav-padding: rem-calc(3 6);
 // $sub-nav-border-radius: 3px;
 // $sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
 

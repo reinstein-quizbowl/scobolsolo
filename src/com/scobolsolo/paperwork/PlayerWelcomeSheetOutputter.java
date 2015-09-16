@@ -24,7 +24,7 @@ public class PlayerWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 		
 		for (final SchoolRegistration lclSR : lclRegistrations) {
 			final Player[] lclPlayers = lclSR.createPlayerArray();
-			Arrays.sort(lclPlayers, Player.NameComparator.getInstance());
+			Arrays.sort(lclPlayers);
 			
 			for (final Player lclP : lclPlayers) {
 				getWriter().println("\\begin{center}");

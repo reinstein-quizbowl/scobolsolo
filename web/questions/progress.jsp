@@ -91,7 +91,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 	List<CategoryGroup> lclCategoryGroups = lclAllRelevantCategories.stream()
 		.map(Category::getCategoryGroup)
 		.distinct()
-		.sorted(CategoryGroup.SequenceComparator.getInstance())
+		.sorted()
 		.collect(Collectors.toList());
 	
 	 %><div class="row">
@@ -126,7 +126,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 					</thead>
 					<tbody><%
 						Category[] lclCs = lclCG.createCategoryArray();
-						Arrays.sort(lclCs, Category.StandardComparator.getInstance());
+						Arrays.sort(lclCs);
 						
 						int lclWrittenThisCG = 0;
 						int lclNeededThisCG = 0;

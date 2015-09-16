@@ -349,16 +349,4 @@ public interface MatchUserFacing extends IdentityUserFacing {
 		}
 	}
 
-	public static class RoundComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Match> {
-		private static final RoundComparator ourInstance = new RoundComparator();
-		public static final RoundComparator getInstance() { return ourInstance; }
-
-		private RoundComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Match argFirst, com.scobolsolo.application.Match argSecond) {
-			return com.scobolsolo.application.Round.StandardComparator.getInstance().compare(argFirst.getRound(),  argSecond.getRound());
-		}
-	}
-
 }

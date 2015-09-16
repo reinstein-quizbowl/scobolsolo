@@ -1,6 +1,5 @@
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.AccountUtility" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Password Reset" />
@@ -10,7 +9,7 @@
 </jsp:include>
 
 <div class="row"><%
-		Account lclUser = AccountUtility.getLoggedInAccount(request);
+		Account lclUser = Account.determineCurrent(request);
 		
 		if (lclUser == null) {
 			%><div class="small-12 columns">

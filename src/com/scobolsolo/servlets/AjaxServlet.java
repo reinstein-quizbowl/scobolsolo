@@ -9,7 +9,6 @@ import org.apache.commons.lang3.Validate;
 
 import com.google.gson.JsonElement;
 
-import com.scobolsolo.AccountUtility;
 import com.scobolsolo.application.Account;
 
 public abstract class AjaxServlet extends HttpServlet {
@@ -17,7 +16,7 @@ public abstract class AjaxServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(final HttpServletRequest argRequest, final HttpServletResponse argResponse) throws ServletException, IOException {
-		final Account lclUser = AccountUtility.getLoggedInAccount(argRequest); // might be null
+		final Account lclUser = Account.determineCurrent(argRequest); // might be null
 		
 		argResponse.setContentType("application/json");
 		

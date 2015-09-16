@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
@@ -55,7 +56,7 @@ if (lclOF.hasErrors()) {
 					"Packet",
 					PacketFactory.getInstance(),
 					1, // row for a new packet
-					Packet.StandardComparator.getInstance()
+					Comparator.naturalOrder()
 				);
 				
 				for (OpalForm<Packet> lclPOF : lclPOFs) {
@@ -65,8 +66,8 @@ if (lclOF.hasErrors()) {
 						<%= lclPOF.open() %>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getName() %>"><%= lclPOF.text("Name", 20) %></td>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getShortName() %>"><%= lclPOF.text("ShortName", 10) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.dropdown("Round", Round.StandardComparator.getInstance()).filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.dropdown("ReplacementPacket", Packet.StandardComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
+						<td data-tablesorter="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.dropdown("Round", Comparator.<Round>naturalOrder()).filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
+						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.dropdown("ReplacementPacket", Comparator.<Packet>naturalOrder()).filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
 						<td data-tablesorter="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclPOF, "QuestionsPublic") %></td>
 						<td><%= lclPOF.textarea("Note", 60, 1) %></td>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.text("Sequence", 2) %></td>

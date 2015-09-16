@@ -14,4 +14,8 @@ public interface Contact extends ContactUserFacing {
 	default boolean isPlayerAt(Tournament argT) {
 		return streamPlayer().anyMatch(argP -> argP.getTournament() == argT);
 	}
+	
+	default Staff findStaff(Tournament argT) {
+		return streamStaff().filter(argS -> argS.getTournament() == argT).findAny().orElse(null);
+	}
 }

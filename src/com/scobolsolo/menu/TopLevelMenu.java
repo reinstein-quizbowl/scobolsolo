@@ -3,7 +3,7 @@ package com.scobolsolo.menu;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
-import com.scobolsolo.AccountUtility;
+import com.scobolsolo.application.Account;
 
 public class TopLevelMenu extends Menu {
 	/* package */ TopLevelMenu(final String argName, final String argTitle, final List<MenuItem> argItems, final DisplayDeterminer argDD) {
@@ -23,6 +23,6 @@ public class TopLevelMenu extends Menu {
 	}
 	
 	public String output(final MenuType argMT, final HttpServletRequest argRequest, final String argCurrentPageName) {
-		return output(argMT, AccountUtility.getLoggedInAccount(argRequest), argCurrentPageName);
+		return output(argMT, Account.determineCurrent(argRequest), argCurrentPageName);
 	}
 }

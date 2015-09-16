@@ -230,16 +230,4 @@ public interface PlacementConversionVUserFacing extends UserFacing {
 	 *
 	 */
 	public com.scobolsolo.application.Placement getPlacement();
-	public static class PlacementComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.PlacementConversionV> {
-		private static final PlacementComparator ourInstance = new PlacementComparator();
-		public static final PlacementComparator getInstance() { return ourInstance; }
-
-		private PlacementComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.PlacementConversionV argFirst, com.scobolsolo.application.PlacementConversionV argSecond) {
-			return com.scobolsolo.application.Placement.StandardComparator.getInstance().compare(argFirst.getPlacement(),  argSecond.getPlacement());
-		}
-	}
-
 }

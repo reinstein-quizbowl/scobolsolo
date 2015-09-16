@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import org.apache.commons.lang3.Validate;
+
 import com.scobolsolo.persistence.PerformanceUserFacing;
 
 /**
@@ -12,10 +14,25 @@ import com.scobolsolo.persistence.PerformanceUserFacing;
 
 public interface Performance extends PerformanceUserFacing {
 	default Response findResponse(final Placement argPlacement) {
-		if (argPlacement == null) {
-			return null;
-		}
+		Validate.notNull(argPlacement);
 		
 		return streamResponse().filter(argR -> argR.getPlacement() == argPlacement).findAny().orElse(null);
+	}
+	
+	default Response findOrCreateResponse(final Placement argPlacement) {
+		Validate.notNull(argPlacement);
+		
+		Response lclR = findResponse(argPlacement);
+		if (lclR != null) {
+			return lclR;
+		}
+		
+		lclR = ResponseFactory.getInstance().create().setPlacement(argPlacement);
+		this.addResponse(lclR);
+		return lclR;
+	}
+	
+	default int getScore() {
+		return streamResponse().map(Response::getResponseType).mapToInt(ResponseType::getPoints).sum();
 	}
 }

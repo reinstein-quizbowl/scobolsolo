@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
 import com.scobolsolo.persistence.StaffAssignmentUserFacing;
 
 /**
@@ -11,5 +13,6 @@ import com.scobolsolo.persistence.StaffAssignmentUserFacing;
  */
 
 public interface StaffAssignment extends StaffAssignmentUserFacing {
-	/* This block intentionally left empty. */
+	public static final Comparator<StaffAssignment> STAFF_NAME_COMPARATOR = Comparator.comparing(StaffAssignment::getPhase).thenComparing(argSA -> argSA.getStaff().getContact().getName());
+	public static final Comparator<StaffAssignment> ROOM_COMPARATOR = Comparator.comparing(StaffAssignment::getPhase).thenComparing(StaffAssignment::getRoom);
 }

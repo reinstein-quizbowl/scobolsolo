@@ -1,5 +1,9 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
+import com.siliconage.util.NullSafeComparator;
+
 import com.scobolsolo.persistence.PlayerRecordVUserFacing;
 
 /**
@@ -11,6 +15,8 @@ import com.scobolsolo.persistence.PlayerRecordVUserFacing;
  */
 
 public interface PlayerRecordV extends PlayerRecordVUserFacing {
+	public static final Comparator<PlayerRecordV> RECORD_THEN_PPTUH_COMPARATOR = Comparator.comparingDouble(PlayerRecordV::getWinningPercentage).thenComparingDouble(PlayerRecordV::getPPTUH);
+	
 	default double getWinningPercentage() {
 		final int lclW = (int) getWinCount(0);
 		final int lclL = (int) getLossCount(0);

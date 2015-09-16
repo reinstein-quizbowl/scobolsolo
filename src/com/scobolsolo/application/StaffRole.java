@@ -11,9 +11,5 @@ import com.scobolsolo.persistence.StaffRoleUserFacing;
  */
 
 public interface StaffRole extends StaffRoleUserFacing {
-
 	/* This block intentionally left empty. */
-
-	/* Developers may add default and static methods to this interface without fear of them being overwritten
-	by subsequent re-generation of the Opals (and related classes). */
 }

@@ -26,11 +26,6 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public int compareTo(Phase argSecond) {
-		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-	}
-
-	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getPhaseOpal().getIdAsObject();
 	}

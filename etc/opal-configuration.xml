@@ -34,11 +34,6 @@
 			<Mapping Table="Buzzer" />
 			
 			<Mapping Table="Card">
-				<Column Name="sequence" Ordering="True" />
-				<Comparator Name="StandardComparator">
-					<Child Name="Phase" Comparator="SequenceComparator" />
-					<Column Name="sequence" />
-				</Comparator>
 				<SingleLookUp>
 					<Column>name</Column>
 					<Column>phase_id</Column>
@@ -49,26 +44,13 @@
 				</SingleLookUp>
 			</Mapping>
 			
-			<Mapping Table="Category">
-				<Column Name="sequence" Ordering="True" />
-				<Comparator Name="StandardComparator">
-					<Child Name="CategoryGroup" Comparator="SequenceComparator" />
-					<Column Name="sequence" />
-				</Comparator>
-			</Mapping>
+			<Mapping Table="Category" />
 			
 			<Mapping Table="Category_Group">
 				<Column Name="sequence" Ordering="True" />
 			</Mapping>
 			
-			<Mapping Table="Category_Use">
-				<Comparator Name="CategoryComparator">
-					<Child Name="Category" Comparator="StandardComparator" />
-				</Comparator>
-				<Comparator Name="TournamentComparator">
-					<Child Name="Tournament" Comparator="DateComparator" />
-				</Comparator>
-			</Mapping>
+			<Mapping Table="Category_Use" />
 			
 			<Mapping Table="Contact">
 				<Column Name="active" Inverse="True" InverseAccessor="isInactive" />
@@ -77,27 +59,18 @@
 			
 			<Mapping Table="Game" />
 			
-			<Mapping Table="Match">
-				<Comparator Name="RoundComparator">
-					<Child Name="Round" Comparator="StandardComparator" />
+			<Mapping Table="Match" />
+			
+			<Mapping Table="Packet" />
+			
+			<Mapping Table="Performance">
+				<Comparator>
+					<Child Name="Player" Comparator="NameComparator" />
 				</Comparator>
 			</Mapping>
-			
-			<Mapping Table="Packet">
-				<Comparator Name="StandardComparator">
-					<Child Name="Round" Comparator="StandardComparator" />
-					<Column Name="sequence" />
-				</Comparator>
-			</Mapping>
-			
-			<Mapping Table="Performance" />
 			
 			<Mapping Table="Placement">
-				<Column Name="sequence" Ordering="True" />
-				<Comparator Name="StandardComparator">
-					<Child Name="Packet" Comparator="StandardComparator" />
-					<Column Name="sequence" />
-				</Comparator>
+				<Column Name="tiebreaker" Inverse="True" InverseAccessor="isRegulation" />
 			</Mapping>
 			
 			<Mapping Table="Player">
@@ -128,9 +101,6 @@
 			
 			<Mapping Table="Question">
 				<Column Name="description" Comparator="True" />
-				<Comparator Name="CategoryComparator">
-					<Child Name="Category" Comparator="StandardComparator" />
-				</Comparator>
 			</Mapping>
 			
 			<Mapping Table="Question_Status">
@@ -168,7 +138,6 @@
 			</Mapping>
 			
 			<Mapping Table="Room">
-				<Column Name="game_room" Filter="True" />
 				<Column Name="sequence" Ordering="True" />
 				<SingleLookUp>
 					<Column>name</Column>
@@ -180,30 +149,11 @@
 				</SingleLookUp>
 			</Mapping>
 			
-			<Mapping Table="Phase">
-				<Column Name="card_system" Filter="True" />
-				<Column Name="sequence" Ordering="True" />
-				<Comparator Name="StandardComparator">
-					<Child Name="Tournament" Comparator="DateComparator" />
-					<Column Name="sequence" />
-				</Comparator>
-			</Mapping>
+			<Mapping Table="Phase" />
 			
-			<Mapping Table="Round_Group">
-				<Column Name="card_system" Filter="True" />
-				<Comparator Name="StandardComparator">
-					<Child Name="Phase" Comparator="StandardComparator" />
-					<Column Name="sequence" />
-				</Comparator>
-			</Mapping>
+			<Mapping Table="Round_Group" />
 			
-			<Mapping Table="Round">
-				<Column Name="sequence" Ordering="True" />
-				<Comparator Name="StandardComparator">
-					<Child Name="RoundGroup" Comparator="StandardComparator" />
-					<Column Name="sequence" />
-				</Comparator>
-			</Mapping>
+			<Mapping Table="Round" />
 			
 			<Mapping Table="School">
 				<Column Name="name" Ordering="True" />
@@ -230,16 +180,7 @@
 				<Column Name="sequence" Ordering="True" />
 			</Mapping>
 			
-			<Mapping Table="Staff_Assignment">
-				<Comparator Name="StaffNameComparator">
-					<Child Name="Phase" Comparator="StandardComparator" />
-					<Child Name="Staff" Comparator="NameComparator" />
-				</Comparator>
-				<Comparator Name="RoomSequenceComparator">
-					<Child Name="Phase" Comparator="StandardComparator" />
-					<Child Name="Room" Comparator="SequenceComparator" />
-				</Comparator>
-			</Mapping>
+			<Mapping Table="Staff_Assignment" />
 			
 			<Mapping Table="Tournament">
 				<Column Name="date" Ordering="True" />
@@ -263,26 +204,14 @@
 			<Mapping View="Player_Category_Point_v">
 				<Column Name="tossups_heard" Type="java.lang.Integer" />
 				<Column Name="points" Type="java.lang.Integer" />
-				<Comparator Name="CategoryComparator">
-					<Child Name="Category" Comparator="StandardComparator" />
-					<Column Name="points" Inverted="True" />
-					<Child Name="Player" Comparator="NameComparator" />
-				</Comparator>
 			</Mapping>
 			
 			<Mapping View="Game_v">
 				<Column Name="winner_score" Type="java.lang.Integer" />
 				<Column Name="loser_score" Type="java.lang.Integer" />
-				<Comparator Name="RoundComparator">
-					<Child Name="Round" Comparator="StandardComparator" />
-				</Comparator>
 			</Mapping>
 			
-			<Mapping View="Player_Match_v">
-				<Comparator Name="RoundComparator">
-					<Child Name="Match" Comparator="RoundComparator" />
-				</Comparator>
-			</Mapping>
+			<Mapping View="Player_Match_v" />
 			
 			<Mapping View="Player_Record_v">
 				<Column Name="tossups_heard" Type="java.lang.Integer" />
@@ -300,9 +229,6 @@
 			
 			<Mapping View="Placement_Conversion_v">
 				<Column Name="response_type_count" Type="java.lang.Integer" />
-				<Comparator Name="PlacementComparator">
-					<Child Name="Placement" Comparator="StandardComparator" />
-				</Comparator>
 			</Mapping>
 		</Mappings>
 		

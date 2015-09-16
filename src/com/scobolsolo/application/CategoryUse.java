@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
 import com.scobolsolo.persistence.CategoryUseUserFacing;
 
 /**
@@ -11,5 +13,6 @@ import com.scobolsolo.persistence.CategoryUseUserFacing;
  */
 
 public interface CategoryUse extends CategoryUseUserFacing {
-	/* This block intentionally left empty. */
+	public static final Comparator<CategoryUse> CATEGORY_COMPARATOR = Comparator.comparing(CategoryUse::getCategory);
+	public static final Comparator<CategoryUse> TOURNAMENT_COMPARATOR = Comparator.comparing(CategoryUse::getTournament);
 }

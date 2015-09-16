@@ -27,11 +27,6 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public int compareTo(Card argSecond) {
-		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-	}
-
-	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getCardOpal().getIdAsObject();
 	}

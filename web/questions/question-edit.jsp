@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.cma.OpalForm" %>
@@ -6,7 +7,6 @@
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.opalforms.updater.QuestionUpdater" %>
-<%@ page import="com.scobolsolo.AccountUtility" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -21,7 +21,7 @@ lclOF.setUpdaterClass(QuestionUpdater.class);
 lclOF.setDeleteURI("/delete-confirmation.jsp?class_name=question");
 Question lclQ = lclOF.getUserFacing();
 
-Account lclUser = AccountUtility.demandLoggedInAccount(request);
+Account lclUser = Account.demand(request);
 if (!lclUser.isAdministrator()) {
 	lclOF.disable("Writer");
 }
@@ -66,7 +66,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Category
-			<%= lclOF.dropdown("Category", Category.StandardComparator.getInstance()) %>
+			<%= lclOF.dropdown("Category", Comparator.<Category>naturalOrder()) %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-3 columns">
@@ -78,7 +78,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Status
-			<%= lclOF.dropdown("Status", QuestionStatus.SequenceComparator.getInstance()).filter(new Question.StatusFilter(lclUser, lclQ)) %>
+			<%= lclOF.dropdown("Status", Comparator.<QuestionStatus>naturalOrder()).filter(new Question.StatusFilter(lclUser, lclQ)) %>
 		</label>
 	</div>
 </div>
@@ -129,14 +129,14 @@ if (lclOF.alreadyExists()) {
 						"Placement",
 						PlacementFactory.getInstance(),
 						0, // rows for new placements
-						Placement.StandardComparator.getInstance()
+						Comparator.naturalOrder()
 					);
 					
 					for (OpalForm<Placement> lclPOF : lclPOFs) {
 						Placement lclP = lclPOF.getUserFacing();
 						%><tr>
 							<%= lclPOF.open() %>
-							<td><%= lclPOF.dropdown("Packet", Packet.StandardComparator.getInstance()).namer(Packet::getShortNameWithTournament) %></td>
+							<td><%= lclPOF.dropdown("Packet", Comparator.<Packet>naturalOrder()).namer(Packet::getShortNameWithTournament) %></td>
 							<td><%= lclPOF.text("Sequence", 3) %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>
@@ -154,8 +154,17 @@ if (lclOF.alreadyExists()) {
 	<div class="small-12 columns">
 		<%= lclOF.submit() %> <%= lclUser.isAdministrator() ? lclOF.delete("Delete") : "" %> <%= lclOF.cancel() %>
 	</div>
-</div>
+</div><%
 
-<%= lclOF.close() %>
+if (lclOF.alreadyExists() && lclQ.getText() != null && lclQ.getAnswer() != null) {
+	%><div class="row">
+		<div class="small-12 columns">
+			<h2>Rendered</h2>
+			<p class="question-text"><%= lclQ.outputTextHTML() %></p>
+			<p class="question-answer"><%= lclQ.outputAnswerHTML() %></p>
+		</div>
+	</div><%
+}
+%><%= lclOF.close() %>
 
 <jsp:include page="/template/footer.jsp" />

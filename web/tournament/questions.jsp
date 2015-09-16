@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.Arrays" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
@@ -54,21 +55,21 @@ if (lclOF.hasErrors()) {
 					"Question",
 					QuestionFactory.getInstance(),
 					1, // row for a new question
-					Question.CategoryComparator.getInstance()
+					Question.CATEGORY_COMPARATOR
 				);
 				
 				for (OpalForm<Question> lclQOF : lclQOFs) {
 					Question lclQ = lclQOF.getUserFacing();
 					%><tr>
 						<%= lclQOF.open() %>
-						<td><%= lclQOF.dropdown("Category", CategoryFactory.getInstance(), Category.StandardComparator.getInstance()) %></td>
+						<td><%= lclQOF.dropdown("Category", Comparator.<Category>naturalOrder()) %></td>
 						<td><%= lclQOF.text("Description", 20) %></td>
 						<td><%
 							if (lclQ == null) {
 								%>&nbsp;<%
 							} else {
 								Placement[] lclPLs = lclQOF.getUserFacing().createPlacementArray();
-								Arrays.sort(lclPLs, Placement.StandardComparator.getInstance());
+								Arrays.sort(lclPLs);
 								for (Placement lclPL : lclPLs) {
 									%><%= lclPL.getString() %><br /><%
 								}

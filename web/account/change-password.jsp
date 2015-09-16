@@ -1,5 +1,5 @@
+<%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.AccountUtility" %>
 <%@ page import="com.scobolsolo.ScobolSoloConfiguration" %>
 
 <jsp:include page="/template/header.jsp">
@@ -11,7 +11,7 @@
 int lclMinLength = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_LENGTH_MIN");
 int lclMaxLength = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_LENGTH_MAX");
 %><form method="post" action="ChangePassword">
-	<input type="hidden" name="account_id" id="account_id" value="<%= AccountUtility.demandLoggedInAccount(request).getId() %>" />
+	<input type="hidden" name="account_id" id="account_id" value="<%= Account.demand(request).getId() %>" />
 	
 	<div class="row">
 		<div class="small-12 medium-6 columns">

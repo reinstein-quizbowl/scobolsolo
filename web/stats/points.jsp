@@ -16,8 +16,6 @@
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.opalforms.compare.PlayerCategoryPointVPPTUH" %>
-<%@ page import="com.scobolsolo.opalforms.compare.PlayerRecordVRecordThenPPTUH" %>
 
 <%
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
@@ -52,7 +50,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 					lclPRVs, 
 					new ImplicitTableDatabaseQuery("tournament_code = ?", lclT.getCode())
 				);
-				lclPRVs.sort(PlayerRecordVRecordThenPPTUH.getInstance());
+				lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				
 				for (PlayerRecordV lclPRV : lclPRVs) {
 					%><tr>
@@ -77,7 +75,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 				lclT.getCode()
 			)
 		);
-		lclCategories.sort(Category.StandardComparator.getInstance());
+		lclCategories.sort(null);
 		
 		List<Player> lclPlayers = lclT.getPlayers();
 		ListMultimap<Category, PlayerCategoryPointV> lclMultimap = ArrayListMultimap.create(lclCategories.size(), lclPlayers.size());
@@ -99,7 +97,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 			if (lclPCPVs == null || lclPCPVs.size() == 0) {
 				%><p>No results available</p><%
 			} else {
-				lclPCPVs.sort(PlayerCategoryPointVPPTUH.getInstance());
+				lclPCPVs.sort(PlayerCategoryPointV.PPTUH_COMPARATOR);
 				%><table class="responsive">
 					<thead>
 						<tr>

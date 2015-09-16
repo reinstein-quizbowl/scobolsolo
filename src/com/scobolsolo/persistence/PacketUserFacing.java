@@ -550,20 +550,4 @@ public interface PacketUserFacing extends IdentityUserFacing {
 		}
 	}
 
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Packet> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Packet argFirst, com.scobolsolo.application.Packet argSecond) {
-			int lclResult = com.scobolsolo.application.Round.StandardComparator.getInstance().compare(argFirst.getRound(),  argSecond.getRound());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
-		}
-	}
-
 }

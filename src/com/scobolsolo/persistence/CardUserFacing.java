@@ -15,7 +15,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface CardUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Card> {
+public interface CardUserFacing extends IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -363,22 +363,6 @@ public interface CardUserFacing extends IdentityUserFacing, Comparable<com.scobo
 		@Override
 		public int compareInternal(com.scobolsolo.application.Card argFirst, com.scobolsolo.application.Card argSecond) {
 			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-		}
-	}
-
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Card> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Card argFirst, com.scobolsolo.application.Card argSecond) {
-			int lclResult = com.scobolsolo.application.Phase.SequenceComparator.getInstance().compare(argFirst.getPhase(),  argSecond.getPhase());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

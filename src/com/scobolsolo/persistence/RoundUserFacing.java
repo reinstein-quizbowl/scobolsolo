@@ -15,7 +15,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Round> {
+public interface RoundUserFacing extends IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -320,6 +320,9 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 	public com.scobolsolo.application.RoundGroup getRoundGroup();
 	public com.scobolsolo.application.Round setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
 
+	public com.scobolsolo.application.Packet getPacket();
+	public com.scobolsolo.application.Round setPacket(com.scobolsolo.application.Packet argPacket);
+
 	public int getMatchCount();
 	public java.util.Iterator<com.scobolsolo.application.Match> createMatchIterator();
 
@@ -343,35 +346,6 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 		com.scobolsolo.application.Match[] lclA = new com.scobolsolo.application.Match[lclLength];
 		int lclIndex = 0;
 		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
-	}
-
-	public int getPacketCount();
-	public java.util.Iterator<com.scobolsolo.application.Packet> createPacketIterator();
-
-	public java.util.stream.Stream<com.scobolsolo.application.Packet> streamPacket();
-
-	public void addPacket(com.scobolsolo.application.Packet argPacket);
-	public void removePacket(com.scobolsolo.application.Packet argPacket);
-	public void clearPacket();
-
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Packet>> T acquirePacket(T argC) {
-		if (argC == null) { throw new IllegalArgumentException("Target Collection is null."); }
-		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createPacketIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
-	}
-
-	default public com.scobolsolo.application.Packet[] createPacketArray() {
-		int lclLength = getPacketCount();
-		com.scobolsolo.application.Packet[] lclA = new com.scobolsolo.application.Packet[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createPacketIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}
@@ -433,22 +407,6 @@ public interface RoundUserFacing extends IdentityUserFacing, Comparable<com.scob
 		@Override
 		public int compareInternal(com.scobolsolo.application.Round argFirst, com.scobolsolo.application.Round argSecond) {
 			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-		}
-	}
-
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Round> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Round argFirst, com.scobolsolo.application.Round argSecond) {
-			int lclResult = com.scobolsolo.application.RoundGroup.StandardComparator.getInstance().compare(argFirst.getRoundGroup(),  argSecond.getRoundGroup());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

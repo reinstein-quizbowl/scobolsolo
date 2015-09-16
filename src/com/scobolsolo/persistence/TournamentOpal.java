@@ -552,15 +552,22 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		if (isNew()) {
+			return java.util.Collections.emptySet();
+		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldControlRoomOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldControlRoomOpal) == RoomOpal.NOT_YET_LOADED) {
+			lclUO = myOldControlRoomOpal = retrieveControlRoomOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldTournamentDirectorContactOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldTournamentDirectorContactOpal) == ContactOpal.NOT_YET_LOADED) {
+			lclUO = myOldTournamentDirectorContactOpal = retrieveTournamentDirectorContactOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}

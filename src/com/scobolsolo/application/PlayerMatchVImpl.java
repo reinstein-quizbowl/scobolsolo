@@ -126,14 +126,4 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 	/* The following methods allow access to the user objects that have references
 	to this object. */
 
-	@Override
-	public void unlink() {
-		getPlayerMatchVOpal().unlink();
-	}
-
-	@Override
-	public void reload() {
-		getPlayerMatchVOpal().reload();
-	}
-
 }

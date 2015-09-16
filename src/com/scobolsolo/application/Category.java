@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
 import com.scobolsolo.persistence.CategoryUserFacing;
 
 /**
@@ -10,7 +12,12 @@ import com.scobolsolo.persistence.CategoryUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Category extends CategoryUserFacing {
+public interface Category extends CategoryUserFacing, Comparable<Category> {
+	@Override
+	default int compareTo(Category that) {
+		return Comparator.comparing(Category::getCategoryGroup).thenComparing(Category::getSequence).compare(this, that);
+	}
+	
 	default boolean isUsedAt(Tournament argT) {
 		return argT != null && streamCategoryUse().anyMatch(argCU -> argCU.getTournament() == argT);
 	}

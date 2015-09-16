@@ -91,7 +91,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 				%><h2 id="<%= lclSR.getId() %>"><a class="subtle-highlight" href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclSR.getSchool().getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></h2>
 				<ul><%
 					Player[] lclPlayers = lclSR.createPlayerArray();
-					Arrays.sort(lclPlayers, Player.NameComparator.getInstance());
+					Arrays.sort(lclPlayers);
 					for (Player lclP : lclPlayers) {
 						%><li>
 							<a class="subtle-highlight" href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a><%
@@ -116,7 +116,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 			
 			if (!lclT.getDate().isBefore(LocalDate.now())) {
 				if (!lclWEs.isEmpty()) {
-					lclWEs.sort(WaitlistEntry.SequenceComparator.getInstance());
+					lclWEs.sort(null);
 					%><h1 id="waitlist">Waitlist</h1>
 					<p>The following <%= lclWEs.size() == 1 ? "entry is" : "entries are" %> waitlisted<%= lclWEs.size() > 1 ? ", in the following order" : "" %>:</p>
 					<<%= lclWEs.size() == 1 ? "ul" : "ol" %>><%
@@ -130,7 +130,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 				}
 				
 				if (!lclSEs.isEmpty()) {
-					lclSEs.sort(StandbyEntry.SequenceComparator.getInstance());
+					lclSEs.sort(null);
 					%><h1 id="standby">Standby</h1>
 					<p>The following <%= lclSEs.size() == 1 ? "entry is" : "entries are" %> on the standby list<%= lclSEs.size() > 1 ? ", in the following order" : "" %>:</p>
 					<<%= lclSEs.size() == 1 ? "ul" : "ol" %>><%

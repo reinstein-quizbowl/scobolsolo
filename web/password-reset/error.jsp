@@ -1,6 +1,5 @@
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
-<%@ page import="com.scobolsolo.AccountUtility" %>
 <%@ page import="com.scobolsolo.Utility" %>
 
 <jsp:include page="/template/header.jsp">
@@ -12,7 +11,7 @@
 
 <div class="row">
 	<div class="small-12 columns"><%
-		Account lclUser = AccountUtility.getLoggedInAccount(request);
+		Account lclUser = Account.determineCurrent(request);
 		
 		if (lclUser == null) {
 			%><p><%

@@ -26,11 +26,6 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public int compareTo(Category argSecond) {
-		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-	}
-
-	@Override
 	public java.lang.String getCode() {
 		return getCategoryOpal().getCode();
 	}

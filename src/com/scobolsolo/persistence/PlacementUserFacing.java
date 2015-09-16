@@ -15,7 +15,7 @@ import com.opal.*;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
-public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.scobolsolo.application.Placement> {
+public interface PlacementUserFacing extends IdentityUserFacing {
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -236,6 +236,11 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	 */
 	public java.lang.Boolean isTiebreakerAsObject();
 
+	default public java.lang.Boolean isRegulationAsObject() {
+		Boolean lclB = isTiebreakerAsObject();
+		return lclB != null ? (lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE) : null;
+	}
+
 	/**
 	 * primitive accessor for the {@code Tiebreaker}
 	 *
@@ -248,6 +253,10 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 	default public boolean isTiebreaker() {
 		java.lang.Boolean lclO = isTiebreakerAsObject();
 		return lclO.booleanValue();
+	}
+
+	default public java.lang.Boolean isRegulation() {
+		return !isTiebreaker();
 	}
 
 	/**
@@ -449,22 +458,6 @@ public interface PlacementUserFacing extends IdentityUserFacing, Comparable<com.
 		@Override
 		public int compareInternal(com.scobolsolo.application.Placement argFirst, com.scobolsolo.application.Placement argSecond) {
 			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
-		}
-	}
-
-	public static class StandardComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Placement> {
-		private static final StandardComparator ourInstance = new StandardComparator();
-		public static final StandardComparator getInstance() { return ourInstance; }
-
-		private StandardComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Placement argFirst, com.scobolsolo.application.Placement argSecond) {
-			int lclResult = com.scobolsolo.application.Packet.StandardComparator.getInstance().compare(argFirst.getPacket(),  argSecond.getPacket());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return argFirst.getSequence() - argSecond.getSequence();
 		}
 	}
 

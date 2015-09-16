@@ -1,5 +1,11 @@
 package com.scobolsolo.application;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.stream.Collectors;
+
 import com.scobolsolo.persistence.StaffUserFacing;
 
 /**
@@ -11,5 +17,26 @@ import com.scobolsolo.persistence.StaffUserFacing;
  */
 
 public interface Staff extends StaffUserFacing {
-	/* This block intentionally left empty. */
+	default List<Match> findMatches() {
+		Set<Match> lclMatches = new HashSet<>(); // So that we don't duplicate
+		
+		lclMatches.addAll(
+			this.streamModeratorGame().map(Game::getMatch).collect(Collectors.toList())
+		);
+		
+		for (StaffAssignment lclSA : this.createStaffAssignmentArray()) {
+			Room lclR = lclSA.getRoom();
+			lclMatches.addAll(
+				lclR.streamMatch()
+					.filter(argM -> argM.getPhase() == lclSA.getPhase())
+					.collect(Collectors.toList())
+			);
+		}
+		
+		return new ArrayList<>(lclMatches);
+	}
+	
+	default String getName() {
+		return getContact().getName();
+	}
 }

@@ -264,29 +264,40 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
 	@Override
 	public java.util.Set<com.opal.TransactionAware> getRequiredSubsequentCommits() {
+		if (isNew()) {
+			return java.util.Collections.emptySet();
+		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		UpdatableOpal<?> lclUO;
-		lclUO = myOldPerformanceOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldPerformanceOpal) == PerformanceOpal.NOT_YET_LOADED) {
+			lclUO = myOldPerformanceOpal = retrievePerformanceOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldPlacementOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldPlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
+			lclUO = myOldPlacementOpal = retrievePlacementOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldReplacementForPlacementOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldReplacementForPlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
+			lclUO = myOldReplacementForPlacementOpal = retrieveReplacementForPlacementOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myOldResponseTypeOpal;
-		if ((lclUO != null) && lclUO.isDeleted()) {
+		if ((lclUO = myOldResponseTypeOpal) == ResponseTypeOpal.NOT_YET_LOADED) {
+			lclUO = myOldResponseTypeOpal = retrieveResponseTypeOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
