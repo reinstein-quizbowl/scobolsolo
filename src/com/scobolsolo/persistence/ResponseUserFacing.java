@@ -48,7 +48,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Response setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code performance_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPerformanceId is null
+	 * @throws com.opal.IllegalNullArgumentException if argPerformanceId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Response setPerformanceId(java.lang.Integer argPerformanceId);
@@ -138,7 +138,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code placement_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPlacementId is null
+	 * @throws com.opal.IllegalNullArgumentException if argPlacementId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Response setPlacementId(java.lang.Integer argPlacementId);
@@ -167,8 +167,8 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code response_type_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argResponseTypeCode is null
-	 * @throws ArgumentTooLongException if {@code argResponseTypeCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argResponseTypeCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argResponseTypeCode} is longer than 32 characters
 	 * <p>The database column {@code response_type_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -213,7 +213,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getReplacementForPlacementId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getReplacementForPlacementIdAsObject();
@@ -251,7 +251,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
-	 * The returned {@code com.scobolsolo.application.Performance} is the {@link UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code response_performance_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code response_performance_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Performance getPerformance();
@@ -259,7 +259,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Placement}
-	 * The returned {@code com.scobolsolo.application.Placement} is the {@link UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_placement_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_placement_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Placement getPlacement();
@@ -267,7 +267,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Placement}
-	 * The returned {@code com.scobolsolo.application.Placement} is the {@link UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_replacement_placement_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_replacement_placement_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Placement getReplacementForPlacement();
@@ -275,7 +275,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.ResponseType}
-	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code response_response_type_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code response_response_type_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.ResponseType getResponseType();

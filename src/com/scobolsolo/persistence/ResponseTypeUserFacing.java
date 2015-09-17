@@ -32,8 +32,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCode is null
-	 * @throws ArgumentTooLongException if {@code argCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCode} is longer than 32 characters
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -57,8 +57,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -82,8 +82,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -123,7 +123,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setSequence(java.lang.Integer argSequence);
@@ -168,7 +168,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code points} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPoints is null
+	 * @throws com.opal.IllegalNullArgumentException if argPoints is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setPoints(java.lang.Integer argPoints);
@@ -213,7 +213,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code is_default} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argDefault is null
+	 * @throws com.opal.IllegalNullArgumentException if argDefault is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setDefault(java.lang.Boolean argDefault);
@@ -258,7 +258,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code multiple_allowed_for_same_placement} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argMultipleAllowedForSamePlacement is null
+	 * @throws com.opal.IllegalNullArgumentException if argMultipleAllowedForSamePlacement is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setMultipleAllowedForSamePlacement(java.lang.Boolean argMultipleAllowedForSamePlacement);
@@ -303,7 +303,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code is_attempt} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argAttempt is null
+	 * @throws com.opal.IllegalNullArgumentException if argAttempt is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setAttempt(java.lang.Boolean argAttempt);
@@ -348,7 +348,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code allows_further_attempts_to_same_question_in_match} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argFurtherAttemptsToSameQuestionInMatch is null
+	 * @throws com.opal.IllegalNullArgumentException if argFurtherAttemptsToSameQuestionInMatch is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setFurtherAttemptsToSameQuestionInMatch(java.lang.Boolean argFurtherAttemptsToSameQuestionInMatch);
@@ -393,7 +393,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code show_for_non_exhibition_players} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShowForNonExhibitionPlayers is null
+	 * @throws com.opal.IllegalNullArgumentException if argShowForNonExhibitionPlayers is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setShowForNonExhibitionPlayers(java.lang.Boolean argShowForNonExhibitionPlayers);
@@ -438,7 +438,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code show_for_exhibition_players} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShowForExhibitionPlayers is null
+	 * @throws com.opal.IllegalNullArgumentException if argShowForExhibitionPlayers is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.ResponseType setShowForExhibitionPlayers(java.lang.Boolean argShowForExhibitionPlayers);

@@ -48,7 +48,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Placement setId(java.lang.Integer argId);
@@ -98,7 +98,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getQuestionId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getQuestionIdAsObject();
@@ -166,7 +166,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code packet_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPacketId is null
+	 * @throws com.opal.IllegalNullArgumentException if argPacketId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Placement setPacketId(java.lang.Integer argPacketId);
@@ -211,7 +211,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Placement setSequence(java.lang.Integer argSequence);
@@ -265,7 +265,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tiebreaker} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argTiebreaker is null
+	 * @throws com.opal.IllegalNullArgumentException if argTiebreaker is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Placement setTiebreaker(java.lang.Boolean argTiebreaker);
@@ -310,7 +310,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code scorecheck_after} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argScorecheckAfter is null
+	 * @throws com.opal.IllegalNullArgumentException if argScorecheckAfter is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Placement setScorecheckAfter(java.lang.Boolean argScorecheckAfter);
@@ -339,8 +339,8 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCategoryCode is null
-	 * @throws ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCategoryCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -350,7 +350,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Packet}
-	 * The returned {@code com.scobolsolo.application.Packet} is the {@link UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code placement_packet_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Packet} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code placement_packet_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Packet getPacket();
@@ -358,7 +358,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Question}
-	 * The returned {@code com.scobolsolo.application.Question} is the {@link UserFacing} object corresponding to the entry in {@code question} that is referenced by {@code placement_question_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Question} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question} that is referenced by {@code placement_question_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Question getQuestion();
@@ -366,7 +366,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code placement_category_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code placement_category_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();

@@ -48,7 +48,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Account setId(java.lang.Integer argId);
@@ -77,8 +77,8 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code username} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argUsername is null
-	 * @throws ArgumentTooLongException if {@code argUsername} is longer than 64 characters
+	 * @throws com.opal.IllegalNullArgumentException if argUsername is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argUsername} is longer than 64 characters
 	 * <p>The database column {@code username} is limited to 64 characters.</p>
 	 *
 	 */
@@ -102,8 +102,8 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code password_hash} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPasswordHash is null
-	 * @throws ArgumentTooLongException if {@code argPasswordHash} is longer than 60 characters
+	 * @throws com.opal.IllegalNullArgumentException if argPasswordHash is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argPasswordHash} is longer than 60 characters
 	 * <p>The database column {@code password_hash} is limited to 60 characters.</p>
 	 *
 	 */
@@ -143,7 +143,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code administrator} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argAdministrator is null
+	 * @throws com.opal.IllegalNullArgumentException if argAdministrator is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Account setAdministrator(java.lang.Boolean argAdministrator);
@@ -188,7 +188,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code active} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argActive is null
+	 * @throws com.opal.IllegalNullArgumentException if argActive is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Account setActive(java.lang.Boolean argActive);
@@ -233,7 +233,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code writer} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argWriter is null
+	 * @throws com.opal.IllegalNullArgumentException if argWriter is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Account setWriter(java.lang.Boolean argWriter);
@@ -276,7 +276,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argPasswordResetToken the new value of {@code PasswordResetToken}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argPasswordResetToken} is longer than 64 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argPasswordResetToken} is longer than 64 characters
 	 * <p>The database column {@code password_reset_token} is limited to 64 characters.</p>
 	 *
 	 */
@@ -318,7 +318,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
-	 * The returned {@code com.scobolsolo.application.Contact} is the {@link UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code account_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code account_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Contact getContact();

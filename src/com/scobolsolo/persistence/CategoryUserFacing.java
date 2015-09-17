@@ -32,8 +32,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCode is null
-	 * @throws ArgumentTooLongException if {@code argCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCode} is longer than 32 characters
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -57,8 +57,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -82,8 +82,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -123,7 +123,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Category setSequence(java.lang.Integer argSequence);
@@ -152,8 +152,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_group_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCategoryGroupCode is null
-	 * @throws ArgumentTooLongException if {@code argCategoryGroupCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCategoryGroupCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCategoryGroupCode} is longer than 32 characters
 	 * <p>The database column {@code category_group_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -163,7 +163,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.CategoryGroup}
-	 * The returned {@code com.scobolsolo.application.CategoryGroup} is the {@link UserFacing} object corresponding to the entry in {@code category_group} that is referenced by {@code category_category_group_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.CategoryGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category_group} that is referenced by {@code category_category_group_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.CategoryGroup getCategoryGroup();

@@ -48,7 +48,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Performance setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code game_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argGameId is null
+	 * @throws com.opal.IllegalNullArgumentException if argGameId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Performance setGameId(java.lang.Integer argGameId);
@@ -138,7 +138,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code player_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPlayerId is null
+	 * @throws com.opal.IllegalNullArgumentException if argPlayerId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Performance setPlayerId(java.lang.Integer argPlayerId);
@@ -153,7 +153,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Game}
-	 * The returned {@code com.scobolsolo.application.Game} is the {@link UserFacing} object corresponding to the entry in {@code game} that is referenced by {@code performance_game_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Game} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code game} that is referenced by {@code performance_game_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Game getGame();
@@ -161,7 +161,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code performance_player_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code performance_player_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getPlayer();

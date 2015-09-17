@@ -62,7 +62,7 @@ public interface PlayerPointVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getPlayerId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getPlayerIdAsObject();
@@ -119,7 +119,7 @@ public interface PlayerPointVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code Points} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getPoints() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getPointsAsObject();
@@ -141,13 +141,13 @@ public interface PlayerPointVUserFacing extends com.opal.UserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getPlayer();

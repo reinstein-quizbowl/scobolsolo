@@ -62,7 +62,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getPlayerId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getPlayerIdAsObject();
@@ -119,7 +119,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getPerformanceId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getPerformanceIdAsObject();
@@ -176,7 +176,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code OpponentPlayerId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getOpponentPlayerId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getOpponentPlayerIdAsObject();
@@ -233,7 +233,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code OpponentPerformanceId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getOpponentPerformanceId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getOpponentPerformanceIdAsObject();
@@ -290,7 +290,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code MatchId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getMatchId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getMatchIdAsObject();
@@ -347,7 +347,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code GameId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getGameId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getGameIdAsObject();
@@ -369,43 +369,43 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Game}
-	 * The returned {@code com.scobolsolo.application.Game} is the {@link UserFacing} object corresponding to the entry in {@code game} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Game} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code game} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Game getGame();
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getPlayer();
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getOpponentPlayer();
 	/**
 	 * @return the {@code com.scobolsolo.application.Match}
-	 * The returned {@code com.scobolsolo.application.Match} is the {@link UserFacing} object corresponding to the entry in {@code match} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Match} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code match} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Match getMatch();
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
-	 * The returned {@code com.scobolsolo.application.Performance} is the {@link UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Performance getPerformance();
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
-	 * The returned {@code com.scobolsolo.application.Performance} is the {@link UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Performance getOpponentPerformance();

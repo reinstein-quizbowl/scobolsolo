@@ -48,7 +48,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Match setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code round_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argRoundId is null
+	 * @throws com.opal.IllegalNullArgumentException if argRoundId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Match setRoundId(java.lang.Integer argRoundId);
@@ -138,7 +138,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code room_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argRoomId is null
+	 * @throws com.opal.IllegalNullArgumentException if argRoomId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Match setRoomId(java.lang.Integer argRoomId);
@@ -188,7 +188,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code WinningCardId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getWinningCardId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getWinningCardIdAsObject();
@@ -261,7 +261,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code LosingCardId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getLosingCardId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getLosingCardIdAsObject();
@@ -299,7 +299,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Card}
-	 * The returned {@code com.scobolsolo.application.Card} is the {@link UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code match_losing_card_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Card} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code match_losing_card_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Card getLosingCard();
@@ -307,7 +307,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
-	 * The returned {@code com.scobolsolo.application.Room} is the {@link UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code match_room_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code match_room_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Room getRoom();
@@ -315,7 +315,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Round}
-	 * The returned {@code com.scobolsolo.application.Round} is the {@link UserFacing} object corresponding to the entry in {@code round} that is referenced by {@code match_round_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Round} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code round} that is referenced by {@code match_round_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Round getRound();
@@ -323,7 +323,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Card}
-	 * The returned {@code com.scobolsolo.application.Card} is the {@link UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code match_winning_card_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Card} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code match_winning_card_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Card getWinningCard();

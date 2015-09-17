@@ -32,8 +32,8 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCategoryCode is null
-	 * @throws ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCategoryCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -57,8 +57,8 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argTournamentCode is null
-	 * @throws ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argTournamentCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -103,7 +103,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code Needs} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getNeeds() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getNeedsAsObject();
@@ -141,7 +141,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code category_use_category_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code category_use_category_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();
@@ -149,7 +149,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code category_use_tournament_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code category_use_tournament_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();

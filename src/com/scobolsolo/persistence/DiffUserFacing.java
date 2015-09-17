@@ -48,7 +48,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Diff setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code editor_account_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argEditorAccountId is null
+	 * @throws com.opal.IllegalNullArgumentException if argEditorAccountId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Diff setEditorAccountId(java.lang.Integer argEditorAccountId);
@@ -122,8 +122,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code text} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argText is null
-	 * @throws ArgumentTooLongException if {@code argText} is longer than 2147483647 characters
+	 * @throws com.opal.IllegalNullArgumentException if argText is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argText} is longer than 2147483647 characters
 	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -147,8 +147,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code answer} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argAnswer is null
-	 * @throws ArgumentTooLongException if {@code argAnswer} is longer than 2147483647 characters
+	 * @throws com.opal.IllegalNullArgumentException if argAnswer is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argAnswer} is longer than 2147483647 characters
 	 * <p>The database column {@code answer} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -186,7 +186,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -223,7 +223,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argRemark the new value of {@code Remark}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argRemark} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argRemark} is longer than 2147483647 characters
 	 * <p>The database column {@code remark} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -262,7 +262,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code edit_distance} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argEditDistance is null
+	 * @throws com.opal.IllegalNullArgumentException if argEditDistance is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Diff setEditDistance(java.lang.Integer argEditDistance);
@@ -340,7 +340,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code question_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argQuestionId is null
+	 * @throws com.opal.IllegalNullArgumentException if argQuestionId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Diff setQuestionId(java.lang.Integer argQuestionId);
@@ -385,7 +385,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code revision_number} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argRevisionNumber is null
+	 * @throws com.opal.IllegalNullArgumentException if argRevisionNumber is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Diff setRevisionNumber(java.lang.Integer argRevisionNumber);
@@ -414,8 +414,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code question_status_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argQuestionStatusCode is null
-	 * @throws ArgumentTooLongException if {@code argQuestionStatusCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argQuestionStatusCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argQuestionStatusCode} is longer than 32 characters
 	 * <p>The database column {@code question_status_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -439,8 +439,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCategoryCode is null
-	 * @throws ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCategoryCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -450,7 +450,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Account}
-	 * The returned {@code com.scobolsolo.application.Account} is the {@link UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code diff_editor_account_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Account} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code diff_editor_account_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Account getEditor();
@@ -458,7 +458,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Question}
-	 * The returned {@code com.scobolsolo.application.Question} is the {@link UserFacing} object corresponding to the entry in {@code question} that is referenced by {@code diff_question_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Question} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question} that is referenced by {@code diff_question_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Question getQuestion();
@@ -466,7 +466,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.QuestionStatus}
-	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code diff_question_status_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code diff_question_status_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.QuestionStatus getStatus();
@@ -474,7 +474,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code diff_category_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code diff_category_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();

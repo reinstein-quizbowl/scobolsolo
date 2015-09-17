@@ -48,7 +48,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.RoundGroup setId(java.lang.Integer argId);
@@ -77,8 +77,8 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -102,8 +102,8 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -143,7 +143,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.RoundGroup setSequence(java.lang.Integer argSequence);
@@ -188,7 +188,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code phase_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPhaseId is null
+	 * @throws com.opal.IllegalNullArgumentException if argPhaseId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.RoundGroup setPhaseId(java.lang.Integer argPhaseId);
@@ -203,7 +203,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Phase}
-	 * The returned {@code com.scobolsolo.application.Phase} is the {@link UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code round_group_phase_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code round_group_phase_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Phase getPhase();

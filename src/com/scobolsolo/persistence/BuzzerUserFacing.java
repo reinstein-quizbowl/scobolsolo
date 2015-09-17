@@ -48,7 +48,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Buzzer setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code school_registration_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSchoolRegistrationId is null
+	 * @throws com.opal.IllegalNullArgumentException if argSchoolRegistrationId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Buzzer setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
@@ -143,7 +143,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code RoomId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getRoomId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getRoomIdAsObject();
@@ -209,7 +209,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argName the new value of {@code Name}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -218,7 +218,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
-	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code buzzer_registration_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code buzzer_registration_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
@@ -226,7 +226,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
-	 * The returned {@code com.scobolsolo.application.Room} is the {@link UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code buzzer_room_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code buzzer_room_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Room getRoom();

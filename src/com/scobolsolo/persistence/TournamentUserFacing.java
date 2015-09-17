@@ -32,7 +32,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code date} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argDate is null
+	 * @throws com.opal.IllegalNullArgumentException if argDate is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Tournament setDate(java.time.LocalDate argDate);
@@ -53,8 +53,8 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -78,8 +78,8 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -103,8 +103,8 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCode is null
-	 * @throws ArgumentTooLongException if {@code argCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCode} is longer than 32 characters
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -128,8 +128,8 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code web_xml_role_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argWebXmlRoleCode is null
-	 * @throws ArgumentTooLongException if {@code argWebXmlRoleCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argWebXmlRoleCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argWebXmlRoleCode} is longer than 32 characters
 	 * <p>The database column {@code web_xml_role_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -169,7 +169,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tiebreaker_sudden_death} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argTiebreakerSuddenDeath is null
+	 * @throws com.opal.IllegalNullArgumentException if argTiebreakerSuddenDeath is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath);
@@ -212,7 +212,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @param argUrl the new value of {@code Url}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argUrl} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argUrl} is longer than 2147483647 characters
 	 * <p>The database column {@code url} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -251,7 +251,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_director_contact_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argTournamentDirectorContactId is null
+	 * @throws com.opal.IllegalNullArgumentException if argTournamentDirectorContactId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Tournament setTournamentDirectorContactId(java.lang.Integer argTournamentDirectorContactId);
@@ -294,7 +294,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @param argPlayerMessage the new value of {@code PlayerMessage}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argPlayerMessage} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argPlayerMessage} is longer than 2147483647 characters
 	 * <p>The database column {@code player_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -331,7 +331,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @param argStaffMessage the new value of {@code StaffMessage}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argStaffMessage} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argStaffMessage} is longer than 2147483647 characters
 	 * <p>The database column {@code staff_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -368,7 +368,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @param argReplacementQuestionSocialMediaPolicy the new value of {@code ReplacementQuestionSocialMediaPolicy}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argReplacementQuestionSocialMediaPolicy} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argReplacementQuestionSocialMediaPolicy} is longer than 2147483647 characters
 	 * <p>The database column {@code replacement_question_social_media_policy} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -405,7 +405,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @param argSchoolMessage the new value of {@code SchoolMessage}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argSchoolMessage} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argSchoolMessage} is longer than 2147483647 characters
 	 * <p>The database column {@code school_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -449,7 +449,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code ControlRoomRoomId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getControlRoomRoomId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getControlRoomRoomIdAsObject();
@@ -515,7 +515,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @param argChampionshipRules the new value of {@code ChampionshipRules}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argChampionshipRules} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argChampionshipRules} is longer than 2147483647 characters
 	 * <p>The database column {@code championship_rules} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -552,7 +552,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @param argChampionshipMatchUrl the new value of {@code ChampionshipMatchUrl}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argChampionshipMatchUrl} is longer than 256 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argChampionshipMatchUrl} is longer than 256 characters
 	 * <p>The database column {@code championship_match_url} is limited to 256 characters.</p>
 	 *
 	 */
@@ -591,7 +591,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code questions_complete} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argQuestionsComplete is null
+	 * @throws com.opal.IllegalNullArgumentException if argQuestionsComplete is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Tournament setQuestionsComplete(java.lang.Boolean argQuestionsComplete);
@@ -606,7 +606,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
-	 * The returned {@code com.scobolsolo.application.Room} is the {@link UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code tournament_control_room_room_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code tournament_control_room_room_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Room getControlRoom();
@@ -614,7 +614,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
-	 * The returned {@code com.scobolsolo.application.Contact} is the {@link UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code tournament_tournament_director_contact_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code tournament_tournament_director_contact_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Contact getTournamentDirectorContact();

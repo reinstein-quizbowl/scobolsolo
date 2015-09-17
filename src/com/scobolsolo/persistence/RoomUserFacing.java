@@ -48,7 +48,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Room setId(java.lang.Integer argId);
@@ -77,8 +77,8 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -102,8 +102,8 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -141,7 +141,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -164,8 +164,8 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argTournamentCode is null
-	 * @throws ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argTournamentCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -205,7 +205,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Room setSequence(java.lang.Integer argSequence);
@@ -250,7 +250,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code game_room} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argGameRoom is null
+	 * @throws com.opal.IllegalNullArgumentException if argGameRoom is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Room setGameRoom(java.lang.Boolean argGameRoom);
@@ -265,7 +265,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code room_tournament_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code room_tournament_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();

@@ -48,7 +48,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Round setId(java.lang.Integer argId);
@@ -98,7 +98,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getRoundGroupId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getRoundGroupIdAsObject();
@@ -150,8 +150,8 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -175,8 +175,8 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -216,7 +216,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Round setSequence(java.lang.Integer argSequence);
@@ -259,7 +259,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argStartTime the new value of {@code StartTime}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argStartTime} is longer than 16 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argStartTime} is longer than 16 characters
 	 * <p>The database column {@code start_time} is limited to 16 characters.</p>
 	 *
 	 */
@@ -298,7 +298,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code lunch_after} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argLunchAfter is null
+	 * @throws com.opal.IllegalNullArgumentException if argLunchAfter is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Round setLunchAfter(java.lang.Boolean argLunchAfter);
@@ -313,7 +313,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.RoundGroup}
-	 * The returned {@code com.scobolsolo.application.RoundGroup} is the {@link UserFacing} object corresponding to the entry in {@code round_group} that is referenced by {@code round_round_group_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.RoundGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code round_group} that is referenced by {@code round_round_group_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.RoundGroup getRoundGroup();

@@ -48,7 +48,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.School setId(java.lang.Integer argId);
@@ -77,8 +77,8 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -102,8 +102,8 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -127,8 +127,8 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code very_short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argVeryShortName is null
-	 * @throws ArgumentTooLongException if {@code argVeryShortName} is longer than 12 characters
+	 * @throws com.opal.IllegalNullArgumentException if argVeryShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argVeryShortName} is longer than 12 characters
 	 * <p>The database column {@code very_short_name} is limited to 12 characters.</p>
 	 *
 	 */
@@ -166,7 +166,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 *
 	 * @param argLocation the new value of {@code Location}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argLocation} is longer than 256 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argLocation} is longer than 256 characters
 	 * <p>The database column {@code location} is limited to 256 characters.</p>
 	 *
 	 */
@@ -203,7 +203,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */

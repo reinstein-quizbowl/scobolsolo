@@ -48,7 +48,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.StaffAssignment setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code room_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argRoomId is null
+	 * @throws com.opal.IllegalNullArgumentException if argRoomId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.StaffAssignment setRoomId(java.lang.Integer argRoomId);
@@ -136,7 +136,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -175,7 +175,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code staff_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argStaffId is null
+	 * @throws com.opal.IllegalNullArgumentException if argStaffId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.StaffAssignment setStaffId(java.lang.Integer argStaffId);
@@ -220,7 +220,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code phase_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argPhaseId is null
+	 * @throws com.opal.IllegalNullArgumentException if argPhaseId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.StaffAssignment setPhaseId(java.lang.Integer argPhaseId);
@@ -249,8 +249,8 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code staff_role_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argStaffRoleCode is null
-	 * @throws ArgumentTooLongException if {@code argStaffRoleCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argStaffRoleCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argStaffRoleCode} is longer than 32 characters
 	 * <p>The database column {@code staff_role_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -260,7 +260,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Staff}
-	 * The returned {@code com.scobolsolo.application.Staff} is the {@link UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code staff_assignment_staff_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code staff_assignment_staff_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Staff getStaff();
@@ -268,7 +268,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
-	 * The returned {@code com.scobolsolo.application.Room} is the {@link UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code staffer_assignment_room_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code staffer_assignment_room_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Room getRoom();
@@ -276,7 +276,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Phase}
-	 * The returned {@code com.scobolsolo.application.Phase} is the {@link UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code staff_assignment_phase_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code staff_assignment_phase_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Phase getPhase();
@@ -284,7 +284,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.StaffRole}
-	 * The returned {@code com.scobolsolo.application.StaffRole} is the {@link UserFacing} object corresponding to the entry in {@code staff_role} that is referenced by {@code staff_assignment_staff_role_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.StaffRole} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff_role} that is referenced by {@code staff_assignment_staff_role_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.StaffRole getStaffRole();

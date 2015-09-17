@@ -48,7 +48,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.SchoolRegistration setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code school_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSchoolId is null
+	 * @throws com.opal.IllegalNullArgumentException if argSchoolId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.SchoolRegistration setSchoolId(java.lang.Integer argSchoolId);
@@ -138,7 +138,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code main_contact_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argMainContactId is null
+	 * @throws com.opal.IllegalNullArgumentException if argMainContactId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.SchoolRegistration setMainContactId(java.lang.Integer argMainContactId);
@@ -167,7 +167,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code amount_owed} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argAmountOwed is null
+	 * @throws com.opal.IllegalNullArgumentException if argAmountOwed is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.SchoolRegistration setAmountOwed(java.math.BigDecimal argAmountOwed);
@@ -188,7 +188,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code amount_paid} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argAmountPaid is null
+	 * @throws com.opal.IllegalNullArgumentException if argAmountPaid is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.SchoolRegistration setAmountPaid(java.math.BigDecimal argAmountPaid);
@@ -223,7 +223,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -262,7 +262,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code spots_reserved} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSpotsReserved is null
+	 * @throws com.opal.IllegalNullArgumentException if argSpotsReserved is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.SchoolRegistration setSpotsReserved(java.lang.Integer argSpotsReserved);
@@ -291,8 +291,8 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argTournamentCode is null
-	 * @throws ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argTournamentCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -302,7 +302,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
-	 * The returned {@code com.scobolsolo.application.Contact} is the {@link UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code registration_main_contact_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code registration_main_contact_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Contact getMainContact();
@@ -310,7 +310,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 
 	/**
 	 * @return the {@code com.scobolsolo.application.School}
-	 * The returned {@code com.scobolsolo.application.School} is the {@link UserFacing} object corresponding to the entry in {@code school} that is referenced by {@code registration_school_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.School} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school} that is referenced by {@code registration_school_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.School getSchool();
@@ -318,7 +318,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code school_registration_tournament_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code school_registration_tournament_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();

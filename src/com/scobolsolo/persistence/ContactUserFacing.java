@@ -48,7 +48,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Contact setId(java.lang.Integer argId);
@@ -91,7 +91,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @param argEmailAddress the new value of {@code EmailAddress}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argEmailAddress} is longer than 256 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argEmailAddress} is longer than 256 characters
 	 * <p>The database column {@code email_address} is limited to 256 characters.</p>
 	 *
 	 */
@@ -128,7 +128,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @param argAdvancePhone the new value of {@code AdvancePhone}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argAdvancePhone} is longer than 32 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argAdvancePhone} is longer than 32 characters
 	 * <p>The database column {@code advance_phone} is limited to 32 characters.</p>
 	 *
 	 */
@@ -165,7 +165,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @param argDayOfPhone the new value of {@code DayOfPhone}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argDayOfPhone} is longer than 32 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argDayOfPhone} is longer than 32 characters
 	 * <p>The database column {@code day_of_phone} is limited to 32 characters.</p>
 	 *
 	 */
@@ -202,7 +202,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -225,8 +225,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -250,8 +250,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sort_by} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSortBy is null
-	 * @throws ArgumentTooLongException if {@code argSortBy} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argSortBy is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argSortBy} is longer than 256 characters
 	 * <p>The database column {@code sort_by} is limited to 256 characters.</p>
 	 *
 	 */
@@ -300,7 +300,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code active} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argActive is null
+	 * @throws com.opal.IllegalNullArgumentException if argActive is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Contact setActive(java.lang.Boolean argActive);
@@ -343,7 +343,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @param argAddress the new value of {@code Address}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argAddress} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argAddress} is longer than 2147483647 characters
 	 * <p>The database column {@code address} is limited to 2147483647 characters.</p>
 	 *
 	 */

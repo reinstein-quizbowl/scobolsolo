@@ -48,7 +48,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Player setId(java.lang.Integer argId);
@@ -93,7 +93,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code contact_id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argContactId is null
+	 * @throws com.opal.IllegalNullArgumentException if argContactId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Player setContactId(java.lang.Integer argContactId);
@@ -143,7 +143,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getSchoolRegistrationId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getSchoolRegistrationIdAsObject();
@@ -209,7 +209,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argSchoolYearCode the new value of {@code SchoolYearCode}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argSchoolYearCode} is longer than 32 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argSchoolYearCode} is longer than 32 characters
 	 * <p>The database column {@code school_year_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -253,7 +253,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code RankWithinSchool} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getRankWithinSchool() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getRankWithinSchoolAsObject();
@@ -326,7 +326,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code Seed} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getSeed() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getSeedAsObject();
@@ -392,7 +392,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -436,7 +436,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code InitialCardId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getInitialCardId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getInitialCardIdAsObject();
@@ -504,7 +504,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code exhibition} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argExhibition is null
+	 * @throws com.opal.IllegalNullArgumentException if argExhibition is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Player setExhibition(java.lang.Boolean argExhibition);
@@ -519,7 +519,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
-	 * The returned {@code com.scobolsolo.application.Contact} is the {@link UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code player_contact_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code player_contact_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Contact getContact();
@@ -527,7 +527,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Card}
-	 * The returned {@code com.scobolsolo.application.Card} is the {@link UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code player_initial_card_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Card} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code player_initial_card_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Card getInitialCard();
@@ -535,7 +535,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
-	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code player_registration_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code player_registration_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
@@ -543,7 +543,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.SchoolYear}
-	 * The returned {@code com.scobolsolo.application.SchoolYear} is the {@link UserFacing} object corresponding to the entry in {@code school_year} that is referenced by {@code player_school_year_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.SchoolYear} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_year} that is referenced by {@code player_school_year_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.SchoolYear getSchoolYear();

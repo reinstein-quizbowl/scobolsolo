@@ -48,7 +48,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Game setId(java.lang.Integer argId);
@@ -98,7 +98,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code TossupsHeard} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getTossupsHeard() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getTossupsHeardAsObject();
@@ -171,7 +171,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code IncomingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getIncomingWinningCardPlayerId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getIncomingWinningCardPlayerIdAsObject();
@@ -244,7 +244,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code IncomingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getIncomingLosingCardPlayerId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getIncomingLosingCardPlayerIdAsObject();
@@ -317,7 +317,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code OutgoingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getOutgoingWinningCardPlayerId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getOutgoingWinningCardPlayerIdAsObject();
@@ -390,7 +390,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code OutgoingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getOutgoingLosingCardPlayerId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getOutgoingLosingCardPlayerIdAsObject();
@@ -463,7 +463,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code ModeratorStaffId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getModeratorStaffId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getModeratorStaffIdAsObject();
@@ -501,7 +501,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Match}
-	 * The returned {@code com.scobolsolo.application.Match} is the {@link UserFacing} object corresponding to the entry in {@code match} that is referenced by {@code game_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Match} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code match} that is referenced by {@code game_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Match getMatch();
@@ -509,7 +509,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_losing_card_player_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_losing_card_player_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getIncomingLosingCardPlayer();
@@ -517,7 +517,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_winning_card_player_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_winning_card_player_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getIncomingWinningCardPlayer();
@@ -525,7 +525,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Staff}
-	 * The returned {@code com.scobolsolo.application.Staff} is the {@link UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code game_moderator_staff_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code game_moderator_staff_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Staff getModeratorStaff();
@@ -533,7 +533,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_outgoing_losing_card_player_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_outgoing_losing_card_player_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getOutgoingLosingCardPlayer();
@@ -541,7 +541,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_outgoing_winning_card_player_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_outgoing_winning_card_player_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Player getOutgoingWinningCardPlayer();

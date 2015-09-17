@@ -48,7 +48,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Packet setId(java.lang.Integer argId);
@@ -77,8 +77,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argName is null
-	 * @throws ArgumentTooLongException if {@code argName} is longer than 256 characters
+	 * @throws com.opal.IllegalNullArgumentException if argName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argName} is longer than 256 characters
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
@@ -102,8 +102,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code short_name} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argShortName is null
-	 * @throws ArgumentTooLongException if {@code argShortName} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argShortName is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argShortName} is longer than 32 characters
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
@@ -148,7 +148,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code RoundId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getRoundId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getRoundIdAsObject();
@@ -214,7 +214,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -237,8 +237,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tournament_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argTournamentCode is null
-	 * @throws ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argTournamentCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argTournamentCode} is longer than 32 characters
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -278,7 +278,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Packet setSequence(java.lang.Integer argSequence);
@@ -328,7 +328,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code ReplacementPacketId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getReplacementPacketId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getReplacementPacketIdAsObject();
@@ -396,7 +396,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code questions_public} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argQuestionsPublic is null
+	 * @throws com.opal.IllegalNullArgumentException if argQuestionsPublic is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Packet setQuestionsPublic(java.lang.Boolean argQuestionsPublic);
@@ -411,7 +411,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Packet}
-	 * The returned {@code com.scobolsolo.application.Packet} is the {@link UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code packet_replacement_packet_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Packet} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code packet_replacement_packet_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Packet getReplacementPacket();
@@ -419,7 +419,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Round}
-	 * The returned {@code com.scobolsolo.application.Round} is the {@link UserFacing} object corresponding to the entry in {@code round} that is referenced by {@code packet_round_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Round} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code round} that is referenced by {@code packet_round_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Round getRound();
@@ -427,7 +427,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code packet_tournament_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code packet_tournament_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();

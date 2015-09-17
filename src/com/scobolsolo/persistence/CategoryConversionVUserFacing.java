@@ -80,7 +80,7 @@ public interface CategoryConversionVUserFacing extends com.opal.UserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code ResponseTypeCount} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getResponseTypeCount() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getResponseTypeCountAsObject();
@@ -102,19 +102,19 @@ public interface CategoryConversionVUserFacing extends com.opal.UserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.ResponseType}
-	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.ResponseType getResponseType();
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
 	/**
 	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();

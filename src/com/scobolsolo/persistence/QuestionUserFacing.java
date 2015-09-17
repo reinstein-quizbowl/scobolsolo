@@ -48,7 +48,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code id} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argId is null
+	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
 	@com.opal.annotation.NotNull
 	public com.scobolsolo.application.Question setId(java.lang.Integer argId);
@@ -91,7 +91,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argDescription the new value of {@code Description}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argDescription} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argDescription} is longer than 2147483647 characters
 	 * <p>The database column {@code description} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -114,8 +114,8 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code category_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argCategoryCode is null
-	 * @throws ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argCategoryCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argCategoryCode} is longer than 32 characters
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -153,7 +153,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argNote the new value of {@code Note}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argNote} is longer than 2147483647 characters
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -197,7 +197,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
 	 * @return the primitive value of {@code WriterAccountId} (of the current {@link com.opal.TransactionContext})
-	 * @throws NullValueException when the internal value is null
+	 * @throws com.opal.NullValueException when the internal value is null
 	 */
 	default public int getWriterAccountId() throws com.opal.NullValueException {
 		java.lang.Integer lclO = getWriterAccountIdAsObject();
@@ -263,7 +263,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argText the new value of {@code Text}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argText} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argText} is longer than 2147483647 characters
 	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -300,7 +300,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @param argAnswer the new value of {@code Answer}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * @throws ArgumentTooLongException if {@code argAnswer} is longer than 2147483647 characters
+	 * @throws com.opal.ArgumentTooLongException if {@code argAnswer} is longer than 2147483647 characters
 	 * <p>The database column {@code answer} is limited to 2147483647 characters.</p>
 	 *
 	 */
@@ -323,8 +323,8 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code question_status_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws IllegalNullArgumentException if argQuestionStatusCode is null
-	 * @throws ArgumentTooLongException if {@code argQuestionStatusCode} is longer than 32 characters
+	 * @throws com.opal.IllegalNullArgumentException if argQuestionStatusCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argQuestionStatusCode} is longer than 32 characters
 	 * <p>The database column {@code question_status_code} is limited to 32 characters.</p>
 	 *
 	 */
@@ -334,7 +334,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code question_category_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code question_category_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Category getCategory();
@@ -342,7 +342,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Account}
-	 * The returned {@code com.scobolsolo.application.Account} is the {@link UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code question_writer_account_id_fkey}.
+	 * The returned {@code com.scobolsolo.application.Account} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code question_writer_account_id_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.Account getWriter();
@@ -350,7 +350,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 
 	/**
 	 * @return the {@code com.scobolsolo.application.QuestionStatus}
-	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code question_question_status_code_fkey}.
+	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code question_question_status_code_fkey}.
 	 *
 	 */
 	public com.scobolsolo.application.QuestionStatus getStatus();
