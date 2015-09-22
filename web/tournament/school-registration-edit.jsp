@@ -1,7 +1,25 @@
 ﻿<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
-<%@ page import="com.scobolsolo.application.*" %>
+<%@ page import="com.scobolsolo.application.Buzzer" %>
+<%@ page import="com.scobolsolo.application.BuzzerFactory" %>
+<%@ page import="com.scobolsolo.application.Contact" %>
+<%@ page import="com.scobolsolo.application.Player" %>
+<%@ page import="com.scobolsolo.application.PlayerFactory" %>
+<%@ page import="com.scobolsolo.application.Room" %>
+<%@ page import="com.scobolsolo.application.School" %>
+<%@ page import="com.scobolsolo.application.SchoolYear" %>
+<%@ page import="com.scobolsolo.application.SchoolRegistration" %>
+<%@ page import="com.scobolsolo.application.SchoolRegistrationFactory" %>
+<%@ page import="com.scobolsolo.application.Staff" %>
+<%@ page import="com.scobolsolo.application.StaffFactory" %>
+<%@ page import="com.scobolsolo.application.StandbyEntry" %>
+<%@ page import="com.scobolsolo.application.StandbyEntryFactory" %>
+<%@ page import="com.scobolsolo.application.Tournament" %>
+<%@ page import="com.scobolsolo.application.WaitlistEntry" %>
+<%@ page import="com.scobolsolo.application.WaitlistEntryFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.opalforms.updater.*" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
@@ -44,14 +62,30 @@ if (lclOF.hasErrors()) {
 	</div><%
 }
 
+boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.getEmailAddress() != null || lclC.getAdvancePhone() != null || lclC.getDayOfPhone() != null);
+
 %><div class="row">
-	<div class="small-12 medium-8 large-6 columns">
+	<div class="<%= lclSplitMainContact ? "small-12 medium-4 large-3 columns" : "small-12 medium-8 large-6 columns" %>">
 		<label>
 			Main contact
 			<%= lclOF.dropdown("MainContact", Contact.NameComparator.getInstance()).filter(Contact::isActive) %>
 		</label>
-	</div>
-	<div class="small-12 medium-4 large-2 columns">
+	</div><%
+	if (lclSplitMainContact) {
+		%><div class="small-12 medium-4 large-3 columns">
+			<br /><!-- spacer for the "Main contact" label --><%
+			if (lclC.getEmailAddress() != null) {
+				%><a href="mailto:<%= lclC.getEmailAddress() %>"><%= lclC.getEmailAddress() %></a><br /><%
+			}
+			if (lclC.getAdvancePhone() != null) {
+				%>Advance:&nbsp;<a href="tel://<%= lclC.getAdvancePhone() %>"><%= lclC.getAdvancePhone() %></a><br /><%
+			}
+			if (lclC.getDayOfPhone() != null) {
+				%>Day&nbsp;Of:&nbsp;<a href="tel://<%= lclC.getDayOfPhone() %>"><%= lclC.getDayOfPhone() %></a><%
+			}
+		%></div><%
+	}
+	%><div class="small-12 medium-4 large-2 columns">
 		<label>
 			Spots reserved
 			<%= lclOF.text("SpotsReserved", 3) %>
