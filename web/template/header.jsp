@@ -1,4 +1,5 @@
 ﻿<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
+<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 
@@ -45,7 +46,7 @@ if (argDescriptionParameter == null) {
 	
 	<title><%= argTitle %></title>
 	<meta name="author" content="Jonah Greenthal">
-	<meta name="description" content="<%= argDescription %>">
+	<meta name="description" content="<%= StringEscapeUtils.escapeHtml4(argDescription) %>">
 	
 	<!-- jQuery -->
 	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
