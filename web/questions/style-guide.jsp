@@ -26,6 +26,7 @@
 	<div class="small-12 columns">
 		<h2>Special characters</h2>
 		<p>Use LaTeX coding. Information on diacritics is <a href="http://en.wikibooks.org/wiki/LaTeX/Special_Characters#Escaped_codes">here</a>. Some <a href="http://en.wikibooks.org/wiki/LaTeX/Special_Characters#Other_symbols">other symbols</a> also need to be escaped in special ways (notably including <code>%</code> and <code>$</code>, which you must write as <code class="success">\%</code> and <code class="success">\$</code>, respectively). <a href="mailto:jonah@jonahgreenthal.com">Ask Jonah</a> if you have any questions.</p>
+		<p>In particular, note that <a href="http://www.chicagomanualofstyle.org/qanda/data/faq/topics/HyphensEnDashesEmDashes/faq0002.html">en and em dashes</a> are produced by typing <code class="success">--</code> and <code class="success">---</code> (two and three hyphens), respectively.</p>
 	</div>
 </div>
 
