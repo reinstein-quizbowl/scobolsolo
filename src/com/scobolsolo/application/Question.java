@@ -51,6 +51,12 @@ public interface Question extends QuestionUserFacing {
 		return getPlacementCount() == 0;
 	}
 	
+	default Placement findPlacement(Tournament argT) {
+		return streamPlacement()
+			.filter(argPL -> argPL.getTournament() == argT)
+			.findFirst().orElse(null);
+	}
+	
 	default SortedSet<Diff> getDiffs() {
 		return acquireDiff(new TreeSet<>());
 	}
