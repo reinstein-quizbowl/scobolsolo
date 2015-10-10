@@ -110,8 +110,11 @@ public interface Question extends QuestionUserFacing {
 			ENTIRE_STRING:
 			for (int lclI = 0; lclI < argS.length(); ++lclI) {
 				char lclC = argS.charAt(lclI);
-				char lclPrev = lclI == 0 ? ' ' : argS.charAt(lclI - 1); // eh
-				char lclNext = lclI == argS.length() - 1 ? ' ' : argS.charAt(lclI + 1); // eh
+				
+				// If we're at an end of argS, we use ' ' as a placeholder. Getting into boxed primitives just for this doesn't seem worthwhile.
+				char lclPrev = lclI == 0 ? ' ' : argS.charAt(lclI - 1);
+				char lclNext = lclI + 1 > argS.length() - 1 ? ' ' : argS.charAt(lclI + 1);
+				char lclTwoNext = lclI + 2 > argS.length() - 1 ? ' ' : argS.charAt(lclI + 2);
 				
 				ENTIRE_STRING_POSSIBILITIES:
 				switch (lclC) {
@@ -358,6 +361,21 @@ public interface Question extends QuestionUserFacing {
 						}
 						lclInMath = !lclInMath;
 						break;
+					case '-':
+						if (lclNext == '-') {
+							if (lclTwoNext == '-') { // ---
+								lclSB.append("&mdash;");
+								lclI += 2;
+								break;
+							} else { // just --
+								lclSB.append("&ndash;");
+								lclI++;
+								break;
+							}
+						} else {
+							lclSB.append(lclC);
+							break;
+						}
 					case '~':
 						if (lclInItalics) {
 							lclSB.append("</i>");
