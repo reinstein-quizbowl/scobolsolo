@@ -374,6 +374,9 @@ public interface Question extends QuestionUserFacing {
 						}
 						lclInUnderlining = !lclInUnderlining;
 						break;
+					case '*':
+						lclSB.append("&middot;");
+						break;
 					default:
 						lclSB.append(lclC);
 				}

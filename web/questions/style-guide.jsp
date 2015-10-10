@@ -18,6 +18,7 @@
 	<div class="small-12 columns">
 		<h2>Pronunciation guides</h2>
 		<p>Write pronunciation guides as follows: <code class="success">\pg{Jonah Greenthal}{JOH-nuh "GREEN"-thawl}</code>. That is: a backslash, the letters <code>pg</code>, the text for which a pronunciation guide is being provided enclosed in <code>{</code>curly braces<code>}</code>, and the actual pronunciation guide enclosed in <code>curly braces</code>. The pronunciation guide itself should be written according to NAQT's style; <a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a> if you have any questions about that.</p>
+		<p>If the need for a full-fledged pronunciation guide can be avoided by simply indicating the separation between syllables or other easy-to-understand sections (e.g. "ly&middot;ser&middot;gic acid di&middot;ethyl&middot;am&middot;ide"), produce those separations with <code class="success">*</code> (an asterisk).</p>
 	</div>
 </div>
 
