@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Diff;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {

@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.WaitlistEntry;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntry> {

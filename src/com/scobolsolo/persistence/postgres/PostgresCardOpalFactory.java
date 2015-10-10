@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Card;
 import com.scobolsolo.application.CardImpl;
 import com.scobolsolo.persistence.CardOpal;
@@ -112,7 +117,7 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void registerOpal(CardOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 6) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CardOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NamePhaseIdOpalKey((java.lang.String) argValues[1], (java.lang.Integer) argValues[5]), argOpal, true);
 			lclOC.addOpal(new ShortNamePhaseIdOpalKey((java.lang.String) argValues[2], (java.lang.Integer) argValues[5]), argOpal, true);
@@ -125,7 +130,7 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CardOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NamePhaseIdOpalKey((java.lang.String) lclOldValues[1], (java.lang.Integer) lclOldValues[5]));
 			lclOC.removeOpal(new ShortNamePhaseIdOpalKey((java.lang.String) lclOldValues[2], (java.lang.Integer) lclOldValues[5]));
@@ -142,7 +147,7 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 6) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CardOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<CardOpal> lclOldKey = null;
 			OpalKey<CardOpal> lclNewKey = null;

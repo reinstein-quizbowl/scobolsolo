@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.StaffRole;
 
 public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 

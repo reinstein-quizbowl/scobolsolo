@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Card;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class CardOpal extends com.opal.UpdatableOpal<Card> {

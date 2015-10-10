@@ -1,9 +1,50 @@
 package com.scobolsolo.persistence.postgres;
+
 import javax.sql.DataSource;
 import javax.naming.NamingException;
 import javax.naming.InitialContext;
+
 import com.opal.PersistenceException;
-import com.scobolsolo.persistence.*;
+
+import com.scobolsolo.persistence.AccountOpalFactory;
+import com.scobolsolo.persistence.BuzzerOpalFactory;
+import com.scobolsolo.persistence.CardOpalFactory;
+import com.scobolsolo.persistence.CategoryConversionVOpalFactory;
+import com.scobolsolo.persistence.CategoryGroupOpalFactory;
+import com.scobolsolo.persistence.CategoryOpalFactory;
+import com.scobolsolo.persistence.CategoryUseOpalFactory;
+import com.scobolsolo.persistence.ContactOpalFactory;
+import com.scobolsolo.persistence.DiffOpalFactory;
+import com.scobolsolo.persistence.GameOpalFactory;
+import com.scobolsolo.persistence.GameVOpalFactory;
+import com.scobolsolo.persistence.MatchOpalFactory;
+import com.scobolsolo.persistence.OpalFactoryFactory;
+import com.scobolsolo.persistence.PacketOpalFactory;
+import com.scobolsolo.persistence.PerformanceOpalFactory;
+import com.scobolsolo.persistence.PhaseOpalFactory;
+import com.scobolsolo.persistence.PlacementConversionVOpalFactory;
+import com.scobolsolo.persistence.PlacementOpalFactory;
+import com.scobolsolo.persistence.PlayerCategoryPointVOpalFactory;
+import com.scobolsolo.persistence.PlayerMatchVOpalFactory;
+import com.scobolsolo.persistence.PlayerOpalFactory;
+import com.scobolsolo.persistence.PlayerPointVOpalFactory;
+import com.scobolsolo.persistence.PlayerRecordVOpalFactory;
+import com.scobolsolo.persistence.QuestionOpalFactory;
+import com.scobolsolo.persistence.QuestionStatusOpalFactory;
+import com.scobolsolo.persistence.ResponseOpalFactory;
+import com.scobolsolo.persistence.ResponseTypeOpalFactory;
+import com.scobolsolo.persistence.RoomOpalFactory;
+import com.scobolsolo.persistence.RoundGroupOpalFactory;
+import com.scobolsolo.persistence.RoundOpalFactory;
+import com.scobolsolo.persistence.SchoolOpalFactory;
+import com.scobolsolo.persistence.SchoolRegistrationOpalFactory;
+import com.scobolsolo.persistence.SchoolYearOpalFactory;
+import com.scobolsolo.persistence.StaffAssignmentOpalFactory;
+import com.scobolsolo.persistence.StaffOpalFactory;
+import com.scobolsolo.persistence.StaffRoleOpalFactory;
+import com.scobolsolo.persistence.StandbyEntryOpalFactory;
+import com.scobolsolo.persistence.TournamentOpalFactory;
+import com.scobolsolo.persistence.WaitlistEntryOpalFactory;
 
 public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	private static final PostgresOpalFactoryFactory ourInstance = new PostgresOpalFactoryFactory();

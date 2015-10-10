@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Contact;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {

@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Game;
 
 public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 

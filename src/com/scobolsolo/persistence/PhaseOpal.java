@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Phase;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {

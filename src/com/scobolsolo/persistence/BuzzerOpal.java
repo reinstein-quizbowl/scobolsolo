@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Buzzer;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {

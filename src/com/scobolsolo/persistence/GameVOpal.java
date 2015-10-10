@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.GameV;
 
 public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 

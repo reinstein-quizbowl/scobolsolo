@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Room;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class RoomOpal extends com.opal.UpdatableOpal<Room> {

@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.CategoryGroup;
 
 public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGroup> {
 

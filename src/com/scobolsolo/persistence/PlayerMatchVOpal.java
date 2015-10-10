@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.PlayerMatchV;
 
 public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV> {
 

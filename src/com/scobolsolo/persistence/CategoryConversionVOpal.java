@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.CategoryConversionV;
 
 public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<CategoryConversionV> {
 

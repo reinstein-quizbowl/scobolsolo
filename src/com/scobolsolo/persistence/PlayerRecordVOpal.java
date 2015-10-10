@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.PlayerRecordV;
 
 public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecordV> {
 

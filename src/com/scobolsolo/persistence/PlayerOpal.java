@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Player;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {

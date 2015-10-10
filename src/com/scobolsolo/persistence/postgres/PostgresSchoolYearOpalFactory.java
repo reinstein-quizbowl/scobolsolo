@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.SchoolYear;
 import com.scobolsolo.application.SchoolYearImpl;
 import com.scobolsolo.persistence.SchoolYearOpal;
@@ -97,7 +102,7 @@ public class PostgresSchoolYearOpalFactory extends com.opal.AbstractDatabaseIden
 	protected void registerOpal(SchoolYearOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<SchoolYearOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameOpalKey((java.lang.String) argValues[1]), argOpal, true);
 			lclOC.addOpal(new CodeOpalKey((java.lang.String) argValues[0]), argOpal, true);
@@ -111,7 +116,7 @@ public class PostgresSchoolYearOpalFactory extends com.opal.AbstractDatabaseIden
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<SchoolYearOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameOpalKey((java.lang.String) lclOldValues[1]));
 			lclOC.removeOpal(new CodeOpalKey((java.lang.String) lclOldValues[0]));
@@ -129,7 +134,7 @@ public class PostgresSchoolYearOpalFactory extends com.opal.AbstractDatabaseIden
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<SchoolYearOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<SchoolYearOpal> lclOldKey = null;
 			OpalKey<SchoolYearOpal> lclNewKey = null;

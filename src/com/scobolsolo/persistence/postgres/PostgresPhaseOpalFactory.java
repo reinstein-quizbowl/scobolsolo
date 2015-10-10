@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Phase;
 import com.scobolsolo.application.PhaseImpl;
 import com.scobolsolo.persistence.PhaseOpal;
@@ -113,7 +118,7 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	protected void registerOpal(PhaseOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 7) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PhaseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
 			lclOC.addOpal(new TournamentCodeNameOpalKey((java.lang.String) argValues[1], (java.lang.String) argValues[2]), argOpal, true);
@@ -126,7 +131,7 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PhaseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
 			lclOC.removeOpal(new TournamentCodeNameOpalKey((java.lang.String) lclOldValues[1], (java.lang.String) lclOldValues[2]));
@@ -143,7 +148,7 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PhaseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<PhaseOpal> lclOldKey = null;
 			OpalKey<PhaseOpal> lclNewKey = null;

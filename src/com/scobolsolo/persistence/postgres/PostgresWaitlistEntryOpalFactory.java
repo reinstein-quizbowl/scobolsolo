@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.WaitlistEntry;
 import com.scobolsolo.application.WaitlistEntryImpl;
 import com.scobolsolo.persistence.WaitlistEntryOpal;
@@ -111,7 +116,7 @@ public class PostgresWaitlistEntryOpalFactory extends com.opal.AbstractDatabaseI
 	protected void registerOpal(WaitlistEntryOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<WaitlistEntryOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
 		}
@@ -122,7 +127,7 @@ public class PostgresWaitlistEntryOpalFactory extends com.opal.AbstractDatabaseI
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<WaitlistEntryOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
 		}
@@ -137,7 +142,7 @@ public class PostgresWaitlistEntryOpalFactory extends com.opal.AbstractDatabaseI
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<WaitlistEntryOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<WaitlistEntryOpal> lclOldKey = null;
 			OpalKey<WaitlistEntryOpal> lclNewKey = null;

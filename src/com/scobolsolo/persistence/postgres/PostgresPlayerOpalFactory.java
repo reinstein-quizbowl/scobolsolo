@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Player;
 import com.scobolsolo.application.PlayerImpl;
 import com.scobolsolo.persistence.PlayerOpal;
@@ -115,7 +120,7 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	protected void registerOpal(PlayerOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PlayerOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			if (true && argValues[7] != null) {
 				lclOC.addOpal(new InitialCardIdOpalKey((java.lang.Integer) argValues[7]), argOpal, true);
@@ -129,7 +134,7 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PlayerOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			if (true && lclOldValues[7] != null) {
 				lclOC.removeOpal(new InitialCardIdOpalKey((java.lang.Integer) lclOldValues[7]));
@@ -147,7 +152,7 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PlayerOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<PlayerOpal> lclOldKey = null;
 			OpalKey<PlayerOpal> lclNewKey = null;

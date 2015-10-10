@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Performance;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class PerformanceOpal extends com.opal.UpdatableOpal<Performance> {

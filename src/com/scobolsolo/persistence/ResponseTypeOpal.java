@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.ResponseType;
 
 public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType> {
 	public static final java.lang.Boolean ourDefaultDefault = java.lang.Boolean.FALSE;

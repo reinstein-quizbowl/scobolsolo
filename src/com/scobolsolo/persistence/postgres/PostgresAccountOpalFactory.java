@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Account;
 import com.scobolsolo.application.AccountImpl;
 import com.scobolsolo.persistence.AccountOpal;
@@ -100,7 +105,7 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 	protected void registerOpal(AccountOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 8) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<AccountOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
 			lclOC.addOpal(new UsernameOpalKey((java.lang.String) argValues[1]), argOpal, true);
@@ -112,7 +117,7 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<AccountOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
 			lclOC.removeOpal(new UsernameOpalKey((java.lang.String) lclOldValues[1]));
@@ -128,7 +133,7 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 8) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<AccountOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<AccountOpal> lclOldKey = null;
 			OpalKey<AccountOpal> lclNewKey = null;

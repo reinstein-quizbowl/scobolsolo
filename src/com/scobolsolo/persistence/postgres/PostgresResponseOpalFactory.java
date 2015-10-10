@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Response;
 import com.scobolsolo.application.ResponseImpl;
 import com.scobolsolo.persistence.ResponseOpal;
@@ -111,7 +116,7 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	protected void registerOpal(ResponseOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new PerformanceIdPlacementIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[2]), argOpal, true);
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -123,7 +128,7 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new PerformanceIdPlacementIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]));
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -139,7 +144,7 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 5) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<ResponseOpal> lclOldKey = null;
 			OpalKey<ResponseOpal> lclNewKey = null;

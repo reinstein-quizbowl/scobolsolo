@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Room;
 import com.scobolsolo.application.RoomImpl;
 import com.scobolsolo.persistence.RoomOpal;
@@ -113,7 +118,7 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void registerOpal(RoomOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 7) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<RoomOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameTournamentCodeOpalKey((java.lang.String) argValues[1], (java.lang.String) argValues[4]), argOpal, true);
 			lclOC.addOpal(new ShortNameTournamentCodeOpalKey((java.lang.String) argValues[2], (java.lang.String) argValues[4]), argOpal, true);
@@ -126,7 +131,7 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<RoomOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameTournamentCodeOpalKey((java.lang.String) lclOldValues[1], (java.lang.String) lclOldValues[4]));
 			lclOC.removeOpal(new ShortNameTournamentCodeOpalKey((java.lang.String) lclOldValues[2], (java.lang.String) lclOldValues[4]));
@@ -143,7 +148,7 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<RoomOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<RoomOpal> lclOldKey = null;
 			OpalKey<RoomOpal> lclNewKey = null;

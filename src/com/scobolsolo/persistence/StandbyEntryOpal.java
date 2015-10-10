@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.StandbyEntry;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry> {

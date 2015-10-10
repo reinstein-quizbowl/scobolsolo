@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.PlacementConversionV;
 
 public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<PlacementConversionV> {
 

@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Placement;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {

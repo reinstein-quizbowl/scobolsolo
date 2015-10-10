@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.CategoryUse;
 import com.scobolsolo.application.CategoryUseImpl;
 import com.scobolsolo.persistence.CategoryUseOpal;
@@ -95,7 +100,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 	protected void registerOpal(CategoryUseOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 3) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CategoryUseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new CategoryCodeTournamentCodeOpalKey((java.lang.String) argValues[0], (java.lang.String) argValues[1]), argOpal, true);
 		}
@@ -106,7 +111,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 3) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CategoryUseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new CategoryCodeTournamentCodeOpalKey((java.lang.String) lclOldValues[0], (java.lang.String) lclOldValues[1]));
 		}
@@ -121,7 +126,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 3) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CategoryUseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<CategoryUseOpal> lclOldKey = null;
 			OpalKey<CategoryUseOpal> lclNewKey = null;

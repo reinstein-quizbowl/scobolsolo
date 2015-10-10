@@ -1,5 +1,6 @@
 package com.scobolsolo.persistence.postgres;
 
+
 import com.scobolsolo.application.PlayerRecordV;
 import com.scobolsolo.application.PlayerRecordVImpl;
 import com.scobolsolo.persistence.PlayerRecordVOpal;

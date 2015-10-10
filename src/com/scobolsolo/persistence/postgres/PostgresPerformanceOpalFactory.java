@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Performance;
 import com.scobolsolo.application.PerformanceImpl;
 import com.scobolsolo.persistence.PerformanceOpal;
@@ -109,7 +114,7 @@ public class PostgresPerformanceOpalFactory extends com.opal.AbstractDatabaseIde
 	protected void registerOpal(PerformanceOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 3) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PerformanceOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new GameIdPlayerIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[2]), argOpal, true);
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -121,7 +126,7 @@ public class PostgresPerformanceOpalFactory extends com.opal.AbstractDatabaseIde
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 3) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PerformanceOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new GameIdPlayerIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]));
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -137,7 +142,7 @@ public class PostgresPerformanceOpalFactory extends com.opal.AbstractDatabaseIde
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 3) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PerformanceOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<PerformanceOpal> lclOldKey = null;
 			OpalKey<PerformanceOpal> lclNewKey = null;

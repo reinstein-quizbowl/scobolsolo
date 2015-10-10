@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.SchoolYear;
 
 public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 

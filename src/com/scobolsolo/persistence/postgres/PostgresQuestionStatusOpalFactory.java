@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.QuestionStatus;
 import com.scobolsolo.application.QuestionStatusImpl;
 import com.scobolsolo.persistence.QuestionStatusOpal;
@@ -96,7 +101,7 @@ public class PostgresQuestionStatusOpalFactory extends com.opal.AbstractDatabase
 	protected void registerOpal(QuestionStatusOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 4) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<QuestionStatusOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameOpalKey((java.lang.String) argValues[1]), argOpal, true);
 			lclOC.addOpal(new CodeOpalKey((java.lang.String) argValues[0]), argOpal, true);
@@ -109,7 +114,7 @@ public class PostgresQuestionStatusOpalFactory extends com.opal.AbstractDatabase
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 4) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<QuestionStatusOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameOpalKey((java.lang.String) lclOldValues[1]));
 			lclOC.removeOpal(new CodeOpalKey((java.lang.String) lclOldValues[0]));
@@ -126,7 +131,7 @@ public class PostgresQuestionStatusOpalFactory extends com.opal.AbstractDatabase
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 4) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<QuestionStatusOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<QuestionStatusOpal> lclOldKey = null;
 			OpalKey<QuestionStatusOpal> lclNewKey = null;

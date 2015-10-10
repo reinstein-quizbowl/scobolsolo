@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.CategoryGroup;
 import com.scobolsolo.application.CategoryGroupImpl;
 import com.scobolsolo.persistence.CategoryGroupOpal;
@@ -96,7 +101,7 @@ public class PostgresCategoryGroupOpalFactory extends com.opal.AbstractDatabaseI
 	protected void registerOpal(CategoryGroupOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 4) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CategoryGroupOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameOpalKey((java.lang.String) argValues[1]), argOpal, true);
 			lclOC.addOpal(new CodeOpalKey((java.lang.String) argValues[0]), argOpal, true);
@@ -109,7 +114,7 @@ public class PostgresCategoryGroupOpalFactory extends com.opal.AbstractDatabaseI
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 4) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CategoryGroupOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameOpalKey((java.lang.String) lclOldValues[1]));
 			lclOC.removeOpal(new CodeOpalKey((java.lang.String) lclOldValues[0]));
@@ -126,7 +131,7 @@ public class PostgresCategoryGroupOpalFactory extends com.opal.AbstractDatabaseI
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 4) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<CategoryGroupOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<CategoryGroupOpal> lclOldKey = null;
 			OpalKey<CategoryGroupOpal> lclNewKey = null;

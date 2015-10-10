@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.QuestionStatus;
 
 public final class QuestionStatusOpal extends com.opal.UpdatableOpal<QuestionStatus> {
 

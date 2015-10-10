@@ -1,5 +1,6 @@
 package com.scobolsolo.persistence.postgres;
 
+
 import com.scobolsolo.application.PlayerCategoryPointV;
 import com.scobolsolo.application.PlayerCategoryPointVImpl;
 import com.scobolsolo.persistence.PlayerCategoryPointVOpal;

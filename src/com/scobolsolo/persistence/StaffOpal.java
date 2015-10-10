@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Staff;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {

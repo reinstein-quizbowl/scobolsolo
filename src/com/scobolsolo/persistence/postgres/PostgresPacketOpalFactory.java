@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Packet;
 import com.scobolsolo.application.PacketImpl;
 import com.scobolsolo.persistence.PacketOpal;
@@ -115,7 +120,7 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 	protected void registerOpal(PacketOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PacketOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
 			lclOC.addOpal(new TournamentCodeNameOpalKey((java.lang.String) argValues[5], (java.lang.String) argValues[1]), argOpal, true);
@@ -131,7 +136,7 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PacketOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
 			lclOC.removeOpal(new TournamentCodeNameOpalKey((java.lang.String) lclOldValues[5], (java.lang.String) lclOldValues[1]));
@@ -151,7 +156,7 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<PacketOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<PacketOpal> lclOldKey = null;
 			OpalKey<PacketOpal> lclNewKey = null;

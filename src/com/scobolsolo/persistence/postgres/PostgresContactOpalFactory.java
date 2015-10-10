@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Contact;
 import com.scobolsolo.application.ContactImpl;
 import com.scobolsolo.persistence.ContactOpal;
@@ -115,7 +120,7 @@ public class PostgresContactOpalFactory extends com.opal.AbstractDatabaseIdentit
 	protected void registerOpal(ContactOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<ContactOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
 		}
@@ -126,7 +131,7 @@ public class PostgresContactOpalFactory extends com.opal.AbstractDatabaseIdentit
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<ContactOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
 		}
@@ -141,7 +146,7 @@ public class PostgresContactOpalFactory extends com.opal.AbstractDatabaseIdentit
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 9) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<ContactOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<ContactOpal> lclOldKey = null;
 			OpalKey<ContactOpal> lclNewKey = null;

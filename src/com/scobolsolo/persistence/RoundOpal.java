@@ -1,6 +1,6 @@
 package com.scobolsolo.persistence;
 
-import com.scobolsolo.application.*;
+import com.scobolsolo.application.Round;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class RoundOpal extends com.opal.UpdatableOpal<Round> {

@@ -2,7 +2,12 @@ package com.scobolsolo.persistence.postgres;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.opal.*;
+
+import com.opal.OpalCache;
+import com.opal.OpalKey;
+import com.opal.OpalUtility;
+import com.opal.PersistenceException;
+
 import com.scobolsolo.application.Tournament;
 import com.scobolsolo.application.TournamentImpl;
 import com.scobolsolo.persistence.TournamentOpal;
@@ -108,7 +113,7 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 	protected void registerOpal(TournamentOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
 		if (argValues.length != 16) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<TournamentOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new CodeOpalKey((java.lang.String) argValues[3]), argOpal, true);
 			lclOC.addOpal(new NameOpalKey((java.lang.String) argValues[1]), argOpal, true);
@@ -122,7 +127,7 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
 		if (lclOldValues.length != 16) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<TournamentOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new CodeOpalKey((java.lang.String) lclOldValues[3]));
 			lclOC.removeOpal(new NameOpalKey((java.lang.String) lclOldValues[1]));
@@ -140,7 +145,7 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
 		if (lclNewValues.length != 16) { throw new IllegalStateException(); }
-		OpalCache lclOC = getOpalCache();
+		OpalCache<TournamentOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<TournamentOpal> lclOldKey = null;
 			OpalKey<TournamentOpal> lclNewKey = null;
