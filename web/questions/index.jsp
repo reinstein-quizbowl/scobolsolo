@@ -33,7 +33,7 @@
 </jsp:include><%
 
 Collection<Tournament> lclSelectedTournamentsFromRequest = Validate.notNull(TournamentFactory.getInstance().multipleFromHttpRequest(request));
-boolean lclShowUnused = request.getParameter("unused") != null;
+boolean lclShowUnused = request.getParameter("unused") == null || Boolean.parseBoolean(request.getParameter("unused")); // i.e., if there is no parameter for this, default to true
 
 Set<Tournament> lclSelectedTournaments = new HashSet<>(lclSelectedTournamentsFromRequest);
 if (lclSelectedTournaments.isEmpty()) {
