@@ -361,6 +361,9 @@ public interface Question extends QuestionUserFacing {
 						}
 						lclInMath = !lclInMath;
 						break;
+					case '`':
+						lclSB.append('\''); // and the website will convert it into &#8216;
+						break;
 					case '-':
 						if (lclNext == '-') {
 							if (lclTwoNext == '-') { // ---
