@@ -79,7 +79,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 			getWriter().println("\\end{tossup}");
 			getWriter().println();
 			
-			if (lclNext == null) {
+			if (lclNext == null || lclI == lclRegulation.size() - 1) { // We have to check separately because we fudged lclNext as the first overtime tossup for navigation arrow purposes
 				// Last of regulation
 				if (lclOvertime.isEmpty()) {
 					getWriter().println("\\packetOver");
