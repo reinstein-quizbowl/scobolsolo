@@ -77,10 +77,10 @@
 \newcommand{\overtimeLabel}[1]{\textsuperscript{TB}#1.}
 
 \newcommand{\scorecheck}{\textbf{\textit{Check the score.}}}
-\newcommand{\scorecheckInOvertime}{\textbf{textit{If the score is still tied, continue. If it is not tied, the game is over.}}}
-\newcommand{\packetOver}{\textbf{textit{This is the end of the packet.}}}
-\newcommand{\regulationOver}{\textbf{textit{This is the end of regulation. Check the score. If it is tied, proceed to overtime tossups. If it is not tied, the game is over.}}}
-\newcommand{\overtimeOver}{\textbf{textit{There are no more overtime questions available. If the score is still tied, contact the control room for further instructions.}}}
+\newcommand{\scorecheckInOvertime}{\textbf{\textit{If the score is still tied, continue. If it is not tied, the game is over.}}}
+\newcommand{\packetOver}{\textbf{\textit{This is the end of the packet.}}}
+\newcommand{\regulationOver}{\textbf{\textit{This is the end of regulation. Check the score. If it is tied, proceed to overtime tossups. If it is not tied, the game is over.}}}
+\newcommand{\overtimeOver}{\textbf{\textit{There are no more overtime questions available. If the score is still tied, contact the control room for further instructions. If it is not tied, the game is over.}}}
 
 \newcommand{\altanswers}[1]{[#1]}
 
