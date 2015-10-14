@@ -10,8 +10,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2015 will be held at New Trier High School in Winnetka, Illinois, probably on Saturday, October 31. More details will be posted when they become available.</p>
-	</div>
+		<p>Scobol Solo 2015 will be held at New Trier High School in Winnetka, Illinois on Saturday, October 31. More details are <a href="http://hsquizbowl.org/forums/viewtopic.php?f=1&amp;t=17840">at the Quizbowl Resource Center</a>.</p>
 </div>
 
 <jsp:include page="/template/footer.jsp" />
