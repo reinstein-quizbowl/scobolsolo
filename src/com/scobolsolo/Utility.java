@@ -26,7 +26,7 @@ public class Utility {
 		
 		boolean lclJustAppendedNonAlphanumeric = false;
 		for (final char lclC : argS.toCharArray()) {
-			if (Character.isLetterOrDigit(lclC)) {
+			if (lclC == '.' || Character.isLetterOrDigit(lclC)) {
 				lclSB.append(Character.toLowerCase(lclC));
 				lclJustAppendedNonAlphanumeric = false;
 			} else {
