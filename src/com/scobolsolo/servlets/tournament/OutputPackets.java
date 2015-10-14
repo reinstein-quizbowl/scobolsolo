@@ -28,6 +28,7 @@ import com.scobolsolo.output.LaTeXCompiler;
 import com.scobolsolo.output.LaTeXOutputter;
 import com.scobolsolo.output.PacketOutputter;
 import com.scobolsolo.servlets.DownloadServlet;
+import com.scobolsolo.ScobolSoloConfiguration;
 import com.scobolsolo.Utility;
 
 public class OutputPackets extends DownloadServlet {
@@ -75,7 +76,7 @@ public class OutputPackets extends DownloadServlet {
 			final File lclF = lclFiles.get(0);
 			return new Download(lclF, lclMimeType, lclFilename);
 		} else {
-			final File lclZipFile = new File(lclFilename);
+			final File lclZipFile = new File(ScobolSoloConfiguration.getInstance().getString("DATA_DIRECTORY") + File.separator + ScobolSoloConfiguration.getInstance().getString("OUTPUTTED_PACKETS_SUBDIRECTORY") + File.separator + lclFilename);
 			try (FileOutputStream lclFOS = new FileOutputStream(lclZipFile)) {
 				try (ZipOutputStream lclZOS = new ZipOutputStream(lclFOS)) {
 					for (final File lclF : lclFiles) {
