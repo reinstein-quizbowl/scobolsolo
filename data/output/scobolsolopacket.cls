@@ -32,14 +32,13 @@
 \RequirePackage{xcolor}
 \RequirePackage{xstring}                  % powermarking-related string manipulation
 \RequirePackage{stringstrings}            % powermarking-related string manipulation
-\RequirePackage{hyperref}
+\RequirePackage[bookmarks = false]{hyperref}
 \hypersetup{
 	colorlinks,
 	linkcolor = black,
 	urlcolor = black,
 	citecolor = black,
 	linktoc = none,
-	bookmarks = false,
 	bookmarksopen = false
 }
 
@@ -59,7 +58,6 @@
 \newcommand{\question}[1]{#1}
 \newcommand{\answer}[1]{\par\vspace*{3pt}Answer: #1}
 
-\newcounter{tossupscounter}
 \newenvironment{tossups}{ % argument is the first tossup number
 	\thispagestyle{plain}
 	\hspace{0.43in} % Spacer to make the headings line up with the actual question text instead of the question numbers
@@ -72,34 +70,33 @@
 		\vspace{-24pt}
 		\includegraphics[keepaspectratio=true,width=1in]{"nt-logo"}
 	\end{minipage}
-	
-	\setcounter{tossupscounter}{\theFirstNumber}
-	% \setcounter{tossupscounter}{1}
 }{
 }
 
 \newcommand{\regulationLabel}[1]{#1.}
-\newcommand{\tiebreakerLabel}[1]{\textsuperscript{TB}#1.}
+\newcommand{\overtimeLabel}[1]{\textsuperscript{TB}#1.}
+
+\newcommand{\scorecheck}{\textbf{\textit{Check the score.}}}
+\newcommand{\scorecheckInOvertime}{\textbf{textit{If the score is still tied, continue. If it is not tied, the game is over.}}}
+\newcommand{\packetOver}{\textbf{textit{This is the end of the packet.}}}
+\newcommand{\regulationOver}{\textbf{textit{This is the end of regulation. Check the score. If it is tied, proceed to overtime tossups. If it is not tied, the game is over.}}}
+\newcommand{\overtimeOver}{\textbf{textit{There are no more overtime questions available. If the score is still tied, contact the control room for further instructions.}}}
 
 \newcommand{\altanswers}[1]{[#1]}
 
-\newenvironment{tossup}[1]{
+\newenvironment{tossup}[5]{ % arguments: #1 the placement ID, #2 the in-packet number, #3 the value 1 for overtime or 0 for regulation, #4 the previous placement ID if defined or -1 if not, #5 and the next placement ID if defined or -1 if not
 	\par\vspace{12.5pt} % put some space between this and the previous tossup
-	\hypertarget{tu-\arabic{tossupscounter}}{}
+	\hypertarget{#1}{}
 	\begin{minipage}{\textwidth-5.22pt}
 		\begin{minipage}[t]{0.4in}
 			\begin{flushright}
-				\ifthenelse{\value{tossupscounter} < 21}{\regulationLabel{\arabic{tossupscounter}}}{\tiebreakerLabel{\arabic{tossupscounter}}}
+				\ifthenelse{#3 = 1}{\overtimeLabel{#2}}{\regulationLabel{#2}}
 			\end{flushright}
-			\ifthenelse{\value{tossupscounter} > 1}{
-				\addtocounter{tossupscounter}{-1}
-				\begin{ocg}[printocg=never]{navarrows}{navarrows}{1}\hyperlink{tu-\arabic{tossupscounter}}{\includegraphics[keepaspectratio=true,width=0.6cm]{"up-arrow"}}\end{ocg}
-				\addtocounter{tossupscounter}{2}
+			\ifthenelse{#4 > -1}{ % i.e., if there is a previous placement
+				\begin{ocg}[printocg=never]{navarrows}{navarrows}{1}\hyperlink{#4}{\includegraphics[keepaspectratio=true,width=0.6cm]{"up-arrow"}}\end{ocg}
 			}{
-				\addtocounter{tossupscounter}{1}
-			}
-			\ifthenelse{\value{tossupscounter} < 24}{ % shouldn't be hardcoded, but I don't know any way around it
-				\begin{ocg}[printocg=never]{navarrows}{navarrows}{1}\hyperlink{tu-\arabic{tossupscounter}}{\includegraphics[keepaspectratio=true,width=0.6cm]{"down-arrow"}}\end{ocg}
+			}\ifthenelse{#5 > -1}{ % i.e., if there is a next placement
+				\begin{ocg}[printocg=never]{navarrows}{navarrows}{1}\hyperlink{#5}{\includegraphics[keepaspectratio=true,width=0.6cm]{"down-arrow"}}\end{ocg}
 			}{
 			}
 		\end{minipage}

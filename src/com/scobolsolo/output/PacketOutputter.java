@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -30,36 +31,116 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 	
 	@Override
 	public void outputInternal() {
-		List<Placement> lclPLs = Arrays.asList(getPacket().createPlacementArray());
-		lclPLs.sort(null);
-		
-		int lclFirstNumber = lclPLs.stream()
-			.filter(Placement::isFilled)
-			.mapToInt(Placement::getNumber)
-			.min().orElse(0);
+		List<Placement> lclRegulation = getPacket().getRegulationPlacements();
+		List<Placement> lclOvertime = getPacket().getOvertimePlacements();
 		
 		getWriter().println("\\documentclass[12pt]{scobolsolopacket}");
 		getWriter().println();
 		getWriter().println("\\def\\theTournament{" + escape(getPacket().getTournament().getName()) + "}");
 		getWriter().println("\\def\\thePacket{" + escape(getPacket().getNameWithRound()) + "}");
-		getWriter().println("\\def\\theFirstNumber{" + lclFirstNumber + "}");
 		getWriter().println();
 		getWriter().println("\\begin{document}");
 		getWriter().println();
 		getWriter().println("\\begin{tossups}");
 		getWriter().println();
 		
-		for (Placement lclPL : lclPLs) {
+		// #1 the placement ID, #2 the in-packet number, #3 the value 1 for overtime or 0 for regulation, #4 the previous placement ID if defined or -1 if not, #5 and the next placement ID if defined or -1 if not
+		
+		for (int lclI = 0; lclI < lclRegulation.size(); ++lclI) {
+			Placement lclPL = lclRegulation.get(lclI);
 			if (lclPL.isEmpty()) {
 				continue;
 			}
+			
+			Placement lclPrev = lclI == 0 ? null : lclRegulation.get(lclI - 1);
+			
+			Placement lclNext;
+			if (lclI < lclRegulation.size() - 1) {
+				lclNext = lclRegulation.get(lclI + 1);
+			} else if (!lclOvertime.isEmpty()) {
+				lclNext = lclOvertime.get(0);
+			} else {
+				lclNext = null;
+			}
+			
+			List<String> lclTossupEnvironmentArguments = Arrays.asList(
+				lclPL.getIdAsObject().toString(),
+				lclPL.getNumberAsObject().toString(),
+				"0", // regulation
+				lclPrev == null ? "-1" : lclPrev.getIdAsObject().toString(),
+				lclNext == null ? "-1" : lclNext.getIdAsObject().toString()
+			);
+			
 			Question lclQ = Validate.notNull(lclPL.getQuestion());
 			
-			getWriter().println("\\begin{tossup}");
+			getWriter().println("\\begin{tossup}{" + StringUtils.join(lclTossupEnvironmentArguments, "}{") + "}");
 			getWriter().println("\t\\question{" + questionTextToLatex(lclQ.getText()) + "}");
 			getWriter().println("\t\\answer{" + answerLineToLatex(lclQ.getAnswer()) + "}");
 			getWriter().println("\\end{tossup}");
 			getWriter().println();
+			
+			if (lclNext == null) {
+				// Last of regulation
+				if (lclOvertime.isEmpty()) {
+					getWriter().println("\\packetOver");
+					getWriter().println();
+				} else {
+					getWriter().println("\\regulationOver");
+					getWriter().println();
+				}
+			} else {
+				if (lclPL.isScorecheckAfter()) {
+					getWriter().println("\\scorecheck");
+					getWriter().println();
+				}
+			}
+		}
+		
+		if (!lclOvertime.isEmpty()) {
+			for (int lclI = 0; lclI < lclOvertime.size(); ++lclI) {
+				Placement lclPL = lclOvertime.get(lclI);
+				if (lclPL.isEmpty()) {
+					continue;
+				}
+				
+				Placement lclPrev;
+				if (lclI == 0) {
+					if (!lclRegulation.isEmpty()) {
+						lclPrev = lclRegulation.get(lclRegulation.size() - 1);
+					} else {
+						lclPrev = null;
+					}
+				} else {
+					lclPrev = lclOvertime.get(lclI - 1);
+				}
+				
+				Placement lclNext = lclI == lclOvertime.size() - 1 ? null : lclOvertime.get(lclI + 1);
+				
+				List<String> lclTossupEnvironmentArguments = Arrays.asList(
+					lclPL.getIdAsObject().toString(),
+					lclPL.getNumberAsObject().toString(),
+					"1", // overtime
+					lclPrev == null ? "-1" : lclPrev.getIdAsObject().toString(),
+					lclNext == null ? "-1" : lclNext.getIdAsObject().toString()
+				);
+				
+				Question lclQ = Validate.notNull(lclPL.getQuestion());
+				
+				getWriter().println("\\begin{tossup}{" + StringUtils.join(lclTossupEnvironmentArguments, "}{") + "}");
+				getWriter().println("\t\\question{" + questionTextToLatex(lclQ.getText()) + "}");
+				getWriter().println("\t\\answer{" + answerLineToLatex(lclQ.getAnswer()) + "}");
+				getWriter().println("\\end{tossup}");
+				getWriter().println();
+				
+				if (lclNext == null) {
+					getWriter().println("\\overtimeOver");
+				} else {
+					if (lclPL.isScorecheckAfter()) {
+						getWriter().println("\\scorecheckInOvertime");
+						getWriter().println();
+					}
+				}
+			}
 		}
 		
 		getWriter().println();
