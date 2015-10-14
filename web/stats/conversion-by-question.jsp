@@ -93,7 +93,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 							Placement lclPL = lclEntry.getKey();
 							Map<ResponseType, Integer> lclRTMap = lclEntry.getValue();
 							%><tr>
-								<th><%= lclPL.getSequence() %></th>
+								<th><%= lclPL.getNumber() %></th>
 								<th><%= lclPL.getQuestion().getDescription() %></th>
 								<th><%= lclPL.getQuestion().getCategory().getName() %></th><%
 								int lclPoints = 0, lclHeard = 0;

@@ -35,8 +35,16 @@ public interface Packet extends PacketUserFacing, Comparable<Packet> {
 		return getTournament().getShortName() + ": " + getShortName();
 	}
 	
-	default int getNextSequenceNumber() {
-		return 1 + streamPlacement().filter(argPL -> argPL.getSequenceAsObject() != null).mapToInt(Placement::getSequence).max().orElse(0);
+	default String getNameWithRound() {
+		if (getRound() == null) {
+			return getName();
+		} else {
+			return getName() + " (" + getRound().getName() + ")";
+		}
+	}
+	
+	default int getNextNumber() {
+		return 1 + streamPlacement().filter(argPL -> argPL.getNumberAsObject() != null).mapToInt(Placement::getNumber).max().orElse(0);
 	}
 	
 	default List<Placement> getAllPlacements() {
@@ -49,5 +57,23 @@ public interface Packet extends PacketUserFacing, Comparable<Packet> {
 	
 	default List<Placement> getOvertimePlacements() {
 		return streamPlacement().filter(Placement::isTiebreaker).sorted().collect(Collectors.toList());
+	}
+	
+	default String determineOutputWarning() {
+		int lclEmpty = (int) streamPlacement().filter(Placement::isEmpty).count();
+		if (lclEmpty == 1) {
+			return "There is one empty placement.";
+		} else if (lclEmpty > 1) {
+			return "There are " + lclEmpty + " empty placements.";
+		}
+		
+		int lclUnapproved = (int) streamPlacement().map(Placement::getQuestion).filter(argQ -> argQ.getStatus() != QuestionStatusFactory.APPROVED()).count();
+		if (lclUnapproved == 1) {
+			return "There is one unapproved question.";
+		} else if (lclUnapproved > 1) {
+			return "There are " + lclUnapproved + " unapproved questions.";
+		}
+		
+		return null;
 	}
 }

@@ -14,8 +14,8 @@ import org.apache.log4j.SimpleLayout;
 import com.siliconage.database.DirectConnectionPoolFactory;
 import com.siliconage.naming.SimpleInitialContextFactoryBuilder;
 
-import com.opal.OpalCache;
 import com.opal.TransactionManager;
+
 public abstract class Standalone {
 	private static final Logger ourLogger = Logger.getLogger(Standalone.class);
 	
@@ -63,7 +63,6 @@ public abstract class Standalone {
 	public static void shutdown() {
 		ourLogger.debug("Shutting down TransactionManager.");
 		TransactionManager.getInstance().shutdown();
-		OpalCache.getInstance().shutdown();
 		ourLogger.debug("Shut down TransactionManager.");
 	}
 }

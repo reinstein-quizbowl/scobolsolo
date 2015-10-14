@@ -1,4 +1,4 @@
-package com.scobolsolo.paperwork;
+package com.scobolsolo.output;
 
 import java.io.File;
 import java.util.Arrays;
@@ -49,7 +49,7 @@ public class ReplacementGuideOutputter extends TournamentSpecificLaTeXOutputter 
 				final Question lclQ = lclPL.getQuestion();
 				final Placement lclReplacement = lclPL.findReplacement();
 				
-				getWriter().print("\\item[\\#" + escape(String.valueOf(lclPL.getSequence())));
+				getWriter().print("\\item[\\#" + escape(String.valueOf(lclPL.getNumber())));
 				
 				if (lclPL.isTiebreaker()) {
 					getWriter().print(" (TB)");
@@ -60,7 +60,7 @@ public class ReplacementGuideOutputter extends TournamentSpecificLaTeXOutputter 
 				if (lclReplacement == null) {
 					getWriter().println("No replacement available; contact the control room for assistance if necessary.");
 				} else {
-					getWriter().println("Use " + escape(lclReplacement.getPacket().getName()) + " \\#" + escape(String.valueOf(lclReplacement.getSequence())) + ": " + escape(lclReplacement.getQuestion().getDescription()));
+					getWriter().println("Use " + escape(lclReplacement.getPacket().getName()) + " \\#" + escape(String.valueOf(lclReplacement.getNumber())) + ": " + escape(lclReplacement.getQuestion().getDescription()));
 				}
 				
 				getWriter().println();

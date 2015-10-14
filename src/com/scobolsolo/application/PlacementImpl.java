@@ -79,19 +79,19 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public java.lang.Integer getSequenceAsObject() {
-		return getPlacementOpal().getSequenceAsObject();
+	public java.lang.Integer getNumberAsObject() {
+		return getPlacementOpal().getNumberAsObject();
 	}
 
 	@Override
-	public PlacementImpl setSequence(java.lang.Integer argSequence) {
-		getPlacementOpal().setSequence(argSequence);
+	public PlacementImpl setNumber(java.lang.Integer argNumber) {
+		getPlacementOpal().setNumber(argNumber);
 		return this;
 	}
 
 	@Override
-	public PlacementImpl setSequence(int argSequence) {
-		getPlacementOpal().setSequence(argSequence);
+	public PlacementImpl setNumber(int argNumber) {
+		getPlacementOpal().setNumber(argNumber);
 		return this;
 	}
 

@@ -1,20 +1,21 @@
-package com.scobolsolo.paperwork;
+package com.scobolsolo.output;
 
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
 import org.apache.commons.lang3.Validate;
 
-import com.scobolsolo.application.Card;
+import com.google.common.collect.RowSortedTable;
+import com.google.common.collect.TreeBasedTable;
+
 import com.scobolsolo.application.Match;
 import com.scobolsolo.application.Phase;
+import com.scobolsolo.application.Room;
 import com.scobolsolo.application.Round;
 
-public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
-	public MasterByCardOutputter(final File argOutputFile, final Phase argP) {
+public class MasterByRoomOutputter extends PhaseSpecificLaTeXOutputter {
+	public MasterByRoomOutputter(final File argOutputFile, final Phase argP) {
 		super(argOutputFile, argP);
 	}
 	
@@ -31,20 +32,27 @@ public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
 		Validate.isTrue(getPhase().isCardSystem());
 		final List<Round> lclRounds = getPhase().getRounds();
 		
+		final RowSortedTable<Room, Round, Match> lclTable = TreeBasedTable.create();
+		for (Round lclRound : lclRounds) {
+			for (Match lclM : lclRound.createMatchArray()) {
+				lclTable.put(lclM.getRoom(), lclRound, lclM);
+			}
+		}
+		
 		getWriter().println("\\begin{center}");
 		getWriter().println("\\TournamentTitle{" + escape(getTournament().getName()) + "}");
 		getWriter().println();
 		getWriter().println("\\vspace{12pt}");
 		
 		getWriter().println("\\rowcolors*{2}{gray}{white}");
-		getWriter().print("\\begin{longtable}{|C{0.9cm}|");
+		getWriter().print("\\begin{longtable}{|C{1.2cm}|");
 		for (@SuppressWarnings("unused") final Round lclR : lclRounds) {
 			getWriter().print("C{0.8cm}C{0.8cm}|");
 		}
 		getWriter().println("}");
 		getWriter().println("\\hline");
 		
-		getWriter().print("\\rowcolor[gray]{0}  \\ColumnHeader{Card} & ");
+		getWriter().print("\\rowcolor[gray]{0}  \\ColumnHeader{Room} & ");
 		Iterator<Round> lclRI = lclRounds.iterator();
 		while (lclRI.hasNext()) {
 			final Round lclR = lclRI.next();
@@ -60,7 +68,7 @@ public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
 		lclRI = lclRounds.iterator();
 		while (lclRI.hasNext()) {
 			@SuppressWarnings("unused") final Round lclR = lclRI.next();
-			getWriter().print(" \\SmallColumnHeader{Opp} & \\SmallColumnHeader{Rm}");
+			getWriter().print(" \\SmallColumnHeader{W} & \\SmallColumnHeader{L}");
 			
 			if (lclRI.hasNext()) {
 				getWriter().print(" & ");
@@ -72,27 +80,18 @@ public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
 		getWriter().println("\\hline");
 		getWriter().println("\\endfoot");
 		
-		for (final Card lclC : getPhase().getCards()) {
-			final Map<Round, Match> lclMatchMap = new HashMap<>(lclRounds.size());
-			for (final Match lclM : lclC.createWinningMatchArray()) {
-				lclMatchMap.put(lclM.getRound(), lclM);
-			}
-			for (final Match lclM : lclC.createLosingMatchArray()) {
-				lclMatchMap.put(lclM.getRound(), lclM);
-			}
-			
-			getWriter().print(lclC.getShortName() + " & ");
+		for (final Room lclRoom : lclTable.rowKeySet()) {
+			getWriter().print(lclRoom.getShortName() + " & ");
 			
 			lclRI = lclRounds.iterator();
 			while (lclRI.hasNext()) {
 				final Round lclRound = lclRI.next();
 				
-				final Match lclM = lclMatchMap.get(lclRound); // may be null, indicating a bye
+				final Match lclM = lclTable.get(lclRoom, lclRound); // may be null, indicating a bye
 				if (lclM == null) {
 					getWriter().print(" - & - ");
 				} else {
-					final Card lclOpponentCard = lclM.getWinningCard() == lclC ? lclM.getLosingCard() : lclM.getWinningCard();
-					getWriter().print(escape(lclOpponentCard.getShortName()) + " & " + escape(lclM.getRoom().getShortName()));
+					getWriter().print(escape(lclM.getWinningCard().getShortName()) + " & " + escape(lclM.getLosingCard().getShortName()));
 				}
 				
 				if (lclRI.hasNext()) {

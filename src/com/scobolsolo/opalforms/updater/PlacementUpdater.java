@@ -30,8 +30,8 @@ public class PlacementUpdater extends OpalFormUpdater<Placement> {
 	protected void processSpecial() {
 		Placement lclPL = Validate.notNull(getUserFacing());
 		
-		if (lclPL.getSequenceAsObject() == null) {
-			lclPL.setSequence(lclPL.getPacket().getNextSequenceNumber());
+		if (lclPL.getNumberAsObject() == null) {
+			lclPL.setNumber(lclPL.getPacket().getNextNumber());
 		}
 		
 		if (lclPL.getQuestion() != null) {

@@ -118,7 +118,7 @@ if (lclOF.alreadyExists()) {
 				<thead>
 					<tr>
 						<th>Packet</th>
-						<th>Sequence</th>
+						<th>Number</th>
 						<th>Score check after?</th>
 						<th>Tiebreaker?</th>
 						<th>Remove?</th>
@@ -137,7 +137,7 @@ if (lclOF.alreadyExists()) {
 						%><tr>
 							<%= lclPOF.open() %>
 							<td><%= lclPOF.dropdown("Packet", Comparator.<Packet>naturalOrder()).namer(Packet::getShortNameWithTournament) %></td>
-							<td><%= lclPOF.text("Sequence", 3) %></td>
+							<td><%= lclPOF.text("Number", 3) %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>
 							<td><%= HTMLUtility.deleteWidget(lclPOF) %>

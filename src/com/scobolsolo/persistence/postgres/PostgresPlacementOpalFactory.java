@@ -26,7 +26,7 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 		"id", 
 		"question_id", 
 		"packet_id", 
-		"sequence", 
+		"number", 
 		"tiebreaker", 
 		"scorecheck_after", 
 		"category_code", 

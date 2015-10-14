@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
@@ -14,8 +15,9 @@ OpalMainForm<Tournament> lclOF = OpalForm.create(
 	TournamentFactory.getInstance().forUniqueString(request.getParameter("object")),
 	TournamentFactory.getInstance()
 );
-
 Tournament lclT = lclOF.getUserFacing();
+
+Account lclUser = Account.demand(request);
 %>
 
 <jsp:include page="/template/header.jsp">
@@ -88,6 +90,42 @@ if (lclOF.hasErrors()) {
 	</div>
 </div>
 
-<%= lclOF.close() %>
+<%= lclOF.close() %><%
+
+if (lclUser.isAdministrator() && lclT.getPacketCount() > 0) {
+	%><div class="row">
+		<div class="small-12 columns">
+			<h2>Generate PDFs</h2>
+			<p>Choose the packet(s) you wish to output:</p>
+		</div>
+	</div>
+	<form action="OutputPackets" method="get">
+		<div class="row">
+				<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" /><%
+				Packet[] lclPs = lclT.createPacketArray();
+				Arrays.sort(lclPs);
+				for (Packet lclP : lclPs) {
+					%><div class="small-6 medium-4 large-3 columns" style="margin-bottom: 0.5em;"><%
+						String lclWarning = lclP.determineOutputWarning();
+						if (lclWarning == null) {
+							%><label>
+								<input type="checkbox" name="packet_id" value="<%= lclP.getId() %>" checked="checked" />&nbsp;<%= lclP.getName() %>
+							</label><%
+						} else {
+							%><label class="warning">
+								<input type="checkbox" name="packet_id" value="<%= lclP.getId() %>" checked="checked" />&nbsp;<span title="<%= lclWarning %>"><%= lclP.getName() %></span>
+							</label><%
+						}
+					%></div><%
+				}
+		%></div>
+		<div class="row">
+			<div class="small-12 columns">
+				<input type="submit" value="Generate PDFs" />
+			</div>
+		</div>
+	</form><%
+}
+%>
 
 <jsp:include page="/template/footer.jsp" />

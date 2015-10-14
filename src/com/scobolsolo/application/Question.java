@@ -186,7 +186,7 @@ public interface Question extends QuestionUserFacing {
 										} else {
 											lclCommandSB.append(lclBackslashChar);
 											if (lclCommandSB.length() <= 2) {
-												if (lclBackslashChar == '`' || lclBackslashChar == '\'' || lclBackslashChar == '^' || lclBackslashChar == '"' || lclBackslashChar == 'H' || lclBackslashChar == '~' || lclBackslashChar == 'c' || lclBackslashChar == 'l' || lclBackslashChar == 'v' || lclBackslashChar == '=') {
+												if (lclBackslashChar == '`' || lclBackslashChar == '\'' || lclBackslashChar == '^' || lclBackslashChar == '"' || lclBackslashChar == '~' || lclBackslashChar == '=') {
 													lclCommand = lclCommandSB.toString();
 													lclArgs = Arrays.asList(String.valueOf(argS.charAt(lclJ + 1)));
 													lclI += 2;
@@ -194,7 +194,11 @@ public interface Question extends QuestionUserFacing {
 												} else if (lclBackslashChar == 'O' || lclBackslashChar == 'o') {
 													lclCommand = lclCommandSB.toString();
 													lclArgs = Collections.emptyList();
-													lclI += 1;
+													if (lclNextBackslashChar == ' ') {
+														lclI += 2;
+													} else if (lclNextBackslashChar == '{') {
+														lclI += 3;
+													}
 													break;
 												}
 											}
@@ -204,6 +208,11 @@ public interface Question extends QuestionUserFacing {
 								
 								BACKSLASH_COMMAND_POSSIBILITIES:
 								switch (lclCommand) {
+									case "\\&": // ampersand
+										Validate.isTrue(lclArgs.isEmpty());
+										lclSB.append("&amp;");
+										++lclI;
+										break;
 									case "\\`": // grave accent
 										Validate.isTrue(lclArgs.size() == 1);
 										lclSB.append('&').append(lclArgs.get(0)).append("grave;");
@@ -257,12 +266,12 @@ public interface Question extends QuestionUserFacing {
 										lclSB.append('&').append(lclArgs.get(0)).append("caron;");
 										break;
 									case "\\O": // slash-through
-										Validate.isTrue(lclArgs.size() == 0);
+										Validate.isTrue(lclArgs.isEmpty());
 										lclSB.append("&Oslash;");
 										break;
 									case "\\o": // slash-through
-										Validate.isTrue(lclArgs.size() == 0);
-										case "o": lclSB.append("&oslash;");
+										Validate.isTrue(lclArgs.isEmpty());
+										lclSB.append("&oslash;");
 										break;
 									case "\\=": // macron
 										Validate.isTrue(lclArgs.size() == 1);
@@ -299,6 +308,7 @@ public interface Question extends QuestionUserFacing {
 						}
 						
 						break;
+					
 					case '$': // FIXME: This will break if the math portion contains \$
 						if (lclInMath) {
 							// It's the end.
@@ -361,6 +371,7 @@ public interface Question extends QuestionUserFacing {
 						}
 						lclInMath = !lclInMath;
 						break;
+					
 					case '`':
 						lclSB.append('\''); // and the website will convert it into &#8216;
 						break;
@@ -379,6 +390,7 @@ public interface Question extends QuestionUserFacing {
 							lclSB.append(lclC);
 							break;
 						}
+					
 					case '~':
 						if (lclInItalics) {
 							lclSB.append("</i>");
@@ -387,6 +399,7 @@ public interface Question extends QuestionUserFacing {
 						}
 						lclInItalics = !lclInItalics;
 						break;
+					
 					case '_':
 						if (lclInUnderlining) {
 							lclSB.append("</u>");
@@ -395,9 +408,15 @@ public interface Question extends QuestionUserFacing {
 						}
 						lclInUnderlining = !lclInUnderlining;
 						break;
+					
 					case '*':
 						lclSB.append("&middot;");
 						break;
+					
+					case '&':
+						lclSB.append("&amp;");
+						break;
+					
 					default:
 						lclSB.append(lclC);
 				}

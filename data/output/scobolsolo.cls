@@ -5,15 +5,15 @@
 \LoadClass[11pt]{article}
 
 \RequirePackage[
-				colorlinks,
-				linkcolor=black,
-				urlcolor=black,
-				citecolor=black,
-				linktoc=none,
-				bookmarks=false,
-				bookmarksopen=false,
-				pdfauthor={New Trier Scobol Solo}
-				]{hyperref}
+		colorlinks,
+		linkcolor=black,
+		urlcolor=black,
+		citecolor=black,
+		linktoc=none,
+		bookmarks=false,
+		bookmarksopen=false,
+		pdfauthor={New Trier Scobol Solo}
+	]{hyperref}
 	\def\UrlFont{\em}
 
 \RequirePackage[T1]{fontenc}

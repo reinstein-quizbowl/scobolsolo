@@ -15,8 +15,29 @@ public class Utility {
 		throw new UnsupportedOperationException();
 	}
 	
+	private static final String FILENAME_SEPARATOR = "-";
+	
 	public static final String getAdminContact() {
 		return "Jonah Greenthal (<a href=\"mailto:jonah@jonahgreenthal.com\">jonah@jonahgreenthal.com</a>)";
+	}
+	
+	public static final String cleanFilename(final String argS) {
+		final StringBuilder lclSB = new StringBuilder(argS.length());
+		
+		boolean lclJustAppendedNonAlphanumeric = false;
+		for (final char lclC : argS.toCharArray()) {
+			if (Character.isLetterOrDigit(lclC)) {
+				lclSB.append(Character.toLowerCase(lclC));
+				lclJustAppendedNonAlphanumeric = false;
+			} else {
+				if (!lclJustAppendedNonAlphanumeric) {
+					lclSB.append(FILENAME_SEPARATOR);
+					lclJustAppendedNonAlphanumeric = true;
+				}
+			}
+		}
+		
+		return lclSB.toString();
 	}
 	
 	public static final String nParameters(int argN) {

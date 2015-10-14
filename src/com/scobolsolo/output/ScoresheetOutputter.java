@@ -1,4 +1,4 @@
-package com.scobolsolo.paperwork;
+package com.scobolsolo.output;
 
 import java.io.File;
 import java.util.Arrays;
@@ -79,7 +79,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 					} else {
 						lclJustDidTiebreaker = false;
 						
-						getWriter().println("\\vstrut & & & & \\textbf{" + lclPL.getSequenceString() + "} & & & & \\tabularnewline");
+						getWriter().println("\\vstrut & & & & \\textbf{" + lclPL.getNumberString() + "} & & & & \\tabularnewline");
 						
 						getWriter().println("\\hline");
 						

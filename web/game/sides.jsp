@@ -152,7 +152,7 @@ String makeChoices(Collection<Player> argCandidates, NameCodeExtractor<Player> a
 			.append("<legend>").append(argLabel).append("</legend>");
 		for (Player lclP : argCandidates) {
 			lclSB.append("<label id=\"").append(argName).append("_label_").append(argNCE.extractCode(lclP)).append("\">")
-				.append(new RadioField<>(argName, argNCE.extractCode(lclP), false).attribute("onchange", "radioSidesUpdated(this)").required())
+				.append(new RadioField<>(argName, argNCE.extractCode(lclP), false, null).attribute("onchange", "radioSidesUpdated(this)").required())
 				.append("&nbsp;")
 				.append(argNCE.extractName(lclP))
 				.append("</label>");

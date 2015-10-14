@@ -180,49 +180,49 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Placement setPacketId(int argPacketId);
 
 	/**
-	 * object accessor for the {@code Sequence}
+	 * object accessor for the {@code Number}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} field in {@code placement}.</p>
+	 * <p>The {@code Number} field is a direct mapping of the {@code number} field in {@code placement}.</p>
 	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSequence() method.</p>
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getNumber() method.</p>
 	 *
-	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Number} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
-	public java.lang.Integer getSequenceAsObject();
+	public java.lang.Integer getNumberAsObject();
 
 	/**
-	 * primitive accessor for the {@code Sequence}
+	 * primitive accessor for the {@code Number}
 	 *
-	 * <p>The {@code Sequence} field is a direct mapping of the {@code sequence} database column in the table {@code placement}.</p>
+	 * <p>The {@code Number} field is a direct mapping of the {@code number} database column in the table {@code placement}.</p>
 	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSequenceAsObject() method.</p>
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getNumberAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Sequence} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Number} (of the current {@link com.opal.TransactionContext})
 	 */
-	default public int getSequence() {
-		java.lang.Integer lclO = getSequenceAsObject();
+	default public int getNumber() {
+		java.lang.Integer lclO = getNumberAsObject();
 		return lclO.intValue();
 	}
 
 	/**
-	 * sets the {@code Sequence} to the value of {@code argSequence}
+	 * sets the {@code Number} to the value of {@code argNumber}
 	 *
-	 * @param argSequence the new value of {@code Sequence}.  May not be <code>null</code>.
+	 * @param argNumber the new value of {@code Number}.  May not be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code sequence} to which this field is mapped is {@code NOT NULL}.</p>
+	 * <p>The database column {@code number} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
+	 * @throws com.opal.IllegalNullArgumentException if argNumber is null
 	 */
 	@com.opal.annotation.NotNull
-	public com.scobolsolo.application.Placement setSequence(java.lang.Integer argSequence);
+	public com.scobolsolo.application.Placement setNumber(java.lang.Integer argNumber);
 
 	/**
-	 * sets the {@code Sequence} to the value of {@code argSequence}
+	 * sets the {@code Number} to the value of {@code argNumber}
 	 *
-	 * @param argSequence the new value of {@code Sequence}
+	 * @param argNumber the new value of {@code Number}
 	 * @return itself, so that mutators may be chained fluently
 	 */
-	public com.scobolsolo.application.Placement setSequence(int argSequence);
+	public com.scobolsolo.application.Placement setNumber(int argNumber);
 
 	/**
 	 * object accessor for the {@code Tiebreaker}
@@ -443,20 +443,6 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 		@Override
 		public int compareInternal(com.scobolsolo.application.Placement argFirst, com.scobolsolo.application.Placement argSecond) {
 			return argFirst.getIdAsObject().compareTo(argSecond.getIdAsObject());
-		}
-	}
-
-	/** This is a Comparator that can be used to compare Placement objects based on their {@code Sequence} values. */
-
-	public static class SequenceComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Placement> {
-		private static final SequenceComparator ourInstance = new SequenceComparator();
-		public static final SequenceComparator getInstance() { return ourInstance; }
-
-		private SequenceComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Placement argFirst, com.scobolsolo.application.Placement argSecond) {
-			return argFirst.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 		}
 	}
 

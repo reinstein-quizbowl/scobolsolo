@@ -98,7 +98,7 @@ if (lclOF.hasErrors()) {
 			<thead>
 				<tr>
 					<th>Question</th>
-					<th>Sequence</th>
+					<th>Number</th>
 					<th>Category</th>
 					<th>Tiebreaker?</th>
 					<th>Score check after?</th>
@@ -111,7 +111,7 @@ if (lclOF.hasErrors()) {
 					"Placement",
 					PlacementFactory.getInstance(),
 					1, // row for a new placement
-					Placement.SequenceComparator.getInstance()
+					Comparator.naturalOrder()
 				);
 				
 				for (OpalForm<Placement> lclPLOF : lclPOFs) {
@@ -121,7 +121,7 @@ if (lclOF.hasErrors()) {
 					%><tr>
 						<%= lclPLOF.open() %>
 						<td><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).filter(new Question.PlacingFilter(lclPL)).namer(Question::getDescriptionSafe) %></td>
-						<td><%= lclPLOF.text("Sequence", 3) %></td>
+						<td><%= lclPLOF.text("Number", 3) %></td>
 						<td><%= lclPLOF.dropdown("Category", Comparator.<Category>naturalOrder()).filter(argC -> argC.isUsedAt(lclT)) %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "ScorecheckAfter") %></td>

@@ -1,4 +1,4 @@
-package com.scobolsolo.paperwork;
+package com.scobolsolo.output;
 
 import java.io.BufferedWriter;
 import java.io.BufferedReader;

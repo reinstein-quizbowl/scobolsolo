@@ -38,7 +38,7 @@ public abstract class GameEntryQuestionMenu {
 			.append("			<dt>Question</dt>");
 		int lclIndex = 0;
 		for (Placement lclRegPL : lclPacket.getRegulationPlacements()) {
-			lclSB.append("				<dd").append(!argOvertime && lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, false)).append("\">").append(lclRegPL.getSequence()).append("</a></dd>");
+			lclSB.append("				<dd").append(!argOvertime && lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, false)).append("\">").append(lclRegPL.getNumber()).append("</a></dd>");
 			++lclIndex;
 		}
 		lclSB.append("		</dl>");
@@ -48,7 +48,7 @@ public abstract class GameEntryQuestionMenu {
 				.append("				<dt>Tiebreakers</dt>");
 				lclIndex = 0;
 				for (Placement lclOTPL : lclPacket.getOvertimePlacements()) {
-					lclSB.append("					<dd").append(lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, true)).append("\">").append(lclOTPL.getSequence()).append("</a></dd>");
+					lclSB.append("					<dd").append(lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, true)).append("\">").append(lclOTPL.getNumber()).append("</a></dd>");
 					++lclIndex;
 				}
 			lclSB.append("			</dl>");

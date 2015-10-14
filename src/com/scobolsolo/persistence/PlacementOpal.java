@@ -35,7 +35,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		"Id",
 		"QuestionId",
 		"PacketId",
-		"Sequence",
+		"Number",
 		"Tiebreaker",
 		"ScorecheckAfter",
 		"CategoryCode",
@@ -103,7 +103,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return (java.lang.Integer) getReadValueSet()[2];
 	}
 
-	public synchronized java.lang.Integer getSequenceAsObject() {
+	public synchronized java.lang.Integer getNumberAsObject() {
 		return (java.lang.Integer) getReadValueSet()[3];
 	}
 
@@ -158,17 +158,17 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return this;
 	}
 
-	public synchronized PlacementOpal setSequence(final java.lang.Integer argSequence) {
+	public synchronized PlacementOpal setNumber(final java.lang.Integer argNumber) {
 		tryMutate();
-		if (argSequence == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
+		if (argNumber == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myNumber on " + this + " to null.");
 		}
-		getNewValues()[3] = argSequence;
+		getNewValues()[3] = argNumber;
 		return this;
 	}
 
-	public PlacementOpal setSequence(final int argSequence) {
-		setSequence(java.lang.Integer.valueOf(argSequence));
+	public PlacementOpal setNumber(final int argNumber) {
+		setNumber(java.lang.Integer.valueOf(argNumber));
 		return this;
 	}
 
@@ -299,7 +299,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		/* Field 0 (Id) is database generated. */
 		/* Field 1 (QuestionId) is part of a unique key. */
 		/* Field 2 (PacketId) is part of a unique key. */
-		lclTargetNewValues[3] = lclValues[3]; /* Sequence (immutable) */
+		lclTargetNewValues[3] = lclValues[3]; /* Number (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* Tiebreaker (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* ScorecheckAfter (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* CategoryCode (immutable) */
@@ -400,7 +400,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		argOutput.println("Id = " + getIdAsObject());
 		argOutput.println("QuestionId = " + getQuestionIdAsObject());
 		argOutput.println("PacketId = " + getPacketIdAsObject());
-		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("Number = " + getNumberAsObject());
 		argOutput.println("Tiebreaker = " + isTiebreakerAsObject());
 		argOutput.println("ScorecheckAfter = " + isScorecheckAfterAsObject());
 		argOutput.println("CategoryCode = " + getCategoryCode());
@@ -411,7 +411,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		argOutput.println("Id = " + getIdAsObject());
 		argOutput.println("QuestionId = " + getQuestionIdAsObject());
 		argOutput.println("PacketId = " + getPacketIdAsObject());
-		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("Number = " + getNumberAsObject());
 		argOutput.println("Tiebreaker = " + isTiebreakerAsObject());
 		argOutput.println("ScorecheckAfter = " + isScorecheckAfterAsObject());
 		argOutput.println("CategoryCode = " + getCategoryCode());

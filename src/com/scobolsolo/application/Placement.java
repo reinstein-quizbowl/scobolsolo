@@ -18,7 +18,7 @@ import com.scobolsolo.persistence.PlacementUserFacing;
 public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 	@Override
 	default int compareTo(Placement that) {
-		return Comparator.comparing(Placement::getPacket).thenComparingInt(Placement::getSequence).compare(this, that);
+		return Comparator.comparing(Placement::getPacket).thenComparingInt(Placement::getNumber).compare(this, that);
 	}
 	
 	default Placement findReplacement() {
@@ -59,15 +59,15 @@ public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 	}
 	
 	default String getString() {
-		return getPacket().getName() + ", #" + getSequenceString();
+		return getPacket().getName() + ", #" + getNumberString();
 	}
 	
-	default String getSequenceString() {
-		return getSequence() + (isTiebreaker() ? " (TB)" : "");
+	default String getNumberString() {
+		return getNumber() + (isTiebreaker() ? " (TB)" : "");
 	}
 	
 	default String getDescription() {
-		return "#" + getSequence() + " in packet " + getPacket().getShortName() + " (" + getQuestion().getDescription() + "; ID " + getId() + ")";
+		return "#" + getNumber() + " in packet " + getPacket().getShortName() + " (" + getQuestion().getDescription() + "; ID " + getId() + ")";
 	}
 	
 	default Tournament getTournament() {

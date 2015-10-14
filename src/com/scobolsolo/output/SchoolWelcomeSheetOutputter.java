@@ -1,4 +1,4 @@
-package com.scobolsolo.paperwork;
+package com.scobolsolo.output;
 
 import java.io.File;
 import java.util.Iterator;

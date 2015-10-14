@@ -61,7 +61,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>You are reading <%= lclRound.getName() %>, question&nbsp;#<%= lclPL.getSequence() %>. On your left is <%= lclLeftPlayer.getNameWithSchool() %>; on your right is <%= lclRightPlayer.getNameWithSchool() %>. If any of this is incorrect, stop immediately and rectify the situation!</p>
+		<p>You are reading <%= lclRound.getName() %>, question&nbsp;#<%= lclPL.getNumber() %>. On your left is <%= lclLeftPlayer.getNameWithSchool() %>; on your right is <%= lclRightPlayer.getNameWithSchool() %>. If any of this is incorrect, stop immediately and rectify the situation!</p>
 		<p>The score going into this question is <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>.</p>
 	</div>
 </div>
@@ -70,7 +70,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 	<div class="small-12 columns">
 		<%= GameEntryQuestionMenu.outputFoundationMenu(
 			lclGame,
-			"Question&nbsp;#" + lclPL.getSequence() + " (" + lclPL.getCategory().getName() + ")" + (lclReplacement ? " [REPLACEMENT]" : ""),
+			"Question&nbsp;#" + lclPL.getNumber() + " (" + lclPL.getCategory().getName() + ")" + (lclReplacement ? " [REPLACEMENT]" : ""),
 			lclLeftPlayer,
 			lclRightPlayer,
 			lclIndex,
