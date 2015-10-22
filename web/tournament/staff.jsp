@@ -4,6 +4,7 @@
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.opalforms.updater.ContactUpdater" %>
+<%@ page import="com.scobolsolo.opalforms.updater.StaffAsTournamentChild" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
@@ -54,6 +55,7 @@ Tournament lclT = lclOF.getUserFacing();
 				);
 				
 				for (OpalForm<Staff> lclSOF : lclSOFs) {
+					lclSOF.setUpdaterClass(StaffAsTournamentChild.class);
 					Staff lclStaff = lclSOF.getUserFacing();
 					
 					%><tr>
