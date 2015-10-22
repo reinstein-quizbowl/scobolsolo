@@ -250,6 +250,8 @@ public interface Question extends QuestionUserFacing {
 										switch (lclArgs.get(0)) {
 											case "C": lclSB.append("&Ccedil;"); break;
 											case "c": lclSB.append("&ccedil;"); break;
+											case "S": lclSB.append("&#536;"); break;
+											case "s": lclSB.append("&#537;"); break;
 											default: throw new LatexToHTMLConversionException("We don't know how to put a cedilla on '" + lclArgs.get(0) + '\'');
 										}
 										break;
