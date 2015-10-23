@@ -1,9 +1,11 @@
 package com.scobolsolo.application;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import com.scobolsolo.persistence.PacketUserFacing;
+import com.scobolsolo.servlets.tournament.RandomizePackets;
 
 /**
  * This interface may be changed at will.
@@ -59,21 +61,27 @@ public interface Packet extends PacketUserFacing, Comparable<Packet> {
 		return streamPlacement().filter(Placement::isTiebreaker).sorted().collect(Collectors.toList());
 	}
 	
-	default String determineOutputWarning() {
+	default List<String> determineIncompletionWarnings() {
+		List<String> lclWarnings = new ArrayList<>(3);
+		
 		int lclEmpty = (int) streamPlacement().filter(Placement::isEmpty).count();
 		if (lclEmpty == 1) {
-			return "There is one empty placement.";
+			lclWarnings.add("There is one empty placement.");
 		} else if (lclEmpty > 1) {
-			return "There are " + lclEmpty + " empty placements.";
+			lclWarnings.add("There are " + lclEmpty + " empty placements.");
 		}
 		
 		int lclUnapproved = (int) streamPlacement().map(Placement::getQuestion).filter(argQ -> argQ.getStatus() != QuestionStatusFactory.APPROVED()).count();
 		if (lclUnapproved == 1) {
-			return "There is one unapproved question.";
+			lclWarnings.add("There is one unapproved question.");
 		} else if (lclUnapproved > 1) {
-			return "There are " + lclUnapproved + " unapproved questions.";
+			lclWarnings.add("There are " + lclUnapproved + " unapproved questions.");
 		}
 		
-		return null;
+		if (!RandomizePackets.isOrdered(this)) {
+			lclWarnings.add("The current ordering is invalid.");
+		}
+		
+		return lclWarnings;
 	}
 }

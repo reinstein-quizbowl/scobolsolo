@@ -73,6 +73,11 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>OrderPackets</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.OrderPackets</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>UploadCardSystem</servlet-name>
 		<servlet-class>com.scobolsolo.servlets.tournament.UploadCardSystem</servlet-class>
 	</servlet>
@@ -177,6 +182,11 @@
 	<servlet-mapping>
 		<servlet-name>OutputPackets</servlet-name>
 		<url-pattern>/tournament/OutputPackets</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>OrderPackets</servlet-name>
+		<url-pattern>/tournament/OrderPackets</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>

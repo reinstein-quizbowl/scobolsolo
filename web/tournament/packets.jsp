@@ -1,9 +1,15 @@
 ﻿<%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
-<%@ page import="com.scobolsolo.application.*" %>
+<%@ page import="com.scobolsolo.application.Account" %>
+<%@ page import="com.scobolsolo.application.Packet" %>
+<%@ page import="com.scobolsolo.application.PacketFactory" %>
+<%@ page import="com.scobolsolo.application.Round" %>
+<%@ page import="com.scobolsolo.application.Tournament" %>
+<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -93,38 +99,53 @@ if (lclOF.hasErrors()) {
 <%= lclOF.close() %><%
 
 if (lclUser.isAdministrator() && lclT.getPacketCount() > 0) {
-	%><div class="row">
+	%>
+	<div class="row">
 		<div class="small-12 columns">
-			<h2>Generate PDFs</h2>
-			<p>Choose the packet(s) you wish to output:</p>
+			<h2>Actions</h2>
+			<form id="order" action="OrderPackets" method="post">
+				<input form="order" type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" />
+			</form>
+			<form id="output" action="OutputPackets" method="get">
+				<input form="output" type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" />
+			</form>
+			<table class="responsive">
+				<thead>
+					<tr>
+						<th>Packet</th>
+						<th class="text-center">Order?</th>
+						<th class="text-center">Output?</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody><%
+					Packet[] lclPs = lclT.createPacketArray();
+					Arrays.sort(lclPs);
+					for (Packet lclP : lclPs) {
+						List<String> lclWarnings = lclP.determineIncompletionWarnings();
+						%><tr<%= lclWarnings.isEmpty() ? "" : " class=\"warning\"" %>>
+							<td><%= lclP.getName() %></td>
+							<td class="switch tiny text-center">
+								<input form="order" type="checkbox" id="order_packet_id_<%= lclP.getId() %>" name="packet_id" value="<%= lclP.getId() %>" />
+								<label for="order_packet_id_<%= lclP.getId() %>"></label>
+							</td>
+							<td class="switch tiny text-center">
+								<input form="output" type="checkbox" id="output_packet_id_<%= lclP.getId() %>" name="packet_id" value="<%= lclP.getId() %>" />
+								<label for="output_packet_id_<%= lclP.getId() %>"></label>
+							</td>
+							<td><%= lclWarnings.isEmpty() ? "&nbsp;" : StringUtils.join(lclWarnings, "<br />") %></td>
+						</tr><%
+					}
+				%></tbody>
+				<tfoot>
+					<td>&nbsp;</td>
+					<td class="text-center"><input form="order" type="submit" value="Order" /></td>
+					<td class="text-center"><input form="output" type="submit" value="Output" /></td>
+					<td>&nbsp;</td>
+				</tfoot>
+			</table>
 		</div>
-	</div>
-	<form action="OutputPackets" method="get">
-		<div class="row">
-				<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" /><%
-				Packet[] lclPs = lclT.createPacketArray();
-				Arrays.sort(lclPs);
-				for (Packet lclP : lclPs) {
-					%><div class="small-6 medium-4 large-3 columns" style="margin-bottom: 0.5em;"><%
-						String lclWarning = lclP.determineOutputWarning();
-						if (lclWarning == null) {
-							%><label>
-								<input type="checkbox" name="packet_id" value="<%= lclP.getId() %>" checked="checked" />&nbsp;<%= lclP.getName() %>
-							</label><%
-						} else {
-							%><label class="warning">
-								<input type="checkbox" name="packet_id" value="<%= lclP.getId() %>" checked="checked" />&nbsp;<span title="<%= lclWarning %>"><%= lclP.getName() %></span>
-							</label><%
-						}
-					%></div><%
-				}
-		%></div>
-		<div class="row">
-			<div class="small-12 columns">
-				<input type="submit" value="Generate PDFs" />
-			</div>
-		</div>
-	</form><%
+	</div><%
 }
 %>
 
