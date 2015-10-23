@@ -13,8 +13,12 @@ import com.scobolsolo.application.Room;
 import com.scobolsolo.application.Round;
 
 public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
-	public ScoresheetOutputter(final File argOutputFile, final Phase argP) {
+	private final boolean myAllRooms;
+	
+	public ScoresheetOutputter(final File argOutputFile, final Phase argP, final boolean argAllRooms) {
 		super(argOutputFile, argP);
+		
+		myAllRooms = argAllRooms;
 	}
 	
 	@Override
@@ -29,6 +33,9 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 		final List<Room> lclRooms = new ArrayList<>(getTournament().getRoomCount());
 		getTournament().acquireRoom(lclRooms);
 		lclRooms.removeIf(argRoom -> !argRoom.isGameRoom());
+		if (!isAllRooms()) {
+			lclRooms.removeIf(argRoom -> argRoom.hasAnyAssignedStaffWithLaptop(getPhase()));
+		}
 		lclRooms.sort(null);
 		
 		// Rooms:
@@ -101,5 +108,9 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 		}
 		
 		getWriter().println("\\end{document}");
+	}
+	
+	public boolean isAllRooms() {
+		return myAllRooms;
 	}
 }

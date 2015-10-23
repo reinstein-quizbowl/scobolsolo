@@ -18,4 +18,12 @@ public interface Room extends RoomUserFacing {
 		
 		return (int) streamMatch().filter(argM -> argM.getRound().getRoundGroup().getPhase() == argP).count();
 	}
+	
+	default boolean hasAnyAssignedStaffWithLaptop(Phase argP) {
+		Validate.notNull(argP);
+		
+		return streamStaffAssignment()
+			.map(StaffAssignment::getStaff)
+			.anyMatch(Staff::isBringingLaptop);
+	}
 }
