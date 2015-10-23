@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import com.scobolsolo.persistence.PacketUserFacing;
-import com.scobolsolo.servlets.tournament.RandomizePackets;
+import com.scobolsolo.servlets.tournament.OrderPackets;
 
 /**
  * This interface may be changed at will.
@@ -78,7 +78,7 @@ public interface Packet extends PacketUserFacing, Comparable<Packet> {
 			lclWarnings.add("There are " + lclUnapproved + " unapproved questions.");
 		}
 		
-		if (!RandomizePackets.isOrdered(this)) {
+		if (!OrderPackets.isOrdered(this)) {
 			lclWarnings.add("The current ordering is invalid.");
 		}
 		
