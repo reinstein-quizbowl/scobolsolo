@@ -1,6 +1,7 @@
 package com.scobolsolo.servlets.tournament;
 
 import java.util.Collections;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
@@ -77,6 +78,13 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 	
 	public static boolean isOrdered(Packet lclP) {
 		Validate.notNull(lclP);
+		
+		boolean lclNoRepeatedNumbers = areThereNoRepeatedNumbers(Arrays.asList(lclP.createPlacementArray()));
+		if (!lclNoRepeatedNumbers) {
+			ourLogger.debug(lclP.getName() + " has a repeated number");
+			return false;
+		}
+		
 		List<Placement> lclRegulation = lclP.getRegulationPlacements();
 		
 		int lclHalf = lclRegulation.size() / 2;
@@ -103,6 +111,13 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		}
 		
 		return true;
+	}
+	
+	public static boolean areThereNoRepeatedNumbers(List<Placement> argPLs) {
+		Validate.notNull(argPLs);
+		Validate.noNullElements(argPLs);
+		
+		return argPLs.stream().mapToInt(Placement::getNumber).distinct().count() == argPLs.size();
 	}
 	
 	public static boolean isHalfSplittingValid(List<Placement> argFirstHalf, List<Placement> argSecondHalf) {
@@ -191,7 +206,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		assignNumbersBasedOnListOrder(lclFirstHalf, 1, 1);
 		
 		List<Placement> lclSecondHalf = new ArrayList<>(lclSecondHalfMM.values());
-		assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf, 1);
+		assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf+1, 1);
 		
 		Validate.isTrue(isHalfSplittingValid(lclFirstHalf, lclSecondHalf));
 		
@@ -207,7 +222,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 			tryEnsuringNoCategoryGroupRepeatsWithinSpan(lclSecondHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
 		}
 		Validate.isTrue(areThereNoCategoryGroupRepeatsWithinSpan(lclSecondHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS));
-		assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf, 1);
+		assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf+1, 1);
 		
 		Validate.isTrue(Math.abs(lclFirstHalf.size() - lclSecondHalf.size()) <= 1);
 	}

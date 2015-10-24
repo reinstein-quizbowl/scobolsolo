@@ -123,8 +123,8 @@ if (lclUser.isAdministrator() && lclT.getPacketCount() > 0) {
 					Arrays.sort(lclPs);
 					for (Packet lclP : lclPs) {
 						List<String> lclWarnings = lclP.determineIncompletionWarnings();
-						%><tr<%= lclWarnings.isEmpty() ? "" : " class=\"warning\"" %>>
-							<td><%= lclP.getName() %></td>
+						%><tr>
+							<td><a href="packet-edit.jsp?packet_id=<%= lclP.getId() %>"><%= lclP.getName() %></a></td>
 							<td class="switch tiny text-center">
 								<input form="order" type="checkbox" id="order_packet_id_<%= lclP.getId() %>" name="packet_id" value="<%= lclP.getId() %>" />
 								<label for="order_packet_id_<%= lclP.getId() %>"></label>
@@ -132,9 +132,13 @@ if (lclUser.isAdministrator() && lclT.getPacketCount() > 0) {
 							<td class="switch tiny text-center">
 								<input form="output" type="checkbox" id="output_packet_id_<%= lclP.getId() %>" name="packet_id" value="<%= lclP.getId() %>" />
 								<label for="output_packet_id_<%= lclP.getId() %>"></label>
-							</td>
-							<td><%= lclWarnings.isEmpty() ? "&nbsp;" : StringUtils.join(lclWarnings, "<br />") %></td>
-						</tr><%
+							</td><%
+							if (lclWarnings.isEmpty()) {
+								%><td>&nbsp;</td><%
+							} else {
+								%><td class="warning"><%= StringUtils.join(lclWarnings, "<br />") %></td><%
+							}
+						%></tr><%
 					}
 				%></tbody>
 				<tfoot>
