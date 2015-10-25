@@ -4,7 +4,6 @@ import com.scobolsolo.application.Room;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
-	public static final java.lang.Boolean ourDefaultGameRoom = java.lang.Boolean.TRUE;
 
 	private RoomOpal() {
 		super();
@@ -13,12 +12,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 
 	public RoomOpal(com.opal.OpalFactory<Room, RoomOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
-	}
-
-	@Override
-	protected void applyDefaults() {
-		getNewValues()[6] = ourDefaultGameRoom;
-		return;
 	}
 
 	@Override
@@ -34,7 +27,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		"Note",
 		"TournamentCode",
 		"Sequence",
-		"GameRoom",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -44,7 +36,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
-		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -54,11 +45,9 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		true,
 		false,
 		false,
-		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
-		null,
 		null,
 		null,
 		null,
@@ -109,10 +98,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 
 	public synchronized java.lang.Integer getSequenceAsObject() {
 		return (java.lang.Integer) getReadValueSet()[5];
-	}
-
-	public synchronized java.lang.Boolean isGameRoomAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[6];
 	}
 
 	public synchronized RoomOpal setId(final java.lang.Integer argId) {
@@ -182,20 +167,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 
 	public RoomOpal setSequence(final int argSequence) {
 		setSequence(java.lang.Integer.valueOf(argSequence));
-		return this;
-	}
-
-	public synchronized RoomOpal setGameRoom(final java.lang.Boolean argGameRoom) {
-		tryMutate();
-		if (argGameRoom == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myGameRoom on " + this + " to null.");
-		}
-		getNewValues()[6] = argGameRoom;
-		return this;
-	}
-
-	public RoomOpal setGameRoom(final boolean argGameRoom) {
-		setGameRoom(argGameRoom ? Boolean.TRUE : Boolean.FALSE);
 		return this;
 	}
 
@@ -315,7 +286,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		lclTargetNewValues[3] = lclValues[3]; /* Note (immutable) */
 		/* Field 4 (TournamentCode) is part of a unique key. */
 		lclTargetNewValues[5] = lclValues[5]; /* Sequence (immutable) */
-		lclTargetNewValues[6] = lclValues[6]; /* GameRoom (immutable) */
 
 		return;
 	}
@@ -378,7 +348,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		argOutput.println("Note = " + getNote());
 		argOutput.println("TournamentCode = " + getTournamentCode());
 		argOutput.println("Sequence = " + getSequenceAsObject());
-		argOutput.println("GameRoom = " + isGameRoomAsObject());
 	}
 
 	@Override
@@ -389,7 +358,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		argOutput.println("Note = " + getNote());
 		argOutput.println("TournamentCode = " + getTournamentCode());
 		argOutput.println("Sequence = " + getSequenceAsObject());
-		argOutput.println("GameRoom = " + isGameRoomAsObject());
 	}
 
 	private TournamentOpal myOldTournamentOpal;

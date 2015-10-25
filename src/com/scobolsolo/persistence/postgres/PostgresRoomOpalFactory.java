@@ -29,7 +29,6 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		"note", 
 		"tournament_code", 
 		"sequence", 
-		"game_room", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -117,7 +116,7 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	protected void registerOpal(RoomOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 7) { throw new IllegalStateException(); }
+		if (argValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache<RoomOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameTournamentCodeOpalKey((java.lang.String) argValues[1], (java.lang.String) argValues[4]), argOpal, true);
@@ -130,7 +129,7 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void unregisterOpal(RoomOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache<RoomOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameTournamentCodeOpalKey((java.lang.String) lclOldValues[1], (java.lang.String) lclOldValues[4]));
@@ -144,10 +143,10 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache<RoomOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<RoomOpal> lclOldKey = null;

@@ -108,23 +108,6 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<Room, RoomOpal> impl
 		return this;
 	}
 
-	@Override
-	public java.lang.Boolean isGameRoomAsObject() {
-		return getRoomOpal().isGameRoomAsObject();
-	}
-
-	@Override
-	public RoomImpl setGameRoom(java.lang.Boolean argGameRoom) {
-		getRoomOpal().setGameRoom(argGameRoom);
-		return this;
-	}
-
-	@Override
-	public RoomImpl setGameRoom(boolean argGameRoom) {
-		getRoomOpal().setGameRoom(argGameRoom);
-		return this;
-	}
-
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

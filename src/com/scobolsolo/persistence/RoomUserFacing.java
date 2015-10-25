@@ -219,51 +219,6 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	public com.scobolsolo.application.Room setSequence(int argSequence);
 
 	/**
-	 * object accessor for the {@code GameRoom}
-	 *
-	 * <p>The {@code GameRoom} field is a direct mapping of the {@code game_room} field in {@code room}.</p>
-	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isGameRoom() method.</p>
-	 *
-	 * @return an object value of {@code GameRoom} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
-	 */
-	public java.lang.Boolean isGameRoomAsObject();
-
-	/**
-	 * primitive accessor for the {@code GameRoom}
-	 *
-	 * <p>The {@code GameRoom} field is a direct mapping of the {@code game_room} database column in the table {@code room}.</p>
-	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isGameRoomAsObject() method.</p>
-	 *
-	 * @return the primitive value of {@code GameRoom} (of the current {@link com.opal.TransactionContext})
-	 */
-	default public boolean isGameRoom() {
-		java.lang.Boolean lclO = isGameRoomAsObject();
-		return lclO.booleanValue();
-	}
-
-	/**
-	 * sets the {@code GameRoom} to the value of {@code argGameRoom}
-	 *
-	 * @param argGameRoom the new value of {@code GameRoom}.  May not be <code>null</code>.
-	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code game_room} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws com.opal.IllegalNullArgumentException if argGameRoom is null
-	 */
-	@com.opal.annotation.NotNull
-	public com.scobolsolo.application.Room setGameRoom(java.lang.Boolean argGameRoom);
-
-	/**
-	 * sets the {@code GameRoom} to the value of {@code argGameRoom}
-	 *
-	 * @param argGameRoom the new value of {@code GameRoom}
-	 * @return itself, so that mutators may be chained fluently
-	 */
-	public com.scobolsolo.application.Room setGameRoom(boolean argGameRoom);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code room_tournament_code_fkey}.
 	 *
