@@ -30,7 +30,7 @@ public interface Tournament extends TournamentUserFacing {
 	}
 	
 	default List<Phase> getPhases() {
-		return streamPhase().sorted(Phase.SequenceComparator.getInstance()).collect(Collectors.toList());
+		return streamPhase().sorted().collect(Collectors.toList());
 	}
 	
 	default List<RoundGroup> getRoundGroups() {
@@ -103,7 +103,7 @@ public interface Tournament extends TournamentUserFacing {
 			}
 		}
 		
-		lclSEs.sort(StandbyEntry.SequenceComparator.getInstance());
+		lclSEs.sort(null);
 		lclSEs.addAll(lclNullSequenceSEs);
 		return lclSEs;
 	}
@@ -121,7 +121,7 @@ public interface Tournament extends TournamentUserFacing {
 			}
 		}
 		
-		lclWEs.sort(WaitlistEntry.SequenceComparator.getInstance());
+		lclWEs.sort(null);
 		lclWEs.addAll(lclNullSequenceWEs);
 		return lclWEs;
 	}
@@ -131,6 +131,6 @@ public interface Tournament extends TournamentUserFacing {
 	}
 	
 	default Phase findFirstPhase() {
-		return streamPhase().sorted(Phase.SequenceComparator.getInstance()).findFirst().orElse(null);
+		return streamPhase().sorted().findFirst().orElse(null);
 	}
 }

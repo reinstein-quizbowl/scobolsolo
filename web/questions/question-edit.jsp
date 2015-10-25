@@ -66,7 +66,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Category
-			<%= lclOF.dropdown("Category", Comparator.<Category>naturalOrder()) %>
+			<%= lclOF.<Category>dropdown("Category") %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-3 columns">
@@ -78,7 +78,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Status
-			<%= lclOF.dropdown("Status", Comparator.<QuestionStatus>naturalOrder()).filter(new Question.StatusFilter(lclUser, lclQ)) %>
+			<%= lclOF.<QuestionStatus>dropdown("Status").filter(new Question.StatusFilter(lclUser, lclQ)) %>
 		</label>
 	</div>
 </div>
@@ -128,15 +128,14 @@ if (lclOF.alreadyExists()) {
 					List<OpalForm<Placement>> lclPOFs = lclOF.children(
 						"Placement",
 						PlacementFactory.getInstance(),
-						0, // rows for new placements
-						Comparator.naturalOrder()
+						0 // rows for new placements
 					);
 					
 					for (OpalForm<Placement> lclPOF : lclPOFs) {
 						Placement lclP = lclPOF.getUserFacing();
 						%><tr>
 							<%= lclPOF.open() %>
-							<td><%= lclPOF.dropdown("Packet", Comparator.<Packet>naturalOrder()).namer(Packet::getShortNameWithTournament) %></td>
+							<td><%= lclPOF.<Packet>dropdown("Packet").namer(Packet::getShortNameWithTournament) %></td>
 							<td><%= lclPOF.text("Number", 3) %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>
 							<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>

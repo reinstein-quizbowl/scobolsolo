@@ -49,16 +49,21 @@ Account lclUser = Account.demand(request);
 				for (Match lclM : lclMatches) {
 					Game lclG = lclM.getGame();
 					%><tr>
-						<td>
-							<a href="sides.jsp?match_id=<%= lclM.getId() %>"><%
-								MatchStatus lclS = lclM.determineStatus();
-								%><%= lclS %><%
-								if (lclS.hasResults() && lclM.isDual()) {
-									Validate.notNull(lclG); // should be implied by lclS.hasResults()
-									%> (<%= lclG.getScoreHTMLWithWinner(Player::getName) %>)<%
-								}
-							%></a>
-						</td>
+						<td><%
+							boolean lclShowLink = lclUser.mayEnter(lclM);
+							if (lclShowLink) {
+								%><a href="sides.jsp?match_id=<%= lclM.getId() %>"><%
+							}
+							MatchStatus lclS = lclM.determineStatus();
+							%><%= lclS %><%
+							if (lclS.hasResults() && lclM.isDual()) {
+								Validate.notNull(lclG); // should be implied by lclS.hasResults()
+								%> (<%= lclG.getScoreHTMLWithWinner(Player::getName) %>)<%
+							}
+							if (lclShowLink) {
+								%></a><%
+							}
+						%></td>
 						<td><%= lclM.getRound().getShortName() %></td>
 						<td><%= lclM.getRoom().getShortName() %></td>
 						<td><%

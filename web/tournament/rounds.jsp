@@ -38,8 +38,7 @@ if (lclOF.hasErrors()) {
 List<OpalForm<Phase>> lclPOFs = lclOF.children(
 	"Phase",
 	PhaseFactory.getInstance(),
-	1, // row for a new Phase
-	Phase.SequenceComparator.getInstance()
+	1 // row for a new Phase
 );
 
 for (OpalForm<Phase> lclPOF : lclPOFs) {
@@ -95,8 +94,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 	List<OpalForm<RoundGroup>> lclRGOFs = lclPOF.children(
 		"RoundGroup",
 		RoundGroupFactory.getInstance(),
-		1, // row for a new round group
-		RoundGroup.SequenceComparator.getInstance()
+		1 // row for a new round group
 	);
 
 	for (OpalForm<RoundGroup> lclRGOF : lclRGOFs) {
@@ -165,8 +163,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						List<OpalForm<Round>> lclROFs = lclRGOF.children(
 							"Round",
 							RoundFactory.getInstance(),
-							1, // row for a new round
-							Comparator.naturalOrder()
+							1 // row for a new round
 						);
 						
 						for (OpalForm<Round> lclROF : lclROFs) {

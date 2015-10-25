@@ -102,7 +102,7 @@ Tournament lclT = lclOF.getUserFacing();
 								%><a href="school-registration-edit.jsp?school_registration_id=<%= lclSR.getId() %>" class="stealth-tool-tip" title="<%= lclSR.getSchool().getName() %>"><%= lclSR.getSchool().getShortName() %></a><%
 							}
 						%></td>
-						<td data-tablesorter="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.dropdown("MainContact", Contact.SortByComparator.getInstance()).filter(Contact::isActive) %></td>
+						<td data-tablesorter="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.<Contact>dropdown("MainContact").filter(Contact::isActive) %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getSpotsReserved() %>"><%= lclSROF.text("SpotsReserved", 2) %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getPlayerCount() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#players\">" + lclSR.getPlayerCount() + "</a>" %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getStaffCount() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#staff\">" + lclSR.getStaffCount() + "</a>" %></td>

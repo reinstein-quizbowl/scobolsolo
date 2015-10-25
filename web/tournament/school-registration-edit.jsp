@@ -139,8 +139,8 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					
 					%><tr>
 						<%= lclPOF.open() %>
-						<td><%= lclPOF.dropdown("Contact", Contact.SortByComparator.getInstance()).filter(argC -> argC.isActive() && !argC.isPlayerAt(lclT)) %></td>
-						<td><%= lclPOF.dropdown("SchoolYear", SchoolYear.SequenceComparator.getInstance()) %></td>
+						<td><%= lclPOF.<Contact>dropdown("Contact").filter(argC -> argC.isActive() && !argC.isPlayerAt(lclT)) %></td>
+						<td><%= lclPOF.<SchoolYear>dropdown("SchoolYear") %></td>
 						<td><%= lclPOF.text("RankWithinSchool", 3) %></td>
 						<td><%= lclPOF.text("Seed", 3) %></td>
 						<td><%= lclPOF.text("Note", 60) %></td>
@@ -174,8 +174,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 				List<OpalForm<WaitlistEntry>> lclWEOFs = lclOF.children(
 					"WaitlistEntry",
 					WaitlistEntryFactory.getInstance(),
-					1,
-					WaitlistEntry.SequenceComparator.getInstance()
+					1
 				);
 				
 				for (OpalForm<WaitlistEntry> lclWEOF : lclWEOFs) {
@@ -214,8 +213,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 				List<OpalForm<StandbyEntry>> lclSEOFs = lclOF.children(
 					"StandbyEntry",
 					StandbyEntryFactory.getInstance(),
-					1,
-					StandbyEntry.SequenceComparator.getInstance()
+					1
 				);
 				
 				for (OpalForm<StandbyEntry> lclSEOF : lclSEOFs) {
@@ -264,7 +262,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					%><tr>
 						<%= lclSOF.open() %><%
 						if (lclStaff == null) {
-							%><td><%= lclSOF.dropdown("Contact", Contact.SortByComparator.getInstance()) %></td><%
+							%><td><%= lclSOF.<Contact>dropdown("Contact") %></td><%
 						} else {
 							%><td><%= lclStaff.getContact().getName() %></td><%
 						}
@@ -296,7 +294,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					%><tr>
 						<%= lclBOF.open() %>
 						<td><%= lclBOF.text("Name", 20) %></td>
-						<td><%= lclBOF.dropdown("Room", Room.SequenceComparator.getInstance()).filter(argR -> argR.getTournament() == lclT) %></td>
+						<td><%= lclBOF.<Room>dropdown("Room").filter(argR -> argR.getTournament() == lclT) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclBOF) %></td>
 						<%= lclBOF.close() %>
 					</tr><%

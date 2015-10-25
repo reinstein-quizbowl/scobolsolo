@@ -59,9 +59,9 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 				for (StaffAssignment lclSA : lclSAs) {
 					if (lclSA.getPhase() == getPhase()) {
 						if (lclSA.getNote() == null) {
-							getWriter().println("\\Subtitle{" + escape(lclSA.getStaff().getContact().getName()) + ", " + escape(lclSA.getStaffRole().getName()) + "}");
+							getWriter().println("\\Subtitle{" + escape(lclSA.getStaff().getContact().getName()) + ", " + escape(lclSA.getRole().getName()) + "}");
 						} else {
-							getWriter().println("\\Subtitle{" + escape(lclSA.getStaff().getContact().getName()) + ", " + escape(lclSA.getStaffRole().getName()) + " (" + escape(lclSA.getNote()) + ")}");
+							getWriter().println("\\Subtitle{" + escape(lclSA.getStaff().getContact().getName()) + ", " + escape(lclSA.getRole().getName()) + " (" + escape(lclSA.getNote()) + ")}");
 						}
 						getWriter().println();
 					}

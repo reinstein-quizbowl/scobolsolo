@@ -33,7 +33,7 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 		
 		final Phase lclPhase = Validate.notNull(PhaseFactory.getInstance().forId(Integer.valueOf(getUploadParameterValue(lclItems, "phase_id"))));
 		final Tournament lclT = lclPhase.getTournament();
-		Validate.isTrue(argUser.mayUpdate(lclT), "Not authorized");
+		Validate.isTrue(argUser.mayManageCardSystem(lclT), "Not authorized");
 		
 		final FileItem lclUpload = Validate.notNull(getUpload(lclItems, "file"));
 		Validate.notNull(lclUpload);

@@ -96,8 +96,8 @@ if (lclOF.hasErrors()) {
 					Match lclM = lclMOF.getUserFacing();
 					%><tr>
 						<%= lclMOF.open() %>
-						<td><%= lclMOF.dropdown("Round", Comparator.<Round>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %></td>
-						<td><%= lclMOF.dropdown("Room", Comparator.<Room>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %></td>
+						<td><%= lclMOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT) %></td>
+						<td><%= lclMOF.<Room>dropdown("Room").filter(argR -> argR.getTournament() == lclT) %></td>
 						<td><%= lclM.getWinningCard() == lclC ? lclM.getLosingCard().getName() : lclM.getWinningCard().getName() %></td>
 						<td><%= lclM.determineStatus() %></td>
 						<%= lclMOF.close() %>

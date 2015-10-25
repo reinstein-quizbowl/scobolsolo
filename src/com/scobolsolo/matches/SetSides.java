@@ -26,7 +26,7 @@ public class SetSides extends ScobolSoloControllerServlet {
 	@Override
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
 		final Match lclMatch = Validate.notNull(MatchFactory.getInstance().fromHttpRequest(argRequest));
-		Validate.isTrue(lclMatch.mayBeEnteredBy(argUser), "Not authorized");
+		Validate.isTrue(argUser.mayEnter(lclMatch), "Not authorized");
 		
 		final Staff lclModerator = Validate.notNull(StaffFactory.getInstance().fromHttpRequest(argRequest, "moderator_staff_id"), "You must choose the moderator.");
 		final Player lclLeftPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "left_player_id"), "You must choose the player on the left.");

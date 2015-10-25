@@ -94,7 +94,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-4 columns">
 		<label>
 			Control room
-			<%= lclOF.dropdown("ControlRoom", Room.SequenceComparator.getInstance()).filter(argT -> lclT == null || argT.getTournament() == lclT) %>
+			<%= lclOF.<Room>dropdown("ControlRoom").filter(argR -> argR == null || argR.getTournament() == lclT) %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-4 columns">

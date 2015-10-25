@@ -3,6 +3,8 @@ package com.scobolsolo.persistence;
 import com.scobolsolo.application.StaffRole;
 
 public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
+	public static final java.lang.Boolean ourDefaultMayEnterAnyMatch = java.lang.Boolean.FALSE;
+	public static final java.lang.Boolean ourDefaultMayEnterMatchesInAssignedRoom = java.lang.Boolean.TRUE;
 
 	private StaffRoleOpal() {
 		super();
@@ -13,12 +15,21 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		super(argOpalFactory, argValues);
 	}
 
+	@Override
+	protected void applyDefaults() {
+		getNewValues()[5] = ourDefaultMayEnterAnyMatch;
+		getNewValues()[6] = ourDefaultMayEnterMatchesInAssignedRoom;
+		return;
+	}
+
 	/* package */ static final String[] ourFieldNames = new String[] {
 		"Code",
 		"Name",
 		"ShortName",
 		"VeryShortName",
 		"Sequence",
+		"MayEnterAnyMatch",
+		"MayEnterMatchesInAssignedRoom",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -27,6 +38,8 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
+		java.lang.Boolean.class,
+		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -35,9 +48,13 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		false,
 		false,
 		false,
+		false,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -83,6 +100,14 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 
 	public synchronized java.lang.Integer getSequenceAsObject() {
 		return (java.lang.Integer) getReadValueSet()[4];
+	}
+
+	public synchronized java.lang.Boolean isMayEnterAnyMatchAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[5];
+	}
+
+	public synchronized java.lang.Boolean isMayEnterMatchesInAssignedRoomAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[6];
 	}
 
 	public synchronized StaffRoleOpal setCode(final java.lang.String argCode) {
@@ -147,6 +172,34 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		return this;
 	}
 
+	public synchronized StaffRoleOpal setMayEnterAnyMatch(final java.lang.Boolean argMayEnterAnyMatch) {
+		tryMutate();
+		if (argMayEnterAnyMatch == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myMayEnterAnyMatch on " + this + " to null.");
+		}
+		getNewValues()[5] = argMayEnterAnyMatch;
+		return this;
+	}
+
+	public StaffRoleOpal setMayEnterAnyMatch(final boolean argMayEnterAnyMatch) {
+		setMayEnterAnyMatch(argMayEnterAnyMatch ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
+	public synchronized StaffRoleOpal setMayEnterMatchesInAssignedRoom(final java.lang.Boolean argMayEnterMatchesInAssignedRoom) {
+		tryMutate();
+		if (argMayEnterMatchesInAssignedRoom == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myMayEnterMatchesInAssignedRoom on " + this + " to null.");
+		}
+		getNewValues()[6] = argMayEnterMatchesInAssignedRoom;
+		return this;
+	}
+
+	public StaffRoleOpal setMayEnterMatchesInAssignedRoom(final boolean argMayEnterMatchesInAssignedRoom) {
+		setMayEnterMatchesInAssignedRoom(argMayEnterMatchesInAssignedRoom ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -173,6 +226,8 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		/* Field 2 (ShortName) is part of a unique key. */
 		/* Field 3 (VeryShortName) is part of a unique key. */
 		lclTargetNewValues[4] = lclValues[4]; /* Sequence (immutable) */
+		lclTargetNewValues[5] = lclValues[5]; /* MayEnterAnyMatch (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* MayEnterMatchesInAssignedRoom (immutable) */
 
 		return;
 	}
@@ -212,6 +267,8 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		argOutput.println("ShortName = " + getShortName());
 		argOutput.println("VeryShortName = " + getVeryShortName());
 		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("MayEnterAnyMatch = " + isMayEnterAnyMatchAsObject());
+		argOutput.println("MayEnterMatchesInAssignedRoom = " + isMayEnterMatchesInAssignedRoomAsObject());
 	}
 
 	@Override
@@ -221,6 +278,8 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		argOutput.println("ShortName = " + getShortName());
 		argOutput.println("VeryShortName = " + getVeryShortName());
 		argOutput.println("Sequence = " + getSequenceAsObject());
+		argOutput.println("MayEnterAnyMatch = " + isMayEnterAnyMatchAsObject());
+		argOutput.println("MayEnterMatchesInAssignedRoom = " + isMayEnterMatchesInAssignedRoomAsObject());
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
@@ -18,6 +19,10 @@ import com.scobolsolo.persistence.StaffUserFacing;
 
 public interface Staff extends StaffUserFacing {
 	default List<Match> findMatches() {
+		if (getContact().getAccount() == null) {
+			return Collections.emptyList();
+		}
+		
 		Set<Match> lclMatchesSet = new HashSet<>(); // So that we don't duplicate
 		
 		lclMatchesSet.addAll(
@@ -32,6 +37,8 @@ public interface Staff extends StaffUserFacing {
 					.collect(Collectors.toList())
 			);
 		}
+		
+		lclMatchesSet.removeIf(argM -> !getContact().getAccount().mayEnter(argM));
 		
 		List<Match> lclMatches = new ArrayList<>(lclMatchesSet);
 		lclMatches.sort(null);

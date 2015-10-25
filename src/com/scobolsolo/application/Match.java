@@ -77,23 +77,6 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 		}
 	}
 	
-	default boolean mayBeEnteredBy(final Account argA) {
-		Validate.notNull(argA);
-		
-		if (argA.isAdministrator()) {
-			return true;
-		}
-		
-		Game lclG = getGame();
-		if (lclG == null) {
-			return argA.getContact() == determineLikelyModerator().getContact();
-		} else if (argA.getContact() == lclG.getModeratorStaff().getContact()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	default RoundGroup getRoundGroup() {
 		return getRound().getRoundGroup();
 	}

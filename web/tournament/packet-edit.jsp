@@ -65,14 +65,14 @@ if (lclOF.hasErrors()) {
 	<div class="small-4 large-5 columns">
 		<label>
 			Round
-			<%= lclOF.dropdown("Round", Comparator.<Round>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %>
+			<%= lclOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT) %>
 		</label>
 	</div>
 	<div class="small-4 large-5 columns">
 		<label>
 			<span class="hide-for-medium-up">Replacements</span>
 			<span class="show-for-medium-up">Replacements from</span>
-			<%= lclOF.dropdown("ReplacementPacket", Comparator.<Packet>naturalOrder()).filter(argP -> argP.getTournament() == lclT) %>
+			<%= lclOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT) %>
 		</label>
 	</div>
 	<div class="small-4 large-2 columns">
@@ -110,8 +110,7 @@ if (lclOF.hasErrors()) {
 				List<OpalForm<Placement>> lclPOFs = lclOF.children(
 					"Placement",
 					PlacementFactory.getInstance(),
-					1, // row for a new placement
-					Comparator.naturalOrder()
+					1 // row for a new placement
 				);
 				
 				for (OpalForm<Placement> lclPLOF : lclPOFs) {
@@ -122,7 +121,7 @@ if (lclOF.hasErrors()) {
 						<%= lclPLOF.open() %>
 						<td><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).filter(new Question.PlacingFilter(lclPL)).namer(Question::getDescriptionSafe) %></td>
 						<td><%= lclPLOF.text("Number", 3) %></td>
-						<td><%= lclPLOF.dropdown("Category", Comparator.<Category>naturalOrder()).filter(argC -> argC.isUsedAt(lclT)) %></td>
+						<td><%= lclPLOF.<Category>dropdown("Category").filter(argC -> argC.isUsedAt(lclT)) %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "ScorecheckAfter") %></td>
 						<td><%

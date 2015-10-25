@@ -161,6 +161,96 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 */
 	public com.scobolsolo.application.StaffRole setSequence(int argSequence);
 
+	/**
+	 * object accessor for the {@code MayEnterAnyMatch}
+	 *
+	 * <p>The {@code MayEnterAnyMatch} field is a direct mapping of the {@code may_enter_any_match} field in {@code staff_role}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isMayEnterAnyMatch() method.</p>
+	 *
+	 * @return an object value of {@code MayEnterAnyMatch} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.Boolean isMayEnterAnyMatchAsObject();
+
+	/**
+	 * primitive accessor for the {@code MayEnterAnyMatch}
+	 *
+	 * <p>The {@code MayEnterAnyMatch} field is a direct mapping of the {@code may_enter_any_match} database column in the table {@code staff_role}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isMayEnterAnyMatchAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code MayEnterAnyMatch} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isMayEnterAnyMatch() {
+		java.lang.Boolean lclO = isMayEnterAnyMatchAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code MayEnterAnyMatch} to the value of {@code argMayEnterAnyMatch}
+	 *
+	 * @param argMayEnterAnyMatch the new value of {@code MayEnterAnyMatch}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code may_enter_any_match} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argMayEnterAnyMatch is null
+	 */
+	@com.opal.annotation.NotNull
+	public com.scobolsolo.application.StaffRole setMayEnterAnyMatch(java.lang.Boolean argMayEnterAnyMatch);
+
+	/**
+	 * sets the {@code MayEnterAnyMatch} to the value of {@code argMayEnterAnyMatch}
+	 *
+	 * @param argMayEnterAnyMatch the new value of {@code MayEnterAnyMatch}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.StaffRole setMayEnterAnyMatch(boolean argMayEnterAnyMatch);
+
+	/**
+	 * object accessor for the {@code MayEnterMatchesInAssignedRoom}
+	 *
+	 * <p>The {@code MayEnterMatchesInAssignedRoom} field is a direct mapping of the {@code may_enter_matches_in_assigned_room} field in {@code staff_role}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isMayEnterMatchesInAssignedRoom() method.</p>
+	 *
+	 * @return an object value of {@code MayEnterMatchesInAssignedRoom} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.Boolean isMayEnterMatchesInAssignedRoomAsObject();
+
+	/**
+	 * primitive accessor for the {@code MayEnterMatchesInAssignedRoom}
+	 *
+	 * <p>The {@code MayEnterMatchesInAssignedRoom} field is a direct mapping of the {@code may_enter_matches_in_assigned_room} database column in the table {@code staff_role}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isMayEnterMatchesInAssignedRoomAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code MayEnterMatchesInAssignedRoom} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isMayEnterMatchesInAssignedRoom() {
+		java.lang.Boolean lclO = isMayEnterMatchesInAssignedRoomAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code MayEnterMatchesInAssignedRoom} to the value of {@code argMayEnterMatchesInAssignedRoom}
+	 *
+	 * @param argMayEnterMatchesInAssignedRoom the new value of {@code MayEnterMatchesInAssignedRoom}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code may_enter_matches_in_assigned_room} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argMayEnterMatchesInAssignedRoom is null
+	 */
+	@com.opal.annotation.NotNull
+	public com.scobolsolo.application.StaffRole setMayEnterMatchesInAssignedRoom(java.lang.Boolean argMayEnterMatchesInAssignedRoom);
+
+	/**
+	 * sets the {@code MayEnterMatchesInAssignedRoom} to the value of {@code argMayEnterMatchesInAssignedRoom}
+	 *
+	 * @param argMayEnterMatchesInAssignedRoom the new value of {@code MayEnterMatchesInAssignedRoom}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.StaffRole setMayEnterMatchesInAssignedRoom(boolean argMayEnterMatchesInAssignedRoom);
+
 	public com.scobolsolo.application.StaffRole copy();
 
 	/** This is a Comparator that can be used to compare StaffRole objects based on their {@code Code} values. */

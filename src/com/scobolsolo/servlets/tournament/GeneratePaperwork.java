@@ -45,7 +45,7 @@ public class GeneratePaperwork extends DownloadServlet {
 	@Override
 	protected Download makeDownload(final HttpServletRequest argRequest, final Account argUser) {
 		final Tournament lclT = Validate.notNull(TournamentFactory.getInstance().fromHttpRequest(argRequest));
-		Validate.isTrue(argUser.mayUpdate(lclT), "Not authorized");
+		Validate.isTrue(argUser.mayActAsTournamentDirector(lclT), "Not authorized");
 		
 		final String lclBaseFilename = cleanFilename(lclT.getShortName() + '-');
 		

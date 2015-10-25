@@ -276,5 +276,12 @@
 			</Source>
 			<Target Type="QuestionStatus" />
 		</Reference>
+		
+		<Reference Field="Role">
+			<Source Type="StaffAssignment">
+				<Column>staff_role_code</Column>
+			</Source>
+			<Target Type="StaffRole" />
+		</Reference>
 	</Database>
 </Project>

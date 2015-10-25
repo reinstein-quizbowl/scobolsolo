@@ -45,7 +45,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 columns">
 		<label>
 			Group
-			<%= lclOF.dropdown("CategoryGroup", CategoryGroup.SequenceComparator.getInstance()) %>
+			<%= lclOF.<CategoryGroup>dropdown("CategoryGroup") %>
 		</label>
 	</div>
 </div>

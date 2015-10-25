@@ -27,7 +27,7 @@ public class UpdateCategoryUses extends ScobolSoloControllerServlet {
 	@Override
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
 		final Tournament lclT = Validate.notNull(TournamentFactory.getInstance().fromHttpRequest(argRequest));
-		Validate.isTrue(argUser.mayUpdate(lclT), "Not authorized");
+		Validate.isTrue(argUser.mayActAsTournamentDirector(lclT), "Not authorized");
 		
 		final Category[] lclCs = CategoryFactory.getInstance().createAllArray();
 		

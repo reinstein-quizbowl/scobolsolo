@@ -62,7 +62,7 @@ if (lclOF.hasErrors()) {
 					Question lclQ = lclQOF.getUserFacing();
 					%><tr>
 						<%= lclQOF.open() %>
-						<td><%= lclQOF.dropdown("Category", Comparator.<Category>naturalOrder()) %></td>
+						<td><%= lclQOF.<Category>dropdown("Category") %></td>
 						<td><%= lclQOF.text("Description", 20) %></td>
 						<td><%
 							if (lclQ == null) {

@@ -22,7 +22,7 @@ public class CreateCards extends ScobolSoloControllerServlet {
 	@Override
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
 		final Phase lclPhase = Validate.notNull(PhaseFactory.getInstance().fromHttpRequest(argRequest));
-		Validate.isTrue(argUser.mayUpdate(lclPhase.getTournament()), "Not authorized");
+		Validate.isTrue(argUser.mayManageCardSystem(lclPhase.getTournament()), "Not authorized");
 		
 		final int lclSmallestCardNumber = getRequiredIntParameter(argRequest, "smallest_number");
 		final int lclLargestCardNumber = getRequiredIntParameter(argRequest, "largest_number");

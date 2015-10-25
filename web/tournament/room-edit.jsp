@@ -75,7 +75,7 @@ if (lclOF.hasErrors()) {
 </div><%
 
 OpalForm<Tournament> lclTOF = lclOF.targetForm("Tournament", TournamentFactory.getInstance());
-List<OpalForm<Phase>> lclPOFs = lclTOF.children("Phase", PhaseFactory.getInstance(), Comparator.naturalOrder());
+List<OpalForm<Phase>> lclPOFs = lclTOF.children("Phase", PhaseFactory.getInstance());
 
 for (OpalForm<Phase> lclPOF : lclPOFs) {
 	Phase lclPhase = Validate.notNull(lclPOF.getUserFacing());
@@ -107,9 +107,9 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						}
 						%><tr>
 							<%= lclMOF.open() %>
-							<td><%= lclMOF.dropdown("Round", Comparator.<Round>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("WinningCard", Comparator.<Card>naturalOrder()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.dropdown("LosingCard", Comparator.<Card>naturalOrder()).filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
+							<td><%= lclMOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT) %></td>
+							<td><%= lclPhase.isCardSystem() ? lclMOF.<Card>dropdown("WinningCard").filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
+							<td><%= lclPhase.isCardSystem() ? lclMOF.<Card>dropdown("LosingCard").filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
 							<td><%= lclM == null ? "-" : lclM.determineStatus() %></td>
 							<%= lclMOF.close() %>
 						</tr><%
@@ -147,9 +147,9 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 				for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
 					%><%= lclSAOF.open() %>
 					<tr>
-						<td><%= lclSAOF.dropdown("Phase", Comparator.<Phase>naturalOrder()).filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
+						<td><%= lclSAOF.<Phase>dropdown("Phase").filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
 						<td><%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(argS -> argS.getContact().getName()) %></td>
-						<td><%= lclSAOF.dropdown("StaffRole", Comparator.<StaffRole>naturalOrder()) %></td>
+						<td><%= lclSAOF.<StaffRole>dropdown("Role") %></td>
 						<td><%= lclOF.textarea("Note", 40, 1) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSAOF) %></td>
 					</tr>

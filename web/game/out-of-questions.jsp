@@ -17,7 +17,7 @@
 Game lclGame = Validate.notNull(GameFactory.getInstance().fromHttpRequest(request));
 Match lclMatch = lclGame.getMatch();
 Account lclUser = Account.demand(request);
-Validate.isTrue(lclMatch.mayBeEnteredBy(lclUser), "Not authorized");
+Validate.isTrue(lclUser.mayEnter(lclMatch), "Not authorized");
 Validate.isTrue(lclGame.isTied());
 
 Tournament lclT = lclMatch.getTournament();

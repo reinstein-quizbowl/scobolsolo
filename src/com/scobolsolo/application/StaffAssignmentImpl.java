@@ -166,14 +166,14 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 	/** @return the StaffRole object created from staff_assignment through reference staff_assignment_staff_role_code_fkey */
 
 	@Override
-	public StaffRole getStaffRole() {
-		StaffRoleOpal lclStaffRoleOpal = getStaffAssignmentOpal().getStaffRoleOpal();
+	public StaffRole getRole() {
+		StaffRoleOpal lclStaffRoleOpal = getStaffAssignmentOpal().getRoleOpal();
 		return lclStaffRoleOpal == null ? null : lclStaffRoleOpal.getUserFacing();
 	}
 
 	@Override
-	public StaffAssignment setStaffRole(StaffRole argStaffRole) {
-		getStaffAssignmentOpal().setStaffRoleOpal(argStaffRole == null ? null : ((StaffRoleImpl) argStaffRole).getStaffRoleOpal());
+	public StaffAssignment setRole(StaffRole argStaffRole) {
+		getStaffAssignmentOpal().setRoleOpal(argStaffRole == null ? null : ((StaffRoleImpl) argStaffRole).getStaffRoleOpal());
 		return this;
 	}
 

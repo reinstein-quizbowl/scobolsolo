@@ -60,7 +60,7 @@ Tournament lclT = lclOF.getUserFacing();
 					
 					%><tr>
 						<%= lclSOF.open() %>
-						<td data-tablesorter="<%= lclSOF.isNew() ? "" : lclStaff.getContact().getSortBy() %>"><%= lclSOF.dropdown("Contact", Contact.SortByComparator.getInstance()).filter(Contact::isActive) %></td>
+						<td data-tablesorter="<%= lclSOF.isNew() ? "" : lclStaff.getContact().getSortBy() %>"><%= lclSOF.<Contact>dropdown("Contact").filter(Contact::isActive) %></td>
 						<td data-tablesorter="<%= lclSOF.isNew() ? "?" : (lclStaff.isBringingLaptop() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclSOF, "BringingLaptop") %></td>
 						<td data-tablesorter="<%= lclSOF.isNew() ? "" : (lclStaff.getSchoolRegistration() == null ? "" : lclStaff.getSchoolRegistration().getSchool().getName()) %>"><%= lclSOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %></td>
 						<td><%= lclSOF.text("Note", 30) %></td>

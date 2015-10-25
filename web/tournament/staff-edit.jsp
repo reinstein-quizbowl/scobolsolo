@@ -110,19 +110,19 @@ for (OpalForm<StaffAssignment> lclSAOF : lclSAOFs) {
 		<div class="small-12 large-4 columns">
 			<label>
 				Phase
-				<%= lclSAOF.dropdown("Phase", Comparator.<Phase>naturalOrder()).filter(argP -> argP.getTournament() == lclT) %>
+				<%= lclSAOF.<Phase>dropdown("Phase").filter(argP -> argP.getTournament() == lclT) %>
 			</label>
 		</div>
 		<div class="small-12 large-4 columns">
 			<label>
 				Room
-				<%= lclSAOF.dropdown("Room", Comparator.<Room>naturalOrder()).filter(argR -> argR.getTournament() == lclT) %>
+				<%= lclSAOF.<Room>dropdown("Room").filter(argR -> argR.getTournament() == lclT) %>
 			</label>
 		</div>
 		<div class="small-12 large-4 columns">
 			<label>
 				Role
-				<%= lclSAOF.dropdown("StaffRole", StaffRole.SequenceComparator.getInstance()) %>
+				<%= lclSAOF.<StaffRole>dropdown("Role") %>
 			</label>
 		</div>
 		

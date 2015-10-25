@@ -26,18 +26,58 @@ public interface Account extends AccountUserFacing {
 	static final int PASSWORD_RESET_TOKEN_LENGTH = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_RESET_TOKEN_LENGTH");
 	static final int PASSWORD_RESET_TOKEN_EXPIRATION = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_RESET_TOKEN_EXPIRATION"); // in days
 	
-	// TODO: How is this used? Make it more specific.
-	default boolean mayUpdate(final Tournament argT) {
-		if (argT == null) {
-			return false;
-		}
+	default boolean mayActAsTournamentDirector(final Tournament argT) {
+		Validate.notNull(argT);
 		
 		if (isAdministrator()) {
 			return true;
+		} else {
+			final Staff lclS = findStaff(argT);
+			if (lclS == null) {
+				return false;
+			} else {
+				return lclS.streamStaffAssignment().anyMatch(argSA -> argSA.getRole() == StaffRoleFactory.TOURNAMENT_DIRECTOR());
+			}
 		}
-		
-		return getContact().findStaff(argT) != null;
 	}
+	
+	default boolean mayManageCardSystem(final Tournament argT) {
+		return mayActAsTournamentDirector(argT);
+	}
+	
+	default boolean mayManageQuestions(final Tournament argT) {
+		return isAdministrator();
+	}
+	
+	default boolean mayEnter(final Match argM) {
+		Validate.notNull(argM);
+		
+		Tournament lclT = argM.getTournament();
+		
+		if (mayActAsTournamentDirector(lclT)) {
+			return true;
+		} else {
+			final Staff lclS = findStaff(lclT);
+			if (lclS == null) {
+				return false;
+			} else {
+				return lclS.streamStaffAssignment().anyMatch(argSA -> argSA.getRole().isMayEnterAnyMatch() || (argSA.getRole().isMayEnterMatchesInAssignedRoom() && argSA.getPhase() == argM.getPhase() && argSA.getRoom() == argM.getRoom()));
+			}
+		}
+	}
+	
+	// TODO: How is this used? Make it more specific.
+	// default boolean mayUpdate(final Tournament argT) {
+		// if (argT == null) {
+			// return false;
+		// }
+		
+		// if (isAdministrator()) {
+			// return true;
+		// }
+		
+		// return getContact().findStaff(argT) != null;
+	// }
 	
 	default Staff findStaff(final Tournament argT) {
 		return getContact().findStaff(argT);

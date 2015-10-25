@@ -22,7 +22,7 @@
 <%
 Match lclMatch = Validate.notNull(MatchFactory.getInstance().fromHttpRequest(request));
 Account lclUser = Account.demand(request);
-Validate.isTrue(lclMatch.mayBeEnteredBy(lclUser), "Not authorized");
+Validate.isTrue(lclUser.mayEnter(lclMatch), "Not authorized");
 Game lclGame = lclMatch.getGame(); // may be null
 
 Tournament lclT = lclMatch.getTournament();

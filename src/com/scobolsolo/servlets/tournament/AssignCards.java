@@ -23,7 +23,7 @@ public class AssignCards extends ScobolSoloControllerServlet {
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
 		final Phase lclPhase = Validate.notNull(PhaseFactory.getInstance().fromHttpRequest(argRequest));
 		final Tournament lclT = lclPhase.getTournament();
-		Validate.isTrue(argUser.mayUpdate(lclT), "Not authorized");
+		Validate.isTrue(argUser.mayManageCardSystem(lclT), "Not authorized");
 		
 		Validate.isTrue(lclT.hasValidSeeds());
 		

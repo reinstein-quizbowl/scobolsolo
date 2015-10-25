@@ -55,8 +55,7 @@ if (lclOF.hasErrors()) {
 				List<OpalForm<Room>> lclROFs = lclOF.children(
 					"Room",
 					RoomFactory.getInstance(),
-					1, // row for a new room
-					Comparator.naturalOrder()
+					1 // row for a new room
 				);
 				
 				for (OpalForm<Room> lclROF : lclROFs) {
@@ -75,7 +74,7 @@ if (lclOF.hasErrors()) {
 								StaffAssignment lclSA = lclSAOF.getUserFacing();
 								Staff lclS = lclSA.getStaff();
 								%><%= lclSAOF.open() %>
-									<a href="staff-edit.jsp?staff_id=<%= lclS.getId() %>" title="<%= lclSA.getStaffRole().getName() %> during <%= lclSA.getPhase().getShortName() %><%= lclSA.getNote() == null ? "" : " (" + lclSA.getNote() + ")" %>"><%= lclS.getContact().getName() %></a><br />
+									<a href="staff-edit.jsp?staff_id=<%= lclS.getId() %>" title="<%= lclSA.getRole().getName() %> during <%= lclSA.getPhase().getShortName() %><%= lclSA.getNote() == null ? "" : " (" + lclSA.getNote() + ")" %>"><%= lclS.getContact().getName() %></a><br />
 								<%= lclSAOF.close() %><%
 							}
 							

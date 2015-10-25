@@ -90,6 +90,40 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 		return this;
 	}
 
+	@Override
+	public java.lang.Boolean isMayEnterAnyMatchAsObject() {
+		return getStaffRoleOpal().isMayEnterAnyMatchAsObject();
+	}
+
+	@Override
+	public StaffRoleImpl setMayEnterAnyMatch(java.lang.Boolean argMayEnterAnyMatch) {
+		getStaffRoleOpal().setMayEnterAnyMatch(argMayEnterAnyMatch);
+		return this;
+	}
+
+	@Override
+	public StaffRoleImpl setMayEnterAnyMatch(boolean argMayEnterAnyMatch) {
+		getStaffRoleOpal().setMayEnterAnyMatch(argMayEnterAnyMatch);
+		return this;
+	}
+
+	@Override
+	public java.lang.Boolean isMayEnterMatchesInAssignedRoomAsObject() {
+		return getStaffRoleOpal().isMayEnterMatchesInAssignedRoomAsObject();
+	}
+
+	@Override
+	public StaffRoleImpl setMayEnterMatchesInAssignedRoom(java.lang.Boolean argMayEnterMatchesInAssignedRoom) {
+		getStaffRoleOpal().setMayEnterMatchesInAssignedRoom(argMayEnterMatchesInAssignedRoom);
+		return this;
+	}
+
+	@Override
+	public StaffRoleImpl setMayEnterMatchesInAssignedRoom(boolean argMayEnterMatchesInAssignedRoom) {
+		getStaffRoleOpal().setMayEnterMatchesInAssignedRoom(argMayEnterMatchesInAssignedRoom);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

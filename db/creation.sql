@@ -105,7 +105,9 @@ CREATE TABLE Staff_Role (
 	name name_t UNIQUE,
 	short_name short_name_t UNIQUE,
 	very_short_name very_short_name_t UNIQUE,
-	sequence sequence_t
+	sequence sequence_t,
+	may_enter_any_match BOOLEAN NOT NULL DEFAULT FALSE,
+	may_enter_matches_in_assigned_room BOOLEAN NOT NULL DEFAULT TRUE
 );
 INSERT INTO Staff_Role (name, short_name, very_short_name, code, sequence) VALUES
 ('Tournament Director', 'TD', 'TD', 'TOURNAMENT_DIRECTOR', 0),

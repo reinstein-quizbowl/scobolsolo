@@ -49,7 +49,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		
 		final Set<Tournament> lclTs = lclPackets.stream().map(Packet::getTournament).collect(Collectors.toSet());
 		for (final Tournament lclT : lclTs) {
-			Validate.isTrue(argUser.mayUpdate(lclT), "Not authorized to modify packets for " + lclT.getName());
+			Validate.isTrue(argUser.mayManageQuestions(lclT), "Not authorized to modify packets for " + lclT.getName());
 		}
 		
 		for (final Packet lclP : lclPackets) {

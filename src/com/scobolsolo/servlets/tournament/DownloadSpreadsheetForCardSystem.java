@@ -27,7 +27,7 @@ public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
 	protected Download makeDownload(final HttpServletRequest argRequest, final Account argUser) {
 		final Phase lclPhase = Validate.notNull(PhaseFactory.getInstance().fromHttpRequest(argRequest));
 		final Tournament lclT = lclPhase.getTournament();
-		Validate.isTrue(argUser.mayUpdate(lclT), "Not authorized");
+		Validate.isTrue(argUser.mayManageCardSystem(lclT), "Not authorized");
 		
 		final String lclFilename = cleanFilename(lclT.getShortName() + ' ' + lclPhase.getShortName() + " Card System");
 		

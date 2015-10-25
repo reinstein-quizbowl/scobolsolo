@@ -52,8 +52,7 @@ if (lclOF.hasErrors()) {
 				List<OpalForm<Card>> lclCOFs = lclOF.children(
 					"Card",
 					CardFactory.getInstance(),
-					1, // row for a new card
-					Card.SequenceComparator.getInstance()
+					1 // row for a new card
 				);
 				
 				for (OpalForm<Card> lclCOF : lclCOFs) {

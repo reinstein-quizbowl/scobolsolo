@@ -75,7 +75,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-6 large-3 columns">
 		<label>
 			Grade
-			<%= lclOF.dropdown("SchoolYear", SchoolYear.SequenceComparator.getInstance()) %>
+			<%= lclOF.<SchoolYear>dropdown("SchoolYear") %>
 		</label>
 	</div>
 	

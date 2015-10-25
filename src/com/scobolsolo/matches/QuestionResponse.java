@@ -36,7 +36,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	@Override
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
 		final Game lclGame = Validate.notNull(GameFactory.getInstance().fromHttpRequest(argRequest), "Missing game ID");
-		Validate.isTrue(lclGame.getMatch().mayBeEnteredBy(argUser), "Not authorized");
+		Validate.isTrue(argUser.mayEnter(lclGame.getMatch()), "Not authorized");
 		final Player lclLeftPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "left_player_id"), "Missing left player");
 		final Player lclRightPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "right_player_id"), "Missing right player");
 		

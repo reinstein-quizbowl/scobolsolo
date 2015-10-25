@@ -63,8 +63,7 @@ if (lclOF.hasErrors()) {
 				List<OpalForm<Packet>> lclPOFs = lclOF.children(
 					"Packet",
 					PacketFactory.getInstance(),
-					1, // row for a new packet
-					Comparator.naturalOrder()
+					1 // row for a new packet
 				);
 				
 				for (OpalForm<Packet> lclPOF : lclPOFs) {
@@ -74,8 +73,8 @@ if (lclOF.hasErrors()) {
 						<%= lclPOF.open() %>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getName() %>"><%= lclPOF.text("Name", 20) %></td>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getShortName() %>"><%= lclPOF.text("ShortName", 10) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.dropdown("Round", Comparator.<Round>naturalOrder()).filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.dropdown("ReplacementPacket", Comparator.<Packet>naturalOrder()).filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
+						<td data-tablesorter="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
+						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
 						<td data-tablesorter="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclPOF, "QuestionsPublic") %></td>
 						<td><%= lclPOF.textarea("Note", 60, 1) %></td>
 						<td data-tablesorter="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.text("Sequence", 2) %></td>

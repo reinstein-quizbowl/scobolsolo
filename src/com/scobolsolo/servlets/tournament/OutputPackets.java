@@ -40,6 +40,8 @@ public class OutputPackets extends DownloadServlet {
 	@Override
 	protected Download makeDownload(final HttpServletRequest argRequest, final Account argUser) {
 		final Tournament lclT = Validate.notNull(TournamentFactory.getInstance().fromHttpRequest(argRequest));
+		Validate.isTrue(argUser.mayManageQuestions(lclT), "Not authorized to output packets for " + lclT.getName());
+		
 		final Collection<Packet> lclPackets = Validate.notEmpty(
 			PacketFactory.getInstance().multipleFromHttpRequest(argRequest),
 			"No packets specified to output"

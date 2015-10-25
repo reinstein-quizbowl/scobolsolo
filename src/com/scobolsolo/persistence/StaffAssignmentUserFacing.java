@@ -287,8 +287,8 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.StaffRole} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff_role} that is referenced by {@code staff_assignment_staff_role_code_fkey}.
 	 *
 	 */
-	public com.scobolsolo.application.StaffRole getStaffRole();
-	public com.scobolsolo.application.StaffAssignment setStaffRole(com.scobolsolo.application.StaffRole argStaffRole);
+	public com.scobolsolo.application.StaffRole getRole();
+	public com.scobolsolo.application.StaffAssignment setRole(com.scobolsolo.application.StaffRole argRole);
 
 	public com.scobolsolo.application.StaffAssignment copy();
 

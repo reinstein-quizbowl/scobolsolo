@@ -146,7 +146,7 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		
 		StringBuilder lclSB = new StringBuilder(1024);
 		
-		lclSB.append("You, or someone pretending to be you, has requested a password reset for www.scobolsolo.com, username '" + argA.getUsername() + "'.\n\n");
+		lclSB.append("You have, or someone pretending to be you has, requested a password reset for www.scobolsolo.com, username '" + argA.getUsername() + "'.\n\n");
 		lclSB.append("If you wish to reset your password, please go to\n\t" + lclUrl + "\n");
 		lclSB.append("That link will expire on " + argExpiration.atZone(ZoneId.systemDefault()).format(lclF) + ".\n\n");
 		lclSB.append("If you did not request this, you may ignore this e-mail.  Your password will not be changed.\n\n");
