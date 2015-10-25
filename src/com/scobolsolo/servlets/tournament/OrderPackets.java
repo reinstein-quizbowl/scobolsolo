@@ -98,15 +98,9 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 			return false;
 		}
 		
-		boolean lclFirstHalfNoRepeatsInSpan = areThereNoCategoryGroupRepeatsWithinSpan(lclFirstHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
-		if (!lclFirstHalfNoRepeatsInSpan) {
-			ourLogger.debug(lclP.getName() + " first half has category groups repeated too closely");
-			return false;
-		}
-		
-		boolean lclSecondHalfNoRepeatsInSpan = areThereNoCategoryGroupRepeatsWithinSpan(lclSecondHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
-		if (!lclSecondHalfNoRepeatsInSpan) {
-			ourLogger.debug(lclP.getName() + " second half has category groups repeated too closely");
+		boolean lclNoCategoryGroupRepeatedTooSoon = areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
+		if (!lclNoCategoryGroupRepeatedTooSoon) {
+			ourLogger.debug(lclP.getName() + " has category groups repeated too closely");
 			return false;
 		}
 		
@@ -144,7 +138,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		Validate.notNull(argPLs);
 		Validate.isTrue(argSpan > 0);
 		
-		for (int lclI = 0; lclI < argPLs.size() - argSpan; ++lclI) {
+		for (int lclI = 0; lclI <= argPLs.size() - argSpan; ++lclI) {
 			List<Placement> argSection = argPLs.subList(lclI, lclI + argSpan);
 			if (argSection.stream().map(Placement::getCategory).map(Category::getCategoryGroup).distinct().count() < argSection.size()) {
 				return false;
@@ -212,17 +206,14 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		
 		
 		// Order halves
-		while (!areThereNoCategoryGroupRepeatsWithinSpan(lclFirstHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS)) {
+		while (!areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS)) {
 			tryEnsuringNoCategoryGroupRepeatsWithinSpan(lclFirstHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
-		}
-		Validate.isTrue(areThereNoCategoryGroupRepeatsWithinSpan(lclFirstHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS));
-		assignNumbersBasedOnListOrder(lclFirstHalf, 1, 1);
-		
-		while (!areThereNoCategoryGroupRepeatsWithinSpan(lclSecondHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS)) {
 			tryEnsuringNoCategoryGroupRepeatsWithinSpan(lclSecondHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
+			assignNumbersBasedOnListOrder(lclFirstHalf, 1, 1);
+			assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf+1, 1);
+			lclRegulation.sort(null);
 		}
-		Validate.isTrue(areThereNoCategoryGroupRepeatsWithinSpan(lclSecondHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS));
-		assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf+1, 1);
+		Validate.isTrue(areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS));
 		
 		Validate.isTrue(Math.abs(lclFirstHalf.size() - lclSecondHalf.size()) <= 1);
 	}
