@@ -46,9 +46,11 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 						<td data-tablesorter="<%= lclP.getSchoolRegistration().getSchool().getShortName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclP.getSchoolRegistration().getId() %>"><%= lclP.getSchoolRegistration().getSchool().getShortName() %></a></td>
 						<td data-tablesorter="<%= lclP.getSchoolYear() == null ? 0 : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "?" : lclP.getSchoolYear().getShortName() %></td>
 						<td><%= lclP.getRankWithinSchool("?") %></td>
-						<td class="saved-seed"><%= lclP.getSeed("?") %></td>
-						<%= lclCardsAssigned ? "<td>" + lclP.getInitialCard().getShortName() + "</td>" : "" %>
-					</tr><%
+						<td class="saved-seed"><%= lclP.getSeed("?") %></td><%
+						if (lclCardsAssigned) {
+							%><td><a href="card-edit.jsp?card_id=<%= lclP.getInitialCard().getId() %>"><%= lclP.getInitialCard().getShortName() %></a></td><%
+						}
+					%></tr><%
 				}
 			%></tbody>
 		</table>
