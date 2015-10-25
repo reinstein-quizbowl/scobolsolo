@@ -56,7 +56,7 @@ if (lclOF.hasErrors()) {
 	</div>
 	<div class="small-10 medium-5 columns">
 		<label>
-			Sort by
+			Sort as
 			<%= lclOF.text("SortBy", 30).style("annotated") %>
 			<div class="form-annotation alert-box info">Generally speaking, this should be in the form "last, first".</div>
 		</label>

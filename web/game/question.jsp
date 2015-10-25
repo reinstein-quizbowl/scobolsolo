@@ -48,6 +48,7 @@ Validate.isTrue(lclIndex >= 0);
 Validate.isTrue(lclIndex < lclPlacements.size());
 Placement lclBasePL = lclPlacements.get(lclIndex);
 Placement lclPL = lclReplacement ? Validate.notNull(lclBasePL.findReplacement()) : lclBasePL;
+Placement lclPreviousPL = lclIndex == 0 ? null : lclPlacements.get(lclIndex - 1);
 
 Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 %>
@@ -83,9 +84,17 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 			<p class="question-answer"><%= lclPL.getQuestion().outputAnswerHTML() %></p><%
 		}
 	%></div>
-</div>
+</div><%
 
-<form action="QuestionResponse" method="post">
+if (lclPreviousPL.isScorecheckAfter()) {
+	%><div class="row">
+		<div class="small-12 columns">
+			<p>Before continuing, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>). If either player believes the score is otherwise, please resolve the discrepancy.</p>
+		</div>
+	</div><%
+}
+
+%><form action="QuestionResponse" method="post">
 	<input type="hidden" name="game_id" value="<%= lclGame.getId() %>" />
 	<input type="hidden" name="left_player_id" value="<%= lclLeftPlayer.getId() %>" />
 	<input type="hidden" name="right_player_id" value="<%= lclRightPlayer.getId() %>" />

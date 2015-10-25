@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import org.apache.commons.lang3.Validate;
+
 import com.scobolsolo.persistence.ContactUserFacing;
 
 /**
@@ -11,11 +13,13 @@ import com.scobolsolo.persistence.ContactUserFacing;
  */
 
 public interface Contact extends ContactUserFacing {
-	default boolean isPlayerAt(Tournament argT) {
+	default boolean isPlayerAt(final Tournament argT) {
 		return streamPlayer().anyMatch(argP -> argP.getTournament() == argT);
 	}
 	
-	default Staff findStaff(Tournament argT) {
+	default Staff findStaff(final Tournament argT) {
+		Validate.notNull(argT);
+		
 		return streamStaff().filter(argS -> argS.getTournament() == argT).findAny().orElse(null);
 	}
 }

@@ -40,19 +40,19 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 <form action="SetSides" method="post">
 	<input type="hidden" name="match_id" value="<%= lclMatch.getId() %>" />
 	<div class="row" data-equalizer>
-		<div class="small-12 medium-12 large-4 columns">
-			<fieldset data-equalizer-watch>
-				<legend>Moderator</legend><%
+		<div class="small-12 medium-12 large-4 columns"><%
 				if (lclUser.isAdministrator()) {
-					Staff lclSelectedStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
-					%><label>
-						<%= new DropdownField<>(
-							"moderator_staff_id",
-							lclT.getStaff(),
-							lclSelectedStaff,
-							new FunctionalNameCodeExtractor<>(Staff::getName, Staff::getUniqueString)
-					) %></label><%
-			%></fieldset><%
+					%><fieldset data-equalizer-watch>
+						<legend>Moderator</legend><%
+						Staff lclSelectedStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
+						%><label>
+							<%= new DropdownField<>(
+								"moderator_staff_id",
+								lclT.getStaff(),
+								lclSelectedStaff,
+								new FunctionalNameCodeExtractor<>(Staff::getName, Staff::getUniqueString)
+						) %></label><%
+					%></fieldset><%
 			} else {
 				%><p>If the moderator for this match is someone other than you (<%= lclUser.getContact().getName() %>), contact the control room (<%= lclT.getControlRoom().getName() %>).</p><%
 			}

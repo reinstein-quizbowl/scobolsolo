@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
@@ -17,6 +18,13 @@ import com.scobolsolo.persistence.TournamentUserFacing;
  */
 
 public interface Tournament extends TournamentUserFacing {
+	public static Tournament findNext() {
+		return TournamentFactory.getInstance().streamAll()
+			.filter(argT -> argT.getDate().isAfter(LocalDate.now()))
+			.sorted()
+			.findFirst().orElse(null);
+	}
+	
 	default List<Player> getPlayers() {
 		return streamSchoolRegistration().flatMap(SchoolRegistration::streamPlayer).collect(Collectors.toList());
 	}

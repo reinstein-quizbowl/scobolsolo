@@ -36,20 +36,18 @@ public interface Account extends AccountUserFacing {
 			return true;
 		}
 		
-		return findStaff(argT) != null;
+		return getContact().findStaff(argT) != null;
 	}
 	
 	default Staff findStaff(final Tournament argT) {
-		Validate.notNull(argT);
-		
-		return getContact().streamStaff().filter(argS -> argS.getTournament() == argT).findAny().orElse(null);
+		return getContact().findStaff(argT);
 	}
 	
 	default String getName() {
 		return getContact().getName();
 	}
 	
-	default Account setPassword(String argPassword) {
+	default Account setPassword(final String argPassword) {
 		Validate.notNull(argPassword);
 		
 		String lclSalt = BCrypt.gensalt();

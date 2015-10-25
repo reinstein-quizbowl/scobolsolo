@@ -18,22 +18,24 @@ import com.scobolsolo.persistence.StaffUserFacing;
 
 public interface Staff extends StaffUserFacing {
 	default List<Match> findMatches() {
-		Set<Match> lclMatches = new HashSet<>(); // So that we don't duplicate
+		Set<Match> lclMatchesSet = new HashSet<>(); // So that we don't duplicate
 		
-		lclMatches.addAll(
+		lclMatchesSet.addAll(
 			this.streamModeratorGame().map(Game::getMatch).collect(Collectors.toList())
 		);
 		
 		for (StaffAssignment lclSA : this.createStaffAssignmentArray()) {
 			Room lclR = lclSA.getRoom();
-			lclMatches.addAll(
+			lclMatchesSet.addAll(
 				lclR.streamMatch()
 					.filter(argM -> argM.getPhase() == lclSA.getPhase())
 					.collect(Collectors.toList())
 			);
 		}
 		
-		return new ArrayList<>(lclMatches);
+		List<Match> lclMatches = new ArrayList<>(lclMatchesSet);
+		lclMatches.sort(null);
+		return lclMatches;
 	}
 	
 	default String getName() {

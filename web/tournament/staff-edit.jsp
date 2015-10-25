@@ -52,7 +52,7 @@ if (lclOF.hasErrors()) {
 	</div>
 	<div class="small-12 medium-6 columns">
 		<label>
-			Sort by
+			Sort as
 			<%= lclCOF.text("SortBy", 30) %>
 		</label>
 	</div>
