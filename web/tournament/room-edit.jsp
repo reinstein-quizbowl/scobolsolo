@@ -60,14 +60,7 @@ if (lclOF.hasErrors()) {
 		</label>
 	</div>
 	
-	<div class="small-6 medium-3 columns">
-		<label>
-			<span class="show-for-small-only">Game room?</span>
-			<span class="show-for-medium-up">Is this a game room?</span>
-			<%= HTMLUtility.switchWidget(lclOF, "GameRoom") %>
-		</label>
-	</div>
-	<div class="small-6 medium-3 columns">
+	<div class="small-12 medium-6 columns">
 		<label>
 			Sequence
 			<%= lclOF.text("Sequence", 3) %>
