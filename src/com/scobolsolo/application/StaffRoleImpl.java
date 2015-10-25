@@ -124,6 +124,23 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 		return this;
 	}
 
+	@Override
+	public java.lang.Boolean isMayViewQuestionsAsObject() {
+		return getStaffRoleOpal().isMayViewQuestionsAsObject();
+	}
+
+	@Override
+	public StaffRoleImpl setMayViewQuestions(java.lang.Boolean argMayViewQuestions) {
+		getStaffRoleOpal().setMayViewQuestions(argMayViewQuestions);
+		return this;
+	}
+
+	@Override
+	public StaffRoleImpl setMayViewQuestions(boolean argMayViewQuestions) {
+		getStaffRoleOpal().setMayViewQuestions(argMayViewQuestions);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

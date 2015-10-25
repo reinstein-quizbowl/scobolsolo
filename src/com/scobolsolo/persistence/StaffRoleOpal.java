@@ -5,6 +5,7 @@ import com.scobolsolo.application.StaffRole;
 public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 	public static final java.lang.Boolean ourDefaultMayEnterAnyMatch = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultMayEnterMatchesInAssignedRoom = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultMayViewQuestions = java.lang.Boolean.FALSE;
 
 	private StaffRoleOpal() {
 		super();
@@ -19,6 +20,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 	protected void applyDefaults() {
 		getNewValues()[5] = ourDefaultMayEnterAnyMatch;
 		getNewValues()[6] = ourDefaultMayEnterMatchesInAssignedRoom;
+		getNewValues()[7] = ourDefaultMayViewQuestions;
 		return;
 	}
 
@@ -30,6 +32,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		"Sequence",
 		"MayEnterAnyMatch",
 		"MayEnterMatchesInAssignedRoom",
+		"MayViewQuestions",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -38,6 +41,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
+		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 	};
@@ -50,9 +54,11 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		false,
 		false,
 		false,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -108,6 +114,10 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 
 	public synchronized java.lang.Boolean isMayEnterMatchesInAssignedRoomAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[6];
+	}
+
+	public synchronized java.lang.Boolean isMayViewQuestionsAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[7];
 	}
 
 	public synchronized StaffRoleOpal setCode(final java.lang.String argCode) {
@@ -200,6 +210,20 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		return this;
 	}
 
+	public synchronized StaffRoleOpal setMayViewQuestions(final java.lang.Boolean argMayViewQuestions) {
+		tryMutate();
+		if (argMayViewQuestions == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myMayViewQuestions on " + this + " to null.");
+		}
+		getNewValues()[7] = argMayViewQuestions;
+		return this;
+	}
+
+	public StaffRoleOpal setMayViewQuestions(final boolean argMayViewQuestions) {
+		setMayViewQuestions(argMayViewQuestions ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -228,6 +252,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		lclTargetNewValues[4] = lclValues[4]; /* Sequence (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* MayEnterAnyMatch (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* MayEnterMatchesInAssignedRoom (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* MayViewQuestions (immutable) */
 
 		return;
 	}
@@ -269,6 +294,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("MayEnterAnyMatch = " + isMayEnterAnyMatchAsObject());
 		argOutput.println("MayEnterMatchesInAssignedRoom = " + isMayEnterMatchesInAssignedRoomAsObject());
+		argOutput.println("MayViewQuestions = " + isMayViewQuestionsAsObject());
 	}
 
 	@Override
@@ -280,6 +306,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("MayEnterAnyMatch = " + isMayEnterAnyMatchAsObject());
 		argOutput.println("MayEnterMatchesInAssignedRoom = " + isMayEnterMatchesInAssignedRoomAsObject());
+		argOutput.println("MayViewQuestions = " + isMayViewQuestionsAsObject());
 	}
 
 	@Override

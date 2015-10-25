@@ -90,9 +90,13 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 			</div><%
 		}
 		
-		if (lclPL.getQuestion().getText() != null) {
-			%><p class="question-text"><%= lclPL.getQuestion().outputTextHTML() %></p>
-			<p class="question-answer"><%= lclPL.getQuestion().outputAnswerHTML() %></p><%
+		if (lclUser.mayViewQuestions(lclMatch)) {
+			if (lclPL.getQuestion().getText() != null) {
+				%><p class="question-text"><%= lclPL.getQuestion().outputTextHTML() %></p><%
+			}
+			if (lclPL.getQuestion().getAnswer() != null) {
+				%><p class="question-answer"><%= lclPL.getQuestion().outputAnswerHTML() %></p><%
+			}
 		}
 	%></div>
 </div><%

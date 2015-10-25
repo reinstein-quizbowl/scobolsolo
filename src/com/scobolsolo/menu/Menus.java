@@ -244,7 +244,6 @@ public final class Menus {
 						"Questions",
 						Arrays.asList(
 							new MenuPage("categories-" + argT.getUniqueString(), "Categories", "/tournament/categories.jsp?object=" + argT.getUniqueString()),
-							new MenuPage("questions-" + argT.getUniqueString(), "Questions", "/tournament/questions.jsp?object=" + argT.getUniqueString()),
 							new MenuPage("packets-" + argT.getUniqueString(), "Packets", "/tournament/packets.jsp?object=" + argT.getUniqueString())
 						)
 					),

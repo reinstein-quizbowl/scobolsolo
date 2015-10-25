@@ -66,6 +66,25 @@ public interface Account extends AccountUserFacing {
 		}
 	}
 	
+	default boolean mayViewQuestions(final Match argM) {
+		Validate.notNull(argM);
+		
+		Tournament lclT = argM.getTournament();
+		
+		if (isWriter()) {
+			return true;
+		} else if (mayActAsTournamentDirector(lclT)) {
+			return true;
+		} else {
+			final Staff lclS = findStaff(lclT);
+			if (lclS == null) {
+				return false;
+			} else {
+				return lclS.streamStaffAssignment().anyMatch(argSA -> argSA.getRole().isMayViewQuestions() && argSA.getPhase() == argM.getPhase() && argSA.getRoom() == argM.getRoom());
+			}
+		}
+	}
+	
 	// TODO: How is this used? Make it more specific.
 	// default boolean mayUpdate(final Tournament argT) {
 		// if (argT == null) {

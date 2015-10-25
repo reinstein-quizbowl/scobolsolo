@@ -31,6 +31,7 @@ public class StaffRoleFactory extends com.opal.AbstractFactory<StaffRole, StaffR
 
 	public static final StaffRole MODERATOR() { return getInstance().forCode("MODERATOR"); }
 	public static final StaffRole ON_CALL() { return getInstance().forCode("ON_CALL"); }
+	public static final StaffRole RUNNER() { return getInstance().forCode("RUNNER"); }
 	public static final StaffRole SCOREKEEPER() { return getInstance().forCode("SCOREKEEPER"); }
 	public static final StaffRole STATISTICIAN() { return getInstance().forCode("STATISTICIAN"); }
 	public static final StaffRole TOURNAMENT_DIRECTOR() { return getInstance().forCode("TOURNAMENT_DIRECTOR"); }

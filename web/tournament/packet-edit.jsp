@@ -1,8 +1,10 @@
 ﻿<%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
+<%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Category" %>
 <%@ page import="com.scobolsolo.application.Packet" %>
 <%@ page import="com.scobolsolo.application.PacketFactory" %>
@@ -23,8 +25,10 @@ OpalMainForm<Packet> lclOF = OpalForm.create(
 	PacketFactory.getInstance(),
 	"packet_id"
 );
-Packet lclP = lclOF.getUserFacing();
+Packet lclP = Validate.notNull(lclOF.getUserFacing());
 Tournament lclT = lclP.getTournament();
+Account lclUser = Account.demand(request);
+Validate.isTrue(lclUser.mayManageQuestions(lclT));
 lclOF.setDeleteURI("cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=packet");
 
 String lclTitle = lclP.getName() + " at " + lclT.getName();
