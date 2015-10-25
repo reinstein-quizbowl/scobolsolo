@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.StaffOpal;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.TournamentOpal;
+import com.scobolsolo.persistence.TechnologyChoiceOpal;
 
 public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> implements Staff {
 	private final StaffOpal myStaffOpal;
@@ -101,19 +102,13 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
-	public java.lang.Boolean isBringingLaptopAsObject() {
-		return getStaffOpal().isBringingLaptopAsObject();
+	public java.lang.String getTechnologyChoiceCode() {
+		return getStaffOpal().getTechnologyChoiceCode();
 	}
 
 	@Override
-	public StaffImpl setBringingLaptop(java.lang.Boolean argBringingLaptop) {
-		getStaffOpal().setBringingLaptop(argBringingLaptop);
-		return this;
-	}
-
-	@Override
-	public StaffImpl setBringingLaptop(boolean argBringingLaptop) {
-		getStaffOpal().setBringingLaptop(argBringingLaptop);
+	public StaffImpl setTechnologyChoiceCode(java.lang.String argTechnologyChoiceCode) {
+		getStaffOpal().setTechnologyChoiceCode(argTechnologyChoiceCode);
 		return this;
 	}
 
@@ -159,6 +154,20 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	@Override
 	public Staff setTournament(Tournament argTournament) {
 		getStaffOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		return this;
+	}
+
+	/** @return the TechnologyChoice object created from staff through reference staff_technology_choice_code_fkey */
+
+	@Override
+	public TechnologyChoice getTechnologyChoice() {
+		TechnologyChoiceOpal lclTechnologyChoiceOpal = getStaffOpal().getTechnologyChoiceOpal();
+		return lclTechnologyChoiceOpal == null ? null : lclTechnologyChoiceOpal.getUserFacing();
+	}
+
+	@Override
+	public Staff setTechnologyChoice(TechnologyChoice argTechnologyChoice) {
+		getStaffOpal().setTechnologyChoiceOpal(argTechnologyChoice == null ? null : ((TechnologyChoiceImpl) argTechnologyChoice).getTechnologyChoiceOpal());
 		return this;
 	}
 

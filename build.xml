@@ -176,7 +176,7 @@
 	<target name="all" depends="clean,compile">
 	</target>
 	
-	<target name="opals">
+	<target name="opals" depends="prepare">
 		<java classname="com.opal.creator.XMLCreator">
 			<classpath>
 				<path refid="project.class.path" />

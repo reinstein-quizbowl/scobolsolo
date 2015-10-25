@@ -242,49 +242,29 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Staff setNote(java.lang.String argNote);
 
 	/**
-	 * object accessor for the {@code BringingLaptop}
+	 * object accessor for the {@code TechnologyChoiceCode}
 	 *
-	 * <p>The {@code BringingLaptop} field is a direct mapping of the {@code bringing_laptop} field in {@code staff}.</p>
+	 * <p>The {@code TechnologyChoiceCode} field is a direct mapping of the {@code technology_choice_code} field in {@code staff}.</p>
 	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isBringingLaptop() method.</p>
-	 *
-	 * @return an object value of {@code BringingLaptop} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code TechnologyChoiceCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
-	public java.lang.Boolean isBringingLaptopAsObject();
+	public java.lang.String getTechnologyChoiceCode();
 
 	/**
-	 * primitive accessor for the {@code BringingLaptop}
+	 * sets the {@code TechnologyChoiceCode} to the value of {@code argTechnologyChoiceCode}
 	 *
-	 * <p>The {@code BringingLaptop} field is a direct mapping of the {@code bringing_laptop} database column in the table {@code staff}.</p>
-	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isBringingLaptopAsObject() method.</p>
-	 *
-	 * @return the primitive value of {@code BringingLaptop} (of the current {@link com.opal.TransactionContext})
-	 */
-	default public boolean isBringingLaptop() {
-		java.lang.Boolean lclO = isBringingLaptopAsObject();
-		return lclO.booleanValue();
-	}
-
-	/**
-	 * sets the {@code BringingLaptop} to the value of {@code argBringingLaptop}
-	 *
-	 * @param argBringingLaptop the new value of {@code BringingLaptop}.  May not be <code>null</code>.
+	 * @param argTechnologyChoiceCode the new value of {@code TechnologyChoiceCode}.  May not be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code bringing_laptop} to which this field is mapped is {@code NOT NULL}.</p>
+	 * <p>The database column {@code technology_choice_code} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws com.opal.IllegalNullArgumentException if argBringingLaptop is null
+	 * @throws com.opal.IllegalNullArgumentException if argTechnologyChoiceCode is null
+	 * @throws com.opal.ArgumentTooLongException if {@code argTechnologyChoiceCode} is longer than 32 characters
+	 * <p>The database column {@code technology_choice_code} is limited to 32 characters.</p>
+	 *
 	 */
 	@com.opal.annotation.NotNull
-	public com.scobolsolo.application.Staff setBringingLaptop(java.lang.Boolean argBringingLaptop);
-
-	/**
-	 * sets the {@code BringingLaptop} to the value of {@code argBringingLaptop}
-	 *
-	 * @param argBringingLaptop the new value of {@code BringingLaptop}
-	 * @return itself, so that mutators may be chained fluently
-	 */
-	public com.scobolsolo.application.Staff setBringingLaptop(boolean argBringingLaptop);
+	@com.opal.annotation.Length(maximum = 32L)
+	public com.scobolsolo.application.Staff setTechnologyChoiceCode(java.lang.String argTechnologyChoiceCode);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
@@ -309,6 +289,14 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	public com.scobolsolo.application.Tournament getTournament();
 	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.TechnologyChoice}
+	 * The returned {@code com.scobolsolo.application.TechnologyChoice} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code technology_choice} that is referenced by {@code staff_technology_choice_code_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.TechnologyChoice getTechnologyChoice();
+	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice);
 
 	public int getModeratorGameCount();
 	public java.util.Iterator<com.scobolsolo.application.Game> createModeratorGameIterator();

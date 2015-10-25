@@ -28,7 +28,7 @@ public class PostgresStaffOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		"tournament_code", 
 		"school_registration_id", 
 		"note", 
-		"bringing_laptop", 
+		"technology_choice_code", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }

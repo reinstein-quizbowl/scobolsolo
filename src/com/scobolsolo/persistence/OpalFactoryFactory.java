@@ -15,6 +15,7 @@ public abstract class OpalFactoryFactory extends AbstractOpalFactoryFactory {
 	public abstract SchoolYearOpalFactory getSchoolYearOpalFactory();
 	public abstract StaffAssignmentOpalFactory getStaffAssignmentOpalFactory();
 	public abstract CategoryGroupOpalFactory getCategoryGroupOpalFactory();
+	public abstract TechnologyChoiceOpalFactory getTechnologyChoiceOpalFactory();
 	public abstract StandbyEntryOpalFactory getStandbyEntryOpalFactory();
 	public abstract SchoolOpalFactory getSchoolOpalFactory();
 	public abstract ContactOpalFactory getContactOpalFactory();

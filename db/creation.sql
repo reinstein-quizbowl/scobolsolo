@@ -92,12 +92,27 @@ CREATE TABLE Standby_Entry (
 );
 ALTER SEQUENCE standby_entry_id_seq RESTART WITH 1000;
 
+CREATE TABLE Technology_Choice (
+	code code_t PRIMARY KEY,
+	name name_t UNIQUE,
+	short_name short_name_t UNIQUE,
+	very_short_name very_short_name_t UNIQUE,
+	sequence sequence_t,
+	has_computer BOOLEAN NOT NULL DEFAULT TRUE
+);
+INSERT INTO Technology_Choice (name, short_name, very_short_name, code, sequence, has_computer) VALUES
+('Bringing Own', 'Bringing', 'Bring', 'BRINGING_OWN', 0, true),
+('Needs One Provided', 'We Provide', 'Need', 'NEEDS_COMPUTER_PROVIDED', 100, true),
+('No Computer', 'None', 'None', 'NO_COMPUTER', 200, false),
+('Not Yet Chosen', 'TBD', 'TBD', 'TBD', 999, false);
+
 CREATE TABLE Staff (
 	id SERIAL PRIMARY KEY,
 	contact_id INTEGER NOT NULL REFERENCES Contact ON UPDATE CASCADE ON DELETE RESTRICT,
 	tournament_code code_t REFERENCES Tournament ON UPDATE CASCADE ON DELETE RESTRICT,
 	school_registration_id INTEGER REFERENCES Registration ON UPDATE CASCADE ON DELETE RESTRICT, -- implies tournament
-	note note_t
+	note note_t,
+	technology_choice_code code_t REFERENCES Technology_Choice ON UPDATE CASCADE ON DELETE RESTRICT DEFAULT 'TBD'
 );
 
 CREATE TABLE Staff_Role (

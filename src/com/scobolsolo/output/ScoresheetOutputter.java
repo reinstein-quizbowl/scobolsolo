@@ -32,7 +32,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 		
 		final List<Room> lclRooms = getPhase().getGameRooms(); // comes in sorted
 		if (!isAllRooms()) {
-			lclRooms.removeIf(argRoom -> argRoom.hasAnyAssignedStaffWithLaptop(getPhase()));
+			lclRooms.removeIf(argRoom -> argRoom.hasAnyAssignedStaffWithComputer(getPhase()));
 		}
 		
 		// Rooms:

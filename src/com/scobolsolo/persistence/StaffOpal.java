@@ -4,7 +4,7 @@ import com.scobolsolo.application.Staff;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
-	public static final java.lang.Boolean ourDefaultBringingLaptop = java.lang.Boolean.FALSE;
+	public static final java.lang.String ourDefaultTechnologyChoiceCode = "TBD";
 
 	private StaffOpal() {
 		super();
@@ -17,7 +17,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 
 	@Override
 	protected void applyDefaults() {
-		getNewValues()[5] = ourDefaultBringingLaptop;
+		getNewValues()[5] = ourDefaultTechnologyChoiceCode;
 		return;
 	}
 
@@ -26,6 +26,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myOldContactOpal = ContactOpal.NOT_YET_LOADED;
 		myOldSchoolRegistrationOpal = SchoolRegistrationOpal.NOT_YET_LOADED;
 		myOldTournamentOpal = TournamentOpal.NOT_YET_LOADED;
+		myOldTechnologyChoiceOpal = TechnologyChoiceOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -35,7 +36,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		"TournamentCode",
 		"SchoolRegistrationId",
 		"Note",
-		"BringingLaptop",
+		"TechnologyChoiceCode",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -44,7 +45,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		java.lang.String.class,
 		java.lang.Integer.class,
 		java.lang.String.class,
-		java.lang.Boolean.class,
+		java.lang.String.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -105,8 +106,8 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		return (java.lang.String) getReadValueSet()[4];
 	}
 
-	public synchronized java.lang.Boolean isBringingLaptopAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[5];
+	public synchronized java.lang.String getTechnologyChoiceCode() {
+		return (java.lang.String) getReadValueSet()[5];
 	}
 
 	public synchronized StaffOpal setId(final java.lang.Integer argId) {
@@ -166,17 +167,15 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		return this;
 	}
 
-	public synchronized StaffOpal setBringingLaptop(final java.lang.Boolean argBringingLaptop) {
+	public synchronized StaffOpal setTechnologyChoiceCode(final java.lang.String argTechnologyChoiceCode) {
 		tryMutate();
-		if (argBringingLaptop == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myBringingLaptop on " + this + " to null.");
+		if (argTechnologyChoiceCode == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myTechnologyChoiceCode on " + this + " to null.");
 		}
-		getNewValues()[5] = argBringingLaptop;
-		return this;
-	}
-
-	public StaffOpal setBringingLaptop(final boolean argBringingLaptop) {
-		setBringingLaptop(argBringingLaptop ? Boolean.TRUE : Boolean.FALSE);
+		if (argTechnologyChoiceCode.length() > 32) {
+			throw new com.opal.ArgumentTooLongException("Maximum length of myTechnologyChoiceCode on " + this + " is 32.", argTechnologyChoiceCode.length(), 32);
+		}
+		getNewValues()[5] = argTechnologyChoiceCode;
 		return this;
 	}
 
@@ -195,6 +194,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myNewContactOpal = myOldContactOpal;
 		myNewSchoolRegistrationOpal = myOldSchoolRegistrationOpal;
 		myNewTournamentOpal = myOldTournamentOpal;
+		myNewTechnologyChoiceOpal = myOldTechnologyChoiceOpal;
 		myNewModeratorGameOpalHashSet = null; /* Necessary if it has been rolled back */
 		myModeratorGameOpalCachedOperations = null; /* Ditto */
 		myNewStaffAssignmentOpalHashSet = null; /* Necessary if it has been rolled back */
@@ -208,6 +208,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myOldContactOpal = myNewContactOpal;
 		myOldSchoolRegistrationOpal = myNewSchoolRegistrationOpal;
 		myOldTournamentOpal = myNewTournamentOpal;
+		myOldTechnologyChoiceOpal = myNewTechnologyChoiceOpal;
 
 		if (needsToClearOldCollections()) {
 			myOldModeratorGameOpalHashSet = null;
@@ -269,7 +270,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		lclTargetNewValues[2] = lclValues[2]; /* TournamentCode (immutable) */
 		lclTargetNewValues[3] = lclValues[3]; /* SchoolRegistrationId (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* Note (immutable) */
-		lclTargetNewValues[5] = lclValues[5]; /* BringingLaptop (immutable) */
+		lclTargetNewValues[5] = lclValues[5]; /* TechnologyChoiceCode (immutable) */
 
 		return;
 	}
@@ -285,6 +286,9 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if (myNewTournamentOpal != TournamentOpal.NOT_YET_LOADED) {
 			setTournamentCode(myNewTournamentOpal == null ? null : myNewTournamentOpal.getCode());
 		}
+		if (myNewTechnologyChoiceOpal != TechnologyChoiceOpal.NOT_YET_LOADED) {
+			setTechnologyChoiceCode(myNewTechnologyChoiceOpal == null ? null : myNewTechnologyChoiceOpal.getCode());
+		}
 		return;
 	}
 
@@ -298,6 +302,13 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewSchoolRegistrationOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewTechnologyChoiceOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -337,6 +348,15 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			}
 			lclTAs.add(lclUO);
 		}
+		if ((lclUO = myOldTechnologyChoiceOpal) == TechnologyChoiceOpal.NOT_YET_LOADED) {
+			lclUO = myOldTechnologyChoiceOpal = retrieveTechnologyChoiceOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		if ((lclUO = myOldTournamentOpal) == TournamentOpal.NOT_YET_LOADED) {
 			lclUO = myOldTournamentOpal = retrieveTournamentOpal(getOldValues());
 		}
@@ -369,7 +389,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		argOutput.println("TournamentCode = " + getTournamentCode());
 		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
 		argOutput.println("Note = " + getNote());
-		argOutput.println("BringingLaptop = " + isBringingLaptopAsObject());
+		argOutput.println("TechnologyChoiceCode = " + getTechnologyChoiceCode());
 	}
 
 	@Override
@@ -379,7 +399,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		argOutput.println("TournamentCode = " + getTournamentCode());
 		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
 		argOutput.println("Note = " + getNote());
-		argOutput.println("BringingLaptop = " + isBringingLaptopAsObject());
+		argOutput.println("TechnologyChoiceCode = " + getTechnologyChoiceCode());
 	}
 
 	private ContactOpal myOldContactOpal;
@@ -515,6 +535,38 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 	protected synchronized void setTournamentOpalInternal(TournamentOpal argTournamentOpal) {
 		tryMutate();
 		myNewTournamentOpal = argTournamentOpal;
+	}
+
+	private TechnologyChoiceOpal myOldTechnologyChoiceOpal;
+	private TechnologyChoiceOpal myNewTechnologyChoiceOpal;
+
+	protected TechnologyChoiceOpal retrieveTechnologyChoiceOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[5] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getTechnologyChoiceOpalFactory().forCode(getTechnologyChoiceCode());
+	}
+
+	public synchronized TechnologyChoiceOpal getTechnologyChoiceOpal() {
+		TechnologyChoiceOpal lclTechnologyChoiceOpal;
+		boolean lclAccess = tryAccess();
+		lclTechnologyChoiceOpal = lclAccess ? myNewTechnologyChoiceOpal : myOldTechnologyChoiceOpal;
+		if (lclTechnologyChoiceOpal == TechnologyChoiceOpal.NOT_YET_LOADED) {
+			lclTechnologyChoiceOpal = retrieveTechnologyChoiceOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewTechnologyChoiceOpal = lclTechnologyChoiceOpal;
+			} else {
+				myOldTechnologyChoiceOpal = lclTechnologyChoiceOpal;
+			}
+		}
+		return lclTechnologyChoiceOpal;
+	}
+
+	public synchronized StaffOpal setTechnologyChoiceOpal(TechnologyChoiceOpal argTechnologyChoiceOpal) {
+		tryMutate();
+		myNewTechnologyChoiceOpal = argTechnologyChoiceOpal;
+		return this;
 	}
 
 	private java.util.HashSet<GameOpal> myOldModeratorGameOpalHashSet = null;
@@ -705,6 +757,9 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		}
 		if (myNewTournamentOpal != TournamentOpal.NOT_YET_LOADED) {
 			setTournamentOpal(retrieveTournamentOpal(getNewValues()));
+		}
+		if (myNewTechnologyChoiceOpal != TechnologyChoiceOpal.NOT_YET_LOADED) {
+			setTechnologyChoiceOpal(retrieveTechnologyChoiceOpal(getNewValues()));
 		}
 	}
 

@@ -23,6 +23,7 @@ public class FactoryMap extends AbstractFactoryMap {
 		put(com.scobolsolo.application.SchoolYear.class, com.scobolsolo.application.SchoolYearFactory.getInstance());
 		put(com.scobolsolo.application.StaffAssignment.class, com.scobolsolo.application.StaffAssignmentFactory.getInstance());
 		put(com.scobolsolo.application.CategoryGroup.class, com.scobolsolo.application.CategoryGroupFactory.getInstance());
+		put(com.scobolsolo.application.TechnologyChoice.class, com.scobolsolo.application.TechnologyChoiceFactory.getInstance());
 		put(com.scobolsolo.application.StandbyEntry.class, com.scobolsolo.application.StandbyEntryFactory.getInstance());
 		put(com.scobolsolo.application.School.class, com.scobolsolo.application.SchoolFactory.getInstance());
 		put(com.scobolsolo.application.Contact.class, com.scobolsolo.application.ContactFactory.getInstance());

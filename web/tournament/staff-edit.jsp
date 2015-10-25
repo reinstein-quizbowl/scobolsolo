@@ -67,9 +67,8 @@ if (lclOF.hasErrors()) {
 	</div>
 	<div class="small-3 medium-6 columns">
 		<label>
-			<span class="show-for-small-only">Laptop?</span>
-			<span class="show-for-medium-up">Bringing laptop?</span>
-			<%= HTMLUtility.switchWidget(lclOF, "BringingLaptop") %>
+			Computer
+			<%= lclOF.<TechnologyChoice>dropdown("TechnologyChoice") %>
 		</label>
 	</div>
 </div>

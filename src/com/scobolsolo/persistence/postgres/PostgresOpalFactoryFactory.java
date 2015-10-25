@@ -43,6 +43,7 @@ import com.scobolsolo.persistence.StaffAssignmentOpalFactory;
 import com.scobolsolo.persistence.StaffOpalFactory;
 import com.scobolsolo.persistence.StaffRoleOpalFactory;
 import com.scobolsolo.persistence.StandbyEntryOpalFactory;
+import com.scobolsolo.persistence.TechnologyChoiceOpalFactory;
 import com.scobolsolo.persistence.TournamentOpalFactory;
 import com.scobolsolo.persistence.WaitlistEntryOpalFactory;
 
@@ -103,6 +104,11 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	@Override
 	public CategoryGroupOpalFactory getCategoryGroupOpalFactory() {
 		return PostgresCategoryGroupOpalFactory.getInstance();
+	}
+
+	@Override
+	public TechnologyChoiceOpalFactory getTechnologyChoiceOpalFactory() {
+		return PostgresTechnologyChoiceOpalFactory.getInstance();
 	}
 
 	@Override
