@@ -100,6 +100,8 @@ public class GeneratePaperwork extends DownloadServlet {
 			}
 		}
 		
+		Validate.notEmpty(lclOutputters, "No files requested!");
+		
 		final boolean lclIncludeTexFiles = ControllerServlet.getBooleanParameter(argRequest, "include_tex_files");
 		
 		final List<File> lclFiles = new ArrayList<>(lclIncludeTexFiles ? 2*lclOutputters.size() : lclOutputters.size());

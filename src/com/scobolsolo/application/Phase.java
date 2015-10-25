@@ -27,4 +27,14 @@ public interface Phase extends PhaseUserFacing, Comparable<Phase> {
 	default List<Card> getCards() {
 		return streamCard().sorted().collect(Collectors.toList());
 	}
+	
+	default List<Room> getGameRooms() {
+		return streamRoundGroup()
+			.flatMap(RoundGroup::streamRound)
+			.flatMap(Round::streamMatch)
+			.map(Match::getRoom)
+			.distinct()
+			.sorted()
+			.collect(Collectors.toList());
+	}
 }

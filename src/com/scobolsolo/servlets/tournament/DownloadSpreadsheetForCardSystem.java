@@ -52,10 +52,8 @@ public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
 			lclColumn += 2;
 		}
 		
-		final List<Room> lclRooms = lclT.streamRoom().filter(Room::isGameRoom).sorted().collect(Collectors.toList());
-		
 		int lclRow = 1;
-		for (final Room lclR : lclRooms) {
+		for (final Room lclR : lclPhase.getGameRooms()) {
 			final Row lclRoomRow = lclSheet.createRow(lclRow);
 			final Cell lclRoomNameCell = lclRoomRow.createCell(0);
 			lclRoomNameCell.setCellValue(lclR.getName());
