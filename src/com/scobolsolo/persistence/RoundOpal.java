@@ -36,6 +36,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		"Sequence",
 		"StartTime",
 		"LunchAfter",
+		"EarliestEntryAllowed",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -46,6 +47,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		java.lang.Integer.class,
 		java.lang.String.class,
 		java.lang.Boolean.class,
+		java.time.LocalDateTime.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -56,9 +58,11 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		false,
 		true,
 		false,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -114,6 +118,10 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	public synchronized java.lang.Boolean isLunchAfterAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[6];
+	}
+
+	public synchronized java.time.LocalDateTime getEarliestEntryAllowed() {
+		return (java.time.LocalDateTime) getReadValueSet()[7];
 	}
 
 	public synchronized RoundOpal setId(final java.lang.Integer argId) {
@@ -202,6 +210,12 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return this;
 	}
 
+	public synchronized RoundOpal setEarliestEntryAllowed(final java.time.LocalDateTime argEarliestEntryAllowed) {
+		tryMutate();
+		getNewValues()[7] = argEarliestEntryAllowed;
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -270,6 +284,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		lclTargetNewValues[4] = lclValues[4]; /* Sequence (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* StartTime (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* LunchAfter (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* EarliestEntryAllowed (immutable) */
 
 		return;
 	}
@@ -333,6 +348,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("StartTime = " + getStartTime());
 		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
+		argOutput.println("EarliestEntryAllowed = " + getEarliestEntryAllowed());
 	}
 
 	@Override
@@ -344,6 +360,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("StartTime = " + getStartTime());
 		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
+		argOutput.println("EarliestEntryAllowed = " + getEarliestEntryAllowed());
 	}
 
 	private RoundGroupOpal myOldRoundGroupOpal;

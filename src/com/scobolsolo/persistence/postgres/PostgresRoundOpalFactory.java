@@ -30,6 +30,7 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		"sequence", 
 		"start_time", 
 		"lunch_after", 
+		"earliest_entry_allowed", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -117,7 +118,7 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 
 	protected void registerOpal(RoundOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 7) { throw new IllegalStateException(); }
+		if (argValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache<RoundOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -134,7 +135,7 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	protected void unregisterOpal(RoundOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache<RoundOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -152,10 +153,10 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache<RoundOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<RoundOpal> lclOldKey = null;

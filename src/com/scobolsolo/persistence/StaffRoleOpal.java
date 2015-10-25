@@ -6,6 +6,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 	public static final java.lang.Boolean ourDefaultMayEnterAnyMatch = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultMayEnterMatchesInAssignedRoom = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultMayViewQuestions = java.lang.Boolean.FALSE;
+	public static final java.lang.Boolean ourDefaultMayEnterMatchesBeforeUsuallyPermitted = java.lang.Boolean.FALSE;
 
 	private StaffRoleOpal() {
 		super();
@@ -21,6 +22,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		getNewValues()[5] = ourDefaultMayEnterAnyMatch;
 		getNewValues()[6] = ourDefaultMayEnterMatchesInAssignedRoom;
 		getNewValues()[7] = ourDefaultMayViewQuestions;
+		getNewValues()[8] = ourDefaultMayEnterMatchesBeforeUsuallyPermitted;
 		return;
 	}
 
@@ -33,6 +35,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		"MayEnterAnyMatch",
 		"MayEnterMatchesInAssignedRoom",
 		"MayViewQuestions",
+		"MayEnterMatchesBeforeUsuallyPermitted",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -41,6 +44,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
+		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
@@ -55,9 +59,11 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		false,
 		false,
 		false,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -118,6 +124,10 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 
 	public synchronized java.lang.Boolean isMayViewQuestionsAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[7];
+	}
+
+	public synchronized java.lang.Boolean isMayEnterMatchesBeforeUsuallyPermittedAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[8];
 	}
 
 	public synchronized StaffRoleOpal setCode(final java.lang.String argCode) {
@@ -224,6 +234,20 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		return this;
 	}
 
+	public synchronized StaffRoleOpal setMayEnterMatchesBeforeUsuallyPermitted(final java.lang.Boolean argMayEnterMatchesBeforeUsuallyPermitted) {
+		tryMutate();
+		if (argMayEnterMatchesBeforeUsuallyPermitted == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myMayEnterMatchesBeforeUsuallyPermitted on " + this + " to null.");
+		}
+		getNewValues()[8] = argMayEnterMatchesBeforeUsuallyPermitted;
+		return this;
+	}
+
+	public StaffRoleOpal setMayEnterMatchesBeforeUsuallyPermitted(final boolean argMayEnterMatchesBeforeUsuallyPermitted) {
+		setMayEnterMatchesBeforeUsuallyPermitted(argMayEnterMatchesBeforeUsuallyPermitted ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -253,6 +277,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		lclTargetNewValues[5] = lclValues[5]; /* MayEnterAnyMatch (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* MayEnterMatchesInAssignedRoom (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* MayViewQuestions (immutable) */
+		lclTargetNewValues[8] = lclValues[8]; /* MayEnterMatchesBeforeUsuallyPermitted (immutable) */
 
 		return;
 	}
@@ -295,6 +320,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		argOutput.println("MayEnterAnyMatch = " + isMayEnterAnyMatchAsObject());
 		argOutput.println("MayEnterMatchesInAssignedRoom = " + isMayEnterMatchesInAssignedRoomAsObject());
 		argOutput.println("MayViewQuestions = " + isMayViewQuestionsAsObject());
+		argOutput.println("MayEnterMatchesBeforeUsuallyPermitted = " + isMayEnterMatchesBeforeUsuallyPermittedAsObject());
 	}
 
 	@Override
@@ -307,6 +333,7 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		argOutput.println("MayEnterAnyMatch = " + isMayEnterAnyMatchAsObject());
 		argOutput.println("MayEnterMatchesInAssignedRoom = " + isMayEnterMatchesInAssignedRoomAsObject());
 		argOutput.println("MayViewQuestions = " + isMayViewQuestionsAsObject());
+		argOutput.println("MayEnterMatchesBeforeUsuallyPermitted = " + isMayEnterMatchesBeforeUsuallyPermittedAsObject());
 	}
 
 	@Override

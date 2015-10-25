@@ -61,7 +61,40 @@ public interface Account extends AccountUserFacing {
 			if (lclS == null) {
 				return false;
 			} else {
-				return lclS.streamStaffAssignment().anyMatch(argSA -> argSA.getRole().isMayEnterAnyMatch() || (argSA.getRole().isMayEnterMatchesInAssignedRoom() && argSA.getPhase() == argM.getPhase() && argSA.getRoom() == argM.getRoom()));
+				final LocalDateTime lclNow = LocalDateTime.now();
+				return lclS.streamStaffAssignment().anyMatch(argSA -> {
+					final StaffRole lclRole = argSA.getRole();
+					if (lclRole.isMayEnterMatchesBeforeUsuallyPermitted()) {
+						if (lclRole.isMayEnterAnyMatch()) {
+							return true;
+						} else if (lclRole.isMayEnterMatchesInAssignedRoom()) {
+							if (argSA.getPhase() == argM.getPhase() && argSA.getRoom() == argM.getRoom()) {
+								return true;
+							} else {
+								return false;
+							}
+						} else {
+							return false;
+						}
+					} else {
+						boolean lclLateEnough = argM.getRound().getEarliestEntryAllowed() == null || lclNow.isAfter(argM.getRound().getEarliestEntryAllowed()) || lclNow.equals(argM.getRound().getEarliestEntryAllowed());
+						if (lclLateEnough) {
+							if (lclRole.isMayEnterAnyMatch()) {
+								return true;
+							} else if (lclRole.isMayEnterMatchesInAssignedRoom()) {
+								if (argSA.getPhase() == argM.getPhase() && argSA.getRoom() == argM.getRoom()) {
+									return true;
+								} else {
+									return false;
+								}
+							} else {
+								return false;
+							}
+						} else {
+							return false;
+						}
+					}
+				});
 			}
 		}
 	}

@@ -31,6 +31,7 @@ public class PostgresStaffRoleOpalFactory extends com.opal.AbstractDatabaseIdent
 		"may_enter_any_match", 
 		"may_enter_matches_in_assigned_room", 
 		"may_view_questions", 
+		"may_enter_matches_before_usually_permitted", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -104,7 +105,7 @@ public class PostgresStaffRoleOpalFactory extends com.opal.AbstractDatabaseIdent
 
 	protected void registerOpal(StaffRoleOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 8) { throw new IllegalStateException(); }
+		if (argValues.length != 9) { throw new IllegalStateException(); }
 		OpalCache<StaffRoleOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameOpalKey((java.lang.String) argValues[1]), argOpal, true);
@@ -118,7 +119,7 @@ public class PostgresStaffRoleOpalFactory extends com.opal.AbstractDatabaseIdent
 	protected void unregisterOpal(StaffRoleOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
 		OpalCache<StaffRoleOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameOpalKey((java.lang.String) lclOldValues[1]));
@@ -133,10 +134,10 @@ public class PostgresStaffRoleOpalFactory extends com.opal.AbstractDatabaseIdent
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 8) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 9) { throw new IllegalStateException(); }
 		OpalCache<StaffRoleOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<StaffRoleOpal> lclOldKey = null;

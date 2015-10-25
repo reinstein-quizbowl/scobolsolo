@@ -312,6 +312,39 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Round setLunchAfter(boolean argLunchAfter);
 
 	/**
+	 * object accessor for the {@code EarliestEntryAllowed}
+	 *
+	 * <p>The {@code EarliestEntryAllowed} field is a direct mapping of the {@code earliest_entry_allowed} field in {@code round}.</p>
+	 *
+	 * @return an object value of {@code EarliestEntryAllowed} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	public java.time.LocalDateTime getEarliestEntryAllowed();
+
+	/**
+	 * object accessor for the {@code EarliestEntryAllowed} with substitution for a null value
+	 *
+	 * <p>The {@code EarliestEntryAllowed} field is a direct mapping of the {@code earliest_entry_allowed} database column in the table {@code round}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code EarliestEntryAllowed} is {@code null}.
+	 * @return an object value of {@code EarliestEntryAllowed} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getEarliestEntryAllowed(java.lang.String argStringToSubstituteIfNull) {
+		java.time.LocalDateTime lclO = getEarliestEntryAllowed();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code EarliestEntryAllowed} to the value of {@code argEarliestEntryAllowed}
+	 *
+	 * @param argEarliestEntryAllowed the new value of {@code EarliestEntryAllowed}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	public com.scobolsolo.application.Round setEarliestEntryAllowed(java.time.LocalDateTime argEarliestEntryAllowed);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.RoundGroup}
 	 * The returned {@code com.scobolsolo.application.RoundGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code round_group} that is referenced by {@code round_round_group_id_fkey}.
 	 *

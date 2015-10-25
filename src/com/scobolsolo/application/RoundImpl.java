@@ -127,6 +127,17 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return this;
 	}
 
+	@Override
+	public java.time.LocalDateTime getEarliestEntryAllowed() {
+		return getRoundOpal().getEarliestEntryAllowed();
+	}
+
+	@Override
+	public RoundImpl setEarliestEntryAllowed(java.time.LocalDateTime argEarliestEntryAllowed) {
+		getRoundOpal().setEarliestEntryAllowed(argEarliestEntryAllowed);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

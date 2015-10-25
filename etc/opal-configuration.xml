@@ -168,7 +168,6 @@
 			</Mapping>
 			
 			<Mapping Table="Staff">
-				<Column Name="bringing_laptop" Mapped="False" />
 				<Comparator Name="NameComparator">
 					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>

@@ -296,6 +296,51 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 */
 	public com.scobolsolo.application.StaffRole setMayViewQuestions(boolean argMayViewQuestions);
 
+	/**
+	 * object accessor for the {@code MayEnterMatchesBeforeUsuallyPermitted}
+	 *
+	 * <p>The {@code MayEnterMatchesBeforeUsuallyPermitted} field is a direct mapping of the {@code may_enter_matches_before_usually_permitted} field in {@code staff_role}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isMayEnterMatchesBeforeUsuallyPermitted() method.</p>
+	 *
+	 * @return an object value of {@code MayEnterMatchesBeforeUsuallyPermitted} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	public java.lang.Boolean isMayEnterMatchesBeforeUsuallyPermittedAsObject();
+
+	/**
+	 * primitive accessor for the {@code MayEnterMatchesBeforeUsuallyPermitted}
+	 *
+	 * <p>The {@code MayEnterMatchesBeforeUsuallyPermitted} field is a direct mapping of the {@code may_enter_matches_before_usually_permitted} database column in the table {@code staff_role}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isMayEnterMatchesBeforeUsuallyPermittedAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code MayEnterMatchesBeforeUsuallyPermitted} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isMayEnterMatchesBeforeUsuallyPermitted() {
+		java.lang.Boolean lclO = isMayEnterMatchesBeforeUsuallyPermittedAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code MayEnterMatchesBeforeUsuallyPermitted} to the value of {@code argMayEnterMatchesBeforeUsuallyPermitted}
+	 *
+	 * @param argMayEnterMatchesBeforeUsuallyPermitted the new value of {@code MayEnterMatchesBeforeUsuallyPermitted}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code may_enter_matches_before_usually_permitted} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argMayEnterMatchesBeforeUsuallyPermitted is null
+	 */
+	@com.opal.annotation.NotNull
+	public com.scobolsolo.application.StaffRole setMayEnterMatchesBeforeUsuallyPermitted(java.lang.Boolean argMayEnterMatchesBeforeUsuallyPermitted);
+
+	/**
+	 * sets the {@code MayEnterMatchesBeforeUsuallyPermitted} to the value of {@code argMayEnterMatchesBeforeUsuallyPermitted}
+	 *
+	 * @param argMayEnterMatchesBeforeUsuallyPermitted the new value of {@code MayEnterMatchesBeforeUsuallyPermitted}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.StaffRole setMayEnterMatchesBeforeUsuallyPermitted(boolean argMayEnterMatchesBeforeUsuallyPermitted);
+
 	public com.scobolsolo.application.StaffRole copy();
 
 	/** This is a Comparator that can be used to compare StaffRole objects based on their {@code Code} values. */

@@ -124,6 +124,7 @@ CREATE TABLE Staff_Role (
 	may_enter_any_match BOOLEAN NOT NULL DEFAULT FALSE,
 	may_enter_matches_in_assigned_room BOOLEAN NOT NULL DEFAULT TRUE,
 	may_view_questions BOOLEAN NOT NULL DEFAULT FALSE,
+	may_enter_matches_before_usually_permitted BOOLEAN NOT NULL DEFAULT FALSE
 );
 INSERT INTO Staff_Role (name, short_name, very_short_name, code, sequence) VALUES
 ('Tournament Director', 'TD', 'TD', 'TOURNAMENT_DIRECTOR', 0),
@@ -209,7 +210,6 @@ CREATE TABLE Round_Group (
 	name name_t,
 	short_name short_name_t,
 	sequence sequence_t, -- within Phase
-	start_time VARCHAR(16), -- not proper, but more usable
 	UNIQUE(tournament_code, name),
 	UNIQUE(tournament_code, short_name)
 );
@@ -222,6 +222,8 @@ CREATE TABLE Round (
 	short_name short_name_t,
 	sequence sequence_t, -- within RoundGroup
 	lunch_after BOOLEAN NOT NULL DEFAULT FALSE,
+	start_time VARCHAR(16), -- not proper, but more usable
+	earliest_entry_allowed TIMESTAMP, -- NULL means always allowed
 	UNIQUE(round_group_id, name),
 	UNIQUE(round_group_id, short_name)
 );

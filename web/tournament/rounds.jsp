@@ -152,11 +152,12 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 					<thead>
 						<tr>
 							<th>Name</th>
-							<th>Short name</th>
-							<th>Start time</th>
+							<th>Short&nbsp;name</th>
+							<th>Start&nbsp;time</th>
+							<th>Earliest&nbsp;entry&nbsp;allowed</th>
 							<th>Sequence</th>
-							<th>Followed by lunch?</th>
-							<th>Delete?</th>
+							<th>Lunch&nbsp;is&nbsp;after?</th>
+							<th><span title="delete">Del?</span></th>
 						</tr>
 					</thead>
 					<tbody><%
@@ -174,6 +175,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 								<td><%= lclROF.text("Name", 20) %></td>
 								<td><%= lclROF.text("ShortName", 10) %></td>
 								<td><%= lclROF.text("StartTime", 10) %></td>
+								<td><%= lclROF.datetime("EarliestEntryAllowed").placeholder("yyyy-mm-dd hh:mm") %></td>
 								<td><%= lclROF.text("Sequence", 3) %></td>
 								<td><%= HTMLUtility.switchWidget(lclROF, "LunchAfter") %></td>
 								<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
