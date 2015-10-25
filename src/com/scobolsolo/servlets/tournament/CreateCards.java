@@ -45,6 +45,6 @@ public class CreateCards extends ScobolSoloControllerServlet {
 			lclTC.complete();
 		}
 		
-		return RETURN_URL + "?object=" + lclPhase.getTournament().getUniqueString();
+		return RETURN_URL + "?phase_id=" + lclPhase.getId();
 	}
 }

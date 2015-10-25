@@ -75,7 +75,7 @@ public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
 		}
 	}
 	
-	private static String makeSheetName(final Phase argP) {
+	/* package */ static String makeSheetName(final Phase argP) {
 		Validate.notNull(argP);
 		
 		return WorkbookUtil.createSafeSheetName(argP.getTournament().getShortName() + ' ' + argP.getShortName() + " Card System");

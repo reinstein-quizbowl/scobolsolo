@@ -43,6 +43,7 @@ List<OpalForm<Phase>> lclPOFs = lclOF.children(
 );
 
 for (OpalForm<Phase> lclPOF : lclPOFs) {
+	Phase lclP = lclPOF.getUserFacing();
 	%><%= lclPOF.open() %>
 	
 	<div class="row">
@@ -75,8 +76,11 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 				<span class="show-for-small-only">Cards?</span>
 				<span class="show-for-medium-only">Card system?</span>
 				<span class="show-for-large-up">Uses card system?</span>
-				<%= HTMLUtility.switchWidget(lclPOF, "CardSystem") %>
-			</label>
+				<%= HTMLUtility.switchWidget(lclPOF, "CardSystem") %><%
+				if (lclPOF.alreadyExists() && lclP.isCardSystem()) {
+					%><a href="cards.jsp?phase_id=<%= lclP.getId() %>">Edit Cards</a><%
+				}
+			%></label>
 		</div>
 		<div class="small-3 medium-1 columns"><%
 			if (lclPOF.alreadyExists()) {

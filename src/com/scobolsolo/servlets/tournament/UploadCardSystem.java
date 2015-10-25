@@ -42,10 +42,16 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 		
 		final RoundGroup lclFirstRoundGroup = lclRounds.get(0).getRoundGroup();
 		
-		final String lclSheetName = lclPhase.getShortName() + " Card System";
-		
 		final Workbook lclWB = new XSSFWorkbook(lclUpload.getInputStream());
-		final Sheet lclSheet = Validate.notNull(lclWB.getSheet(lclSheetName), "No sheet named '" + lclSheetName + '\'');
+		final Sheet lclSheet;
+		if (lclWB.getNumberOfSheets() == 0) {
+			throw new IllegalArgumentException("Workbook has no sheets");
+		} else if (lclWB.getNumberOfSheets() == 1) {
+			lclSheet = Validate.notNull(lclWB.getSheetAt(0));
+		} else {
+			final String lclSheetName = DownloadSpreadsheetForCardSystem.makeSheetName(lclPhase);
+			lclSheet = Validate.notNull(lclWB.getSheet(lclSheetName), "No sheet named '" + lclSheetName + '\'');
+		}
 		
 		final Map<Integer, Round> lclRoundsByColumnIndex = new ConcurrentHashMap<>();
 		
@@ -163,7 +169,7 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 			
 			lclTC.complete();
 			
-			return RETURN_URL + "?object=" + lclT.getUniqueString();
+			return RETURN_URL + "?phase_id=" + lclPhase.getId();
 		}
 	}
 	

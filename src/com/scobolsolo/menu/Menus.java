@@ -235,7 +235,6 @@ public final class Menus {
 						Arrays.asList(
 							new MenuPage("rounds-" + argT.getUniqueString(), "Rounds", "/tournament/rounds.jsp?object=" + argT.getUniqueString()),
 							new MenuPage("rooms-" + argT.getUniqueString(), "Rooms", "/tournament/rooms.jsp?object=" + argT.getUniqueString()),
-							new MenuPage("cards-" + argT.getUniqueString(), "Cards", "/tournament/cards.jsp?object=" + argT.getUniqueString()),
 							new MenuPage("games-" + argT.getUniqueString(), "Games", "/games/index.jsp?object=" + argT.getUniqueString()),
 							new MenuPage("paperwork-" + argT.getUniqueString(), "Paperwork", "/tournament/paperwork.jsp?object=" + argT.getUniqueString())
 						)

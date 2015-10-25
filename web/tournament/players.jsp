@@ -72,7 +72,7 @@ if (lclP != null && lclP.isCardSystem()) {
 				%><p>This tournament's seeds are not valid. Ensure that there are <%= lclPlayers.size() %> distinct seeds, and every player has a seed.</p><%
 			} else {
 				%><form action="AssignCards" method="post">
-				<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>">
+				<input type="hidden" name="phase_id" value="<%= lclP.getId() %>">
 				
 				<p>Cards will be randomized so that seeds are hidden (but the correct matchups are preserved).</p><%
 				if (lclCardsAssigned) {

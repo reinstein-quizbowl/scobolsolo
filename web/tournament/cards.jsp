@@ -11,8 +11,8 @@ OpalMainForm<Phase> lclOF = OpalForm.create(
 	session,
 	request,
 	"/OpalFormController",
-	PhaseFactory.getInstance().forUniqueString(request.getParameter("object")),
-	PhaseFactory.getInstance()
+	PhaseFactory.getInstance(),
+	"phase_id"
 );
 Phase lclP = Validate.notNull(lclOF.getUserFacing());
 Tournament lclT = lclP.getTournament();
