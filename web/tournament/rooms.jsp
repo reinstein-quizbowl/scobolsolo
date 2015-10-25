@@ -45,7 +45,6 @@ if (lclOF.hasErrors()) {
 					<th>Short&nbsp;name</th>
 					<th>Note</th>
 					<th><span title="Buzzers">Bz</span></th>
-					<th><span title="Is this a game room?">Gm</span></th>
 					<th><span title="Sequence">Seq</span></th>
 					<th>Staff</th>
 					<th>Edit</th>
@@ -70,7 +69,6 @@ if (lclOF.hasErrors()) {
 						<td><%= lclROF.text("ShortName", 10) %></td>
 						<td><%= lclROF.textarea("Note", 30, 1) %></td>
 						<td><%= lclR == null ? "-" : lclR.getBuzzerCount() %></td>
-						<td><%= lclROF.checkbox("GameRoom") %></td>
 						<td><%= lclROF.text("Sequence", 3) %></td>
 						<td><%
 							for (OpalForm<StaffAssignment> lclSAOF : lclROF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.STAFF_NAME_COMPARATOR)) {
