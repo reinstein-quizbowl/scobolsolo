@@ -20,7 +20,7 @@
 				<div class="small-12 columns">
 					<label>
 						Username
-						<input type="text" id="j_username" name="j_username" maxlength="16" autofocus autocorrect="off" autocapitalize="off" required="required" />
+						<input type="text" id="j_username" name="j_username" autofocus autocorrect="off" autocapitalize="off" required="required" />
 					</label>
 				</div>
 				<div class="small-12 columns">
