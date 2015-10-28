@@ -124,7 +124,8 @@ public class PasswordResetFromToken extends ScobolSoloControllerServlet {
 				.setFrom(FROM_ADDRESS, "Scobol Solo Password Reset")
 				.addTo(NOTIFICATION_TO_ADDRESS)
 				.setSubject(lclSubject)
-				.setMsg(lclSB.toString());
+				.setMsg(lclSB.toString())
+				.send();
 		} catch (Exception lclE) {
 			ourLogger.error("Could not send password token generation notification", lclE);
 		}
