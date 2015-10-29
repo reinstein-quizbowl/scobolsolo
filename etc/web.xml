@@ -53,6 +53,11 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>UnassignCards</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.UnassignCards</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>CreateCards</servlet-name>
 		<servlet-class>com.scobolsolo.servlets.tournament.CreateCards</servlet-class>
 	</servlet>
@@ -167,6 +172,11 @@
 	<servlet-mapping>
 		<servlet-name>AssignCards</servlet-name>
 		<url-pattern>/tournament/AssignCards</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UnassignCards</servlet-name>
+		<url-pattern>/tournament/UnassignCards</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
