@@ -17,7 +17,7 @@ OpalMainForm<Staff> lclOF = OpalForm.create(
 );
 Staff lclS = lclOF.getUserFacing();
 Tournament lclT = lclS.getTournament();
-lclOF.setDeleteURI("cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=staff");
+lclOF.setDeleteURI("/tournament/cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=staff");
 
 OpalForm<Contact> lclCOF = lclOF.targetForm("Contact", ContactFactory.getInstance());
 lclCOF.setUpdaterClass(ContactUpdater.class);

@@ -239,6 +239,79 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Card setPhaseId(int argPhaseId);
 
 	/**
+	 * object accessor for the {@code InitialPlayerId}
+	 *
+	 * <p>The {@code InitialPlayerId} field is a direct mapping of the {@code initial_player_id} field in {@code card}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getInitialPlayerId() method.</p>
+	 *
+	 * @return an object value of {@code InitialPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	public java.lang.Integer getInitialPlayerIdAsObject();
+
+	/**
+	 * object accessor for the {@code InitialPlayerId} with substitution for a null value
+	 *
+	 * <p>The {@code InitialPlayerId} field is a direct mapping of the {@code initial_player_id} database column in the table {@code card}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code InitialPlayerId} is {@code null}.
+	 * @return an object value of {@code InitialPlayerId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getInitialPlayerIdAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getInitialPlayerIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code InitialPlayerId}
+	 *
+	 * <p>The {@code InitialPlayerId} field is a direct mapping of the {@code initial_player_id} database column in the table {@code card}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getInitialPlayerIdAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code InitialPlayerId} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getInitialPlayerId() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getInitialPlayerIdAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getInitialPlayerId(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getInitialPlayerIdAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getInitialPlayerId(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getInitialPlayerIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * sets the {@code InitialPlayerId} to the value of {@code argInitialPlayerId}
+	 *
+	 * @param argInitialPlayerId the new value of {@code InitialPlayerId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	public com.scobolsolo.application.Card setInitialPlayerId(java.lang.Integer argInitialPlayerId);
+
+	/**
+	 * sets the {@code InitialPlayerId} to the value of {@code argInitialPlayerId}
+	 *
+	 * @param argInitialPlayerId the new value of {@code InitialPlayerId}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Card setInitialPlayerId(int argInitialPlayerId);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Phase}
 	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code card_phase_id_fkey}.
 	 *
@@ -246,6 +319,11 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Phase getPhase();
 	public com.scobolsolo.application.Card setPhase(com.scobolsolo.application.Phase argPhase);
 
+	/**
+	 * @return the {@code com.scobolsolo.application.Player}
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code card_initial_player_id_fkey}.
+	 *
+	 */
 	public com.scobolsolo.application.Player getInitialPlayer();
 	public com.scobolsolo.application.Card setInitialPlayer(com.scobolsolo.application.Player argInitialPlayer);
 

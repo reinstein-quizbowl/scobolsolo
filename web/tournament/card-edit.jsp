@@ -18,7 +18,7 @@ OpalMainForm<Card> lclOF = OpalForm.create(
 );
 Card lclC = lclOF.getUserFacing();
 Tournament lclT = lclC.getTournament();
-lclOF.setDeleteURI("cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=card");
+lclOF.setDeleteURI("/tournament/cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=card");
 
 String lclTitle = lclC.getName() + " at " + lclT.getName();
 %>

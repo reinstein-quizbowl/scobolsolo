@@ -157,8 +157,8 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 						if (lclRound.getRoundGroup() == lclFirstRoundGroup) {
 							Game lclG = GameFactory.getInstance().create();
 							lclG.setMatch(lclM);
-							lclG.setIncomingWinningCardPlayer(PlayerFactory.getInstance().forInitialCardId(lclWinningCard.getId()));
-							lclG.setIncomingLosingCardPlayer(PlayerFactory.getInstance().forInitialCardId(lclLosingCard.getId()));
+							lclG.setIncomingWinningCardPlayer(lclWinningCard.getInitialPlayer());
+							lclG.setIncomingLosingCardPlayer(lclLosingCard.getInitialPlayer());
 						}
 						
 						lclWinningCard = null;

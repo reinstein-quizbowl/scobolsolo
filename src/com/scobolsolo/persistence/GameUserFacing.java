@@ -508,22 +508,6 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Game setMatch(com.scobolsolo.application.Match argMatch);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_losing_card_player_id_fkey}.
-	 *
-	 */
-	public com.scobolsolo.application.Player getIncomingLosingCardPlayer();
-	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argIncomingLosingCardPlayer);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.Player}
-	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_winning_card_player_id_fkey}.
-	 *
-	 */
-	public com.scobolsolo.application.Player getIncomingWinningCardPlayer();
-	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argIncomingWinningCardPlayer);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.Staff}
 	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code game_moderator_staff_id_fkey}.
 	 *
@@ -546,6 +530,22 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	public com.scobolsolo.application.Player getOutgoingWinningCardPlayer();
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayer(com.scobolsolo.application.Player argOutgoingWinningCardPlayer);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Player}
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_losing_card_player_id_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.Player getIncomingLosingCardPlayer();
+	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argIncomingLosingCardPlayer);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Player}
+	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_winning_card_player_id_fkey}.
+	 *
+	 */
+	public com.scobolsolo.application.Player getIncomingWinningCardPlayer();
+	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argIncomingWinningCardPlayer);
 
 	public int getPerformanceCount();
 	public java.util.Iterator<com.scobolsolo.application.Performance> createPerformanceIterator();

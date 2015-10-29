@@ -2,8 +2,8 @@ package com.scobolsolo.application;
 
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.MatchOpal;
-import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.StaffOpal;
+import com.scobolsolo.persistence.PlayerOpal;
 
 public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> implements Game {
 	private final GameOpal myGameOpal;
@@ -163,34 +163,6 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
-	/** @return the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
-
-	@Override
-	public Player getIncomingLosingCardPlayer() {
-		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingLosingCardPlayerOpal();
-		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
-	}
-
-	@Override
-	public Game setIncomingLosingCardPlayer(Player argPlayer) {
-		getGameOpal().setIncomingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return this;
-	}
-
-	/** @return the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
-
-	@Override
-	public Player getIncomingWinningCardPlayer() {
-		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingWinningCardPlayerOpal();
-		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
-	}
-
-	@Override
-	public Game setIncomingWinningCardPlayer(Player argPlayer) {
-		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return this;
-	}
-
 	/** @return the Staff object created from game through reference game_moderator_staff_id_fkey */
 
 	@Override
@@ -230,6 +202,34 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	@Override
 	public Game setOutgoingWinningCardPlayer(Player argPlayer) {
 		getGameOpal().setOutgoingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
+	}
+
+	/** @return the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
+
+	@Override
+	public Player getIncomingLosingCardPlayer() {
+		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingLosingCardPlayerOpal();
+		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
+	}
+
+	@Override
+	public Game setIncomingLosingCardPlayer(Player argPlayer) {
+		getGameOpal().setIncomingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
+	}
+
+	/** @return the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
+
+	@Override
+	public Player getIncomingWinningCardPlayer() {
+		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingWinningCardPlayerOpal();
+		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
+	}
+
+	@Override
+	public Game setIncomingWinningCardPlayer(Player argPlayer) {
+		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
 		return this;
 	}
 

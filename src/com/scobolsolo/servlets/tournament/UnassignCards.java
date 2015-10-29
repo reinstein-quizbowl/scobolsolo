@@ -27,9 +27,7 @@ public class UnassignCards extends ScobolSoloControllerServlet {
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			for (Card lclC : lclPhase.createCardArray()) {
-				if (lclC.getInitialPlayer() != null) {
-					lclC.getInitialPlayer().setInitialCard(null);
-				}
+				lclC.setInitialPlayer(null);
 			}
 			
 			lclTC.complete();

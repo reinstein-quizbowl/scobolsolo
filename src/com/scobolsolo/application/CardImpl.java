@@ -110,6 +110,23 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return this;
 	}
 
+	@Override
+	public java.lang.Integer getInitialPlayerIdAsObject() {
+		return getCardOpal().getInitialPlayerIdAsObject();
+	}
+
+	@Override
+	public CardImpl setInitialPlayerId(java.lang.Integer argInitialPlayerId) {
+		getCardOpal().setInitialPlayerId(argInitialPlayerId);
+		return this;
+	}
+
+	@Override
+	public CardImpl setInitialPlayerId(int argInitialPlayerId) {
+		getCardOpal().setInitialPlayerId(argInitialPlayerId);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -127,10 +144,12 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return this;
 	}
 
+	/** @return the Player object created from card through reference card_initial_player_id_fkey */
+
 	@Override
 	public Player getInitialPlayer() {
-		PlayerOpal lclO = getCardOpal().getInitialPlayerOpal();
-		return lclO == null ? null : lclO.getUserFacing();
+		PlayerOpal lclPlayerOpal = getCardOpal().getInitialPlayerOpal();
+		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
 	}
 
 	@Override

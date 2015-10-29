@@ -29,7 +29,7 @@ Packet lclP = Validate.notNull(lclOF.getUserFacing());
 Tournament lclT = lclP.getTournament();
 Account lclUser = Account.demand(request);
 Validate.isTrue(lclUser.mayManageQuestions(lclT));
-lclOF.setDeleteURI("cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=packet");
+lclOF.setDeleteURI("/tournament/cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=packet");
 
 String lclTitle = lclP.getName() + " at " + lclT.getName();
 %>

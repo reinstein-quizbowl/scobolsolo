@@ -44,6 +44,11 @@ public class CardFactory extends com.opal.AbstractFactory<Card, CardOpal> implem
 		return (lclCardOpal == null) ? null : lclCardOpal.getUserFacing();
 	}
 
+	public Card forInitialPlayerId(java.lang.Integer argInitialPlayerId) {
+		CardOpal lclCardOpal = getCardOpalFactory().forInitialPlayerId(argInitialPlayerId);
+		return (lclCardOpal == null) ? null : lclCardOpal.getUserFacing();
+	}
+
 	@Override
 	public Card[] createArray(int argSize) {
 		return new Card[argSize];

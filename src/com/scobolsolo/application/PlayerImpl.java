@@ -2,9 +2,9 @@ package com.scobolsolo.application;
 
 import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.ContactOpal;
-import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.SchoolYearOpal;
+import com.scobolsolo.persistence.CardOpal;
 
 public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal> implements Player {
 	private final PlayerOpal myPlayerOpal;
@@ -136,23 +136,6 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public java.lang.Integer getInitialCardIdAsObject() {
-		return getPlayerOpal().getInitialCardIdAsObject();
-	}
-
-	@Override
-	public PlayerImpl setInitialCardId(java.lang.Integer argInitialCardId) {
-		getPlayerOpal().setInitialCardId(argInitialCardId);
-		return this;
-	}
-
-	@Override
-	public PlayerImpl setInitialCardId(int argInitialCardId) {
-		getPlayerOpal().setInitialCardId(argInitialCardId);
-		return this;
-	}
-
-	@Override
 	public java.lang.Boolean isExhibitionAsObject() {
 		return getPlayerOpal().isExhibitionAsObject();
 	}
@@ -186,20 +169,6 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
-	/** @return the Card object created from player through reference player_initial_card_id_fkey */
-
-	@Override
-	public Card getInitialCard() {
-		CardOpal lclCardOpal = getPlayerOpal().getInitialCardOpal();
-		return lclCardOpal == null ? null : lclCardOpal.getUserFacing();
-	}
-
-	@Override
-	public Player setInitialCard(Card argCard) {
-		getPlayerOpal().setInitialCardOpal(argCard == null ? null : ((CardImpl) argCard).getCardOpal());
-		return this;
-	}
-
 	/** @return the SchoolRegistration object created from player through reference player_registration_id_fkey */
 
 	@Override
@@ -228,72 +197,20 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
+	@Override
+	public Card getInitialCard() {
+		CardOpal lclO = getPlayerOpal().getInitialCardOpal();
+		return lclO == null ? null : lclO.getUserFacing();
+	}
+
+	@Override
+	public Player setInitialCard(Card argCard) {
+		getPlayerOpal().setInitialCardOpal(argCard == null ? null : ((CardImpl) argCard).getCardOpal());
+		return this;
+	}
+
 	/* The following methods allow access to the user objects that have references
 	to this object. */
-
-	@Override
-	public com.scobolsolo.application.Player addIncomingLosingCardGame(Game argGame) {
-		getPlayerOpal().addIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Player removeIncomingLosingCardGame(Game argGame) {
-		getPlayerOpal().removeIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public int getIncomingLosingCardGameCount() {
-		return getPlayerOpal().getIncomingLosingCardGameOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<Game> streamIncomingLosingCardGame() {
-		return getPlayerOpal().streamIncomingLosingCardGameOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<Game> createIncomingLosingCardGameIterator() {
-		return new com.opal.OpalIterator<> (getPlayerOpal().createIncomingLosingCardGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player clearIncomingLosingCardGame() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public com.scobolsolo.application.Player addIncomingWinningCardGame(Game argGame) {
-		getPlayerOpal().addIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Player removeIncomingWinningCardGame(Game argGame) {
-		getPlayerOpal().removeIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public int getIncomingWinningCardGameCount() {
-		return getPlayerOpal().getIncomingWinningCardGameOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<Game> streamIncomingWinningCardGame() {
-		return getPlayerOpal().streamIncomingWinningCardGameOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<Game> createIncomingWinningCardGameIterator() {
-		return new com.opal.OpalIterator<> (getPlayerOpal().createIncomingWinningCardGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player clearIncomingWinningCardGame() {
-		throw new UnsupportedOperationException();
-	}
 
 	@Override
 	public com.scobolsolo.application.Player addOutgoingLosingCardGame(Game argGame) {
@@ -356,6 +273,70 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 
 	@Override
 	public com.scobolsolo.application.Player clearOutgoingWinningCardGame() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public com.scobolsolo.application.Player addIncomingLosingCardGame(Game argGame) {
+		getPlayerOpal().addIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Player removeIncomingLosingCardGame(Game argGame) {
+		getPlayerOpal().removeIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
+	}
+
+	@Override
+	public int getIncomingLosingCardGameCount() {
+		return getPlayerOpal().getIncomingLosingCardGameOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Game> streamIncomingLosingCardGame() {
+		return getPlayerOpal().streamIncomingLosingCardGameOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Game> createIncomingLosingCardGameIterator() {
+		return new com.opal.OpalIterator<> (getPlayerOpal().createIncomingLosingCardGameOpalIterator());
+	}
+
+	@Override
+	public com.scobolsolo.application.Player clearIncomingLosingCardGame() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public com.scobolsolo.application.Player addIncomingWinningCardGame(Game argGame) {
+		getPlayerOpal().addIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Player removeIncomingWinningCardGame(Game argGame) {
+		getPlayerOpal().removeIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
+	}
+
+	@Override
+	public int getIncomingWinningCardGameCount() {
+		return getPlayerOpal().getIncomingWinningCardGameOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Game> streamIncomingWinningCardGame() {
+		return getPlayerOpal().streamIncomingWinningCardGameOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Game> createIncomingWinningCardGameIterator() {
+		return new com.opal.OpalIterator<> (getPlayerOpal().createIncomingWinningCardGameOpalIterator());
+	}
+
+	@Override
+	public com.scobolsolo.application.Player clearIncomingWinningCardGame() {
 		throw new UnsupportedOperationException();
 	}
 

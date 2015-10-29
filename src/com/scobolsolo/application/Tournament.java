@@ -71,22 +71,15 @@ public interface Tournament extends TournamentUserFacing {
 	}
 	
 	default boolean hasCardsAssigned() {
-		int lclAssigned = 0;
+		final int lclAssigned = (int) findFirstPhase().streamCard().filter(argC -> argC.getInitialPlayer() != null).count();
+		final int lclPlayers = getPlayers().size();
 		
-		final List<Player> lclPlayers = getPlayers();
-		
-		for (final Player lclP : lclPlayers) {
-			if (lclP.getInitialCard() != null) {
-				++lclAssigned;
-			}
-		}
-		
-		if (lclAssigned == lclPlayers.size()) {
+		if (lclAssigned == lclPlayers) {
 			return true;
 		} else if (lclAssigned == 0) {
 			return false;
 		} else {
-			throw new IllegalStateException("Partially assigned cards: " + lclAssigned + " of " + lclPlayers.size());
+			throw new IllegalStateException("Partially assigned cards: " + lclAssigned + " of " + lclPlayers);
 		}
 	}
 	

@@ -400,79 +400,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Player setNote(java.lang.String argNote);
 
 	/**
-	 * object accessor for the {@code InitialCardId}
-	 *
-	 * <p>The {@code InitialCardId} field is a direct mapping of the {@code initial_card_id} field in {@code player}.</p>
-	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getInitialCardId() method.</p>
-	 *
-	 * @return an object value of {@code InitialCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
-	 */
-	public java.lang.Integer getInitialCardIdAsObject();
-
-	/**
-	 * object accessor for the {@code InitialCardId} with substitution for a null value
-	 *
-	 * <p>The {@code InitialCardId} field is a direct mapping of the {@code initial_card_id} database column in the table {@code player}.</p>
-	 *
-	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
-	 *
-	 * @param argStringToSubstituteIfNull the value to return if the {@code InitialCardId} is {@code null}.
-	 * @return an object value of {@code InitialCardId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
-	 */
-	default public java.lang.String getInitialCardIdAsObject(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getInitialCardIdAsObject();
-		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
-	}
-
-
-	/**
-	 * primitive accessor for the {@code InitialCardId}
-	 *
-	 * <p>The {@code InitialCardId} field is a direct mapping of the {@code initial_card_id} database column in the table {@code player}.</p>
-	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getInitialCardIdAsObject() method.</p>
-	 *
-	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
-	 *
-	 * @return the primitive value of {@code InitialCardId} (of the current {@link com.opal.TransactionContext})
-	 * @throws com.opal.NullValueException when the internal value is null
-	 */
-	default public int getInitialCardId() throws com.opal.NullValueException {
-		java.lang.Integer lclO = getInitialCardIdAsObject();
-		if (lclO == null) {
-			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
-		}
-		return lclO.intValue();
-	}
-
-	default public int getInitialCardId(int argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getInitialCardIdAsObject();
-		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
-	}
-
-	default public java.lang.String getInitialCardId(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getInitialCardIdAsObject();
-		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
-	}
-
-	/**
-	 * sets the {@code InitialCardId} to the value of {@code argInitialCardId}
-	 *
-	 * @param argInitialCardId the new value of {@code InitialCardId}.  May be <code>null</code>.
-	 * @return itself, so that mutator calls can be chained fluently
-	 */
-	public com.scobolsolo.application.Player setInitialCardId(java.lang.Integer argInitialCardId);
-
-	/**
-	 * sets the {@code InitialCardId} to the value of {@code argInitialCardId}
-	 *
-	 * @param argInitialCardId the new value of {@code InitialCardId}
-	 * @return itself, so that mutators may be chained fluently
-	 */
-	public com.scobolsolo.application.Player setInitialCardId(int argInitialCardId);
-
-	/**
 	 * object accessor for the {@code Exhibition}
 	 *
 	 * <p>The {@code Exhibition} field is a direct mapping of the {@code exhibition} field in {@code player}.</p>
@@ -526,14 +453,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Player setContact(com.scobolsolo.application.Contact argContact);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Card}
-	 * The returned {@code com.scobolsolo.application.Card} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code player_initial_card_id_fkey}.
-	 *
-	 */
-	public com.scobolsolo.application.Card getInitialCard();
-	public com.scobolsolo.application.Player setInitialCard(com.scobolsolo.application.Card argInitialCard);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
 	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code player_registration_id_fkey}.
 	 *
@@ -549,63 +468,8 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.SchoolYear getSchoolYear();
 	public com.scobolsolo.application.Player setSchoolYear(com.scobolsolo.application.SchoolYear argSchoolYear);
 
-	public int getIncomingLosingCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingLosingCardGameIterator();
-
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingLosingCardGame();
-
-	public com.scobolsolo.application.Player addIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player clearIncomingLosingCardGame();
-
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingLosingCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
-	}
-
-	default public com.scobolsolo.application.Game[] createIncomingLosingCardGameArray() {
-		int lclLength = getIncomingLosingCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
-	}
-
-	public int getIncomingWinningCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingWinningCardGameIterator();
-
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingWinningCardGame();
-
-	public com.scobolsolo.application.Player addIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player clearIncomingWinningCardGame();
-
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingWinningCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
-	}
-
-	default public com.scobolsolo.application.Game[] createIncomingWinningCardGameArray() {
-		int lclLength = getIncomingWinningCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
-	}
+	public com.scobolsolo.application.Card getInitialCard();
+	public com.scobolsolo.application.Player setInitialCard(com.scobolsolo.application.Card argInitialCard);
 
 	public int getOutgoingLosingCardGameCount();
 	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingLosingCardGameIterator();
@@ -659,6 +523,64 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
 		int lclIndex = 0;
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
+	public int getIncomingLosingCardGameCount();
+	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingLosingCardGameIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingLosingCardGame();
+
+	public com.scobolsolo.application.Player addIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player clearIncomingLosingCardGame();
+
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingLosingCardGame(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Game[] createIncomingLosingCardGameArray() {
+		int lclLength = getIncomingLosingCardGameCount();
+		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
+	public int getIncomingWinningCardGameCount();
+	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingWinningCardGameIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingWinningCardGame();
+
+	public com.scobolsolo.application.Player addIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player clearIncomingWinningCardGame();
+
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingWinningCardGame(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Game[] createIncomingWinningCardGameArray() {
+		int lclLength = getIncomingWinningCardGameCount();
+		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}

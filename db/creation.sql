@@ -165,9 +165,7 @@ CREATE TABLE Player (
 	school_year_code nullable_code_t REFERENCES School_Year ON UPDATE CASCADE ON DELETE RESTRICT,
 	rank_within_school INTEGER CHECK (rank_within_school IS NULL OR rank_within_school > 0),
 	seed INTEGER CHECK (seed IS NULL OR seed > 0),
-	initial_card_id INTEGER REFERENCES Card ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies Tournament
-	note note_t,
-	UNIQUE(initial_card_id)
+	note note_t
 );
 ALTER SEQUENCE player_id_seq RESTART WITH 1000;
 
@@ -232,9 +230,11 @@ ALTER SEQUENCE round_id_seq RESTART WITH 1000;
 CREATE TABLE Card (
 	id SERIAL PRIMARY KEY,
 	phase_id INTEGER NOT NULL REFERENCES Phase ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament
+	initial_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE SET NULL, -- also implies the tournament
 	name name_t,
 	short_name short_name_t,
 	sequence sequence_t,
+	UNIQUE(initial_player_id),
 	UNIQUE(tournament_code, name),
 	UNIQUE(tournament_code, short_name)
 );
@@ -256,8 +256,8 @@ CREATE TABLE Game (-- 1-1 with Match
 	id INTEGER PRIMARY KEY REFERENCES Match ON UPDATE CASCADE ON DELETE RESTRICT,
 	moderator_staff_id INTEGER REFERENCES Staff ON UPDATE CASCADE ON DELETE RESTRICT,
 	tossups_heard INTEGER CHECK(tossups_heard IS NULL OR tossups_heard > 0),
-	incoming_winning_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up from the first feeding result and the second isn't in yet
-	incoming_losing_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up from the first feeding result and the second isn't in yet
+	incoming_winning_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE SET NULL, -- NULL when the Game is set up from the first feeding result and the second isn't in yet
+	incoming_losing_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE SET NULL, -- NULL when the Game is set up from the first feeding result and the second isn't in yet
 	outgoing_winning_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up but hasn't been played yet
 	outgoing_losing_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up but hasn't been played yet
 	CHECK(incoming_winning_card_player_id IS NOT NULL OR incoming_losing_card_player_id IS NOT NULL),

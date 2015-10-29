@@ -29,11 +29,6 @@ public class PlayerFactory extends com.opal.AbstractFactory<Player, PlayerOpal> 
 		return getPlayerOpalFactory().create().getUserFacing();
 	}
 
-	public Player forInitialCardId(java.lang.Integer argInitialCardId) {
-		PlayerOpal lclPlayerOpal = getPlayerOpalFactory().forInitialCardId(argInitialCardId);
-		return (lclPlayerOpal == null) ? null : lclPlayerOpal.getUserFacing();
-	}
-
 	public Player forId(java.lang.Integer argId) {
 		PlayerOpal lclPlayerOpal = getPlayerOpalFactory().forId(argId);
 		return (lclPlayerOpal == null) ? null : lclPlayerOpal.getUserFacing();

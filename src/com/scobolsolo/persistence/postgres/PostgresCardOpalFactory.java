@@ -29,6 +29,7 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		"sequence", 
 		"final_message", 
 		"phase_id", 
+		"initial_player_id", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -116,12 +117,15 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	protected void registerOpal(CardOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 6) { throw new IllegalStateException(); }
+		if (argValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<CardOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NamePhaseIdOpalKey((java.lang.String) argValues[1], (java.lang.Integer) argValues[5]), argOpal, true);
 			lclOC.addOpal(new ShortNamePhaseIdOpalKey((java.lang.String) argValues[2], (java.lang.Integer) argValues[5]), argOpal, true);
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
+			if (true && argValues[6] != null) {
+				lclOC.addOpal(new InitialPlayerIdOpalKey((java.lang.Integer) argValues[6]), argOpal, true);
+			}
 		}
 	}
 
@@ -129,12 +133,15 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void unregisterOpal(CardOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<CardOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NamePhaseIdOpalKey((java.lang.String) lclOldValues[1], (java.lang.Integer) lclOldValues[5]));
 			lclOC.removeOpal(new ShortNamePhaseIdOpalKey((java.lang.String) lclOldValues[2], (java.lang.Integer) lclOldValues[5]));
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
+			if (true && lclOldValues[6] != null) {
+				lclOC.removeOpal(new InitialPlayerIdOpalKey((java.lang.Integer) lclOldValues[6]));
+			}
 		}
 	}
 
@@ -143,10 +150,10 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 6) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<CardOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<CardOpal> lclOldKey = null;
@@ -177,6 +184,20 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
 					}
+				}
+			}
+			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
+			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
+			if (true && lclNewValues[6] != null) {
+				if (!(lclNewValues[6].equals(lclOldValues[6]))) {
+					lclNewKey = new InitialPlayerIdOpalKey((java.lang.Integer) lclNewValues[6]);
+					if (true && lclOldValues[6] != null) {
+						lclOldKey = new InitialPlayerIdOpalKey((java.lang.Integer) lclOldValues[6]);
+					}
+				}
+			} else {
+				if (true && lclOldValues[6] != null) {
+					lclOldKey = new InitialPlayerIdOpalKey((java.lang.Integer) lclOldValues[6]);
 				}
 			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
@@ -224,6 +245,12 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	}
 
 	@Override
+	public CardOpal forInitialPlayerId(java.lang.Integer argInitialPlayerId) throws PersistenceException {
+		OpalKey<CardOpal> lclOpalKey = new InitialPlayerIdOpalKey(argInitialPlayerId);
+		return forOpalKey(lclOpalKey);
+	}
+
+	@Override
 	protected OpalKey<CardOpal> createOpalKeyForRow(ResultSet argRS) throws SQLException {
 		return new IdOpalKey(
 			OpalUtility.convertTo(java.lang.Integer.class, argRS.getObject("id"))
@@ -265,6 +292,21 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 		public IdOpalKey(java.lang.Integer argId) {
 			super(new Object[] {argId, });
+		}
+
+		@Override
+		protected Object[] getParameters() { return getFields(); }
+
+		@Override
+		protected String[] getColumnNames() { return ourKeyColumnNames; }
+
+	}
+
+	/* package */ static class InitialPlayerIdOpalKey extends com.opal.DatabaseOpalKey<CardOpal> {
+		private static final String[] ourKeyColumnNames = new String[] {"initial_player_id", };
+
+		public InitialPlayerIdOpalKey(java.lang.Integer argInitialPlayerId) {
+			super(new Object[] {argInitialPlayerId, });
 		}
 
 		@Override

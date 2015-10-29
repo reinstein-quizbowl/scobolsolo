@@ -22,7 +22,7 @@ OpalMainForm<Room> lclOF = OpalForm.create(
 lclOF.setUpdaterClass(RoomUpdater.class);
 Room lclR = lclOF.getUserFacing();
 Tournament lclT = lclR.getTournament();
-lclOF.setDeleteURI("cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=room");
+lclOF.setDeleteURI("/tournament/cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=room");
 
 String lclTitle = lclR.getName() + " at " + lclT.getName();
 %>

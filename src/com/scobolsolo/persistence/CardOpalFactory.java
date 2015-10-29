@@ -7,4 +7,5 @@ public interface CardOpalFactory extends com.opal.OpalFactory<Card, CardOpal>, c
 	public CardOpal forNamePhaseId(java.lang.String argName, java.lang.Integer argPhaseId) throws PersistenceException;
 	public CardOpal forShortNamePhaseId(java.lang.String argShortName, java.lang.Integer argPhaseId) throws PersistenceException;
 	public CardOpal forId(java.lang.Integer argId) throws PersistenceException;
+	public CardOpal forInitialPlayerId(java.lang.Integer argInitialPlayerId) throws PersistenceException;
 }

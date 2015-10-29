@@ -39,7 +39,7 @@ Tournament lclT = lclSR.getTournament();
 School lclS = lclSR.getSchool();
 Contact lclC = lclSR.getMainContact();
 
-lclOF.setDeleteURI("cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=school_registration");
+lclOF.setDeleteURI("/tournament/cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=school_registration");
 
 String lclTitle = lclS.getName() + " at " + lclT.getName();
 %>
@@ -118,6 +118,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 		<table class="full-width responsive">
 			<thead>
 				<tr>
+					<th>&nbsp;</th>
 					<th>Name</th>
 					<th>Year</th>
 					<th>Rank Among <%= lclS.getVeryShortName() %> Players</th>
@@ -139,6 +140,13 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					
 					%><tr>
 						<%= lclPOF.open() %>
+						<td><%
+							if (lclPOF.alreadyExists()) {
+								%><a href="player-edit.jsp?player_id=<%= lclP.getId() %>">Edit</a><%
+							} else {
+								%>&nbsp;<%
+							}
+						%></td>
 						<td><%= lclPOF.<Contact>dropdown("Contact").filter(argC -> argC.isActive() && !argC.isPlayerAt(lclT)) %></td>
 						<td><%= lclPOF.<SchoolYear>dropdown("SchoolYear") %></td>
 						<td><%= lclPOF.text("RankWithinSchool", 3) %></td>

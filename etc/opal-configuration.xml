@@ -74,9 +74,7 @@
 			</Mapping>
 			
 			<Mapping Table="Player">
-				<SingleLookUp>
-					<Column>initial_card_id</Column>
-				</SingleLookUp>
+				<Column Name="initial_card_id" Mapped="False" />
 				<Comparator Name="NameComparator">
 					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>
