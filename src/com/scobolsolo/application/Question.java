@@ -22,9 +22,9 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
-import org.scilab.forge.jlatexmath.TeXConstants;
-import org.scilab.forge.jlatexmath.TeXFormula;
-import org.scilab.forge.jlatexmath.TeXIcon;
+import com.google.common.cache.LoadingCache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
 
 import com.scobolsolo.persistence.QuestionUserFacing;
 
@@ -39,7 +39,36 @@ import com.scobolsolo.persistence.QuestionUserFacing;
 public interface Question extends QuestionUserFacing {
 	static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Question.class);
 	
-	static final Map<String, String> CACHED_MATH_RENDERS = new HashMap<>(); // We're not using an actual Guava cache because we don't really need to evict old entries
+	static final LoadingCache<Question, String> ourCachedTextHTML = CacheBuilder.newBuilder()
+		.maximumSize(500)
+		.build(
+			new CacheLoader<Question, String>() {
+				public String load(Question argQ) {
+					Validate.notNull(argQ);
+					
+					try {
+						return latexToHTML(argQ.getText());
+					} catch (LatexToHTMLConversionException lclE) {
+						ourLogger.warn(lclE.getMessage(), lclE);
+						return "Couldn't convert: <code>" + lclE.getMessage() + "</code>";
+					}
+				}
+			}
+		);
+	static final LoadingCache<Question, String> ourCachedAnswerHTML = CacheBuilder.newBuilder()
+		.maximumSize(500)
+		.build(
+			new CacheLoader<Question, String>() {
+				public String load(Question argQ) {
+					try {
+						return latexToHTML(argQ.getAnswer());
+					} catch (LatexToHTMLConversionException lclE) {
+						ourLogger.warn(lclE.getMessage(), lclE);
+						return "Couldn't convert: <code>" + lclE.getMessage() + "</code>";
+					}
+				}
+			}
+		);
 	
 	public static final Comparator<Question> CATEGORY_COMPARATOR = Comparator.comparing(Question::getCategory);
 	
@@ -82,19 +111,11 @@ public interface Question extends QuestionUserFacing {
 	}
 	
 	default String outputTextHTML() {
-		try {
-			return latexToHTML(getText());
-		} catch (LatexToHTMLConversionException lclE) {
-			return "Couldn't convert: <code>" + lclE.getMessage() + "</code>";
-		}
+		return ourCachedTextHTML.getUnchecked(this);
 	}
 	
 	default String outputAnswerHTML() {
-		try {
-			return latexToHTML(getAnswer());
-		} catch (LatexToHTMLConversionException lclE) {
-			return "Couldn't convert: <code>" + lclE.getMessage() + "</code>";
-		}
+		return ourCachedAnswerHTML.getUnchecked(this);
 	}
 	
 	public static String latexToHTML(String argS) {
@@ -116,311 +137,275 @@ public interface Question extends QuestionUserFacing {
 				char lclNext = lclI + 1 > argS.length() - 1 ? ' ' : argS.charAt(lclI + 1);
 				char lclTwoNext = lclI + 2 > argS.length() - 1 ? ' ' : argS.charAt(lclI + 2);
 				
-				ENTIRE_STRING_POSSIBILITIES:
-				switch (lclC) {
-					case '\\':
-						switch (lclNext) {
-							case '%':
-							case '$':
-							case '{':
-							case '}':
-								lclSB.append(lclNext);
-								++lclI;
-								break;
-							case '\\':
-								lclSB.append("<br />");
-								++lclI;
-								break;
-							default:
-								String lclCommand = null;
-								StringBuilder lclCommandSB = new StringBuilder();
-								StringBuilder lclCurrentArg = new StringBuilder();
-								List<String> lclArgs = new ArrayList<>();
-								
-								boolean lclCommandDone = false;
-								int lclBraceDepth = 0;
-								BACKSLASH_PORTION:
-								for (int lclJ = lclI; lclJ < argS.length(); ++lclJ) {
-									char lclBackslashChar = argS.charAt(lclJ);
-									char lclNextBackslashChar = lclJ == argS.length() - 1 ? ' ' : argS.charAt(lclJ + 1);
-									if (lclCommandDone) {
-										BACKSLASH_ARG_PORTION_POSSIBILITIES:
-										switch (lclBackslashChar) {
-											case '{':
-												++lclBraceDepth;
-												if (lclBraceDepth == 1) {
-													// We're starting a new argument
-													break;
-												} else {
-													// We've got a braced bit in an existing argument
-													lclCurrentArg.append('{');
-													break;
+				if (lclInMath) {
+					if (lclC == '$') {
+						if (lclPrev == '\\') {
+							lclSB.append("\\$");
+						} else {
+							lclSB.append("\\)");
+							lclInMath = false;
+						}
+					} else {
+						lclSB.append(lclC);
+					}
+				} else {
+					ENTIRE_STRING_POSSIBILITIES:
+					switch (lclC) {
+						case '\\':
+							if (lclInMath) {
+								lclSB.append('\\');
+								// Fall through
+							} else {
+								switch (lclNext) {
+									case '%':
+									case '$':
+									case '{':
+									case '}':
+										lclSB.append(lclNext);
+										++lclI;
+										break;
+									case '\\':
+										lclSB.append("<br />");
+										++lclI;
+										break;
+									default:
+										String lclCommand = null;
+										StringBuilder lclCommandSB = new StringBuilder();
+										StringBuilder lclCurrentArg = new StringBuilder();
+										List<String> lclArgs = new ArrayList<>();
+										
+										boolean lclCommandDone = false;
+										int lclBraceDepth = 0;
+										BACKSLASH_PORTION:
+										for (int lclJ = lclI; lclJ < argS.length(); ++lclJ) {
+											char lclBackslashChar = argS.charAt(lclJ);
+											char lclNextBackslashChar = lclJ == argS.length() - 1 ? ' ' : argS.charAt(lclJ + 1);
+											if (lclCommandDone) {
+												BACKSLASH_ARG_PORTION_POSSIBILITIES:
+												switch (lclBackslashChar) {
+													case '{':
+														++lclBraceDepth;
+														if (lclBraceDepth == 1) {
+															// We're starting a new argument
+															break;
+														} else {
+															// We've got a braced bit in an existing argument
+															lclCurrentArg.append('{');
+															break;
+														}
+													case '}':
+														--lclBraceDepth;
+														if (lclBraceDepth == 0) {
+															// This is a top-level argument
+															lclArgs.add(lclCurrentArg.toString());
+															lclCurrentArg = new StringBuilder();
+															lclI = lclJ;
+															if (lclNextBackslashChar == '{') {
+																// We're going from one argument to the next
+																break BACKSLASH_ARG_PORTION_POSSIBILITIES;
+															} else {
+																// We're done with this argument
+																break BACKSLASH_PORTION;
+															}
+														} else {
+															// This is something within an argument
+															lclCurrentArg.append('}');
+															break;
+														}
+													default:
+														lclCurrentArg.append(lclBackslashChar);
 												}
-											case '}':
-												--lclBraceDepth;
-												if (lclBraceDepth == 0) {
-													// This is a top-level argument
-													lclArgs.add(lclCurrentArg.toString());
-													lclCurrentArg = new StringBuilder();
-													lclI = lclJ;
-													if (lclNextBackslashChar == '{') {
-														// We're going from one argument to the next
-														break BACKSLASH_ARG_PORTION_POSSIBILITIES;
-													} else {
-														// We're done with this argument
-														break BACKSLASH_PORTION;
-													}
+											} else {
+												if (lclBackslashChar == '{' || lclBackslashChar == ' ') {
+													lclCommandDone = true;
+													lclCommand = lclCommandSB.toString();
+													--lclJ;
 												} else {
-													// This is something within an argument
-													lclCurrentArg.append('}');
-													break;
-												}
-											default:
-												lclCurrentArg.append(lclBackslashChar);
-										}
-									} else {
-										if (lclBackslashChar == '{' || lclBackslashChar == ' ') {
-											lclCommandDone = true;
-											lclCommand = lclCommandSB.toString();
-											--lclJ;
-										} else {
-											lclCommandSB.append(lclBackslashChar);
-											if (lclCommandSB.length() <= 2) {
-												if (lclBackslashChar == '`' || lclBackslashChar == '\'' || lclBackslashChar == '^' || lclBackslashChar == '"' || lclBackslashChar == '~' || lclBackslashChar == '=') {
-													lclCommand = lclCommandSB.toString();
-													lclArgs = Arrays.asList(String.valueOf(argS.charAt(lclJ + 1)));
-													lclI += 2;
-													break;
-												} else if (lclBackslashChar == 'O' || lclBackslashChar == 'o') {
-													lclCommand = lclCommandSB.toString();
-													lclArgs = Collections.emptyList();
-													if (lclNextBackslashChar == ' ') {
-														lclI += 2;
-													} else if (lclNextBackslashChar == '{') {
-														lclI += 3;
+													lclCommandSB.append(lclBackslashChar);
+													if (lclCommandSB.length() <= 2) {
+														if (lclBackslashChar == '`' || lclBackslashChar == '\'' || lclBackslashChar == '^' || lclBackslashChar == '"' || lclBackslashChar == '~' || lclBackslashChar == '=') {
+															lclCommand = lclCommandSB.toString();
+															lclArgs = Arrays.asList(String.valueOf(argS.charAt(lclJ + 1)));
+															lclI += 2;
+															break;
+														} else if (lclBackslashChar == 'O' || lclBackslashChar == 'o') {
+															lclCommand = lclCommandSB.toString();
+															lclArgs = Collections.emptyList();
+															if (lclNextBackslashChar == ' ') {
+																lclI += 2;
+															} else if (lclNextBackslashChar == '{') {
+																lclI += 3;
+															}
+															break;
+														}
 													}
-													break;
 												}
 											}
 										}
-									}
-								}
-								
-								BACKSLASH_COMMAND_POSSIBILITIES:
-								switch (lclCommand) {
-									case "\\&": // ampersand
-										Validate.isTrue(lclArgs.isEmpty());
-										lclSB.append("&amp;");
-										++lclI;
-										break;
-									case "\\`": // grave accent
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append('&').append(lclArgs.get(0)).append("grave;");
-										break;
-									case "\\'": // acute accent
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append('&').append(lclArgs.get(0)).append("acute;");
-										break;
-									case "\\^": // circumflex
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append('&').append(lclArgs.get(0)).append("circ;");
-										break;
-									case "\\\"": // umlaut
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append('&').append(lclArgs.get(0)).append("uml;");
-										break;
-									case "\\H": // double acute accent
-										Validate.isTrue(lclArgs.size() == 1);
-										switch (lclArgs.get(0)) {
-											case "O": lclSB.append("&#336;"); break;
-											case "o": lclSB.append("&#337;"); break;
-											case "U": lclSB.append("&#368;"); break;
-											case "u": lclSB.append("&#369;"); break;
-											case "Y": lclSB.append("&#1266;"); break;
-											case "y": lclSB.append("&#1267;"); break;
-											default: throw new LatexToHTMLConversionException("We don't know how to put a double acute accent on '" + lclArgs.get(0) + '\'');
+										
+										BACKSLASH_COMMAND_POSSIBILITIES:
+										switch (lclCommand) {
+											case "\\&": // ampersand
+												Validate.isTrue(lclArgs.isEmpty());
+												lclSB.append("&amp;");
+												++lclI;
+												break;
+											case "\\`": // grave accent
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append('&').append(lclArgs.get(0)).append("grave;");
+												break;
+											case "\\'": // acute accent
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append('&').append(lclArgs.get(0)).append("acute;");
+												break;
+											case "\\^": // circumflex
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append('&').append(lclArgs.get(0)).append("circ;");
+												break;
+											case "\\\"": // umlaut
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append('&').append(lclArgs.get(0)).append("uml;");
+												break;
+											case "\\H": // double acute accent
+												Validate.isTrue(lclArgs.size() == 1);
+												switch (lclArgs.get(0)) {
+													case "O": lclSB.append("&#336;"); break;
+													case "o": lclSB.append("&#337;"); break;
+													case "U": lclSB.append("&#368;"); break;
+													case "u": lclSB.append("&#369;"); break;
+													case "Y": lclSB.append("&#1266;"); break;
+													case "y": lclSB.append("&#1267;"); break;
+													default: throw new LatexToHTMLConversionException("We don't know how to put a double acute accent on '" + lclArgs.get(0) + '\'');
+												}
+												break;
+											case "\\~": // tilde
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append('&').append(lclArgs.get(0)).append("tilde;");
+												break;
+											case "\\c": // cedilla
+												Validate.isTrue(lclArgs.size() == 1);
+												switch (lclArgs.get(0)) {
+													case "C": lclSB.append("&Ccedil;"); break;
+													case "c": lclSB.append("&ccedil;"); break;
+													case "S": lclSB.append("&#536;"); break;
+													case "s": lclSB.append("&#537;"); break;
+													default: throw new LatexToHTMLConversionException("We don't know how to put a cedilla on '" + lclArgs.get(0) + '\'');
+												}
+												break;
+											case "\\l": // stroked L
+												Validate.isTrue(lclArgs.size() == 1);
+												switch (lclArgs.get(0)) {
+													case "L": lclSB.append("&#321;"); break;
+													case "l": lclSB.append("&#322;"); break;
+													default: throw new LatexToHTMLConversionException("We don't know how to put a stroke on '" + lclArgs.get(0) + '\'');
+												}
+												break;
+											case "\\v": // caron/hacek
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append('&').append(lclArgs.get(0)).append("caron;");
+												break;
+											case "\\O": // slash-through
+												Validate.isTrue(lclArgs.isEmpty());
+												lclSB.append("&Oslash;");
+												break;
+											case "\\o": // slash-through
+												Validate.isTrue(lclArgs.isEmpty());
+												lclSB.append("&oslash;");
+												break;
+											case "\\=": // macron
+												Validate.isTrue(lclArgs.size() == 1);
+												switch (lclArgs.get(0)) {
+													case "A" : lclSB.append("&#256;"); break;
+													case "a" : lclSB.append("&#257;"); break;
+													case "E" : lclSB.append("&#274;"); break;
+													case "e" : lclSB.append("&#275;"); break;
+													case "I" : lclSB.append("&#298;"); break;
+													case "i" : lclSB.append("&#299;"); break;
+													case "O" : lclSB.append("&#332;"); break;
+													case "o" : lclSB.append("&#333;"); break;
+													case "U" : lclSB.append("&#362;"); break;
+													case "u" : lclSB.append("&#363;"); break;
+													case "Y" : lclSB.append("&#562;"); break;
+													case "y" : lclSB.append("&#563;"); break;
+													default: throw new LatexToHTMLConversionException("We don't know how to put a macron on '" + lclArgs.get(0) + '\'');
+												}
+												break;
+											case "\\pg":
+												Validate.isTrue(lclArgs.size() == 2, "lclArgs = " + lclArgs);
+												lclSB.append("<span class=\"has-pronunciation-guide\">")
+													.append(latexToHTML(lclArgs.get(0)))
+													.append("</span>&nbsp;<span class=\"pronunciation-guide\">")
+													.append(latexToHTML(lclArgs.get(1)))
+													.append("</span>");
+												break;
+											case "\\textsubscript":
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append("<sub>").append(lclArgs.get(0)).append("</sub>");
+												break;
+											case "\\textsuperscript":
+												Validate.isTrue(lclArgs.size() == 1);
+												lclSB.append("<sup>").append(lclArgs.get(0)).append("</sup>");
+												break;
+											default: throw new LatexToHTMLConversionException("We don't know how to process the command '" + lclCommand + "' / " + lclArgs);
 										}
-										break;
-									case "\\~": // tilde
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append('&').append(lclArgs.get(0)).append("tilde;");
-										break;
-									case "\\c": // cedilla
-										Validate.isTrue(lclArgs.size() == 1);
-										switch (lclArgs.get(0)) {
-											case "C": lclSB.append("&Ccedil;"); break;
-											case "c": lclSB.append("&ccedil;"); break;
-											case "S": lclSB.append("&#536;"); break;
-											case "s": lclSB.append("&#537;"); break;
-											default: throw new LatexToHTMLConversionException("We don't know how to put a cedilla on '" + lclArgs.get(0) + '\'');
-										}
-										break;
-									case "\\l": // stroked L
-										Validate.isTrue(lclArgs.size() == 1);
-										switch (lclArgs.get(0)) {
-											case "L": lclSB.append("&#321;"); break;
-											case "l": lclSB.append("&#322;"); break;
-											default: throw new LatexToHTMLConversionException("We don't know how to put a stroke on '" + lclArgs.get(0) + '\'');
-										}
-										break;
-									case "\\v": // caron/hacek
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append('&').append(lclArgs.get(0)).append("caron;");
-										break;
-									case "\\O": // slash-through
-										Validate.isTrue(lclArgs.isEmpty());
-										lclSB.append("&Oslash;");
-										break;
-									case "\\o": // slash-through
-										Validate.isTrue(lclArgs.isEmpty());
-										lclSB.append("&oslash;");
-										break;
-									case "\\=": // macron
-										Validate.isTrue(lclArgs.size() == 1);
-										switch (lclArgs.get(0)) {
-											case "A" : lclSB.append("&#256;"); break;
-											case "a" : lclSB.append("&#257;"); break;
-											case "E" : lclSB.append("&#274;"); break;
-											case "e" : lclSB.append("&#275;"); break;
-											case "I" : lclSB.append("&#298;"); break;
-											case "i" : lclSB.append("&#299;"); break;
-											case "O" : lclSB.append("&#332;"); break;
-											case "o" : lclSB.append("&#333;"); break;
-											case "U" : lclSB.append("&#362;"); break;
-											case "u" : lclSB.append("&#363;"); break;
-											case "Y" : lclSB.append("&#562;"); break;
-											case "y" : lclSB.append("&#563;"); break;
-											default: throw new LatexToHTMLConversionException("We don't know how to put a macron on '" + lclArgs.get(0) + '\'');
-										}
-										break;
-									case "\\pg":
-										Validate.isTrue(lclArgs.size() == 2, "lclArgs = " + lclArgs);
-										lclSB.append("<span class=\"has-pronunciation-guide\">").append(latexToHTML(lclArgs.get(0))).append("</span>&nbsp;<span class=\"pronunciation-guide\">").append(latexToHTML(lclArgs.get(1))).append("</span>");
-										break;
-									case "\\textsubscript":
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append("<sub>").append(lclArgs.get(0)).append("</sub>");
-										break;
-									case "\\textsuperscript":
-										Validate.isTrue(lclArgs.size() == 1);
-										lclSB.append("<sup>").append(lclArgs.get(0)).append("</sup>");
-										break;
-									default: throw new LatexToHTMLConversionException("We don't know how to process the command '" + lclCommand + "' / " + lclArgs);
-								}
-						}
-						
-						break;
-					
-					case '$': // FIXME: This will break if the math portion contains \$
-						if (lclInMath) {
-							// It's the end.
-						} else {
-							String lclMath = argS.substring(lclI+1, argS.indexOf("$", lclI+1));
-							String lclEncodedLatex;
-							if (!CACHED_MATH_RENDERS.containsKey(lclMath)) {
-								TeXFormula lclFormula = new TeXFormula(lclMath);
-								TeXIcon lclIcon = lclFormula.createTeXIcon(TeXConstants.STYLE_DISPLAY, 18);
-								BufferedImage lclImage = new BufferedImage(lclIcon.getIconWidth(), lclIcon.getIconHeight(), BufferedImage.TYPE_4BYTE_ABGR);
-								
-								// Trim the image
-								int lclFirstNonWhiteX = 0;
-								int lclFirstNonWhiteY = 0;
-								Y_COORDS_FWD:
-								for (int lclY = 0; lclY < lclImage.getHeight(); ++lclY) {
-									X_COORDS_FWD:
-									for (int lclX = 0; lclX < lclImage.getWidth(); ++lclX) {
-										Color lclPixelColor = new Color(lclImage.getRGB(lclX, lclY));
-										if (!lclPixelColor.equals(Color.WHITE)) {
-											lclFirstNonWhiteX = lclX;
-											lclFirstNonWhiteY = lclY;
-											break Y_COORDS_FWD;
-										}
-									}
-								}
-								
-								int lclLastNonWhiteX = lclImage.getWidth() - 1;
-								int lclLastNonWhiteY = lclImage.getHeight() - 1;
-								Y_COORDS_BWD:
-								for (int lclY = lclImage.getHeight() - 1; lclY >= 0; --lclY) {
-									X_COORDS_BWD:
-									for (int lclX = lclImage.getWidth() - 1; lclX >= 0; --lclX) {
-										Color lclPixelColor = new Color(lclImage.getRGB(lclX, lclY));
-										if (!lclPixelColor.equals(Color.WHITE)) {
-											lclLastNonWhiteX = lclX;
-											lclLastNonWhiteY = lclY;
-											break Y_COORDS_BWD;
-										}
-									}
-								}
-								
-								lclImage = lclImage.getSubimage(lclFirstNonWhiteX, lclFirstNonWhiteY, lclLastNonWhiteX - lclFirstNonWhiteX, lclLastNonWhiteY - lclFirstNonWhiteY);
-								
-								lclIcon.paintIcon(null, lclImage.getGraphics(), 0, 0);
-								try {
-									ByteArrayOutputStream lclMathOut = new ByteArrayOutputStream();
-									ImageIO.write(lclImage, "png", lclMathOut);
-									lclEncodedLatex = DatatypeConverter.printBase64Binary(lclMathOut.toByteArray());
-									CACHED_MATH_RENDERS.put(lclMath, lclEncodedLatex);
-								} catch (IOException lclIOE) {
-									ourLogger.error("Could not write math image", lclIOE);
-									lclSB.append(lclMath);
 								}
 							}
 							
-							lclSB.append("<img class=\"math\" src=\"data:image/png;base64,").append(CACHED_MATH_RENDERS.get(lclMath)).append("\" alt=\"").append(lclMath).append("\" />");
-							
-							lclI += lclMath.length();
-						}
-						lclInMath = !lclInMath;
-						break;
-					
-					case '`':
-						lclSB.append('\''); // and the website will convert it into &#8216;
-						break;
-					case '-':
-						if (lclNext == '-') {
-							if (lclTwoNext == '-') { // ---
-								lclSB.append("&mdash;");
-								lclI += 2;
-								break;
-							} else { // just --
-								lclSB.append("&ndash;");
-								lclI++;
-								break;
-							}
-						} else {
-							lclSB.append(lclC);
 							break;
-						}
-					
-					case '~':
-						if (lclInItalics) {
-							lclSB.append("</i>");
-						} else {
-							lclSB.append("<i>");
-						}
-						lclInItalics = !lclInItalics;
-						break;
-					
-					case '_':
-						if (lclInUnderlining) {
-							lclSB.append("</u>");
-						} else {
-							lclSB.append("<u>");
-						}
-						lclInUnderlining = !lclInUnderlining;
-						break;
-					
-					case '*':
-						lclSB.append("&middot;");
-						break;
-					
-					case '&':
-						lclSB.append("&amp;");
-						break;
-					
-					default:
-						lclSB.append(lclC);
+						
+						case '$':
+							Validate.isTrue(lclInMath == false);
+							lclSB.append("\\(");
+							lclInMath = true;
+							break;
+						case '`':
+							lclSB.append('\''); // and the website will convert it into &#8216;
+							break;
+						case '-':
+							if (lclNext == '-') {
+								if (lclTwoNext == '-') { // ---
+									lclSB.append("&mdash;");
+									lclI += 2;
+									break;
+								} else { // just --
+									lclSB.append("&ndash;");
+									lclI++;
+									break;
+								}
+							} else {
+								lclSB.append(lclC);
+								break;
+							}
+						
+						case '~':
+							if (lclInItalics) {
+								lclSB.append("</i>");
+							} else {
+								lclSB.append("<i>");
+							}
+							lclInItalics = !lclInItalics;
+							break;
+						
+						case '_':
+							if (lclInUnderlining) {
+								lclSB.append("</u>");
+							} else {
+								lclSB.append("<u>");
+							}
+							lclInUnderlining = !lclInUnderlining;
+							break;
+						
+						case '*':
+							lclSB.append("&middot;");
+							break;
+						
+						case '&':
+							lclSB.append("&amp;");
+							break;
+						
+						default:
+							lclSB.append(lclC);
+					}
 				}
 			}
 			
