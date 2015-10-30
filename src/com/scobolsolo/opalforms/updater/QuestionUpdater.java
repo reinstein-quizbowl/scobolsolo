@@ -105,7 +105,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 			!Objects.equals(myInitialAnswer, lclQ.getAnswer()) ||
 			!Objects.equals(myInitialNote, lclQ.getNote()) ||
 			lclRemark != null ||
-			0 == 1; // final irrelevant line so that all the above ones can end with || and I don't have to muck around with the last one being different
+			false; // final irrelevant line so that all the above ones can end with || and I don't have to muck around with the last one being different
 		
 		if (lclChange) {
 			int lclRevisionNumber = lclQ.getNextRevisionNumber();
@@ -122,6 +122,8 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 				.setRemark(lclRemark)
 				.setEditDistance(StringUtils.getLevenshteinDistance(ObjectUtils.firstNonNull(myInitialText, ""), lclQ.getText()))
 				.setTimestamp(LocalDateTime.now());
+			
+			lclQ.recache();
 		}
 	}
 	

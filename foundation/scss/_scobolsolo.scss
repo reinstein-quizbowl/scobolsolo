@@ -146,11 +146,8 @@ a.subtle-highlight {
 	border-bottom: 1px dotted $primary-color;
 }
 
-.has-pronunciation-guide {
-	color: $steel;
-}
-
-.pronunciation-guide {
+.has-pronunciation-guide, .pronunciation-guide {
+	font-family: 'STIXGeneral', $font-family-serif;
 	color: $steel;
 }
 
@@ -166,13 +163,21 @@ img.math {
 	vertical-align: text-bottom;
 }
 
-.question-answer, .question-text {
+.question-text, .question-answer, .question-note {
 	font-size: 1.25rem;
 	font-family: 'STIXGeneral', $font-family-serif
 }
 
+.question-text.small, .question-answer.small, .question-note.small {
+	font-size: 1rem;
+}
+
 .question-answer::before {
 	content: "answer: ";
+}
+
+.question-note::before {
+	content: "Note: ";
 }
 
 // STIX loading

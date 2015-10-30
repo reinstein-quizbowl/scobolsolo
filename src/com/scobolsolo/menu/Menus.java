@@ -64,7 +64,8 @@ public final class Menus {
 			"questions",
 			"Questions",
 			Arrays.asList(
-				new MenuPage("all", "All", "/questions/"),
+				new MenuPage("all", "Summary of All", "/questions/"),
+				new MenuPage("render-all", "Render All", "/questions/render-all.jsp"),
 				new MenuPage("write", "Write", "/questions/question-edit.jsp"),
 				new MenuPage("progress", "Progress", "/questions/progress.jsp"),
 				new MenuPage("style-guide", "Style Guide", "/questions/style-guide.jsp"),

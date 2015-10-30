@@ -50,7 +50,7 @@ public interface Question extends QuestionUserFacing {
 						return latexToHTML(argQ.getText());
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
-						return "Couldn't convert: <code>" + lclE.getMessage() + "</code>";
+						return "Couldn't convert: " + lclE.getMessage();
 					}
 				}
 			}
@@ -64,7 +64,7 @@ public interface Question extends QuestionUserFacing {
 						return latexToHTML(argQ.getAnswer());
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
-						return "Couldn't convert: <code>" + lclE.getMessage() + "</code>";
+						return "Couldn't convert: " + lclE.getMessage();
 					}
 				}
 			}
@@ -118,6 +118,11 @@ public interface Question extends QuestionUserFacing {
 		return ourCachedAnswerHTML.getUnchecked(this);
 	}
 	
+	default void recache() {
+		ourCachedTextHTML.refresh(this);
+		ourCachedAnswerHTML.refresh(this);
+	}
+	
 	public static String latexToHTML(String argS) {
 		if (StringUtils.isBlank(argS)) {
 			return "&nbsp;";
@@ -142,7 +147,7 @@ public interface Question extends QuestionUserFacing {
 						if (lclPrev == '\\') {
 							lclSB.append("\\$");
 						} else {
-							lclSB.append("\\)");
+							lclSB.append("\\)</span>");
 							lclInMath = false;
 						}
 					} else {
@@ -166,6 +171,11 @@ public interface Question extends QuestionUserFacing {
 										break;
 									case '\\':
 										lclSB.append("<br />");
+										++lclI;
+										break;
+									case ',':
+									case ';': // \, and \; are thin spaces that for HTML purposes we'll treat as equivalent
+										lclSB.append("&thinsp;");
 										++lclI;
 										break;
 									default:
@@ -355,7 +365,7 @@ public interface Question extends QuestionUserFacing {
 						
 						case '$':
 							Validate.isTrue(lclInMath == false);
-							lclSB.append("\\(");
+							lclSB.append("<span class=\"latex\">\\(");
 							lclInMath = true;
 							break;
 						case '`':
@@ -407,6 +417,19 @@ public interface Question extends QuestionUserFacing {
 							lclSB.append(lclC);
 					}
 				}
+			}
+			
+			if (lclInItalics) {
+				throw new LatexToHTMLConversionException("Italics are not closed");
+			}
+			if (lclInUnderlining) {
+				throw new LatexToHTMLConversionException("Underlining is not closed");
+			}
+			if (lclInMath) {
+				throw new LatexToHTMLConversionException("Math is not closed");
+			}
+			if (lclInAlternateAnswerDirectives) {
+				throw new LatexToHTMLConversionException("Alternate answer directives are not closed");
 			}
 			
 			return lclSB.toString();
