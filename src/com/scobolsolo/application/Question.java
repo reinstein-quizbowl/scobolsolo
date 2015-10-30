@@ -132,7 +132,7 @@ public interface Question extends QuestionUserFacing {
 			boolean lclInItalics = false;
 			boolean lclInUnderlining = false;
 			boolean lclInMath = false;
-			boolean lclInAlternateAnswerDirectives = false;
+			int lclBracketNesting = 0;
 			ENTIRE_STRING:
 			for (int lclI = 0; lclI < argS.length(); ++lclI) {
 				char lclC = argS.charAt(lclI);
@@ -363,6 +363,14 @@ public interface Question extends QuestionUserFacing {
 							
 							break;
 						
+						case '[':
+							++lclBracketNesting;
+							lclSB.append('[');
+							break;
+						case ']':
+							--lclBracketNesting;
+							lclSB.append(']');
+							break;
 						case '$':
 							Validate.isTrue(lclInMath == false);
 							lclSB.append("<span class=\"latex\">\\(");
@@ -428,8 +436,8 @@ public interface Question extends QuestionUserFacing {
 			if (lclInMath) {
 				throw new LatexToHTMLConversionException("Math is not closed");
 			}
-			if (lclInAlternateAnswerDirectives) {
-				throw new LatexToHTMLConversionException("Alternate answer directives are not closed");
+			if (lclBracketNesting > 0) {
+				throw new LatexToHTMLConversionException("Square brackets are not nested correctly");
 			}
 			
 			return lclSB.toString();

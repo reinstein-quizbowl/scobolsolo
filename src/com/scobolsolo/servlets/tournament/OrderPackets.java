@@ -34,7 +34,7 @@ import com.scobolsolo.application.Tournament;
 import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 
 public class OrderPackets extends ScobolSoloControllerServlet {
-	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(OrderPackets.class);
+	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(OrderPackets.class);
 	private static final long serialVersionUID = 1L;
 	private static final Random ourRandom = new Random(System.currentTimeMillis());
 	
@@ -81,7 +81,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		
 		boolean lclNoRepeatedNumbers = areThereNoRepeatedNumbers(Arrays.asList(lclP.createPlacementArray()));
 		if (!lclNoRepeatedNumbers) {
-			ourLogger.debug(lclP.getName() + " has a repeated number");
+			// ourLogger.debug(lclP.getName() + " has a repeated number");
 			return false;
 		}
 		
@@ -94,13 +94,13 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		
 		boolean lclHalvesSplit = isHalfSplittingValid(lclFirstHalf, lclSecondHalf);
 		if (!lclHalvesSplit) {
-			ourLogger.debug(lclP.getName() + " halves are not validly split");
+			// ourLogger.debug(lclP.getName() + " halves are not validly split");
 			return false;
 		}
 		
 		boolean lclNoCategoryGroupRepeatedTooSoon = areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
 		if (!lclNoCategoryGroupRepeatedTooSoon) {
-			ourLogger.debug(lclP.getName() + " has category groups repeated too closely");
+			// ourLogger.debug(lclP.getName() + " has category groups repeated too closely");
 			return false;
 		}
 		
@@ -124,9 +124,9 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		
 		for (CategoryGroup lclCG : CategoryGroupFactory.getInstance().createAllArray()) {
 			if (Math.abs(lclFirstHalfCategoryGroups.get(lclCG) - lclSecondHalfCategoryGroups.get(lclCG)) > 1) {
-				ourLogger.debug("Halves not validly split for " + lclCG.getCode());
-				ourLogger.debug("First half: " + lclFirstHalfCategoryGroups);
-				ourLogger.debug("Second half: " + lclSecondHalfCategoryGroups);
+				// ourLogger.debug("Halves not validly split for " + lclCG.getCode());
+				// ourLogger.debug("First half: " + lclFirstHalfCategoryGroups);
+				// ourLogger.debug("Second half: " + lclSecondHalfCategoryGroups);
 				return false;
 			}
 		}
