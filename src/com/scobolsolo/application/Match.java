@@ -1,6 +1,8 @@
 package com.scobolsolo.application;
 
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 
@@ -70,8 +72,11 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 	}
 	
 	default Staff determineLikelyModerator() {
-		if (getRoom().getStaffAssignmentCount() == 1) {
-			return getRoom().createStaffAssignmentIterator().next().getStaff();
+		List<StaffAssignment> lclModerators = getRoom().streamStaffAssignment()
+			.filter(argSA -> argSA.getRole() == StaffRoleFactory.MODERATOR())
+			.collect(Collectors.toList());
+		if (lclModerators.size() == 1) {
+			return lclModerators.iterator().next().getStaff();
 		} else {
 			return null;
 		}

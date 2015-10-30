@@ -5,12 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.scobolsolo.application.Match;
 import com.scobolsolo.application.Packet;
 import com.scobolsolo.application.Phase;
 import com.scobolsolo.application.Placement;
 import com.scobolsolo.application.Room;
 import com.scobolsolo.application.Round;
+import com.scobolsolo.application.Staff;
 
 public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 	private final boolean myAllRooms;
@@ -47,13 +50,22 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 				getWriter().println("\\begin{center}");
 				getWriter().println("\\TournamentTitle{" + escape(getTournament().getName()) + "}");
 				getWriter().println();
-				getWriter().println("Round: " + escape(lclRound.getShortName()));
-				getWriter().println("\\qquad\\qquad");
-				getWriter().println("Room: " + escape(lclRoom.getShortName()));
-				getWriter().println("\\qquad\\qquad");
-				if (lclRound.getRoundGroup().getPhase().isCardSystem()) {
-					getWriter().println("Cards: " + escape(lclM.getWinningCard().getShortName()) + " \\textit{\\&} " + escape(lclM.getLosingCard().getShortName()));
+				
+				List<String> lclSubheadChunks = new ArrayList<>(4);
+				lclSubheadChunks.add("Round: " + escape(lclRound.getShortName()));
+				lclSubheadChunks.add("Room: " + escape(lclRoom.getShortName()));
+				
+				Staff lclLikelyModerator = lclM.determineLikelyModerator();
+				if (lclLikelyModerator != null) {
+					lclSubheadChunks.add("Moderator: " + escape(lclLikelyModerator.getName()));
 				}
+				
+				if (lclRound.getRoundGroup().getPhase().isCardSystem()) {
+					lclSubheadChunks.add("Cards: " + escape(lclM.getWinningCard().getShortName()) + " \\textit{\\&} " + escape(lclM.getLosingCard().getShortName()));
+				}
+				
+				getWriter().println(StringUtils.join(lclSubheadChunks, "\\qquad\\qquad "));
+				
 				getWriter().println();
 				getWriter().println("\\textit{If a replacement question is used, clearly indicate what question was replaced.} \\\\");
 				getWriter().println();
