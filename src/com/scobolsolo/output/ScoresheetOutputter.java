@@ -100,7 +100,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 						getWriter().println("\\hline");
 						
 						if (lclPL.isScorecheckAfter()) {
-							getWriter().println("\\vstrut & & & & \\textsc{score check} & & & & \\tabularnewline");
+							getWriter().println("\\multicolumn{4}{|c|}{ } & \\vstrut \\textsc{score check} & \\multicolumn{4}{|c|}{ } \\tabularnewline");
 							getWriter().println("\\hline");
 						}
 					}
