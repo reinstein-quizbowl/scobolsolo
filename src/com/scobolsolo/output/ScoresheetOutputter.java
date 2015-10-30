@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
 
 import com.scobolsolo.application.Match;
 import com.scobolsolo.application.Packet;
@@ -18,6 +19,9 @@ import com.scobolsolo.application.Staff;
 public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 	private final boolean myAllRooms;
 	
+	private static final String THIN_LINE_WIDTH = "1pt";
+	private static final String THICK_LINE_WIDTH = "1.5pt";
+	
 	public ScoresheetOutputter(final File argOutputFile, final Phase argP, final boolean argAllRooms) {
 		super(argOutputFile, argP);
 		
@@ -27,8 +31,8 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 	@Override
 	public void outputInternal() {
 		getWriter().println("\\documentclass[11pt]{scobolsolo}");
-		getWriter().println("\\usepackage[top=.5in, bottom=.5in, left=.5in, right=.5in]{geometry}");
-		getWriter().println("\\newcommand{\\vstrut}{\\rule{0pt}{0.25in}}");
+		getWriter().println("\\usepackage[top=.4in, bottom=.4in, left=.4in, right=.4in]{geometry}");
+		getWriter().println("\\newcommand{\\vstrut}{\\rule{0pt}{0.23in}}");
 		getWriter().println("\\setlength{\\tabcolsep}{1pt}");
 		getWriter().println();
 		getWriter().println("\\begin{document}");
@@ -70,44 +74,53 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 				getWriter().println("\\textit{If a replacement question is used, clearly indicate what question was replaced.} \\\\");
 				getWriter().println();
 				
-				getWriter().println("\\begin{tabular}{|C{0.60in}|C{0.60in}|C{0.60in}|C{0.60in}|C{1.5in}|C{0.60in}|C{0.60in}|C{0.60in}|C{0.60in}|}");
-				getWriter().println("\\hline");
-				getWriter().println("\\multicolumn{4}{|c|}{ } & \\vstrut \\textbf{Name} & \\multicolumn{4}{c|}{ } \\tabularnewline");
-				getWriter().println("\\hline");
-				getWriter().println("\\multicolumn{4}{|c|}{ } & \\vstrut \\textbf{School} & \\multicolumn{4}{c|}{ } \\tabularnewline");
-				getWriter().println("\\hline");
+				getWriter().println("\\begin{tabular}{" + thickVerticalLine() + "C{0.60in}|C{0.60in}|C{0.60in}|C{0.60in}|C{1.5in}|C{0.60in}|C{0.60in}|C{0.60in}|C{0.60in}" + thickVerticalLine() + "}");
+				thickHorizontalLine();
+				getWriter().println("\\multicolumn{4}{" + thickVerticalLine() + "c|}{ } & \\vstrut \\textbf{Name} & \\multicolumn{4}{c" + thickVerticalLine() + "}{ } \\tabularnewline");
+				thinHorizontalLine();
+				getWriter().println("\\multicolumn{4}{" + thickVerticalLine() + "c|}{ } & \\vstrut \\textbf{School} & \\multicolumn{4}{c" + thickVerticalLine() + "}{ } \\tabularnewline");
+				thickHorizontalLine();
 				getWriter().println("\\small Correct & \\small Interrupt & \\small Incorrect & \\small No Try & \\# & \\small Correct & \\small Interrupt & \\small Incorrect & \\small No Try \\tabularnewline");
-				getWriter().println("\\hline");
+				thickHorizontalLine();
 				
 				final Packet lclPacket = lclRound.getPacket();
 				boolean lclJustDidTiebreaker = false;
 				
+				final List<Placement> lclPLs = lclPacket.getAllPlacements();
 				Placements:
-				for (final Placement lclPL : lclPacket.getAllPlacements()) {
+				for (int lclI = 0; lclI < lclPLs.size(); ++lclI) {
+					final Placement lclPL = lclPLs.get(lclI);
+					final Placement lclPrev = lclI == 0 ? null : lclPLs.get(lclI-1);
+					final Placement lclNext = lclI == lclPLs.size() - 1 ? null : lclPLs.get(lclI+1);
+					
 					if (lclPL.isTiebreaker()) {
 						if (getTournament().isTiebreakerSuddenDeath() && lclJustDidTiebreaker) {
 							continue Placements;
 						}
 						
 						getWriter().println("\\vstrut & & & & \\textsc{(tiebreaker)} & & & & \\tabularnewline");
-						getWriter().println("\\hline");
+						thickHorizontalLine();
 						lclJustDidTiebreaker = true;
 					} else {
 						lclJustDidTiebreaker = false;
 						
 						getWriter().println("\\vstrut & & & & \\textbf{" + lclPL.getNumberString() + "} & & & & \\tabularnewline");
 						
-						getWriter().println("\\hline");
+						if (lclPL.isScorecheckAfter() || lclNext == null || lclNext.isTiebreaker()) {
+							thickHorizontalLine();
+						} else {
+							thinHorizontalLine();
+						}
 						
 						if (lclPL.isScorecheckAfter()) {
-							getWriter().println("\\multicolumn{4}{|c|}{ } & \\vstrut \\textsc{score check} & \\multicolumn{4}{|c|}{ } \\tabularnewline");
-							getWriter().println("\\hline");
+							getWriter().println("\\multicolumn{4}{" + thickVerticalLine() + "c|}{ } & \\textsc{score check} & \\multicolumn{3}{c}{ } & \\vstrut \\tabularnewline");
+							thickHorizontalLine();
 						}
 					}
 				}
 				
-				getWriter().println("\\multicolumn{4}{|c|}{ } & \\vstrut \\textbf{TOTAL} & \\multicolumn{4}{|c|}{ } \\tabularnewline");
-				getWriter().println("\\hline");
+				getWriter().println("\\multicolumn{4}{" + thickVerticalLine() + "c|}{ } & \\textbf{TOTAL} & \\multicolumn{3}{c}{ } & \\vstrut \\tabularnewline");
+				thickHorizontalLine();
 				
 				getWriter().println("\\end{tabular}");
 				getWriter().println("\\end{center}");
@@ -121,5 +134,27 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 	
 	public boolean isAllRooms() {
 		return myAllRooms;
+	}
+	
+	private String verticalLine(String argWidth) {
+		Validate.notNull(argWidth);
+		return "!{\\vrule width " + argWidth + "}";
+	}
+	
+	private String thickVerticalLine() {
+		return verticalLine(THICK_LINE_WIDTH);
+	}
+	
+	private void horizontalLine(String argWidth) {
+		Validate.notNull(argWidth);
+		getWriter().println("\\Xhline{" + argWidth + "}");
+	}
+	
+	private void thinHorizontalLine() {
+		horizontalLine(THIN_LINE_WIDTH);
+	}
+	
+	private void thickHorizontalLine() {
+		horizontalLine(THICK_LINE_WIDTH);
 	}
 }

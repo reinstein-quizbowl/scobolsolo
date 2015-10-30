@@ -20,6 +20,7 @@
 \RequirePackage{lmodern}
 \RequirePackage{fixltx2e}
 \RequirePackage{longtable}
+\RequirePackage{makecell}
 \RequirePackage{multicol}
 \RequirePackage{paralist}
 \RequirePackage{enumitem}
