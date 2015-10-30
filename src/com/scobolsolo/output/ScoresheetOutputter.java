@@ -106,7 +106,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 					}
 				}
 				
-				getWriter().println("\\vstrut & & & & \\textbf{TOTAL} & & & & \\tabularnewline");
+				getWriter().println("\\multicolumn{4}{|c|}{ } & \\vstrut \\textbf{TOTAL} & \\multicolumn{4}{|c|}{ } \\tabularnewline");
 				getWriter().println("\\hline");
 				
 				getWriter().println("\\end{tabular}");
