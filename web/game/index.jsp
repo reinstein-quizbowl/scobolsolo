@@ -63,7 +63,7 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 			if (lclHalfReady.size() == 1) {
 				Match lclM = lclHalfReady.iterator().next();
 				%><h2>Half-Ready for Entry</h2>
-				<p>You might want to <a href="sides.jsp?match_id=<%= lclM.getId() %>">enter the <%= lclM.getRound().getName() %> game featuring <%= lclM.getGame().getSingleKnownPlayer().getNameWithSchoolShortName() %> and a player to be named later.</p><%
+				<p>You might want to <a href="sides.jsp?match_id=<%= lclM.getId() %>">enter the <%= lclM.getRound().getName() %> game featuring <%= lclM.getGame().getSingleKnownPlayer().getNameWithSchoolShortName() %> and a player to be named later</a>.</p><%
 			} else if (lclHalfReady.size() > 1) {
 				%><h2>Half-Ready for Entry</h2>
 				<p>You might want to enter one of these matches:</p>
@@ -78,7 +78,7 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 			if (lclNotReady.size() == 1) {
 				Match lclM = lclNotReady.iterator().next();
 				%><h2>Later</h2>
-				<p>Eventually you'll have <a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %>.</p><%
+				<p>Eventually you'll have <a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a>.</p><%
 			} else if (lclNotReady.size() > 1) {
 				%><h2>Later</h2>
 				<p>These matches are coming up in your <%= lclS.getStaffAssignmentCount() > 1 ? "rooms" : "room" %>:</p>
@@ -101,7 +101,7 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 				<ul><%
 					for (Match lclM : lclAlreadyEntered) {
 						Game lclG = lclM.getGame();
-						%><li><a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game in which <%= lclG.getOutgoingWinningCardPlayer().getNameWithSchoolShortName() %> defeated <%= lclG.getOutgoingLosingCardPlayer().getNameWithSchoolShortName() %>, <%= lclG.getScoreHTML() %></li><%
+						%><li><a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game in which <%= lclG.getOutgoingWinningCardPlayer().getNameWithSchoolShortName() %> defeated <%= lclG.getOutgoingLosingCardPlayer().getNameWithSchoolShortName() %>, <%= lclG.getScoreHTML() %></a></li><%
 					}
 				%></ul><%
 			}
