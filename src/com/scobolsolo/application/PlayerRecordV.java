@@ -15,7 +15,7 @@ import com.scobolsolo.persistence.PlayerRecordVUserFacing;
  */
 
 public interface PlayerRecordV extends PlayerRecordVUserFacing {
-	public static final Comparator<PlayerRecordV> RECORD_THEN_PPTUH_COMPARATOR = Comparator.comparingDouble(PlayerRecordV::getWinningPercentage).thenComparingDouble(PlayerRecordV::getPPTUH);
+	public static final Comparator<PlayerRecordV> RECORD_THEN_PPTUH_COMPARATOR = Comparator.comparingDouble(PlayerRecordV::getWinningPercentage).thenComparingDouble(PlayerRecordV::getPPTUH).reversed();
 	
 	default double getWinningPercentage() {
 		final int lclW = (int) getWinCount(0);
