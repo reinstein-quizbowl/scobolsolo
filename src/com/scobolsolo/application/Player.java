@@ -18,7 +18,7 @@ import com.scobolsolo.persistence.PlayerUserFacing;
 public interface Player extends PlayerUserFacing, Comparable<Player> {
 	@Override
 	default public int compareTo(Player that) {
-		return this.getNameWithSchool().compareTo(that.getNameWithSchool());
+		return Comparator.<Player, String>comparing(argP -> argP.getSchoolRegistration().getSchool().getName()).thenComparing(argP -> argP.getContact().getSortBy()).compare(this, that);
 	}
 	
 	default Performance findPerformance(Game argG) {
