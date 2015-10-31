@@ -1,4 +1,6 @@
-﻿<%@ page import="com.scobolsolo.application.TournamentFactory" %>
+﻿<meta http-equiv="refresh" content="0; url=/stats/field.jsp?object=2015">
+
+<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">

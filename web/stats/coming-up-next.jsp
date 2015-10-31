@@ -43,7 +43,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 						"FROM Upcoming_Match_v UMV " +
 						"	JOIN Round R ON UMV.round_id = R.id " +
 						"	JOIN Round_Group RG ON R.round_group_id = RG.id " +
-						"WHERE RG.tournament_code = ?",
+						"	JOIN Phase P ON RG.phase_id = P.id " +
+						"WHERE P.tournament_code = ?",
 						lclT.getCode()
 					)
 				);
