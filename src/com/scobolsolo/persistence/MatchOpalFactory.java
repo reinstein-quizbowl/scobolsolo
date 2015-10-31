@@ -9,6 +9,5 @@ public interface MatchOpalFactory extends com.opal.OpalFactory<Match, MatchOpal>
 	public java.util.HashSet<MatchOpal> forWinningCardIdCollection(java.lang.Integer argWinningCardId) throws com.opal.PersistenceException;
 	public MatchOpal forId(java.lang.Integer argId) throws PersistenceException;
 	public MatchOpal forRoundIdLosingCardId(java.lang.Integer argRoundId, java.lang.Integer argLosingCardId) throws PersistenceException;
-	public MatchOpal forRoundIdRoomId(java.lang.Integer argRoundId, java.lang.Integer argRoomId) throws PersistenceException;
 	public MatchOpal forRoundIdWinningCardId(java.lang.Integer argRoundId, java.lang.Integer argWinningCardId) throws PersistenceException;
 }

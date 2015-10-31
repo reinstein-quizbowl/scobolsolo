@@ -246,7 +246,6 @@ CREATE TABLE Match (
 	room_id INTEGER NOT NULL REFERENCES Room ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies the tournament; it would be nice to check against contradictions
 	winning_card_id INTEGER NOT NULL REFERENCES Card ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies the tournament; it would be nice to check against contradictions
 	losing_card_id INTEGER NOT NULL REFERENCES Card ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies the tournament; it would be nice to check against contradictions
-	UNIQUE(round_id, room_id),
 	UNIQUE(round_id, winning_card_id),
 	UNIQUE(round_id, losing_card_id)
 );

@@ -121,10 +121,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	}
 	
 	public static void recordResult(Game argGame) {
-		return;
-	}
-	
-	public static void doNotUse(Game argGame) {
+		Validate.notNull(argGame);
 		final Match lclMatch = argGame.getMatch();
 		
 		final Performance lclWinnerPerf = argGame.determineWinner();
@@ -134,40 +131,45 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		final Match lclNextMatchForLoser = lclMatch.getNextForLoser();
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
+			argGame.setTossupsHeard(argGame.calculateTossupsHeard());
 			argGame.setOutgoingWinningCardPlayer(lclWinnerPerf.getPlayer());
 			argGame.setOutgoingLosingCardPlayer(lclLoserPerf.getPlayer());
 			
-			Game lclNextGameForWinner = lclNextMatchForWinner.getGame();
-			if (lclNextGameForWinner == null) {
-				lclNextGameForWinner = GameFactory.getInstance().create().setMatch(lclNextMatchForWinner);
-			}
-			
-			Game lclNextGameForLoser = lclNextMatchForLoser.getGame();
-			if (lclNextGameForLoser == null) {
-				lclNextGameForLoser = GameFactory.getInstance().create().setMatch(lclNextMatchForLoser);
-			}
-			
-			if (lclNextMatchForWinner != null) {
+			/* if (lclNextMatchForWinner != null) {
+				Game lclNextGameForWinner = lclNextMatchForWinner.getGame();
+				if (lclNextGameForWinner == null) {
+					lclNextGameForWinner = GameFactory.getInstance().create().setMatch(lclNextMatchForWinner);
+				}
 				Validate.notNull(lclNextGameForWinner);
+				
 				if (lclNextMatchForWinner.getWinningCard() == lclMatch.getWinningCard()) {
-					lclNextGameForWinner.setIncomingWinningCardPlayer(argGame.getIncomingWinningCardPlayer());
+					Validate.isTrue(lclNextGameForWinner.getIncomingWinningCardPlayer() == null || lclNextGameForWinner.getIncomingWinningCardPlayer() == lclWinnerPerf.getPlayer());
+					lclNextGameForWinner.setIncomingWinningCardPlayer(lclWinnerPerf.getPlayer());
 				} else if (lclNextMatchForWinner.getLosingCard() == lclMatch.getWinningCard()) {
-					lclNextGameForWinner.setIncomingLosingCardPlayer(argGame.getIncomingWinningCardPlayer());
+					Validate.isTrue(lclNextGameForWinner.getIncomingLosingCardPlayer() == null || lclNextGameForWinner.getIncomingLosingCardPlayer() == lclWinnerPerf.getPlayer());
+					lclNextGameForWinner.setIncomingLosingCardPlayer(lclWinnerPerf.getPlayer());
 				} else {
 					throw new IllegalStateException("lclNextMatchForWinner isn't actually the next match for the winner");
 				}
 			}
 			
 			if (lclNextMatchForLoser != null) {
+				Game lclNextGameForLoser = lclNextMatchForLoser.getGame();
+				if (lclNextGameForLoser == null) {
+					lclNextGameForLoser = GameFactory.getInstance().create().setMatch(lclNextMatchForLoser);
+				}
 				Validate.notNull(lclNextGameForLoser);
+				
 				if (lclNextMatchForLoser.getWinningCard() == lclMatch.getLosingCard()) {
-					lclNextGameForLoser.setIncomingWinningCardPlayer(argGame.getIncomingLosingCardPlayer());
+					Validate.isTrue(lclNextGameForLoser.getIncomingWinningCardPlayer() == null || lclNextGameForLoser.getIncomingWinningCardPlayer() == lclLoserPerf.getPlayer());
+					lclNextGameForLoser.setIncomingWinningCardPlayer(lclLoserPerf.getPlayer());
 				} else if (lclNextMatchForLoser.getLosingCard() == lclMatch.getLosingCard()) {
-					lclNextGameForLoser.setIncomingLosingCardPlayer(argGame.getIncomingLosingCardPlayer());
+					Validate.isTrue(lclNextGameForLoser.getIncomingLosingCardPlayer() == null || lclNextGameForLoser.getIncomingLosingCardPlayer() == lclLoserPerf.getPlayer());
+					lclNextGameForLoser.setIncomingLosingCardPlayer(lclLoserPerf.getPlayer());
 				} else {
 					throw new IllegalStateException("lclNextMatchForLoser isn't actually the next match for the loser");
 				}
-			}
+			} */
 			
 			lclTC.complete();
 		}

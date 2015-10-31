@@ -128,8 +128,9 @@ SELECT
 	P.id AS player_id,
 	SUM(CASE WHEN GVwin.winner_player_id = P.id THEN 1 ELSE 0 END) AS win_count,
 	SUM(CASE WHEN GVlose.loser_player_id = P.id THEN 1 ELSE 0 END) AS loss_count,
-	COALESCE(SUM(CASE WHEN GVwin.winner_player_id = P.id THEN GVwin.winner_score ELSE 0 END), 0) + COALESCE(SUM(CASE WHEN GVlose.loser_player_id = P.id THEN GVlose.loser_score ELSE 0 END), 0) AS points,	COALESCE(SUM(GVwin.tossups_heard), 0) + COALESCE(SUM(GVlose.tossups_heard), 0) AS tossups_heard
-FROM Player P,  School_Registration SR, Game_v GVwin, Game_v GVlose
+	COALESCE(SUM(CASE WHEN GVwin.winner_player_id = P.id THEN GVwin.winner_score ELSE 0 END), 0) + COALESCE(SUM(CASE WHEN GVlose.loser_player_id = P.id THEN GVlose.loser_score ELSE 0 END), 0) AS points,
+	(COALESCE(SUM(GVwin.tossups_heard), 0) + COALESCE(SUM(GVlose.tossups_heard), 0))/2 AS tossups_heard
+FROM Player P, School_Registration SR, Game_v GVwin, Game_v GVlose
 WHERE
 	GVwin.game_id = GVlose.game_id AND
 	P.school_registration_id = SR.id AND

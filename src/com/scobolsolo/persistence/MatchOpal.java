@@ -204,9 +204,11 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 
 	@Override
 	protected void copyFieldsToInternal(com.opal.UpdatableOpal<Match> argTarget) {
+		Object[] lclValues = getReadValueSet();
+		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
 		/* Field 1 (RoundId) is part of a unique key. */
-		/* Field 2 (RoomId) is part of a unique key. */
+		lclTargetNewValues[2] = lclValues[2]; /* RoomId (immutable) */
 		/* Field 3 (WinningCardId) is part of a unique key. */
 		/* Field 4 (LosingCardId) is part of a unique key. */
 

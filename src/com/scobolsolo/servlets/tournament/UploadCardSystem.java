@@ -139,7 +139,7 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 						}
 						
 						// Delete any Match already assigned for that room and round
-						final Match lclOld = MatchFactory.getInstance().forRoundIdRoomId(lclRound.getId(), lclRoom.getId());
+						final Match lclOld = Match.forRoundRoom(lclRound, lclRoom);
 						if (lclOld != null) {
 							lclOld.unlink();
 						}

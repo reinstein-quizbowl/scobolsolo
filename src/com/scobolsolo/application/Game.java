@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
@@ -163,5 +164,21 @@ public interface Game extends GameUserFacing {
 		lclP = PerformanceFactory.getInstance().create().setPlayer(argPlayer);
 		this.addPerformance(lclP);
 		return lclP;
+	}
+	
+	default int calculateTossupsHeard() {
+		List<Integer> lclDistinctResponseCounts = streamPerformance()
+			.map(Performance::getResponseCount)
+			.distinct()
+			.collect(Collectors.toList());
+		
+		if (lclDistinctResponseCounts.isEmpty()) {
+			throw new IllegalStateException("No responses");
+		} else if (lclDistinctResponseCounts.size() == 1) {
+			return lclDistinctResponseCounts.iterator().next().intValue();
+		} else {
+			throw new IllegalStateException("Multiple response counts: " + lclDistinctResponseCounts);
+		}
+		
 	}
 }

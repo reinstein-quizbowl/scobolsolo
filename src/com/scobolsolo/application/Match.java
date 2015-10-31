@@ -2,13 +2,15 @@ package com.scobolsolo.application;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 
-import com.scobolsolo.persistence.MatchUserFacing;
+import com.opal.ImplicitTableDatabaseQuery;
 
 import com.scobolsolo.matches.MatchStatus;
+import com.scobolsolo.persistence.MatchUserFacing;
 
 
 /**
@@ -106,5 +108,23 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 	// Only looks within the current phase
 	default Match getNextForLoser() {
 		return getLosingCard().getNextMatch(getRound());
+	}
+	
+	public static Match forRoundRoom(Round argRound, Room argRoom) {
+		Validate.notNull(argRound);
+		Validate.notNull(argRoom);
+		
+		List<Match> lclCandidates = MatchFactory.getInstance().acquireForQuery(
+			new ArrayList<>(1),
+			new ImplicitTableDatabaseQuery("round_id = ? AND room_id = ?", argRound.getIdAsObject(), argRoom.getIdAsObject())
+		);
+		
+		if (lclCandidates.isEmpty()) {
+			return null;
+		} else if (lclCandidates.size() == 1) {
+			return lclCandidates.iterator().next();
+		} else {
+			throw new IllegalStateException("Multiple matches for " + argRoom.getName() + " in " + argRound.getName());
+		}
 	}
 }

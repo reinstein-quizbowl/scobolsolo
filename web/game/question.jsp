@@ -40,15 +40,36 @@ boolean lclReplacement = ControllerServlet.getBooleanParameter(request, "needs_r
 boolean lclOvertime = ControllerServlet.getBooleanParameter(request, "overtime");
 
 Round lclRound = lclMatch.getRound();
-Packet lclPacket = Validate.notNull(lclRound.getPacket());
-List<Placement> lclPlacements = lclOvertime ? lclPacket.getOvertimePlacements() : lclPacket.getRegulationPlacements();
+Packet lclPacket = lclRound.getPacket(); // may be null, in very exceptional situations
+List<Placement> lclPlacements;
+if (lclPacket == null) {
+	lclPlacements = null;
+} else if (lclOvertime) {
+	lclPlacements = lclPacket.getOvertimePlacements();
+} else {
+	lclPlacements = lclPacket.getRegulationPlacements();
+}
 
 int lclIndex = ControllerServlet.getRequiredIntParameter(request, "index");
 Validate.isTrue(lclIndex >= 0);
-Validate.isTrue(lclIndex < lclPlacements.size());
-Placement lclBasePL = lclPlacements.get(lclIndex);
-Placement lclPL = lclReplacement ? Validate.notNull(lclBasePL.findReplacement()) : lclBasePL;
-Placement lclPreviousPL = lclIndex == 0 ? null : lclPlacements.get(lclIndex - 1);
+Validate.isTrue(lclPlacements == null || lclIndex < lclPlacements.size());
+Placement lclBasePL = lclPlacements == null ? null : lclPlacements.get(lclIndex);
+Placement lclPL;
+if (lclPlacements == null) {
+	lclPL = null;
+} else if (lclReplacement) {
+	lclPL = Validate.notNull(lclBasePL.findReplacement());
+} else {
+	lclPL = Validate.notNull(lclBasePL);
+}
+Placement lclPreviousPL;
+if (lclPlacements == null) {
+	lclPreviousPL = null;
+} else if (lclIndex == 0) {
+	lclPreviousPL = null;
+} else {
+	lclPreviousPL = lclPlacements.get(lclIndex - 1);
+}
 
 Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 %>

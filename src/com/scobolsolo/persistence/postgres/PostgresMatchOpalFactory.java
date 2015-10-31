@@ -122,7 +122,6 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 			if (true && argValues[4] != null) {
 				lclOC.addOpal(new RoundIdLosingCardIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[4]), argOpal, true);
 			}
-			lclOC.addOpal(new RoundIdRoomIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[2]), argOpal, true);
 			if (true && argValues[3] != null) {
 				lclOC.addOpal(new RoundIdWinningCardIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[3]), argOpal, true);
 			}
@@ -140,7 +139,6 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 			if (true && lclOldValues[4] != null) {
 				lclOC.removeOpal(new RoundIdLosingCardIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[4]));
 			}
-			lclOC.removeOpal(new RoundIdRoomIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]));
 			if (true && lclOldValues[3] != null) {
 				lclOC.removeOpal(new RoundIdWinningCardIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[3]));
 			}
@@ -180,16 +178,6 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 			} else {
 				if (true && lclOldValues[4] != null) {
 					lclOldKey = new RoundIdLosingCardIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[4]);
-				}
-			}
-			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
-			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
-				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[2].equals(lclOldValues[2]))) {
-					lclNewKey = new RoundIdRoomIdOpalKey((java.lang.Integer) lclNewValues[1], (java.lang.Integer) lclNewValues[2]);
-					if (true) {
-						lclOldKey = new RoundIdRoomIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]);
-					}
 				}
 			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
@@ -272,12 +260,6 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public MatchOpal forRoundIdRoomId(java.lang.Integer argRoundId, java.lang.Integer argRoomId) throws PersistenceException {
-		OpalKey<MatchOpal> lclOpalKey = new RoundIdRoomIdOpalKey(argRoundId, argRoomId);
-		return forOpalKey(lclOpalKey);
-	}
-
-	@Override
 	public MatchOpal forRoundIdWinningCardId(java.lang.Integer argRoundId, java.lang.Integer argWinningCardId) throws PersistenceException {
 		OpalKey<MatchOpal> lclOpalKey = new RoundIdWinningCardIdOpalKey(argRoundId, argWinningCardId);
 		return forOpalKey(lclOpalKey);
@@ -310,21 +292,6 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 
 		public RoundIdLosingCardIdOpalKey(java.lang.Integer argRoundId, java.lang.Integer argLosingCardId) {
 			super(new Object[] {argRoundId, argLosingCardId, });
-		}
-
-		@Override
-		protected Object[] getParameters() { return getFields(); }
-
-		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
-
-	}
-
-	/* package */ static class RoundIdRoomIdOpalKey extends com.opal.DatabaseOpalKey<MatchOpal> {
-		private static final String[] ourKeyColumnNames = new String[] {"round_id", "room_id", };
-
-		public RoundIdRoomIdOpalKey(java.lang.Integer argRoundId, java.lang.Integer argRoomId) {
-			super(new Object[] {argRoundId, argRoomId, });
 		}
 
 		@Override

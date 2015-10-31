@@ -39,11 +39,6 @@ public class MatchFactory extends com.opal.AbstractFactory<Match, MatchOpal> imp
 		return (lclMatchOpal == null) ? null : lclMatchOpal.getUserFacing();
 	}
 
-	public Match forRoundIdRoomId(java.lang.Integer argRoundId, java.lang.Integer argRoomId) {
-		MatchOpal lclMatchOpal = getMatchOpalFactory().forRoundIdRoomId(argRoundId, argRoomId);
-		return (lclMatchOpal == null) ? null : lclMatchOpal.getUserFacing();
-	}
-
 	public Match forRoundIdWinningCardId(java.lang.Integer argRoundId, java.lang.Integer argWinningCardId) {
 		MatchOpal lclMatchOpal = getMatchOpalFactory().forRoundIdWinningCardId(argRoundId, argWinningCardId);
 		return (lclMatchOpal == null) ? null : lclMatchOpal.getUserFacing();
