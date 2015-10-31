@@ -40,7 +40,9 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 <div class="row">
 	<div class="small-12 columns"><%
 		if (lclCandidatesByStatus.isEmpty()) {
-			%><p>Sorry, there are no obvious choices for what match you might want to enter now based on your assignments. Try the <a href="all.jsp?object=<%= lclT.getUniqueString() %>">list of all matches</a>.</p><%
+			%><p>Sorry, there are no obvious choices for what match you might want to enter now based on your assignments. Try the <a href="all.jsp?object=<%= lclT.getUniqueString() %>">list of all matches</a>.</p>
+			
+			<p>Note that matches are only listed beginning at the official start time of their round.</p><%
 		} else {
 			List<Match> lclUnentered = lclCandidatesByStatus.get(MatchStatus.READY);
 			if (lclUnentered.size() == 1) {
