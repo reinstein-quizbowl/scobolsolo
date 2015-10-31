@@ -135,7 +135,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 			argGame.setOutgoingWinningCardPlayer(lclWinnerPerf.getPlayer());
 			argGame.setOutgoingLosingCardPlayer(lclLoserPerf.getPlayer());
 			
-			/* if (lclNextMatchForWinner != null) {
+			if (lclNextMatchForWinner != null) {
 				Game lclNextGameForWinner = lclNextMatchForWinner.getGame();
 				if (lclNextGameForWinner == null) {
 					lclNextGameForWinner = GameFactory.getInstance().create().setMatch(lclNextMatchForWinner);
@@ -169,7 +169,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				} else {
 					throw new IllegalStateException("lclNextMatchForLoser isn't actually the next match for the loser");
 				}
-			} */
+			}
 			
 			lclTC.complete();
 		}
