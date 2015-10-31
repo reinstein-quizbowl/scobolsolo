@@ -3,6 +3,7 @@ package com.scobolsolo.matches;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
 
 import com.opal.TransactionContext;
@@ -28,7 +29,12 @@ public class SetSides extends ScobolSoloControllerServlet {
 		final Match lclMatch = Validate.notNull(MatchFactory.getInstance().fromHttpRequest(argRequest));
 		Validate.isTrue(argUser.mayEnter(lclMatch), "Not authorized");
 		
-		final Staff lclModerator = Validate.notNull(StaffFactory.getInstance().fromHttpRequest(argRequest, "moderator_staff_id"), "You must choose the moderator.");
+		final Staff lclModerator = Validate.notNull(
+			ObjectUtils.firstNonNull(
+				StaffFactory.getInstance().fromHttpRequest(argRequest, "moderator_staff_id"),
+				argUser.getContact().findStaff(lclMatch.getTournament())
+			),
+			"You must choose the moderator.");
 		final Player lclLeftPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "left_player_id"), "You must choose the player on the left.");
 		final Player lclRightPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "right_player_id"), "You must choose the player on the right.");
 		
