@@ -26,6 +26,7 @@ Validate.isTrue(lclUser.mayEnter(lclMatch), "Not authorized");
 Game lclGame = lclMatch.getGame(); // may be null
 
 Tournament lclT = lclMatch.getTournament();
+boolean lclTD = lclUser.mayActAsTournamentDirector(lclT);
 Staff lclS = lclUser.getContact().findStaff(lclT);
 MatchStatus lclStatus = lclMatch.determineStatus();
 %>
@@ -41,7 +42,7 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 	<input type="hidden" name="match_id" value="<%= lclMatch.getId() %>" />
 	<div class="row" data-equalizer>
 		<div class="small-12 medium-12 large-4 columns"><%
-				if (lclUser.isAdministrator()) {
+				if (lclTD) {
 					%><fieldset data-equalizer-watch>
 						<legend>Moderator</legend><%
 						Staff lclSelectedStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
@@ -60,25 +61,29 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 		List<Player> lclCandidates;
 		NameCodeExtractor<Player> lclPlayerNCE = new FunctionalNameCodeExtractor<>(Player::getNameWithSchoolShortName, Player::getUniqueString); 
 		
-		switch (lclStatus) {
-			case NO_DATA:
-				lclCandidates = lclT.getPlayers();
-				break;
-			case ONE_PLAYER_KNOWN:
-				Validate.notNull(lclGame);
-				lclCandidates = new LinkedList<>(lclT.getPlayers());
-				lclCandidates.add(0, lclGame.getSingleKnownPlayer());
-				break;
-			case READY:
-			case IN_PROGRESS:
-			case COMPLETE:
-				lclCandidates = Arrays.asList(lclGame.getIncomingWinningCardPlayer(), lclGame.getIncomingLosingCardPlayer());
-				break;
-			default: throw new IllegalStateException("Unknown MatchStatus " + lclStatus);
+		if (lclTD) {
+			lclCandidates = lclT.getPlayers();
+		} else {
+			switch (lclStatus) {
+				case NO_DATA:
+					lclCandidates = lclT.getPlayers();
+					break;
+				case ONE_PLAYER_KNOWN:
+					Validate.notNull(lclGame);
+					lclCandidates = new LinkedList<>(lclT.getPlayers());
+					lclCandidates.add(0, lclGame.getSingleKnownPlayer());
+					break;
+				case READY:
+				case IN_PROGRESS:
+				case COMPLETE:
+					lclCandidates = Arrays.asList(lclGame.getIncomingWinningCardPlayer(), lclGame.getIncomingLosingCardPlayer());
+					break;
+				default: throw new IllegalStateException("Unknown MatchStatus " + lclStatus);
+			}
 		}
 		
-		%><div class="small-12 medium-6 large-4 columns"><%= makeChoices(lclCandidates, lclPlayerNCE, "left_player_id", "Left Player") %></div>
-		<div class="small-12 medium-6 large-4 columns"><%= makeChoices(lclCandidates, lclPlayerNCE, "right_player_id", "Right Player") %></div>
+		%><div class="small-12 medium-6 large-4 columns"><%= makeChoices(lclUser, lclCandidates, lclPlayerNCE, "left_player_id", "Left Player") %></div>
+		<div class="small-12 medium-6 large-4 columns"><%= makeChoices(lclUser, lclCandidates, lclPlayerNCE, "right_player_id", "Right Player") %></div>
 	</div><%
 	
 	if (lclMatch.requiresIdentificationOfWinningAndLosingCardPlayers()) {
@@ -138,7 +143,8 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 <jsp:include page="/template/footer.jsp" />
 <%!
 
-String makeChoices(Collection<Player> argCandidates, NameCodeExtractor<Player> argNCE, String argName, String argLabel) {
+String makeChoices(Account lclUser, Collection<Player> argCandidates, NameCodeExtractor<Player> argNCE, String argName, String argLabel) {
+	Validate.notNull(lclUser);
 	Validate.notNull(argCandidates); // but it may be empty
 	Validate.notNull(argNCE);
 	Validate.notEmpty(argName);
