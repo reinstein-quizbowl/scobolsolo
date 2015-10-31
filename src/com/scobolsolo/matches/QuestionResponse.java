@@ -121,6 +121,10 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	}
 	
 	public static void recordResult(Game argGame) {
+		return;
+	}
+	
+	public static void doNotUse(Game argGame) {
 		final Match lclMatch = argGame.getMatch();
 		
 		final Performance lclWinnerPerf = argGame.determineWinner();
