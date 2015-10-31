@@ -11,6 +11,7 @@ import com.opal.TransactionContext;
 import com.scobolsolo.application.Account;
 import com.scobolsolo.application.Game;
 import com.scobolsolo.application.GameFactory;
+import com.scobolsolo.application.Match;
 import com.scobolsolo.application.Packet;
 import com.scobolsolo.application.Performance;
 import com.scobolsolo.application.Placement;
@@ -94,12 +95,14 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 					if (lclTied) {
 						return OUT_OF_QUESTIONS_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, true);
 					} else {
+						recordResult(lclGame);
 						return COMPLETE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, true);
 					}
 				} else {
 					if (lclTied) {
 						return TIE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, false /* because we haven't started overtime yet */);
 					} else {
+						recordResult(lclGame);
 						return COMPLETE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, false);
 					}
 				}
@@ -108,11 +111,61 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				if (lclTied) {
 					return CONTINUE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, lclOvertime);
 				} else {
+					recordResult(lclGame);
 					return COMPLETE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, false);
 				}
 			} else {
 				return CONTINUE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, lclOvertime);
 			}
+		}
+	}
+	
+	public static void recordResult(Game argGame) {
+		final Match lclMatch = argGame.getMatch();
+		
+		final Performance lclWinnerPerf = argGame.determineWinner();
+		final Performance lclLoserPerf = argGame.determineLoser();
+		
+		final Match lclNextMatchForWinner = lclMatch.getNextForWinner();
+		final Match lclNextMatchForLoser = lclMatch.getNextForLoser();
+		
+		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
+			argGame.setOutgoingWinningCardPlayer(lclWinnerPerf.getPlayer());
+			argGame.setOutgoingLosingCardPlayer(lclLoserPerf.getPlayer());
+			
+			Game lclNextGameForWinner = lclNextMatchForWinner.getGame();
+			if (lclNextGameForWinner == null) {
+				lclNextGameForWinner = GameFactory.getInstance().create().setMatch(lclNextMatchForWinner);
+			}
+			
+			Game lclNextGameForLoser = lclNextMatchForLoser.getGame();
+			if (lclNextGameForLoser == null) {
+				lclNextGameForLoser = GameFactory.getInstance().create().setMatch(lclNextMatchForLoser);
+			}
+			
+			if (lclNextMatchForWinner != null) {
+				Validate.notNull(lclNextGameForWinner);
+				if (lclNextMatchForWinner.getWinningCard() == lclMatch.getWinningCard()) {
+					lclNextGameForWinner.setIncomingWinningCardPlayer(argGame.getIncomingWinningCardPlayer());
+				} else if (lclNextMatchForWinner.getLosingCard() == lclMatch.getWinningCard()) {
+					lclNextGameForWinner.setIncomingLosingCardPlayer(argGame.getIncomingWinningCardPlayer());
+				} else {
+					throw new IllegalStateException("lclNextMatchForWinner isn't actually the next match for the winner");
+				}
+			}
+			
+			if (lclNextMatchForLoser != null) {
+				Validate.notNull(lclNextGameForLoser);
+				if (lclNextMatchForLoser.getWinningCard() == lclMatch.getLosingCard()) {
+					lclNextGameForLoser.setIncomingWinningCardPlayer(argGame.getIncomingLosingCardPlayer());
+				} else if (lclNextMatchForLoser.getLosingCard() == lclMatch.getLosingCard()) {
+					lclNextGameForLoser.setIncomingLosingCardPlayer(argGame.getIncomingLosingCardPlayer());
+				} else {
+					throw new IllegalStateException("lclNextMatchForLoser isn't actually the next match for the loser");
+				}
+			}
+			
+			lclTC.complete();
 		}
 	}
 	

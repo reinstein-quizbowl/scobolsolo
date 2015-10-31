@@ -24,6 +24,10 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 		Arrays.sort(lclRegistrations, SchoolRegistration.SchoolNameComparator.getInstance());
 		
 		for (final SchoolRegistration lclSR : lclRegistrations) {
+			if (lclSR.getPlayerCount() == 0) {
+				continue;
+			}
+			
 			getWriter().println("\\begin{center}");
 			getWriter().println("\\TournamentTitle{" + escape(getTournament().getName()) + "}");
 			getWriter().println("\\end{center}");
