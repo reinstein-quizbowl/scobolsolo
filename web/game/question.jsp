@@ -24,14 +24,14 @@
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
-Game lclGame = Validate.notNull(GameFactory.getInstance().fromHttpRequest(request));
+Game lclGame = Validate.notNull(GameFactory.getInstance().fromHttpRequest(request), "no game");
 Match lclMatch = lclGame.getMatch();
 Account lclUser = Account.demand(request);
 Validate.isTrue(lclUser.mayEnter(lclMatch), "Not authorized");
 
 Tournament lclT = lclMatch.getTournament();
 Staff lclS = lclUser.getContact().findStaff(lclT);
-Validate.isTrue(lclMatch.determineStatus().mayEnterData());
+// Validate.isTrue(lclMatch.determineStatus().mayEnterData(), "game is not enterable (" + lclMatch.determineStatus() + ")");
 
 Player lclLeftPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(request, "left_player_id"));
 Player lclRightPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(request, "right_player_id"));
@@ -51,16 +51,16 @@ if (lclPacket == null) {
 }
 
 int lclIndex = ControllerServlet.getRequiredIntParameter(request, "index");
-Validate.isTrue(lclIndex >= 0);
-Validate.isTrue(lclPlacements == null || lclIndex < lclPlacements.size());
+Validate.isTrue(lclIndex >= 0, "invalid index");
+Validate.isTrue(lclPlacements == null || lclIndex < lclPlacements.size(), "index smaller than placements");
 Placement lclBasePL = lclPlacements == null ? null : lclPlacements.get(lclIndex);
 Placement lclPL;
 if (lclPlacements == null) {
 	lclPL = null;
 } else if (lclReplacement) {
-	lclPL = Validate.notNull(lclBasePL.findReplacement());
+	lclPL = Validate.notNull(lclBasePL.findReplacement(), "no replacement available");
 } else {
-	lclPL = Validate.notNull(lclBasePL);
+	lclPL = Validate.notNull(lclBasePL, "no base");
 }
 Placement lclPreviousPL;
 if (lclPlacements == null) {
