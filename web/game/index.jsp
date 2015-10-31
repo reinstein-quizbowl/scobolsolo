@@ -20,7 +20,8 @@ Tournament lclT = Validate.notNull(
 	ObjectUtils.firstNonNull(
 		TournamentFactory.getInstance().forUniqueString(request.getParameter("object")),
 		Tournament.findNext()
-	)
+	),
+	"No tournament specified; no future tournament found"
 );
 
 Account lclUser = Account.demand(request);

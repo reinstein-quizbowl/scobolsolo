@@ -20,7 +20,7 @@ import com.scobolsolo.persistence.TournamentUserFacing;
 public interface Tournament extends TournamentUserFacing {
 	public static Tournament findNext() {
 		return TournamentFactory.getInstance().streamAll()
-			.filter(argT -> argT.getDate().isAfter(LocalDate.now()))
+			.filter(argT -> argT.getDate().isAfter(LocalDate.now()) || argT.getDate().equals(LocalDate.now()))
 			.sorted()
 			.findFirst().orElse(null);
 	}
