@@ -16,12 +16,18 @@ public interface Buzzer extends BuzzerUserFacing {
 			return false;
 		}
 		
-		if (getName().matches(getSchoolRegistration().getSchool().getShortName() + " \\d+")) {
+		if (getName().matches(getSchoolRegistration().getSchool().getName() + " \\d+")) {
 			return false;
-		} else if (getName().matches(getSchoolRegistration().getSchool().getName() + " \\d+")) {
+		} else if (getName().matches(getSchoolRegistration().getSchool().getShortName() + " \\d+")) {
+			return false;
+		} else if (getName().matches(getSchoolRegistration().getSchool().getVeryShortName() + " \\d+")) {
 			return false;
 		} else {
 			return true;
 		}
+	}
+	
+	default boolean isToBeSetUp() {
+		return getRoom() != null && getRoom() != getSchoolRegistration().getTournament().getControlRoom();
 	}
 }
