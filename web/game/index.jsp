@@ -74,6 +74,21 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 				%></ul><%
 			}
 			
+			List<Match> lclInProcess = lclCandidatesByStatus.get(MatchStatus.IN_PROGRESS);
+			if (lclInProcess.size() == 1) {
+				Match lclM = lclInProcess.iterator().next();
+				%><h2>In Process</h2>
+				<p><a href="sides.jsp?match_id=<%= lclM.getId() %>">The <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a> is in the middle of being entered in your <%= lclS.getStaffAssignmentCount() > 1 ? "rooms" : "room" %>.</p><%
+			} else if (lclInProcess.size() > 1) {
+				%><h2>In Process</h2>
+				<p>These matches are in the middle of being entered in your <%= lclS.getStaffAssignmentCount() > 1 ? "rooms" : "room" %>:</p>
+				<ul><%
+					for (Match lclM : lclInProcess) {
+						%><li><a href="sides.jsp?match_id=<%= lclM.getId() %>"><%= lclM.getRound().getName() %> between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a></li><%
+					}
+				%></ul><%
+			}
+			
 			List<Match> lclNotReady = lclCandidatesByStatus.get(MatchStatus.NO_DATA);
 			if (lclNotReady.size() == 1) {
 				Match lclM = lclNotReady.iterator().next();
