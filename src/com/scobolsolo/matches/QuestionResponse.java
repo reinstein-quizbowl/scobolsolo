@@ -122,18 +122,21 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	
 	public static void recordResult(Game argGame) {
 		Validate.notNull(argGame);
+		Validate.isTrue(!argGame.isTied(), "Tied! " + argGame.getScores());
 		final Match lclMatch = argGame.getMatch();
 		
-		final Performance lclWinnerPerf = argGame.determineWinner();
-		final Performance lclLoserPerf = argGame.determineLoser();
+		final Performance lclWinnerPerf = Validate.notNull(argGame.determineWinner());
+		final Performance lclLoserPerf = Validate.notNull(argGame.determineLoser());
+		final Player lclWinner = Validate.notNull(lclWinnerPerf.getPlayer());
+		final Player lclLoser = Validate.notNull(lclLoserPerf.getPlayer());
 		
 		final Match lclNextMatchForWinner = lclMatch.getNextForWinner();
 		final Match lclNextMatchForLoser = lclMatch.getNextForLoser();
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			argGame.setTossupsHeard(argGame.calculateTossupsHeard());
-			argGame.setOutgoingWinningCardPlayer(lclWinnerPerf.getPlayer());
-			argGame.setOutgoingLosingCardPlayer(lclLoserPerf.getPlayer());
+			argGame.setOutgoingWinningCardPlayer(lclWinner);
+			argGame.setOutgoingLosingCardPlayer(lclLoser);
 			
 			if (lclNextMatchForWinner != null) {
 				Game lclNextGameForWinner = lclNextMatchForWinner.getGame();
@@ -161,11 +164,11 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				Validate.notNull(lclNextGameForLoser);
 				
 				if (lclNextMatchForLoser.getWinningCard() == lclMatch.getLosingCard()) {
-					Validate.isTrue(lclNextGameForLoser.getIncomingWinningCardPlayer() == null || lclNextGameForLoser.getIncomingWinningCardPlayer() == lclLoserPerf.getPlayer());
-					lclNextGameForLoser.setIncomingWinningCardPlayer(lclLoserPerf.getPlayer());
+					Validate.isTrue(lclNextGameForLoser.getIncomingWinningCardPlayer() == null || lclNextGameForLoser.getIncomingWinningCardPlayer() == lclLoser);
+					lclNextGameForLoser.setIncomingWinningCardPlayer(lclLoser);
 				} else if (lclNextMatchForLoser.getLosingCard() == lclMatch.getLosingCard()) {
-					Validate.isTrue(lclNextGameForLoser.getIncomingLosingCardPlayer() == null || lclNextGameForLoser.getIncomingLosingCardPlayer() == lclLoserPerf.getPlayer());
-					lclNextGameForLoser.setIncomingLosingCardPlayer(lclLoserPerf.getPlayer());
+					Validate.isTrue(lclNextGameForLoser.getIncomingLosingCardPlayer() == null || lclNextGameForLoser.getIncomingLosingCardPlayer() == lclLoser);
+					lclNextGameForLoser.setIncomingLosingCardPlayer(lclLoser);
 				} else {
 					throw new IllegalStateException("lclNextMatchForLoser isn't actually the next match for the loser");
 				}

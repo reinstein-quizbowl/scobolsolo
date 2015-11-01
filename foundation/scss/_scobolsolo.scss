@@ -180,6 +180,20 @@ img.math {
 	content: "Note: ";
 }
 
+table.standings {
+	border: none;
+}
+
+table.standings * {
+	vertical-align: top;
+	background-color: #fff;
+}
+
+table.standings th, table.standings td {
+	padding-top: 0;
+	padding-bottom: 0.25rem;
+}
+
 // STIX loading
 @font-face {
 	font-family: 'STIXGeneral';
