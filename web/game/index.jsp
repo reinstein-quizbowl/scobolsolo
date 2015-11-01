@@ -89,23 +89,6 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 				%></ul><%
 			}
 			
-			List<Match> lclAlreadyEntered = lclCandidatesByStatus.get(MatchStatus.COMPLETE);
-			if (lclAlreadyEntered.size() == 1) {
-				Match lclM = lclAlreadyEntered.iterator().next();
-				Game lclG = lclM.getGame();
-				%><h2>Looking Back</h2>
-				<p>You might want to go back and tweak <a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game in which <%= lclG.getOutgoingWinningCardPlayer().getNameWithSchoolShortName() %> defeated <%= lclG.getOutgoingLosingCardPlayer().getNameWithSchoolShortName() %>, <%= lclG.getScoreHTML() %></a>. But you should only do that with the control room's approval.</p><%
-			} else if (lclAlreadyEntered.size() > 1) {
-				%><h2>Looking Back</h2>
-				<p>You might want to go back and tweak these games. But you should only do that with the control room's approval.</p>
-				<ul><%
-					for (Match lclM : lclAlreadyEntered) {
-						Game lclG = lclM.getGame();
-						%><li><a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game in which <%= lclG.getOutgoingWinningCardPlayer().getNameWithSchoolShortName() %> defeated <%= lclG.getOutgoingLosingCardPlayer().getNameWithSchoolShortName() %>, <%= lclG.getScoreHTML() %></a></li><%
-					}
-				%></ul><%
-			}
-			
 			%><p>If you don't see the match you're looking to work on, you might try the <a href="all.jsp?object=<%= lclT.getUniqueString() %>">list of all matches</a>.</p><%
 		}
 	%></div>
