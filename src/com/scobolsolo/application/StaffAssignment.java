@@ -13,6 +13,10 @@ import com.scobolsolo.persistence.StaffAssignmentUserFacing;
  */
 
 public interface StaffAssignment extends StaffAssignmentUserFacing {
-	public static final Comparator<StaffAssignment> STAFF_NAME_COMPARATOR = Comparator.comparing(StaffAssignment::getPhase).thenComparing(argSA -> argSA.getStaff().getContact().getName());
+	public static final Comparator<StaffAssignment> STAFF_COMPARATOR = Comparator
+		.comparing(StaffAssignment::getPhase)
+		.thenComparingInt(argSA -> argSA.getRole().getSequence())
+		.thenComparing(argSA -> argSA.getStaff().getContact().getName());
+	
 	public static final Comparator<StaffAssignment> ROOM_COMPARATOR = Comparator.comparing(StaffAssignment::getPhase).thenComparing(StaffAssignment::getRoom);
 }

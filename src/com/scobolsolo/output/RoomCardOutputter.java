@@ -2,7 +2,9 @@ package com.scobolsolo.output;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 
@@ -32,19 +34,19 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 		
 		final List<Round> lclRounds = getPhase().getRounds();
 		
-		final RowSortedTable<Room, Round, Match> lclTable = TreeBasedTable.create();
-		for (Round lclRound : lclRounds) {
-			for (Match lclM : lclRound.createMatchArray()) {
-				lclTable.put(lclM.getRoom(), lclRound, lclM);
-			}
-		}
+		final List<Room> lclRooms = lclRounds.stream()
+			.flatMap(Round::streamMatch)
+			.map(Match::getRoom)
+			.distinct()
+			.sorted(new Room.PrimaryStaffNameComparator(getPhase()))
+			.collect(Collectors.toList());
 		
 		final Card[] lclCards = getPhase().createCardArray();
 		Arrays.sort(lclCards);
 		final Card lclFirstCard = lclCards[0];
 		final Card lclLastCard = lclCards[lclCards.length - 1];
 		
-		for (final Room lclRoom : lclTable.rowKeySet()) {
+		for (final Room lclRoom : lclRooms) {
 			getWriter().println("\\begin{center}");
 			getWriter().println("\\TournamentTitle{" + escape(getTournament().getName()) + "}");
 			getWriter().println();
@@ -55,7 +57,7 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 			
 			if (lclRoom.getStaffAssignmentCount() > 0) {
 				StaffAssignment[] lclSAs = lclRoom.createStaffAssignmentArray();
-				Arrays.sort(lclSAs, StaffAssignment.STAFF_NAME_COMPARATOR);
+				Arrays.sort(lclSAs, StaffAssignment.STAFF_COMPARATOR);
 				for (StaffAssignment lclSA : lclSAs) {
 					if (lclSA.getPhase() == getPhase()) {
 						if (lclSA.getNote() == null) {
@@ -79,23 +81,29 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 			getWriter().println("\\rowcolor[gray]{0} \\ColumnHeader{Round} & \\ColumnHeader{Time} & \\ColumnHeader{Winning Card} & \\ColumnHeader{Losing Card} \\tabularnewline");
 			
 			for (final Round lclRound : lclRounds) {
-				final Match lclM = lclTable.get(lclRoom, lclRound); // may be null, indicating a bye
+				final List<Match> lclMatches = lclRoom.findMatches(lclRound);
 				
-				getWriter().print("\\RoundNumber{" + escape(lclRound.getShortName()) + "} & ");
-				getWriter().print("\\RoundTime{" + escape(lclRound.getStartTime()) + "} & ");
-				
-				if (lclM == null) {
+				if (lclMatches.isEmpty()) {
+					getWriter().print("\\RoundNumber{" + escape(lclRound.getShortName()) + "} & ");
+					getWriter().print("\\RoundTime{" + escape(lclRound.getStartTime()) + "} & ");
 					getWriter().print("\\multicolumn{2}{c}{\\NoMatchForRoom}");
+					getWriter().println("\\tabularnewline");
 				} else {
-					if (lclM.isDual()) {
-						getWriter().print("\\OpponentCard{" + escape(lclM.getWinningCard().getShortName()) + "} & ");
-						getWriter().print("\\OpponentCard{" + escape(lclM.getLosingCard().getShortName()) + "}");
-					} else {
-						getWriter().print(" & ");
+					for (Match lclM : lclMatches) {
+						getWriter().print("\\RoundNumber{" + escape(lclRound.getShortName()) + "} & ");
+						getWriter().print("\\RoundTime{" + escape(lclRound.getStartTime()) + "} & ");
+						
+						if (lclM.isDual()) {
+							getWriter().print("\\OpponentCard{" + escape(lclM.getWinningCard().getShortName()) + "} & ");
+							getWriter().print("\\OpponentCard{" + escape(lclM.getLosingCard().getShortName()) + "}");
+						} else {
+							getWriter().print(" & ");
+						}
+						
+						getWriter().println("\\tabularnewline");
 					}
 				}
 				
-				getWriter().println("\\tabularnewline");
 				
 				if (lclRound.isLunchAfter()) {
 					getWriter().println("\\RoomLunchLine");

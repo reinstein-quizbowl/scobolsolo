@@ -20,7 +20,7 @@ public class StaffWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputter
 		getWriter().println("\\begin{document}");
 		
 		final Staff[] lclStaffers = getTournament().createStaffArray();
-		Arrays.sort(lclStaffers, Staff.SchoolNameThenStaffNameComparator.getInstance());
+		Arrays.sort(lclStaffers, Staff.NameComparator.getInstance());
 		
 		for (final Staff lclS : lclStaffers) {
 			getWriter().println("\\begin{center}");

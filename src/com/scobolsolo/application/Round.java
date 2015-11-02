@@ -1,6 +1,8 @@
 package com.scobolsolo.application;
 
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.scobolsolo.persistence.RoundUserFacing;
 
@@ -52,5 +54,9 @@ public interface Round extends RoundUserFacing, Comparable<Round> {
 	
 	default Tournament getTournament() {
 		return getRoundGroup().getPhase().getTournament();
+	}
+	
+	default List<Match> findMatches(Room argR) {
+		return streamMatch().filter(argM -> argM.getRoom() == argR).collect(Collectors.toList());
 	}
 }
