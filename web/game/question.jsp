@@ -92,7 +92,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 	<div class="small-12 columns">
 		<%= GameEntryQuestionMenu.outputFoundationMenu(
 			lclGame,
-			"Question&nbsp;#" + lclPL.getNumber() + " (" + lclPL.getCategory().getName() + ")" + (lclReplacement ? " [REPLACEMENT]" : ""),
+			"Question&nbsp;#" + lclPL.getNumber() + (lclReplacement ? " (REPLACEMENT)" : ""),
 			lclLeftPlayer,
 			lclRightPlayer,
 			lclIndex,
