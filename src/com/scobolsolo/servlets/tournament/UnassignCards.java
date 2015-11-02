@@ -20,13 +20,13 @@ public class UnassignCards extends ScobolSoloControllerServlet {
 	private static final String RETURN_URL = "/tournament/players.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Phase lclPhase = Validate.notNull(PhaseFactory.getInstance().fromHttpRequest(argRequest));
 		final Tournament lclT = lclPhase.getTournament();
 		Validate.isTrue(argUser.mayManageCardSystem(lclT), "Not authorized");
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
-			for (Card lclC : lclPhase.createCardArray()) {
+			for (final Card lclC : lclPhase.createCardArray()) {
 				lclC.setInitialPlayer(null);
 			}
 			

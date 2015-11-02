@@ -18,7 +18,7 @@ public class ScobolSoloConfiguration extends Configuration {
 	protected ScobolSoloConfiguration() {
 		super();
 		
-		for (String lclPropFileName : ourAdditionalPropertiesFileNames) {
+		for (final String lclPropFileName : ourAdditionalPropertiesFileNames) {
 			try {
 				loadFromProperties(lclPropFileName);
 			} catch (IOException lclIOE) {

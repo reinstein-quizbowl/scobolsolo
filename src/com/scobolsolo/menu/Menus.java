@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.Validate;
 
 import com.scobolsolo.application.Match;
-import com.scobolsolo.application.Packet;
 import com.scobolsolo.application.Staff;
 import com.scobolsolo.application.Tournament;
 import com.scobolsolo.application.TournamentFactory;
@@ -136,12 +135,12 @@ public final class Menus {
 		if (!ourInstance.myStatsMenus.containsKey(argT)) {
 			final List<MenuItem> lclItems = new ArrayList<>(7);
 			
-			LocalDate lclTodayDate = LocalDate.now();
-			LocalDate lclTournamentDate = argT.getDate();
-			boolean lclFuture = lclTournamentDate.isAfter(lclTodayDate);
-			boolean lclSoon = lclFuture && lclTournamentDate.minusDays(6).isBefore(lclTodayDate);
-			boolean lclToday = lclTournamentDate.equals(lclTodayDate);
-			boolean lclPast = lclTournamentDate.isBefore(lclTodayDate);
+			final LocalDate lclTodayDate = LocalDate.now();
+			final LocalDate lclTournamentDate = argT.getDate();
+			final boolean lclFuture = lclTournamentDate.isAfter(lclTodayDate);
+			final boolean lclSoon = lclFuture && lclTournamentDate.minusDays(6).isBefore(lclTodayDate);
+			final boolean lclToday = lclTournamentDate.equals(lclTodayDate);
+			final boolean lclPast = lclTournamentDate.isBefore(lclTodayDate);
 			
 			if (lclFuture) {
 				lclItems.add(new MenuPage("registrations", "Registrations", "/stats/registrations.jsp?object=" + argT.getUniqueString()));
@@ -269,7 +268,7 @@ public final class Menus {
 		return ourInstance.myTournamentAdminMenus.get(argT);
 	}
 	
-	public static final MenuType getDefaultMenuType() {
+	public static MenuType getDefaultMenuType() {
 		return MenuType.FOUNDATION;
 	}
 }

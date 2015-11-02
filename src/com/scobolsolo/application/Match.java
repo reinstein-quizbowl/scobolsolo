@@ -22,12 +22,12 @@ import com.scobolsolo.persistence.MatchUserFacing;
  */
 
 public interface Match extends MatchUserFacing, Comparable<Match> {
+	public static final Comparator<Match> ENTERING_PRIORITY_COMPARATOR = Comparator.comparing(Match::determineStatus).thenComparing(Match::getRound);
+	
 	@Override
 	default public int compareTo(final Match that) {
 		return this.getRound().compareTo(that.getRound());
 	}
-	
-	public static final Comparator<Match> ENTERING_PRIORITY_COMPARATOR = Comparator.comparing(Match::determineStatus).thenComparing(Match::getRound);
 	
 	default MatchStatus determineStatus() {
 		final Game lclG = getGame();

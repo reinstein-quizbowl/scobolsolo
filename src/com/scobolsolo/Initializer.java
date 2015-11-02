@@ -28,7 +28,7 @@ public class Initializer extends HttpServlet {
 			 * Or will we possibly end up with a reference to an old OpalFactoryFactory spitting out references to old
 			 * Factories when new ones have been released?
 			 */
-			InitialContext lclC = new InitialContext();
+			final InitialContext lclC = new InitialContext();
 			lclC.bind("FactoryMap", FactoryMap.getInstance());
 		} catch (NamingException | RuntimeException lclE) {
 			ourLogger.error("Squashing exception in Initializer.init()", lclE);

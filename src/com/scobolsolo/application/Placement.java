@@ -24,8 +24,6 @@ public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 	default Placement findReplacement() {
 		// TODO: Add arguments for the players involved (Player[] because of the championship) and make sure the question returned hasn't been heard by any of them!
 		
-		final Category lclC = getQuestion().getCategory();
-		
 		final Packet lclReplacementPacket = getPacket().getReplacementPacket();
 		if (lclReplacementPacket == null || lclReplacementPacket == getPacket()) {
 			return null;
@@ -33,6 +31,8 @@ public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 		
 		final Placement[] lclReplacements = lclReplacementPacket.createPlacementArray();
 		Arrays.sort(lclReplacements);
+		
+		final Category lclC = getQuestion().getCategory();
 		
 		// Try to find a question in the replacement packet with the same Category
 		for (final Placement lclReplacementCandidate : lclReplacements) {

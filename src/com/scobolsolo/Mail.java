@@ -14,6 +14,10 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.validator.routines.EmailValidator;
 
 public final class Mail {
+	private Mail() {
+		throw new UnsupportedOperationException();
+	}
+	
 	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Mail.class.getName());
 	
 	private static final String mySmtpServer = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_SERVER"));
@@ -27,19 +31,19 @@ public final class Mail {
 		return setUpSending(new SimpleEmail());
 	}
 	
-	public static SimpleEmail createEmailTo(Iterable<String> argTos) throws EmailException {
+	public static SimpleEmail createEmailTo(final Iterable<String> argTos) throws EmailException {
 		Validate.notNull(argTos);
 		
-		SimpleEmail lclE = createEmail();
+		final SimpleEmail lclE = createEmail();
 		
-		for (String lclTo : argTos) {
+		for (final String lclTo : argTos) {
 			lclE.addTo(lclTo);
 		}
 		
 		return lclE;
 	}
 	
-	public static SimpleEmail createEmailTo(String... argTos) throws EmailException {
+	public static SimpleEmail createEmailTo(final String... argTos) throws EmailException {
 		Validate.notEmpty(argTos);
 		
 		return createEmailTo(Arrays.asList(argTos));
@@ -49,14 +53,14 @@ public final class Mail {
 		return setUpSending(new MultiPartEmail());
 	}
 	
-	public static DataSource toDataSource(String argData, String argMimeType) throws IOException {
+	public static DataSource toDataSource(final String argData, final String argMimeType) throws IOException {
 		Validate.notEmpty(argData);
 		Validate.notEmpty(argMimeType);
 		
 		return new ByteArrayDataSource(argData, argMimeType);
 	}
 	
-	protected static <T extends Email> T setUpSending(T argEmail) {
+	private static <T extends Email> T setUpSending(final T argEmail) {
 		Validate.notNull(argEmail);
 		
 		argEmail.setHostName(mySmtpServer);
@@ -76,7 +80,7 @@ public final class Mail {
 		@throws IllegalArgumentException If the email address fails validation (subject to the <code>null</code> check described above)
 		@author jonah
 	*/
-	public static String validateEmail(String argEmail, boolean argAllowNulls) {
+	public static String validateEmail(final String argEmail, final boolean argAllowNulls) {
 		if (argEmail == null) {
 			if (argAllowNulls) {
 				return null;
@@ -99,7 +103,7 @@ public final class Mail {
 		@throws IllegalArgumentException If the email address fails validation (subject to the <code>null</code> check described above) or is <code>null</code>
 		@author jonah
 	*/
-	public static String validateEmail(String argEmail) {
+	public static String validateEmail(final String argEmail) {
 		validateEmail(argEmail, false);
 		
 		return argEmail;

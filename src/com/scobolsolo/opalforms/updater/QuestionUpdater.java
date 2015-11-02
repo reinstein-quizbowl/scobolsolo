@@ -21,6 +21,12 @@ import com.scobolsolo.application.QuestionStatus;
 import com.scobolsolo.application.QuestionStatusFactory;
 
 public class QuestionUpdater extends OpalFormUpdater<Question> {
+	private Category myInitialCategory = null;
+	private QuestionStatus myInitialStatus = null;
+	private String myInitialText = null;
+	private String myInitialAnswer = null;
+	private String myInitialNote = null;
+	
 	public QuestionUpdater(final HttpServletRequest argRequest, final String argPrefix, final String argParameterName) {
 		super(argRequest, argPrefix, argParameterName);
 	}
@@ -33,15 +39,9 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		super(argRequest, argPrefix, argValidator);
 	}
 	
-	private Category myInitialCategory = null;
-	private QuestionStatus myInitialStatus = null;
-	private String myInitialText = null;
-	private String myInitialAnswer = null;
-	private String myInitialNote = null;
-	
 	@Override
 	protected void beforeUpdate() {
-		Question lclQ = getUserFacing();
+		final Question lclQ = getUserFacing();
 		
 		if (lclQ != null && !lclQ.isNew()) {
 			myInitialCategory = lclQ.getCategory();
@@ -54,9 +54,9 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 	
 	@Override
 	protected void processSpecial() {
-		Question lclQ = Validate.notNull(getUserFacing());
+		final Question lclQ = Validate.notNull(getUserFacing());
 		
-		Account lclUser = getUser();
+		final Account lclUser = getUser();
 		Validate.isTrue(lclUser.isWriter(), "User is not a writer!");
 		
 		if (lclQ.isNew() && lclQ.getWriter() == null) {
@@ -90,14 +90,14 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 			return;
 		}
 		
-		Question lclQ = Validate.notNull(getUserFacing());
+		final Question lclQ = Validate.notNull(getUserFacing());
 		
-		Account lclUser = getUser();
+		final Account lclUser = getUser();
 		Validate.isTrue(lclUser.isWriter(), "User is not a writer!");
 		
-		String lclRemark = StringUtils.trimToNull(getPrefixedParameter("DiffRemark"));
+		final String lclRemark = StringUtils.trimToNull(getPrefixedParameter("DiffRemark"));
 		
-		boolean lclChange = 
+		final boolean lclChange = 
 			lclQ.isNew() ||
 			myInitialCategory != lclQ.getCategory() ||
 			myInitialStatus != lclQ.getStatus() ||
@@ -108,7 +108,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 			false; // final irrelevant line so that all the above ones can end with || and I don't have to muck around with the last one being different
 		
 		if (lclChange) {
-			int lclRevisionNumber = lclQ.getNextRevisionNumber();
+			final int lclRevisionNumber = lclQ.getNextRevisionNumber();
 			
 			DiffFactory.getInstance().create()
 				.setQuestion(lclQ)
@@ -130,7 +130,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 	@Override
 	protected void beforeDelete() {
 		if (getUser().isAdministrator()) {
-			Question lclQ = Validate.notNull(getUserFacing());
+			final Question lclQ = Validate.notNull(getUserFacing());
 			if (lclQ.isUsed()) {
 				addError("This question has been used in a tournament, so it cannot be deleted.");
 				return;

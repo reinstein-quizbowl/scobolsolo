@@ -1,15 +1,11 @@
 package com.scobolsolo.output;
 
 import java.io.File;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.DirectoryNotEmptyException;
 import java.util.List;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
@@ -70,15 +66,13 @@ public class LaTeXCompiler {
 				final ExecuteStreamHandler lclStreamHandler = new PumpStreamHandler(lclOutAndError);
 				lclExec.setStreamHandler(lclStreamHandler);
 				
-				boolean lclEncounteredError = false;
-				StringBuilder lclErrorSB = new StringBuilder();
 				lclExec.execute(lclCommandLine);
 			} catch (IOException lclIOE) {
-				List<String> lclErrors = lclOutAndError.getLines().stream().filter(argS -> argS.startsWith("!")).collect(Collectors.toList());
+				final List<String> lclErrors = lclOutAndError.getLines().stream().filter(argS -> argS.startsWith("!")).collect(Collectors.toList());
 				if (lclErrors.isEmpty()) {
 					throw new RuntimeException(lclIOE);
 				} else {
-					for (String lclS : lclErrors) {
+					for (final String lclS : lclErrors) {
 						ourLogger.error(lclS);
 					}
 					throw new IllegalArgumentException("Couldn't compile LaTeX: " + StringUtils.join(lclErrors, '\n'), lclIOE);
@@ -141,9 +135,12 @@ public class LaTeXCompiler {
 			lclFilenameWithExtension = lclBaseFilename + lclNormalizedArgExtension;
 		}
 		
-		for (final File lclF : argDirectory.listFiles()) {
-			if (lclFilenameWithExtension.equals(lclF.getName())) {
-				return lclF;
+		final File[] lclFiles = argDirectory.listFiles();
+		if (lclFiles != null) {
+			for (final File lclF : lclFiles) {
+				if (lclFilenameWithExtension.equals(lclF.getName())) {
+					return lclF;
+				}
 			}
 		}
 		
@@ -155,11 +152,11 @@ public class LaTeXCompiler {
 	}
 	
 	private static class CollectingLogOutputStream extends LogOutputStream {
-		private final List<String> myLines = new LinkedList<String>();
+		private final List<String> myLines = new LinkedList<>();
 		
 		@Override
-		protected void processLine(String line, int level) {
-			myLines.add(line);
+		protected void processLine(final String argLine, final int argLevel) {
+			myLines.add(argLine);
 		}   
 		
 		public List<String> getLines() {

@@ -16,8 +16,12 @@ import com.siliconage.naming.SimpleInitialContextFactoryBuilder;
 
 import com.opal.TransactionManager;
 
-public abstract class Standalone {
+public final class Standalone {
 	private static final Logger ourLogger = Logger.getLogger(Standalone.class);
+	
+	private Standalone() {
+		throw new UnsupportedOperationException();
+	}
 	
 	public static void initialize() throws ClassNotFoundException, NamingException {
 		initialize(null);

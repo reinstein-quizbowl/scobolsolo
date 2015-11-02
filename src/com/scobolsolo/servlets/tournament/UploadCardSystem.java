@@ -1,5 +1,6 @@
 package com.scobolsolo.servlets.tournament;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -10,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.lang3.Validate;
-
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -26,7 +27,7 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 	private static final String RETURN_URL = "/tournament/cards.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws FileUploadException, IOException {
 		Validate.isTrue(hasUpload(argRequest));
 		
 		final List<FileItem> lclItems = getUploadItems(argRequest);
@@ -39,8 +40,6 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 		Validate.notNull(lclUpload);
 		
 		final List<Round> lclRounds = lclPhase.getRounds();
-		
-		final RoundGroup lclFirstRoundGroup = lclRounds.get(0).getRoundGroup();
 		
 		final Workbook lclWB = new XSSFWorkbook(lclUpload.getInputStream());
 		final Sheet lclSheet;
@@ -154,8 +153,9 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 						lclM.setLosingCard(lclLosingCard);
 						
 						// If it's in the first round group, we populate the Game record with the players based on initial card assignments
+						final RoundGroup lclFirstRoundGroup = lclRounds.get(0).getRoundGroup();
 						if (lclRound.getRoundGroup() == lclFirstRoundGroup) {
-							Game lclG = GameFactory.getInstance().create();
+							final Game lclG = GameFactory.getInstance().create();
 							lclG.setMatch(lclM);
 							lclG.setIncomingWinningCardPlayer(lclWinningCard.getInitialPlayer());
 							lclG.setIncomingLosingCardPlayer(lclLosingCard.getInitialPlayer());

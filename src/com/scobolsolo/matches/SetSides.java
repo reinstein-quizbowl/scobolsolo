@@ -25,7 +25,7 @@ public class SetSides extends ScobolSoloControllerServlet {
 	private static final String RETURN_URL_BASE = "/game/question.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Match lclMatch = Validate.notNull(MatchFactory.getInstance().fromHttpRequest(argRequest));
 		Validate.isTrue(argUser.mayEnter(lclMatch), "Not authorized");
 		
@@ -42,16 +42,16 @@ public class SetSides extends ScobolSoloControllerServlet {
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			if (lclMatch.requiresIdentificationOfWinningAndLosingCardPlayers()) {
-				String lclWhichPlayerCameInWithWinningCard = getRequiredParameter(argRequest, "winning_card_holder");
+				final String lclWhichPlayerCameInWithWinningCard = getRequiredParameter(argRequest, "winning_card_holder");
 				
 				if (lclGame == null) {
 					lclGame = GameFactory.getInstance().create().setMatch(lclMatch);
 				}
 				
-				if (lclWhichPlayerCameInWithWinningCard.equalsIgnoreCase("left")) {
+				if ("left".equalsIgnoreCase(lclWhichPlayerCameInWithWinningCard)) {
 					lclGame.setIncomingWinningCardPlayer(lclLeftPlayer)
 						.setIncomingLosingCardPlayer(lclRightPlayer);
-				} else if (lclWhichPlayerCameInWithWinningCard.equalsIgnoreCase("right")) {
+				} else if ("right".equalsIgnoreCase(lclWhichPlayerCameInWithWinningCard)) {
 					lclGame.setIncomingWinningCardPlayer(lclRightPlayer)
 						.setIncomingLosingCardPlayer(lclLeftPlayer);
 				} else {

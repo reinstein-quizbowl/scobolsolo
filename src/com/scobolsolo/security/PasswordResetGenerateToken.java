@@ -36,14 +36,14 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(PasswordResetGenerateToken.class);
 	
 	@Override
-	protected String processInternalTwo(HttpServletRequest argRequest, HttpSession argSession, Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		Validate.isTrue(argUser == null, "A password reset token cannot be generated for a user who is logged in.");
 		
 		Account lclA = null;
 		try {
 			lclA = findAccount(argRequest);
 		} catch (AccountFindingException lclAFE) {
-			String lclMessage = lclAFE.getMessage();
+			final String lclMessage = lclAFE.getMessage();
 			if (lclMessage != null) {
 				argSession.setAttribute("PASSWORD_RESET_ERROR", lclMessage);
 			}
@@ -56,8 +56,8 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		}
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
-			String lclToken = Account.generatePasswordResetToken();
-			LocalDateTime lclExpiration = Account.generatePasswordResetTokenExpiration();
+			final String lclToken = Account.generatePasswordResetToken();
+			final LocalDateTime lclExpiration = Account.generatePasswordResetTokenExpiration();
 			
 			lclA.setPasswordResetToken(lclToken);
 			lclA.setPasswordResetTokenExpiration(lclExpiration);
@@ -75,11 +75,11 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		}
 	}
 	
-	protected Account findAccount(HttpServletRequest argRequest) throws AccountFindingException {
+	protected Account findAccount(final HttpServletRequest argRequest) throws AccountFindingException {
 		Validate.notNull(argRequest);
 		
-		String lclUsername = StringUtils.trimToNull(argRequest.getParameter("username"));
-		String lclEmail = StringUtils.trimToNull(argRequest.getParameter("email"));
+		final String lclUsername = StringUtils.trimToNull(argRequest.getParameter("username"));
+		final String lclEmail = StringUtils.trimToNull(argRequest.getParameter("email"));
 		
 		if (lclUsername == null && lclEmail == null) {
 			return null;
@@ -94,7 +94,7 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		}
 		
 		if (lclEmail != null) {
-			Collection<Account> lclEmailCandidates = new Fast3Set<>();
+			final Collection<Account> lclEmailCandidates = new Fast3Set<>();
 			AccountFactory.getInstance().acquireForQuery(
 				lclEmailCandidates,
 				new ImplicitTableDatabaseQuery("id in (SELECT id FROM Contact WHERE LOWER(email_address) = ?)", lclEmail.toLowerCase())
@@ -104,7 +104,7 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 				if (lclEmailCandidates.isEmpty()) {
 					return lclByUsername;
 				} else {
-					for (Account lclA : lclEmailCandidates) {
+					for (final Account lclA : lclEmailCandidates) {
 						if (lclA == lclByUsername) {
 							return lclA;
 						}
@@ -121,9 +121,7 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 						throw new AccountFindingException("There are multiple users with the given username, so the password cannot be reset automatically.");
 					} else {
 						// There's one user with this email address, so return it
-						for (Account lclA : lclEmailCandidates) {
-							return lclA;
-						}
+						return lclEmailCandidates.iterator().next();
 					}
 				}
 			}
@@ -132,25 +130,25 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		return lclByUsername;
 	}
 	
-	protected void sendTokenEmail(Account argA, String argToken, LocalDateTime argExpiration) {
+	protected void sendTokenEmail(final Account argA, final String argToken, final LocalDateTime argExpiration) {
 		Validate.notNull(argA);
 		
 		Validate.isTrue(argA.getContact().getEmailAddress() != null);
 		Validate.notNull(argToken);
 		Validate.notNull(argExpiration);
 		
-		String lclUrl = LINK_BASE_URL + "?account_id=" + argA.getId() + "&token=" + argToken;
-		DateTimeFormatter lclF = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' h:mm a zzzz");
+		final String lclUrl = LINK_BASE_URL + "?account_id=" + argA.getId() + "&token=" + argToken;
+		final DateTimeFormatter lclF = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' h:mm a zzzz");
 		
-		String lclSubject = "Scobol Solo password reset for " + argA.getContact().getName();
+		final String lclSubject = "Scobol Solo password reset for " + argA.getContact().getName();
 		
-		StringBuilder lclSB = new StringBuilder(1024);
+		final StringBuilder lclSB = new StringBuilder(1024);
 		
-		lclSB.append("You have, or someone pretending to be you has, requested a password reset for www.scobolsolo.com, username '" + argA.getUsername() + "'.\n\n");
-		lclSB.append("If you wish to reset your password, please go to\n\t" + lclUrl + "\n");
-		lclSB.append("That link will expire on " + argExpiration.atZone(ZoneId.systemDefault()).format(lclF) + ".\n\n");
-		lclSB.append("If you did not request this, you may ignore this e-mail.  Your password will not be changed.\n\n");
-		lclSB.append("If you have any questions, respond to this e-mail or write to " + FROM_ADDRESS + ".\n");
+		lclSB.append("You have, or someone pretending to be you has, requested a password reset for www.scobolsolo.com, username '" + argA.getUsername() + "'.\n\n")
+			.append("If you wish to reset your password, please go to\n\t" + lclUrl + "\n")
+			.append("That link will expire on " + argExpiration.atZone(ZoneId.systemDefault()).format(lclF) + ".\n\n")
+			.append("If you did not request this, you may ignore this e-mail.  Your password will not be changed.\n\n")
+			.append("If you have any questions, respond to this e-mail or write to " + FROM_ADDRESS + ".\n");
 		
 		try {
 			Mail.createEmail()
@@ -164,21 +162,21 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		}
 	}
 	
-	protected void sendNotificationEmail(Account argA, LocalDateTime argExpiration) {
+	protected void sendNotificationEmail(final Account argA, final LocalDateTime argExpiration) {
 		Validate.notNull(argA);
 		Validate.notNull(argA.getUsername());
 		Validate.notNull(argA.getContact().getEmailAddress());
 		Validate.notNull(argExpiration);
 		
-		DateTimeFormatter lclF = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' h:mm a zzzz");
+		final DateTimeFormatter lclF = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' h:mm a zzzz");
 		
-		String lclSubject = "Scobol Solo password reset token generated for " + argA.getContact().getName();
+		final String lclSubject = "Scobol Solo password reset token generated for " + argA.getContact().getName();
 		
-		StringBuilder lclSB = new StringBuilder(1024);
+		final StringBuilder lclSB = new StringBuilder(1024);
 		
 		lclSB.append("A password reset token has been generated for " + argA.getUsername() + " (" + argA.getContact().getName()
-				+ ", #" + argA.getId() + ", " + argA.getContact().getEmailAddress() + ").\n\n");
-		lclSB.append("The token will expire on " + argExpiration.atZone(ZoneId.systemDefault()).format(lclF) + ".\n");
+				+ ", #" + argA.getId() + ", " + argA.getContact().getEmailAddress() + ").\n\n")
+				.append("The token will expire on " + argExpiration.atZone(ZoneId.systemDefault()).format(lclF) + ".\n");
 		
 		try {
 			Mail.createEmail()
@@ -201,7 +199,7 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 	private static class AccountFindingException extends IllegalArgumentException {
 		private static final long serialVersionUID = 1L;
 		
-		public AccountFindingException(String argMessage) {
+		public AccountFindingException(final String argMessage) {
 			super(argMessage);
 		}
 	}

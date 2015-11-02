@@ -21,7 +21,7 @@ public class RearrangeSeeds extends ScobolSoloControllerServlet {
 	private static final String RETURN_URL = "/tournament/players.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Tournament lclT = Validate.notNull(TournamentFactory.getInstance().fromHttpRequest(argRequest));
 		Validate.isTrue(argUser.mayManageCardSystem(lclT), "Not authorized");
 		

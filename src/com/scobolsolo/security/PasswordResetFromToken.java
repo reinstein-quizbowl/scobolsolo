@@ -28,28 +28,28 @@ public class PasswordResetFromToken extends ScobolSoloControllerServlet {
 	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(PasswordResetFromToken.class);
 	
 	@Override
-	protected String processInternalTwo(HttpServletRequest argRequest, HttpSession argSession, Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		Validate.isTrue(argUser == null, "A password reset token cannot be applied for a user who is logged in.");
 		
-		Account lclA = AccountFactory.getInstance().fromHttpRequest(argRequest);
+		final Account lclA = AccountFactory.getInstance().fromHttpRequest(argRequest);
 		
 		if (lclA == null) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "No account was specified.");
 			return ERROR_URL;
 		}
 		
-		String lclProvidedToken = StringUtils.trimToNull(argRequest.getParameter("token"));
+		final String lclProvidedToken = StringUtils.trimToNull(argRequest.getParameter("token"));
 		if (lclProvidedToken == null) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "No password reset token was provided.");
 			return ERROR_URL;
 		}
-		String lclCorrectToken = lclA.getPasswordResetToken();
-		LocalDateTime lclCorrectTokenExpires = lclA.getPasswordResetTokenExpiration();
+		final String lclCorrectToken = lclA.getPasswordResetToken();
+		final LocalDateTime lclCorrectTokenExpires = lclA.getPasswordResetTokenExpiration();
 		if (lclCorrectToken == null || lclCorrectTokenExpires == null) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "This user has not been issued a token for resetting their password.");
 			return ERROR_URL;
 		}
-		LocalDateTime lclNow = LocalDateTime.now();
+		final LocalDateTime lclNow = LocalDateTime.now();
 		if (lclCorrectTokenExpires.isBefore(lclNow)) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "The password reset token has expired.");
 			return ERROR_URL;
@@ -59,11 +59,8 @@ public class PasswordResetFromToken extends ScobolSoloControllerServlet {
 			return ERROR_URL;
 		}
 		
-		int lclMinimumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MINIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MINIMUM_PASSWORD_LENGTH);
-		int lclMaximumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MAXIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MAXIMUM_PASSWORD_LENGTH);
-		
-		String lclNewPassword = StringUtils.trimToNull(argRequest.getParameter("new_password"));
-		String lclNewPasswordConfirmation = StringUtils.trimToNull(argRequest.getParameter("new_password_confirm"));
+		final String lclNewPassword = StringUtils.trimToNull(argRequest.getParameter("new_password"));
+		final String lclNewPasswordConfirmation = StringUtils.trimToNull(argRequest.getParameter("new_password_confirm"));
 		
 		if (lclNewPassword == null) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "No new password was provided.");
@@ -79,6 +76,9 @@ public class PasswordResetFromToken extends ScobolSoloControllerServlet {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "The new passwords did not match.");
 			return ERROR_URL;
 		}
+		
+		final int lclMinimumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MINIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MINIMUM_PASSWORD_LENGTH);
+		final int lclMaximumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MAXIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MAXIMUM_PASSWORD_LENGTH);
 		
 		if (lclNewPassword.length() < lclMinimumPasswordLength) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "The new password was too short; it must be between " + lclMinimumPasswordLength + " and " + lclMaximumPasswordLength + " characters (inclusive).");
@@ -108,14 +108,14 @@ public class PasswordResetFromToken extends ScobolSoloControllerServlet {
 		}
 	}
 	
-	protected void sendNotificationEmail(Account argA) {
+	protected void sendNotificationEmail(final Account argA) {
 		Validate.notNull(argA);
 		Validate.notNull(argA.getUsername());
 		Validate.notNull(argA.getContact().getEmailAddress());
 		
-		String lclSubject = "Scobol Solo password reset for " + argA.getContact().getName();
+		final String lclSubject = "Scobol Solo password reset for " + argA.getContact().getName();
 		
-		StringBuilder lclSB = new StringBuilder(1024);
+		final StringBuilder lclSB = new StringBuilder(1024);
 		
 		lclSB.append(argA.getUsername() + " (" + argA.getContact().getName() + ", #" + argA.getContact().getId() + ", " + argA.getContact().getEmailAddress() + ") has automatically reset their password.\n");
 		

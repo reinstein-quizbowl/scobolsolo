@@ -1,11 +1,7 @@
 package com.scobolsolo.opalforms.updater;
 
-import java.time.LocalDateTime;
-import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
 import com.opal.cma.OpalFormUpdater;
@@ -28,7 +24,7 @@ public class PlacementUpdater extends OpalFormUpdater<Placement> {
 	
 	@Override
 	protected void processSpecial() {
-		Placement lclPL = Validate.notNull(getUserFacing());
+		final Placement lclPL = Validate.notNull(getUserFacing());
 		
 		if (lclPL.getNumberAsObject() == null) {
 			lclPL.setNumber(lclPL.getPacket().getNextNumber());

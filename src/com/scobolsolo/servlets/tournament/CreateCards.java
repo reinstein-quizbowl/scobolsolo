@@ -20,7 +20,7 @@ public class CreateCards extends ScobolSoloControllerServlet {
 	private static final String RETURN_URL = "/tournament/cards.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Phase lclPhase = Validate.notNull(PhaseFactory.getInstance().fromHttpRequest(argRequest));
 		Validate.isTrue(argUser.mayManageCardSystem(lclPhase.getTournament()), "Not authorized");
 		

@@ -19,9 +19,9 @@ public class PasswordResetByAdmin extends ScobolSoloControllerServlet {
 	public static final String ERROR_URL = "/admin/contact-reset-password-error.jsp";
 	
 	@Override
-	protected String processInternalTwo(HttpServletRequest argRequest, HttpSession argSession, Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		String lclProblems = null;
-		Account lclAccount = AccountFactory.getInstance().fromHttpRequest(argRequest);
+		final Account lclAccount = AccountFactory.getInstance().fromHttpRequest(argRequest);
 		
 		if (lclAccount == null) {
 			lclProblems = "There is no such account. ";
@@ -32,15 +32,15 @@ public class PasswordResetByAdmin extends ScobolSoloControllerServlet {
 			argSession.setAttribute("error", lclProblems);
 			return ERROR_URL + "?account_id=" + lclAccount.getId();
 		} else {
-			String lclNewPW1 = StringUtils.trimToNull(argRequest.getParameter("new_password"));
-			String lclNewPW2 = StringUtils.trimToNull(argRequest.getParameter("new_password_confirm"));
+			final String lclNewPW1 = StringUtils.trimToNull(argRequest.getParameter("new_password"));
+			final String lclNewPW2 = StringUtils.trimToNull(argRequest.getParameter("new_password_confirm"));
 			if (lclNewPW1 != null && lclNewPW2 != null) {
 				if (lclNewPW1.equals(lclNewPW2) == false) {
 					lclProblems = "The new passwords did not match.<br />";
 				}
 				
-				int lclMinimumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MINIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MINIMUM_PASSWORD_LENGTH);
-				int lclMaximumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MAXIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MAXIMUM_PASSWORD_LENGTH);
+				final int lclMinimumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MINIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MINIMUM_PASSWORD_LENGTH);
+				final int lclMaximumPasswordLength = ScobolSoloConfiguration.getInstance().getInt(PasswordChange.MAXIMUM_PASSWORD_LENGTH_KEY, PasswordChange.DEFAULT_MAXIMUM_PASSWORD_LENGTH);
 				
 				if (lclNewPW1.length() < lclMinimumPasswordLength || lclNewPW1.length() > lclMaximumPasswordLength) {
 					lclProblems += "The new password must be between " + lclMinimumPasswordLength + " and " + lclMaximumPasswordLength + " characters.<br />";

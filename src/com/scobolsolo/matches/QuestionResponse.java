@@ -20,10 +20,7 @@ import com.scobolsolo.application.Player;
 import com.scobolsolo.application.PlayerFactory;
 import com.scobolsolo.application.Response;
 import com.scobolsolo.application.ResponseType;
-import com.scobolsolo.application.ResponseType;
 import com.scobolsolo.application.ResponseTypeFactory;
-import com.scobolsolo.application.Staff;
-import com.scobolsolo.application.StaffFactory;
 import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 
 public class QuestionResponse extends ScobolSoloControllerServlet {
@@ -35,7 +32,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	private static final String OUT_OF_QUESTIONS_URL_BASE = "/game/out-of-questions.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Game lclGame = Validate.notNull(GameFactory.getInstance().fromHttpRequest(argRequest), "Missing game ID");
 		Validate.isTrue(argUser.mayEnter(lclGame.getMatch()), "Not authorized");
 		final Player lclLeftPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "left_player_id"), "Missing left player");
@@ -88,9 +85,9 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 			
 			lclTC.complete();
 			
-			boolean lclEndOfSegment = lclIndex == lclPlacements.size() - 1;
+			final boolean lclEndOfSegment = lclIndex == lclPlacements.size() - 1;
 			if (lclEndOfSegment) {
-				boolean lclTied = lclGame.isTiedAfter(lclIndex, lclOvertime);
+				final boolean lclTied = lclGame.isTiedAfter(lclIndex, lclOvertime);
 				if (lclOvertime) { // i.e., we were *already* in overtime
 					if (lclTied) {
 						return OUT_OF_QUESTIONS_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, true);
@@ -107,7 +104,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 					}
 				}
 			} else if (lclOvertime) {
-				boolean lclTied = lclGame.isTiedAfter(lclIndex, lclOvertime);
+				final boolean lclTied = lclGame.isTiedAfter(lclIndex, lclOvertime);
 				if (lclTied) {
 					return CONTINUE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, lclOvertime);
 				} else {
@@ -120,7 +117,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		}
 	}
 	
-	public static void recordResult(Game argGame) {
+	public static void recordResult(final Game argGame) {
 		Validate.notNull(argGame);
 		Validate.isTrue(!argGame.isTied(), "Tied! " + argGame.getScores());
 		final Match lclMatch = argGame.getMatch();

@@ -49,7 +49,7 @@ public class GeneratePaperwork extends DownloadServlet {
 		
 		final String lclBaseFilename = cleanFilename(lclT.getShortName() + '-');
 		
-		List<LaTeXOutputter> lclOutputters = new ArrayList<>();
+		final List<LaTeXOutputter> lclOutputters = new ArrayList<>();
 		
 		if (ControllerServlet.getBooleanParameter(argRequest, "school_welcome_sheets")) {
 			lclOutputters.add(new SchoolWelcomeSheetOutputter(new File(DIRECTORY + lclBaseFilename + "school-welcome.tex"), lclT));
@@ -71,7 +71,7 @@ public class GeneratePaperwork extends DownloadServlet {
 			lclOutputters.add(new ReplacementGuideOutputter(new File(DIRECTORY + lclBaseFilename + "replacement-guides.tex"), lclT));
 		}
 		
-		for (Phase lclP : lclT.createPhaseArray()) {
+		for (final Phase lclP : lclT.createPhaseArray()) {
 			final String lclPhaseSpecificBaseFilename = lclBaseFilename + cleanFilename(lclP.getShortName() + '-');
 			if (lclP.isCardSystem()) {
 				if (ControllerServlet.getBooleanParameter(argRequest, "player_cards_" + lclP.getId())) {
@@ -106,7 +106,7 @@ public class GeneratePaperwork extends DownloadServlet {
 		
 		final List<File> lclFiles = new ArrayList<>(lclIncludeTexFiles ? 2*lclOutputters.size() : lclOutputters.size());
 		
-		for (LaTeXOutputter lclO : lclOutputters) {
+		for (final LaTeXOutputter lclO : lclOutputters) {
 			lclO.output();
 			
 			if (lclIncludeTexFiles) {

@@ -8,7 +8,11 @@ import com.scobolsolo.application.Placement;
 import com.scobolsolo.application.Player;
 import com.scobolsolo.matches.QuestionResponse;
 
-public abstract class GameEntryQuestionMenu {
+public final class GameEntryQuestionMenu {
+	private GameEntryQuestionMenu() {
+		throw new UnsupportedOperationException();
+	}
+	
 	public static String outputFoundationMenu(final Game argGame, final String argCurrent, final Player argLeftPlayer, final Player argRightPlayer, final int argCurrentQuestionIndex, final boolean argReplacement, final boolean argOvertime) {
 		Validate.notNull(argGame);
 		Validate.notBlank(argCurrent);
@@ -22,10 +26,8 @@ public abstract class GameEntryQuestionMenu {
 		lclSB.append("		<h2>").append(argCurrent).append("</h2>");
 		if (argCurrentQuestionIndex >= 0) {
 			lclSB.append("		<dl class=\"sub-nav\">")
-				.append("			<dt>Actions</dt>");
-			if (argCurrentQuestionIndex >= 0) {
-				lclSB.append("				<dd><a href=\"").append(QuestionResponse.generateQueryString(argGame, argRightPlayer, argLeftPlayer, argCurrentQuestionIndex, argReplacement, argOvertime)).append("\">switch sides</a></dd>");
-			}
+				.append("			<dt>Actions</dt>")
+				.append("				<dd><a href=\"").append(QuestionResponse.generateQueryString(argGame, argRightPlayer, argLeftPlayer, argCurrentQuestionIndex, argReplacement, argOvertime)).append("\">switch sides</a></dd>");
 			if (argReplacement) {
 				lclSB.append("				<dd><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, argCurrentQuestionIndex, false, argOvertime)).append("\">cancel replacement</a></dd>");
 			} else {
@@ -37,7 +39,7 @@ public abstract class GameEntryQuestionMenu {
 		lclSB.append("		<dl class=\"sub-nav\">")
 			.append("			<dt>Question</dt>");
 		int lclIndex = 0;
-		for (Placement lclRegPL : lclPacket.getRegulationPlacements()) {
+		for (final Placement lclRegPL : lclPacket.getRegulationPlacements()) {
 			lclSB.append("				<dd").append(!argOvertime && lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, false)).append("\">").append(lclRegPL.getNumber()).append("</a></dd>");
 			++lclIndex;
 		}
@@ -47,7 +49,7 @@ public abstract class GameEntryQuestionMenu {
 			lclSB.append("			<dl class=\"sub-nav\">")
 				.append("				<dt>Tiebreakers</dt>");
 				lclIndex = 0;
-				for (Placement lclOTPL : lclPacket.getOvertimePlacements()) {
+				for (final Placement lclOTPL : lclPacket.getOvertimePlacements()) {
 					lclSB.append("					<dd").append(lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, true)).append("\">").append(lclOTPL.getNumber()).append("</a></dd>");
 					++lclIndex;
 				}

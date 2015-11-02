@@ -48,7 +48,7 @@ public interface Game extends GameUserFacing {
 				int lclRegulationIndex = lclRegulation.indexOf(lclPL);
 				if (argOvertime || (lclRegulationIndex >= 0 && lclRegulationIndex <= argIndex)) {
 					lclTally.tally(lclPerf, lclR.getResponseType().getPoints());
-				} else if (argOvertime) {
+				} else {
 					int lclOvertimeIndex = lclOvertime.indexOf(lclPL);
 					if (lclOvertimeIndex >= 0 && lclOvertimeIndex <= argIndex) {
 						lclTally.tally(lclPerf, lclR.getResponseType().getPoints());
@@ -61,7 +61,7 @@ public interface Game extends GameUserFacing {
 	}
 	
 	default Tally<Performance> getScoresBefore(final int argIndex, final boolean argOvertime) {
-		if (argIndex == 0 && argOvertime == true) {
+		if (argIndex == 0 && argOvertime) {
 			return getScoresThrough(Integer.MAX_VALUE, false);
 		} else {
 			return getScoresThrough(argIndex - 1, argOvertime);

@@ -24,7 +24,7 @@ public class EmailAttendees extends ScobolSoloControllerServlet {
 	private static final String RETURN_URL = "/tournament/email-sent.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Tournament lclT = Validate.notNull(TournamentFactory.getInstance().fromHttpRequest(argRequest));
 		Validate.isTrue(argUser.mayActAsTournamentDirector(lclT), "Not authorized");
 		
@@ -67,14 +67,14 @@ public class EmailAttendees extends ScobolSoloControllerServlet {
 		}
 		
 		try {
-			for (String lclTo : lclToAddresses) {
-				Email lclE = Mail.createEmail()
+			for (final String lclTo : lclToAddresses) {
+				final Email lclE = Mail.createEmail()
 					.addTo(lclTo)
 					.setFrom(lclFrom, lclFromDescription)
 					.setSubject(lclSubject)
 					.setMsg(lclBody);
 				
-				for (String lclBcc : lclBccs) {
+				for (final String lclBcc : lclBccs) {
 					lclE.addBcc(lclBcc);
 				}
 				

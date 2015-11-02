@@ -44,7 +44,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 	private static final String DEFAULT_RETURN_URL = "/tournament/packets.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Collection<Packet> lclPackets = Validate.notNull(PacketFactory.getInstance().multipleFromHttpRequest(argRequest));
 		
 		final Set<Tournament> lclTs = lclPackets.stream().map(Packet::getTournament).collect(Collectors.toSet());
@@ -67,7 +67,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 			}
 		}
 		
-		String lclReturnUrl = getParedParameter(argRequest, "return");
+		final String lclReturnUrl = getParedParameter(argRequest, "return");
 		if (lclReturnUrl == null) {
 			Validate.isTrue(lclTs.size() == 1, "When randomizing packets from multiple tournaments, a return URL must be specified");
 			return DEFAULT_RETURN_URL + "?object=" + lclTs.iterator().next().getUniqueString();
@@ -76,29 +76,29 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		}
 	}
 	
-	public static boolean isOrdered(Packet lclP) {
+	public static boolean isOrdered(final Packet lclP) {
 		Validate.notNull(lclP);
 		
-		boolean lclNoRepeatedNumbers = areThereNoRepeatedNumbers(Arrays.asList(lclP.createPlacementArray()));
+		final boolean lclNoRepeatedNumbers = areThereNoRepeatedNumbers(Arrays.asList(lclP.createPlacementArray()));
 		if (!lclNoRepeatedNumbers) {
 			// ourLogger.debug(lclP.getName() + " has a repeated number");
 			return false;
 		}
 		
-		List<Placement> lclRegulation = lclP.getRegulationPlacements();
+		final List<Placement> lclRegulation = lclP.getRegulationPlacements();
 		
-		int lclHalf = lclRegulation.size() / 2;
-		List<Placement> lclFirstHalf = lclRegulation.subList(0, lclHalf);
-		List<Placement> lclSecondHalf = lclRegulation.subList(lclHalf, lclRegulation.size());
+		final int lclHalf = lclRegulation.size() / 2;
+		final List<Placement> lclFirstHalf = lclRegulation.subList(0, lclHalf);
+		final List<Placement> lclSecondHalf = lclRegulation.subList(lclHalf, lclRegulation.size());
 		Validate.isTrue(Math.abs(lclFirstHalf.size() - lclSecondHalf.size()) <= 1);
 		
-		boolean lclHalvesSplit = isHalfSplittingValid(lclFirstHalf, lclSecondHalf);
+		final boolean lclHalvesSplit = isHalfSplittingValid(lclFirstHalf, lclSecondHalf);
 		if (!lclHalvesSplit) {
 			// ourLogger.debug(lclP.getName() + " halves are not validly split");
 			return false;
 		}
 		
-		boolean lclNoCategoryGroupRepeatedTooSoon = areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
+		final boolean lclNoCategoryGroupRepeatedTooSoon = areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
 		if (!lclNoCategoryGroupRepeatedTooSoon) {
 			// ourLogger.debug(lclP.getName() + " has category groups repeated too closely");
 			return false;
@@ -107,22 +107,22 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		return true;
 	}
 	
-	public static boolean areThereNoRepeatedNumbers(List<Placement> argPLs) {
+	public static boolean areThereNoRepeatedNumbers(final List<Placement> argPLs) {
 		Validate.notNull(argPLs);
 		Validate.noNullElements(argPLs);
 		
 		return argPLs.stream().mapToInt(Placement::getNumber).distinct().count() == argPLs.size();
 	}
 	
-	public static boolean isHalfSplittingValid(List<Placement> argFirstHalf, List<Placement> argSecondHalf) {
+	public static boolean isHalfSplittingValid(final List<Placement> argFirstHalf, final List<Placement> argSecondHalf) {
 		Validate.notNull(argFirstHalf);
 		Validate.notNull(argSecondHalf);
 		Validate.isTrue(Math.abs(argFirstHalf.size() - argSecondHalf.size()) <= 1);
 		
-		Tally<CategoryGroup> lclFirstHalfCategoryGroups = new Tally<CategoryGroup>().tally(argFirstHalf, CATEGORY_GROUP_EXTRACTOR);
-		Tally<CategoryGroup> lclSecondHalfCategoryGroups = new Tally<CategoryGroup>().tally(argSecondHalf, CATEGORY_GROUP_EXTRACTOR);
+		final Tally<CategoryGroup> lclFirstHalfCategoryGroups = new Tally<CategoryGroup>().tally(argFirstHalf, CATEGORY_GROUP_EXTRACTOR);
+		final Tally<CategoryGroup> lclSecondHalfCategoryGroups = new Tally<CategoryGroup>().tally(argSecondHalf, CATEGORY_GROUP_EXTRACTOR);
 		
-		for (CategoryGroup lclCG : CategoryGroupFactory.getInstance().createAllArray()) {
+		for (final CategoryGroup lclCG : CategoryGroupFactory.getInstance().createAllArray()) {
 			if (Math.abs(lclFirstHalfCategoryGroups.get(lclCG) - lclSecondHalfCategoryGroups.get(lclCG)) > 1) {
 				// ourLogger.debug("Halves not validly split for " + lclCG.getCode());
 				// ourLogger.debug("First half: " + lclFirstHalfCategoryGroups);
@@ -134,12 +134,12 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		return true;
 	}
 	
-	public static boolean areThereNoCategoryGroupRepeatsWithinSpan(List<Placement> argPLs, int argSpan) {
+	public static boolean areThereNoCategoryGroupRepeatsWithinSpan(final List<Placement> argPLs, final int argSpan) {
 		Validate.notNull(argPLs);
 		Validate.isTrue(argSpan > 0);
 		
 		for (int lclI = 0; lclI <= argPLs.size() - argSpan; ++lclI) {
-			List<Placement> argSection = argPLs.subList(lclI, lclI + argSpan);
+			final List<Placement> argSection = argPLs.subList(lclI, lclI + argSpan);
 			if (argSection.stream().map(Placement::getCategory).map(Category::getCategoryGroup).distinct().count() < argSection.size()) {
 				return false;
 			}
@@ -148,26 +148,26 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		return true;
 	}
 	
-	public static void order(Packet lclP) {
+	public static void order(final Packet lclP) {
 		Validate.notNull(lclP);
 		
-		List<Placement> lclRegulation = lclP.getRegulationPlacements();
+		final List<Placement> lclRegulation = lclP.getRegulationPlacements();
 		if (lclRegulation.isEmpty()) {
 			return;
 		}
-		int lclHalf = lclRegulation.size() / 2;
+		final int lclHalf = lclRegulation.size() / 2;
 		
 		// Split into halves
-		Multimap<CategoryGroup, Placement> lclUnused = HashMultimap.create();
-		for (Placement lclPL : lclRegulation) {
+		final Multimap<CategoryGroup, Placement> lclUnused = HashMultimap.create();
+		for (final Placement lclPL : lclRegulation) {
 			lclUnused.put(CATEGORY_GROUP_EXTRACTOR.apply(lclPL), lclPL);
 		}
-		Multimap<CategoryGroup, Placement> lclFirstHalfMM = HashMultimap.create();
-		Multimap<CategoryGroup, Placement> lclSecondHalfMM = HashMultimap.create();
+		final Multimap<CategoryGroup, Placement> lclFirstHalfMM = HashMultimap.create();
+		final Multimap<CategoryGroup, Placement> lclSecondHalfMM = HashMultimap.create();
 		while (!lclUnused.isEmpty()) {
-			Set<CategoryGroup> lclUnusedCategoryGroups = new HashSet<>(lclUnused.keySet()); // need to duplicate to avoid a ConcurrentModificationException
-			for (CategoryGroup lclCG : lclUnusedCategoryGroups) {
-				Placement lclPL = chooseAndRemove(lclUnused, lclCG);
+			final Set<CategoryGroup> lclUnusedCategoryGroups = new HashSet<>(lclUnused.keySet()); // need to duplicate to avoid a ConcurrentModificationException
+			for (final CategoryGroup lclCG : lclUnusedCategoryGroups) {
+				final Placement lclPL = chooseAndRemove(lclUnused, lclCG);
 				
 				// Add to the half with fewer questions of this CategoryGroup.
 				boolean lclAddToFirstHalf;
@@ -196,10 +196,10 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 			}
 		}
 		
-		List<Placement> lclFirstHalf = new ArrayList<>(lclFirstHalfMM.values());
+		final List<Placement> lclFirstHalf = new ArrayList<>(lclFirstHalfMM.values());
 		assignNumbersBasedOnListOrder(lclFirstHalf, 1, 1);
 		
-		List<Placement> lclSecondHalf = new ArrayList<>(lclSecondHalfMM.values());
+		final List<Placement> lclSecondHalf = new ArrayList<>(lclSecondHalfMM.values());
 		assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf+1, 1);
 		
 		Validate.isTrue(isHalfSplittingValid(lclFirstHalf, lclSecondHalf));
@@ -218,18 +218,18 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		Validate.isTrue(Math.abs(lclFirstHalf.size() - lclSecondHalf.size()) <= 1);
 	}
 	
-	protected static Placement chooseAndRemove(Multimap<CategoryGroup, Placement> argChoices, CategoryGroup argGroupToChoose) {
+	protected static Placement chooseAndRemove(final Multimap<CategoryGroup, Placement> argChoices, final CategoryGroup argGroupToChoose) {
 		Validate.notNull(argChoices);
 		Validate.isTrue(!argChoices.isEmpty());
 		Validate.notNull(argGroupToChoose);
 		
-		List<Placement> lclChoices = new ArrayList<>(argChoices.get(argGroupToChoose));
+		final List<Placement> lclChoices = new ArrayList<>(argChoices.get(argGroupToChoose));
 		Validate.notEmpty(lclChoices);
 		Validate.noNullElements(lclChoices);
 		
-		int lclChosenIndex = ourRandom.nextInt(lclChoices.size());
+		final int lclChosenIndex = ourRandom.nextInt(lclChoices.size());
 		
-		Placement lclChosen = lclChoices.get(lclChosenIndex);
+		final Placement lclChosen = lclChoices.get(lclChosenIndex);
 		Validate.notNull(lclChosen);
 		Validate.isTrue(CATEGORY_GROUP_EXTRACTOR.apply(lclChosen) == argGroupToChoose);
 		
@@ -238,19 +238,19 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		return lclChosen;
 	}
 	
-	protected static void tryEnsuringNoCategoryGroupRepeatsWithinSpan(List<Placement> argPLs, int argSpan) {
+	protected static void tryEnsuringNoCategoryGroupRepeatsWithinSpan(final List<Placement> argPLs, final int argSpan) {
 		Collections.shuffle(argPLs, ourRandom); // FIXME this is the worst algorithm in the history of ever
 	}
 	
-	protected static void assignNumbersBasedOnListOrder(List<Placement> argPLs) {
+	protected static void assignNumbersBasedOnListOrder(final List<Placement> argPLs) {
 		assignNumbersBasedOnListOrder(argPLs, 1, 1);
 	}
 	
-	protected static void assignNumbersBasedOnListOrder(List<Placement> argPLs, int argFirstNumber, int argStep) {
+	protected static void assignNumbersBasedOnListOrder(final List<Placement> argPLs, final int argFirstNumber, final int argStep) {
 		Validate.noNullElements(argPLs);
 		
 		int lclN = argFirstNumber;
-		for (Placement lclPL : argPLs) {
+		for (final Placement lclPL : argPLs) {
 			lclPL.setNumber(lclN);
 			lclN += argStep;
 		}

@@ -159,8 +159,7 @@ public class Menu extends MenuItem {
 					}
 					
 					for (final MenuItem lclItem : getItems()) {
-						lclSB.append("				" + lclItem.output(argMT, argUser, argCurrentPageName))
-						     .append('\n');
+						lclSB.append("				" + lclItem.output(argMT, argUser, argCurrentPageName) + '\n');
 					}
 					
 					if (this instanceof TopLevelMenu) {

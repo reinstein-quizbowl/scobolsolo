@@ -21,7 +21,7 @@ public class RearrangeWaitlist extends ScobolSoloControllerServlet {
 	private static final String RETURN_URL = "/tournament/waitlist.jsp";
 	
 	@Override
-	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) throws Exception {
+	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final Tournament lclT = Validate.notNull(TournamentFactory.getInstance().fromHttpRequest(argRequest));
 		Validate.isTrue(argUser.mayActAsTournamentDirector(lclT), "Not authorized");
 		

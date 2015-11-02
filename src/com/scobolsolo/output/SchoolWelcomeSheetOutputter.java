@@ -42,7 +42,7 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 			if (lclBuzzerCount == 0) {
 				// nothing
 			} else if (lclBuzzerCount == 1) {
-				Buzzer lclB = lclSR.createBuzzerIterator().next();
+				final Buzzer lclB = lclSR.createBuzzerIterator().next();
 				getWriter().println("We expect that you have brought one buzzer system. \\\\");
 				
 				if (lclB.isToBeSetUp()) {

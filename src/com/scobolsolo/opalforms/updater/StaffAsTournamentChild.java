@@ -27,7 +27,7 @@ public class StaffAsTournamentChild extends OpalFormUpdater<Staff> {
 	protected void beforeDelete() {
 		final Staff lclS = Validate.notNull(getUserFacing());
 		
-		for (StaffAssignment lclSA : lclS.createStaffAssignmentArray()) {
+		for (final StaffAssignment lclSA : lclS.createStaffAssignmentArray()) {
 			lclSA.unlink();
 		}
 	}

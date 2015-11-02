@@ -6,7 +6,6 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -16,8 +15,6 @@ import java.util.zip.ZipOutputStream;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.Validate;
-
-import com.siliconage.util.Fast3Set;
 
 import com.scobolsolo.application.Account;
 import com.scobolsolo.application.Packet;
@@ -58,14 +55,14 @@ public class OutputPackets extends DownloadServlet {
 			lclFilename = Utility.cleanFilename(lclT.getName() + "-packets.zip");
 		}
 		
-		List<LaTeXOutputter> lclOutputters = lclPackets.stream()
+		final List<LaTeXOutputter> lclOutputters = lclPackets.stream()
 			.sorted()
 			.map(argP -> new PacketOutputter(argP))
 			.collect(Collectors.toList());
 		
 		final List<File> lclFiles = new ArrayList<>(lclOutputters.size());
 		
-		for (LaTeXOutputter lclO : lclOutputters) {
+		for (final LaTeXOutputter lclO : lclOutputters) {
 			lclO.output();
 			
 			final LaTeXCompiler lclC = new LaTeXCompiler(lclO);

@@ -3,16 +3,13 @@ package com.scobolsolo.output;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
-import org.apache.commons.lang3.tuple.Pair;
 
 import com.scobolsolo.application.Packet;
 import com.scobolsolo.application.Placement;
 import com.scobolsolo.application.Question;
-import com.scobolsolo.application.Tournament;
 import com.scobolsolo.ScobolSoloConfiguration;
 import com.scobolsolo.Utility;
 
@@ -31,8 +28,8 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 	
 	@Override
 	public void outputInternal() {
-		List<Placement> lclRegulation = getPacket().getRegulationPlacements();
-		List<Placement> lclOvertime = getPacket().getOvertimePlacements();
+		final List<Placement> lclRegulation = getPacket().getRegulationPlacements();
+		final List<Placement> lclOvertime = getPacket().getOvertimePlacements();
 		
 		getWriter().println("\\documentclass[12pt]{scobolsolopacket}");
 		getWriter().println();
@@ -47,23 +44,23 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 		// #1 the placement ID, #2 the in-packet number, #3 the value 1 for overtime or 0 for regulation, #4 the previous placement ID if defined or -1 if not, #5 and the next placement ID if defined or -1 if not
 		
 		for (int lclI = 0; lclI < lclRegulation.size(); ++lclI) {
-			Placement lclPL = lclRegulation.get(lclI);
+			final Placement lclPL = lclRegulation.get(lclI);
 			if (lclPL.isEmpty()) {
 				continue;
 			}
 			
-			Placement lclPrev = lclI == 0 ? null : lclRegulation.get(lclI - 1);
+			final Placement lclPrev = lclI == 0 ? null : lclRegulation.get(lclI - 1);
 			
 			Placement lclNext;
 			if (lclI < lclRegulation.size() - 1) {
 				lclNext = lclRegulation.get(lclI + 1);
-			} else if (!lclOvertime.isEmpty()) {
-				lclNext = lclOvertime.get(0);
-			} else {
+			} else if (lclOvertime.isEmpty()) {
 				lclNext = null;
+			} else {
+				lclNext = lclOvertime.get(0);
 			}
 			
-			List<String> lclTossupEnvironmentArguments = Arrays.asList(
+			final List<String> lclTossupEnvironmentArguments = Arrays.asList(
 				lclPL.getIdAsObject().toString(),
 				lclPL.getNumberAsObject().toString(),
 				"0", // regulation
@@ -71,7 +68,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 				lclNext == null ? "-1" : lclNext.getIdAsObject().toString()
 			);
 			
-			Question lclQ = Validate.notNull(lclPL.getQuestion());
+			final Question lclQ = Validate.notNull(lclPL.getQuestion());
 			
 			getWriter().println("\\begin{tossup}{" + StringUtils.join(lclTossupEnvironmentArguments, "}{") + "}");
 			getWriter().println("\t\\question{" + questionTextToLatex(lclQ.getText()) + "}");
@@ -98,25 +95,25 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 		
 		if (!lclOvertime.isEmpty()) {
 			for (int lclI = 0; lclI < lclOvertime.size(); ++lclI) {
-				Placement lclPL = lclOvertime.get(lclI);
+				final Placement lclPL = lclOvertime.get(lclI);
 				if (lclPL.isEmpty()) {
 					continue;
 				}
 				
 				Placement lclPrev;
 				if (lclI == 0) {
-					if (!lclRegulation.isEmpty()) {
-						lclPrev = lclRegulation.get(lclRegulation.size() - 1);
-					} else {
+					if (lclRegulation.isEmpty()) {
 						lclPrev = null;
+					} else {
+						lclPrev = lclRegulation.get(lclRegulation.size() - 1);
 					}
 				} else {
 					lclPrev = lclOvertime.get(lclI - 1);
 				}
 				
-				Placement lclNext = lclI == lclOvertime.size() - 1 ? null : lclOvertime.get(lclI + 1);
+				final Placement lclNext = lclI == lclOvertime.size() - 1 ? null : lclOvertime.get(lclI + 1);
 				
-				List<String> lclTossupEnvironmentArguments = Arrays.asList(
+				final List<String> lclTossupEnvironmentArguments = Arrays.asList(
 					lclPL.getIdAsObject().toString(),
 					lclPL.getNumberAsObject().toString(),
 					"1", // overtime
@@ -124,7 +121,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 					lclNext == null ? "-1" : lclNext.getIdAsObject().toString()
 				);
 				
-				Question lclQ = Validate.notNull(lclPL.getQuestion());
+				final Question lclQ = Validate.notNull(lclPL.getQuestion());
 				
 				getWriter().println("\\begin{tossup}{" + StringUtils.join(lclTossupEnvironmentArguments, "}{") + "}");
 				getWriter().println("\t\\question{" + questionTextToLatex(lclQ.getText()) + "}");
@@ -149,7 +146,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 		getWriter().println("\\end{document}");
 	}
 	
-	public static String makeFilename(Packet argP, boolean argMultipleTournaments) {
+	public static String makeFilename(final Packet argP, final boolean argMultipleTournaments) {
 		Validate.notNull(argP);
 		
 		if (argMultipleTournaments) {
@@ -159,16 +156,16 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 		}
 	}
 	
-	public static File makeFile(Packet argP, boolean argMultipleTournaments) {
+	public static File makeFile(final Packet argP, final boolean argMultipleTournaments) {
 		Validate.notNull(argP);
 		
 		return new File(ScobolSoloConfiguration.getInstance().getString("DATA_DIRECTORY") + File.separator + ScobolSoloConfiguration.getInstance().getString("OUTPUTTED_PACKETS_SUBDIRECTORY") + File.separator + makeFilename(argP, argMultipleTournaments));
 	}
 	
-	public static String questionTextToLatex(String argQuestionText) {
+	public static String questionTextToLatex(final String argQuestionText) {
 		Validate.notNull(argQuestionText);
 		
-		StringBuilder lclSB = new StringBuilder(argQuestionText.length() + 100); // half-assed guess
+		final StringBuilder lclSB = new StringBuilder(argQuestionText.length() + 100); // half-assed guess
 		
 		boolean lclInItalics = false;
 		boolean lclInDoubleQuotes = false;
@@ -176,7 +173,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 		boolean lclInMath = false;
 		
 		char lclPrev = ' ';
-		for (char lclC : argQuestionText.toCharArray()) {
+		for (final char lclC : argQuestionText.toCharArray()) {
 			switch (lclC) {
 				case '$':
 					if (lclPrev == '\\') {
@@ -244,7 +241,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 		return lclSB.toString();
 	}
 	
-	public static String answerLineToLatex(String argAnswerLine) {
+	public static String answerLineToLatex(final String argAnswerLine) {
 		Validate.notNull(argAnswerLine);
 		
 		return questionTextToLatex(argAnswerLine);

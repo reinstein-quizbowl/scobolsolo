@@ -2,14 +2,10 @@ package com.scobolsolo.output;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
-
-import com.google.common.collect.RowSortedTable;
-import com.google.common.collect.TreeBasedTable;
 
 import com.scobolsolo.application.Card;
 import com.scobolsolo.application.Match;
@@ -56,9 +52,9 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 			getWriter().println();
 			
 			if (lclRoom.getStaffAssignmentCount() > 0) {
-				StaffAssignment[] lclSAs = lclRoom.createStaffAssignmentArray();
+				final StaffAssignment[] lclSAs = lclRoom.createStaffAssignmentArray();
 				Arrays.sort(lclSAs, StaffAssignment.STAFF_COMPARATOR);
-				for (StaffAssignment lclSA : lclSAs) {
+				for (final StaffAssignment lclSA : lclSAs) {
 					if (lclSA.getPhase() == getPhase()) {
 						if (lclSA.getNote() == null) {
 							getWriter().println("\\Subtitle{" + escape(lclSA.getStaff().getContact().getName()) + ", " + escape(lclSA.getRole().getName()) + "}");
@@ -89,7 +85,7 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 					getWriter().print("\\multicolumn{2}{c}{\\NoMatchForRoom}");
 					getWriter().println("\\tabularnewline");
 				} else {
-					for (Match lclM : lclMatches) {
+					for (final Match lclM : lclMatches) {
 						getWriter().print("\\RoundNumber{" + escape(lclRound.getShortName()) + "} & ");
 						getWriter().print("\\RoundTime{" + escape(lclRound.getStartTime()) + "} & ");
 						

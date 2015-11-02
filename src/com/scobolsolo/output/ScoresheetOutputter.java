@@ -55,11 +55,11 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 				getWriter().println("\\TournamentTitle{" + escape(getTournament().getName()) + "}");
 				getWriter().println();
 				
-				List<String> lclSubheadChunks = new ArrayList<>(4);
+				final List<String> lclSubheadChunks = new ArrayList<>(4);
 				lclSubheadChunks.add("Round: " + escape(lclRound.getShortName()));
 				lclSubheadChunks.add("Room: " + escape(lclRoom.getShortName()));
 				
-				Staff lclLikelyModerator = lclM.determineLikelyModerator();
+				final Staff lclLikelyModerator = lclM.determineLikelyModerator();
 				if (lclLikelyModerator != null) {
 					lclSubheadChunks.add("Moderator: " + escape(lclLikelyModerator.getName()));
 				}
@@ -90,7 +90,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 				Placements:
 				for (int lclI = 0; lclI < lclPLs.size(); ++lclI) {
 					final Placement lclPL = lclPLs.get(lclI);
-					final Placement lclPrev = lclI == 0 ? null : lclPLs.get(lclI-1);
+					// final Placement lclPrev = lclI == 0 ? null : lclPLs.get(lclI-1);
 					final Placement lclNext = lclI == lclPLs.size() - 1 ? null : lclPLs.get(lclI+1);
 					
 					if (lclPL.isTiebreaker()) {
@@ -136,16 +136,16 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 		return myAllRooms;
 	}
 	
-	private String verticalLine(String argWidth) {
+	private static String verticalLine(final String argWidth) {
 		Validate.notNull(argWidth);
 		return "!{\\vrule width " + argWidth + "}";
 	}
 	
-	private String thickVerticalLine() {
+	private static String thickVerticalLine() {
 		return verticalLine(THICK_LINE_WIDTH);
 	}
 	
-	private void horizontalLine(String argWidth) {
+	private void horizontalLine(final String argWidth) {
 		Validate.notNull(argWidth);
 		getWriter().println("\\Xhline{" + argWidth + "}");
 	}

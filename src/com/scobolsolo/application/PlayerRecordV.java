@@ -2,8 +2,6 @@ package com.scobolsolo.application;
 
 import java.util.Comparator;
 
-import com.siliconage.util.NullSafeComparator;
-
 import com.scobolsolo.persistence.PlayerRecordVUserFacing;
 
 /**
