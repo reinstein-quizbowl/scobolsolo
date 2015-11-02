@@ -384,22 +384,6 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 		}
 	}
 
-	public static class SchoolNameThenStaffNameComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Staff> {
-		private static final SchoolNameThenStaffNameComparator ourInstance = new SchoolNameThenStaffNameComparator();
-		public static final SchoolNameThenStaffNameComparator getInstance() { return ourInstance; }
-
-		private SchoolNameThenStaffNameComparator() { super(); }
-
-		@Override
-		public int compareInternal(com.scobolsolo.application.Staff argFirst, com.scobolsolo.application.Staff argSecond) {
-			int lclResult = com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
-			if (lclResult != 0) {
-				return lclResult;
-			}
-			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(),  argSecond.getContact());
-		}
-	}
-
 	public static class TournamentDateComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.Staff> {
 		private static final TournamentDateComparator ourInstance = new TournamentDateComparator();
 		public static final TournamentDateComparator getInstance() { return ourInstance; }

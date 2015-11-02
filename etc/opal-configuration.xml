@@ -169,10 +169,6 @@
 				<Comparator Name="NameComparator">
 					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>
-				<Comparator Name="SchoolNameThenStaffNameComparator">
-					<Child Name="SchoolRegistration" Comparator="SchoolNameComparator" />
-					<Child Name="Contact" Comparator="SortByComparator" />
-				</Comparator>
 				<Comparator>
 					<Child Name="Tournament" Comparator="DateComparator" />
 				</Comparator>
