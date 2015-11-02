@@ -237,7 +237,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 
 	default public java.lang.Boolean isRegulationAsObject() {
 		Boolean lclB = isTiebreakerAsObject();
-		return lclB != null ? (lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE) : null;
+		return lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE;
 	}
 
 	/**

@@ -272,7 +272,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 
 	default public java.lang.Boolean isInactiveAsObject() {
 		Boolean lclB = isActiveAsObject();
-		return lclB != null ? (lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE) : null;
+		return lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE;
 	}
 
 	/**
