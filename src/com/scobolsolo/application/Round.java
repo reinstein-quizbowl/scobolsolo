@@ -46,6 +46,10 @@ public interface Round extends RoundUserFacing, Comparable<Round> {
 		return getRoundGroup().getPhase().isCardSystem();
 	}
 	
+	default Phase getPhase() {
+		return getRoundGroup().getPhase();
+	}
+	
 	default Tournament getTournament() {
 		return getRoundGroup().getPhase().getTournament();
 	}

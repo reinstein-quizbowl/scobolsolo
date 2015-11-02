@@ -101,6 +101,7 @@ public final class Menus {
 				new MenuPage("tournaments", "Tournaments", "/admin/tournaments.jsp"),
 				new MenuPage("schools", "Schools", "/admin/schools.jsp"),
 				new MenuPage("contacts", "Contacts", "/admin/contacts.jsp"),
+				new MenuPage("Games", "Games", "/admin/games.jsp"),
 				new MenuPage("categories", "Categories", "/admin/categories.jsp"),
 				myTournamentsInternalMenu,
 				new Menu(

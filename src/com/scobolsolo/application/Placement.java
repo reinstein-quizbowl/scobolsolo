@@ -81,4 +81,12 @@ public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 	default boolean isEmpty() {
 		return !isFilled();
 	}
+	
+	default String getNumberStringWithQuestionDescription() {
+		if (isFilled()) {
+			return getNumberString() + ": " + getQuestion().getDescription();
+		} else {
+			return getNumberString() + " [empty]";
+		}
+	}
 }

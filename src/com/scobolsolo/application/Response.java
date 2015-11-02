@@ -1,5 +1,9 @@
 package com.scobolsolo.application;
 
+import java.util.Comparator;
+
+import org.apache.commons.lang3.ObjectUtils;
+
 import com.scobolsolo.persistence.ResponseUserFacing;
 
 /**
@@ -11,5 +15,7 @@ import com.scobolsolo.persistence.ResponseUserFacing;
  */
 
 public interface Response extends ResponseUserFacing {
-	/* This block intentionally left empty. */
+	public static final Comparator<Response> PLACEMENT_COMPARATOR = Comparator.comparing(Response::getPlacement);
+	
+	public static final Comparator<Response> BASE_PLACEMENT_COMPARATOR = Comparator.comparing(argR -> ObjectUtils.firstNonNull(argR.getReplacementForPlacement(), argR.getPlacement()));
 }
