@@ -238,7 +238,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 			lclPrev = lclC;
 		}
 		
-		return lclSB.toString();
+		return lclSB.toString().trim();
 	}
 	
 	public static String answerLineToLatex(final String argAnswerLine) {
