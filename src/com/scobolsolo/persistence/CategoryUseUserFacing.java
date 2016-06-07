@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code CategoryCode}
@@ -23,6 +24,8 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryCode();
 
 	/**
@@ -37,7 +40,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.CategoryUse setCategoryCode(java.lang.String argCategoryCode);
 
@@ -48,6 +51,8 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
 
 	/**
@@ -62,7 +67,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.CategoryUse setTournamentCode(java.lang.String argTournamentCode);
 
@@ -75,6 +80,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Needs} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getNeedsAsObject();
 
 	/**
@@ -129,6 +135,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argNeeds the new value of {@code Needs}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.CategoryUse setNeeds(java.lang.Integer argNeeds);
 
 	/**
@@ -144,6 +151,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code category_use_category_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category getCategory();
 	public com.scobolsolo.application.CategoryUse setCategory(com.scobolsolo.application.Category argCategory);
 
@@ -152,6 +160,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code category_use_tournament_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
 	public com.scobolsolo.application.CategoryUse setTournament(com.scobolsolo.application.Tournament argTournament);
 

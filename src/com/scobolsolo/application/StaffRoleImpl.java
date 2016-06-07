@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.StaffRoleOpal;
 
 public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, StaffRoleOpal> implements StaffRole {
+
 	private final StaffRoleOpal myStaffRoleOpal;
 
 	public StaffRoleImpl(StaffRoleOpal argStaffRoleOpal) {
@@ -29,55 +30,73 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCode() {
 		return getStaffRoleOpal().getCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public StaffRoleImpl setCode(java.lang.String argCode) {
 		getStaffRoleOpal().setCode(argCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getStaffRoleOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public StaffRoleImpl setName(java.lang.String argName) {
 		getStaffRoleOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getStaffRoleOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public StaffRoleImpl setShortName(java.lang.String argShortName) {
 		getStaffRoleOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 12L)
 	@Override
 	public java.lang.String getVeryShortName() {
 		return getStaffRoleOpal().getVeryShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 12L)
 	@Override
 	public StaffRoleImpl setVeryShortName(java.lang.String argVeryShortName) {
 		getStaffRoleOpal().setVeryShortName(argVeryShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getStaffRoleOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StaffRoleImpl setSequence(java.lang.Integer argSequence) {
 		getStaffRoleOpal().setSequence(argSequence);
@@ -90,11 +109,15 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isMayEnterAnyMatchAsObject() {
 		return getStaffRoleOpal().isMayEnterAnyMatchAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public StaffRoleImpl setMayEnterAnyMatch(java.lang.Boolean argMayEnterAnyMatch) {
 		getStaffRoleOpal().setMayEnterAnyMatch(argMayEnterAnyMatch);
@@ -107,11 +130,15 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public java.lang.Boolean isMayEnterMatchesInAssignedRoomAsObject() {
 		return getStaffRoleOpal().isMayEnterMatchesInAssignedRoomAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public StaffRoleImpl setMayEnterMatchesInAssignedRoom(java.lang.Boolean argMayEnterMatchesInAssignedRoom) {
 		getStaffRoleOpal().setMayEnterMatchesInAssignedRoom(argMayEnterMatchesInAssignedRoom);
@@ -124,11 +151,15 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isMayViewQuestionsAsObject() {
 		return getStaffRoleOpal().isMayViewQuestionsAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public StaffRoleImpl setMayViewQuestions(java.lang.Boolean argMayViewQuestions) {
 		getStaffRoleOpal().setMayViewQuestions(argMayViewQuestions);
@@ -141,11 +172,15 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isMayEnterMatchesBeforeUsuallyPermittedAsObject() {
 		return getStaffRoleOpal().isMayEnterMatchesBeforeUsuallyPermittedAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public StaffRoleImpl setMayEnterMatchesBeforeUsuallyPermitted(java.lang.Boolean argMayEnterMatchesBeforeUsuallyPermitted) {
 		getStaffRoleOpal().setMayEnterMatchesBeforeUsuallyPermitted(argMayEnterMatchesBeforeUsuallyPermitted);
@@ -163,6 +198,33 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<StaffRole, Staf
 
 	/* The following methods allow access to the user objects that have references
 	to this object. */
+
+	@Override
+	public com.scobolsolo.application.StaffRole addStaffAssignment(StaffAssignment argStaffAssignment) {
+		getStaffRoleOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.StaffRole removeStaffAssignment(StaffAssignment argStaffAssignment) {
+		getStaffRoleOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
+		return this;
+	}
+
+	@Override
+	public int getStaffAssignmentCount() {
+		return getStaffRoleOpal().getStaffAssignmentOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<StaffAssignment> streamStaffAssignment() {
+		return getStaffRoleOpal().streamStaffAssignmentOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<StaffAssignment> createStaffAssignmentIterator() {
+		return new com.opal.OpalIterator<> (getStaffRoleOpal().createStaffAssignmentOpalIterator());
+	}
 
 	@Override
 	public void unlink() {

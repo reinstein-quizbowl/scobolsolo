@@ -52,7 +52,6 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return RoundOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -215,10 +214,10 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public java.util.HashSet<RoundOpal> forRoundGroupIdCollection(java.lang.Integer argRoundGroupId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<RoundOpal> forRoundGroupIdCollection(java.lang.Integer argRoundGroupId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoundGroupId };
 		final String[] lclFieldNames = new String[] { "round_group_id" };
-		java.util.HashSet<RoundOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<RoundOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -248,22 +247,24 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<RoundOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<RoundOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class RoundGroupIdNameOpalKey extends com.opal.DatabaseOpalKey<RoundOpal> {
+	/* package */ static class RoundGroupIdNameOpalKey extends com.opal.MultipleValueDatabaseOpalKey<RoundOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"round_group_id", "name", };
 
 		public RoundGroupIdNameOpalKey(java.lang.Integer argRoundGroupId, java.lang.String argName) {
@@ -271,14 +272,16 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class RoundGroupIdShortNameOpalKey extends com.opal.DatabaseOpalKey<RoundOpal> {
+	/* package */ static class RoundGroupIdShortNameOpalKey extends com.opal.MultipleValueDatabaseOpalKey<RoundOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"round_group_id", "short_name", };
 
 		public RoundGroupIdShortNameOpalKey(java.lang.Integer argRoundGroupId, java.lang.String argShortName) {
@@ -286,10 +289,12 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

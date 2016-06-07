@@ -6,6 +6,7 @@ import com.scobolsolo.persistence.PlacementOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 
 public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, ResponseOpal> implements Response {
+
 	private final ResponseOpal myResponseOpal;
 
 	public ResponseImpl(ResponseOpal argResponseOpal) {
@@ -27,11 +28,13 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return getResponseOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getResponseOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public ResponseImpl setId(java.lang.Integer argId) {
 		getResponseOpal().setId(argId);
@@ -44,11 +47,13 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getPerformanceIdAsObject() {
 		return getResponseOpal().getPerformanceIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public ResponseImpl setPerformanceId(java.lang.Integer argPerformanceId) {
 		getResponseOpal().setPerformanceId(argPerformanceId);
@@ -61,11 +66,13 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getPlacementIdAsObject() {
 		return getResponseOpal().getPlacementIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public ResponseImpl setPlacementId(java.lang.Integer argPlacementId) {
 		getResponseOpal().setPlacementId(argPlacementId);
@@ -78,22 +85,28 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getResponseTypeCode() {
 		return getResponseOpal().getResponseTypeCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public ResponseImpl setResponseTypeCode(java.lang.String argResponseTypeCode) {
 		getResponseOpal().setResponseTypeCode(argResponseTypeCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getReplacementForPlacementIdAsObject() {
 		return getResponseOpal().getReplacementForPlacementIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public ResponseImpl setReplacementForPlacementId(java.lang.Integer argReplacementForPlacementId) {
 		getResponseOpal().setReplacementForPlacementId(argReplacementForPlacementId);
@@ -111,6 +124,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 
 	/** @return the Performance object created from response through reference response_performance_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Performance getPerformance() {
 		PerformanceOpal lclPerformanceOpal = getResponseOpal().getPerformanceOpal();
@@ -125,6 +139,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 
 	/** @return the Placement object created from response through reference response_placement_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Placement getPlacement() {
 		PlacementOpal lclPlacementOpal = getResponseOpal().getPlacementOpal();
@@ -139,6 +154,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 
 	/** @return the Placement object created from response through reference response_replacement_placement_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Placement getReplacementForPlacement() {
 		PlacementOpal lclPlacementOpal = getResponseOpal().getReplacementForPlacementOpal();
@@ -153,6 +169,7 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 
 	/** @return the ResponseType object created from response through reference response_response_type_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public ResponseType getResponseType() {
 		ResponseTypeOpal lclResponseTypeOpal = getResponseOpal().getResponseTypeOpal();

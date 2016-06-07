@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.DiffOpalFactory;
 import com.scobolsolo.persistence.DiffOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class DiffFactory extends com.opal.AbstractFactory<Diff, DiffOpal> implements com.opal.FactoryCreator<Diff>, com.opal.IdentityFactory<Diff> {
+public class DiffFactory extends com.opal.AbstractIdentityFactory<Diff, DiffOpal> implements com.opal.FactoryCreator<Diff> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class DiffFactory extends com.opal.AbstractFactory<Diff, DiffOpal> implem
 
 	public DiffOpalFactory getDiffOpalFactory() { return (DiffOpalFactory) getOpalFactory(); }
 
-	protected DiffFactory(com.opal.OpalFactory<Diff, DiffOpal> argOpalFactory) {
+	protected DiffFactory(com.opal.IdentityOpalFactory<Diff, DiffOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

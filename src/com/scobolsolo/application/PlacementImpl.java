@@ -6,6 +6,7 @@ import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 
 public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, PlacementOpal> implements Placement {
+
 	private final PlacementOpal myPlacementOpal;
 
 	public PlacementImpl(PlacementOpal argPlacementOpal) {
@@ -27,11 +28,13 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return getPlacementOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getPlacementOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PlacementImpl setId(java.lang.Integer argId) {
 		getPlacementOpal().setId(argId);
@@ -44,11 +47,13 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getQuestionIdAsObject() {
 		return getPlacementOpal().getQuestionIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public PlacementImpl setQuestionId(java.lang.Integer argQuestionId) {
 		getPlacementOpal().setQuestionId(argQuestionId);
@@ -61,11 +66,13 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getPacketIdAsObject() {
 		return getPlacementOpal().getPacketIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PlacementImpl setPacketId(java.lang.Integer argPacketId) {
 		getPlacementOpal().setPacketId(argPacketId);
@@ -78,11 +85,13 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getNumberAsObject() {
 		return getPlacementOpal().getNumberAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PlacementImpl setNumber(java.lang.Integer argNumber) {
 		getPlacementOpal().setNumber(argNumber);
@@ -95,11 +104,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isTiebreakerAsObject() {
 		return getPlacementOpal().isTiebreakerAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public PlacementImpl setTiebreaker(java.lang.Boolean argTiebreaker) {
 		getPlacementOpal().setTiebreaker(argTiebreaker);
@@ -112,11 +125,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isScorecheckAfterAsObject() {
 		return getPlacementOpal().isScorecheckAfterAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public PlacementImpl setScorecheckAfter(java.lang.Boolean argScorecheckAfter) {
 		getPlacementOpal().setScorecheckAfter(argScorecheckAfter);
@@ -129,11 +146,15 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCategoryCode() {
 		return getPlacementOpal().getCategoryCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public PlacementImpl setCategoryCode(java.lang.String argCategoryCode) {
 		getPlacementOpal().setCategoryCode(argCategoryCode);
@@ -145,6 +166,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 
 	/** @return the Packet object created from placement through reference placement_packet_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Packet getPacket() {
 		PacketOpal lclPacketOpal = getPlacementOpal().getPacketOpal();
@@ -159,6 +181,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 
 	/** @return the Question object created from placement through reference placement_question_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Question getQuestion() {
 		QuestionOpal lclQuestionOpal = getPlacementOpal().getQuestionOpal();
@@ -173,6 +196,7 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 
 	/** @return the Category object created from placement through reference placement_category_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Category getCategory() {
 		CategoryOpal lclCategoryOpal = getPlacementOpal().getCategoryOpal();
@@ -216,11 +240,6 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	}
 
 	@Override
-	public com.scobolsolo.application.Placement clearResponse() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Placement addReplacementForResponse(Response argResponse) {
 		getPlacementOpal().addReplacementForResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
 		return this;
@@ -245,11 +264,6 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	@Override
 	public java.util.Iterator<Response> createReplacementForResponseIterator() {
 		return new com.opal.OpalIterator<> (getPlacementOpal().createReplacementForResponseOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Placement clearReplacementForResponse() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

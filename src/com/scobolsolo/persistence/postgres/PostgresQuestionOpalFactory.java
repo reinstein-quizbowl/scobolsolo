@@ -52,7 +52,6 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return QuestionOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -214,18 +213,20 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<QuestionOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<QuestionOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

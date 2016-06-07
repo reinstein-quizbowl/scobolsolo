@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.MatchOpalFactory;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class MatchFactory extends com.opal.AbstractFactory<Match, MatchOpal> implements com.opal.FactoryCreator<Match>, com.opal.IdentityFactory<Match> {
+public class MatchFactory extends com.opal.AbstractIdentityFactory<Match, MatchOpal> implements com.opal.FactoryCreator<Match> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class MatchFactory extends com.opal.AbstractFactory<Match, MatchOpal> imp
 
 	public MatchOpalFactory getMatchOpalFactory() { return (MatchOpalFactory) getOpalFactory(); }
 
-	protected MatchFactory(com.opal.OpalFactory<Match, MatchOpal> argOpalFactory) {
+	protected MatchFactory(com.opal.IdentityOpalFactory<Match, MatchOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

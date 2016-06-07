@@ -86,7 +86,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 		lclT.streamCategoryUse().forEach(argCU -> lclNeeded.tally(argCU.getCategory(), argCU.getNeeds(0)));
 	}
 	
-	Set<Category> lclAllRelevantCategories = lclNeeded.asLiveMap().keySet();
+	Set<Category> lclAllRelevantCategories = lclNeeded.keySet();
 	
 	List<CategoryGroup> lclCategoryGroups = lclAllRelevantCategories.stream()
 		.map(Category::getCategoryGroup)

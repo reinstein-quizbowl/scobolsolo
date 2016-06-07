@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Player setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getContactIdAsObject();
 
 	/**
@@ -95,7 +98,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argContactId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Player setContactId(java.lang.Integer argContactId);
 
 	/**
@@ -115,6 +118,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
 	/**
@@ -169,6 +173,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -186,6 +191,8 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code SchoolYearCode} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getSchoolYearCode();
 
 	/**
@@ -213,6 +220,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code school_year_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Player setSchoolYearCode(java.lang.String argSchoolYearCode);
 
@@ -225,6 +233,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RankWithinSchool} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getRankWithinSchoolAsObject();
 
 	/**
@@ -279,6 +288,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRankWithinSchool the new value of {@code RankWithinSchool}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player setRankWithinSchool(java.lang.Integer argRankWithinSchool);
 
 	/**
@@ -298,6 +308,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Seed} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getSeedAsObject();
 
 	/**
@@ -352,6 +363,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSeed the new value of {@code Seed}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player setSeed(java.lang.Integer argSeed);
 
 	/**
@@ -369,6 +381,8 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -396,6 +410,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Player setNote(java.lang.String argNote);
 
@@ -408,6 +423,8 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Exhibition} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isExhibitionAsObject();
 
 	/**
@@ -433,7 +450,8 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argExhibition is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Player setExhibition(java.lang.Boolean argExhibition);
 
 	/**
@@ -449,6 +467,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code player_contact_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact getContact();
 	public com.scobolsolo.application.Player setContact(com.scobolsolo.application.Contact argContact);
 
@@ -457,6 +476,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code player_registration_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
 	public com.scobolsolo.application.Player setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
@@ -465,9 +485,11 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.SchoolYear} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_year} that is referenced by {@code player_school_year_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.SchoolYear getSchoolYear();
 	public com.scobolsolo.application.Player setSchoolYear(com.scobolsolo.application.SchoolYear argSchoolYear);
 
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Card getInitialCard();
 	public com.scobolsolo.application.Player setInitialCard(com.scobolsolo.application.Card argInitialCard);
 
@@ -478,8 +500,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Player addOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
 	public com.scobolsolo.application.Player removeOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player clearOutgoingLosingCardGame();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingLosingCardGame(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
@@ -507,8 +527,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Player addOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
 	public com.scobolsolo.application.Player removeOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player clearOutgoingWinningCardGame();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingWinningCardGame(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
@@ -536,8 +554,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Player addIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
 	public com.scobolsolo.application.Player removeIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player clearIncomingLosingCardGame();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingLosingCardGame(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
@@ -565,8 +581,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Player addIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
 	public com.scobolsolo.application.Player removeIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player clearIncomingWinningCardGame();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingWinningCardGame(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
@@ -594,8 +608,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Player addPerformance(com.scobolsolo.application.Performance argPerformance);
 	public com.scobolsolo.application.Player removePerformance(com.scobolsolo.application.Performance argPerformance);
-	public com.scobolsolo.application.Player clearPerformance();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Performance>> T acquirePerformance(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();

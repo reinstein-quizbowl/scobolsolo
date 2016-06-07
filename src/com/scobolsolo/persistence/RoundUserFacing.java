@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface RoundUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Round setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getRoundGroupIdAsObject();
 
 	/**
@@ -124,6 +127,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoundGroupId the new value of {@code RoundGroupId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Round setRoundGroupId(java.lang.Integer argRoundGroupId);
 
 	/**
@@ -141,6 +145,8 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -155,7 +161,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Round setName(java.lang.String argName);
 
@@ -166,6 +172,8 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -180,7 +188,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Round setShortName(java.lang.String argShortName);
 
@@ -193,6 +201,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -218,7 +227,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Round setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -236,6 +245,8 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code StartTime} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 16L)
 	public java.lang.String getStartTime();
 
 	/**
@@ -263,6 +274,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code start_time} is limited to 16 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 16L)
 	public com.scobolsolo.application.Round setStartTime(java.lang.String argStartTime);
 
@@ -275,6 +287,8 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code LunchAfter} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isLunchAfterAsObject();
 
 	/**
@@ -300,7 +314,8 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argLunchAfter is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Round setLunchAfter(java.lang.Boolean argLunchAfter);
 
 	/**
@@ -318,6 +333,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code EarliestEntryAllowed} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.time.LocalDateTime getEarliestEntryAllowed();
 
 	/**
@@ -342,6 +358,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argEarliestEntryAllowed the new value of {@code EarliestEntryAllowed}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Round setEarliestEntryAllowed(java.time.LocalDateTime argEarliestEntryAllowed);
 
 	/**
@@ -349,9 +366,11 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.RoundGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code round_group} that is referenced by {@code round_round_group_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.RoundGroup getRoundGroup();
 	public com.scobolsolo.application.Round setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
 
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Packet getPacket();
 	public com.scobolsolo.application.Round setPacket(com.scobolsolo.application.Packet argPacket);
 
@@ -362,8 +381,6 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Round addMatch(com.scobolsolo.application.Match argMatch);
 	public com.scobolsolo.application.Round removeMatch(com.scobolsolo.application.Match argMatch);
-	public com.scobolsolo.application.Round clearMatch();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireMatch(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();

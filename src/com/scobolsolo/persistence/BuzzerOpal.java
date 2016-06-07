@@ -5,12 +5,13 @@ import com.scobolsolo.application.Buzzer;
 @com.opal.StoreGeneratedPrimaryKey
 public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 
+
 	private BuzzerOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public BuzzerOpal(com.opal.OpalFactory<Buzzer, BuzzerOpal> argOpalFactory, Object[] argValues) {
+	public BuzzerOpal(com.opal.IdentityOpalFactory<Buzzer, BuzzerOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -127,7 +128,7 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	public synchronized BuzzerOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if ((argName != null) && (argName.length() > 256)) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[3] = argName;
 		return this;
@@ -348,8 +349,8 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("BuzzerOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

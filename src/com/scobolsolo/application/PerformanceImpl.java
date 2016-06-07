@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 
 public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, PerformanceOpal> implements Performance {
+
 	private final PerformanceOpal myPerformanceOpal;
 
 	public PerformanceImpl(PerformanceOpal argPerformanceOpal) {
@@ -26,11 +27,13 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 		return getPerformanceOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getPerformanceOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PerformanceImpl setId(java.lang.Integer argId) {
 		getPerformanceOpal().setId(argId);
@@ -43,11 +46,13 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getGameIdAsObject() {
 		return getPerformanceOpal().getGameIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PerformanceImpl setGameId(java.lang.Integer argGameId) {
 		getPerformanceOpal().setGameId(argGameId);
@@ -60,11 +65,13 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getPlayerIdAsObject() {
 		return getPerformanceOpal().getPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PerformanceImpl setPlayerId(java.lang.Integer argPlayerId) {
 		getPerformanceOpal().setPlayerId(argPlayerId);
@@ -82,6 +89,7 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 
 	/** @return the Game object created from performance through reference performance_game_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Game getGame() {
 		GameOpal lclGameOpal = getPerformanceOpal().getGameOpal();
@@ -96,6 +104,7 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 
 	/** @return the Player object created from performance through reference performance_player_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Player getPlayer() {
 		PlayerOpal lclPlayerOpal = getPerformanceOpal().getPlayerOpal();
@@ -136,11 +145,6 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<Performance, 
 	@Override
 	public java.util.Iterator<Response> createResponseIterator() {
 		return new com.opal.OpalIterator<> (getPerformanceOpal().createResponseOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Performance clearResponse() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

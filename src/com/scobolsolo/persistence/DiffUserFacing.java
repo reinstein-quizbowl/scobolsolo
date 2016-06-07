@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface DiffUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Diff setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code EditorAccountId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getEditorAccountIdAsObject();
 
 	/**
@@ -95,7 +98,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argEditorAccountId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Diff setEditorAccountId(java.lang.Integer argEditorAccountId);
 
 	/**
@@ -113,6 +116,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getText();
 
 	/**
@@ -127,7 +132,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Diff setText(java.lang.String argText);
 
@@ -138,6 +143,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getAnswer();
 
 	/**
@@ -152,7 +159,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code answer} is limited to 2147483647 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Diff setAnswer(java.lang.String argAnswer);
 
@@ -163,6 +170,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -190,6 +199,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Diff setNote(java.lang.String argNote);
 
@@ -200,6 +210,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Remark} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getRemark();
 
 	/**
@@ -227,6 +239,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code remark} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Diff setRemark(java.lang.String argRemark);
 
@@ -239,6 +252,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code EditDistance} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getEditDistanceAsObject();
 
 	/**
@@ -264,7 +278,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argEditDistance is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Diff setEditDistance(java.lang.Integer argEditDistance);
 
 	/**
@@ -282,6 +296,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Timestamp} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.CurrentDateTimeDefault
 	public java.time.LocalDateTime getTimestamp();
 
 	/**
@@ -306,6 +322,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argTimestamp the new value of {@code Timestamp}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.CurrentDateTimeDefault
 	public com.scobolsolo.application.Diff setTimestamp(java.time.LocalDateTime argTimestamp);
 
 	/**
@@ -317,6 +335,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getQuestionIdAsObject();
 
 	/**
@@ -342,7 +361,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argQuestionId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Diff setQuestionId(java.lang.Integer argQuestionId);
 
 	/**
@@ -362,6 +381,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RevisionNumber} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getRevisionNumberAsObject();
 
 	/**
@@ -387,7 +407,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argRevisionNumber is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Diff setRevisionNumber(java.lang.Integer argRevisionNumber);
 
 	/**
@@ -405,6 +425,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code QuestionStatusCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getQuestionStatusCode();
 
 	/**
@@ -419,7 +441,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code question_status_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Diff setQuestionStatusCode(java.lang.String argQuestionStatusCode);
 
@@ -430,6 +452,8 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryCode();
 
 	/**
@@ -444,7 +468,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Diff setCategoryCode(java.lang.String argCategoryCode);
 
@@ -453,6 +477,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Account} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code diff_editor_account_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Account getEditor();
 	public com.scobolsolo.application.Diff setEditor(com.scobolsolo.application.Account argEditor);
 
@@ -461,6 +486,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Question} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question} that is referenced by {@code diff_question_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Question getQuestion();
 	public com.scobolsolo.application.Diff setQuestion(com.scobolsolo.application.Question argQuestion);
 
@@ -469,6 +495,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code diff_question_status_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.QuestionStatus getStatus();
 	public com.scobolsolo.application.Diff setStatus(com.scobolsolo.application.QuestionStatus argStatus);
 
@@ -477,6 +504,7 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code diff_category_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category getCategory();
 	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory);
 

@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code TournamentCode}
@@ -23,6 +24,8 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
 
 	/**
@@ -34,6 +37,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getPlayerIdAsObject();
 
 	/**
@@ -91,6 +95,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getPerformanceIdAsObject();
 
 	/**
@@ -148,6 +153,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code OpponentPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getOpponentPlayerIdAsObject();
 
 	/**
@@ -205,6 +211,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code OpponentPerformanceId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getOpponentPerformanceIdAsObject();
 
 	/**
@@ -262,6 +269,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code MatchId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getMatchIdAsObject();
 
 	/**
@@ -319,6 +327,7 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code GameId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getGameIdAsObject();
 
 	/**
@@ -372,41 +381,48 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 * The returned {@code com.scobolsolo.application.Game} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code game} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Game getGame();
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getPlayer();
 	/**
 	 * @return the {@code com.scobolsolo.application.Player}
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getOpponentPlayer();
 	/**
 	 * @return the {@code com.scobolsolo.application.Match}
 	 * The returned {@code com.scobolsolo.application.Match} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code match} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Match getMatch();
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
 	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Performance getPerformance();
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
 	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Performance getOpponentPerformance();
 }

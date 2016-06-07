@@ -18,5 +18,7 @@ public interface StaffAssignment extends StaffAssignmentUserFacing {
 		.thenComparingInt(argSA -> argSA.getRole().getSequence())
 		.thenComparing(argSA -> argSA.getStaff().getContact().getName());
 	
+	public static final Comparator<StaffAssignment> STAFF_NAME_COMPARATOR = Comparator.comparing(argSA -> argSA.getStaff().getContact().getName());
+	
 	public static final Comparator<StaffAssignment> ROOM_COMPARATOR = Comparator.comparing(StaffAssignment::getPhase).thenComparing(StaffAssignment::getRoom);
 }

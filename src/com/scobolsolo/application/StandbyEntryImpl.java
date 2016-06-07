@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.StandbyEntryOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 
 public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry, StandbyEntryOpal> implements StandbyEntry {
+
 	private final StandbyEntryOpal myStandbyEntryOpal;
 
 	public StandbyEntryImpl(StandbyEntryOpal argStandbyEntryOpal) {
@@ -30,11 +31,13 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getStandbyEntryOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StandbyEntryImpl setId(java.lang.Integer argId) {
 		getStandbyEntryOpal().setId(argId);
@@ -47,11 +50,13 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSchoolRegistrationIdAsObject() {
 		return getStandbyEntryOpal().getSchoolRegistrationIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StandbyEntryImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getStandbyEntryOpal().setSchoolRegistrationId(argSchoolRegistrationId);
@@ -64,11 +69,13 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getStandbyEntryOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StandbyEntryImpl setSequence(java.lang.Integer argSequence) {
 		getStandbyEntryOpal().setSequence(argSequence);
@@ -81,11 +88,15 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "1")
 	@Override
 	public java.lang.Integer getPlayerCountAsObject() {
 		return getStandbyEntryOpal().getPlayerCountAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "1")
 	@Override
 	public StandbyEntryImpl setPlayerCount(java.lang.Integer argPlayerCount) {
 		getStandbyEntryOpal().setPlayerCount(argPlayerCount);
@@ -98,11 +109,15 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getStandbyEntryOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public StandbyEntryImpl setNote(java.lang.String argNote) {
 		getStandbyEntryOpal().setNote(argNote);
@@ -114,6 +129,7 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<StandbyEntry
 
 	/** @return the SchoolRegistration object created from standby_entry through reference standby_entry_school_registration_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getStandbyEntryOpal().getSchoolRegistrationOpal();

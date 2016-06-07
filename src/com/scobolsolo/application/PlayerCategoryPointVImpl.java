@@ -6,6 +6,7 @@ import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 
 public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCategoryPointV, PlayerCategoryPointVOpal> implements PlayerCategoryPointV {
+
 	private final PlayerCategoryPointVOpal myPlayerCategoryPointVOpal;
 
 	public PlayerCategoryPointVImpl(PlayerCategoryPointVOpal argPlayerCategoryPointVOpal) {
@@ -27,26 +28,33 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 		return getPlayerCategoryPointVOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getPlayerCategoryPointVOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getPlayerIdAsObject() {
 		return getPlayerCategoryPointVOpal().getPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCategoryCode() {
 		return getPlayerCategoryPointVOpal().getCategoryCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getTossupsHeardAsObject() {
 		return getPlayerCategoryPointVOpal().getTossupsHeardAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getPointsAsObject() {
 		return getPlayerCategoryPointVOpal().getPointsAsObject();
@@ -57,6 +65,7 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 
 	/** @return the Tournament object created from player_category_point_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getPlayerCategoryPointVOpal().getTournamentOpal();
@@ -65,6 +74,7 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 
 	/** @return the Player object created from player_category_point_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getPlayer() {
 		PlayerOpal lclPlayerOpal = getPlayerCategoryPointVOpal().getPlayerOpal();
@@ -73,6 +83,7 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 
 	/** @return the Category object created from player_category_point_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Category getCategory() {
 		CategoryOpal lclCategoryOpal = getPlayerCategoryPointVOpal().getCategoryOpal();

@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code TournamentCode}
@@ -23,6 +24,8 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
 
 	/**
@@ -34,6 +37,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getPlacementIdAsObject();
 
 	/**
@@ -91,6 +95,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getQuestionIdAsObject();
 
 	/**
@@ -146,6 +151,8 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code ResponseTypeCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getResponseTypeCode();
 
 	/**
@@ -157,6 +164,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code ResponseTypeCount} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getResponseTypeCountAsObject();
 
 	/**
@@ -210,23 +218,27 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.ResponseType getResponseType();
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
 	/**
 	 * @return the {@code com.scobolsolo.application.Question}
 	 * The returned {@code com.scobolsolo.application.Question} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Question getQuestion();
 	/**
 	 * @return the {@code com.scobolsolo.application.Placement}
 	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Placement getPlacement();
 }

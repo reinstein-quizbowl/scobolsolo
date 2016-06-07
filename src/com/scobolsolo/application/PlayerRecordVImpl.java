@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 
 public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, PlayerRecordVOpal> implements PlayerRecordV {
+
 	private final PlayerRecordVOpal myPlayerRecordVOpal;
 
 	public PlayerRecordVImpl(PlayerRecordVOpal argPlayerRecordVOpal) {
@@ -26,31 +27,38 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 		return getPlayerRecordVOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getPlayerRecordVOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getPlayerIdAsObject() {
 		return getPlayerRecordVOpal().getPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Long getWinCountAsObject() {
 		return getPlayerRecordVOpal().getWinCountAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Long getLossCountAsObject() {
 		return getPlayerRecordVOpal().getLossCountAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getPointsAsObject() {
 		return getPlayerRecordVOpal().getPointsAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getTossupsHeardAsObject() {
 		return getPlayerRecordVOpal().getTossupsHeardAsObject();
@@ -61,6 +69,7 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 
 	/** @return the Tournament object created from player_record_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getPlayerRecordVOpal().getTournamentOpal();
@@ -69,6 +78,7 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 
 	/** @return the Player object created from player_record_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getPlayer() {
 		PlayerOpal lclPlayerOpal = getPlayerRecordVOpal().getPlayerOpal();

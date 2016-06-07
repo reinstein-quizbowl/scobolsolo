@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Contact> {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact setId(java.lang.Integer argId);
 
 	/**
@@ -68,6 +70,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code EmailAddress} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getEmailAddress();
 
 	/**
@@ -95,6 +99,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code email_address} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Contact setEmailAddress(java.lang.String argEmailAddress);
 
@@ -105,6 +110,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code AdvancePhone} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getAdvancePhone();
 
 	/**
@@ -132,6 +139,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code advance_phone} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Contact setAdvancePhone(java.lang.String argAdvancePhone);
 
@@ -142,6 +150,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code DayOfPhone} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getDayOfPhone();
 
 	/**
@@ -169,6 +179,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code day_of_phone} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Contact setDayOfPhone(java.lang.String argDayOfPhone);
 
@@ -179,6 +190,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -206,6 +219,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Contact setNote(java.lang.String argNote);
 
@@ -216,6 +230,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -230,7 +246,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Contact setName(java.lang.String argName);
 
@@ -241,6 +257,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code SortBy} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getSortBy();
 
 	/**
@@ -255,7 +273,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code sort_by} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Contact setSortBy(java.lang.String argSortBy);
 
@@ -268,6 +286,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Active} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isActiveAsObject();
 
 	default public java.lang.Boolean isInactiveAsObject() {
@@ -302,7 +322,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argActive is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.Contact setActive(java.lang.Boolean argActive);
 
 	/**
@@ -320,6 +341,8 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Address} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getAddress();
 
 	/**
@@ -347,9 +370,11 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code address} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Contact setAddress(java.lang.String argAddress);
 
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Account getAccount();
 	public com.scobolsolo.application.Contact setAccount(com.scobolsolo.application.Account argAccount);
 
@@ -360,8 +385,6 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 
 	public com.scobolsolo.application.Contact addTournamentDirectorTournament(com.scobolsolo.application.Tournament argTournament);
 	public com.scobolsolo.application.Contact removeTournamentDirectorTournament(com.scobolsolo.application.Tournament argTournament);
-	public com.scobolsolo.application.Contact clearTournamentDirectorTournament();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Tournament>> T acquireTournamentDirectorTournament(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Tournament> lclI = createTournamentDirectorTournamentIterator();
@@ -389,8 +412,6 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 
 	public com.scobolsolo.application.Contact addPlayer(com.scobolsolo.application.Player argPlayer);
 	public com.scobolsolo.application.Contact removePlayer(com.scobolsolo.application.Player argPlayer);
-	public com.scobolsolo.application.Contact clearPlayer();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Player>> T acquirePlayer(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Player> lclI = createPlayerIterator();
@@ -418,8 +439,6 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 
 	public com.scobolsolo.application.Contact addMainSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 	public com.scobolsolo.application.Contact removeMainSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public com.scobolsolo.application.Contact clearMainSchoolRegistration();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.SchoolRegistration>> T acquireMainSchoolRegistration(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createMainSchoolRegistrationIterator();
@@ -447,8 +466,6 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 
 	public com.scobolsolo.application.Contact addStaff(com.scobolsolo.application.Staff argStaff);
 	public com.scobolsolo.application.Contact removeStaff(com.scobolsolo.application.Staff argStaff);
-	public com.scobolsolo.application.Contact clearStaff();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Staff>> T acquireStaff(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();

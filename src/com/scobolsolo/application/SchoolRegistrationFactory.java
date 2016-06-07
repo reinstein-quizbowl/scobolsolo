@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.SchoolRegistrationOpalFactory;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class SchoolRegistrationFactory extends com.opal.AbstractFactory<SchoolRegistration, SchoolRegistrationOpal> implements com.opal.FactoryCreator<SchoolRegistration>, com.opal.IdentityFactory<SchoolRegistration> {
+public class SchoolRegistrationFactory extends com.opal.AbstractIdentityFactory<SchoolRegistration, SchoolRegistrationOpal> implements com.opal.FactoryCreator<SchoolRegistration> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class SchoolRegistrationFactory extends com.opal.AbstractFactory<SchoolRe
 
 	public SchoolRegistrationOpalFactory getSchoolRegistrationOpalFactory() { return (SchoolRegistrationOpalFactory) getOpalFactory(); }
 
-	protected SchoolRegistrationFactory(com.opal.OpalFactory<SchoolRegistration, SchoolRegistrationOpal> argOpalFactory) {
+	protected SchoolRegistrationFactory(com.opal.IdentityOpalFactory<SchoolRegistration, SchoolRegistrationOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

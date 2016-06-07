@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -23,6 +24,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCode();
 
 	/**
@@ -37,7 +40,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Category setCode(java.lang.String argCode);
 
@@ -48,6 +51,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -62,7 +67,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Category setName(java.lang.String argName);
 
@@ -73,6 +78,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -87,7 +94,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Category setShortName(java.lang.String argShortName);
 
@@ -100,6 +107,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -125,7 +133,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -143,6 +151,8 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CategoryGroupCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryGroupCode();
 
 	/**
@@ -157,7 +167,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code category_group_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Category setCategoryGroupCode(java.lang.String argCategoryGroupCode);
 
@@ -166,6 +176,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.CategoryGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category_group} that is referenced by {@code category_category_group_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.CategoryGroup getCategoryGroup();
 	public com.scobolsolo.application.Category setCategoryGroup(com.scobolsolo.application.CategoryGroup argCategoryGroup);
 
@@ -176,8 +187,6 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Category addQuestion(com.scobolsolo.application.Question argQuestion);
 	public com.scobolsolo.application.Category removeQuestion(com.scobolsolo.application.Question argQuestion);
-	public com.scobolsolo.application.Category clearQuestion();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireQuestion(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
@@ -205,8 +214,6 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Category addDiff(com.scobolsolo.application.Diff argDiff);
 	public com.scobolsolo.application.Category removeDiff(com.scobolsolo.application.Diff argDiff);
-	public com.scobolsolo.application.Category clearDiff();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
@@ -234,8 +241,6 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Category addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
 	public com.scobolsolo.application.Category removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public com.scobolsolo.application.Category clearCategoryUse();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.CategoryUse>> T acquireCategoryUse(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
@@ -263,8 +268,6 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Category addPlacement(com.scobolsolo.application.Placement argPlacement);
 	public com.scobolsolo.application.Category removePlacement(com.scobolsolo.application.Placement argPlacement);
-	public com.scobolsolo.application.Category clearPlacement();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();

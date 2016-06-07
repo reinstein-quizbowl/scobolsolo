@@ -4,13 +4,24 @@ import com.scobolsolo.application.Game;
 
 public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 
+
 	private GameOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public GameOpal(com.opal.OpalFactory<Game, GameOpal> argOpalFactory, Object[] argValues) {
+	public GameOpal(com.opal.IdentityOpalFactory<Game, GameOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void applyDefaults() {
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewPerformanceOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+
+		return;
 	}
 
 	@Override
@@ -210,7 +221,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myNewOutgoingWinningCardPlayerOpal = myOldOutgoingWinningCardPlayerOpal;
 		myNewIncomingLosingCardPlayerOpal = myOldIncomingLosingCardPlayerOpal;
 		myNewIncomingWinningCardPlayerOpal = myOldIncomingWinningCardPlayerOpal;
-		myNewPerformanceOpalHashSet = null; /* Necessary if it has been rolled back */
+		myNewPerformanceOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myPerformanceOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -226,11 +237,15 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myOldIncomingWinningCardPlayerOpal = myNewIncomingWinningCardPlayerOpal;
 
 		if (needsToClearOldCollections()) {
-			myOldPerformanceOpalHashSet = null;
-			} else {
-			if (myNewPerformanceOpalHashSet != null) {
-				myOldPerformanceOpalHashSet = myNewPerformanceOpalHashSet;
-				myNewPerformanceOpalHashSet = null;
+			myOldPerformanceOpalFast3Set = null;
+		} else {
+			if (myNewPerformanceOpalFast3Set != null) {
+				if (myNewPerformanceOpalFast3Set.size() > 0) {
+					myOldPerformanceOpalFast3Set = myNewPerformanceOpalFast3Set;
+				} else {
+					myOldPerformanceOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewPerformanceOpalFast3Set = null;
 			} else {
 				myPerformanceOpalCachedOperations = null;
 			}
@@ -242,7 +257,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
-		if (myNewPerformanceOpalHashSet != null || myPerformanceOpalCachedOperations != null) {
+		if (myNewPerformanceOpalFast3Set != null || myPerformanceOpalCachedOperations != null) {
 			lclI = createPerformanceOpalIterator();
 			while (lclI.hasNext()) {
 				((PerformanceOpal) lclI.next()).setGameOpalInternal(null);
@@ -719,32 +734,36 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myNewIncomingWinningCardPlayerOpal = argPlayerOpal;
 	}
 
-	private java.util.HashSet<PerformanceOpal> myOldPerformanceOpalHashSet = null;
-	private java.util.HashSet<PerformanceOpal> myNewPerformanceOpalHashSet = null;
+	private java.util.Set<PerformanceOpal> myOldPerformanceOpalFast3Set = null;
+	private java.util.Set<PerformanceOpal> myNewPerformanceOpalFast3Set = null;
 	private java.util.ArrayList<com.opal.CachedOperation<PerformanceOpal>> myPerformanceOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<PerformanceOpal> getPerformanceOpalHashSet() {
+	/* package */ java.util.Set<PerformanceOpal> getPerformanceOpalFast3Set() {
 		if (tryAccess()) {
-			if (myNewPerformanceOpalHashSet == null) {
-				if (myOldPerformanceOpalHashSet == null) {
+			if (myNewPerformanceOpalFast3Set == null) {
+				if (myOldPerformanceOpalFast3Set == null) {
 					if (isNew()) {
-						myOldPerformanceOpalHashSet = new java.util.HashSet<>();
+						myOldPerformanceOpalFast3Set = java.util.Collections.emptySet();
 					} else {
-						myOldPerformanceOpalHashSet = OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forGameIdCollection(getIdAsObject());
+						java.util.Set<PerformanceOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forGameIdCollection(getIdAsObject());
+						myOldPerformanceOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewPerformanceOpalHashSet = new java.util.HashSet<>(myOldPerformanceOpalHashSet);
+				myNewPerformanceOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPerformanceOpalFast3Set);
 				if (myPerformanceOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myPerformanceOpalCachedOperations, myNewPerformanceOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myPerformanceOpalCachedOperations, myNewPerformanceOpalFast3Set);
 					myPerformanceOpalCachedOperations = null;
 				}
 			}
-			return myNewPerformanceOpalHashSet;
+			return myNewPerformanceOpalFast3Set;
 		} else {
-			if (myOldPerformanceOpalHashSet == null) {
-				myOldPerformanceOpalHashSet = OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forGameIdCollection(getIdAsObject());
+			if (myOldPerformanceOpalFast3Set == null) {
+				java.util.Set<PerformanceOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forGameIdCollection(getIdAsObject());
+				myOldPerformanceOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldPerformanceOpalHashSet;
+			return myOldPerformanceOpalFast3Set;
 		}
 	}
 
@@ -756,16 +775,16 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 
 	protected synchronized void addPerformanceOpalInternal(PerformanceOpal argPerformanceOpal) {
 		tryMutate();
-		if (myNewPerformanceOpalHashSet == null) {
-			if (myOldPerformanceOpalHashSet == null) {
+		if (myNewPerformanceOpalFast3Set == null) {
+			if (myOldPerformanceOpalFast3Set == null) {
 				if (myPerformanceOpalCachedOperations == null) { myPerformanceOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPerformanceOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPerformanceOpal));
 			} else {
-				myNewPerformanceOpalHashSet = new java.util.HashSet<>(myOldPerformanceOpalHashSet);
-				myNewPerformanceOpalHashSet.add(argPerformanceOpal);
+				myNewPerformanceOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPerformanceOpalFast3Set);
+				myNewPerformanceOpalFast3Set.add(argPerformanceOpal);
 			}
 		} else {
-			myNewPerformanceOpalHashSet.add(argPerformanceOpal);
+			myNewPerformanceOpalFast3Set.add(argPerformanceOpal);
 		}
 		return;
 	}
@@ -777,35 +796,33 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 
 	protected synchronized void removePerformanceOpalInternal(PerformanceOpal argPerformanceOpal) {
 		tryMutate();
-		if (myNewPerformanceOpalHashSet == null) {
-			if (myOldPerformanceOpalHashSet == null) {
+		if (myNewPerformanceOpalFast3Set == null) {
+			if (myOldPerformanceOpalFast3Set == null) {
 				if (myPerformanceOpalCachedOperations == null) { myPerformanceOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPerformanceOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPerformanceOpal));
 			} else {
-				myNewPerformanceOpalHashSet = new java.util.HashSet<>(myOldPerformanceOpalHashSet);
-				myNewPerformanceOpalHashSet.remove(argPerformanceOpal);
+				myNewPerformanceOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPerformanceOpalFast3Set);
+				myNewPerformanceOpalFast3Set.remove(argPerformanceOpal);
 			}
 		} else {
-			myNewPerformanceOpalHashSet.remove(argPerformanceOpal);
+			myNewPerformanceOpalFast3Set.remove(argPerformanceOpal);
 		}
 		return;
 	}
 
-	public synchronized int getPerformanceOpalCount() { return getPerformanceOpalHashSet().size(); }
+	public synchronized int getPerformanceOpalCount() { return getPerformanceOpalFast3Set().size(); }
 
 	public synchronized java.util.Iterator<PerformanceOpal> createPerformanceOpalIterator() {
-		return getPerformanceOpalHashSet().iterator();
+		return getPerformanceOpalFast3Set().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PerformanceOpal> streamPerformanceOpal() {
-		return getPerformanceOpalHashSet().stream();
+		return getPerformanceOpalFast3Set().stream();
 	}
 
-	public synchronized void clearPerformanceOpalInternal() { getPerformanceOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("GameOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

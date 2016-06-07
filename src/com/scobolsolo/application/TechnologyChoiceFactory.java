@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.TechnologyChoiceOpalFactory;
 import com.scobolsolo.persistence.TechnologyChoiceOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class TechnologyChoiceFactory extends com.opal.AbstractFactory<TechnologyChoice, TechnologyChoiceOpal> implements com.opal.FactoryCreator<TechnologyChoice>, com.opal.IdentityFactory<TechnologyChoice> {
+public class TechnologyChoiceFactory extends com.opal.AbstractIdentityFactory<TechnologyChoice, TechnologyChoiceOpal> implements com.opal.FactoryCreator<TechnologyChoice> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class TechnologyChoiceFactory extends com.opal.AbstractFactory<Technology
 
 	public TechnologyChoiceOpalFactory getTechnologyChoiceOpalFactory() { return (TechnologyChoiceOpalFactory) getOpalFactory(); }
 
-	protected TechnologyChoiceFactory(com.opal.OpalFactory<TechnologyChoice, TechnologyChoiceOpal> argOpalFactory) {
+	protected TechnologyChoiceFactory(com.opal.IdentityOpalFactory<TechnologyChoice, TechnologyChoiceOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

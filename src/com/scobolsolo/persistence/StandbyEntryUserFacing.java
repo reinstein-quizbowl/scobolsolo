@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.StandbyEntry> {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StandbyEntry setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
 	/**
@@ -95,7 +98,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSchoolRegistrationId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StandbyEntry setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -115,6 +118,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -140,7 +144,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StandbyEntry setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -160,6 +164,8 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code PlayerCount} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "1")
 	public java.lang.Integer getPlayerCountAsObject();
 
 	/**
@@ -185,7 +191,8 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPlayerCount is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "1")
 	public com.scobolsolo.application.StandbyEntry setPlayerCount(java.lang.Integer argPlayerCount);
 
 	/**
@@ -203,6 +210,8 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -230,6 +239,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.StandbyEntry setNote(java.lang.String argNote);
 
@@ -238,6 +248,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code standby_entry_school_registration_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
 	public com.scobolsolo.application.StandbyEntry setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 

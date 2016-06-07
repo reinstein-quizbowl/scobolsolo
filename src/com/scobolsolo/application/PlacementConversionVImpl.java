@@ -7,6 +7,7 @@ import com.scobolsolo.persistence.QuestionOpal;
 import com.scobolsolo.persistence.PlacementOpal;
 
 public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementConversionV, PlacementConversionVOpal> implements PlacementConversionV {
+
 	private final PlacementConversionVOpal myPlacementConversionVOpal;
 
 	public PlacementConversionVImpl(PlacementConversionVOpal argPlacementConversionVOpal) {
@@ -28,26 +29,33 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 		return getPlacementConversionVOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getPlacementConversionVOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getPlacementIdAsObject() {
 		return getPlacementConversionVOpal().getPlacementIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getQuestionIdAsObject() {
 		return getPlacementConversionVOpal().getQuestionIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getResponseTypeCode() {
 		return getPlacementConversionVOpal().getResponseTypeCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getResponseTypeCountAsObject() {
 		return getPlacementConversionVOpal().getResponseTypeCountAsObject();
@@ -58,6 +66,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 
 	/** @return the ResponseType object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public ResponseType getResponseType() {
 		ResponseTypeOpal lclResponseTypeOpal = getPlacementConversionVOpal().getResponseTypeOpal();
@@ -66,6 +75,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 
 	/** @return the Tournament object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getPlacementConversionVOpal().getTournamentOpal();
@@ -74,6 +84,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 
 	/** @return the Question object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Question getQuestion() {
 		QuestionOpal lclQuestionOpal = getPlacementConversionVOpal().getQuestionOpal();
@@ -82,6 +93,7 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<PlacementCon
 
 	/** @return the Placement object created from placement_conversion_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Placement getPlacement() {
 		PlacementOpal lclPlacementOpal = getPlacementConversionVOpal().getPlacementOpal();

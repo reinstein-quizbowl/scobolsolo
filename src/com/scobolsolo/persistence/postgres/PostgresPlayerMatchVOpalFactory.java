@@ -42,7 +42,6 @@ public class PostgresPlayerMatchVOpalFactory extends com.opal.AbstractDatabaseEp
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return PlayerMatchVOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();

@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.WaitlistEntryOpalFactory;
 import com.scobolsolo.persistence.WaitlistEntryOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class WaitlistEntryFactory extends com.opal.AbstractFactory<WaitlistEntry, WaitlistEntryOpal> implements com.opal.FactoryCreator<WaitlistEntry>, com.opal.IdentityFactory<WaitlistEntry> {
+public class WaitlistEntryFactory extends com.opal.AbstractIdentityFactory<WaitlistEntry, WaitlistEntryOpal> implements com.opal.FactoryCreator<WaitlistEntry> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class WaitlistEntryFactory extends com.opal.AbstractFactory<WaitlistEntry
 
 	public WaitlistEntryOpalFactory getWaitlistEntryOpalFactory() { return (WaitlistEntryOpalFactory) getOpalFactory(); }
 
-	protected WaitlistEntryFactory(com.opal.OpalFactory<WaitlistEntry, WaitlistEntryOpal> argOpalFactory) {
+	protected WaitlistEntryFactory(com.opal.IdentityOpalFactory<WaitlistEntry, WaitlistEntryOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

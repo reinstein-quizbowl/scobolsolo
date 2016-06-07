@@ -40,7 +40,6 @@ public class PostgresPlacementConversionVOpalFactory extends com.opal.AbstractDa
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return PlacementConversionVOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();

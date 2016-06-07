@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.AccountOpalFactory;
 import com.scobolsolo.persistence.AccountOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class AccountFactory extends com.opal.AbstractFactory<Account, AccountOpal> implements com.opal.FactoryCreator<Account>, com.opal.IdentityFactory<Account> {
+public class AccountFactory extends com.opal.AbstractIdentityFactory<Account, AccountOpal> implements com.opal.FactoryCreator<Account> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class AccountFactory extends com.opal.AbstractFactory<Account, AccountOpa
 
 	public AccountOpalFactory getAccountOpalFactory() { return (AccountOpalFactory) getOpalFactory(); }
 
-	protected AccountFactory(com.opal.OpalFactory<Account, AccountOpal> argOpalFactory) {
+	protected AccountFactory(com.opal.IdentityOpalFactory<Account, AccountOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

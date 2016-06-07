@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.QuestionStatusOpalFactory;
 import com.scobolsolo.persistence.QuestionStatusOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class QuestionStatusFactory extends com.opal.AbstractFactory<QuestionStatus, QuestionStatusOpal> implements com.opal.FactoryCreator<QuestionStatus>, com.opal.IdentityFactory<QuestionStatus> {
+public class QuestionStatusFactory extends com.opal.AbstractIdentityFactory<QuestionStatus, QuestionStatusOpal> implements com.opal.FactoryCreator<QuestionStatus> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class QuestionStatusFactory extends com.opal.AbstractFactory<QuestionStat
 
 	public QuestionStatusOpalFactory getQuestionStatusOpalFactory() { return (QuestionStatusOpalFactory) getOpalFactory(); }
 
-	protected QuestionStatusFactory(com.opal.OpalFactory<QuestionStatus, QuestionStatusOpal> argOpalFactory) {
+	protected QuestionStatusFactory(com.opal.IdentityOpalFactory<QuestionStatus, QuestionStatusOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

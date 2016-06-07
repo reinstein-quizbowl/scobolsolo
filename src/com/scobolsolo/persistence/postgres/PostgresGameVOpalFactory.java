@@ -51,7 +51,6 @@ public class PostgresGameVOpalFactory extends com.opal.AbstractDatabaseEphemeral
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return GameVOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();

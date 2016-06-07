@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.RoundGroup setId(java.lang.Integer argId);
 
 	/**
@@ -68,6 +70,8 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -82,7 +86,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.RoundGroup setName(java.lang.String argName);
 
@@ -93,6 +97,8 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -107,7 +113,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.RoundGroup setShortName(java.lang.String argShortName);
 
@@ -120,6 +126,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -145,7 +152,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.RoundGroup setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -165,6 +172,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPhaseIdAsObject();
 
 	/**
@@ -190,7 +198,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPhaseId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.RoundGroup setPhaseId(java.lang.Integer argPhaseId);
 
 	/**
@@ -206,6 +214,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code round_group_phase_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase getPhase();
 	public com.scobolsolo.application.RoundGroup setPhase(com.scobolsolo.application.Phase argPhase);
 
@@ -216,8 +225,6 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.RoundGroup addRound(com.scobolsolo.application.Round argRound);
 	public com.scobolsolo.application.RoundGroup removeRound(com.scobolsolo.application.Round argRound);
-	public com.scobolsolo.application.RoundGroup clearRound();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Round>> T acquireRound(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Round> lclI = createRoundIterator();

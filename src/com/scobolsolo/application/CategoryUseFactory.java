@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.CategoryUseOpalFactory;
 import com.scobolsolo.persistence.CategoryUseOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class CategoryUseFactory extends com.opal.AbstractFactory<CategoryUse, CategoryUseOpal> implements com.opal.FactoryCreator<CategoryUse>, com.opal.IdentityFactory<CategoryUse> {
+public class CategoryUseFactory extends com.opal.AbstractIdentityFactory<CategoryUse, CategoryUseOpal> implements com.opal.FactoryCreator<CategoryUse> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class CategoryUseFactory extends com.opal.AbstractFactory<CategoryUse, Ca
 
 	public CategoryUseOpalFactory getCategoryUseOpalFactory() { return (CategoryUseOpalFactory) getOpalFactory(); }
 
-	protected CategoryUseFactory(com.opal.OpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory) {
+	protected CategoryUseFactory(com.opal.IdentityOpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

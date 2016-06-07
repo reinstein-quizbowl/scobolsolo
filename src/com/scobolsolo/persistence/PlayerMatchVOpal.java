@@ -4,6 +4,7 @@ import com.scobolsolo.application.PlayerMatchV;
 
 public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV> {
 
+
 	private PlayerMatchVOpal() {
 		super();
 		setUserFacing(null);

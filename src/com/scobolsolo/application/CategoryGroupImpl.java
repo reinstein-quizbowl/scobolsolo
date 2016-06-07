@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.CategoryGroupOpal;
 
 public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<CategoryGroup, CategoryGroupOpal> implements CategoryGroup {
+
 	private final CategoryGroupOpal myCategoryGroupOpal;
 
 	public CategoryGroupImpl(CategoryGroupOpal argCategoryGroupOpal) {
@@ -29,44 +30,58 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<CategoryGro
 		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCode() {
 		return getCategoryGroupOpal().getCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CategoryGroupImpl setCode(java.lang.String argCode) {
 		getCategoryGroupOpal().setCode(argCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getCategoryGroupOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public CategoryGroupImpl setName(java.lang.String argName) {
 		getCategoryGroupOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getCategoryGroupOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CategoryGroupImpl setShortName(java.lang.String argShortName) {
 		getCategoryGroupOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getCategoryGroupOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public CategoryGroupImpl setSequence(java.lang.Integer argSequence) {
 		getCategoryGroupOpal().setSequence(argSequence);
@@ -110,11 +125,6 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<CategoryGro
 	@Override
 	public java.util.Iterator<Category> createCategoryIterator() {
 		return new com.opal.OpalIterator<> (getCategoryGroupOpal().createCategoryOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.CategoryGroup clearCategory() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

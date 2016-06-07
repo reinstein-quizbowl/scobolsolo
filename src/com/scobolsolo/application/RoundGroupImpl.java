@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.RoundGroupOpal;
 import com.scobolsolo.persistence.PhaseOpal;
 
 public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, RoundGroupOpal> implements RoundGroup {
+
 	private final RoundGroupOpal myRoundGroupOpal;
 
 	public RoundGroupImpl(RoundGroupOpal argRoundGroupOpal) {
@@ -25,11 +26,13 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 		return getRoundGroupOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getRoundGroupOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public RoundGroupImpl setId(java.lang.Integer argId) {
 		getRoundGroupOpal().setId(argId);
@@ -42,33 +45,43 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getRoundGroupOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public RoundGroupImpl setName(java.lang.String argName) {
 		getRoundGroupOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getRoundGroupOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public RoundGroupImpl setShortName(java.lang.String argShortName) {
 		getRoundGroupOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getRoundGroupOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public RoundGroupImpl setSequence(java.lang.Integer argSequence) {
 		getRoundGroupOpal().setSequence(argSequence);
@@ -81,11 +94,13 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getPhaseIdAsObject() {
 		return getRoundGroupOpal().getPhaseIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public RoundGroupImpl setPhaseId(java.lang.Integer argPhaseId) {
 		getRoundGroupOpal().setPhaseId(argPhaseId);
@@ -103,6 +118,7 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 
 	/** @return the Phase object created from round_group through reference round_group_phase_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Phase getPhase() {
 		PhaseOpal lclPhaseOpal = getRoundGroupOpal().getPhaseOpal();
@@ -143,11 +159,6 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<RoundGroup, Ro
 	@Override
 	public java.util.Iterator<Round> createRoundIterator() {
 		return new com.opal.OpalIterator<> (getRoundGroupOpal().createRoundOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.RoundGroup clearRound() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

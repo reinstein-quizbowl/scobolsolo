@@ -11,6 +11,7 @@ import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.CardOpal;
 
 public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implements GameV {
+
 	private final GameVOpal myGameVOpal;
 
 	public GameVImpl(GameVOpal argGameVOpal) {
@@ -32,81 +33,98 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return getGameVOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getGameVOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getGameIdAsObject() {
 		return getGameVOpal().getGameIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getRoundIdAsObject() {
 		return getGameVOpal().getRoundIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getRoomIdAsObject() {
 		return getGameVOpal().getRoomIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getWinningCardIdAsObject() {
 		return getGameVOpal().getWinningCardIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getLosingCardIdAsObject() {
 		return getGameVOpal().getLosingCardIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getModeratorStaffIdAsObject() {
 		return getGameVOpal().getModeratorStaffIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getTossupsHeardAsObject() {
 		return getGameVOpal().getTossupsHeardAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getIncomingWinningCardPlayerIdAsObject() {
 		return getGameVOpal().getIncomingWinningCardPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getIncomingLosingCardPlayerIdAsObject() {
 		return getGameVOpal().getIncomingLosingCardPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getWinnerPlayerIdAsObject() {
 		return getGameVOpal().getWinnerPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getLoserPlayerIdAsObject() {
 		return getGameVOpal().getLoserPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getWinnerPerformanceIdAsObject() {
 		return getGameVOpal().getWinnerPerformanceIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getLoserPerformanceIdAsObject() {
 		return getGameVOpal().getLoserPerformanceIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getWinnerScoreAsObject() {
 		return getGameVOpal().getWinnerScoreAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getLoserScoreAsObject() {
 		return getGameVOpal().getLoserScoreAsObject();
@@ -117,6 +135,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Game object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Game getGame() {
 		GameOpal lclGameOpal = getGameVOpal().getGameOpal();
@@ -125,6 +144,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Tournament object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getGameVOpal().getTournamentOpal();
@@ -133,6 +153,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getIncomingWinningCardPlayer() {
 		PlayerOpal lclPlayerOpal = getGameVOpal().getIncomingWinningCardPlayerOpal();
@@ -141,6 +162,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getIncomingLosingCardPlayer() {
 		PlayerOpal lclPlayerOpal = getGameVOpal().getIncomingLosingCardPlayerOpal();
@@ -149,6 +171,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getWinnerPlayer() {
 		PlayerOpal lclPlayerOpal = getGameVOpal().getWinnerPlayerOpal();
@@ -157,6 +180,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Player object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getLoserPlayer() {
 		PlayerOpal lclPlayerOpal = getGameVOpal().getLoserPlayerOpal();
@@ -165,6 +189,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Staff object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Staff getModeratorStaff() {
 		StaffOpal lclStaffOpal = getGameVOpal().getModeratorStaffOpal();
@@ -173,6 +198,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Room object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Room getRoom() {
 		RoomOpal lclRoomOpal = getGameVOpal().getRoomOpal();
@@ -181,6 +207,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Performance object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Performance getWinnerPerformance() {
 		PerformanceOpal lclPerformanceOpal = getGameVOpal().getWinnerPerformanceOpal();
@@ -189,6 +216,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Performance object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Performance getLoserPerformance() {
 		PerformanceOpal lclPerformanceOpal = getGameVOpal().getLoserPerformanceOpal();
@@ -197,6 +225,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Round object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Round getRound() {
 		RoundOpal lclRoundOpal = getGameVOpal().getRoundOpal();
@@ -205,6 +234,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Card object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Card getWinningCard() {
 		CardOpal lclCardOpal = getGameVOpal().getWinningCardOpal();
@@ -213,6 +243,7 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	/** @return the Card object created from game_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Card getLosingCard() {
 		CardOpal lclCardOpal = getGameVOpal().getLosingCardOpal();

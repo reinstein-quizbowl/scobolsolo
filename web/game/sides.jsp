@@ -5,7 +5,7 @@
 <%@ page import="java.util.stream.Collectors" %>
 <%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
-<%@ page import="com.siliconage.web.form.DropdownField" %>
+<%@ page import="com.siliconage.web.form.AssembledDropdownField" %>
 <%@ page import="com.siliconage.web.form.FunctionalNameCodeExtractor" %>
 <%@ page import="com.siliconage.web.form.NameCodeExtractor" %>
 <%@ page import="com.siliconage.web.form.RadioField" %>
@@ -27,7 +27,10 @@ Game lclGame = lclMatch.getGame(); // may be null
 
 Tournament lclT = lclMatch.getTournament();
 boolean lclTD = lclUser.mayActAsTournamentDirector(lclT);
+
 Staff lclS = lclUser.getContact().findStaff(lclT);
+Staff lclSelectedStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
+
 MatchStatus lclStatus = lclMatch.determineStatus();
 %>
 
@@ -44,15 +47,8 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 		<div class="small-12 medium-12 large-4 columns"><%
 				if (lclTD) {
 					%><fieldset data-equalizer-watch>
-						<legend>Moderator</legend><%
-						Staff lclSelectedStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
-						%><label>
-							<%= new DropdownField<>(
-								"moderator_staff_id",
-								lclT.getStaff(),
-								lclSelectedStaff,
-								new FunctionalNameCodeExtractor<>(Staff::getName, Staff::getUniqueString)
-						) %></label><%
+						<legend>Moderator</legend>
+						<label><%= new AssembledDropdownField<>("moderator_staff_id", lclSelectedStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label><%
 					%></fieldset><%
 			} else {
 				%><p>If the moderator for this match is someone other than you (<%= lclUser.getContact().getName() %>), contact the control room (<%= lclT.getControlRoom().getName() %>).</p><%
@@ -167,7 +163,7 @@ String makeChoices(Account lclUser, Collection<Player> argCandidates, NameCodeEx
 		
 		return lclSB.toString();
 	} else {
-		return "<fieldset data-equalizer-watch><legend>" + argLabel + "</legend>" + (new DropdownField<>(argName, argCandidates, argNCE).attribute("onchange", "dropdownSidesUpdated(this)")).required() + "</fieldset>";
+		return "<fieldset data-equalizer-watch><legend>" + argLabel + "</legend>" + (new AssembledDropdownField<>(argName, (Player) null).choices(argCandidates).namer(argNCE).attribute("onchange", "dropdownSidesUpdated(this)")).required() + "</fieldset>";
 	}
 }
 

@@ -7,6 +7,7 @@ import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.StaffRoleOpal;
 
 public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssignment, StaffAssignmentOpal> implements StaffAssignment {
+
 	private final StaffAssignmentOpal myStaffAssignmentOpal;
 
 	public StaffAssignmentImpl(StaffAssignmentOpal argStaffAssignmentOpal) {
@@ -28,11 +29,13 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return getStaffAssignmentOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getStaffAssignmentOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StaffAssignmentImpl setId(java.lang.Integer argId) {
 		getStaffAssignmentOpal().setId(argId);
@@ -45,11 +48,13 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getRoomIdAsObject() {
 		return getStaffAssignmentOpal().getRoomIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StaffAssignmentImpl setRoomId(java.lang.Integer argRoomId) {
 		getStaffAssignmentOpal().setRoomId(argRoomId);
@@ -62,22 +67,28 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getStaffAssignmentOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public StaffAssignmentImpl setNote(java.lang.String argNote) {
 		getStaffAssignmentOpal().setNote(argNote);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getStaffIdAsObject() {
 		return getStaffAssignmentOpal().getStaffIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StaffAssignmentImpl setStaffId(java.lang.Integer argStaffId) {
 		getStaffAssignmentOpal().setStaffId(argStaffId);
@@ -90,11 +101,13 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getPhaseIdAsObject() {
 		return getStaffAssignmentOpal().getPhaseIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StaffAssignmentImpl setPhaseId(java.lang.Integer argPhaseId) {
 		getStaffAssignmentOpal().setPhaseId(argPhaseId);
@@ -107,11 +120,15 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getStaffRoleCode() {
 		return getStaffAssignmentOpal().getStaffRoleCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public StaffAssignmentImpl setStaffRoleCode(java.lang.String argStaffRoleCode) {
 		getStaffAssignmentOpal().setStaffRoleCode(argStaffRoleCode);
@@ -123,6 +140,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 
 	/** @return the Staff object created from staff_assignment through reference staff_assignment_staff_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Staff getStaff() {
 		StaffOpal lclStaffOpal = getStaffAssignmentOpal().getStaffOpal();
@@ -137,6 +155,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 
 	/** @return the Room object created from staff_assignment through reference staffer_assignment_room_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Room getRoom() {
 		RoomOpal lclRoomOpal = getStaffAssignmentOpal().getRoomOpal();
@@ -151,6 +170,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 
 	/** @return the Phase object created from staff_assignment through reference staff_assignment_phase_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Phase getPhase() {
 		PhaseOpal lclPhaseOpal = getStaffAssignmentOpal().getPhaseOpal();
@@ -165,6 +185,7 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<StaffAssi
 
 	/** @return the StaffRole object created from staff_assignment through reference staff_assignment_staff_role_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public StaffRole getRole() {
 		StaffRoleOpal lclStaffRoleOpal = getStaffAssignmentOpal().getRoleOpal();

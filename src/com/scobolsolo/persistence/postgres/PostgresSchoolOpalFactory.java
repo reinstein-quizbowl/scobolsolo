@@ -50,7 +50,6 @@ public class PostgresSchoolOpalFactory extends com.opal.AbstractDatabaseIdentity
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return SchoolOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -239,63 +238,71 @@ public class PostgresSchoolOpalFactory extends com.opal.AbstractDatabaseIdentity
 		);
 	}
 
-	/* package */ static class NameOpalKey extends com.opal.DatabaseOpalKey<SchoolOpal> {
+	/* package */ static class NameOpalKey extends com.opal.SingleValueDatabaseOpalKey<SchoolOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"name", };
 
 		public NameOpalKey(java.lang.String argName) {
-			super(new Object[] {argName, });
+			super(argName);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<SchoolOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<SchoolOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class ShortNameOpalKey extends com.opal.DatabaseOpalKey<SchoolOpal> {
+	/* package */ static class ShortNameOpalKey extends com.opal.SingleValueDatabaseOpalKey<SchoolOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"short_name", };
 
 		public ShortNameOpalKey(java.lang.String argShortName) {
-			super(new Object[] {argShortName, });
+			super(argShortName);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class VeryShortNameOpalKey extends com.opal.DatabaseOpalKey<SchoolOpal> {
+	/* package */ static class VeryShortNameOpalKey extends com.opal.SingleValueDatabaseOpalKey<SchoolOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"very_short_name", };
 
 		public VeryShortNameOpalKey(java.lang.String argVeryShortName) {
-			super(new Object[] {argVeryShortName, });
+			super(argVeryShortName);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

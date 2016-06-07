@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.SchoolYearOpal;
 
 public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, SchoolYearOpal> implements SchoolYear {
+
 	private final SchoolYearOpal mySchoolYearOpal;
 
 	public SchoolYearImpl(SchoolYearOpal argSchoolYearOpal) {
@@ -29,55 +30,73 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<SchoolYear, Sc
 		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCode() {
 		return getSchoolYearOpal().getCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public SchoolYearImpl setCode(java.lang.String argCode) {
 		getSchoolYearOpal().setCode(argCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getSchoolYearOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public SchoolYearImpl setName(java.lang.String argName) {
 		getSchoolYearOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getSchoolYearOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public SchoolYearImpl setShortName(java.lang.String argShortName) {
 		getSchoolYearOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 12L)
 	@Override
 	public java.lang.String getVeryShortName() {
 		return getSchoolYearOpal().getVeryShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 12L)
 	@Override
 	public SchoolYearImpl setVeryShortName(java.lang.String argVeryShortName) {
 		getSchoolYearOpal().setVeryShortName(argVeryShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getSchoolYearOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolYearImpl setSequence(java.lang.Integer argSequence) {
 		getSchoolYearOpal().setSequence(argSequence);

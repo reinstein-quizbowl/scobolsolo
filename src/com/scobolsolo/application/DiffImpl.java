@@ -7,6 +7,7 @@ import com.scobolsolo.persistence.QuestionStatusOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 
 public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> implements Diff {
+
 	private final DiffOpal myDiffOpal;
 
 	public DiffImpl(DiffOpal argDiffOpal) {
@@ -28,11 +29,13 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return getDiffOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getDiffOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public DiffImpl setId(java.lang.Integer argId) {
 		getDiffOpal().setId(argId);
@@ -45,11 +48,13 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getEditorAccountIdAsObject() {
 		return getDiffOpal().getEditorAccountIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public DiffImpl setEditorAccountId(java.lang.Integer argEditorAccountId) {
 		getDiffOpal().setEditorAccountId(argEditorAccountId);
@@ -62,55 +67,73 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getText() {
 		return getDiffOpal().getText();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public DiffImpl setText(java.lang.String argText) {
 		getDiffOpal().setText(argText);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getAnswer() {
 		return getDiffOpal().getAnswer();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public DiffImpl setAnswer(java.lang.String argAnswer) {
 		getDiffOpal().setAnswer(argAnswer);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getDiffOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public DiffImpl setNote(java.lang.String argNote) {
 		getDiffOpal().setNote(argNote);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getRemark() {
 		return getDiffOpal().getRemark();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public DiffImpl setRemark(java.lang.String argRemark) {
 		getDiffOpal().setRemark(argRemark);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getEditDistanceAsObject() {
 		return getDiffOpal().getEditDistanceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public DiffImpl setEditDistance(java.lang.Integer argEditDistance) {
 		getDiffOpal().setEditDistance(argEditDistance);
@@ -123,22 +146,28 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.CurrentDateTimeDefault
 	@Override
 	public java.time.LocalDateTime getTimestamp() {
 		return getDiffOpal().getTimestamp();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.CurrentDateTimeDefault
 	@Override
 	public DiffImpl setTimestamp(java.time.LocalDateTime argTimestamp) {
 		getDiffOpal().setTimestamp(argTimestamp);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getQuestionIdAsObject() {
 		return getDiffOpal().getQuestionIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public DiffImpl setQuestionId(java.lang.Integer argQuestionId) {
 		getDiffOpal().setQuestionId(argQuestionId);
@@ -151,11 +180,13 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getRevisionNumberAsObject() {
 		return getDiffOpal().getRevisionNumberAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public DiffImpl setRevisionNumber(java.lang.Integer argRevisionNumber) {
 		getDiffOpal().setRevisionNumber(argRevisionNumber);
@@ -168,22 +199,30 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getQuestionStatusCode() {
 		return getDiffOpal().getQuestionStatusCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public DiffImpl setQuestionStatusCode(java.lang.String argQuestionStatusCode) {
 		getDiffOpal().setQuestionStatusCode(argQuestionStatusCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCategoryCode() {
 		return getDiffOpal().getCategoryCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public DiffImpl setCategoryCode(java.lang.String argCategoryCode) {
 		getDiffOpal().setCategoryCode(argCategoryCode);
@@ -195,6 +234,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 
 	/** @return the Account object created from diff through reference diff_editor_account_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Account getEditor() {
 		AccountOpal lclAccountOpal = getDiffOpal().getEditorOpal();
@@ -209,6 +249,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 
 	/** @return the Question object created from diff through reference diff_question_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Question getQuestion() {
 		QuestionOpal lclQuestionOpal = getDiffOpal().getQuestionOpal();
@@ -223,6 +264,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 
 	/** @return the QuestionStatus object created from diff through reference diff_question_status_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public QuestionStatus getStatus() {
 		QuestionStatusOpal lclQuestionStatusOpal = getDiffOpal().getStatusOpal();
@@ -237,6 +279,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 
 	/** @return the Category object created from diff through reference diff_category_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Category getCategory() {
 		CategoryOpal lclCategoryOpal = getDiffOpal().getCategoryOpal();

@@ -4,6 +4,7 @@ import com.scobolsolo.application.WaitlistEntry;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntry> {
+
 	public static final java.lang.Integer ourDefaultPlayerCount = java.lang.Integer.valueOf(1);
 
 	private WaitlistEntryOpal() {
@@ -11,13 +12,15 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 		setUserFacing(null);
 	}
 
-	public WaitlistEntryOpal(com.opal.OpalFactory<WaitlistEntry, WaitlistEntryOpal> argOpalFactory, Object[] argValues) {
+	public WaitlistEntryOpal(com.opal.IdentityOpalFactory<WaitlistEntry, WaitlistEntryOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
 	@Override
 	protected void applyDefaults() {
+		/* Initialize fields with their default values. */
 		getNewValues()[3] = ourDefaultPlayerCount;
+
 		return;
 	}
 
@@ -310,8 +313,8 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("WaitlistEntryOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

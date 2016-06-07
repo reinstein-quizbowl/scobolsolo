@@ -4,13 +4,24 @@ import com.scobolsolo.application.CategoryGroup;
 
 public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGroup> {
 
+
 	private CategoryGroupOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public CategoryGroupOpal(com.opal.OpalFactory<CategoryGroup, CategoryGroupOpal> argOpalFactory, Object[] argValues) {
+	public CategoryGroupOpal(com.opal.IdentityOpalFactory<CategoryGroup, CategoryGroupOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void applyDefaults() {
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewCategoryOpalHashSet = new java.util.HashSet<>();
+
+		return;
 	}
 
 	/* package */ static final String[] ourFieldNames = new String[] {
@@ -83,7 +94,7 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
 		}
 		if (argCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myCode on " + this + " to \"" + argCode + "\" because that field's maximum length is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
 		return this;
@@ -95,7 +106,7 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
 		return this;
@@ -107,7 +118,7 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
 		return this;
@@ -150,9 +161,13 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 		/** This Opal has no references to other Opals that need to be copied. */
 		if (needsToClearOldCollections()) {
 			myOldCategoryOpalHashSet = null;
-			} else {
+		} else {
 			if (myNewCategoryOpalHashSet != null) {
-				myOldCategoryOpalHashSet = myNewCategoryOpalHashSet;
+				if (myNewCategoryOpalHashSet.size() > 0) {
+					myOldCategoryOpalHashSet = myNewCategoryOpalHashSet;
+				} else {
+					myOldCategoryOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewCategoryOpalHashSet = null;
 			} else {
 				myCategoryOpalCachedOperations = null;
@@ -230,18 +245,20 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 		argOutput.println("Sequence = " + getSequenceAsObject());
 	}
 
-	private java.util.HashSet<CategoryOpal> myOldCategoryOpalHashSet = null;
-	private java.util.HashSet<CategoryOpal> myNewCategoryOpalHashSet = null;
+	private java.util.Set<CategoryOpal> myOldCategoryOpalHashSet = null;
+	private java.util.Set<CategoryOpal> myNewCategoryOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<CategoryOpal>> myCategoryOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<CategoryOpal> getCategoryOpalHashSet() {
+	/* package */ java.util.Set<CategoryOpal> getCategoryOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewCategoryOpalHashSet == null) {
 				if (myOldCategoryOpalHashSet == null) {
 					if (isNew()) {
-						myOldCategoryOpalHashSet = new java.util.HashSet<>();
+						myOldCategoryOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldCategoryOpalHashSet = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
+						java.util.Set<CategoryOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
+						myOldCategoryOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewCategoryOpalHashSet = new java.util.HashSet<>(myOldCategoryOpalHashSet);
@@ -253,7 +270,9 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 			return myNewCategoryOpalHashSet;
 		} else {
 			if (myOldCategoryOpalHashSet == null) {
-				myOldCategoryOpalHashSet = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
+				java.util.Set<CategoryOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
+				myOldCategoryOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldCategoryOpalHashSet;
 		}
@@ -312,11 +331,9 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 		return getCategoryOpalHashSet().stream();
 	}
 
-	public synchronized void clearCategoryOpalInternal() { getCategoryOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("CategoryGroupOpal[");
 		lclSB.append("myCode=");
 		lclSB.append(toStringField(0));

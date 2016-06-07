@@ -51,7 +51,6 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return CardOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -257,7 +256,7 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		);
 	}
 
-	/* package */ static class NamePhaseIdOpalKey extends com.opal.DatabaseOpalKey<CardOpal> {
+	/* package */ static class NamePhaseIdOpalKey extends com.opal.MultipleValueDatabaseOpalKey<CardOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"name", "phase_id", };
 
 		public NamePhaseIdOpalKey(java.lang.String argName, java.lang.Integer argPhaseId) {
@@ -265,14 +264,16 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class ShortNamePhaseIdOpalKey extends com.opal.DatabaseOpalKey<CardOpal> {
+	/* package */ static class ShortNamePhaseIdOpalKey extends com.opal.MultipleValueDatabaseOpalKey<CardOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"short_name", "phase_id", };
 
 		public ShortNamePhaseIdOpalKey(java.lang.String argShortName, java.lang.Integer argPhaseId) {
@@ -280,40 +281,46 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<CardOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<CardOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class InitialPlayerIdOpalKey extends com.opal.DatabaseOpalKey<CardOpal> {
+	/* package */ static class InitialPlayerIdOpalKey extends com.opal.SingleValueDatabaseOpalKey<CardOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"initial_player_id", };
 
 		public InitialPlayerIdOpalKey(java.lang.Integer argInitialPlayerId) {
-			super(new Object[] {argInitialPlayerId, });
+			super(argInitialPlayerId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

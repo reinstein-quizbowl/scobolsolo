@@ -48,7 +48,6 @@ public class PostgresCategoryGroupOpalFactory extends com.opal.AbstractDatabaseI
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return CategoryGroupOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -205,48 +204,54 @@ public class PostgresCategoryGroupOpalFactory extends com.opal.AbstractDatabaseI
 		);
 	}
 
-	/* package */ static class NameOpalKey extends com.opal.DatabaseOpalKey<CategoryGroupOpal> {
+	/* package */ static class NameOpalKey extends com.opal.SingleValueDatabaseOpalKey<CategoryGroupOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"name", };
 
 		public NameOpalKey(java.lang.String argName) {
-			super(new Object[] {argName, });
+			super(argName);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class CodeOpalKey extends com.opal.DatabaseOpalKey<CategoryGroupOpal> {
+	/* package */ static class CodeOpalKey extends com.opal.SingleValueDatabaseOpalKey<CategoryGroupOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"code", };
 
 		public CodeOpalKey(java.lang.String argCode) {
-			super(new Object[] {argCode, });
+			super(argCode);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class ShortNameOpalKey extends com.opal.DatabaseOpalKey<CategoryGroupOpal> {
+	/* package */ static class ShortNameOpalKey extends com.opal.SingleValueDatabaseOpalKey<CategoryGroupOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"short_name", };
 
 		public ShortNameOpalKey(java.lang.String argShortName) {
-			super(new Object[] {argShortName, });
+			super(argShortName);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

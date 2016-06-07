@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.SchoolRegistrationOpal;
 import com.scobolsolo.persistence.RoomOpal;
 
 public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal> implements Buzzer {
+
 	private final BuzzerOpal myBuzzerOpal;
 
 	public BuzzerImpl(BuzzerOpal argBuzzerOpal) {
@@ -26,11 +27,13 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return getBuzzerOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getBuzzerOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public BuzzerImpl setId(java.lang.Integer argId) {
 		getBuzzerOpal().setId(argId);
@@ -43,11 +46,13 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSchoolRegistrationIdAsObject() {
 		return getBuzzerOpal().getSchoolRegistrationIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public BuzzerImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getBuzzerOpal().setSchoolRegistrationId(argSchoolRegistrationId);
@@ -60,11 +65,13 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getRoomIdAsObject() {
 		return getBuzzerOpal().getRoomIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public BuzzerImpl setRoomId(java.lang.Integer argRoomId) {
 		getBuzzerOpal().setRoomId(argRoomId);
@@ -77,11 +84,15 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getBuzzerOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public BuzzerImpl setName(java.lang.String argName) {
 		getBuzzerOpal().setName(argName);
@@ -93,6 +104,7 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 
 	/** @return the SchoolRegistration object created from buzzer through reference buzzer_registration_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getBuzzerOpal().getSchoolRegistrationOpal();
@@ -107,6 +119,7 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<Buzzer, BuzzerOpal
 
 	/** @return the Room object created from buzzer through reference buzzer_room_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Room getRoom() {
 		RoomOpal lclRoomOpal = getBuzzerOpal().getRoomOpal();

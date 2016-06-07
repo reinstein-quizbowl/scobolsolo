@@ -50,7 +50,6 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return RoomOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -230,7 +229,7 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		);
 	}
 
-	/* package */ static class NameTournamentCodeOpalKey extends com.opal.DatabaseOpalKey<RoomOpal> {
+	/* package */ static class NameTournamentCodeOpalKey extends com.opal.MultipleValueDatabaseOpalKey<RoomOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"name", "tournament_code", };
 
 		public NameTournamentCodeOpalKey(java.lang.String argName, java.lang.String argTournamentCode) {
@@ -238,14 +237,16 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class ShortNameTournamentCodeOpalKey extends com.opal.DatabaseOpalKey<RoomOpal> {
+	/* package */ static class ShortNameTournamentCodeOpalKey extends com.opal.MultipleValueDatabaseOpalKey<RoomOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"short_name", "tournament_code", };
 
 		public ShortNameTournamentCodeOpalKey(java.lang.String argShortName, java.lang.String argTournamentCode) {
@@ -253,25 +254,29 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
-
-		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
-
-	}
-
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<RoomOpal> {
-		private static final String[] ourKeyColumnNames = new String[] {"id", };
-
-		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+		public Object[] getParameters() {
+			return getFields();
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
+
+	}
+
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<RoomOpal> {
+		private static final String[] ourKeyColumnNames = new String[] {"id", };
+
+		public IdOpalKey(java.lang.Integer argId) {
+			super(argId);
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
+
+		@Override
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

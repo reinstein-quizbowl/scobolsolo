@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Response setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PerformanceId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPerformanceIdAsObject();
 
 	/**
@@ -95,7 +98,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPerformanceId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Response setPerformanceId(java.lang.Integer argPerformanceId);
 
 	/**
@@ -115,6 +118,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPlacementIdAsObject();
 
 	/**
@@ -140,7 +144,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPlacementId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Response setPlacementId(java.lang.Integer argPlacementId);
 
 	/**
@@ -158,6 +162,8 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ResponseTypeCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getResponseTypeCode();
 
 	/**
@@ -172,7 +178,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code response_type_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Response setResponseTypeCode(java.lang.String argResponseTypeCode);
 
@@ -185,6 +191,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getReplacementForPlacementIdAsObject();
 
 	/**
@@ -239,6 +246,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argReplacementForPlacementId the new value of {@code ReplacementForPlacementId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Response setReplacementForPlacementId(java.lang.Integer argReplacementForPlacementId);
 
 	/**
@@ -254,6 +262,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code response_performance_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance getPerformance();
 	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance);
 
@@ -262,6 +271,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_placement_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement getPlacement();
 	public com.scobolsolo.application.Response setPlacement(com.scobolsolo.application.Placement argPlacement);
 
@@ -270,6 +280,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_replacement_placement_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Placement getReplacementForPlacement();
 	public com.scobolsolo.application.Response setReplacementForPlacement(com.scobolsolo.application.Placement argReplacementForPlacement);
 
@@ -278,6 +289,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code response_response_type_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.ResponseType getResponseType();
 	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType);
 

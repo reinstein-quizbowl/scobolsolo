@@ -52,7 +52,6 @@ public class PostgresSchoolRegistrationOpalFactory extends com.opal.AbstractData
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return SchoolRegistrationOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -175,10 +174,10 @@ public class PostgresSchoolRegistrationOpalFactory extends com.opal.AbstractData
 	}
 
 	@Override
-	public java.util.HashSet<SchoolRegistrationOpal> forMainContactIdCollection(java.lang.Integer argMainContactId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<SchoolRegistrationOpal> forMainContactIdCollection(java.lang.Integer argMainContactId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argMainContactId };
 		final String[] lclFieldNames = new String[] { "main_contact_id" };
-		java.util.HashSet<SchoolRegistrationOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<SchoolRegistrationOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -214,18 +213,20 @@ public class PostgresSchoolRegistrationOpalFactory extends com.opal.AbstractData
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<SchoolRegistrationOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<SchoolRegistrationOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

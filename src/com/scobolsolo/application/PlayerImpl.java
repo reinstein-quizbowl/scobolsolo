@@ -7,6 +7,7 @@ import com.scobolsolo.persistence.SchoolYearOpal;
 import com.scobolsolo.persistence.CardOpal;
 
 public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal> implements Player {
+
 	private final PlayerOpal myPlayerOpal;
 
 	public PlayerImpl(PlayerOpal argPlayerOpal) {
@@ -28,11 +29,13 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return getPlayerOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getPlayerOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PlayerImpl setId(java.lang.Integer argId) {
 		getPlayerOpal().setId(argId);
@@ -45,11 +48,13 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getContactIdAsObject() {
 		return getPlayerOpal().getContactIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PlayerImpl setContactId(java.lang.Integer argContactId) {
 		getPlayerOpal().setContactId(argContactId);
@@ -62,11 +67,13 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getSchoolRegistrationIdAsObject() {
 		return getPlayerOpal().getSchoolRegistrationIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public PlayerImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getPlayerOpal().setSchoolRegistrationId(argSchoolRegistrationId);
@@ -79,22 +86,28 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getSchoolYearCode() {
 		return getPlayerOpal().getSchoolYearCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public PlayerImpl setSchoolYearCode(java.lang.String argSchoolYearCode) {
 		getPlayerOpal().setSchoolYearCode(argSchoolYearCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getRankWithinSchoolAsObject() {
 		return getPlayerOpal().getRankWithinSchoolAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public PlayerImpl setRankWithinSchool(java.lang.Integer argRankWithinSchool) {
 		getPlayerOpal().setRankWithinSchool(argRankWithinSchool);
@@ -107,11 +120,13 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getSeedAsObject() {
 		return getPlayerOpal().getSeedAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public PlayerImpl setSeed(java.lang.Integer argSeed) {
 		getPlayerOpal().setSeed(argSeed);
@@ -124,22 +139,30 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getPlayerOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public PlayerImpl setNote(java.lang.String argNote) {
 		getPlayerOpal().setNote(argNote);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isExhibitionAsObject() {
 		return getPlayerOpal().isExhibitionAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public PlayerImpl setExhibition(java.lang.Boolean argExhibition) {
 		getPlayerOpal().setExhibition(argExhibition);
@@ -157,6 +180,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 
 	/** @return the Contact object created from player through reference player_contact_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Contact getContact() {
 		ContactOpal lclContactOpal = getPlayerOpal().getContactOpal();
@@ -171,6 +195,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 
 	/** @return the SchoolRegistration object created from player through reference player_registration_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getPlayerOpal().getSchoolRegistrationOpal();
@@ -185,6 +210,7 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 
 	/** @return the SchoolYear object created from player through reference player_school_year_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public SchoolYear getSchoolYear() {
 		SchoolYearOpal lclSchoolYearOpal = getPlayerOpal().getSchoolYearOpal();
@@ -240,11 +266,6 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public com.scobolsolo.application.Player clearOutgoingLosingCardGame() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Player addOutgoingWinningCardGame(Game argGame) {
 		getPlayerOpal().addOutgoingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
 		return this;
@@ -269,11 +290,6 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	@Override
 	public java.util.Iterator<Game> createOutgoingWinningCardGameIterator() {
 		return new com.opal.OpalIterator<> (getPlayerOpal().createOutgoingWinningCardGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player clearOutgoingWinningCardGame() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -304,11 +320,6 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public com.scobolsolo.application.Player clearIncomingLosingCardGame() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Player addIncomingWinningCardGame(Game argGame) {
 		getPlayerOpal().addIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
 		return this;
@@ -336,11 +347,6 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	}
 
 	@Override
-	public com.scobolsolo.application.Player clearIncomingWinningCardGame() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Player addPerformance(Performance argPerformance) {
 		getPlayerOpal().addPerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
 		return this;
@@ -365,11 +371,6 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<Player, PlayerOpal
 	@Override
 	public java.util.Iterator<Performance> createPerformanceIterator() {
 		return new com.opal.OpalIterator<> (getPlayerOpal().createPerformanceOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player clearPerformance() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

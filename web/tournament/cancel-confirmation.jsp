@@ -1,12 +1,12 @@
-﻿<%@ page import="org.apache.commons.lang3.StringUtils" %>
+﻿<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="org.apache.commons.lang3.text.WordUtils" %>
-<%@ page import="com.google.common.base.Objects" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%
-String lclObjectNameLC = StringUtils.replaceChars(Objects.firstNonNull(request.getParameter("class_name"), "object"), '_', ' ').toLowerCase();
+String lclObjectNameLC = StringUtils.replaceChars(ObjectUtils.firstNonNull(request.getParameter("class_name"), "object"), '_', ' ').toLowerCase();
 String lclObjectNameUC = WordUtils.capitalizeFully(lclObjectNameLC);
 
 String lclTitle = lclObjectNameUC + " Canceled";

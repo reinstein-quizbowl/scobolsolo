@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.CategoryGroupOpal;
 
 public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, CategoryOpal> implements Category {
+
 	private final CategoryOpal myCategoryOpal;
 
 	public CategoryImpl(CategoryOpal argCategoryOpal) {
@@ -25,44 +26,58 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 		return getCategoryOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCode() {
 		return getCategoryOpal().getCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CategoryImpl setCode(java.lang.String argCode) {
 		getCategoryOpal().setCode(argCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getCategoryOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public CategoryImpl setName(java.lang.String argName) {
 		getCategoryOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getCategoryOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CategoryImpl setShortName(java.lang.String argShortName) {
 		getCategoryOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getCategoryOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public CategoryImpl setSequence(java.lang.Integer argSequence) {
 		getCategoryOpal().setSequence(argSequence);
@@ -75,11 +90,15 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCategoryGroupCode() {
 		return getCategoryOpal().getCategoryGroupCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CategoryImpl setCategoryGroupCode(java.lang.String argCategoryGroupCode) {
 		getCategoryOpal().setCategoryGroupCode(argCategoryGroupCode);
@@ -91,6 +110,7 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 
 	/** @return the CategoryGroup object created from category through reference category_category_group_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public CategoryGroup getCategoryGroup() {
 		CategoryGroupOpal lclCategoryGroupOpal = getCategoryOpal().getCategoryGroupOpal();
@@ -134,11 +154,6 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public com.scobolsolo.application.Category clearQuestion() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Category addDiff(Diff argDiff) {
 		getCategoryOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
 		return this;
@@ -163,11 +178,6 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	@Override
 	public java.util.Iterator<Diff> createDiffIterator() {
 		return new com.opal.OpalIterator<> (getCategoryOpal().createDiffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Category clearDiff() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -198,11 +208,6 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	}
 
 	@Override
-	public com.scobolsolo.application.Category clearCategoryUse() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Category addPlacement(Placement argPlacement) {
 		getCategoryOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
 		return this;
@@ -227,11 +232,6 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 	@Override
 	public java.util.Iterator<Placement> createPlacementIterator() {
 		return new com.opal.OpalIterator<> (getCategoryOpal().createPlacementOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Category clearPlacement() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

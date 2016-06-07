@@ -3,6 +3,7 @@ package com.scobolsolo.persistence;
 import com.scobolsolo.application.TechnologyChoice;
 
 public final class TechnologyChoiceOpal extends com.opal.UpdatableOpal<TechnologyChoice> {
+
 	public static final java.lang.Boolean ourDefaultComputer = java.lang.Boolean.TRUE;
 
 	private TechnologyChoiceOpal() {
@@ -10,13 +11,15 @@ public final class TechnologyChoiceOpal extends com.opal.UpdatableOpal<Technolog
 		setUserFacing(null);
 	}
 
-	public TechnologyChoiceOpal(com.opal.OpalFactory<TechnologyChoice, TechnologyChoiceOpal> argOpalFactory, Object[] argValues) {
+	public TechnologyChoiceOpal(com.opal.IdentityOpalFactory<TechnologyChoice, TechnologyChoiceOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
 	@Override
 	protected void applyDefaults() {
+		/* Initialize fields with their default values. */
 		getNewValues()[5] = ourDefaultComputer;
+
 		return;
 	}
 
@@ -106,7 +109,7 @@ public final class TechnologyChoiceOpal extends com.opal.UpdatableOpal<Technolog
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
 		}
 		if (argCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myCode on " + this + " to \"" + argCode + "\" because that field's maximum length is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
 		return this;
@@ -118,7 +121,7 @@ public final class TechnologyChoiceOpal extends com.opal.UpdatableOpal<Technolog
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
 		return this;
@@ -130,7 +133,7 @@ public final class TechnologyChoiceOpal extends com.opal.UpdatableOpal<Technolog
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
 		return this;
@@ -142,7 +145,7 @@ public final class TechnologyChoiceOpal extends com.opal.UpdatableOpal<Technolog
 			throw new com.opal.IllegalNullArgumentException("Cannot set myVeryShortName on " + this + " to null.");
 		}
 		if (argVeryShortName.length() > 12) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myVeryShortName on " + this + " is 12.", argVeryShortName.length(), 12);
+			throw new com.opal.ArgumentTooLongException("Cannot set myVeryShortName on " + this + " to \"" + argVeryShortName + "\" because that field's maximum length is 12.", argVeryShortName.length(), 12);
 		}
 		getNewValues()[3] = argVeryShortName;
 		return this;
@@ -256,8 +259,8 @@ public final class TechnologyChoiceOpal extends com.opal.UpdatableOpal<Technolog
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("TechnologyChoiceOpal[");
 		lclSB.append("myCode=");
 		lclSB.append(toStringField(0));

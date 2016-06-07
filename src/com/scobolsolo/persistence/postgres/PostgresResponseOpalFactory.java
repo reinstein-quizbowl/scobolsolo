@@ -49,7 +49,6 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return ResponseOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -202,10 +201,10 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	}
 
 	@Override
-	public java.util.HashSet<ResponseOpal> forReplacementForPlacementIdCollection(java.lang.Integer argReplacementForPlacementId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<ResponseOpal> forReplacementForPlacementIdCollection(java.lang.Integer argReplacementForPlacementId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argReplacementForPlacementId };
 		final String[] lclFieldNames = new String[] { "replacement_for_placement_id" };
-		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<ResponseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -229,7 +228,7 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		);
 	}
 
-	/* package */ static class PerformanceIdPlacementIdOpalKey extends com.opal.DatabaseOpalKey<ResponseOpal> {
+	/* package */ static class PerformanceIdPlacementIdOpalKey extends com.opal.MultipleValueDatabaseOpalKey<ResponseOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"performance_id", "placement_id", };
 
 		public PerformanceIdPlacementIdOpalKey(java.lang.Integer argPerformanceId, java.lang.Integer argPlacementId) {
@@ -237,25 +236,29 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
-
-		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
-
-	}
-
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<ResponseOpal> {
-		private static final String[] ourKeyColumnNames = new String[] {"id", };
-
-		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+		public Object[] getParameters() {
+			return getFields();
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
+
+	}
+
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<ResponseOpal> {
+		private static final String[] ourKeyColumnNames = new String[] {"id", };
+
+		public IdOpalKey(java.lang.Integer argId) {
+			super(argId);
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
+
+		@Override
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

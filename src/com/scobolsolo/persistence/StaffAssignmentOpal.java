@@ -5,12 +5,13 @@ import com.scobolsolo.application.StaffAssignment;
 @com.opal.StoreGeneratedPrimaryKey
 public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssignment> {
 
+
 	private StaffAssignmentOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public StaffAssignmentOpal(com.opal.OpalFactory<StaffAssignment, StaffAssignmentOpal> argOpalFactory, Object[] argValues) {
+	public StaffAssignmentOpal(com.opal.IdentityOpalFactory<StaffAssignment, StaffAssignmentOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -171,7 +172,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 			throw new com.opal.IllegalNullArgumentException("Cannot set myStaffRoleCode on " + this + " to null.");
 		}
 		if (argStaffRoleCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myStaffRoleCode on " + this + " is 32.", argStaffRoleCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myStaffRoleCode on " + this + " to \"" + argStaffRoleCode + "\" because that field's maximum length is 32.", argStaffRoleCode.length(), 32);
 		}
 		getNewValues()[5] = argStaffRoleCode;
 		return this;
@@ -207,6 +208,9 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		}
 		if (getPhaseOpal() != null) {
 			getPhaseOpal().removeStaffAssignmentOpalInternal(this);
+		}
+		if (getRoleOpal() != null) {
+			getRoleOpal().removeStaffAssignmentOpalInternal(this);
 		}
 		return;
 	}
@@ -515,13 +519,26 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 
 	public synchronized StaffAssignmentOpal setRoleOpal(StaffRoleOpal argStaffRoleOpal) {
 		tryMutate();
+		StaffRoleOpal lclStaffRoleOpal = getRoleOpal();
+		if (lclStaffRoleOpal == argStaffRoleOpal) { return this; }
+		if (lclStaffRoleOpal != null) {
+			lclStaffRoleOpal.removeStaffAssignmentOpalInternal(this);
+		}
 		myNewRoleOpal = argStaffRoleOpal;
+		if (argStaffRoleOpal != null) {
+			argStaffRoleOpal.addStaffAssignmentOpalInternal(this);
+		}
 		return this;
 	}
 
+	protected synchronized void setRoleOpalInternal(StaffRoleOpal argStaffRoleOpal) {
+		tryMutate();
+		myNewRoleOpal = argStaffRoleOpal;
+	}
+
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("StaffAssignmentOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

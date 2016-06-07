@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.WaitlistEntryOpal;
 import com.scobolsolo.persistence.SchoolRegistrationOpal;
 
 public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEntry, WaitlistEntryOpal> implements WaitlistEntry {
+
 	private final WaitlistEntryOpal myWaitlistEntryOpal;
 
 	public WaitlistEntryImpl(WaitlistEntryOpal argWaitlistEntryOpal) {
@@ -30,11 +31,13 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getWaitlistEntryOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public WaitlistEntryImpl setId(java.lang.Integer argId) {
 		getWaitlistEntryOpal().setId(argId);
@@ -47,11 +50,13 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSchoolRegistrationIdAsObject() {
 		return getWaitlistEntryOpal().getSchoolRegistrationIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public WaitlistEntryImpl setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId) {
 		getWaitlistEntryOpal().setSchoolRegistrationId(argSchoolRegistrationId);
@@ -64,11 +69,13 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getWaitlistEntryOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public WaitlistEntryImpl setSequence(java.lang.Integer argSequence) {
 		getWaitlistEntryOpal().setSequence(argSequence);
@@ -81,11 +88,15 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "1")
 	@Override
 	public java.lang.Integer getPlayerCountAsObject() {
 		return getWaitlistEntryOpal().getPlayerCountAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "1")
 	@Override
 	public WaitlistEntryImpl setPlayerCount(java.lang.Integer argPlayerCount) {
 		getWaitlistEntryOpal().setPlayerCount(argPlayerCount);
@@ -98,11 +109,15 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getWaitlistEntryOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public WaitlistEntryImpl setNote(java.lang.String argNote) {
 		getWaitlistEntryOpal().setNote(argNote);
@@ -114,6 +129,7 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<WaitlistEnt
 
 	/** @return the SchoolRegistration object created from waitlist_entry through reference waitlist_entry_school_registration_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolRegistration getSchoolRegistration() {
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getWaitlistEntryOpal().getSchoolRegistrationOpal();

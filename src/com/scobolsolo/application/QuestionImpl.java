@@ -6,6 +6,7 @@ import com.scobolsolo.persistence.AccountOpal;
 import com.scobolsolo.persistence.QuestionStatusOpal;
 
 public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, QuestionOpal> implements Question {
+
 	private final QuestionOpal myQuestionOpal;
 
 	public QuestionImpl(QuestionOpal argQuestionOpal) {
@@ -27,11 +28,13 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return getQuestionOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getQuestionOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public QuestionImpl setId(java.lang.Integer argId) {
 		getQuestionOpal().setId(argId);
@@ -44,44 +47,58 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getDescription() {
 		return getQuestionOpal().getDescription();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public QuestionImpl setDescription(java.lang.String argDescription) {
 		getQuestionOpal().setDescription(argDescription);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCategoryCode() {
 		return getQuestionOpal().getCategoryCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public QuestionImpl setCategoryCode(java.lang.String argCategoryCode) {
 		getQuestionOpal().setCategoryCode(argCategoryCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getQuestionOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public QuestionImpl setNote(java.lang.String argNote) {
 		getQuestionOpal().setNote(argNote);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getWriterAccountIdAsObject() {
 		return getQuestionOpal().getWriterAccountIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public QuestionImpl setWriterAccountId(java.lang.Integer argWriterAccountId) {
 		getQuestionOpal().setWriterAccountId(argWriterAccountId);
@@ -94,33 +111,47 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getText() {
 		return getQuestionOpal().getText();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public QuestionImpl setText(java.lang.String argText) {
 		getQuestionOpal().setText(argText);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getAnswer() {
 		return getQuestionOpal().getAnswer();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public QuestionImpl setAnswer(java.lang.String argAnswer) {
 		getQuestionOpal().setAnswer(argAnswer);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.Default(value = "DRAFTED")
 	@Override
 	public java.lang.String getQuestionStatusCode() {
 		return getQuestionOpal().getQuestionStatusCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.Default(value = "DRAFTED")
 	@Override
 	public QuestionImpl setQuestionStatusCode(java.lang.String argQuestionStatusCode) {
 		getQuestionOpal().setQuestionStatusCode(argQuestionStatusCode);
@@ -132,6 +163,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 
 	/** @return the Category object created from question through reference question_category_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Category getCategory() {
 		CategoryOpal lclCategoryOpal = getQuestionOpal().getCategoryOpal();
@@ -146,6 +178,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 
 	/** @return the Account object created from question through reference question_writer_account_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Account getWriter() {
 		AccountOpal lclAccountOpal = getQuestionOpal().getWriterOpal();
@@ -160,6 +193,7 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 
 	/** @return the QuestionStatus object created from question through reference question_question_status_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public QuestionStatus getStatus() {
 		QuestionStatusOpal lclQuestionStatusOpal = getQuestionOpal().getStatusOpal();
@@ -203,11 +237,6 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	}
 
 	@Override
-	public com.scobolsolo.application.Question clearDiff() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Question addPlacement(Placement argPlacement) {
 		getQuestionOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
 		return this;
@@ -232,11 +261,6 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<Question, Questi
 	@Override
 	public java.util.Iterator<Placement> createPlacementIterator() {
 		return new com.opal.OpalIterator<> (getQuestionOpal().createPlacementOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Question clearPlacement() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

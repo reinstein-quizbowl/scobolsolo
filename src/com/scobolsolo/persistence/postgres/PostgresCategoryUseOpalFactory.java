@@ -47,7 +47,6 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return CategoryUseOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -187,7 +186,7 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 		);
 	}
 
-	/* package */ static class CategoryCodeTournamentCodeOpalKey extends com.opal.DatabaseOpalKey<CategoryUseOpal> {
+	/* package */ static class CategoryCodeTournamentCodeOpalKey extends com.opal.MultipleValueDatabaseOpalKey<CategoryUseOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"category_code", "tournament_code", };
 
 		public CategoryCodeTournamentCodeOpalKey(java.lang.String argCategoryCode, java.lang.String argTournamentCode) {
@@ -195,10 +194,12 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

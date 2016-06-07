@@ -4,12 +4,13 @@ import com.scobolsolo.application.CategoryUse;
 
 public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 
+
 	private CategoryUseOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public CategoryUseOpal(com.opal.OpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory, Object[] argValues) {
+	public CategoryUseOpal(com.opal.IdentityOpalFactory<CategoryUse, CategoryUseOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -82,7 +83,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCategoryCode on " + this + " to null.");
 		}
 		if (argCategoryCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myCategoryCode on " + this + " is 32.", argCategoryCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myCategoryCode on " + this + " to \"" + argCategoryCode + "\" because that field's maximum length is 32.", argCategoryCode.length(), 32);
 		}
 		getNewValues()[0] = argCategoryCode;
 		return this;
@@ -94,7 +95,7 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
 		}
 		if (argTournamentCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myTournamentCode on " + this + " to \"" + argTournamentCode + "\" because that field's maximum length is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[1] = argTournamentCode;
 		return this;
@@ -323,8 +324,8 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("CategoryUseOpal[");
 		lclSB.append("myCategoryCode=");
 		lclSB.append(toStringField(0));

@@ -5,13 +5,24 @@ import com.scobolsolo.application.School;
 @com.opal.StoreGeneratedPrimaryKey
 public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
+
 	private SchoolOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public SchoolOpal(com.opal.OpalFactory<School, SchoolOpal> argOpalFactory, Object[] argValues) {
+	public SchoolOpal(com.opal.IdentityOpalFactory<School, SchoolOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void applyDefaults() {
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>();
+
+		return;
 	}
 
 	/* package */ static final String[] ourFieldNames = new String[] {
@@ -114,7 +125,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
 		return this;
@@ -126,7 +137,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
 		return this;
@@ -138,7 +149,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myVeryShortName on " + this + " to null.");
 		}
 		if (argVeryShortName.length() > 12) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myVeryShortName on " + this + " is 12.", argVeryShortName.length(), 12);
+			throw new com.opal.ArgumentTooLongException("Cannot set myVeryShortName on " + this + " to \"" + argVeryShortName + "\" because that field's maximum length is 12.", argVeryShortName.length(), 12);
 		}
 		getNewValues()[3] = argVeryShortName;
 		return this;
@@ -147,7 +158,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	public synchronized SchoolOpal setLocation(final java.lang.String argLocation) {
 		tryMutate();
 		if ((argLocation != null) && (argLocation.length() > 256)) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myLocation on " + this + " is 256.", argLocation.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myLocation on " + this + " to \"" + argLocation + "\" because that field's maximum length is 256.", argLocation.length(), 256);
 		}
 		getNewValues()[4] = argLocation;
 		return this;
@@ -182,9 +193,13 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		/** This Opal has no references to other Opals that need to be copied. */
 		if (needsToClearOldCollections()) {
 			myOldSchoolRegistrationOpalHashSet = null;
-			} else {
+		} else {
 			if (myNewSchoolRegistrationOpalHashSet != null) {
-				myOldSchoolRegistrationOpalHashSet = myNewSchoolRegistrationOpalHashSet;
+				if (myNewSchoolRegistrationOpalHashSet.size() > 0) {
+					myOldSchoolRegistrationOpalHashSet = myNewSchoolRegistrationOpalHashSet;
+				} else {
+					myOldSchoolRegistrationOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewSchoolRegistrationOpalHashSet = null;
 			} else {
 				mySchoolRegistrationOpalCachedOperations = null;
@@ -268,18 +283,20 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		argOutput.println("Note = " + getNote());
 	}
 
-	private java.util.HashSet<SchoolRegistrationOpal> myOldSchoolRegistrationOpalHashSet = null;
-	private java.util.HashSet<SchoolRegistrationOpal> myNewSchoolRegistrationOpalHashSet = null;
+	private java.util.Set<SchoolRegistrationOpal> myOldSchoolRegistrationOpalHashSet = null;
+	private java.util.Set<SchoolRegistrationOpal> myNewSchoolRegistrationOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<SchoolRegistrationOpal>> mySchoolRegistrationOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<SchoolRegistrationOpal> getSchoolRegistrationOpalHashSet() {
+	/* package */ java.util.Set<SchoolRegistrationOpal> getSchoolRegistrationOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewSchoolRegistrationOpalHashSet == null) {
 				if (myOldSchoolRegistrationOpalHashSet == null) {
 					if (isNew()) {
-						myOldSchoolRegistrationOpalHashSet = new java.util.HashSet<>();
+						myOldSchoolRegistrationOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+						java.util.Set<SchoolRegistrationOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+						myOldSchoolRegistrationOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
@@ -291,7 +308,9 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 			return myNewSchoolRegistrationOpalHashSet;
 		} else {
 			if (myOldSchoolRegistrationOpalHashSet == null) {
-				myOldSchoolRegistrationOpalHashSet = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+				java.util.Set<SchoolRegistrationOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
+				myOldSchoolRegistrationOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldSchoolRegistrationOpalHashSet;
 		}
@@ -350,11 +369,9 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		return getSchoolRegistrationOpalHashSet().stream();
 	}
 
-	public synchronized void clearSchoolRegistrationOpalInternal() { getSchoolRegistrationOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("SchoolOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

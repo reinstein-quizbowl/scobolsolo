@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.AccountOpal;
 import com.scobolsolo.persistence.ContactOpal;
 
 public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountOpal> implements Account {
+
 	private final AccountOpal myAccountOpal;
 
 	public AccountImpl(AccountOpal argAccountOpal) {
@@ -25,11 +26,13 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 		return getAccountOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getAccountOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public AccountImpl setId(java.lang.Integer argId) {
 		getAccountOpal().setId(argId);
@@ -42,33 +45,47 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 64L)
 	@Override
 	public java.lang.String getUsername() {
 		return getAccountOpal().getUsername();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 64L)
 	@Override
 	public AccountImpl setUsername(java.lang.String argUsername) {
 		getAccountOpal().setUsername(argUsername);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 60L)
+	@com.opal.annotation.Default(value = "$2a$16$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 	@Override
 	public java.lang.String getPasswordHash() {
 		return getAccountOpal().getPasswordHash();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 60L)
+	@com.opal.annotation.Default(value = "$2a$16$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 	@Override
 	public AccountImpl setPasswordHash(java.lang.String argPasswordHash) {
 		getAccountOpal().setPasswordHash(argPasswordHash);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isAdministratorAsObject() {
 		return getAccountOpal().isAdministratorAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public AccountImpl setAdministrator(java.lang.Boolean argAdministrator) {
 		getAccountOpal().setAdministrator(argAdministrator);
@@ -81,11 +98,15 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public java.lang.Boolean isActiveAsObject() {
 		return getAccountOpal().isActiveAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public AccountImpl setActive(java.lang.Boolean argActive) {
 		getAccountOpal().setActive(argActive);
@@ -98,11 +119,15 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isWriterAsObject() {
 		return getAccountOpal().isWriterAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public AccountImpl setWriter(java.lang.Boolean argWriter) {
 		getAccountOpal().setWriter(argWriter);
@@ -115,22 +140,28 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 64L)
 	@Override
 	public java.lang.String getPasswordResetToken() {
 		return getAccountOpal().getPasswordResetToken();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 64L)
 	@Override
 	public AccountImpl setPasswordResetToken(java.lang.String argPasswordResetToken) {
 		getAccountOpal().setPasswordResetToken(argPasswordResetToken);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.time.LocalDateTime getPasswordResetTokenExpiration() {
 		return getAccountOpal().getPasswordResetTokenExpiration();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public AccountImpl setPasswordResetTokenExpiration(java.time.LocalDateTime argPasswordResetTokenExpiration) {
 		getAccountOpal().setPasswordResetTokenExpiration(argPasswordResetTokenExpiration);
@@ -142,6 +173,7 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 
 	/** @return the Contact object created from account through reference account_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Contact getContact() {
 		ContactOpal lclContactOpal = getAccountOpal().getContactOpal();
@@ -185,11 +217,6 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	}
 
 	@Override
-	public com.scobolsolo.application.Account clearWriterQuestion() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Account addEditorDiff(Diff argDiff) {
 		getAccountOpal().addEditorDiffOpal(((DiffImpl) argDiff).getDiffOpal());
 		return this;
@@ -214,11 +241,6 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	@Override
 	public java.util.Iterator<Diff> createEditorDiffIterator() {
 		return new com.opal.OpalIterator<> (getAccountOpal().createEditorDiffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Account clearEditorDiff() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

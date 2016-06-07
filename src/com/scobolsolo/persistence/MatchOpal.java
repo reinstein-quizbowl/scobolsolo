@@ -5,12 +5,13 @@ import com.scobolsolo.application.Match;
 @com.opal.StoreGeneratedPrimaryKey
 public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 
+
 	private MatchOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public MatchOpal(com.opal.OpalFactory<Match, MatchOpal> argOpalFactory, Object[] argValues) {
+	public MatchOpal(com.opal.IdentityOpalFactory<Match, MatchOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -561,8 +562,8 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("MatchOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

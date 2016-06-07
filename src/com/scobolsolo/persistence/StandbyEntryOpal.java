@@ -4,6 +4,7 @@ import com.scobolsolo.application.StandbyEntry;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry> {
+
 	public static final java.lang.Integer ourDefaultPlayerCount = java.lang.Integer.valueOf(1);
 
 	private StandbyEntryOpal() {
@@ -11,13 +12,15 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 		setUserFacing(null);
 	}
 
-	public StandbyEntryOpal(com.opal.OpalFactory<StandbyEntry, StandbyEntryOpal> argOpalFactory, Object[] argValues) {
+	public StandbyEntryOpal(com.opal.IdentityOpalFactory<StandbyEntry, StandbyEntryOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
 	@Override
 	protected void applyDefaults() {
+		/* Initialize fields with their default values. */
 		getNewValues()[3] = ourDefaultPlayerCount;
+
 		return;
 	}
 
@@ -310,8 +313,8 @@ public final class StandbyEntryOpal extends com.opal.UpdatableOpal<StandbyEntry>
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("StandbyEntryOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

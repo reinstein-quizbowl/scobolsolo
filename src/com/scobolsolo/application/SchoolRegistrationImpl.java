@@ -6,6 +6,7 @@ import com.scobolsolo.persistence.SchoolOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
 public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<SchoolRegistration, SchoolRegistrationOpal> implements SchoolRegistration {
+
 	private final SchoolRegistrationOpal mySchoolRegistrationOpal;
 
 	public SchoolRegistrationImpl(SchoolRegistrationOpal argSchoolRegistrationOpal) {
@@ -27,11 +28,13 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return getSchoolRegistrationOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getSchoolRegistrationOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolRegistrationImpl setId(java.lang.Integer argId) {
 		getSchoolRegistrationOpal().setId(argId);
@@ -44,11 +47,13 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSchoolIdAsObject() {
 		return getSchoolRegistrationOpal().getSchoolIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolRegistrationImpl setSchoolId(java.lang.Integer argSchoolId) {
 		getSchoolRegistrationOpal().setSchoolId(argSchoolId);
@@ -61,11 +66,13 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getMainContactIdAsObject() {
 		return getSchoolRegistrationOpal().getMainContactIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolRegistrationImpl setMainContactId(java.lang.Integer argMainContactId) {
 		getSchoolRegistrationOpal().setMainContactId(argMainContactId);
@@ -78,44 +85,58 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "0.0")
 	@Override
 	public java.math.BigDecimal getAmountOwed() {
 		return getSchoolRegistrationOpal().getAmountOwed();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "0.0")
 	@Override
 	public SchoolRegistrationImpl setAmountOwed(java.math.BigDecimal argAmountOwed) {
 		getSchoolRegistrationOpal().setAmountOwed(argAmountOwed);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "0.0")
 	@Override
 	public java.math.BigDecimal getAmountPaid() {
 		return getSchoolRegistrationOpal().getAmountPaid();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "0.0")
 	@Override
 	public SchoolRegistrationImpl setAmountPaid(java.math.BigDecimal argAmountPaid) {
 		getSchoolRegistrationOpal().setAmountPaid(argAmountPaid);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getSchoolRegistrationOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public SchoolRegistrationImpl setNote(java.lang.String argNote) {
 		getSchoolRegistrationOpal().setNote(argNote);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSpotsReservedAsObject() {
 		return getSchoolRegistrationOpal().getSpotsReservedAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public SchoolRegistrationImpl setSpotsReserved(java.lang.Integer argSpotsReserved) {
 		getSchoolRegistrationOpal().setSpotsReserved(argSpotsReserved);
@@ -128,11 +149,15 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getSchoolRegistrationOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public SchoolRegistrationImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getSchoolRegistrationOpal().setTournamentCode(argTournamentCode);
@@ -144,6 +169,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 
 	/** @return the Contact object created from school_registration through reference registration_main_contact_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Contact getMainContact() {
 		ContactOpal lclContactOpal = getSchoolRegistrationOpal().getMainContactOpal();
@@ -158,6 +184,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 
 	/** @return the School object created from school_registration through reference registration_school_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public School getSchool() {
 		SchoolOpal lclSchoolOpal = getSchoolRegistrationOpal().getSchoolOpal();
@@ -172,6 +199,7 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 
 	/** @return the Tournament object created from school_registration through reference school_registration_tournament_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getSchoolRegistrationOpal().getTournamentOpal();
@@ -215,11 +243,6 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public com.scobolsolo.application.SchoolRegistration clearStandbyEntry() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.SchoolRegistration addPlayer(Player argPlayer) {
 		getSchoolRegistrationOpal().addPlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
 		return this;
@@ -244,11 +267,6 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	@Override
 	public java.util.Iterator<Player> createPlayerIterator() {
 		return new com.opal.OpalIterator<> (getSchoolRegistrationOpal().createPlayerOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration clearPlayer() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -279,11 +297,6 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public com.scobolsolo.application.SchoolRegistration clearBuzzer() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.SchoolRegistration addWaitlistEntry(WaitlistEntry argWaitlistEntry) {
 		getSchoolRegistrationOpal().addWaitlistEntryOpal(((WaitlistEntryImpl) argWaitlistEntry).getWaitlistEntryOpal());
 		return this;
@@ -311,11 +324,6 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	}
 
 	@Override
-	public com.scobolsolo.application.SchoolRegistration clearWaitlistEntry() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.SchoolRegistration addStaff(Staff argStaff) {
 		getSchoolRegistrationOpal().addStaffOpal(((StaffImpl) argStaff).getStaffOpal());
 		return this;
@@ -340,11 +348,6 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<School
 	@Override
 	public java.util.Iterator<Staff> createStaffIterator() {
 		return new com.opal.OpalIterator<> (getSchoolRegistrationOpal().createStaffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration clearStaff() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

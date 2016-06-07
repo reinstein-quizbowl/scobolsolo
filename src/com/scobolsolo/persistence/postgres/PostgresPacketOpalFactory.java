@@ -53,7 +53,6 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return PacketOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -268,22 +267,24 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<PacketOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<PacketOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class TournamentCodeNameOpalKey extends com.opal.DatabaseOpalKey<PacketOpal> {
+	/* package */ static class TournamentCodeNameOpalKey extends com.opal.MultipleValueDatabaseOpalKey<PacketOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"tournament_code", "name", };
 
 		public TournamentCodeNameOpalKey(java.lang.String argTournamentCode, java.lang.String argName) {
@@ -291,29 +292,33 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
-
-		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
-
-	}
-
-	/* package */ static class RoundIdOpalKey extends com.opal.DatabaseOpalKey<PacketOpal> {
-		private static final String[] ourKeyColumnNames = new String[] {"round_id", };
-
-		public RoundIdOpalKey(java.lang.Integer argRoundId) {
-			super(new Object[] {argRoundId, });
+		public Object[] getParameters() {
+			return getFields();
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
-
-		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class TournamentCodeShortNameOpalKey extends com.opal.DatabaseOpalKey<PacketOpal> {
+	/* package */ static class RoundIdOpalKey extends com.opal.SingleValueDatabaseOpalKey<PacketOpal> {
+		private static final String[] ourKeyColumnNames = new String[] {"round_id", };
+
+		public RoundIdOpalKey(java.lang.Integer argRoundId) {
+			super(argRoundId);
+		}
+
+		@Override
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
+
+		@Override
+		public String[] getColumnNames() { return ourKeyColumnNames; }
+
+	}
+
+	/* package */ static class TournamentCodeShortNameOpalKey extends com.opal.MultipleValueDatabaseOpalKey<PacketOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"tournament_code", "short_name", };
 
 		public TournamentCodeShortNameOpalKey(java.lang.String argTournamentCode, java.lang.String argShortName) {
@@ -321,10 +326,12 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

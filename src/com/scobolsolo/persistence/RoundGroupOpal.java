@@ -5,13 +5,24 @@ import com.scobolsolo.application.RoundGroup;
 @com.opal.StoreGeneratedPrimaryKey
 public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 
+
 	private RoundGroupOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public RoundGroupOpal(com.opal.OpalFactory<RoundGroup, RoundGroupOpal> argOpalFactory, Object[] argValues) {
+	public RoundGroupOpal(com.opal.IdentityOpalFactory<RoundGroup, RoundGroupOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void applyDefaults() {
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewRoundOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+
+		return;
 	}
 
 	@Override
@@ -112,7 +123,7 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
 		return this;
@@ -124,7 +135,7 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
 		return this;
@@ -171,7 +182,7 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewPhaseOpal = myOldPhaseOpal;
-		myNewRoundOpalHashSet = null; /* Necessary if it has been rolled back */
+		myNewRoundOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myRoundOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -182,11 +193,15 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 		myOldPhaseOpal = myNewPhaseOpal;
 
 		if (needsToClearOldCollections()) {
-			myOldRoundOpalHashSet = null;
-			} else {
-			if (myNewRoundOpalHashSet != null) {
-				myOldRoundOpalHashSet = myNewRoundOpalHashSet;
-				myNewRoundOpalHashSet = null;
+			myOldRoundOpalFast3Set = null;
+		} else {
+			if (myNewRoundOpalFast3Set != null) {
+				if (myNewRoundOpalFast3Set.size() > 0) {
+					myOldRoundOpalFast3Set = myNewRoundOpalFast3Set;
+				} else {
+					myOldRoundOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewRoundOpalFast3Set = null;
 			} else {
 				myRoundOpalCachedOperations = null;
 			}
@@ -198,7 +213,7 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
-		if (myNewRoundOpalHashSet != null || myRoundOpalCachedOperations != null) {
+		if (myNewRoundOpalFast3Set != null || myRoundOpalCachedOperations != null) {
 			lclI = createRoundOpalIterator();
 			while (lclI.hasNext()) {
 				((RoundOpal) lclI.next()).setRoundGroupOpalInternal(null);
@@ -336,32 +351,36 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 		myNewPhaseOpal = argPhaseOpal;
 	}
 
-	private java.util.HashSet<RoundOpal> myOldRoundOpalHashSet = null;
-	private java.util.HashSet<RoundOpal> myNewRoundOpalHashSet = null;
+	private java.util.Set<RoundOpal> myOldRoundOpalFast3Set = null;
+	private java.util.Set<RoundOpal> myNewRoundOpalFast3Set = null;
 	private java.util.ArrayList<com.opal.CachedOperation<RoundOpal>> myRoundOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<RoundOpal> getRoundOpalHashSet() {
+	/* package */ java.util.Set<RoundOpal> getRoundOpalFast3Set() {
 		if (tryAccess()) {
-			if (myNewRoundOpalHashSet == null) {
-				if (myOldRoundOpalHashSet == null) {
+			if (myNewRoundOpalFast3Set == null) {
+				if (myOldRoundOpalFast3Set == null) {
 					if (isNew()) {
-						myOldRoundOpalHashSet = new java.util.HashSet<>();
+						myOldRoundOpalFast3Set = java.util.Collections.emptySet();
 					} else {
-						myOldRoundOpalHashSet = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
+						java.util.Set<RoundOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
+						myOldRoundOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewRoundOpalHashSet = new java.util.HashSet<>(myOldRoundOpalHashSet);
+				myNewRoundOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldRoundOpalFast3Set);
 				if (myRoundOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myRoundOpalCachedOperations, myNewRoundOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myRoundOpalCachedOperations, myNewRoundOpalFast3Set);
 					myRoundOpalCachedOperations = null;
 				}
 			}
-			return myNewRoundOpalHashSet;
+			return myNewRoundOpalFast3Set;
 		} else {
-			if (myOldRoundOpalHashSet == null) {
-				myOldRoundOpalHashSet = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
+			if (myOldRoundOpalFast3Set == null) {
+				java.util.Set<RoundOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getRoundOpalFactory().forRoundGroupIdCollection(getIdAsObject());
+				myOldRoundOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldRoundOpalHashSet;
+			return myOldRoundOpalFast3Set;
 		}
 	}
 
@@ -373,16 +392,16 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 
 	protected synchronized void addRoundOpalInternal(RoundOpal argRoundOpal) {
 		tryMutate();
-		if (myNewRoundOpalHashSet == null) {
-			if (myOldRoundOpalHashSet == null) {
+		if (myNewRoundOpalFast3Set == null) {
+			if (myOldRoundOpalFast3Set == null) {
 				if (myRoundOpalCachedOperations == null) { myRoundOpalCachedOperations = new java.util.ArrayList<>(); }
 				myRoundOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argRoundOpal));
 			} else {
-				myNewRoundOpalHashSet = new java.util.HashSet<>(myOldRoundOpalHashSet);
-				myNewRoundOpalHashSet.add(argRoundOpal);
+				myNewRoundOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldRoundOpalFast3Set);
+				myNewRoundOpalFast3Set.add(argRoundOpal);
 			}
 		} else {
-			myNewRoundOpalHashSet.add(argRoundOpal);
+			myNewRoundOpalFast3Set.add(argRoundOpal);
 		}
 		return;
 	}
@@ -394,35 +413,33 @@ public final class RoundGroupOpal extends com.opal.UpdatableOpal<RoundGroup> {
 
 	protected synchronized void removeRoundOpalInternal(RoundOpal argRoundOpal) {
 		tryMutate();
-		if (myNewRoundOpalHashSet == null) {
-			if (myOldRoundOpalHashSet == null) {
+		if (myNewRoundOpalFast3Set == null) {
+			if (myOldRoundOpalFast3Set == null) {
 				if (myRoundOpalCachedOperations == null) { myRoundOpalCachedOperations = new java.util.ArrayList<>(); }
 				myRoundOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argRoundOpal));
 			} else {
-				myNewRoundOpalHashSet = new java.util.HashSet<>(myOldRoundOpalHashSet);
-				myNewRoundOpalHashSet.remove(argRoundOpal);
+				myNewRoundOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldRoundOpalFast3Set);
+				myNewRoundOpalFast3Set.remove(argRoundOpal);
 			}
 		} else {
-			myNewRoundOpalHashSet.remove(argRoundOpal);
+			myNewRoundOpalFast3Set.remove(argRoundOpal);
 		}
 		return;
 	}
 
-	public synchronized int getRoundOpalCount() { return getRoundOpalHashSet().size(); }
+	public synchronized int getRoundOpalCount() { return getRoundOpalFast3Set().size(); }
 
 	public synchronized java.util.Iterator<RoundOpal> createRoundOpalIterator() {
-		return getRoundOpalHashSet().iterator();
+		return getRoundOpalFast3Set().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<RoundOpal> streamRoundOpal() {
-		return getRoundOpalHashSet().stream();
+		return getRoundOpalFast3Set().stream();
 	}
 
-	public synchronized void clearRoundOpalInternal() { getRoundOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("RoundGroupOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

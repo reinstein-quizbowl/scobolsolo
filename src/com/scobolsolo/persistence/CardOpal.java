@@ -5,13 +5,25 @@ import com.scobolsolo.application.Card;
 @com.opal.StoreGeneratedPrimaryKey
 public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
+
 	private CardOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public CardOpal(com.opal.OpalFactory<Card, CardOpal> argOpalFactory, Object[] argValues) {
+	public CardOpal(com.opal.IdentityOpalFactory<Card, CardOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void applyDefaults() {
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewLosingMatchOpalHashSet = new java.util.HashSet<>();
+		myNewWinningMatchOpalHashSet = new java.util.HashSet<>();
+
+		return;
 	}
 
 	@Override
@@ -129,7 +141,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
 		return this;
@@ -141,7 +153,7 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
 		return this;
@@ -221,19 +233,24 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 		if (needsToClearOldCollections()) {
 			myOldLosingMatchOpalHashSet = null;
-			} else {
+			myOldWinningMatchOpalHashSet = null;
+		} else {
 			if (myNewLosingMatchOpalHashSet != null) {
-				myOldLosingMatchOpalHashSet = myNewLosingMatchOpalHashSet;
+				if (myNewLosingMatchOpalHashSet.size() > 0) {
+					myOldLosingMatchOpalHashSet = myNewLosingMatchOpalHashSet;
+				} else {
+					myOldLosingMatchOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewLosingMatchOpalHashSet = null;
 			} else {
 				myLosingMatchOpalCachedOperations = null;
 			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldWinningMatchOpalHashSet = null;
-			} else {
 			if (myNewWinningMatchOpalHashSet != null) {
-				myOldWinningMatchOpalHashSet = myNewWinningMatchOpalHashSet;
+				if (myNewWinningMatchOpalHashSet.size() > 0) {
+					myOldWinningMatchOpalHashSet = myNewWinningMatchOpalHashSet;
+				} else {
+					myOldWinningMatchOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewWinningMatchOpalHashSet = null;
 			} else {
 				myWinningMatchOpalCachedOperations = null;
@@ -461,18 +478,20 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		myNewInitialPlayerOpal = argPlayerOpal;
 	}
 
-	private java.util.HashSet<MatchOpal> myOldLosingMatchOpalHashSet = null;
-	private java.util.HashSet<MatchOpal> myNewLosingMatchOpalHashSet = null;
+	private java.util.Set<MatchOpal> myOldLosingMatchOpalHashSet = null;
+	private java.util.Set<MatchOpal> myNewLosingMatchOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myLosingMatchOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<MatchOpal> getLosingMatchOpalHashSet() {
+	/* package */ java.util.Set<MatchOpal> getLosingMatchOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewLosingMatchOpalHashSet == null) {
 				if (myOldLosingMatchOpalHashSet == null) {
 					if (isNew()) {
-						myOldLosingMatchOpalHashSet = new java.util.HashSet<>();
+						myOldLosingMatchOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldLosingMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
+						java.util.Set<MatchOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
+						myOldLosingMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
@@ -484,7 +503,9 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 			return myNewLosingMatchOpalHashSet;
 		} else {
 			if (myOldLosingMatchOpalHashSet == null) {
-				myOldLosingMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
+				java.util.Set<MatchOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
+				myOldLosingMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldLosingMatchOpalHashSet;
 		}
@@ -543,20 +564,20 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		return getLosingMatchOpalHashSet().stream();
 	}
 
-	public synchronized void clearLosingMatchOpalInternal() { getLosingMatchOpalHashSet().clear(); }
-
-	private java.util.HashSet<MatchOpal> myOldWinningMatchOpalHashSet = null;
-	private java.util.HashSet<MatchOpal> myNewWinningMatchOpalHashSet = null;
+	private java.util.Set<MatchOpal> myOldWinningMatchOpalHashSet = null;
+	private java.util.Set<MatchOpal> myNewWinningMatchOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myWinningMatchOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<MatchOpal> getWinningMatchOpalHashSet() {
+	/* package */ java.util.Set<MatchOpal> getWinningMatchOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewWinningMatchOpalHashSet == null) {
 				if (myOldWinningMatchOpalHashSet == null) {
 					if (isNew()) {
-						myOldWinningMatchOpalHashSet = new java.util.HashSet<>();
+						myOldWinningMatchOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldWinningMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
+						java.util.Set<MatchOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
+						myOldWinningMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
@@ -568,7 +589,9 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 			return myNewWinningMatchOpalHashSet;
 		} else {
 			if (myOldWinningMatchOpalHashSet == null) {
-				myOldWinningMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
+				java.util.Set<MatchOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
+				myOldWinningMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldWinningMatchOpalHashSet;
 		}
@@ -627,11 +650,9 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		return getWinningMatchOpalHashSet().stream();
 	}
 
-	public synchronized void clearWinningMatchOpalInternal() { getWinningMatchOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("CardOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

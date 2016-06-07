@@ -49,7 +49,6 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return MatchOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -272,22 +271,24 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<MatchOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<MatchOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class RoundIdLosingCardIdOpalKey extends com.opal.DatabaseOpalKey<MatchOpal> {
+	/* package */ static class RoundIdLosingCardIdOpalKey extends com.opal.MultipleValueDatabaseOpalKey<MatchOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"round_id", "losing_card_id", };
 
 		public RoundIdLosingCardIdOpalKey(java.lang.Integer argRoundId, java.lang.Integer argLosingCardId) {
@@ -295,14 +296,16 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class RoundIdWinningCardIdOpalKey extends com.opal.DatabaseOpalKey<MatchOpal> {
+	/* package */ static class RoundIdWinningCardIdOpalKey extends com.opal.MultipleValueDatabaseOpalKey<MatchOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"round_id", "winning_card_id", };
 
 		public RoundIdWinningCardIdOpalKey(java.lang.Integer argRoundId, java.lang.Integer argWinningCardId) {
@@ -310,10 +313,12 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

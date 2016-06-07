@@ -44,7 +44,7 @@ public final class HTMLUtility {
 		return deleteWidget(argOF, "tiny");
 	}
 	
-	public static String submitBlock(final OpalForm<?> argOF) {
+	public static String submitBlock(final OpalMainForm<?> argOF) {
 		Validate.notNull(argOF);
 		
 		return "<div class=\"row\"><div class=\"small-12 columns submit-buttons\">" + argOF.submit() + ' ' + argOF.delete() + ' ' + argOF.cancel() + "</div></div>";

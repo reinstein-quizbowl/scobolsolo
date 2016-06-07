@@ -4,6 +4,7 @@ import com.scobolsolo.application.CategoryConversionV;
 
 public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<CategoryConversionV> {
 
+
 	private CategoryConversionVOpal() {
 		super();
 		setUserFacing(null);

@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface PacketUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Packet setId(java.lang.Integer argId);
 
 	/**
@@ -68,6 +70,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -82,7 +86,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Packet setName(java.lang.String argName);
 
@@ -93,6 +97,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -107,7 +113,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Packet setShortName(java.lang.String argShortName);
 
@@ -120,6 +126,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RoundId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getRoundIdAsObject();
 
 	/**
@@ -174,6 +181,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoundId the new value of {@code RoundId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Packet setRoundId(java.lang.Integer argRoundId);
 
 	/**
@@ -191,6 +199,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -218,6 +228,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Packet setNote(java.lang.String argNote);
 
@@ -228,6 +239,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
 
 	/**
@@ -242,7 +255,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Packet setTournamentCode(java.lang.String argTournamentCode);
 
@@ -255,6 +268,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "0")
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -280,7 +295,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "0")
 	public com.scobolsolo.application.Packet setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -300,6 +316,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ReplacementPacketId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getReplacementPacketIdAsObject();
 
 	/**
@@ -354,6 +371,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argReplacementPacketId the new value of {@code ReplacementPacketId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Packet setReplacementPacketId(java.lang.Integer argReplacementPacketId);
 
 	/**
@@ -373,6 +391,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code QuestionsPublic} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isQuestionsPublicAsObject();
 
 	/**
@@ -398,7 +418,8 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argQuestionsPublic is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Packet setQuestionsPublic(java.lang.Boolean argQuestionsPublic);
 
 	/**
@@ -414,6 +435,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Packet} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code packet_replacement_packet_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Packet getReplacementPacket();
 	public com.scobolsolo.application.Packet setReplacementPacket(com.scobolsolo.application.Packet argReplacementPacket);
 
@@ -422,6 +444,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Round} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code round} that is referenced by {@code packet_round_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Round getRound();
 	public com.scobolsolo.application.Packet setRound(com.scobolsolo.application.Round argRound);
 
@@ -430,6 +453,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code packet_tournament_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
 	public com.scobolsolo.application.Packet setTournament(com.scobolsolo.application.Tournament argTournament);
 
@@ -440,8 +464,6 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Packet addReplacementPacket(com.scobolsolo.application.Packet argPacket);
 	public com.scobolsolo.application.Packet removeReplacementPacket(com.scobolsolo.application.Packet argPacket);
-	public com.scobolsolo.application.Packet clearReplacementPacket();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Packet>> T acquireReplacementPacket(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createReplacementPacketIterator();
@@ -469,8 +491,6 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Packet addPlacement(com.scobolsolo.application.Placement argPlacement);
 	public com.scobolsolo.application.Packet removePlacement(com.scobolsolo.application.Placement argPlacement);
-	public com.scobolsolo.application.Packet clearPlacement();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();

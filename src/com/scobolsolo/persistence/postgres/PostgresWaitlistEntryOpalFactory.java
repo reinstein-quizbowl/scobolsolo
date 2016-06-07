@@ -49,7 +49,6 @@ public class PostgresWaitlistEntryOpalFactory extends com.opal.AbstractDatabaseI
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return WaitlistEntryOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -172,10 +171,10 @@ public class PostgresWaitlistEntryOpalFactory extends com.opal.AbstractDatabaseI
 	}
 
 	@Override
-	public java.util.HashSet<WaitlistEntryOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<WaitlistEntryOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argSchoolRegistrationId };
 		final String[] lclFieldNames = new String[] { "school_registration_id" };
-		java.util.HashSet<WaitlistEntryOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<WaitlistEntryOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -193,18 +192,20 @@ public class PostgresWaitlistEntryOpalFactory extends com.opal.AbstractDatabaseI
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<WaitlistEntryOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<WaitlistEntryOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

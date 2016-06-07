@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface GameUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Game setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TossupsHeard} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getTossupsHeardAsObject();
 
 	/**
@@ -124,6 +127,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argTossupsHeard the new value of {@code TossupsHeard}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Game setTossupsHeard(java.lang.Integer argTossupsHeard);
 
 	/**
@@ -143,6 +147,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code IncomingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getIncomingWinningCardPlayerIdAsObject();
 
 	/**
@@ -197,6 +202,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argIncomingWinningCardPlayerId the new value of {@code IncomingWinningCardPlayerId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Game setIncomingWinningCardPlayerId(java.lang.Integer argIncomingWinningCardPlayerId);
 
 	/**
@@ -216,6 +222,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code IncomingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getIncomingLosingCardPlayerIdAsObject();
 
 	/**
@@ -270,6 +277,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argIncomingLosingCardPlayerId the new value of {@code IncomingLosingCardPlayerId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Game setIncomingLosingCardPlayerId(java.lang.Integer argIncomingLosingCardPlayerId);
 
 	/**
@@ -289,6 +297,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code OutgoingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getOutgoingWinningCardPlayerIdAsObject();
 
 	/**
@@ -343,6 +352,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argOutgoingWinningCardPlayerId the new value of {@code OutgoingWinningCardPlayerId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayerId(java.lang.Integer argOutgoingWinningCardPlayerId);
 
 	/**
@@ -362,6 +372,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code OutgoingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getOutgoingLosingCardPlayerIdAsObject();
 
 	/**
@@ -416,6 +427,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argOutgoingLosingCardPlayerId the new value of {@code OutgoingLosingCardPlayerId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Game setOutgoingLosingCardPlayerId(java.lang.Integer argOutgoingLosingCardPlayerId);
 
 	/**
@@ -435,6 +447,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ModeratorStaffId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getModeratorStaffIdAsObject();
 
 	/**
@@ -489,6 +502,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argModeratorStaffId the new value of {@code ModeratorStaffId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Game setModeratorStaffId(java.lang.Integer argModeratorStaffId);
 
 	/**
@@ -504,6 +518,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Match} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code match} that is referenced by {@code game_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Match getMatch();
 	public com.scobolsolo.application.Game setMatch(com.scobolsolo.application.Match argMatch);
 
@@ -512,6 +527,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code game_moderator_staff_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Staff getModeratorStaff();
 	public com.scobolsolo.application.Game setModeratorStaff(com.scobolsolo.application.Staff argModeratorStaff);
 
@@ -520,6 +536,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_outgoing_losing_card_player_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getOutgoingLosingCardPlayer();
 	public com.scobolsolo.application.Game setOutgoingLosingCardPlayer(com.scobolsolo.application.Player argOutgoingLosingCardPlayer);
 
@@ -528,6 +545,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_outgoing_winning_card_player_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getOutgoingWinningCardPlayer();
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayer(com.scobolsolo.application.Player argOutgoingWinningCardPlayer);
 
@@ -536,6 +554,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_losing_card_player_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getIncomingLosingCardPlayer();
 	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argIncomingLosingCardPlayer);
 
@@ -544,6 +563,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code game_incoming_winning_card_player_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getIncomingWinningCardPlayer();
 	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argIncomingWinningCardPlayer);
 
@@ -554,8 +574,6 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Game addPerformance(com.scobolsolo.application.Performance argPerformance);
 	public com.scobolsolo.application.Game removePerformance(com.scobolsolo.application.Performance argPerformance);
-	public com.scobolsolo.application.Game clearPerformance();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Performance>> T acquirePerformance(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();

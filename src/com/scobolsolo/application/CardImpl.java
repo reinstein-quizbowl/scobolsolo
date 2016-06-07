@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 
 public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> implements Card {
+
 	private final CardOpal myCardOpal;
 
 	public CardImpl(CardOpal argCardOpal) {
@@ -26,11 +27,13 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return getCardOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getCardOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public CardImpl setId(java.lang.Integer argId) {
 		getCardOpal().setId(argId);
@@ -43,33 +46,43 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getCardOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public CardImpl setName(java.lang.String argName) {
 		getCardOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getCardOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CardImpl setShortName(java.lang.String argShortName) {
 		getCardOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getCardOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public CardImpl setSequence(java.lang.Integer argSequence) {
 		getCardOpal().setSequence(argSequence);
@@ -82,22 +95,28 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getFinalMessage() {
 		return getCardOpal().getFinalMessage();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public CardImpl setFinalMessage(java.lang.String argFinalMessage) {
 		getCardOpal().setFinalMessage(argFinalMessage);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getPhaseIdAsObject() {
 		return getCardOpal().getPhaseIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public CardImpl setPhaseId(java.lang.Integer argPhaseId) {
 		getCardOpal().setPhaseId(argPhaseId);
@@ -110,11 +129,13 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getInitialPlayerIdAsObject() {
 		return getCardOpal().getInitialPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public CardImpl setInitialPlayerId(java.lang.Integer argInitialPlayerId) {
 		getCardOpal().setInitialPlayerId(argInitialPlayerId);
@@ -132,6 +153,7 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 
 	/** @return the Phase object created from card through reference card_phase_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Phase getPhase() {
 		PhaseOpal lclPhaseOpal = getCardOpal().getPhaseOpal();
@@ -146,6 +168,7 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 
 	/** @return the Player object created from card through reference card_initial_player_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getInitialPlayer() {
 		PlayerOpal lclPlayerOpal = getCardOpal().getInitialPlayerOpal();
@@ -189,11 +212,6 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	}
 
 	@Override
-	public com.scobolsolo.application.Card clearLosingMatch() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Card addWinningMatch(Match argMatch) {
 		getCardOpal().addWinningMatchOpal(((MatchImpl) argMatch).getMatchOpal());
 		return this;
@@ -218,11 +236,6 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<Card, CardOpal> impl
 	@Override
 	public java.util.Iterator<Match> createWinningMatchIterator() {
 		return new com.opal.OpalIterator<> (getCardOpal().createWinningMatchOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Card clearWinningMatch() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

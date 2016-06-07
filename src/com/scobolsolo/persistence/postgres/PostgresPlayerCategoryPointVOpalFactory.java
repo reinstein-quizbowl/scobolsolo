@@ -40,7 +40,6 @@ public class PostgresPlayerCategoryPointVOpalFactory extends com.opal.AbstractDa
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return PlayerCategoryPointVOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();

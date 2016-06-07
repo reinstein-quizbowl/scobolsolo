@@ -4,6 +4,7 @@ import com.scobolsolo.application.PlayerCategoryPointV;
 
 public final class PlayerCategoryPointVOpal extends com.opal.EphemeralOpal<PlayerCategoryPointV> {
 
+
 	private PlayerCategoryPointVOpal() {
 		super();
 		setUserFacing(null);

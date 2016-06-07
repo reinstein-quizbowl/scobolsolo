@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.TechnologyChoiceOpal;
 
 public class TechnologyChoiceImpl extends com.opal.AbstractIdentityImpl<TechnologyChoice, TechnologyChoiceOpal> implements TechnologyChoice {
+
 	private final TechnologyChoiceOpal myTechnologyChoiceOpal;
 
 	public TechnologyChoiceImpl(TechnologyChoiceOpal argTechnologyChoiceOpal) {
@@ -29,55 +30,73 @@ public class TechnologyChoiceImpl extends com.opal.AbstractIdentityImpl<Technolo
 		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCode() {
 		return getTechnologyChoiceOpal().getCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public TechnologyChoiceImpl setCode(java.lang.String argCode) {
 		getTechnologyChoiceOpal().setCode(argCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getTechnologyChoiceOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public TechnologyChoiceImpl setName(java.lang.String argName) {
 		getTechnologyChoiceOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getTechnologyChoiceOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public TechnologyChoiceImpl setShortName(java.lang.String argShortName) {
 		getTechnologyChoiceOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 12L)
 	@Override
 	public java.lang.String getVeryShortName() {
 		return getTechnologyChoiceOpal().getVeryShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 12L)
 	@Override
 	public TechnologyChoiceImpl setVeryShortName(java.lang.String argVeryShortName) {
 		getTechnologyChoiceOpal().setVeryShortName(argVeryShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getTechnologyChoiceOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public TechnologyChoiceImpl setSequence(java.lang.Integer argSequence) {
 		getTechnologyChoiceOpal().setSequence(argSequence);
@@ -90,11 +109,15 @@ public class TechnologyChoiceImpl extends com.opal.AbstractIdentityImpl<Technolo
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public java.lang.Boolean hasComputerAsObject() {
 		return getTechnologyChoiceOpal().hasComputerAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public TechnologyChoiceImpl setComputer(java.lang.Boolean argComputer) {
 		getTechnologyChoiceOpal().setComputer(argComputer);

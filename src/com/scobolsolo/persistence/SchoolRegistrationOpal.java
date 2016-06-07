@@ -4,6 +4,7 @@ import com.scobolsolo.application.SchoolRegistration;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolRegistration> {
+
 	public static final java.math.BigDecimal ourDefaultAmountOwed = java.math.BigDecimal.valueOf(0.0);
 	public static final java.math.BigDecimal ourDefaultAmountPaid = java.math.BigDecimal.valueOf(0.0);
 
@@ -12,14 +13,25 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		setUserFacing(null);
 	}
 
-	public SchoolRegistrationOpal(com.opal.OpalFactory<SchoolRegistration, SchoolRegistrationOpal> argOpalFactory, Object[] argValues) {
+	public SchoolRegistrationOpal(com.opal.IdentityOpalFactory<SchoolRegistration, SchoolRegistrationOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
 	@Override
 	protected void applyDefaults() {
+		/* Initialize fields with their default values. */
 		getNewValues()[3] = ourDefaultAmountOwed;
 		getNewValues()[4] = ourDefaultAmountPaid;
+
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewStandbyEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewPlayerOpalHashSet = new java.util.HashSet<>();
+		myNewBuzzerOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewWaitlistEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+
 		return;
 	}
 
@@ -213,7 +225,7 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
 		}
 		if (argTournamentCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myTournamentCode on " + this + " to \"" + argTournamentCode + "\" because that field's maximum length is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[7] = argTournamentCode;
 		return this;
@@ -234,15 +246,15 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		myNewMainContactOpal = myOldMainContactOpal;
 		myNewSchoolOpal = myOldSchoolOpal;
 		myNewTournamentOpal = myOldTournamentOpal;
-		myNewStandbyEntryOpalHashSet = null; /* Necessary if it has been rolled back */
+		myNewStandbyEntryOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myStandbyEntryOpalCachedOperations = null; /* Ditto */
 		myNewPlayerOpalHashSet = null; /* Necessary if it has been rolled back */
 		myPlayerOpalCachedOperations = null; /* Ditto */
-		myNewBuzzerOpalHashSet = null; /* Necessary if it has been rolled back */
+		myNewBuzzerOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myBuzzerOpalCachedOperations = null; /* Ditto */
-		myNewWaitlistEntryOpalHashSet = null; /* Necessary if it has been rolled back */
+		myNewWaitlistEntryOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myWaitlistEntryOpalCachedOperations = null; /* Ditto */
-		myNewStaffOpalHashSet = null; /* Necessary if it has been rolled back */
+		myNewStaffOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myStaffOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -255,51 +267,59 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		myOldTournamentOpal = myNewTournamentOpal;
 
 		if (needsToClearOldCollections()) {
-			myOldStandbyEntryOpalHashSet = null;
-			} else {
-			if (myNewStandbyEntryOpalHashSet != null) {
-				myOldStandbyEntryOpalHashSet = myNewStandbyEntryOpalHashSet;
-				myNewStandbyEntryOpalHashSet = null;
+			myOldStandbyEntryOpalFast3Set = null;
+			myOldPlayerOpalHashSet = null;
+			myOldBuzzerOpalFast3Set = null;
+			myOldWaitlistEntryOpalFast3Set = null;
+			myOldStaffOpalFast3Set = null;
+		} else {
+			if (myNewStandbyEntryOpalFast3Set != null) {
+				if (myNewStandbyEntryOpalFast3Set.size() > 0) {
+					myOldStandbyEntryOpalFast3Set = myNewStandbyEntryOpalFast3Set;
+				} else {
+					myOldStandbyEntryOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewStandbyEntryOpalFast3Set = null;
 			} else {
 				myStandbyEntryOpalCachedOperations = null;
 			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldPlayerOpalHashSet = null;
-			} else {
 			if (myNewPlayerOpalHashSet != null) {
-				myOldPlayerOpalHashSet = myNewPlayerOpalHashSet;
+				if (myNewPlayerOpalHashSet.size() > 0) {
+					myOldPlayerOpalHashSet = myNewPlayerOpalHashSet;
+				} else {
+					myOldPlayerOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewPlayerOpalHashSet = null;
 			} else {
 				myPlayerOpalCachedOperations = null;
 			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldBuzzerOpalHashSet = null;
-			} else {
-			if (myNewBuzzerOpalHashSet != null) {
-				myOldBuzzerOpalHashSet = myNewBuzzerOpalHashSet;
-				myNewBuzzerOpalHashSet = null;
+			if (myNewBuzzerOpalFast3Set != null) {
+				if (myNewBuzzerOpalFast3Set.size() > 0) {
+					myOldBuzzerOpalFast3Set = myNewBuzzerOpalFast3Set;
+				} else {
+					myOldBuzzerOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewBuzzerOpalFast3Set = null;
 			} else {
 				myBuzzerOpalCachedOperations = null;
 			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldWaitlistEntryOpalHashSet = null;
-			} else {
-			if (myNewWaitlistEntryOpalHashSet != null) {
-				myOldWaitlistEntryOpalHashSet = myNewWaitlistEntryOpalHashSet;
-				myNewWaitlistEntryOpalHashSet = null;
+			if (myNewWaitlistEntryOpalFast3Set != null) {
+				if (myNewWaitlistEntryOpalFast3Set.size() > 0) {
+					myOldWaitlistEntryOpalFast3Set = myNewWaitlistEntryOpalFast3Set;
+				} else {
+					myOldWaitlistEntryOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewWaitlistEntryOpalFast3Set = null;
 			} else {
 				myWaitlistEntryOpalCachedOperations = null;
 			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldStaffOpalHashSet = null;
-			} else {
-			if (myNewStaffOpalHashSet != null) {
-				myOldStaffOpalHashSet = myNewStaffOpalHashSet;
-				myNewStaffOpalHashSet = null;
+			if (myNewStaffOpalFast3Set != null) {
+				if (myNewStaffOpalFast3Set.size() > 0) {
+					myOldStaffOpalFast3Set = myNewStaffOpalFast3Set;
+				} else {
+					myOldStaffOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewStaffOpalFast3Set = null;
 			} else {
 				myStaffOpalCachedOperations = null;
 			}
@@ -311,7 +331,7 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
-		if (myNewStandbyEntryOpalHashSet != null || myStandbyEntryOpalCachedOperations != null) {
+		if (myNewStandbyEntryOpalFast3Set != null || myStandbyEntryOpalCachedOperations != null) {
 			lclI = createStandbyEntryOpalIterator();
 			while (lclI.hasNext()) {
 				((StandbyEntryOpal) lclI.next()).setSchoolRegistrationOpalInternal(null);
@@ -323,19 +343,19 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 				((PlayerOpal) lclI.next()).setSchoolRegistrationOpalInternal(null);
 			}
 		}
-		if (myNewBuzzerOpalHashSet != null || myBuzzerOpalCachedOperations != null) {
+		if (myNewBuzzerOpalFast3Set != null || myBuzzerOpalCachedOperations != null) {
 			lclI = createBuzzerOpalIterator();
 			while (lclI.hasNext()) {
 				((BuzzerOpal) lclI.next()).setSchoolRegistrationOpalInternal(null);
 			}
 		}
-		if (myNewWaitlistEntryOpalHashSet != null || myWaitlistEntryOpalCachedOperations != null) {
+		if (myNewWaitlistEntryOpalFast3Set != null || myWaitlistEntryOpalCachedOperations != null) {
 			lclI = createWaitlistEntryOpalIterator();
 			while (lclI.hasNext()) {
 				((WaitlistEntryOpal) lclI.next()).setSchoolRegistrationOpalInternal(null);
 			}
 		}
-		if (myNewStaffOpalHashSet != null || myStaffOpalCachedOperations != null) {
+		if (myNewStaffOpalFast3Set != null || myStaffOpalCachedOperations != null) {
 			lclI = createStaffOpalIterator();
 			while (lclI.hasNext()) {
 				((StaffOpal) lclI.next()).setSchoolRegistrationOpalInternal(null);
@@ -616,32 +636,36 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		myNewTournamentOpal = argTournamentOpal;
 	}
 
-	private java.util.HashSet<StandbyEntryOpal> myOldStandbyEntryOpalHashSet = null;
-	private java.util.HashSet<StandbyEntryOpal> myNewStandbyEntryOpalHashSet = null;
+	private java.util.Set<StandbyEntryOpal> myOldStandbyEntryOpalFast3Set = null;
+	private java.util.Set<StandbyEntryOpal> myNewStandbyEntryOpalFast3Set = null;
 	private java.util.ArrayList<com.opal.CachedOperation<StandbyEntryOpal>> myStandbyEntryOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<StandbyEntryOpal> getStandbyEntryOpalHashSet() {
+	/* package */ java.util.Set<StandbyEntryOpal> getStandbyEntryOpalFast3Set() {
 		if (tryAccess()) {
-			if (myNewStandbyEntryOpalHashSet == null) {
-				if (myOldStandbyEntryOpalHashSet == null) {
+			if (myNewStandbyEntryOpalFast3Set == null) {
+				if (myOldStandbyEntryOpalFast3Set == null) {
 					if (isNew()) {
-						myOldStandbyEntryOpalHashSet = new java.util.HashSet<>();
+						myOldStandbyEntryOpalFast3Set = java.util.Collections.emptySet();
 					} else {
-						myOldStandbyEntryOpalHashSet = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						java.util.Set<StandbyEntryOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						myOldStandbyEntryOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewStandbyEntryOpalHashSet = new java.util.HashSet<>(myOldStandbyEntryOpalHashSet);
+				myNewStandbyEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStandbyEntryOpalFast3Set);
 				if (myStandbyEntryOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myStandbyEntryOpalCachedOperations, myNewStandbyEntryOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myStandbyEntryOpalCachedOperations, myNewStandbyEntryOpalFast3Set);
 					myStandbyEntryOpalCachedOperations = null;
 				}
 			}
-			return myNewStandbyEntryOpalHashSet;
+			return myNewStandbyEntryOpalFast3Set;
 		} else {
-			if (myOldStandbyEntryOpalHashSet == null) {
-				myOldStandbyEntryOpalHashSet = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			if (myOldStandbyEntryOpalFast3Set == null) {
+				java.util.Set<StandbyEntryOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getStandbyEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+				myOldStandbyEntryOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldStandbyEntryOpalHashSet;
+			return myOldStandbyEntryOpalFast3Set;
 		}
 	}
 
@@ -653,16 +677,16 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void addStandbyEntryOpalInternal(StandbyEntryOpal argStandbyEntryOpal) {
 		tryMutate();
-		if (myNewStandbyEntryOpalHashSet == null) {
-			if (myOldStandbyEntryOpalHashSet == null) {
+		if (myNewStandbyEntryOpalFast3Set == null) {
+			if (myOldStandbyEntryOpalFast3Set == null) {
 				if (myStandbyEntryOpalCachedOperations == null) { myStandbyEntryOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStandbyEntryOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argStandbyEntryOpal));
 			} else {
-				myNewStandbyEntryOpalHashSet = new java.util.HashSet<>(myOldStandbyEntryOpalHashSet);
-				myNewStandbyEntryOpalHashSet.add(argStandbyEntryOpal);
+				myNewStandbyEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStandbyEntryOpalFast3Set);
+				myNewStandbyEntryOpalFast3Set.add(argStandbyEntryOpal);
 			}
 		} else {
-			myNewStandbyEntryOpalHashSet.add(argStandbyEntryOpal);
+			myNewStandbyEntryOpalFast3Set.add(argStandbyEntryOpal);
 		}
 		return;
 	}
@@ -674,44 +698,44 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void removeStandbyEntryOpalInternal(StandbyEntryOpal argStandbyEntryOpal) {
 		tryMutate();
-		if (myNewStandbyEntryOpalHashSet == null) {
-			if (myOldStandbyEntryOpalHashSet == null) {
+		if (myNewStandbyEntryOpalFast3Set == null) {
+			if (myOldStandbyEntryOpalFast3Set == null) {
 				if (myStandbyEntryOpalCachedOperations == null) { myStandbyEntryOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStandbyEntryOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argStandbyEntryOpal));
 			} else {
-				myNewStandbyEntryOpalHashSet = new java.util.HashSet<>(myOldStandbyEntryOpalHashSet);
-				myNewStandbyEntryOpalHashSet.remove(argStandbyEntryOpal);
+				myNewStandbyEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStandbyEntryOpalFast3Set);
+				myNewStandbyEntryOpalFast3Set.remove(argStandbyEntryOpal);
 			}
 		} else {
-			myNewStandbyEntryOpalHashSet.remove(argStandbyEntryOpal);
+			myNewStandbyEntryOpalFast3Set.remove(argStandbyEntryOpal);
 		}
 		return;
 	}
 
-	public synchronized int getStandbyEntryOpalCount() { return getStandbyEntryOpalHashSet().size(); }
+	public synchronized int getStandbyEntryOpalCount() { return getStandbyEntryOpalFast3Set().size(); }
 
 	public synchronized java.util.Iterator<StandbyEntryOpal> createStandbyEntryOpalIterator() {
-		return getStandbyEntryOpalHashSet().iterator();
+		return getStandbyEntryOpalFast3Set().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<StandbyEntryOpal> streamStandbyEntryOpal() {
-		return getStandbyEntryOpalHashSet().stream();
+		return getStandbyEntryOpalFast3Set().stream();
 	}
 
-	public synchronized void clearStandbyEntryOpalInternal() { getStandbyEntryOpalHashSet().clear(); }
-
-	private java.util.HashSet<PlayerOpal> myOldPlayerOpalHashSet = null;
-	private java.util.HashSet<PlayerOpal> myNewPlayerOpalHashSet = null;
+	private java.util.Set<PlayerOpal> myOldPlayerOpalHashSet = null;
+	private java.util.Set<PlayerOpal> myNewPlayerOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<PlayerOpal>> myPlayerOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<PlayerOpal> getPlayerOpalHashSet() {
+	/* package */ java.util.Set<PlayerOpal> getPlayerOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewPlayerOpalHashSet == null) {
 				if (myOldPlayerOpalHashSet == null) {
 					if (isNew()) {
-						myOldPlayerOpalHashSet = new java.util.HashSet<>();
+						myOldPlayerOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldPlayerOpalHashSet = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						java.util.Set<PlayerOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						myOldPlayerOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewPlayerOpalHashSet = new java.util.HashSet<>(myOldPlayerOpalHashSet);
@@ -723,7 +747,9 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 			return myNewPlayerOpalHashSet;
 		} else {
 			if (myOldPlayerOpalHashSet == null) {
-				myOldPlayerOpalHashSet = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+				java.util.Set<PlayerOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+				myOldPlayerOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldPlayerOpalHashSet;
 		}
@@ -782,34 +808,36 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 		return getPlayerOpalHashSet().stream();
 	}
 
-	public synchronized void clearPlayerOpalInternal() { getPlayerOpalHashSet().clear(); }
-
-	private java.util.HashSet<BuzzerOpal> myOldBuzzerOpalHashSet = null;
-	private java.util.HashSet<BuzzerOpal> myNewBuzzerOpalHashSet = null;
+	private java.util.Set<BuzzerOpal> myOldBuzzerOpalFast3Set = null;
+	private java.util.Set<BuzzerOpal> myNewBuzzerOpalFast3Set = null;
 	private java.util.ArrayList<com.opal.CachedOperation<BuzzerOpal>> myBuzzerOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<BuzzerOpal> getBuzzerOpalHashSet() {
+	/* package */ java.util.Set<BuzzerOpal> getBuzzerOpalFast3Set() {
 		if (tryAccess()) {
-			if (myNewBuzzerOpalHashSet == null) {
-				if (myOldBuzzerOpalHashSet == null) {
+			if (myNewBuzzerOpalFast3Set == null) {
+				if (myOldBuzzerOpalFast3Set == null) {
 					if (isNew()) {
-						myOldBuzzerOpalHashSet = new java.util.HashSet<>();
+						myOldBuzzerOpalFast3Set = java.util.Collections.emptySet();
 					} else {
-						myOldBuzzerOpalHashSet = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						java.util.Set<BuzzerOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						myOldBuzzerOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewBuzzerOpalHashSet = new java.util.HashSet<>(myOldBuzzerOpalHashSet);
+				myNewBuzzerOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldBuzzerOpalFast3Set);
 				if (myBuzzerOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myBuzzerOpalCachedOperations, myNewBuzzerOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myBuzzerOpalCachedOperations, myNewBuzzerOpalFast3Set);
 					myBuzzerOpalCachedOperations = null;
 				}
 			}
-			return myNewBuzzerOpalHashSet;
+			return myNewBuzzerOpalFast3Set;
 		} else {
-			if (myOldBuzzerOpalHashSet == null) {
-				myOldBuzzerOpalHashSet = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			if (myOldBuzzerOpalFast3Set == null) {
+				java.util.Set<BuzzerOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+				myOldBuzzerOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldBuzzerOpalHashSet;
+			return myOldBuzzerOpalFast3Set;
 		}
 	}
 
@@ -821,16 +849,16 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void addBuzzerOpalInternal(BuzzerOpal argBuzzerOpal) {
 		tryMutate();
-		if (myNewBuzzerOpalHashSet == null) {
-			if (myOldBuzzerOpalHashSet == null) {
+		if (myNewBuzzerOpalFast3Set == null) {
+			if (myOldBuzzerOpalFast3Set == null) {
 				if (myBuzzerOpalCachedOperations == null) { myBuzzerOpalCachedOperations = new java.util.ArrayList<>(); }
 				myBuzzerOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argBuzzerOpal));
 			} else {
-				myNewBuzzerOpalHashSet = new java.util.HashSet<>(myOldBuzzerOpalHashSet);
-				myNewBuzzerOpalHashSet.add(argBuzzerOpal);
+				myNewBuzzerOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldBuzzerOpalFast3Set);
+				myNewBuzzerOpalFast3Set.add(argBuzzerOpal);
 			}
 		} else {
-			myNewBuzzerOpalHashSet.add(argBuzzerOpal);
+			myNewBuzzerOpalFast3Set.add(argBuzzerOpal);
 		}
 		return;
 	}
@@ -842,58 +870,60 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void removeBuzzerOpalInternal(BuzzerOpal argBuzzerOpal) {
 		tryMutate();
-		if (myNewBuzzerOpalHashSet == null) {
-			if (myOldBuzzerOpalHashSet == null) {
+		if (myNewBuzzerOpalFast3Set == null) {
+			if (myOldBuzzerOpalFast3Set == null) {
 				if (myBuzzerOpalCachedOperations == null) { myBuzzerOpalCachedOperations = new java.util.ArrayList<>(); }
 				myBuzzerOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argBuzzerOpal));
 			} else {
-				myNewBuzzerOpalHashSet = new java.util.HashSet<>(myOldBuzzerOpalHashSet);
-				myNewBuzzerOpalHashSet.remove(argBuzzerOpal);
+				myNewBuzzerOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldBuzzerOpalFast3Set);
+				myNewBuzzerOpalFast3Set.remove(argBuzzerOpal);
 			}
 		} else {
-			myNewBuzzerOpalHashSet.remove(argBuzzerOpal);
+			myNewBuzzerOpalFast3Set.remove(argBuzzerOpal);
 		}
 		return;
 	}
 
-	public synchronized int getBuzzerOpalCount() { return getBuzzerOpalHashSet().size(); }
+	public synchronized int getBuzzerOpalCount() { return getBuzzerOpalFast3Set().size(); }
 
 	public synchronized java.util.Iterator<BuzzerOpal> createBuzzerOpalIterator() {
-		return getBuzzerOpalHashSet().iterator();
+		return getBuzzerOpalFast3Set().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<BuzzerOpal> streamBuzzerOpal() {
-		return getBuzzerOpalHashSet().stream();
+		return getBuzzerOpalFast3Set().stream();
 	}
 
-	public synchronized void clearBuzzerOpalInternal() { getBuzzerOpalHashSet().clear(); }
-
-	private java.util.HashSet<WaitlistEntryOpal> myOldWaitlistEntryOpalHashSet = null;
-	private java.util.HashSet<WaitlistEntryOpal> myNewWaitlistEntryOpalHashSet = null;
+	private java.util.Set<WaitlistEntryOpal> myOldWaitlistEntryOpalFast3Set = null;
+	private java.util.Set<WaitlistEntryOpal> myNewWaitlistEntryOpalFast3Set = null;
 	private java.util.ArrayList<com.opal.CachedOperation<WaitlistEntryOpal>> myWaitlistEntryOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<WaitlistEntryOpal> getWaitlistEntryOpalHashSet() {
+	/* package */ java.util.Set<WaitlistEntryOpal> getWaitlistEntryOpalFast3Set() {
 		if (tryAccess()) {
-			if (myNewWaitlistEntryOpalHashSet == null) {
-				if (myOldWaitlistEntryOpalHashSet == null) {
+			if (myNewWaitlistEntryOpalFast3Set == null) {
+				if (myOldWaitlistEntryOpalFast3Set == null) {
 					if (isNew()) {
-						myOldWaitlistEntryOpalHashSet = new java.util.HashSet<>();
+						myOldWaitlistEntryOpalFast3Set = java.util.Collections.emptySet();
 					} else {
-						myOldWaitlistEntryOpalHashSet = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						java.util.Set<WaitlistEntryOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						myOldWaitlistEntryOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewWaitlistEntryOpalHashSet = new java.util.HashSet<>(myOldWaitlistEntryOpalHashSet);
+				myNewWaitlistEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldWaitlistEntryOpalFast3Set);
 				if (myWaitlistEntryOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myWaitlistEntryOpalCachedOperations, myNewWaitlistEntryOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myWaitlistEntryOpalCachedOperations, myNewWaitlistEntryOpalFast3Set);
 					myWaitlistEntryOpalCachedOperations = null;
 				}
 			}
-			return myNewWaitlistEntryOpalHashSet;
+			return myNewWaitlistEntryOpalFast3Set;
 		} else {
-			if (myOldWaitlistEntryOpalHashSet == null) {
-				myOldWaitlistEntryOpalHashSet = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			if (myOldWaitlistEntryOpalFast3Set == null) {
+				java.util.Set<WaitlistEntryOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getWaitlistEntryOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+				myOldWaitlistEntryOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldWaitlistEntryOpalHashSet;
+			return myOldWaitlistEntryOpalFast3Set;
 		}
 	}
 
@@ -905,16 +935,16 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void addWaitlistEntryOpalInternal(WaitlistEntryOpal argWaitlistEntryOpal) {
 		tryMutate();
-		if (myNewWaitlistEntryOpalHashSet == null) {
-			if (myOldWaitlistEntryOpalHashSet == null) {
+		if (myNewWaitlistEntryOpalFast3Set == null) {
+			if (myOldWaitlistEntryOpalFast3Set == null) {
 				if (myWaitlistEntryOpalCachedOperations == null) { myWaitlistEntryOpalCachedOperations = new java.util.ArrayList<>(); }
 				myWaitlistEntryOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argWaitlistEntryOpal));
 			} else {
-				myNewWaitlistEntryOpalHashSet = new java.util.HashSet<>(myOldWaitlistEntryOpalHashSet);
-				myNewWaitlistEntryOpalHashSet.add(argWaitlistEntryOpal);
+				myNewWaitlistEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldWaitlistEntryOpalFast3Set);
+				myNewWaitlistEntryOpalFast3Set.add(argWaitlistEntryOpal);
 			}
 		} else {
-			myNewWaitlistEntryOpalHashSet.add(argWaitlistEntryOpal);
+			myNewWaitlistEntryOpalFast3Set.add(argWaitlistEntryOpal);
 		}
 		return;
 	}
@@ -926,58 +956,60 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void removeWaitlistEntryOpalInternal(WaitlistEntryOpal argWaitlistEntryOpal) {
 		tryMutate();
-		if (myNewWaitlistEntryOpalHashSet == null) {
-			if (myOldWaitlistEntryOpalHashSet == null) {
+		if (myNewWaitlistEntryOpalFast3Set == null) {
+			if (myOldWaitlistEntryOpalFast3Set == null) {
 				if (myWaitlistEntryOpalCachedOperations == null) { myWaitlistEntryOpalCachedOperations = new java.util.ArrayList<>(); }
 				myWaitlistEntryOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argWaitlistEntryOpal));
 			} else {
-				myNewWaitlistEntryOpalHashSet = new java.util.HashSet<>(myOldWaitlistEntryOpalHashSet);
-				myNewWaitlistEntryOpalHashSet.remove(argWaitlistEntryOpal);
+				myNewWaitlistEntryOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldWaitlistEntryOpalFast3Set);
+				myNewWaitlistEntryOpalFast3Set.remove(argWaitlistEntryOpal);
 			}
 		} else {
-			myNewWaitlistEntryOpalHashSet.remove(argWaitlistEntryOpal);
+			myNewWaitlistEntryOpalFast3Set.remove(argWaitlistEntryOpal);
 		}
 		return;
 	}
 
-	public synchronized int getWaitlistEntryOpalCount() { return getWaitlistEntryOpalHashSet().size(); }
+	public synchronized int getWaitlistEntryOpalCount() { return getWaitlistEntryOpalFast3Set().size(); }
 
 	public synchronized java.util.Iterator<WaitlistEntryOpal> createWaitlistEntryOpalIterator() {
-		return getWaitlistEntryOpalHashSet().iterator();
+		return getWaitlistEntryOpalFast3Set().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<WaitlistEntryOpal> streamWaitlistEntryOpal() {
-		return getWaitlistEntryOpalHashSet().stream();
+		return getWaitlistEntryOpalFast3Set().stream();
 	}
 
-	public synchronized void clearWaitlistEntryOpalInternal() { getWaitlistEntryOpalHashSet().clear(); }
-
-	private java.util.HashSet<StaffOpal> myOldStaffOpalHashSet = null;
-	private java.util.HashSet<StaffOpal> myNewStaffOpalHashSet = null;
+	private java.util.Set<StaffOpal> myOldStaffOpalFast3Set = null;
+	private java.util.Set<StaffOpal> myNewStaffOpalFast3Set = null;
 	private java.util.ArrayList<com.opal.CachedOperation<StaffOpal>> myStaffOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<StaffOpal> getStaffOpalHashSet() {
+	/* package */ java.util.Set<StaffOpal> getStaffOpalFast3Set() {
 		if (tryAccess()) {
-			if (myNewStaffOpalHashSet == null) {
-				if (myOldStaffOpalHashSet == null) {
+			if (myNewStaffOpalFast3Set == null) {
+				if (myOldStaffOpalFast3Set == null) {
 					if (isNew()) {
-						myOldStaffOpalHashSet = new java.util.HashSet<>();
+						myOldStaffOpalFast3Set = java.util.Collections.emptySet();
 					} else {
-						myOldStaffOpalHashSet = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						java.util.Set<StaffOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+						myOldStaffOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewStaffOpalHashSet = new java.util.HashSet<>(myOldStaffOpalHashSet);
+				myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffOpalFast3Set);
 				if (myStaffOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myStaffOpalCachedOperations, myNewStaffOpalHashSet);
+					com.opal.OpalUtility.handleCachedOperations(myStaffOpalCachedOperations, myNewStaffOpalFast3Set);
 					myStaffOpalCachedOperations = null;
 				}
 			}
-			return myNewStaffOpalHashSet;
+			return myNewStaffOpalFast3Set;
 		} else {
-			if (myOldStaffOpalHashSet == null) {
-				myOldStaffOpalHashSet = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+			if (myOldStaffOpalFast3Set == null) {
+				java.util.Set<StaffOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getStaffOpalFactory().forSchoolRegistrationIdCollection(getIdAsObject());
+				myOldStaffOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldStaffOpalHashSet;
+			return myOldStaffOpalFast3Set;
 		}
 	}
 
@@ -989,16 +1021,16 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void addStaffOpalInternal(StaffOpal argStaffOpal) {
 		tryMutate();
-		if (myNewStaffOpalHashSet == null) {
-			if (myOldStaffOpalHashSet == null) {
+		if (myNewStaffOpalFast3Set == null) {
+			if (myOldStaffOpalFast3Set == null) {
 				if (myStaffOpalCachedOperations == null) { myStaffOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStaffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argStaffOpal));
 			} else {
-				myNewStaffOpalHashSet = new java.util.HashSet<>(myOldStaffOpalHashSet);
-				myNewStaffOpalHashSet.add(argStaffOpal);
+				myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffOpalFast3Set);
+				myNewStaffOpalFast3Set.add(argStaffOpal);
 			}
 		} else {
-			myNewStaffOpalHashSet.add(argStaffOpal);
+			myNewStaffOpalFast3Set.add(argStaffOpal);
 		}
 		return;
 	}
@@ -1010,35 +1042,33 @@ public final class SchoolRegistrationOpal extends com.opal.UpdatableOpal<SchoolR
 
 	protected synchronized void removeStaffOpalInternal(StaffOpal argStaffOpal) {
 		tryMutate();
-		if (myNewStaffOpalHashSet == null) {
-			if (myOldStaffOpalHashSet == null) {
+		if (myNewStaffOpalFast3Set == null) {
+			if (myOldStaffOpalFast3Set == null) {
 				if (myStaffOpalCachedOperations == null) { myStaffOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStaffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argStaffOpal));
 			} else {
-				myNewStaffOpalHashSet = new java.util.HashSet<>(myOldStaffOpalHashSet);
-				myNewStaffOpalHashSet.remove(argStaffOpal);
+				myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffOpalFast3Set);
+				myNewStaffOpalFast3Set.remove(argStaffOpal);
 			}
 		} else {
-			myNewStaffOpalHashSet.remove(argStaffOpal);
+			myNewStaffOpalFast3Set.remove(argStaffOpal);
 		}
 		return;
 	}
 
-	public synchronized int getStaffOpalCount() { return getStaffOpalHashSet().size(); }
+	public synchronized int getStaffOpalCount() { return getStaffOpalFast3Set().size(); }
 
 	public synchronized java.util.Iterator<StaffOpal> createStaffOpalIterator() {
-		return getStaffOpalHashSet().iterator();
+		return getStaffOpalFast3Set().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<StaffOpal> streamStaffOpal() {
-		return getStaffOpalHashSet().stream();
+		return getStaffOpalFast3Set().stream();
 	}
 
-	public synchronized void clearStaffOpalInternal() { getStaffOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("SchoolRegistrationOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

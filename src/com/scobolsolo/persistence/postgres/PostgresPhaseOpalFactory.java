@@ -51,7 +51,6 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return PhaseOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -198,10 +197,10 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public java.util.HashSet<PhaseOpal> forTournamentCodeCollection(java.lang.String argTournamentCode) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<PhaseOpal> forTournamentCodeCollection(java.lang.String argTournamentCode) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argTournamentCode };
 		final String[] lclFieldNames = new String[] { "tournament_code" };
-		java.util.HashSet<PhaseOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<PhaseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -231,22 +230,24 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<PhaseOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<PhaseOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class TournamentCodeNameOpalKey extends com.opal.DatabaseOpalKey<PhaseOpal> {
+	/* package */ static class TournamentCodeNameOpalKey extends com.opal.MultipleValueDatabaseOpalKey<PhaseOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"tournament_code", "name", };
 
 		public TournamentCodeNameOpalKey(java.lang.String argTournamentCode, java.lang.String argName) {
@@ -254,14 +255,16 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class TournamentCodeShortNameOpalKey extends com.opal.DatabaseOpalKey<PhaseOpal> {
+	/* package */ static class TournamentCodeShortNameOpalKey extends com.opal.MultipleValueDatabaseOpalKey<PhaseOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"tournament_code", "short_name", };
 
 		public TournamentCodeShortNameOpalKey(java.lang.String argTournamentCode, java.lang.String argShortName) {
@@ -269,10 +272,12 @@ public class PostgresPhaseOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

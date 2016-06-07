@@ -4,6 +4,7 @@ import com.scobolsolo.application.Round;
 
 @com.opal.StoreGeneratedPrimaryKey
 public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
+
 	public static final java.lang.Boolean ourDefaultLunchAfter = java.lang.Boolean.FALSE;
 
 	private RoundOpal() {
@@ -11,13 +12,20 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		setUserFacing(null);
 	}
 
-	public RoundOpal(com.opal.OpalFactory<Round, RoundOpal> argOpalFactory, Object[] argValues) {
+	public RoundOpal(com.opal.IdentityOpalFactory<Round, RoundOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
 	@Override
 	protected void applyDefaults() {
+		/* Initialize fields with their default values. */
 		getNewValues()[6] = ourDefaultLunchAfter;
+
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewMatchOpalHashSet = new java.util.HashSet<>();
+
 		return;
 	}
 
@@ -155,7 +163,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[2] = argName;
 		return this;
@@ -167,7 +175,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[3] = argShortName;
 		return this;
@@ -190,7 +198,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	public synchronized RoundOpal setStartTime(final java.lang.String argStartTime) {
 		tryMutate();
 		if ((argStartTime != null) && (argStartTime.length() > 16)) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myStartTime on " + this + " is 16.", argStartTime.length(), 16);
+			throw new com.opal.ArgumentTooLongException("Cannot set myStartTime on " + this + " to \"" + argStartTime + "\" because that field's maximum length is 16.", argStartTime.length(), 16);
 		}
 		getNewValues()[5] = argStartTime;
 		return this;
@@ -243,9 +251,13 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		myOldPacketOpal = myNewPacketOpal;
 		if (needsToClearOldCollections()) {
 			myOldMatchOpalHashSet = null;
-			} else {
+		} else {
 			if (myNewMatchOpalHashSet != null) {
-				myOldMatchOpalHashSet = myNewMatchOpalHashSet;
+				if (myNewMatchOpalHashSet.size() > 0) {
+					myOldMatchOpalHashSet = myNewMatchOpalHashSet;
+				} else {
+					myOldMatchOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewMatchOpalHashSet = null;
 			} else {
 				myMatchOpalCachedOperations = null;
@@ -448,18 +460,20 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		myNewPacketOpal = argPacketOpal;
 	}
 
-	private java.util.HashSet<MatchOpal> myOldMatchOpalHashSet = null;
-	private java.util.HashSet<MatchOpal> myNewMatchOpalHashSet = null;
+	private java.util.Set<MatchOpal> myOldMatchOpalHashSet = null;
+	private java.util.Set<MatchOpal> myNewMatchOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myMatchOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<MatchOpal> getMatchOpalHashSet() {
+	/* package */ java.util.Set<MatchOpal> getMatchOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewMatchOpalHashSet == null) {
 				if (myOldMatchOpalHashSet == null) {
 					if (isNew()) {
-						myOldMatchOpalHashSet = new java.util.HashSet<>();
+						myOldMatchOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
+						java.util.Set<MatchOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
+						myOldMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
@@ -471,7 +485,9 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 			return myNewMatchOpalHashSet;
 		} else {
 			if (myOldMatchOpalHashSet == null) {
-				myOldMatchOpalHashSet = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
+				java.util.Set<MatchOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoundIdCollection(getIdAsObject());
+				myOldMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldMatchOpalHashSet;
 		}
@@ -530,11 +546,9 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return getMatchOpalHashSet().stream();
 	}
 
-	public synchronized void clearMatchOpalInternal() { getMatchOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("RoundOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

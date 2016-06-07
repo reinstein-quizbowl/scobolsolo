@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.PhaseOpalFactory;
 import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class PhaseFactory extends com.opal.AbstractFactory<Phase, PhaseOpal> implements com.opal.FactoryCreator<Phase>, com.opal.IdentityFactory<Phase> {
+public class PhaseFactory extends com.opal.AbstractIdentityFactory<Phase, PhaseOpal> implements com.opal.FactoryCreator<Phase> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class PhaseFactory extends com.opal.AbstractFactory<Phase, PhaseOpal> imp
 
 	public PhaseOpalFactory getPhaseOpalFactory() { return (PhaseOpalFactory) getOpalFactory(); }
 
-	protected PhaseFactory(com.opal.OpalFactory<Phase, PhaseOpal> argOpalFactory) {
+	protected PhaseFactory(com.opal.IdentityOpalFactory<Phase, PhaseOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

@@ -6,6 +6,7 @@ import com.scobolsolo.persistence.StaffOpal;
 import com.scobolsolo.persistence.PlayerOpal;
 
 public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> implements Game {
+
 	private final GameOpal myGameOpal;
 
 	public GameImpl(GameOpal argGameOpal) {
@@ -27,11 +28,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return getGameOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getGameOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public GameImpl setId(java.lang.Integer argId) {
 		getGameOpal().setId(argId);
@@ -44,11 +47,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getTossupsHeardAsObject() {
 		return getGameOpal().getTossupsHeardAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public GameImpl setTossupsHeard(java.lang.Integer argTossupsHeard) {
 		getGameOpal().setTossupsHeard(argTossupsHeard);
@@ -61,11 +66,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getIncomingWinningCardPlayerIdAsObject() {
 		return getGameOpal().getIncomingWinningCardPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public GameImpl setIncomingWinningCardPlayerId(java.lang.Integer argIncomingWinningCardPlayerId) {
 		getGameOpal().setIncomingWinningCardPlayerId(argIncomingWinningCardPlayerId);
@@ -78,11 +85,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getIncomingLosingCardPlayerIdAsObject() {
 		return getGameOpal().getIncomingLosingCardPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public GameImpl setIncomingLosingCardPlayerId(java.lang.Integer argIncomingLosingCardPlayerId) {
 		getGameOpal().setIncomingLosingCardPlayerId(argIncomingLosingCardPlayerId);
@@ -95,11 +104,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getOutgoingWinningCardPlayerIdAsObject() {
 		return getGameOpal().getOutgoingWinningCardPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public GameImpl setOutgoingWinningCardPlayerId(java.lang.Integer argOutgoingWinningCardPlayerId) {
 		getGameOpal().setOutgoingWinningCardPlayerId(argOutgoingWinningCardPlayerId);
@@ -112,11 +123,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getOutgoingLosingCardPlayerIdAsObject() {
 		return getGameOpal().getOutgoingLosingCardPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public GameImpl setOutgoingLosingCardPlayerId(java.lang.Integer argOutgoingLosingCardPlayerId) {
 		getGameOpal().setOutgoingLosingCardPlayerId(argOutgoingLosingCardPlayerId);
@@ -129,11 +142,13 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getModeratorStaffIdAsObject() {
 		return getGameOpal().getModeratorStaffIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public GameImpl setModeratorStaffId(java.lang.Integer argModeratorStaffId) {
 		getGameOpal().setModeratorStaffId(argModeratorStaffId);
@@ -151,6 +166,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 
 	/** @return the Match object created from game through reference game_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Match getMatch() {
 		MatchOpal lclMatchOpal = getGameOpal().getMatchOpal();
@@ -165,6 +181,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 
 	/** @return the Staff object created from game through reference game_moderator_staff_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Staff getModeratorStaff() {
 		StaffOpal lclStaffOpal = getGameOpal().getModeratorStaffOpal();
@@ -179,6 +196,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 
 	/** @return the Player object created from game through reference game_outgoing_losing_card_player_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getOutgoingLosingCardPlayer() {
 		PlayerOpal lclPlayerOpal = getGameOpal().getOutgoingLosingCardPlayerOpal();
@@ -193,6 +211,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 
 	/** @return the Player object created from game through reference game_outgoing_winning_card_player_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getOutgoingWinningCardPlayer() {
 		PlayerOpal lclPlayerOpal = getGameOpal().getOutgoingWinningCardPlayerOpal();
@@ -207,6 +226,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 
 	/** @return the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getIncomingLosingCardPlayer() {
 		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingLosingCardPlayerOpal();
@@ -221,6 +241,7 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 
 	/** @return the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getIncomingWinningCardPlayer() {
 		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingWinningCardPlayerOpal();
@@ -261,11 +282,6 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	@Override
 	public java.util.Iterator<Performance> createPerformanceIterator() {
 		return new com.opal.OpalIterator<> (getGameOpal().createPerformanceOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Game clearPerformance() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

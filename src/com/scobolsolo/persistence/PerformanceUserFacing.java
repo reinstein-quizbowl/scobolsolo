@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code GameId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getGameIdAsObject();
 
 	/**
@@ -95,7 +98,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argGameId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance setGameId(java.lang.Integer argGameId);
 
 	/**
@@ -115,6 +118,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPlayerIdAsObject();
 
 	/**
@@ -140,7 +144,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPlayerId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance setPlayerId(java.lang.Integer argPlayerId);
 
 	/**
@@ -156,6 +160,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Game} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code game} that is referenced by {@code performance_game_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Game getGame();
 	public com.scobolsolo.application.Performance setGame(com.scobolsolo.application.Game argGame);
 
@@ -164,6 +169,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code performance_player_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Player getPlayer();
 	public com.scobolsolo.application.Performance setPlayer(com.scobolsolo.application.Player argPlayer);
 
@@ -174,8 +180,6 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Performance addResponse(com.scobolsolo.application.Response argResponse);
 	public com.scobolsolo.application.Performance removeResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Performance clearResponse();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireResponse(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();

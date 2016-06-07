@@ -16,10 +16,10 @@ import com.siliconage.naming.SimpleInitialContextFactoryBuilder;
 
 import com.opal.TransactionManager;
 
-public final class Standalone {
+public class Standalone {
 	private static final Logger ourLogger = Logger.getLogger(Standalone.class);
 	
-	private Standalone() {
+	protected Standalone() {
 		throw new UnsupportedOperationException();
 	}
 	

@@ -6,6 +6,7 @@ import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.CategoryOpal;
 
 public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConversionV, CategoryConversionVOpal> implements CategoryConversionV {
+
 	private final CategoryConversionVOpal myCategoryConversionVOpal;
 
 	public CategoryConversionVImpl(CategoryConversionVOpal argCategoryConversionVOpal) {
@@ -27,21 +28,28 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 		return getCategoryConversionVOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getCategoryConversionVOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCategoryCode() {
 		return getCategoryConversionVOpal().getCategoryCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getResponseTypeCode() {
 		return getCategoryConversionVOpal().getResponseTypeCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getResponseTypeCountAsObject() {
 		return getCategoryConversionVOpal().getResponseTypeCountAsObject();
@@ -52,6 +60,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 
 	/** @return the ResponseType object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public ResponseType getResponseType() {
 		ResponseTypeOpal lclResponseTypeOpal = getCategoryConversionVOpal().getResponseTypeOpal();
@@ -60,6 +69,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 
 	/** @return the Tournament object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getCategoryConversionVOpal().getTournamentOpal();
@@ -68,6 +78,7 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 
 	/** @return the Category object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Category getCategory() {
 		CategoryOpal lclCategoryOpal = getCategoryConversionVOpal().getCategoryOpal();

@@ -52,7 +52,6 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return PlayerOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -175,10 +174,10 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public java.util.HashSet<PlayerOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<PlayerOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argContactId };
 		final String[] lclFieldNames = new String[] { "contact_id" };
-		java.util.HashSet<PlayerOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<PlayerOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -205,18 +204,20 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<PlayerOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<PlayerOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

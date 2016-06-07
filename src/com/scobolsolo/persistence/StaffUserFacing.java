@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface StaffUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Staff setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getContactIdAsObject();
 
 	/**
@@ -95,7 +98,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argContactId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Staff setContactId(java.lang.Integer argContactId);
 
 	/**
@@ -113,6 +116,8 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
 
 	/**
@@ -127,7 +132,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Staff setTournamentCode(java.lang.String argTournamentCode);
 
@@ -140,6 +145,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
 	/**
@@ -194,6 +200,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Staff setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -211,6 +218,8 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -238,6 +247,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Staff setNote(java.lang.String argNote);
 
@@ -248,6 +258,9 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TechnologyChoiceCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.Default(value = "TBD")
 	public java.lang.String getTechnologyChoiceCode();
 
 	/**
@@ -262,8 +275,9 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code technology_choice_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.Default(value = "TBD")
 	public com.scobolsolo.application.Staff setTechnologyChoiceCode(java.lang.String argTechnologyChoiceCode);
 
 	/**
@@ -271,6 +285,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code staff_contact_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact getContact();
 	public com.scobolsolo.application.Staff setContact(com.scobolsolo.application.Contact argContact);
 
@@ -279,6 +294,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code staff_school_registration_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
 	public com.scobolsolo.application.Staff setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
@@ -287,6 +303,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code staff_tournament_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
 	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament);
 
@@ -295,6 +312,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.TechnologyChoice} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code technology_choice} that is referenced by {@code staff_technology_choice_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.TechnologyChoice getTechnologyChoice();
 	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice);
 
@@ -305,8 +323,6 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Staff addModeratorGame(com.scobolsolo.application.Game argGame);
 	public com.scobolsolo.application.Staff removeModeratorGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Staff clearModeratorGame();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireModeratorGame(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createModeratorGameIterator();
@@ -334,8 +350,6 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Staff addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
 	public com.scobolsolo.application.Staff removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public com.scobolsolo.application.Staff clearStaffAssignment();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();

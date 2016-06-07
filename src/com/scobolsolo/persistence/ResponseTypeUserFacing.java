@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.ResponseType> {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -23,6 +24,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCode();
 
 	/**
@@ -37,7 +40,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.ResponseType setCode(java.lang.String argCode);
 
@@ -48,6 +51,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -62,7 +67,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.ResponseType setName(java.lang.String argName);
 
@@ -73,6 +78,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -87,7 +94,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.ResponseType setShortName(java.lang.String argShortName);
 
@@ -100,6 +107,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -125,7 +133,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.ResponseType setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -145,6 +153,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Points} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPointsAsObject();
 
 	/**
@@ -170,7 +179,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPoints is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.ResponseType setPoints(java.lang.Integer argPoints);
 
 	/**
@@ -190,6 +199,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Default} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isDefaultAsObject();
 
 	/**
@@ -215,7 +226,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argDefault is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.ResponseType setDefault(java.lang.Boolean argDefault);
 
 	/**
@@ -235,6 +247,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code MultipleAllowedForSamePlacement} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isMultipleAllowedForSamePlacementAsObject();
 
 	/**
@@ -260,7 +274,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argMultipleAllowedForSamePlacement is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.ResponseType setMultipleAllowedForSamePlacement(java.lang.Boolean argMultipleAllowedForSamePlacement);
 
 	/**
@@ -280,6 +295,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code Attempt} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isAttemptAsObject();
 
 	/**
@@ -305,7 +322,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argAttempt is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.ResponseType setAttempt(java.lang.Boolean argAttempt);
 
 	/**
@@ -325,6 +343,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code FurtherAttemptsToSameQuestionInMatch} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean allowsFurtherAttemptsToSameQuestionInMatchAsObject();
 
 	/**
@@ -350,7 +370,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argFurtherAttemptsToSameQuestionInMatch is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.ResponseType setFurtherAttemptsToSameQuestionInMatch(java.lang.Boolean argFurtherAttemptsToSameQuestionInMatch);
 
 	/**
@@ -370,6 +391,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code ShowForNonExhibitionPlayers} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isShowForNonExhibitionPlayersAsObject();
 
 	/**
@@ -395,7 +418,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argShowForNonExhibitionPlayers is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.ResponseType setShowForNonExhibitionPlayers(java.lang.Boolean argShowForNonExhibitionPlayers);
 
 	/**
@@ -415,6 +439,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @return an object value of {@code ShowForExhibitionPlayers} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isShowForExhibitionPlayersAsObject();
 
 	/**
@@ -440,7 +466,8 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argShowForExhibitionPlayers is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.ResponseType setShowForExhibitionPlayers(java.lang.Boolean argShowForExhibitionPlayers);
 
 	/**

@@ -5,12 +5,13 @@ import com.scobolsolo.application.Response;
 @com.opal.StoreGeneratedPrimaryKey
 public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
+
 	private ResponseOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public ResponseOpal(com.opal.OpalFactory<Response, ResponseOpal> argOpalFactory, Object[] argValues) {
+	public ResponseOpal(com.opal.IdentityOpalFactory<Response, ResponseOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -143,7 +144,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myResponseTypeCode on " + this + " to null.");
 		}
 		if (argResponseTypeCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myResponseTypeCode on " + this + " is 32.", argResponseTypeCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myResponseTypeCode on " + this + " to \"" + argResponseTypeCode + "\" because that field's maximum length is 32.", argResponseTypeCode.length(), 32);
 		}
 		getNewValues()[3] = argResponseTypeCode;
 		return this;
@@ -500,8 +501,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("ResponseOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

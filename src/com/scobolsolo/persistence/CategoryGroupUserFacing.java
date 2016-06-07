@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.CategoryGroup> {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -23,6 +24,8 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 *
 	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCode();
 
 	/**
@@ -37,7 +40,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.CategoryGroup setCode(java.lang.String argCode);
 
@@ -48,6 +51,8 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -62,7 +67,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.CategoryGroup setName(java.lang.String argName);
 
@@ -73,6 +78,8 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -87,7 +94,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.CategoryGroup setShortName(java.lang.String argShortName);
 
@@ -100,6 +107,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -125,7 +133,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.CategoryGroup setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -143,8 +151,6 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 
 	public com.scobolsolo.application.CategoryGroup addCategory(com.scobolsolo.application.Category argCategory);
 	public com.scobolsolo.application.CategoryGroup removeCategory(com.scobolsolo.application.Category argCategory);
-	public com.scobolsolo.application.CategoryGroup clearCategory();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Category>> T acquireCategory(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Category> lclI = createCategoryIterator();

@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.RoundGroupOpal;
 import com.scobolsolo.persistence.PacketOpal;
 
 public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> implements Round {
+
 	private final RoundOpal myRoundOpal;
 
 	public RoundImpl(RoundOpal argRoundOpal) {
@@ -26,11 +27,13 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return getRoundOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getRoundOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public RoundImpl setId(java.lang.Integer argId) {
 		getRoundOpal().setId(argId);
@@ -43,11 +46,13 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getRoundGroupIdAsObject() {
 		return getRoundOpal().getRoundGroupIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public RoundImpl setRoundGroupId(java.lang.Integer argRoundGroupId) {
 		getRoundOpal().setRoundGroupId(argRoundGroupId);
@@ -60,33 +65,43 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getRoundOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public RoundImpl setName(java.lang.String argName) {
 		getRoundOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getRoundOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public RoundImpl setShortName(java.lang.String argShortName) {
 		getRoundOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getRoundOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public RoundImpl setSequence(java.lang.Integer argSequence) {
 		getRoundOpal().setSequence(argSequence);
@@ -99,22 +114,30 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 16L)
 	@Override
 	public java.lang.String getStartTime() {
 		return getRoundOpal().getStartTime();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 16L)
 	@Override
 	public RoundImpl setStartTime(java.lang.String argStartTime) {
 		getRoundOpal().setStartTime(argStartTime);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public java.lang.Boolean isLunchAfterAsObject() {
 		return getRoundOpal().isLunchAfterAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	@Override
 	public RoundImpl setLunchAfter(java.lang.Boolean argLunchAfter) {
 		getRoundOpal().setLunchAfter(argLunchAfter);
@@ -127,11 +150,13 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.time.LocalDateTime getEarliestEntryAllowed() {
 		return getRoundOpal().getEarliestEntryAllowed();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public RoundImpl setEarliestEntryAllowed(java.time.LocalDateTime argEarliestEntryAllowed) {
 		getRoundOpal().setEarliestEntryAllowed(argEarliestEntryAllowed);
@@ -143,6 +168,7 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 
 	/** @return the RoundGroup object created from round through reference round_round_group_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public RoundGroup getRoundGroup() {
 		RoundGroupOpal lclRoundGroupOpal = getRoundOpal().getRoundGroupOpal();
@@ -195,11 +221,6 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<Round, RoundOpal> i
 	@Override
 	public java.util.Iterator<Match> createMatchIterator() {
 		return new com.opal.OpalIterator<> (getRoundOpal().createMatchOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Round clearMatch() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

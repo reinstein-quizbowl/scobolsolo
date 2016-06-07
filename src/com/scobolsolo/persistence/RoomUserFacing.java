@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Room> {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Room setId(java.lang.Integer argId);
 
 	/**
@@ -68,6 +70,8 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -82,7 +86,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Room setName(java.lang.String argName);
 
@@ -93,6 +97,8 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -107,7 +113,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Room setShortName(java.lang.String argShortName);
 
@@ -118,6 +124,8 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -145,6 +153,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Room setNote(java.lang.String argNote);
 
@@ -155,6 +164,8 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
 
 	/**
@@ -169,7 +180,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Room setTournamentCode(java.lang.String argTournamentCode);
 
@@ -182,6 +193,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -207,7 +219,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Room setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -223,6 +235,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code room_tournament_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
 	public com.scobolsolo.application.Room setTournament(com.scobolsolo.application.Tournament argTournament);
 
@@ -233,8 +246,6 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 
 	public com.scobolsolo.application.Room addControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
 	public com.scobolsolo.application.Room removeControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
-	public com.scobolsolo.application.Room clearControlRoomTournament();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Tournament>> T acquireControlRoomTournament(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Tournament> lclI = createControlRoomTournamentIterator();
@@ -262,8 +273,6 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 
 	public com.scobolsolo.application.Room addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
 	public com.scobolsolo.application.Room removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public com.scobolsolo.application.Room clearStaffAssignment();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
@@ -291,8 +300,6 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 
 	public com.scobolsolo.application.Room addBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
 	public com.scobolsolo.application.Room removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	public com.scobolsolo.application.Room clearBuzzer();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Buzzer>> T acquireBuzzer(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Buzzer> lclI = createBuzzerIterator();
@@ -320,8 +327,6 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 
 	public com.scobolsolo.application.Room addMatch(com.scobolsolo.application.Match argMatch);
 	public com.scobolsolo.application.Room removeMatch(com.scobolsolo.application.Match argMatch);
-	public com.scobolsolo.application.Room clearMatch();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireMatch(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();

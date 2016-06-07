@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
 public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, CategoryUseOpal> implements CategoryUse {
+
 	private final CategoryUseOpal myCategoryUseOpal;
 
 	public CategoryUseImpl(CategoryUseOpal argCategoryUseOpal) {
@@ -26,33 +27,43 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 		return getCategoryUseOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCategoryCode() {
 		return getCategoryUseOpal().getCategoryCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CategoryUseImpl setCategoryCode(java.lang.String argCategoryCode) {
 		getCategoryUseOpal().setCategoryCode(argCategoryCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getCategoryUseOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public CategoryUseImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getCategoryUseOpal().setTournamentCode(argTournamentCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getNeedsAsObject() {
 		return getCategoryUseOpal().getNeedsAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public CategoryUseImpl setNeeds(java.lang.Integer argNeeds) {
 		getCategoryUseOpal().setNeeds(argNeeds);
@@ -70,6 +81,7 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 
 	/** @return the Category object created from category_use through reference category_use_category_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Category getCategory() {
 		CategoryOpal lclCategoryOpal = getCategoryUseOpal().getCategoryOpal();
@@ -84,6 +96,7 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<CategoryUse, 
 
 	/** @return the Tournament object created from category_use through reference category_use_tournament_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getCategoryUseOpal().getTournamentOpal();

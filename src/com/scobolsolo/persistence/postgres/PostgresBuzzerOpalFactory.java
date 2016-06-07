@@ -48,7 +48,6 @@ public class PostgresBuzzerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return BuzzerOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -171,19 +170,19 @@ public class PostgresBuzzerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public java.util.HashSet<BuzzerOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<BuzzerOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argSchoolRegistrationId };
 		final String[] lclFieldNames = new String[] { "school_registration_id" };
-		java.util.HashSet<BuzzerOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<BuzzerOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public java.util.HashSet<BuzzerOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<BuzzerOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoomId };
 		final String[] lclFieldNames = new String[] { "room_id" };
-		java.util.HashSet<BuzzerOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<BuzzerOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -201,18 +200,20 @@ public class PostgresBuzzerOpalFactory extends com.opal.AbstractDatabaseIdentity
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<BuzzerOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<BuzzerOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

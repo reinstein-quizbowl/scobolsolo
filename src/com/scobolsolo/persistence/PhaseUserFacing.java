@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase setId(java.lang.Integer argId);
 
 	/**
@@ -68,6 +70,8 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
 
 	/**
@@ -82,7 +86,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Phase setTournamentCode(java.lang.String argTournamentCode);
 
@@ -93,6 +97,8 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -107,7 +113,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Phase setName(java.lang.String argName);
 
@@ -118,6 +124,8 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -132,7 +140,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Phase setShortName(java.lang.String argShortName);
 
@@ -145,6 +153,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -170,7 +179,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -190,6 +199,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CardSystem} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Boolean isCardSystemAsObject();
 
 	/**
@@ -215,7 +225,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argCardSystem is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase setCardSystem(java.lang.Boolean argCardSystem);
 
 	/**
@@ -233,6 +243,8 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -260,6 +272,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Phase setNote(java.lang.String argNote);
 
@@ -268,6 +281,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code phase_tournament_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
 	public com.scobolsolo.application.Phase setTournament(com.scobolsolo.application.Tournament argTournament);
 
@@ -278,8 +292,6 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Phase addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
 	public com.scobolsolo.application.Phase removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public com.scobolsolo.application.Phase clearStaffAssignment();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
@@ -307,8 +319,6 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Phase addRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
 	public com.scobolsolo.application.Phase removeRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
-	public com.scobolsolo.application.Phase clearRoundGroup();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.RoundGroup>> T acquireRoundGroup(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.RoundGroup> lclI = createRoundGroupIterator();
@@ -336,8 +346,6 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Phase addCard(com.scobolsolo.application.Card argCard);
 	public com.scobolsolo.application.Phase removeCard(com.scobolsolo.application.Card argCard);
-	public com.scobolsolo.application.Phase clearCard();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Card>> T acquireCard(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Card> lclI = createCardIterator();

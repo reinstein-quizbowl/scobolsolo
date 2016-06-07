@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.BuzzerOpalFactory;
 import com.scobolsolo.persistence.BuzzerOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class BuzzerFactory extends com.opal.AbstractFactory<Buzzer, BuzzerOpal> implements com.opal.FactoryCreator<Buzzer>, com.opal.IdentityFactory<Buzzer> {
+public class BuzzerFactory extends com.opal.AbstractIdentityFactory<Buzzer, BuzzerOpal> implements com.opal.FactoryCreator<Buzzer> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class BuzzerFactory extends com.opal.AbstractFactory<Buzzer, BuzzerOpal> 
 
 	public BuzzerOpalFactory getBuzzerOpalFactory() { return (BuzzerOpalFactory) getOpalFactory(); }
 
-	protected BuzzerFactory(com.opal.OpalFactory<Buzzer, BuzzerOpal> argOpalFactory) {
+	protected BuzzerFactory(com.opal.IdentityOpalFactory<Buzzer, BuzzerOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

@@ -5,13 +5,26 @@ import com.scobolsolo.application.Phase;
 @com.opal.StoreGeneratedPrimaryKey
 public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 
+
 	private PhaseOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public PhaseOpal(com.opal.OpalFactory<Phase, PhaseOpal> argOpalFactory, Object[] argValues) {
+	public PhaseOpal(com.opal.IdentityOpalFactory<Phase, PhaseOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void applyDefaults() {
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>();
+		myNewRoundGroupOpalHashSet = new java.util.HashSet<>();
+		myNewCardOpalHashSet = new java.util.HashSet<>();
+
+		return;
 	}
 
 	@Override
@@ -128,7 +141,7 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myTournamentCode on " + this + " to null.");
 		}
 		if (argTournamentCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myTournamentCode on " + this + " is 32.", argTournamentCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myTournamentCode on " + this + " to \"" + argTournamentCode + "\" because that field's maximum length is 32.", argTournamentCode.length(), 32);
 		}
 		getNewValues()[1] = argTournamentCode;
 		return this;
@@ -140,7 +153,7 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[2] = argName;
 		return this;
@@ -152,7 +165,7 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[3] = argShortName;
 		return this;
@@ -221,29 +234,35 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 
 		if (needsToClearOldCollections()) {
 			myOldStaffAssignmentOpalHashSet = null;
-			} else {
+			myOldRoundGroupOpalHashSet = null;
+			myOldCardOpalHashSet = null;
+		} else {
 			if (myNewStaffAssignmentOpalHashSet != null) {
-				myOldStaffAssignmentOpalHashSet = myNewStaffAssignmentOpalHashSet;
+				if (myNewStaffAssignmentOpalHashSet.size() > 0) {
+					myOldStaffAssignmentOpalHashSet = myNewStaffAssignmentOpalHashSet;
+				} else {
+					myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewStaffAssignmentOpalHashSet = null;
 			} else {
 				myStaffAssignmentOpalCachedOperations = null;
 			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldRoundGroupOpalHashSet = null;
-			} else {
 			if (myNewRoundGroupOpalHashSet != null) {
-				myOldRoundGroupOpalHashSet = myNewRoundGroupOpalHashSet;
+				if (myNewRoundGroupOpalHashSet.size() > 0) {
+					myOldRoundGroupOpalHashSet = myNewRoundGroupOpalHashSet;
+				} else {
+					myOldRoundGroupOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewRoundGroupOpalHashSet = null;
 			} else {
 				myRoundGroupOpalCachedOperations = null;
 			}
-		}
-		if (needsToClearOldCollections()) {
-			myOldCardOpalHashSet = null;
-			} else {
 			if (myNewCardOpalHashSet != null) {
-				myOldCardOpalHashSet = myNewCardOpalHashSet;
+				if (myNewCardOpalHashSet.size() > 0) {
+					myOldCardOpalHashSet = myNewCardOpalHashSet;
+				} else {
+					myOldCardOpalHashSet = java.util.Collections.emptySet();
+				}
 				myNewCardOpalHashSet = null;
 			} else {
 				myCardOpalCachedOperations = null;
@@ -412,18 +431,20 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		myNewTournamentOpal = argTournamentOpal;
 	}
 
-	private java.util.HashSet<StaffAssignmentOpal> myOldStaffAssignmentOpalHashSet = null;
-	private java.util.HashSet<StaffAssignmentOpal> myNewStaffAssignmentOpalHashSet = null;
+	private java.util.Set<StaffAssignmentOpal> myOldStaffAssignmentOpalHashSet = null;
+	private java.util.Set<StaffAssignmentOpal> myNewStaffAssignmentOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<StaffAssignmentOpal>> myStaffAssignmentOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<StaffAssignmentOpal> getStaffAssignmentOpalHashSet() {
+	/* package */ java.util.Set<StaffAssignmentOpal> getStaffAssignmentOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewStaffAssignmentOpalHashSet == null) {
 				if (myOldStaffAssignmentOpalHashSet == null) {
 					if (isNew()) {
-						myOldStaffAssignmentOpalHashSet = new java.util.HashSet<>();
+						myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldStaffAssignmentOpalHashSet = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forPhaseIdCollection(getIdAsObject());
+						java.util.Set<StaffAssignmentOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forPhaseIdCollection(getIdAsObject());
+						myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
@@ -435,7 +456,9 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			return myNewStaffAssignmentOpalHashSet;
 		} else {
 			if (myOldStaffAssignmentOpalHashSet == null) {
-				myOldStaffAssignmentOpalHashSet = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forPhaseIdCollection(getIdAsObject());
+				java.util.Set<StaffAssignmentOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forPhaseIdCollection(getIdAsObject());
+				myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldStaffAssignmentOpalHashSet;
 		}
@@ -494,20 +517,20 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		return getStaffAssignmentOpalHashSet().stream();
 	}
 
-	public synchronized void clearStaffAssignmentOpalInternal() { getStaffAssignmentOpalHashSet().clear(); }
-
-	private java.util.HashSet<RoundGroupOpal> myOldRoundGroupOpalHashSet = null;
-	private java.util.HashSet<RoundGroupOpal> myNewRoundGroupOpalHashSet = null;
+	private java.util.Set<RoundGroupOpal> myOldRoundGroupOpalHashSet = null;
+	private java.util.Set<RoundGroupOpal> myNewRoundGroupOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<RoundGroupOpal>> myRoundGroupOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<RoundGroupOpal> getRoundGroupOpalHashSet() {
+	/* package */ java.util.Set<RoundGroupOpal> getRoundGroupOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewRoundGroupOpalHashSet == null) {
 				if (myOldRoundGroupOpalHashSet == null) {
 					if (isNew()) {
-						myOldRoundGroupOpalHashSet = new java.util.HashSet<>();
+						myOldRoundGroupOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldRoundGroupOpalHashSet = OpalFactoryFactory.getInstance().getRoundGroupOpalFactory().forPhaseIdCollection(getIdAsObject());
+						java.util.Set<RoundGroupOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getRoundGroupOpalFactory().forPhaseIdCollection(getIdAsObject());
+						myOldRoundGroupOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewRoundGroupOpalHashSet = new java.util.HashSet<>(myOldRoundGroupOpalHashSet);
@@ -519,7 +542,9 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			return myNewRoundGroupOpalHashSet;
 		} else {
 			if (myOldRoundGroupOpalHashSet == null) {
-				myOldRoundGroupOpalHashSet = OpalFactoryFactory.getInstance().getRoundGroupOpalFactory().forPhaseIdCollection(getIdAsObject());
+				java.util.Set<RoundGroupOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getRoundGroupOpalFactory().forPhaseIdCollection(getIdAsObject());
+				myOldRoundGroupOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldRoundGroupOpalHashSet;
 		}
@@ -578,20 +603,20 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		return getRoundGroupOpalHashSet().stream();
 	}
 
-	public synchronized void clearRoundGroupOpalInternal() { getRoundGroupOpalHashSet().clear(); }
-
-	private java.util.HashSet<CardOpal> myOldCardOpalHashSet = null;
-	private java.util.HashSet<CardOpal> myNewCardOpalHashSet = null;
+	private java.util.Set<CardOpal> myOldCardOpalHashSet = null;
+	private java.util.Set<CardOpal> myNewCardOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<CardOpal>> myCardOpalCachedOperations = null;
 
-	/* package */ java.util.HashSet<CardOpal> getCardOpalHashSet() {
+	/* package */ java.util.Set<CardOpal> getCardOpalHashSet() {
 		if (tryAccess()) {
 			if (myNewCardOpalHashSet == null) {
 				if (myOldCardOpalHashSet == null) {
 					if (isNew()) {
-						myOldCardOpalHashSet = new java.util.HashSet<>();
+						myOldCardOpalHashSet = java.util.Collections.emptySet();
 					} else {
-						myOldCardOpalHashSet = OpalFactoryFactory.getInstance().getCardOpalFactory().forPhaseIdCollection(getIdAsObject());
+						java.util.Set<CardOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getCardOpalFactory().forPhaseIdCollection(getIdAsObject());
+						myOldCardOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
 				myNewCardOpalHashSet = new java.util.HashSet<>(myOldCardOpalHashSet);
@@ -603,7 +628,9 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 			return myNewCardOpalHashSet;
 		} else {
 			if (myOldCardOpalHashSet == null) {
-				myOldCardOpalHashSet = OpalFactoryFactory.getInstance().getCardOpalFactory().forPhaseIdCollection(getIdAsObject());
+				java.util.Set<CardOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getCardOpalFactory().forPhaseIdCollection(getIdAsObject());
+				myOldCardOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
 			return myOldCardOpalHashSet;
 		}
@@ -662,11 +689,9 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		return getCardOpalHashSet().stream();
 	}
 
-	public synchronized void clearCardOpalInternal() { getCardOpalHashSet().clear(); }
-
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("PhaseOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

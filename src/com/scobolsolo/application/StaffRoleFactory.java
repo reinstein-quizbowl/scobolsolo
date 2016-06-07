@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.StaffRoleOpalFactory;
 import com.scobolsolo.persistence.StaffRoleOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class StaffRoleFactory extends com.opal.AbstractFactory<StaffRole, StaffRoleOpal> implements com.opal.FactoryCreator<StaffRole>, com.opal.IdentityFactory<StaffRole> {
+public class StaffRoleFactory extends com.opal.AbstractIdentityFactory<StaffRole, StaffRoleOpal> implements com.opal.FactoryCreator<StaffRole> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class StaffRoleFactory extends com.opal.AbstractFactory<StaffRole, StaffR
 
 	public StaffRoleOpalFactory getStaffRoleOpalFactory() { return (StaffRoleOpalFactory) getOpalFactory(); }
 
-	protected StaffRoleFactory(com.opal.OpalFactory<StaffRole, StaffRoleOpal> argOpalFactory) {
+	protected StaffRoleFactory(com.opal.IdentityOpalFactory<StaffRole, StaffRoleOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffAssignment setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getRoomIdAsObject();
 
 	/**
@@ -95,7 +98,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argRoomId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffAssignment setRoomId(java.lang.Integer argRoomId);
 
 	/**
@@ -113,6 +116,8 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
 
 	/**
@@ -140,6 +145,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.StaffAssignment setNote(java.lang.String argNote);
 
@@ -152,6 +158,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code StaffId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getStaffIdAsObject();
 
 	/**
@@ -177,7 +184,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argStaffId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffAssignment setStaffId(java.lang.Integer argStaffId);
 
 	/**
@@ -197,6 +204,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPhaseIdAsObject();
 
 	/**
@@ -222,7 +230,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPhaseId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffAssignment setPhaseId(java.lang.Integer argPhaseId);
 
 	/**
@@ -240,6 +248,8 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code StaffRoleCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getStaffRoleCode();
 
 	/**
@@ -254,7 +264,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code staff_role_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.StaffAssignment setStaffRoleCode(java.lang.String argStaffRoleCode);
 
@@ -263,6 +273,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code staff_assignment_staff_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Staff getStaff();
 	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff);
 
@@ -271,6 +282,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code staffer_assignment_room_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Room getRoom();
 	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom);
 
@@ -279,6 +291,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code staff_assignment_phase_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase getPhase();
 	public com.scobolsolo.application.StaffAssignment setPhase(com.scobolsolo.application.Phase argPhase);
 
@@ -287,6 +300,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.StaffRole} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff_role} that is referenced by {@code staff_assignment_staff_role_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffRole getRole();
 	public com.scobolsolo.application.StaffAssignment setRole(com.scobolsolo.application.StaffRole argRole);
 

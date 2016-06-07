@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.AccountOpal;
 
 public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactOpal> implements Contact {
+
 	private final ContactOpal myContactOpal;
 
 	public ContactImpl(ContactOpal argContactOpal) {
@@ -30,11 +31,13 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 		return this.getSortBy().compareTo(argSecond.getSortBy());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getContactOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public ContactImpl setId(java.lang.Integer argId) {
 		getContactOpal().setId(argId);
@@ -47,77 +50,105 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getEmailAddress() {
 		return getContactOpal().getEmailAddress();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public ContactImpl setEmailAddress(java.lang.String argEmailAddress) {
 		getContactOpal().setEmailAddress(argEmailAddress);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getAdvancePhone() {
 		return getContactOpal().getAdvancePhone();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public ContactImpl setAdvancePhone(java.lang.String argAdvancePhone) {
 		getContactOpal().setAdvancePhone(argAdvancePhone);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getDayOfPhone() {
 		return getContactOpal().getDayOfPhone();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public ContactImpl setDayOfPhone(java.lang.String argDayOfPhone) {
 		getContactOpal().setDayOfPhone(argDayOfPhone);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getContactOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public ContactImpl setNote(java.lang.String argNote) {
 		getContactOpal().setNote(argNote);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getContactOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public ContactImpl setName(java.lang.String argName) {
 		getContactOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getSortBy() {
 		return getContactOpal().getSortBy();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public ContactImpl setSortBy(java.lang.String argSortBy) {
 		getContactOpal().setSortBy(argSortBy);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public java.lang.Boolean isActiveAsObject() {
 		return getContactOpal().isActiveAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
 	@Override
 	public ContactImpl setActive(java.lang.Boolean argActive) {
 		getContactOpal().setActive(argActive);
@@ -130,11 +161,15 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getAddress() {
 		return getContactOpal().getAddress();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public ContactImpl setAddress(java.lang.String argAddress) {
 		getContactOpal().setAddress(argAddress);
@@ -187,11 +222,6 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public com.scobolsolo.application.Contact clearTournamentDirectorTournament() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Contact addPlayer(Player argPlayer) {
 		getContactOpal().addPlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
 		return this;
@@ -216,11 +246,6 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	@Override
 	public java.util.Iterator<Player> createPlayerIterator() {
 		return new com.opal.OpalIterator<> (getContactOpal().createPlayerOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Contact clearPlayer() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -251,11 +276,6 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	}
 
 	@Override
-	public com.scobolsolo.application.Contact clearMainSchoolRegistration() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Contact addStaff(Staff argStaff) {
 		getContactOpal().addStaffOpal(((StaffImpl) argStaff).getStaffOpal());
 		return this;
@@ -280,11 +300,6 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<Contact, ContactO
 	@Override
 	public java.util.Iterator<Staff> createStaffIterator() {
 		return new com.opal.OpalIterator<> (getContactOpal().createStaffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Contact clearStaff() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

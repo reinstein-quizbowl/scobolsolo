@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.RoundGroupOpalFactory;
 import com.scobolsolo.persistence.RoundGroupOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class RoundGroupFactory extends com.opal.AbstractFactory<RoundGroup, RoundGroupOpal> implements com.opal.FactoryCreator<RoundGroup>, com.opal.IdentityFactory<RoundGroup> {
+public class RoundGroupFactory extends com.opal.AbstractIdentityFactory<RoundGroup, RoundGroupOpal> implements com.opal.FactoryCreator<RoundGroup> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class RoundGroupFactory extends com.opal.AbstractFactory<RoundGroup, Roun
 
 	public RoundGroupOpalFactory getRoundGroupOpalFactory() { return (RoundGroupOpalFactory) getOpalFactory(); }
 
-	protected RoundGroupFactory(com.opal.OpalFactory<RoundGroup, RoundGroupOpal> argOpalFactory) {
+	protected RoundGroupFactory(com.opal.IdentityOpalFactory<RoundGroup, RoundGroupOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

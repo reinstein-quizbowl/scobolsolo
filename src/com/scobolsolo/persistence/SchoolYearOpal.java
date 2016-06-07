@@ -4,12 +4,13 @@ import com.scobolsolo.application.SchoolYear;
 
 public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 
+
 	private SchoolYearOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public SchoolYearOpal(com.opal.OpalFactory<SchoolYear, SchoolYearOpal> argOpalFactory, Object[] argValues) {
+	public SchoolYearOpal(com.opal.IdentityOpalFactory<SchoolYear, SchoolYearOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
@@ -91,7 +92,7 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
 		}
 		if (argCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myCode on " + this + " to \"" + argCode + "\" because that field's maximum length is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
 		return this;
@@ -103,7 +104,7 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
 		return this;
@@ -115,7 +116,7 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
 		return this;
@@ -127,7 +128,7 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myVeryShortName on " + this + " to null.");
 		}
 		if (argVeryShortName.length() > 12) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myVeryShortName on " + this + " is 12.", argVeryShortName.length(), 12);
+			throw new com.opal.ArgumentTooLongException("Cannot set myVeryShortName on " + this + " to \"" + argVeryShortName + "\" because that field's maximum length is 12.", argVeryShortName.length(), 12);
 		}
 		getNewValues()[3] = argVeryShortName;
 		return this;
@@ -224,8 +225,8 @@ public final class SchoolYearOpal extends com.opal.UpdatableOpal<SchoolYear> {
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("SchoolYearOpal[");
 		lclSB.append("myCode=");
 		lclSB.append(toStringField(0));

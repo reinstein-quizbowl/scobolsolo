@@ -4,6 +4,7 @@ import com.scobolsolo.application.GameV;
 
 public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
+
 	private GameVOpal() {
 		super();
 		setUserFacing(null);

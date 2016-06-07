@@ -51,7 +51,6 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return PlacementOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -203,10 +202,10 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	}
 
 	@Override
-	public java.util.HashSet<PlacementOpal> forQuestionIdCollection(java.lang.Integer argQuestionId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<PlacementOpal> forQuestionIdCollection(java.lang.Integer argQuestionId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argQuestionId };
 		final String[] lclFieldNames = new String[] { "question_id" };
-		java.util.HashSet<PlacementOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<PlacementOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -239,22 +238,24 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<PlacementOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<PlacementOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class QuestionIdPacketIdOpalKey extends com.opal.DatabaseOpalKey<PlacementOpal> {
+	/* package */ static class QuestionIdPacketIdOpalKey extends com.opal.MultipleValueDatabaseOpalKey<PlacementOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"question_id", "packet_id", };
 
 		public QuestionIdPacketIdOpalKey(java.lang.Integer argQuestionId, java.lang.Integer argPacketId) {
@@ -262,10 +263,12 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return getFields();
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

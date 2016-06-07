@@ -5,18 +5,21 @@ import com.scobolsolo.application.Diff;
 @com.opal.StoreGeneratedPrimaryKey
 public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 
+
 	private DiffOpal() {
 		super();
 		setUserFacing(null);
 	}
 
-	public DiffOpal(com.opal.OpalFactory<Diff, DiffOpal> argOpalFactory, Object[] argValues) {
+	public DiffOpal(com.opal.IdentityOpalFactory<Diff, DiffOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
 	@Override
 	protected void applyDefaults() {
-		getNewValues()[7] = java.time.LocalDateTime.now();
+		/* Initialize fields with their default values. */
+		getNewValues()[7] = com.opal.LocalDateCache.now();
+
 		return;
 	}
 
@@ -269,7 +272,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myQuestionStatusCode on " + this + " to null.");
 		}
 		if (argQuestionStatusCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myQuestionStatusCode on " + this + " is 32.", argQuestionStatusCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myQuestionStatusCode on " + this + " to \"" + argQuestionStatusCode + "\" because that field's maximum length is 32.", argQuestionStatusCode.length(), 32);
 		}
 		getNewValues()[10] = argQuestionStatusCode;
 		return this;
@@ -281,7 +284,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCategoryCode on " + this + " to null.");
 		}
 		if (argCategoryCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myCategoryCode on " + this + " is 32.", argCategoryCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myCategoryCode on " + this + " to \"" + argCategoryCode + "\" because that field's maximum length is 32.", argCategoryCode.length(), 32);
 		}
 		getNewValues()[11] = argCategoryCode;
 		return this;
@@ -664,8 +667,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("DiffOpal[");
 		lclSB.append("myId=");
 		lclSB.append(toStringField(0));

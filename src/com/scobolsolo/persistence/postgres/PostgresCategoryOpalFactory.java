@@ -49,7 +49,6 @@ public class PostgresCategoryOpalFactory extends com.opal.AbstractDatabaseIdenti
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return CategoryOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -215,48 +214,54 @@ public class PostgresCategoryOpalFactory extends com.opal.AbstractDatabaseIdenti
 		);
 	}
 
-	/* package */ static class NameOpalKey extends com.opal.DatabaseOpalKey<CategoryOpal> {
+	/* package */ static class NameOpalKey extends com.opal.SingleValueDatabaseOpalKey<CategoryOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"name", };
 
 		public NameOpalKey(java.lang.String argName) {
-			super(new Object[] {argName, });
+			super(argName);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class CodeOpalKey extends com.opal.DatabaseOpalKey<CategoryOpal> {
+	/* package */ static class CodeOpalKey extends com.opal.SingleValueDatabaseOpalKey<CategoryOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"code", };
 
 		public CodeOpalKey(java.lang.String argCode) {
-			super(new Object[] {argCode, });
+			super(argCode);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class ShortNameOpalKey extends com.opal.DatabaseOpalKey<CategoryOpal> {
+	/* package */ static class ShortNameOpalKey extends com.opal.SingleValueDatabaseOpalKey<CategoryOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"short_name", };
 
 		public ShortNameOpalKey(java.lang.String argShortName) {
-			super(new Object[] {argShortName, });
+			super(argShortName);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

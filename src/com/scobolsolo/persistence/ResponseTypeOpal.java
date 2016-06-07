@@ -3,6 +3,7 @@ package com.scobolsolo.persistence;
 import com.scobolsolo.application.ResponseType;
 
 public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType> {
+
 	public static final java.lang.Boolean ourDefaultDefault = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultMultipleAllowedForSamePlacement = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultAttempt = java.lang.Boolean.TRUE;
@@ -15,18 +16,20 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		setUserFacing(null);
 	}
 
-	public ResponseTypeOpal(com.opal.OpalFactory<ResponseType, ResponseTypeOpal> argOpalFactory, Object[] argValues) {
+	public ResponseTypeOpal(com.opal.IdentityOpalFactory<ResponseType, ResponseTypeOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
 	}
 
 	@Override
 	protected void applyDefaults() {
+		/* Initialize fields with their default values. */
 		getNewValues()[5] = ourDefaultDefault;
 		getNewValues()[6] = ourDefaultMultipleAllowedForSamePlacement;
 		getNewValues()[7] = ourDefaultAttempt;
 		getNewValues()[8] = ourDefaultFurtherAttemptsToSameQuestionInMatch;
 		getNewValues()[9] = ourDefaultShowForNonExhibitionPlayers;
 		getNewValues()[10] = ourDefaultShowForExhibitionPlayers;
+
 		return;
 	}
 
@@ -156,7 +159,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 			throw new com.opal.IllegalNullArgumentException("Cannot set myCode on " + this + " to null.");
 		}
 		if (argCode.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myCode on " + this + " is 32.", argCode.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myCode on " + this + " to \"" + argCode + "\" because that field's maximum length is 32.", argCode.length(), 32);
 		}
 		getNewValues()[0] = argCode;
 		return this;
@@ -168,7 +171,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 			throw new com.opal.IllegalNullArgumentException("Cannot set myName on " + this + " to null.");
 		}
 		if (argName.length() > 256) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myName on " + this + " is 256.", argName.length(), 256);
+			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
 		getNewValues()[1] = argName;
 		return this;
@@ -180,7 +183,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShortName on " + this + " to null.");
 		}
 		if (argShortName.length() > 32) {
-			throw new com.opal.ArgumentTooLongException("Maximum length of myShortName on " + this + " is 32.", argShortName.length(), 32);
+			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
 		getNewValues()[2] = argShortName;
 		return this;
@@ -393,8 +396,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder lclSB =  new StringBuilder(64);
+	public java.lang.String toString() {
+		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
 		lclSB.append("ResponseTypeOpal[");
 		lclSB.append("myCode=");
 		lclSB.append(toStringField(0));

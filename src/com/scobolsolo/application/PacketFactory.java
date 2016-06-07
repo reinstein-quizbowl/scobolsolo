@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.PacketOpalFactory;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class PacketFactory extends com.opal.AbstractFactory<Packet, PacketOpal> implements com.opal.FactoryCreator<Packet>, com.opal.IdentityFactory<Packet> {
+public class PacketFactory extends com.opal.AbstractIdentityFactory<Packet, PacketOpal> implements com.opal.FactoryCreator<Packet> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class PacketFactory extends com.opal.AbstractFactory<Packet, PacketOpal> 
 
 	public PacketOpalFactory getPacketOpalFactory() { return (PacketOpalFactory) getOpalFactory(); }
 
-	protected PacketFactory(com.opal.OpalFactory<Packet, PacketOpal> argOpalFactory) {
+	protected PacketFactory(com.opal.IdentityOpalFactory<Packet, PacketOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

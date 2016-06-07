@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.TournamentOpalFactory;
 import com.scobolsolo.persistence.TournamentOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class TournamentFactory extends com.opal.AbstractFactory<Tournament, TournamentOpal> implements com.opal.FactoryCreator<Tournament>, com.opal.IdentityFactory<Tournament> {
+public class TournamentFactory extends com.opal.AbstractIdentityFactory<Tournament, TournamentOpal> implements com.opal.FactoryCreator<Tournament> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class TournamentFactory extends com.opal.AbstractFactory<Tournament, Tour
 
 	public TournamentOpalFactory getTournamentOpalFactory() { return (TournamentOpalFactory) getOpalFactory(); }
 
-	protected TournamentFactory(com.opal.OpalFactory<Tournament, TournamentOpal> argOpalFactory) {
+	protected TournamentFactory(com.opal.IdentityOpalFactory<Tournament, TournamentOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

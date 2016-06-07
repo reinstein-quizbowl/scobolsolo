@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.PhaseOpal;
 import com.scobolsolo.persistence.TournamentOpal;
 
 public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> implements Phase {
+
 	private final PhaseOpal myPhaseOpal;
 
 	public PhaseImpl(PhaseOpal argPhaseOpal) {
@@ -25,11 +26,13 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 		return getPhaseOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getPhaseOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PhaseImpl setId(java.lang.Integer argId) {
 		getPhaseOpal().setId(argId);
@@ -42,44 +45,58 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getPhaseOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public PhaseImpl setTournamentCode(java.lang.String argTournamentCode) {
 		getPhaseOpal().setTournamentCode(argTournamentCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getPhaseOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public PhaseImpl setName(java.lang.String argName) {
 		getPhaseOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getPhaseOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public PhaseImpl setShortName(java.lang.String argShortName) {
 		getPhaseOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getPhaseOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PhaseImpl setSequence(java.lang.Integer argSequence) {
 		getPhaseOpal().setSequence(argSequence);
@@ -92,11 +109,13 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Boolean isCardSystemAsObject() {
 		return getPhaseOpal().isCardSystemAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public PhaseImpl setCardSystem(java.lang.Boolean argCardSystem) {
 		getPhaseOpal().setCardSystem(argCardSystem);
@@ -109,11 +128,15 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getNote() {
 		return getPhaseOpal().getNote();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public PhaseImpl setNote(java.lang.String argNote) {
 		getPhaseOpal().setNote(argNote);
@@ -125,6 +148,7 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 
 	/** @return the Tournament object created from phase through reference phase_tournament_code_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getPhaseOpal().getTournamentOpal();
@@ -168,11 +192,6 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public com.scobolsolo.application.Phase clearStaffAssignment() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Phase addRoundGroup(RoundGroup argRoundGroup) {
 		getPhaseOpal().addRoundGroupOpal(((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
 		return this;
@@ -200,11 +219,6 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	}
 
 	@Override
-	public com.scobolsolo.application.Phase clearRoundGroup() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.Phase addCard(Card argCard) {
 		getPhaseOpal().addCardOpal(((CardImpl) argCard).getCardOpal());
 		return this;
@@ -229,11 +243,6 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<Phase, PhaseOpal> i
 	@Override
 	public java.util.Iterator<Card> createCardIterator() {
 		return new com.opal.OpalIterator<> (getPhaseOpal().createCardOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Phase clearCard() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

@@ -52,7 +52,6 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return AccountOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -191,33 +190,37 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<AccountOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<AccountOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 
-	/* package */ static class UsernameOpalKey extends com.opal.DatabaseOpalKey<AccountOpal> {
+	/* package */ static class UsernameOpalKey extends com.opal.SingleValueDatabaseOpalKey<AccountOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"username", };
 
 		public UsernameOpalKey(java.lang.String argUsername) {
-			super(new Object[] {argUsername, });
+			super(argUsername);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

@@ -4,6 +4,7 @@ import com.scobolsolo.application.PlayerRecordV;
 
 public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecordV> {
 
+
 	private PlayerRecordVOpal() {
 		super();
 		setUserFacing(null);

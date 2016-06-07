@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Id}
@@ -25,6 +26,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
 	/**
@@ -50,7 +52,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement setId(java.lang.Integer argId);
 
 	/**
@@ -70,6 +72,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getQuestionIdAsObject();
 
 	/**
@@ -124,6 +127,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argQuestionId the new value of {@code QuestionId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Placement setQuestionId(java.lang.Integer argQuestionId);
 
 	/**
@@ -143,6 +147,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PacketId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPacketIdAsObject();
 
 	/**
@@ -168,7 +173,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPacketId is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement setPacketId(java.lang.Integer argPacketId);
 
 	/**
@@ -188,6 +193,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Number} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getNumberAsObject();
 
 	/**
@@ -213,7 +219,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argNumber is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement setNumber(java.lang.Integer argNumber);
 
 	/**
@@ -233,6 +239,8 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Tiebreaker} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isTiebreakerAsObject();
 
 	default public java.lang.Boolean isRegulationAsObject() {
@@ -267,7 +275,8 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argTiebreaker is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Placement setTiebreaker(java.lang.Boolean argTiebreaker);
 
 	/**
@@ -287,6 +296,8 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ScorecheckAfter} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isScorecheckAfterAsObject();
 
 	/**
@@ -312,7 +323,8 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argScorecheckAfter is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Placement setScorecheckAfter(java.lang.Boolean argScorecheckAfter);
 
 	/**
@@ -330,6 +342,8 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryCode();
 
 	/**
@@ -344,7 +358,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Placement setCategoryCode(java.lang.String argCategoryCode);
 
@@ -353,6 +367,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Packet} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code placement_packet_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Packet getPacket();
 	public com.scobolsolo.application.Placement setPacket(com.scobolsolo.application.Packet argPacket);
 
@@ -361,6 +376,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Question} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question} that is referenced by {@code placement_question_id_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Question getQuestion();
 	public com.scobolsolo.application.Placement setQuestion(com.scobolsolo.application.Question argQuestion);
 
@@ -369,6 +385,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code placement_category_code_fkey}.
 	 *
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category getCategory();
 	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory);
 
@@ -379,8 +396,6 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Placement addResponse(com.scobolsolo.application.Response argResponse);
 	public com.scobolsolo.application.Placement removeResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Placement clearResponse();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireResponse(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
@@ -408,8 +423,6 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 
 	public com.scobolsolo.application.Placement addReplacementForResponse(com.scobolsolo.application.Response argResponse);
 	public com.scobolsolo.application.Placement removeReplacementForResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Placement clearReplacementForResponse();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireReplacementForResponse(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementForResponseIterator();

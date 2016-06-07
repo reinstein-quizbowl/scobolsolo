@@ -1,7 +1,7 @@
 ﻿<%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Arrays" %>
+<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
-<%@ page import="com.google.common.base.Objects" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
@@ -55,8 +55,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 						<td><%= lclStandbyPlayers %></td>
 						<td><%= lclSR.getStaffCount() %></td>
 						<td><%= lclSR.getBuzzerCount() %></td>
-						<td><%= NumberFormat.getCurrencyInstance().format(Objects.firstNonNull(lclSR.getAmountPaid(), 0)) %></td>
-						<td><%= NumberFormat.getCurrencyInstance().format(Objects.firstNonNull(lclSR.getAmountOwed(), 0)) %></td>
+						<td><%= NumberFormat.getCurrencyInstance().format(lclSR.getAmountPaid()) %></td>
+						<td><%= NumberFormat.getCurrencyInstance().format(lclSR.getAmountOwed()) %></td>
 					</tr><%
 				}
 			%></tbody>

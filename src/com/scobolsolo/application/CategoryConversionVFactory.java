@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.CategoryConversionVOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
 public class CategoryConversionVFactory extends com.opal.AbstractFactory<CategoryConversionV, CategoryConversionVOpal> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

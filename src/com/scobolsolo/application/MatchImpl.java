@@ -7,6 +7,7 @@ import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.GameOpal;
 
 public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> implements Match {
+
 	private final MatchOpal myMatchOpal;
 
 	public MatchImpl(MatchOpal argMatchOpal) {
@@ -28,11 +29,13 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return getMatchOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getIdAsObject() {
 		return getMatchOpal().getIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public MatchImpl setId(java.lang.Integer argId) {
 		getMatchOpal().setId(argId);
@@ -45,11 +48,13 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getRoundIdAsObject() {
 		return getMatchOpal().getRoundIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public MatchImpl setRoundId(java.lang.Integer argRoundId) {
 		getMatchOpal().setRoundId(argRoundId);
@@ -62,11 +67,13 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getRoomIdAsObject() {
 		return getMatchOpal().getRoomIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public MatchImpl setRoomId(java.lang.Integer argRoomId) {
 		getMatchOpal().setRoomId(argRoomId);
@@ -79,11 +86,13 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getWinningCardIdAsObject() {
 		return getMatchOpal().getWinningCardIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public MatchImpl setWinningCardId(java.lang.Integer argWinningCardId) {
 		getMatchOpal().setWinningCardId(argWinningCardId);
@@ -96,11 +105,13 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getLosingCardIdAsObject() {
 		return getMatchOpal().getLosingCardIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public MatchImpl setLosingCardId(java.lang.Integer argLosingCardId) {
 		getMatchOpal().setLosingCardId(argLosingCardId);
@@ -118,6 +129,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 
 	/** @return the Card object created from match through reference match_losing_card_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Card getLosingCard() {
 		CardOpal lclCardOpal = getMatchOpal().getLosingCardOpal();
@@ -132,6 +144,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 
 	/** @return the Room object created from match through reference match_room_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Room getRoom() {
 		RoomOpal lclRoomOpal = getMatchOpal().getRoomOpal();
@@ -146,6 +159,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 
 	/** @return the Round object created from match through reference match_round_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Round getRound() {
 		RoundOpal lclRoundOpal = getMatchOpal().getRoundOpal();
@@ -160,6 +174,7 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<Match, MatchOpal> i
 
 	/** @return the Card object created from match through reference match_winning_card_id_fkey */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Card getWinningCard() {
 		CardOpal lclCardOpal = getMatchOpal().getWinningCardOpal();

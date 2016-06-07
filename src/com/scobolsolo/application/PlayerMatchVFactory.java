@@ -5,6 +5,7 @@ import com.scobolsolo.persistence.PlayerMatchVOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
 public class PlayerMatchVFactory extends com.opal.AbstractFactory<PlayerMatchV, PlayerMatchVOpal> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/

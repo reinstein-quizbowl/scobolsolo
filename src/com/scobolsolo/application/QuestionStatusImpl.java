@@ -3,6 +3,7 @@ package com.scobolsolo.application;
 import com.scobolsolo.persistence.QuestionStatusOpal;
 
 public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<QuestionStatus, QuestionStatusOpal> implements QuestionStatus {
+
 	private final QuestionStatusOpal myQuestionStatusOpal;
 
 	public QuestionStatusImpl(QuestionStatusOpal argQuestionStatusOpal) {
@@ -29,44 +30,58 @@ public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<QuestionSt
 		return this.getSequenceAsObject().compareTo(argSecond.getSequenceAsObject());
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getCode() {
 		return getQuestionStatusOpal().getCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public QuestionStatusImpl setCode(java.lang.String argCode) {
 		getQuestionStatusOpal().setCode(argCode);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public java.lang.String getName() {
 		return getQuestionStatusOpal().getName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	@Override
 	public QuestionStatusImpl setName(java.lang.String argName) {
 		getQuestionStatusOpal().setName(argName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getShortName() {
 		return getQuestionStatusOpal().getShortName();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public QuestionStatusImpl setShortName(java.lang.String argShortName) {
 		getQuestionStatusOpal().setShortName(argShortName);
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public java.lang.Integer getSequenceAsObject() {
 		return getQuestionStatusOpal().getSequenceAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public QuestionStatusImpl setSequence(java.lang.Integer argSequence) {
 		getQuestionStatusOpal().setSequence(argSequence);
@@ -113,11 +128,6 @@ public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<QuestionSt
 	}
 
 	@Override
-	public com.scobolsolo.application.QuestionStatus clearQuestion() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public com.scobolsolo.application.QuestionStatus addDiff(Diff argDiff) {
 		getQuestionStatusOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
 		return this;
@@ -142,11 +152,6 @@ public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<QuestionSt
 	@Override
 	public java.util.Iterator<Diff> createDiffIterator() {
 		return new com.opal.OpalIterator<> (getQuestionStatusOpal().createDiffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.QuestionStatus clearDiff() {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

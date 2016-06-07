@@ -4,7 +4,8 @@ import com.scobolsolo.persistence.GameOpalFactory;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 
-public class GameFactory extends com.opal.AbstractFactory<Game, GameOpal> implements com.opal.FactoryCreator<Game>, com.opal.IdentityFactory<Game> {
+public class GameFactory extends com.opal.AbstractIdentityFactory<Game, GameOpal> implements com.opal.FactoryCreator<Game> {
+
 	/** This static variable holds the Singleton instance of the Factory for application
 		objects of this type.  It is private, but can be accessed via the getInstance() method.
 	*/
@@ -15,7 +16,7 @@ public class GameFactory extends com.opal.AbstractFactory<Game, GameOpal> implem
 
 	public GameOpalFactory getGameOpalFactory() { return (GameOpalFactory) getOpalFactory(); }
 
-	protected GameFactory(com.opal.OpalFactory<Game, GameOpal> argOpalFactory) {
+	protected GameFactory(com.opal.IdentityOpalFactory<Game, GameOpal> argOpalFactory) {
 		super(argOpalFactory);
 	}
 

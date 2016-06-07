@@ -8,6 +8,7 @@ import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.PerformanceOpal;
 
 public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, PlayerMatchVOpal> implements PlayerMatchV {
+
 	private final PlayerMatchVOpal myPlayerMatchVOpal;
 
 	public PlayerMatchVImpl(PlayerMatchVOpal argPlayerMatchVOpal) {
@@ -29,36 +30,44 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 		return getPlayerMatchVOpal();
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	@Override
 	public java.lang.String getTournamentCode() {
 		return getPlayerMatchVOpal().getTournamentCode();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getPlayerIdAsObject() {
 		return getPlayerMatchVOpal().getPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getPerformanceIdAsObject() {
 		return getPlayerMatchVOpal().getPerformanceIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getOpponentPlayerIdAsObject() {
 		return getPlayerMatchVOpal().getOpponentPlayerIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getOpponentPerformanceIdAsObject() {
 		return getPlayerMatchVOpal().getOpponentPerformanceIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getMatchIdAsObject() {
 		return getPlayerMatchVOpal().getMatchIdAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public java.lang.Integer getGameIdAsObject() {
 		return getPlayerMatchVOpal().getGameIdAsObject();
@@ -69,6 +78,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 
 	/** @return the Game object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Game getGame() {
 		GameOpal lclGameOpal = getPlayerMatchVOpal().getGameOpal();
@@ -77,6 +87,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 
 	/** @return the Tournament object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getPlayerMatchVOpal().getTournamentOpal();
@@ -85,6 +96,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 
 	/** @return the Player object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getPlayer() {
 		PlayerOpal lclPlayerOpal = getPlayerMatchVOpal().getPlayerOpal();
@@ -93,6 +105,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 
 	/** @return the Player object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Player getOpponentPlayer() {
 		PlayerOpal lclPlayerOpal = getPlayerMatchVOpal().getOpponentPlayerOpal();
@@ -101,6 +114,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 
 	/** @return the Match object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Match getMatch() {
 		MatchOpal lclMatchOpal = getPlayerMatchVOpal().getMatchOpal();
@@ -109,6 +123,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 
 	/** @return the Performance object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Performance getPerformance() {
 		PerformanceOpal lclPerformanceOpal = getPlayerMatchVOpal().getPerformanceOpal();
@@ -117,6 +132,7 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<PlayerMatchV, Player
 
 	/** @return the Performance object created from player_match_v through reference UNNAMED_INFERRED_KEY */
 
+	@com.opal.annotation.Nullability(nullable = true)
 	@Override
 	public Performance getOpponentPerformance() {
 		PerformanceOpal lclPerformanceOpal = getPlayerMatchVOpal().getOpponentPerformanceOpal();

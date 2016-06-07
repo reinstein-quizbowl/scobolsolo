@@ -50,7 +50,6 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return StaffAssignmentOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
@@ -173,19 +172,19 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	}
 
 	@Override
-	public java.util.HashSet<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argStaffId };
 		final String[] lclFieldNames = new String[] { "staff_id" };
-		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<StaffAssignmentOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public java.util.HashSet<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
+	public com.siliconage.util.Fast3Set<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoomId };
 		final String[] lclFieldNames = new String[] { "room_id" };
-		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
+		com.siliconage.util.Fast3Set<StaffAssignmentOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
@@ -194,6 +193,15 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	public java.util.HashSet<StaffAssignmentOpal> forPhaseIdCollection(java.lang.Integer argPhaseId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argPhaseId };
 		final String[] lclFieldNames = new String[] { "phase_id" };
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<StaffAssignmentOpal> forStaffRoleCodeCollection(java.lang.String argStaffRoleCode) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argStaffRoleCode };
+		final String[] lclFieldNames = new String[] { "staff_role_code" };
 		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
@@ -212,18 +220,20 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 		);
 	}
 
-	/* package */ static class IdOpalKey extends com.opal.DatabaseOpalKey<StaffAssignmentOpal> {
+	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<StaffAssignmentOpal> {
 		private static final String[] ourKeyColumnNames = new String[] {"id", };
 
 		public IdOpalKey(java.lang.Integer argId) {
-			super(new Object[] {argId, });
+			super(argId);
 		}
 
 		@Override
-		protected Object[] getParameters() { return getFields(); }
+		public Object[] getParameters() {
+			return new Object[] { getKeyValue(), };
+		}
 
 		@Override
-		protected String[] getColumnNames() { return ourKeyColumnNames; }
+		public String[] getColumnNames() { return ourKeyColumnNames; }
 
 	}
 

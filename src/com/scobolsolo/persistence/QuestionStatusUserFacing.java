@@ -15,6 +15,7 @@ package com.scobolsolo.persistence;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.QuestionStatus> {
+
 	/* Accessors and mutators for internal data. */
 	/**
 	 * object accessor for the {@code Code}
@@ -23,6 +24,8 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 *
 	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCode();
 
 	/**
@@ -37,7 +40,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.QuestionStatus setCode(java.lang.String argCode);
 
@@ -48,6 +51,8 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
 
 	/**
@@ -62,7 +67,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.QuestionStatus setName(java.lang.String argName);
 
@@ -73,6 +78,8 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
 
 	/**
@@ -87,7 +94,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.QuestionStatus setShortName(java.lang.String argShortName);
 
@@ -100,6 +107,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
 	/**
@@ -125,7 +133,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
-	@com.opal.annotation.NotNull
+	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.QuestionStatus setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -143,8 +151,6 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 
 	public com.scobolsolo.application.QuestionStatus addQuestion(com.scobolsolo.application.Question argQuestion);
 	public com.scobolsolo.application.QuestionStatus removeQuestion(com.scobolsolo.application.Question argQuestion);
-	public com.scobolsolo.application.QuestionStatus clearQuestion();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireQuestion(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
@@ -172,8 +178,6 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 
 	public com.scobolsolo.application.QuestionStatus addDiff(com.scobolsolo.application.Diff argDiff);
 	public com.scobolsolo.application.QuestionStatus removeDiff(com.scobolsolo.application.Diff argDiff);
-	public com.scobolsolo.application.QuestionStatus clearDiff();
-
 	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
 		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();

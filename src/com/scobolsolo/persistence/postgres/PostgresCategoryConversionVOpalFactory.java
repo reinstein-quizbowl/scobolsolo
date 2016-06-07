@@ -39,7 +39,6 @@ public class PostgresCategoryConversionVOpalFactory extends com.opal.AbstractDat
 	@Override
 	protected com.opal.FieldValidator[] getFieldValidators() { return CategoryConversionVOpal.getStaticFieldValidators(); }
 
-
 	@Override
 	protected javax.sql.DataSource getDataSource() {
 		return PostgresOpalFactoryFactory.getSpecificInstance().getDataSource();
