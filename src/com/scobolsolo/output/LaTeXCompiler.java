@@ -70,7 +70,7 @@ public class LaTeXCompiler {
 			} catch (IOException lclIOE) {
 				final List<String> lclErrors = lclOutAndError.getLines().stream().filter(argS -> argS.startsWith("!")).collect(Collectors.toList());
 				if (lclErrors.isEmpty()) {
-					throw new RuntimeException(lclIOE);
+					throw new RuntimeException(StringUtils.join(lclErrors, "\n"), lclIOE);
 				} else {
 					for (final String lclS : lclErrors) {
 						ourLogger.error(lclS);
