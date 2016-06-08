@@ -5,6 +5,18 @@
 	"http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
+	<env-entry>
+		<env-entry-name>opal/localdatecache/start</env-entry-name>
+		<env-entry-value>2000-01-01</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	
+	<env-entry>
+		<env-entry-name>opal/localdatecache/end</env-entry-name>
+		<env-entry-value>2020-01-01</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	
 	<servlet>
 		<servlet-name>jsp</servlet-name>
 		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
