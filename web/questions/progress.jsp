@@ -70,7 +70,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 			"SELECT Q.* FROM Question Q WHERE " +
 			"( " +
 				"id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL) OR " +
-				"id IN (SELECT question_id FROM Placement PL JOIN Packet P ON PL.packet_id = P.id JOIN Tournament T ON P.tournament_code = T.code WHERE T.questions_complete = false) " + 
+				"id IN (SELECT question_id FROM Placement PL JOIN Packet P ON PL.packet_id = P.id JOIN Tournament T ON P.tournament_code = T.code WHERE PL.question_id IS NOT NULL AND T.questions_complete = false) " + 
 			") AND question_status_code IN (" + Utility.nParameters(lclChosenStatuses.size()) + ")",
 			lclChosenStatuses.stream().map(QuestionStatus::getCode).collect(Collectors.toList())
 		)
@@ -133,14 +133,14 @@ if (lclIncompleteTournaments.isEmpty()) {
 						int lclCappedWrittenThisCG = 0;
 						for (Category lclC : lclCs) {
 							if (lclAllRelevantCategories.contains(lclC)) {
-								Validate.isTrue(lclWritten.get(lclC) >= 0);
-								Validate.isTrue(lclNeeded.get(lclC) > 0);
+								Validate.isTrue(lclWritten.get(lclC) >= 0, "Written in " + lclC.getName() + ": " + lclWritten.get(lclC));
+								Validate.isTrue(lclNeeded.get(lclC) >= 0, "Needed in " + lclC.getName() + ": " + lclNeeded.get(lclC));
 								
 								int lclWrittenThisCategory = lclWritten.get(lclC);
 								int lclNeededThisCategory = lclNeeded.get(lclC);
 								int lclCappedWrittenThisCategory = Math.min(lclWrittenThisCategory, lclNeededThisCategory); // Prevent overages from screwing with averages
 								
-								double lclCompletion = 1.0d * lclCappedWrittenThisCategory / lclNeededThisCategory;
+								double lclCompletion = lclNeededThisCategory == 0 ? 0.0d : 1.0d * lclCappedWrittenThisCategory / lclNeededThisCategory;
 								
 								%><tr class="<%= determineClass(lclCompletion) %>">
 									<td><%= lclC.getName() %></td>
@@ -165,9 +165,9 @@ if (lclIncompleteTournaments.isEmpty()) {
 						}
 					%></tbody><%
 					if (lclCs.length > 1) {
-						Validate.isTrue(lclWrittenThisCG >= 0);
-						Validate.isTrue(lclNeededThisCG > 0);
-						double lclCompletion = 1.0d * lclCappedWrittenThisCG / lclNeededThisCG;
+						Validate.isTrue(lclWrittenThisCG >= 0, "Written in " + lclCG.getName() + ": " + lclWrittenThisCG);
+						Validate.isTrue(lclNeededThisCG >= 0, "Needed in " + lclCG.getName() + ": " + lclNeededThisCG);
+						double lclCompletion = lclNeededThisCG == 0 ? 0.0d : 1.0d * lclCappedWrittenThisCG / lclNeededThisCG;
 						%><tfoot>
 							<tr class="<%= determineClass(lclCompletion) %>">
 								<th><%= lclCG.getName() %> Total</th>
@@ -186,7 +186,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 			}
 			
 			if (lclAllRelevantCategories.size() > 1) {
-				double lclCompletion = 1.0d * lclCappedWrittenTotal / lclNeededTotal;
+				double lclCompletion = lclNeededTotal == 0 ? 0.0d : 1.0d * lclCappedWrittenTotal / lclNeededTotal;
 				
 				%><h2>Total</h2>
 				<table class="responsive full-width">
@@ -223,8 +223,12 @@ if (lclIncompleteTournaments.isEmpty()) {
 <%!
 
 private String determineClass(double argCompletion) {
-	Validate.isTrue(Double.compare(argCompletion, 0.0d) >= 0); // argCompletion must be nonnegative
-	Validate.isTrue(Double.compare(argCompletion, 1.0d) <= 0); // argCompletion must be <= 1
+	if (Double.compare(argCompletion, Double.NaN) == 0) {
+		return "info";
+	}
+	
+	Validate.isTrue(Double.compare(argCompletion, 0.0d) >= 0, "Completion is " + argCompletion + " but should be nonnegative"); // argCompletion must be nonnegative
+	Validate.isTrue(Double.compare(argCompletion, 1.0d) <= 0, "Completion is " + argCompletion + " but should be <= 1"); // argCompletion must be <= 1
 	
 	if (Double.compare(argCompletion, 0.0d) == 0) {
 		return "warning";
