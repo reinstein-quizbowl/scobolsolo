@@ -75,11 +75,13 @@ if (lclOF.hasErrors()) {
 </div><%
 
 OpalForm<Tournament> lclTOF = lclOF.targetForm("Tournament", TournamentFactory.getInstance());
+%><%= lclTOF.open() %><%
 List<OpalForm<Phase>> lclPOFs = lclTOF.children("Phase", PhaseFactory.getInstance());
 
 for (OpalForm<Phase> lclPOF : lclPOFs) {
 	Phase lclPhase = Validate.notNull(lclPOF.getUserFacing());
-	%><div class="row">
+	%><%= lclPOF.open() %>
+	<div class="row">
 		<div class="small-12 columns">
 			<h2>Matches in <%= lclPhase.getName() %> (<%= lclR.countMatchesIn(lclPhase) %>)</h2>
 			<table class="responsive">
@@ -117,10 +119,12 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 				%></tbody>
 			</table>
 		</div>
-	</div><%
+	</div>
+	<%= lclPOF.close() %><%
 }
+%><%= lclTOF.close() %>
 
-%><div class="row">
+<div class="row">
 	<div class="small-12 columns">
 		<h2>Staff</h2>
 	</div>
@@ -150,7 +154,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						<td><%= lclSAOF.<Phase>dropdown("Phase").filter(argP -> argP.getTournament() == lclT).namer(Phase::getShortName) %></td>
 						<td><%= lclSAOF.dropdown("Staff", Staff.NameComparator.getInstance()).filter(argS -> argS.getTournament() == lclT).namer(argS -> argS.getContact().getName()) %></td>
 						<td><%= lclSAOF.<StaffRole>dropdown("Role") %></td>
-						<td><%= lclOF.textarea("Note", 40, 1) %></td>
+						<td><%= lclSAOF.textarea("Note", 40, 1) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSAOF) %></td>
 					</tr>
 					<%= lclSAOF.close() %><%

@@ -185,8 +185,11 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 					%></tbody>
 				</table>
 			</div>
-		</div><%
+		</div>
+		<%= lclRGOF.close() %><%
 	}
+	
+	%><%= lclPOF.close() %><%
 }
 
 %><div class="row">
