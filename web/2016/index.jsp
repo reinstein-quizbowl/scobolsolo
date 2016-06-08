@@ -10,7 +10,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2016 will be held in the fall.</p>
+		<p>Scobol Solo 2016 will be held on October 29.</p>
 	</div>
 </div>
 
