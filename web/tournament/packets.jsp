@@ -44,6 +44,14 @@ if (lclOF.hasErrors()) {
 }
 
 %><div class="row">
+	<div class="small-12">
+		<label>
+			Are questions complete?
+			<%= HTMLUtility.switchWidget(lclOF, "QuestionsComplete") %>
+		</label>
+	</div>
+</div>
+<div class="row">
 	<div class="small-12 columns">
 		<table class="responsive">
 			<thead>
