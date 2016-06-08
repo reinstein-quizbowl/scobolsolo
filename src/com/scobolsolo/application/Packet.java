@@ -71,7 +71,11 @@ public interface Packet extends PacketUserFacing, Comparable<Packet> {
 			lclWarnings.add("There are " + lclEmpty + " empty placements.");
 		}
 		
-		int lclUnapproved = (int) streamPlacement().map(Placement::getQuestion).filter(argQ -> argQ.getStatus() != QuestionStatusFactory.APPROVED()).count();
+		int lclUnapproved = (int) streamPlacement()
+			.filter(Placement::isFilled)
+			.map(Placement::getQuestion)
+			.filter(argQ -> argQ.getStatus() != QuestionStatusFactory.APPROVED())
+			.count();
 		if (lclUnapproved == 1) {
 			lclWarnings.add("There is one unapproved question.");
 		} else if (lclUnapproved > 1) {
