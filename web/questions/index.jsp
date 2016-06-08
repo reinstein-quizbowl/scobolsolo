@@ -104,15 +104,17 @@ if (lclShowUnused) {
 }
 
 for (Tournament lclT : lclSelectedTournaments) {
-	%><div class="row">
-		<div class="small-12 columns">
-			<h2>
-				<a onclick="$('#<%= lclT.getCode() %>').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
-				<%= lclT.getName() %> (<%= lclUsed.get(lclT).size() %>)
-			</h2>
-			<div id="<%= lclT.getCode() %>"><%= outputTables(lclT, lclUsed.get(lclT)) %></div>
-		</div>
-	</div><%
+	if (lclUsed.containsKey(lclT)) {
+		%><div class="row">
+			<div class="small-12 columns">
+				<h2>
+					<a onclick="$('#<%= lclT.getCode() %>').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
+					<%= lclT.getName() %> (<%= lclUsed.get(lclT).size() %>)
+				</h2>
+				<div id="<%= lclT.getCode() %>"><%= outputTables(lclT, lclUsed.get(lclT)) %></div>
+			</div>
+		</div><%
+	}
 }
 %>
 
