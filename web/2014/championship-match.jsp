@@ -73,6 +73,10 @@
 	.note {
 		font-style: italic;
 	}
+	
+	.answer {
+		font-size: 75%;
+	}
 </style>
 
 <div class="row">
@@ -112,6 +116,7 @@
 					<th class="player-school">IMSA (Aurora)</th><!-- Andrew -->
 					<th class="player-school">Hinsdale Central</th><!-- Sunny -->
 					<th class="player-school">Hinsdale Central</th><!-- James -->
+					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -126,6 +131,7 @@
 					<td class="player-score-check">3</td><!-- Andrew -->
 					<td class="player-score-check">3</td><!-- Sunny -->
 					<td class="player-score-check">3</td><!-- James -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr>
 					<td class="question-number">1</td>
@@ -138,6 +144,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-correct-response">1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">methylation</td>
 				</tr>
 				<tr>
 					<td class="question-number">2</td>
@@ -150,6 +157,7 @@
 					<td class="player-correct-response">1</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Pre-Raphaelite Brotherhood</td>
 				</tr>
 				<tr>
 					<td class="question-number">3</td>
@@ -162,6 +170,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Roger Taney</td>
 				</tr>
 				<tr>
 					<td class="question-number">4</td>
@@ -174,6 +183,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">John B. Watson</td>
 				</tr>
 				<tr>
 					<td class="question-number">5</td>
@@ -186,6 +196,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Federico Fellini</td>
 				</tr>
 				<tr>
 					<td class="question-number">6</td>
@@ -198,6 +209,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">density</td>
 				</tr>
 				<tr>
 					<td class="question-number">7</td>
@@ -210,6 +222,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Alban Berg</td>
 				</tr>
 				<tr>
 					<td class="question-number">8</td>
@@ -222,6 +235,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Honor&eacute; de&nbsp;Balzac</td>
 				</tr>
 				<tr>
 					<td class="question-number">9</td>
@@ -234,6 +248,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- James -->
+					<td class="answer">Malawi</td>
 				</tr>
 				<tr>
 					<td class="question-number">10</td>
@@ -246,6 +261,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">"Thanatopsis"</td>
 				</tr>
 				<tr>
 					<td class="question-number">11</td>
@@ -258,6 +274,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-correct-response">1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Navajo code talkers</td>
 				</tr>
 				<tr>
 					<td class="question-number">12</td>
@@ -270,6 +287,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- James -->
+					<td class="answer">sulfate ion</td>
 				</tr>
 				<tr>
 					<td class="question-number">13</td>
@@ -282,6 +300,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Jonathan Franzen</td>
 				</tr>
 				<tr>
 					<td class="question-number">14</td>
@@ -294,6 +313,7 @@
 					<td class="player-correct-response">1</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Markov processes</td>
 				</tr>
 				<tr>
 					<td class="question-number">15</td>
@@ -306,6 +326,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Namibia</td>
 				</tr>
 				<tr>
 					<td class="question-number">16</td>
@@ -318,6 +339,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Shylock</td>
 				</tr>
 				<tr>
 					<td class="question-number">17</td>
@@ -330,6 +352,7 @@
 					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">al-Aqsa</td>
 				</tr>
 				<tr>
 					<td class="question-number">18</td>
@@ -342,6 +365,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">House of Orange-Nassau</td>
 				</tr>
 				<tr>
 					<td class="question-number">19</td>
@@ -354,6 +378,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">rings (chemistry)</td>
 				</tr>
 				<tr>
 					<td class="question-number">20</td>
@@ -366,6 +391,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-correct-response">1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Andrew Cuomo</td>
 				</tr>
 				<tr class="score-check">
 					<td class="score-check-label">Scores through 20</td>
@@ -378,10 +404,11 @@
 					<td class="player-score-check">4</td><!-- Andrew -->
 					<td class="player-score-check">6</td><!-- Sunny -->
 					<td class="player-score-check">1</td><!-- James -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<td>&nbsp;</td>
-					<td colspan="9" class="note">Cole Timmerwilke, as morning champion, entered the game with a score equal to that of the then-leader, Alston Boyd: 10.</td>
+					<td colspan="10" class="note">Cole Timmerwilke, as morning champion, entered the game with a score equal to that of the then-leader, Alston Boyd: 10.</td>
 				</tr>
 				<tr>
 					<td class="question-number">21</td>
@@ -394,6 +421,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">confidence intervals</td>
 				</tr>
 				<tr>
 					<td class="question-number">22</td>
@@ -406,6 +434,7 @@
 					<td class="player-correct-response">1</td><!-- Andrew -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">raid on Entebbe</td>
 				</tr>
 				<tr>
 					<td class="question-number">23</td>
@@ -418,6 +447,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-correct-response">1</td><!-- James -->
+					<td class="answer"><i>Three Sisters</i></td>
 				</tr>
 				<tr>
 					<td class="question-number">24</td>
@@ -430,6 +460,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Export-Import Bank</td>
 				</tr>
 				<tr>
 					<td class="question-number">25</td>
@@ -442,6 +473,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Catullus</td>
 				</tr>
 				<tr>
 					<td class="question-number">26</td>
@@ -454,6 +486,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Rafael Trujillo</td>
 				</tr>
 				<tr>
 					<td class="question-number">27</td>
@@ -466,6 +499,7 @@
 					<td class="player-correct-response">1</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">"The Man That Corrupted Hadleyburg"</td>
 				</tr>
 				<tr>
 					<td class="question-number">28</td>
@@ -478,6 +512,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-correct-response">1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">polarization</td>
 				</tr>
 				<tr>
 					<td class="question-number">29</td>
@@ -490,6 +525,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer"><i>The Milkmaid</i></td>
 				</tr>
 				<tr>
 					<td class="question-number">30</td>
@@ -502,6 +538,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">bioluminescence</td>
 				</tr>
 				<tr>
 					<td class="question-number">31</td>
@@ -514,6 +551,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Henry S. Moore</td>
 				</tr>
 				<tr>
 					<td class="question-number">32</td>
@@ -526,6 +564,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-correct-response">1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">monosaccharides</td>
 				</tr>
 				<tr>
 					<td class="question-number">33</td>
@@ -538,6 +577,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Tasmania</td>
 				</tr>
 				<tr>
 					<td class="question-number">34</td>
@@ -550,6 +590,7 @@
 					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">L&eacute;on Blum</td>
 				</tr>
 				<tr>
 					<td class="question-number">35</td>
@@ -562,6 +603,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-correct-response">1</td><!-- James -->
+					<td class="answer"><i>Tess of the D'Urbervilles</i></td>
 				</tr>
 				<tr>
 					<td class="question-number">36</td>
@@ -574,6 +616,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">W.&nbsp;E.&nbsp;B&nbsp; Du&nbsp;Bois</td>
 				</tr>
 				<tr>
 					<td class="question-number">37</td>
@@ -586,6 +629,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">Sigurd</td>
 				</tr>
 				<tr>
 					<td class="question-number">38</td>
@@ -598,6 +642,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-correct-response">1</td><!-- James -->
+					<td class="answer">violin concerti</td>
 				</tr>
 				<tr>
 					<td class="question-number">39</td>
@@ -610,6 +655,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">seafloor spreading</td>
 				</tr>
 				<tr>
 					<td class="question-number">40</td>
@@ -622,6 +668,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
+					<td class="answer">just war</td>
 				</tr>
 				<tr class="score-check">
 					<td class="score-check-label">Scores through 40</td>
@@ -634,10 +681,11 @@
 					<td class="player-score-check">5</td><!-- Andrew -->
 					<td class="player-score-check">6</td><!-- Sunny -->
 					<td class="player-score-check">4</td><!-- James -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<td>&nbsp;</td>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						A tiebreaker was held to determine which one of the five players tied with 5&nbsp;points would&#151;along with Cole, Evan, and Sunny&#151;continue to the next phase. Mahir answered the first tiebreaker correctly to secure the advancing spot.
 					</td>
 				</tr>
@@ -652,6 +700,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Thailand</td>
 				</tr>
 				<tr>
 					<td class="question-number">42</td>
@@ -664,6 +713,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Castile</td>
 				</tr>
 				<tr>
 					<td class="question-number">43</td>
@@ -676,6 +726,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer"><i>To the Lighthouse</i></td>
 				</tr>
 				<tr>
 					<td class="question-number">44</td>
@@ -688,6 +739,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">solvation</td>
 				</tr>
 				<tr>
 					<td class="question-number">45</td>
@@ -700,6 +752,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-correct-response">1</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Akbar the Great</td>
 				</tr>
 				<tr>
 					<td class="question-number">46</td>
@@ -712,6 +765,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Rhine River</td>
 				</tr>
 				<tr>
 					<td class="question-number">47</td>
@@ -724,6 +778,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Gustave Courbet</td>
 				</tr>
 				<tr>
 					<td class="question-number">48</td>
@@ -736,6 +791,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">dark matter</td>
 				</tr>
 				<tr>
 					<td class="question-number">49</td>
@@ -748,6 +804,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer"><i>The House of the Spirits</i></td>
 				</tr>
 				<tr>
 					<td class="question-number">50</td>
@@ -760,6 +817,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Sergei Prokofiev</td>
 				</tr>
 				<tr class="score-check">
 					<td class="score-check-label">Scores through 50</td>
@@ -772,10 +830,11 @@
 					<td class="player-eliminated">eliminated</td><!-- Andrew -->
 					<td class="player-score-check">7</td><!-- Sunny -->
 					<td class="player-eliminated">eliminated</td><!-- James -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<td>&nbsp;</td>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						By virtue of having the lowest and second-lowest score among remaining players, Mahir and Sunny were eliminated.<br />
 						This is the first time ever that the top two players at Scobol Solo have been from the same school.
 					</td>
@@ -791,6 +850,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer"><i>The Sound and the Fury</i></td>
 				</tr>
 				<tr>
 					<td class="question-number">52</td>
@@ -803,6 +863,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">keratin</td>
 				</tr>
 				<tr>
 					<td class="question-number">53</td>
@@ -815,6 +876,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Harpies</td>
 				</tr>
 				<tr>
 					<td class="question-number">54</td>
@@ -827,6 +889,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer"><i>The Mikado</i></td>
 				</tr>
 				<tr>
 					<td class="question-number">55</td>
@@ -839,6 +902,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">countability</td>
 				</tr>
 				<tr>
 					<td class="question-number">56</td>
@@ -851,6 +915,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Battle of Bosworth Field</td>
 				</tr>
 				<tr>
 					<td class="question-number">57</td>
@@ -863,6 +928,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">David Hume</td>
 				</tr>
 				<tr>
 					<td class="question-number">58</td>
@@ -875,6 +941,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">transformers</td>
 				</tr>
 				<tr>
 					<td class="question-number">59</td>
@@ -887,6 +954,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer">Tammany Hall</td>
 				</tr>
 				<tr>
 					<td class="question-number">60</td>
@@ -899,6 +967,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Dan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sunny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
+					<td class="answer"><i>Les Fleurs du Mal</i></td>
 				</tr>
 			</tbody>
 			<tfoot>
@@ -913,6 +982,7 @@
 					<td class="player-eliminated">eliminated</td><!-- Dan -->
 					<td class="player-eliminated">eliminated</td><!-- Sunny -->
 					<td class="player-eliminated">eliminated</td><!-- James -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>
