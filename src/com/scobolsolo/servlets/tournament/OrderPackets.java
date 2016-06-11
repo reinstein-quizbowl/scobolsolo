@@ -119,8 +119,8 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		Validate.notNull(argSecondHalf);
 		Validate.isTrue(Math.abs(argFirstHalf.size() - argSecondHalf.size()) <= 1);
 		
-		final Tally<CategoryGroup> lclFirstHalfCategoryGroups = new Tally<CategoryGroup>().tally(argFirstHalf, CATEGORY_GROUP_EXTRACTOR);
-		final Tally<CategoryGroup> lclSecondHalfCategoryGroups = new Tally<CategoryGroup>().tally(argSecondHalf, CATEGORY_GROUP_EXTRACTOR);
+		final Tally<CategoryGroup> lclFirstHalfCategoryGroups = Tally.of(argFirstHalf, CATEGORY_GROUP_EXTRACTOR);
+		final Tally<CategoryGroup> lclSecondHalfCategoryGroups = Tally.of(argSecondHalf, CATEGORY_GROUP_EXTRACTOR);
 		
 		for (final CategoryGroup lclCG : CategoryGroupFactory.getInstance().createAllArray()) {
 			if (Math.abs(lclFirstHalfCategoryGroups.get(lclCG) - lclSecondHalfCategoryGroups.get(lclCG)) > 1) {

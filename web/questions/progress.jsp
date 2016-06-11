@@ -76,10 +76,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 		)
 	);
 	
-	Tally<Category> lclWritten = new Tally<>();
-	for (Question lclQ : lclUnusedQuestions) {
-		lclWritten.tally(lclQ.getCategory());
-	}
+	Tally<Category> lclWritten = Tally.of(lclUnusedQuestions, Question::getCategory);
 	
 	Tally<Category> lclNeeded = new Tally<>();
 	for (Tournament lclT : lclIncompleteTournaments) {
