@@ -645,6 +645,46 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	public com.scobolsolo.application.Tournament setQuestionsComplete(boolean argQuestionsComplete);
 
 	/**
+	 * object accessor for the {@code QuestionDownloadUrl}
+	 *
+	 * <p>The {@code QuestionDownloadUrl} field is a direct mapping of the {@code question_download_url} field in {@code tournament}.</p>
+	 *
+	 * @return an object value of {@code QuestionDownloadUrl} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	public java.lang.String getQuestionDownloadUrl();
+
+	/**
+	 * object accessor for the {@code QuestionDownloadUrl} with substitution for a null value
+	 *
+	 * <p>The {@code QuestionDownloadUrl} field is a direct mapping of the {@code question_download_url} database column in the table {@code tournament}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code QuestionDownloadUrl} is {@code null}.
+	 * @return an object value of {@code QuestionDownloadUrl} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getQuestionDownloadUrl(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getQuestionDownloadUrl();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code QuestionDownloadUrl} to the value of {@code argQuestionDownloadUrl}
+	 *
+	 * @param argQuestionDownloadUrl the new value of {@code QuestionDownloadUrl}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * @throws com.opal.ArgumentTooLongException if {@code argQuestionDownloadUrl} is longer than 2147483647 characters
+	 * <p>The database column {@code question_download_url} is limited to 2147483647 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	public com.scobolsolo.application.Tournament setQuestionDownloadUrl(java.lang.String argQuestionDownloadUrl);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Room}
 	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code tournament_control_room_room_id_fkey}.
 	 *

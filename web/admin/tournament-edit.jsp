@@ -84,6 +84,12 @@ if (lclOF.hasErrors()) {
 			<%= lclOF.text("ChampionshipMatchUrl", 60) %>
 		</label>
 	</div>
+	<div class="small-12 medium-6 large-4 columns">
+		<label>
+			Question download URL
+			<%= lclOF.text("QuestionDownloadUrl", 60) %>
+		</label>
+	</div>
 	
 	<div class="small-12 medium-6 large-4 columns">
 		<label>

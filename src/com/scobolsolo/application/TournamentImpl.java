@@ -290,6 +290,21 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<Tournament, To
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@Override
+	public java.lang.String getQuestionDownloadUrl() {
+		return getTournamentOpal().getQuestionDownloadUrl();
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@Override
+	public TournamentImpl setQuestionDownloadUrl(java.lang.String argQuestionDownloadUrl) {
+		getTournamentOpal().setQuestionDownloadUrl(argQuestionDownloadUrl);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

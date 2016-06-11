@@ -36,7 +36,8 @@ CREATE TABLE Tournament (
 	championship_rules TEXT,
 	championship_match_url VARCHAR(256),
 	control_room_room_id INTEGER REFERENCES ROOM ON UPDATE CASCADE ON DELETE RESTRICT,
-	questions_complete BOOLEAN NOT NULL DEFAULT FALSE
+	questions_complete BOOLEAN NOT NULL DEFAULT FALSE,
+	question_download_url TEXT
 );
 
 CREATE TABLE Account (

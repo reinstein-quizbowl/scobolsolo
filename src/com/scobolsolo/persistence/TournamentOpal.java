@@ -59,6 +59,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		"ChampionshipRules",
 		"ChampionshipMatchUrl",
 		"QuestionsComplete",
+		"QuestionDownloadUrl",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -78,6 +79,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Boolean.class,
+		java.lang.String.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -97,9 +99,11 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		true,
 		true,
 		false,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -200,6 +204,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	public synchronized java.lang.Boolean isQuestionsCompleteAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[15];
+	}
+
+	public synchronized java.lang.String getQuestionDownloadUrl() {
+		return (java.lang.String) getReadValueSet()[16];
 	}
 
 	public synchronized TournamentOpal setDate(final java.time.LocalDate argDate) {
@@ -354,6 +362,12 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	public TournamentOpal setQuestionsComplete(final boolean argQuestionsComplete) {
 		setQuestionsComplete(argQuestionsComplete ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
+	public synchronized TournamentOpal setQuestionDownloadUrl(final java.lang.String argQuestionDownloadUrl) {
+		tryMutate();
+		getNewValues()[16] = argQuestionDownloadUrl;
 		return this;
 	}
 
@@ -533,6 +547,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		lclTargetNewValues[13] = lclValues[13]; /* ChampionshipRules (immutable) */
 		lclTargetNewValues[14] = lclValues[14]; /* ChampionshipMatchUrl (immutable) */
 		lclTargetNewValues[15] = lclValues[15]; /* QuestionsComplete (immutable) */
+		lclTargetNewValues[16] = lclValues[16]; /* QuestionDownloadUrl (immutable) */
 
 		return;
 	}
@@ -624,6 +639,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("ChampionshipRules = " + getChampionshipRules());
 		argOutput.println("ChampionshipMatchUrl = " + getChampionshipMatchUrl());
 		argOutput.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
+		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
 	}
 
 	@Override
@@ -644,6 +660,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("ChampionshipRules = " + getChampionshipRules());
 		argOutput.println("ChampionshipMatchUrl = " + getChampionshipMatchUrl());
 		argOutput.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
+		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
 	}
 
 	private RoomOpal myOldControlRoomOpal;

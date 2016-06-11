@@ -155,6 +155,9 @@ public final class Menus {
 				
 				if (argT.hasPublicQuestions()) {
 					lclItems.add(new MenuPage("conversion-by-question", "Conversion by Question", "/stats/conversion-by-question.jsp?object=" + argT.getUniqueString()));
+					if (argT.getQuestionDownloadUrl() != null) {
+						lclItems.add(new MenuPage("download-questions", "Download Questions", argT.getQuestionDownloadUrl()));
+					}
 				}
 			}
 			
