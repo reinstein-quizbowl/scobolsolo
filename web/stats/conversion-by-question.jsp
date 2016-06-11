@@ -4,6 +4,7 @@
 <%@ page import="java.util.SortedSet" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.stream.Collectors" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.RowSortedTable" %>
 <%@ page import="com.google.common.collect.TreeBasedTable" %>
@@ -53,9 +54,10 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 
 <div class="row">
 	<div class="small-12 large-9 columns"><%
-		List<ResponseType> lclRTs = new ArrayList<>();
-		ResponseTypeFactory.getInstance().acquireAll(lclRTs);
-		lclRTs.sort(null);
+		List<ResponseType> lclRTs = ResponseTypeFactory.getInstance().streamAll()
+			.filter(ResponseType::isShowInReports)
+			.sorted()
+			.collect(Collectors.toList());
 		Tally<ResponseType> lclRTTally = new Tally<>();
 		
 		List<Round> lclRounds = lclT.getRounds(); // comes pre-sorted

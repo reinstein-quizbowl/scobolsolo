@@ -1,6 +1,7 @@
 ﻿<%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.stream.Collectors" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.Table" %>
 <%@ page import="com.google.common.collect.ArrayTable" %>
@@ -32,8 +33,10 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 
 <div class="row">
 	<div class="small-12 columns"><%
-		List<ResponseType> lclRTs = new ArrayList<>();
-		ResponseTypeFactory.getInstance().acquireAll(lclRTs);
+		List<ResponseType> lclRTs = ResponseTypeFactory.getInstance().streamAll()
+			.filter(ResponseType::isShowInReports)
+			.sorted()
+			.collect(Collectors.toList());
 		lclRTs.sort(null);
 
 		List<Category> lclCategories = CategoryFactory.getInstance().acquireAll(new ArrayList<>());

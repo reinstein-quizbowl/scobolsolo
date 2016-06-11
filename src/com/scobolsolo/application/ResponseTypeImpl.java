@@ -239,6 +239,27 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<ResponseType
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public java.lang.Boolean isShowInReportsAsObject() {
+		return getResponseTypeOpal().isShowInReportsAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public ResponseTypeImpl setShowInReports(java.lang.Boolean argShowInReports) {
+		getResponseTypeOpal().setShowInReports(argShowInReports);
+		return this;
+	}
+
+	@Override
+	public ResponseTypeImpl setShowInReports(boolean argShowInReports) {
+		getResponseTypeOpal().setShowInReports(argShowInReports);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

@@ -478,6 +478,54 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 */
 	public com.scobolsolo.application.ResponseType setShowForExhibitionPlayers(boolean argShowForExhibitionPlayers);
 
+	/**
+	 * object accessor for the {@code ShowInReports}
+	 *
+	 * <p>The {@code ShowInReports} field is a direct mapping of the {@code show_in_reports} field in {@code response_type}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isShowInReports() method.</p>
+	 *
+	 * @return an object value of {@code ShowInReports} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	public java.lang.Boolean isShowInReportsAsObject();
+
+	/**
+	 * primitive accessor for the {@code ShowInReports}
+	 *
+	 * <p>The {@code ShowInReports} field is a direct mapping of the {@code show_in_reports} database column in the table {@code response_type}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isShowInReportsAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code ShowInReports} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isShowInReports() {
+		java.lang.Boolean lclO = isShowInReportsAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code ShowInReports} to the value of {@code argShowInReports}
+	 *
+	 * @param argShowInReports the new value of {@code ShowInReports}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code show_in_reports} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argShowInReports is null
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	public com.scobolsolo.application.ResponseType setShowInReports(java.lang.Boolean argShowInReports);
+
+	/**
+	 * sets the {@code ShowInReports} to the value of {@code argShowInReports}
+	 *
+	 * @param argShowInReports the new value of {@code ShowInReports}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.ResponseType setShowInReports(boolean argShowInReports);
+
 	public com.scobolsolo.application.ResponseType copy();
 
 	/** This is a Comparator that can be used to compare ResponseType objects based on their {@code Code} values. */
