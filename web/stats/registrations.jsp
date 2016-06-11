@@ -49,7 +49,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					lclBuzzers += lclSR.getBuzzerCount();
 					
 					%><tr>
-						<td><%= lclSR.getSchool().getExplainedName() %></td>
+						<td><a href="field.jsp?object=<%= lclT.getUniqueString() %>#<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></td>
 						<td><%= lclSR.getFullPlayerCount() %></td>
 						<td><%= lclWaitlistPlayers %></td>
 						<td><%= lclStandbyPlayers %></td>

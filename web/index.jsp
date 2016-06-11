@@ -1,4 +1,4 @@
-﻿<meta http-equiv="refresh" content="0; url=/stats/field.jsp?object=2015">
+﻿<meta http-equiv="refresh" content="0; url=/2016/">
 
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
