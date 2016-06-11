@@ -1,4 +1,4 @@
-package com.scobolsolo.security;
+package com.scobolsolo.web;
 
 import java.io.IOException;
 

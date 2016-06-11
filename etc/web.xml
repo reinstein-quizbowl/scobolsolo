@@ -155,12 +155,6 @@
 		<servlet-class>com.opal.cma.OpalFormController</servlet-class>
 	</servlet>
 	
-	<servlet>
-		<servlet-name>Initializer</servlet-name>
-		<servlet-class>com.scobolsolo.Initializer</servlet-class>
-		<load-on-startup>100</load-on-startup>
-	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>SetSides</servlet-name>
 		<url-pattern>/game/SetSides</url-pattern>
@@ -353,12 +347,32 @@
 	</error-page>
 	
 	<filter>
+		<filter-name>CharsetFilter</filter-name>
+		<filter-class>com.scobolsolo.web.CharsetFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>CharsetFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
 		<filter-name>XFrameOptionsDenyFilter</filter-name>
-		<filter-class>com.scobolsolo.security.XFrameOptionsDenyFilter</filter-class>
+		<filter-class>com.scobolsolo.web.XFrameOptionsDenyFilter</filter-class>
 	</filter>
 	
 	<filter-mapping>
 		<filter-name>XFrameOptionsDenyFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>VaryFilter</filter-name>
+		<filter-class>com.scobolsolo.web.VaryFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>VaryFilter</filter-name>
 		<url-pattern>*</url-pattern>
 	</filter-mapping>
 	
@@ -415,5 +429,10 @@
 	<!-- End the reaper thread that cleans up uploaded files -->
 	<listener>
 		<listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
+	</listener>
+	
+	<!-- The global listener class that takes care of initialization and destruction of various things -->
+	<listener>
+		<listener-class>com.scobolsolo.web.ServerListener</listener-class>
 	</listener>
 </web-app>
