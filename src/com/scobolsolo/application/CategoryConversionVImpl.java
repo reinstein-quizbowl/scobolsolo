@@ -1,9 +1,9 @@
 package com.scobolsolo.application;
 
 import com.scobolsolo.persistence.CategoryConversionVOpal;
+import com.scobolsolo.persistence.CategoryOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.TournamentOpal;
-import com.scobolsolo.persistence.CategoryOpal;
 
 public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConversionV, CategoryConversionVOpal> implements CategoryConversionV {
 
@@ -58,6 +58,15 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
+	/** @return the Category object created from category_conversion_v through reference UNNAMED_REFERENCE_FK */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public Category getCategory() {
+		CategoryOpal lclCategoryOpal = getCategoryConversionVOpal().getCategoryOpal();
+		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
+	}
+
 	/** @return the ResponseType object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -74,15 +83,6 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<CategoryConve
 	public Tournament getTournament() {
 		TournamentOpal lclTournamentOpal = getCategoryConversionVOpal().getTournamentOpal();
 		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
-	}
-
-	/** @return the Category object created from category_conversion_v through reference UNNAMED_INFERRED_KEY */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public Category getCategory() {
-		CategoryOpal lclCategoryOpal = getCategoryConversionVOpal().getCategoryOpal();
-		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
 	}
 
 	/* The following methods allow access to the user objects that have references

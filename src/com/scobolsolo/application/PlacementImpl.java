@@ -213,57 +213,57 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<Placement, Plac
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Placement addResponse(Response argResponse) {
-		getPlacementOpal().addResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+	public com.scobolsolo.application.Placement addBaseResponse(Response argResponse) {
+		getPlacementOpal().addBaseResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
 		return this;
 	}
 
 	@Override
-	public com.scobolsolo.application.Placement removeResponse(Response argResponse) {
-		getPlacementOpal().removeResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+	public com.scobolsolo.application.Placement removeBaseResponse(Response argResponse) {
+		getPlacementOpal().removeBaseResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
 		return this;
 	}
 
 	@Override
-	public int getResponseCount() {
-		return getPlacementOpal().getResponseOpalCount();
+	public int getBaseResponseCount() {
+		return getPlacementOpal().getBaseResponseOpalCount();
 	}
 
 	@Override
-	public java.util.stream.Stream<Response> streamResponse() {
-		return getPlacementOpal().streamResponseOpal().map(com.opal.Opal::getUserFacing);
+	public java.util.stream.Stream<Response> streamBaseResponse() {
+		return getPlacementOpal().streamBaseResponseOpal().map(com.opal.Opal::getUserFacing);
 	}
 
 	@Override
-	public java.util.Iterator<Response> createResponseIterator() {
-		return new com.opal.OpalIterator<> (getPlacementOpal().createResponseOpalIterator());
+	public java.util.Iterator<Response> createBaseResponseIterator() {
+		return new com.opal.OpalIterator<> (getPlacementOpal().createBaseResponseOpalIterator());
 	}
 
 	@Override
-	public com.scobolsolo.application.Placement addReplacementForResponse(Response argResponse) {
-		getPlacementOpal().addReplacementForResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+	public com.scobolsolo.application.Placement addReplacementResponse(Response argResponse) {
+		getPlacementOpal().addReplacementResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
 		return this;
 	}
 
 	@Override
-	public com.scobolsolo.application.Placement removeReplacementForResponse(Response argResponse) {
-		getPlacementOpal().removeReplacementForResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+	public com.scobolsolo.application.Placement removeReplacementResponse(Response argResponse) {
+		getPlacementOpal().removeReplacementResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
 		return this;
 	}
 
 	@Override
-	public int getReplacementForResponseCount() {
-		return getPlacementOpal().getReplacementForResponseOpalCount();
+	public int getReplacementResponseCount() {
+		return getPlacementOpal().getReplacementResponseOpalCount();
 	}
 
 	@Override
-	public java.util.stream.Stream<Response> streamReplacementForResponse() {
-		return getPlacementOpal().streamReplacementForResponseOpal().map(com.opal.Opal::getUserFacing);
+	public java.util.stream.Stream<Response> streamReplacementResponse() {
+		return getPlacementOpal().streamReplacementResponseOpal().map(com.opal.Opal::getUserFacing);
 	}
 
 	@Override
-	public java.util.Iterator<Response> createReplacementForResponseIterator() {
-		return new com.opal.OpalIterator<> (getPlacementOpal().createReplacementForResponseOpalIterator());
+	public java.util.Iterator<Response> createReplacementResponseIterator() {
+		return new com.opal.OpalIterator<> (getPlacementOpal().createReplacementResponseOpalIterator());
 	}
 
 	@Override

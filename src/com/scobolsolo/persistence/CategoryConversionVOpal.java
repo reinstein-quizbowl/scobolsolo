@@ -16,9 +16,9 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 
 	@Override
 	protected void initializeReferences() {
+		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
 		myOldResponseTypeOpal = ResponseTypeOpal.NOT_YET_LOADED;
 		myOldTournamentOpal = TournamentOpal.NOT_YET_LOADED;
-		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -88,18 +88,18 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
+		myNewCategoryOpal = myOldCategoryOpal;
 		myNewResponseTypeOpal = myOldResponseTypeOpal;
 		myNewTournamentOpal = myOldTournamentOpal;
-		myNewCategoryOpal = myOldCategoryOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
 
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
+		myOldCategoryOpal = myNewCategoryOpal;
 		myOldResponseTypeOpal = myNewResponseTypeOpal;
 		myOldTournamentOpal = myNewTournamentOpal;
-		myOldCategoryOpal = myNewCategoryOpal;
 
 		return;
 	}
@@ -131,6 +131,32 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		argOutput.println("CategoryCode = " + getCategoryCode());
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
 		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+	}
+
+	private CategoryOpal myOldCategoryOpal;
+	private CategoryOpal myNewCategoryOpal;
+
+	protected CategoryOpal retrieveCategoryOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[1] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCode(getCategoryCode());
+	}
+
+	public synchronized CategoryOpal getCategoryOpal() {
+		CategoryOpal lclCategoryOpal;
+		boolean lclAccess = tryAccess();
+		lclCategoryOpal = lclAccess ? myNewCategoryOpal : myOldCategoryOpal;
+		if (lclCategoryOpal == CategoryOpal.NOT_YET_LOADED) {
+			lclCategoryOpal = retrieveCategoryOpal(getValues());
+			if (lclAccess) {
+				myNewCategoryOpal = lclCategoryOpal;
+			} else {
+				myOldCategoryOpal = lclCategoryOpal;
+			}
+		}
+		return lclCategoryOpal;
 	}
 
 	private ResponseTypeOpal myOldResponseTypeOpal;
@@ -183,32 +209,6 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 			}
 		}
 		return lclTournamentOpal;
-	}
-
-	private CategoryOpal myOldCategoryOpal;
-	private CategoryOpal myNewCategoryOpal;
-
-	protected CategoryOpal retrieveCategoryOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[1] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCode(getCategoryCode());
-	}
-
-	public synchronized CategoryOpal getCategoryOpal() {
-		CategoryOpal lclCategoryOpal;
-		boolean lclAccess = tryAccess();
-		lclCategoryOpal = lclAccess ? myNewCategoryOpal : myOldCategoryOpal;
-		if (lclCategoryOpal == CategoryOpal.NOT_YET_LOADED) {
-			lclCategoryOpal = retrieveCategoryOpal(getValues());
-			if (lclAccess) {
-				myNewCategoryOpal = lclCategoryOpal;
-			} else {
-				myOldCategoryOpal = lclCategoryOpal;
-			}
-		}
-		return lclCategoryOpal;
 	}
 
 }

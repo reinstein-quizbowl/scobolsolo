@@ -389,54 +389,54 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Category getCategory();
 	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory);
 
-	public int getResponseCount();
-	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator();
+	public int getBaseResponseCount();
+	public java.util.Iterator<com.scobolsolo.application.Response> createBaseResponseIterator();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse();
+	public java.util.stream.Stream<com.scobolsolo.application.Response> streamBaseResponse();
 
-	public com.scobolsolo.application.Placement addResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Placement removeResponse(com.scobolsolo.application.Response argResponse);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireResponse(T argC) {
+	public com.scobolsolo.application.Placement addBaseResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Placement removeBaseResponse(com.scobolsolo.application.Response argResponse);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireBaseResponse(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
+		java.util.Iterator<com.scobolsolo.application.Response> lclI = createBaseResponseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
 		}
 		return argC;
 	}
 
-	default public com.scobolsolo.application.Response[] createResponseArray() {
-		int lclLength = getResponseCount();
+	default public com.scobolsolo.application.Response[] createBaseResponseArray() {
+		int lclLength = getBaseResponseCount();
 		com.scobolsolo.application.Response[] lclA = new com.scobolsolo.application.Response[lclLength];
 		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
+		java.util.Iterator<com.scobolsolo.application.Response> lclI = createBaseResponseIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}
 		return lclA;
 	}
 
-	public int getReplacementForResponseCount();
-	public java.util.Iterator<com.scobolsolo.application.Response> createReplacementForResponseIterator();
+	public int getReplacementResponseCount();
+	public java.util.Iterator<com.scobolsolo.application.Response> createReplacementResponseIterator();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamReplacementForResponse();
+	public java.util.stream.Stream<com.scobolsolo.application.Response> streamReplacementResponse();
 
-	public com.scobolsolo.application.Placement addReplacementForResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Placement removeReplacementForResponse(com.scobolsolo.application.Response argResponse);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireReplacementForResponse(T argC) {
+	public com.scobolsolo.application.Placement addReplacementResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Placement removeReplacementResponse(com.scobolsolo.application.Response argResponse);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireReplacementResponse(T argC) {
 		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementForResponseIterator();
+		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementResponseIterator();
 		while (lclI.hasNext()) {
 			argC.add(lclI.next());
 		}
 		return argC;
 	}
 
-	default public com.scobolsolo.application.Response[] createReplacementForResponseArray() {
-		int lclLength = getReplacementForResponseCount();
+	default public com.scobolsolo.application.Response[] createReplacementResponseArray() {
+		int lclLength = getReplacementResponseCount();
 		com.scobolsolo.application.Response[] lclA = new com.scobolsolo.application.Response[lclLength];
 		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementForResponseIterator();
+		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementResponseIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}

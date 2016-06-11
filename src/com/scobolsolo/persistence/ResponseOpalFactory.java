@@ -5,8 +5,7 @@ import com.opal.PersistenceException;
 public interface ResponseOpalFactory extends com.opal.IdentityOpalFactory<Response, ResponseOpal>, com.opal.OpalFactoryCreator<Response, ResponseOpal> {
 
 	public java.util.HashSet<ResponseOpal> forPerformanceIdCollection(java.lang.Integer argPerformanceId) throws com.opal.PersistenceException;
-	public java.util.HashSet<ResponseOpal> forPlacementIdCollection(java.lang.Integer argPlacementId) throws com.opal.PersistenceException;
-	public com.siliconage.util.Fast3Set<ResponseOpal> forReplacementForPlacementIdCollection(java.lang.Integer argReplacementForPlacementId) throws com.opal.PersistenceException;
-	public ResponseOpal forPerformanceIdPlacementId(java.lang.Integer argPerformanceId, java.lang.Integer argPlacementId) throws PersistenceException;
+	public java.util.HashSet<ResponseOpal> forBasePlacementIdCollection(java.lang.Integer argBasePlacementId) throws com.opal.PersistenceException;
+	public com.siliconage.util.Fast3Set<ResponseOpal> forReplacementPlacementIdCollection(java.lang.Integer argReplacementPlacementId) throws com.opal.PersistenceException;
 	public ResponseOpal forId(java.lang.Integer argId) throws PersistenceException;
 }

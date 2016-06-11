@@ -281,5 +281,13 @@
 			</Source>
 			<Target Type="StaffRole" />
 		</Reference>
+		
+		<!-- Foreign keys for views -->
+		<Reference>
+			<Source Type="CategoryConversionV">
+				<Column>category_code</Column>
+			</Source>
+			<Target Type="Category" />
+		</Reference>
 	</Database>
 </Project>

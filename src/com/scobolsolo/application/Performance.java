@@ -13,23 +13,27 @@ import com.scobolsolo.persistence.PerformanceUserFacing;
  */
 
 public interface Performance extends PerformanceUserFacing {
-	default Response findResponse(final Placement argPlacement) {
+	default Response findResponseForBasePlacement(final Placement argPlacement) {
 		Validate.notNull(argPlacement);
 		
-		return streamResponse().filter(argR -> argR.getPlacement() == argPlacement).findAny().orElse(null);
+		return streamResponse().filter(argR -> argR.getActualPlacement() == argPlacement).findAny().orElse(null);
 	}
 	
-	default Response findOrCreateResponse(final Placement argPlacement) {
-		Validate.notNull(argPlacement);
+	default Response findOrCreateResponse(final Placement argBasePlacement, final Placement argReplacementPlacement) {
+		Validate.notNull(argBasePlacement);
+		// argReplacementPlacement may be null
 		
-		Response lclR = findResponse(argPlacement);
-		if (lclR != null) {
+		Response lclR = findResponseForBasePlacement(argBasePlacement);
+		if (lclR == null) {
+			lclR = ResponseFactory.getInstance().create()
+				.setBasePlacement(argBasePlacement)
+				.setReplacementPlacement(argReplacementPlacement);
+			this.addResponse(lclR);
+			return lclR;
+		} else {
+			lclR.setReplacementPlacement(argReplacementPlacement); // which may not be a change
 			return lclR;
 		}
-		
-		lclR = ResponseFactory.getInstance().create().setPlacement(argPlacement);
-		this.addResponse(lclR);
-		return lclR;
 	}
 	
 	default int getScore() {

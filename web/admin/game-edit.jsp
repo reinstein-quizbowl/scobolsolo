@@ -153,33 +153,18 @@ if (lclOF.hasErrors()) {
 						<tr>
 							<th>Question</th>
 							<th>Response</th>
-							<th>Replacement?</th>
+							<th>Replaced With</th>
 							<th>Del?</th>
 						</tr>
 					</thead>
 					<tbody><%
 						List<OpalForm<Response>> lclROFs = lclPOF.children("Response", ResponseFactory.getInstance(), 1, Response.BASE_PLACEMENT_COMPARATOR);
 						for (OpalForm<Response> lclROF : lclROFs) {
-							Response lclResponse = lclROF.getUserFacing(); // may be null
-							Placement lclPL = lclROF.isNew() ? null : lclResponse.getPlacement();
-							Question lclQ = lclROF.isNew() ? null : lclPL.getQuestion();
-							
-							Placement lclBasePL;
-							if (lclROF.isNew()) {
-								lclBasePL = null;
-							} else {
-								if (lclResponse.getReplacementForPlacement() == null) {
-									lclBasePL = lclPL;
-								} else {
-									lclBasePL = lclResponse.getReplacementForPlacement();
-								}
-							}
-							// The upshot is that lclBasePL is non-null (unless it's the new row) and represents the placement that was "supposed to be there". If lclBasePL != lclPL, a replacement question was used (represented by lclPL)
 							%><%= lclROF.open() %>
 								<tr>
-									<td><%= lclROF.<Placement>dropdown("Placement").filter(argPL -> argPL.getPacket() == lclRound.getPacket() || argPL.getPacket() == lclRound.getPacket().getReplacementPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
+									<td><%= lclROF.<Placement>dropdown("BasePlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
 									<td><%= lclROF.<ResponseType>dropdown("ResponseType").choices(lclPOF.isNew() ? Arrays.asList(ResponseTypeFactory.getInstance().createAllArray()) : lclPlayer.determineResponseTypesToOffer()).namer(ResponseType::getShortName) %></td>
-									<td><%= lclROF.<Placement>dropdown("ReplacementForPlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
+									<td><%= lclROF.<Placement>dropdown("ReplacementPlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket().getReplacementPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
 									<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
 								</tr>
 							<%= lclROF.close() %><%

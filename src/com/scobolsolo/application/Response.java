@@ -15,7 +15,10 @@ import com.scobolsolo.persistence.ResponseUserFacing;
  */
 
 public interface Response extends ResponseUserFacing {
-	public static final Comparator<Response> PLACEMENT_COMPARATOR = Comparator.comparing(Response::getPlacement);
+	public static final Comparator<Response> BASE_PLACEMENT_COMPARATOR = Comparator.comparing(Response::getBasePlacement);
+	public static final Comparator<Response> ACTUAL_PLACEMENT_COMPARATOR = Comparator.comparing(Response::getActualPlacement);
 	
-	public static final Comparator<Response> BASE_PLACEMENT_COMPARATOR = Comparator.comparing(argR -> ObjectUtils.firstNonNull(argR.getReplacementForPlacement(), argR.getPlacement()));
+	default public Placement getActualPlacement() {
+		return ObjectUtils.firstNonNull(getReplacementPlacement(), getBasePlacement());
+	}
 }

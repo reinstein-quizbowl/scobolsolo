@@ -109,6 +109,13 @@ public interface CategoryConversionVUserFacing extends com.opal.UserFacing {
 	}
 
 	/**
+	 * @return the {@code com.scobolsolo.application.Category}
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code UNNAMED_REFERENCE_FK}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Category getCategory();
+	/**
 	 * @return the {@code com.scobolsolo.application.ResponseType}
 	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *
@@ -122,13 +129,6 @@ public interface CategoryConversionVUserFacing extends com.opal.UserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
-	/**
-	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code UNNAMED_INFERRED_KEY}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Category getCategory();
 	public static class CategorySequenceComparator extends com.siliconage.util.NullSafeComparator<com.scobolsolo.application.CategoryConversionV> {
 		private static final CategorySequenceComparator ourInstance = new CategorySequenceComparator();
 		public static final CategorySequenceComparator getInstance() { return ourInstance; }

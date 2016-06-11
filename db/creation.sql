@@ -393,9 +393,9 @@ INSERT INTO Response_Type (code, name, short_name, sequence, points) VALUES
 CREATE TABLE Response (
 	id SERIAL PRIMARY KEY,
 	performance_id INTEGER NOT NULL REFERENCES Performance ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament
-	placement_id INTEGER NOT NULL REFERENCES Placement ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies the tournament; it would be nice to check against contradictions
 	response_type_code code_t REFERENCES Response_Type ON UPDATE CASCADE ON DELETE RESTRICT,
-	replacement_for_placement_id INTEGER REFERENCES Placement ON UPDATE CASCADE ON DELETE RESTRICT,
+	base_placement_id INTEGER NOT NULL REFERENCES Placement ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies the tournament; it would be nice to check against contradictions
+	replacement_placement_id INTEGER REFERENCES Placement ON UPDATE CASCADE ON DELETE RESTRICT -- also implies the tournament; it would be nice to check against contradictions
 	UNIQUE(performance_id, placement_id)
 );
 ALTER SEQUENCE response_id_seq RESTART WITH 1000;

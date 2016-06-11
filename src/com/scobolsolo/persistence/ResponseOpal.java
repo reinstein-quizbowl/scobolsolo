@@ -18,25 +18,25 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	@Override
 	protected void initializeReferences() {
 		myOldPerformanceOpal = PerformanceOpal.NOT_YET_LOADED;
-		myOldPlacementOpal = PlacementOpal.NOT_YET_LOADED;
-		myOldReplacementForPlacementOpal = PlacementOpal.NOT_YET_LOADED;
 		myOldResponseTypeOpal = ResponseTypeOpal.NOT_YET_LOADED;
+		myOldBasePlacementOpal = PlacementOpal.NOT_YET_LOADED;
+		myOldReplacementPlacementOpal = PlacementOpal.NOT_YET_LOADED;
 		return;
 	}
 
 	/* package */ static final String[] ourFieldNames = new String[] {
 		"Id",
 		"PerformanceId",
-		"PlacementId",
 		"ResponseTypeCode",
-		"ReplacementForPlacementId",
+		"BasePlacementId",
+		"ReplacementPlacementId",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
 		java.lang.Integer.class,
 		java.lang.Integer.class,
-		java.lang.Integer.class,
 		java.lang.String.class,
+		java.lang.Integer.class,
 		java.lang.Integer.class,
 	};
 
@@ -84,15 +84,15 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return (java.lang.Integer) getReadValueSet()[1];
 	}
 
-	public synchronized java.lang.Integer getPlacementIdAsObject() {
-		return (java.lang.Integer) getReadValueSet()[2];
-	}
-
 	public synchronized java.lang.String getResponseTypeCode() {
-		return (java.lang.String) getReadValueSet()[3];
+		return (java.lang.String) getReadValueSet()[2];
 	}
 
-	public synchronized java.lang.Integer getReplacementForPlacementIdAsObject() {
+	public synchronized java.lang.Integer getBasePlacementIdAsObject() {
+		return (java.lang.Integer) getReadValueSet()[3];
+	}
+
+	public synchronized java.lang.Integer getReplacementPlacementIdAsObject() {
 		return (java.lang.Integer) getReadValueSet()[4];
 	}
 
@@ -124,20 +124,6 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return this;
 	}
 
-	public synchronized ResponseOpal setPlacementId(final java.lang.Integer argPlacementId) {
-		tryMutate();
-		if (argPlacementId == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myPlacementId on " + this + " to null.");
-		}
-		getNewValues()[2] = argPlacementId;
-		return this;
-	}
-
-	public ResponseOpal setPlacementId(final int argPlacementId) {
-		setPlacementId(java.lang.Integer.valueOf(argPlacementId));
-		return this;
-	}
-
 	public synchronized ResponseOpal setResponseTypeCode(final java.lang.String argResponseTypeCode) {
 		tryMutate();
 		if (argResponseTypeCode == null) {
@@ -146,27 +132,41 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (argResponseTypeCode.length() > 32) {
 			throw new com.opal.ArgumentTooLongException("Cannot set myResponseTypeCode on " + this + " to \"" + argResponseTypeCode + "\" because that field's maximum length is 32.", argResponseTypeCode.length(), 32);
 		}
-		getNewValues()[3] = argResponseTypeCode;
+		getNewValues()[2] = argResponseTypeCode;
 		return this;
 	}
 
-	public synchronized ResponseOpal setReplacementForPlacementId(final java.lang.Integer argReplacementForPlacementId) {
+	public synchronized ResponseOpal setBasePlacementId(final java.lang.Integer argBasePlacementId) {
 		tryMutate();
-		getNewValues()[4] = argReplacementForPlacementId;
+		if (argBasePlacementId == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myBasePlacementId on " + this + " to null.");
+		}
+		getNewValues()[3] = argBasePlacementId;
 		return this;
 	}
 
-	public ResponseOpal setReplacementForPlacementId(final int argReplacementForPlacementId) {
-		setReplacementForPlacementId(java.lang.Integer.valueOf(argReplacementForPlacementId));
+	public ResponseOpal setBasePlacementId(final int argBasePlacementId) {
+		setBasePlacementId(java.lang.Integer.valueOf(argBasePlacementId));
+		return this;
+	}
+
+	public synchronized ResponseOpal setReplacementPlacementId(final java.lang.Integer argReplacementPlacementId) {
+		tryMutate();
+		getNewValues()[4] = argReplacementPlacementId;
+		return this;
+	}
+
+	public ResponseOpal setReplacementPlacementId(final int argReplacementPlacementId) {
+		setReplacementPlacementId(java.lang.Integer.valueOf(argReplacementPlacementId));
 		return this;
 	}
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewPerformanceOpal = myOldPerformanceOpal;
-		myNewPlacementOpal = myOldPlacementOpal;
-		myNewReplacementForPlacementOpal = myOldReplacementForPlacementOpal;
 		myNewResponseTypeOpal = myOldResponseTypeOpal;
+		myNewBasePlacementOpal = myOldBasePlacementOpal;
+		myNewReplacementPlacementOpal = myOldReplacementPlacementOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -174,9 +174,9 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldPerformanceOpal = myNewPerformanceOpal;
-		myOldPlacementOpal = myNewPlacementOpal;
-		myOldReplacementForPlacementOpal = myNewReplacementForPlacementOpal;
 		myOldResponseTypeOpal = myNewResponseTypeOpal;
+		myOldBasePlacementOpal = myNewBasePlacementOpal;
+		myOldReplacementPlacementOpal = myNewReplacementPlacementOpal;
 
 		return;
 	}
@@ -186,11 +186,11 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (getPerformanceOpal() != null) {
 			getPerformanceOpal().removeResponseOpalInternal(this);
 		}
-		if (getPlacementOpal() != null) {
-			getPlacementOpal().removeResponseOpalInternal(this);
+		if (getBasePlacementOpal() != null) {
+			getBasePlacementOpal().removeBaseResponseOpalInternal(this);
 		}
-		if (getReplacementForPlacementOpal() != null) {
-			getReplacementForPlacementOpal().removeReplacementForResponseOpalInternal(this);
+		if (getReplacementPlacementOpal() != null) {
+			getReplacementPlacementOpal().removeReplacementResponseOpalInternal(this);
 		}
 		return;
 	}
@@ -200,10 +200,10 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
-		/* Field 1 (PerformanceId) is part of a unique key. */
-		/* Field 2 (PlacementId) is part of a unique key. */
-		lclTargetNewValues[3] = lclValues[3]; /* ResponseTypeCode (immutable) */
-		lclTargetNewValues[4] = lclValues[4]; /* ReplacementForPlacementId (immutable) */
+		lclTargetNewValues[1] = lclValues[1]; /* PerformanceId (immutable) */
+		lclTargetNewValues[2] = lclValues[2]; /* ResponseTypeCode (immutable) */
+		lclTargetNewValues[3] = lclValues[3]; /* BasePlacementId (immutable) */
+		lclTargetNewValues[4] = lclValues[4]; /* ReplacementPlacementId (immutable) */
 
 		return;
 	}
@@ -213,14 +213,14 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (myNewPerformanceOpal != PerformanceOpal.NOT_YET_LOADED) {
 			setPerformanceId(myNewPerformanceOpal == null ? null : myNewPerformanceOpal.getIdAsObject());
 		}
-		if (myNewPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
-			setPlacementId(myNewPlacementOpal == null ? null : myNewPlacementOpal.getIdAsObject());
-		}
-		if (myNewReplacementForPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
-			setReplacementForPlacementId(myNewReplacementForPlacementOpal == null ? null : myNewReplacementForPlacementOpal.getIdAsObject());
-		}
 		if (myNewResponseTypeOpal != ResponseTypeOpal.NOT_YET_LOADED) {
 			setResponseTypeCode(myNewResponseTypeOpal == null ? null : myNewResponseTypeOpal.getCode());
+		}
+		if (myNewBasePlacementOpal != PlacementOpal.NOT_YET_LOADED) {
+			setBasePlacementId(myNewBasePlacementOpal == null ? null : myNewBasePlacementOpal.getIdAsObject());
+		}
+		if (myNewReplacementPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
+			setReplacementPlacementId(myNewReplacementPlacementOpal == null ? null : myNewReplacementPlacementOpal.getIdAsObject());
 		}
 		return;
 	}
@@ -229,19 +229,19 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		com.opal.UpdatableOpal<?> lclUO;
-		lclUO = myNewPerformanceOpal;
+		lclUO = myNewBasePlacementOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewPlacementOpal;
+		lclUO = myNewPerformanceOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
 			lclTAs.add(lclUO);
 		}
-		lclUO = myNewReplacementForPlacementOpal;
+		lclUO = myNewReplacementPlacementOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -265,15 +265,15 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		com.opal.UpdatableOpal<?> lclUO;
-		if ((lclUO = myOldPerformanceOpal) == PerformanceOpal.NOT_YET_LOADED) {
-			lclUO = myOldPerformanceOpal = retrievePerformanceOpal(getOldValues());
+		if ((lclUO = myOldBasePlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
+			lclUO = myOldBasePlacementOpal = retrieveBasePlacementOpal(getOldValues());
 		}
 		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
-		if ((lclUO = myOldPlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
-			lclUO = myOldPlacementOpal = retrievePlacementOpal(getOldValues());
+		if ((lclUO = myOldPerformanceOpal) == PerformanceOpal.NOT_YET_LOADED) {
+			lclUO = myOldPerformanceOpal = retrievePerformanceOpal(getOldValues());
 		}
 		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
@@ -281,8 +281,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 			}
 			lclTAs.add(lclUO);
 		}
-		if ((lclUO = myOldReplacementForPlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
-			lclUO = myOldReplacementForPlacementOpal = retrieveReplacementForPlacementOpal(getOldValues());
+		if ((lclUO = myOldReplacementPlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
+			lclUO = myOldReplacementPlacementOpal = retrieveReplacementPlacementOpal(getOldValues());
 		}
 		if (lclUO != null && lclUO.isDeleted()) {
 			if (lclTAs == null) {
@@ -319,18 +319,18 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	public synchronized void output(final java.io.PrintStream argOutput) {
 		argOutput.println("Id = " + getIdAsObject());
 		argOutput.println("PerformanceId = " + getPerformanceIdAsObject());
-		argOutput.println("PlacementId = " + getPlacementIdAsObject());
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
-		argOutput.println("ReplacementForPlacementId = " + getReplacementForPlacementIdAsObject());
+		argOutput.println("BasePlacementId = " + getBasePlacementIdAsObject());
+		argOutput.println("ReplacementPlacementId = " + getReplacementPlacementIdAsObject());
 	}
 
 	@Override
 	public synchronized void output(final java.io.PrintWriter argOutput) {
 		argOutput.println("Id = " + getIdAsObject());
 		argOutput.println("PerformanceId = " + getPerformanceIdAsObject());
-		argOutput.println("PlacementId = " + getPlacementIdAsObject());
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
-		argOutput.println("ReplacementForPlacementId = " + getReplacementForPlacementIdAsObject());
+		argOutput.println("BasePlacementId = " + getBasePlacementIdAsObject());
+		argOutput.println("ReplacementPlacementId = " + getReplacementPlacementIdAsObject());
 	}
 
 	private PerformanceOpal myOldPerformanceOpal;
@@ -378,102 +378,12 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		myNewPerformanceOpal = argPerformanceOpal;
 	}
 
-	private PlacementOpal myOldPlacementOpal;
-	private PlacementOpal myNewPlacementOpal;
-
-	protected PlacementOpal retrievePlacementOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[2] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getPlacementOpalFactory().forId(getPlacementIdAsObject());
-	}
-
-	public synchronized PlacementOpal getPlacementOpal() {
-		PlacementOpal lclPlacementOpal;
-		boolean lclAccess = tryAccess();
-		lclPlacementOpal = lclAccess ? myNewPlacementOpal : myOldPlacementOpal;
-		if (lclPlacementOpal == PlacementOpal.NOT_YET_LOADED) {
-			lclPlacementOpal = retrievePlacementOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewPlacementOpal = lclPlacementOpal;
-			} else {
-				myOldPlacementOpal = lclPlacementOpal;
-			}
-		}
-		return lclPlacementOpal;
-	}
-
-	public synchronized ResponseOpal setPlacementOpal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		PlacementOpal lclPlacementOpal = getPlacementOpal();
-		if (lclPlacementOpal == argPlacementOpal) { return this; }
-		if (lclPlacementOpal != null) {
-			lclPlacementOpal.removeResponseOpalInternal(this);
-		}
-		myNewPlacementOpal = argPlacementOpal;
-		if (argPlacementOpal != null) {
-			argPlacementOpal.addResponseOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setPlacementOpalInternal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		myNewPlacementOpal = argPlacementOpal;
-	}
-
-	private PlacementOpal myOldReplacementForPlacementOpal;
-	private PlacementOpal myNewReplacementForPlacementOpal;
-
-	protected PlacementOpal retrieveReplacementForPlacementOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[4] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getPlacementOpalFactory().forId(getReplacementForPlacementIdAsObject());
-	}
-
-	public synchronized PlacementOpal getReplacementForPlacementOpal() {
-		PlacementOpal lclPlacementOpal;
-		boolean lclAccess = tryAccess();
-		lclPlacementOpal = lclAccess ? myNewReplacementForPlacementOpal : myOldReplacementForPlacementOpal;
-		if (lclPlacementOpal == PlacementOpal.NOT_YET_LOADED) {
-			lclPlacementOpal = retrieveReplacementForPlacementOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewReplacementForPlacementOpal = lclPlacementOpal;
-			} else {
-				myOldReplacementForPlacementOpal = lclPlacementOpal;
-			}
-		}
-		return lclPlacementOpal;
-	}
-
-	public synchronized ResponseOpal setReplacementForPlacementOpal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		PlacementOpal lclPlacementOpal = getReplacementForPlacementOpal();
-		if (lclPlacementOpal == argPlacementOpal) { return this; }
-		if (lclPlacementOpal != null) {
-			lclPlacementOpal.removeReplacementForResponseOpalInternal(this);
-		}
-		myNewReplacementForPlacementOpal = argPlacementOpal;
-		if (argPlacementOpal != null) {
-			argPlacementOpal.addReplacementForResponseOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setReplacementForPlacementOpalInternal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		myNewReplacementForPlacementOpal = argPlacementOpal;
-	}
-
 	private ResponseTypeOpal myOldResponseTypeOpal;
 	private ResponseTypeOpal myNewResponseTypeOpal;
 
 	protected ResponseTypeOpal retrieveResponseTypeOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[3] == null)) {
+		if ((argValueSet[2] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getResponseTypeOpalFactory().forCode(getResponseTypeCode());
@@ -500,6 +410,96 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return this;
 	}
 
+	private PlacementOpal myOldBasePlacementOpal;
+	private PlacementOpal myNewBasePlacementOpal;
+
+	protected PlacementOpal retrieveBasePlacementOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[3] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getPlacementOpalFactory().forId(getBasePlacementIdAsObject());
+	}
+
+	public synchronized PlacementOpal getBasePlacementOpal() {
+		PlacementOpal lclPlacementOpal;
+		boolean lclAccess = tryAccess();
+		lclPlacementOpal = lclAccess ? myNewBasePlacementOpal : myOldBasePlacementOpal;
+		if (lclPlacementOpal == PlacementOpal.NOT_YET_LOADED) {
+			lclPlacementOpal = retrieveBasePlacementOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewBasePlacementOpal = lclPlacementOpal;
+			} else {
+				myOldBasePlacementOpal = lclPlacementOpal;
+			}
+		}
+		return lclPlacementOpal;
+	}
+
+	public synchronized ResponseOpal setBasePlacementOpal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		PlacementOpal lclPlacementOpal = getBasePlacementOpal();
+		if (lclPlacementOpal == argPlacementOpal) { return this; }
+		if (lclPlacementOpal != null) {
+			lclPlacementOpal.removeBaseResponseOpalInternal(this);
+		}
+		myNewBasePlacementOpal = argPlacementOpal;
+		if (argPlacementOpal != null) {
+			argPlacementOpal.addBaseResponseOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setBasePlacementOpalInternal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		myNewBasePlacementOpal = argPlacementOpal;
+	}
+
+	private PlacementOpal myOldReplacementPlacementOpal;
+	private PlacementOpal myNewReplacementPlacementOpal;
+
+	protected PlacementOpal retrieveReplacementPlacementOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[4] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getPlacementOpalFactory().forId(getReplacementPlacementIdAsObject());
+	}
+
+	public synchronized PlacementOpal getReplacementPlacementOpal() {
+		PlacementOpal lclPlacementOpal;
+		boolean lclAccess = tryAccess();
+		lclPlacementOpal = lclAccess ? myNewReplacementPlacementOpal : myOldReplacementPlacementOpal;
+		if (lclPlacementOpal == PlacementOpal.NOT_YET_LOADED) {
+			lclPlacementOpal = retrieveReplacementPlacementOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewReplacementPlacementOpal = lclPlacementOpal;
+			} else {
+				myOldReplacementPlacementOpal = lclPlacementOpal;
+			}
+		}
+		return lclPlacementOpal;
+	}
+
+	public synchronized ResponseOpal setReplacementPlacementOpal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		PlacementOpal lclPlacementOpal = getReplacementPlacementOpal();
+		if (lclPlacementOpal == argPlacementOpal) { return this; }
+		if (lclPlacementOpal != null) {
+			lclPlacementOpal.removeReplacementResponseOpalInternal(this);
+		}
+		myNewReplacementPlacementOpal = argPlacementOpal;
+		if (argPlacementOpal != null) {
+			argPlacementOpal.addReplacementResponseOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setReplacementPlacementOpalInternal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		myNewReplacementPlacementOpal = argPlacementOpal;
+	}
+
 	@Override
 	public java.lang.String toString() {
 		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
@@ -515,14 +515,14 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (myNewPerformanceOpal != PerformanceOpal.NOT_YET_LOADED) {
 			setPerformanceOpal(retrievePerformanceOpal(getNewValues()));
 		}
-		if (myNewPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
-			setPlacementOpal(retrievePlacementOpal(getNewValues()));
-		}
-		if (myNewReplacementForPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
-			setReplacementForPlacementOpal(retrieveReplacementForPlacementOpal(getNewValues()));
-		}
 		if (myNewResponseTypeOpal != ResponseTypeOpal.NOT_YET_LOADED) {
 			setResponseTypeOpal(retrieveResponseTypeOpal(getNewValues()));
+		}
+		if (myNewBasePlacementOpal != PlacementOpal.NOT_YET_LOADED) {
+			setBasePlacementOpal(retrieveBasePlacementOpal(getNewValues()));
+		}
+		if (myNewReplacementPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
+			setReplacementPlacementOpal(retrieveReplacementPlacementOpal(getNewValues()));
 		}
 	}
 

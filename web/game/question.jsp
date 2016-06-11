@@ -1,5 +1,6 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
 <%@ page import="com.siliconage.util.Tally" %>
@@ -54,14 +55,14 @@ int lclIndex = ControllerServlet.getRequiredIntParameter(request, "index");
 Validate.isTrue(lclIndex >= 0, "invalid index");
 Validate.isTrue(lclPlacements == null || lclIndex < lclPlacements.size(), "index smaller than placements");
 Placement lclBasePL = lclPlacements == null ? null : lclPlacements.get(lclIndex);
-Placement lclPL;
+Placement lclReplacementPL = null;
 if (lclPlacements == null) {
-	lclPL = null;
+	lclReplacementPL = null;
 } else if (lclReplacement) {
-	lclPL = Validate.notNull(lclBasePL.findReplacement(), "no replacement available");
-} else {
-	lclPL = Validate.notNull(lclBasePL, "no base");
+	lclReplacementPL = Validate.notNull(lclBasePL.findReplacement(), "no replacement available");
 }
+Placement lclActualPlacement = ObjectUtils.firstNonNull(lclReplacementPL, lclBasePL);
+
 Placement lclPreviousPL;
 if (lclPlacements == null) {
 	lclPreviousPL = null;
@@ -83,7 +84,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>You are reading <%= lclRound.getName() %>, question&nbsp;#<%= lclPL.getNumber() %>. On your left is <%= lclLeftPlayer.getNameWithSchool() %>; on your right is <%= lclRightPlayer.getNameWithSchool() %>. If any of this is incorrect, stop immediately and rectify the situation!</p>
+		<p>You are reading <%= lclRound.getName() %>, question&nbsp;#<%= lclBasePL.getNumber() %>. On your left is <%= lclLeftPlayer.getNameWithSchool() %>; on your right is <%= lclRightPlayer.getNameWithSchool() %>. If any of this is incorrect, stop immediately and rectify the situation!</p>
 		<p>The score going into this question is <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>.</p>
 	</div>
 </div>
@@ -92,7 +93,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 	<div class="small-12 columns">
 		<%= GameEntryQuestionMenu.outputFoundationMenu(
 			lclGame,
-			"Question&nbsp;#" + lclPL.getNumber() + (lclReplacement ? " (REPLACEMENT)" : ""),
+			"Question&nbsp;#" + lclBasePL.getNumber() + (lclReplacement ? " (REPLACEMENT)" : ""),
 			lclLeftPlayer,
 			lclRightPlayer,
 			lclIndex,
@@ -112,11 +113,11 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		}
 		
 		if (lclUser.mayViewQuestions(lclMatch)) {
-			if (lclPL.getQuestion().getText() != null) {
-				%><p class="question-text"><%= lclPL.getQuestion().outputTextHTML() %></p><%
+			if (lclActualPlacement.getQuestion().getText() != null) {
+				%><p class="question-text"><%= lclActualPlacement.getQuestion().outputTextHTML() %></p><%
 			}
-			if (lclPL.getQuestion().getAnswer() != null) {
-				%><p class="question-answer"><%= lclPL.getQuestion().outputAnswerHTML() %></p><%
+			if (lclActualPlacement.getQuestion().getAnswer() != null) {
+				%><p class="question-answer"><%= lclActualPlacement.getQuestion().outputAnswerHTML() %></p><%
 			}
 		}
 	%></div>
@@ -128,9 +129,11 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 	<input type="hidden" name="right_player_id" value="<%= lclRightPlayer.getId() %>" />
 	<input type="hidden" name="index" value="<%= lclIndex %>" />
 	<input type="hidden" name="overtime" value="<%= lclOvertime %>" />
-	<input type="hidden" name="base_placement_id" value="<%= lclBasePL.getId() %>" />
-	<input type="hidden" name="placement_id" value="<%= lclPL.getId() %>" />
-	<div class="row"><%
+	<input type="hidden" name="base_placement_id" value="<%= lclBasePL.getId() %>" /><%
+	if (lclReplacementPL != null) {
+		%><input type="hidden" name="replacement_placement_id" value="<%= lclReplacementPL.getId() %>" /><%
+	}
+	%><div class="row"><%
 		for (Player lclPlayer : Arrays.asList(lclLeftPlayer, lclRightPlayer)) {
 			String lclName;
 			if (lclPlayer == lclLeftPlayer) {
@@ -145,7 +148,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 			
 			Performance lclPerf = lclGame.findPerformance(lclPlayer);
 			if (lclPerf != null) {
-				final Response lclR = lclPerf.findResponse(lclBasePL); // Notably *not* lclPL. I think this is what we want to do for replacement questions.
+				final Response lclR = lclPerf.findResponseForBasePlacement(lclBasePL);
 				if (lclR != null) {
 					lclSelectedRT = lclR.getResponseType();
 				}

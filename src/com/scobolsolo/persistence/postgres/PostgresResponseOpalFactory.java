@@ -25,9 +25,9 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	private static final String[] ourColumnNames = new String[] {
 		"id", 
 		"performance_id", 
-		"placement_id", 
 		"response_type_code", 
-		"replacement_for_placement_id", 
+		"base_placement_id", 
+		"replacement_placement_id", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -117,7 +117,6 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		if (argValues.length != 5) { throw new IllegalStateException(); }
 		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
-			lclOC.addOpal(new PerformanceIdPlacementIdOpalKey((java.lang.Integer) argValues[1], (java.lang.Integer) argValues[2]), argOpal, true);
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
 		}
 	}
@@ -129,7 +128,6 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
 		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
-			lclOC.removeOpal(new PerformanceIdPlacementIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]));
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
 		}
 	}
@@ -147,16 +145,6 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		synchronized (lclOC) {
 			OpalKey<ResponseOpal> lclOldKey = null;
 			OpalKey<ResponseOpal> lclNewKey = null;
-			if (true) {
-				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[2].equals(lclOldValues[2]))) {
-					lclNewKey = new PerformanceIdPlacementIdOpalKey((java.lang.Integer) lclNewValues[1], (java.lang.Integer) lclNewValues[2]);
-					if (true) {
-						lclOldKey = new PerformanceIdPlacementIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]);
-					}
-				}
-			}
-			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
-			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
@@ -192,27 +180,21 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	}
 
 	@Override
-	public java.util.HashSet<ResponseOpal> forPlacementIdCollection(java.lang.Integer argPlacementId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argPlacementId };
-		final String[] lclFieldNames = new String[] { "placement_id" };
+	public java.util.HashSet<ResponseOpal> forBasePlacementIdCollection(java.lang.Integer argBasePlacementId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argBasePlacementId };
+		final String[] lclFieldNames = new String[] { "base_placement_id" };
 		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<ResponseOpal> forReplacementForPlacementIdCollection(java.lang.Integer argReplacementForPlacementId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argReplacementForPlacementId };
-		final String[] lclFieldNames = new String[] { "replacement_for_placement_id" };
+	public com.siliconage.util.Fast3Set<ResponseOpal> forReplacementPlacementIdCollection(java.lang.Integer argReplacementPlacementId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argReplacementPlacementId };
+		final String[] lclFieldNames = new String[] { "replacement_placement_id" };
 		com.siliconage.util.Fast3Set<ResponseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
-	}
-
-	@Override
-	public ResponseOpal forPerformanceIdPlacementId(java.lang.Integer argPerformanceId, java.lang.Integer argPlacementId) throws PersistenceException {
-		OpalKey<ResponseOpal> lclOpalKey = new PerformanceIdPlacementIdOpalKey(argPerformanceId, argPlacementId);
-		return forOpalKey(lclOpalKey);
 	}
 
 	@Override
@@ -226,23 +208,6 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		return new IdOpalKey(
 			OpalUtility.convertTo(java.lang.Integer.class, argRS.getObject("id"))
 		);
-	}
-
-	/* package */ static class PerformanceIdPlacementIdOpalKey extends com.opal.MultipleValueDatabaseOpalKey<ResponseOpal> {
-		private static final String[] ourKeyColumnNames = new String[] {"performance_id", "placement_id", };
-
-		public PerformanceIdPlacementIdOpalKey(java.lang.Integer argPerformanceId, java.lang.Integer argPlacementId) {
-			super(new Object[] {argPerformanceId, argPlacementId, });
-		}
-
-		@Override
-		public Object[] getParameters() {
-			return getFields();
-		}
-
-		@Override
-		public String[] getColumnNames() { return ourKeyColumnNames; }
-
 	}
 
 	/* package */ static class IdOpalKey extends com.opal.SingleValueDatabaseOpalKey<ResponseOpal> {

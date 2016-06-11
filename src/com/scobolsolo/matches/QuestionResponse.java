@@ -46,8 +46,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		
 		
 		final Placement lclBasePL = Validate.notNull(PlacementFactory.getInstance().fromHttpRequest(argRequest, "base_placement_id"), "Missing base placement");
-		final Placement lclPL = Validate.notNull(PlacementFactory.getInstance().fromHttpRequest(argRequest), "Missing placement");
-		final boolean lclReplaced = lclBasePL != lclPL;
+		final Placement lclReplacementPL = Validate.notNull(PlacementFactory.getInstance().fromHttpRequest(argRequest, "replacement_placement_id"), "Missing placement");
 		
 		final ResponseType lclLeftRT = Validate.notNull(ResponseTypeFactory.getInstance().fromHttpRequest(argRequest, "left_player_response_type_code"), "Left player's response wasn't specified");
 		final ResponseType lclRightRT = Validate.notNull(ResponseTypeFactory.getInstance().fromHttpRequest(argRequest, "right_player_response_type_code"), "Right player's response wasn't specified");
@@ -56,32 +55,24 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 			final Performance lclLeftPerf = lclGame.findOrCreatePerformance(lclLeftPlayer);
 			final Performance lclRightPerf = lclGame.findOrCreatePerformance(lclRightPlayer);
 			
-			final Response lclLeftResponse;
-			final Response lclRightResponse;
-			
-			if (lclReplaced) {
+			if (lclReplacementPL != null) {
 				// Do we already have responses for the original question? If so, delete them.
 				// TODO: Make it possible to properly record a question being replaced for one player only.
-				final Response lclLeftResponseOldQuestion = lclLeftPerf.findResponse(lclBasePL);
+				final Response lclLeftResponseOldQuestion = lclLeftPerf.findResponseForBasePlacement(lclBasePL);
 				if (lclLeftResponseOldQuestion != null) {
 					lclLeftResponseOldQuestion.unlink();
 				}
-				final Response lclRightResponseOldQuestion = lclRightPerf.findResponse(lclBasePL);
+				final Response lclRightResponseOldQuestion = lclRightPerf.findResponseForBasePlacement(lclBasePL);
 				if (lclRightResponseOldQuestion != null) {
 					lclRightResponseOldQuestion.unlink();
 				}
 			}
 			
-			lclLeftResponse = lclLeftPerf.findOrCreateResponse(lclPL);
-			lclRightResponse = lclRightPerf.findOrCreateResponse(lclPL);
+			lclLeftPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
+				.setResponseType(lclLeftRT);
 			
-			lclLeftResponse.setResponseType(lclLeftRT);
-			lclRightResponse.setResponseType(lclRightRT);
-			
-			if (lclReplaced) {
-				lclLeftResponse.setReplacementForPlacement(lclBasePL);
-				lclRightResponse.setReplacementForPlacement(lclBasePL);
-			}
+			lclRightPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
+				.setResponseType(lclRightRT);
 			
 			lclTC.complete();
 			

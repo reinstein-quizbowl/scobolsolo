@@ -30,11 +30,6 @@ public class ResponseFactory extends com.opal.AbstractIdentityFactory<Response, 
 		return getResponseOpalFactory().create().getUserFacing();
 	}
 
-	public Response forPerformanceIdPlacementId(java.lang.Integer argPerformanceId, java.lang.Integer argPlacementId) {
-		ResponseOpal lclResponseOpal = getResponseOpalFactory().forPerformanceIdPlacementId(argPerformanceId, argPlacementId);
-		return (lclResponseOpal == null) ? null : lclResponseOpal.getUserFacing();
-	}
-
 	public Response forId(java.lang.Integer argId) {
 		ResponseOpal lclResponseOpal = getResponseOpalFactory().forId(argId);
 		return (lclResponseOpal == null) ? null : lclResponseOpal.getUserFacing();

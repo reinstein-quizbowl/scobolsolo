@@ -16,6 +16,10 @@ WHERE PLAYER.exhibition = FALSE
 GROUP BY Ph.tournament_code, P.player_id;
 
 
+CREATE VIEW Response_v AS
+SELECT *, COALESCE(replacement_placement_id, base_placement_id) AS actual_placement_id
+FROM Response R;
+
 
 CREATE VIEW Player_Category_Point_v AS
 SELECT
@@ -24,7 +28,7 @@ SELECT
 	C.code AS category_code,
 	COUNT(R.*) AS tossups_heard,
 	SUM(RT.points) AS points
-FROM Response R
+FROM Response_v R
 	JOIN Performance P ON R.performance_id = P.id
 	JOIN Player PLAYER ON P.playeR_id = PLAYER.id
 	JOIN Game G ON P.game_id = G.id
@@ -33,7 +37,7 @@ FROM Response R
 	JOIN Round_Group RG ON RD.round_group_id = RG.id
 	JOIN Phase Ph ON RG.phase_id = Ph.id
 	JOIN Response_Type RT ON R.response_type_code = RT.code
-	JOIN Placement PL ON R.placement_id = PL.id
+	JOIN Placement PL ON R.actual_placement_id = PL.id
 	JOIN Question Q on PL.question_id = Q.id
 	JOIN Category C ON Q.category_code = C.code
 WHERE
@@ -45,7 +49,7 @@ GROUP BY Ph.tournament_code, PLAYER.id, C.code;
 CREATE VIEW Placement_Conversion_v AS
 SELECT Ph.tournament_code, PL.id AS placement_id, PL.question_id, R.response_type_code, COUNT(*) AS response_type_count
 FROM Placement PL
-	JOIN Response R ON R.placement_id = PL.id
+	JOIN Response_v R ON R.actual_placement_id = PL.id
 	JOIN Performance P ON R.performance_id = P.id
 	JOIN Player PLAYER ON P.player_id = PLAYER.id
 	JOIN Game G ON P.game_id = G.id
@@ -60,7 +64,7 @@ GROUP BY Ph.tournament_code, PL.id, PL.question_id, R.response_type_code;
 CREATE VIEW Category_Conversion_v AS
 SELECT Ph.tournament_code, Q.category_code, R.response_type_code, COUNT(*) AS response_type_count
 FROM Placement PL
-	JOIN Response R ON R.placement_id = PL.id
+	JOIN Response_v R ON R.actual_placement_id = PL.id
 	JOIN Performance P ON R.performance_id = P.id
 	JOIN Player PLAYER ON P.player_id = PLAYER.id
 	JOIN Game G ON P.game_id = G.id
@@ -109,12 +113,12 @@ FROM Match M
 	JOIN Phase Ph ON RG.phase_id = Ph.id
 	JOIN Performance Pwin ON Pwin.game_id = G.id AND Pwin.player_id = G.outgoing_winning_card_player_id
 	JOIN Performance Plose ON Plose.game_id = G.id AND Plose.player_id = G.outgoing_losing_card_player_id
-	JOIN Response Rwin ON Pwin.id = Rwin.performance_id
+	JOIN Response_v Rwin ON Pwin.id = Rwin.performance_id
 	JOIN Response_Type RTwin ON Rwin.response_type_code = RTwin.code
-	JOIN Response Rlose ON Plose.id = Rlose.performance_id
+	JOIN Response_v Rlose ON Plose.id = Rlose.performance_id
 	JOIN Response_Type RTlose ON Rlose.response_type_code = RTlose.code
 WHERE
-	Rwin.placement_id = Rlose.placement_id AND
+	Rwin.actual_placement_id = Rlose.actual_placement_id AND
 	(
 		(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL)
 		OR

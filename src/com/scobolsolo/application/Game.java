@@ -44,7 +44,7 @@ public interface Game extends GameUserFacing {
 		final Tally<Performance> lclTally = new Tally<>();
 		for (Performance lclPerf : createPerformanceArray()) {
 			for (Response lclR : lclPerf.createResponseArray()) {
-				Placement lclPL = lclR.getPlacement();
+				Placement lclPL = lclR.getBasePlacement();
 				int lclRegulationIndex = lclRegulation.indexOf(lclPL);
 				if (argOvertime || (lclRegulationIndex >= 0 && lclRegulationIndex <= argIndex)) {
 					lclTally.tally(lclPerf, lclR.getResponseType().getPoints());

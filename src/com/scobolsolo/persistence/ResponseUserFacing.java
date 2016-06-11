@@ -110,52 +110,6 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Response setPerformanceId(int argPerformanceId);
 
 	/**
-	 * object accessor for the {@code PlacementId}
-	 *
-	 * <p>The {@code PlacementId} field is a direct mapping of the {@code placement_id} field in {@code response}.</p>
-	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPlacementId() method.</p>
-	 *
-	 * @return an object value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public java.lang.Integer getPlacementIdAsObject();
-
-	/**
-	 * primitive accessor for the {@code PlacementId}
-	 *
-	 * <p>The {@code PlacementId} field is a direct mapping of the {@code placement_id} database column in the table {@code response}.</p>
-	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPlacementIdAsObject() method.</p>
-	 *
-	 * @return the primitive value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})
-	 */
-	default public int getPlacementId() {
-		java.lang.Integer lclO = getPlacementIdAsObject();
-		return lclO.intValue();
-	}
-
-	/**
-	 * sets the {@code PlacementId} to the value of {@code argPlacementId}
-	 *
-	 * @param argPlacementId the new value of {@code PlacementId}.  May not be <code>null</code>.
-	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code placement_id} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws com.opal.IllegalNullArgumentException if argPlacementId is null
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Response setPlacementId(java.lang.Integer argPlacementId);
-
-	/**
-	 * sets the {@code PlacementId} to the value of {@code argPlacementId}
-	 *
-	 * @param argPlacementId the new value of {@code PlacementId}
-	 * @return itself, so that mutators may be chained fluently
-	 */
-	public com.scobolsolo.application.Response setPlacementId(int argPlacementId);
-
-	/**
 	 * object accessor for the {@code ResponseTypeCode}
 	 *
 	 * <p>The {@code ResponseTypeCode} field is a direct mapping of the {@code response_type_code} field in {@code response}.</p>
@@ -183,79 +137,125 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Response setResponseTypeCode(java.lang.String argResponseTypeCode);
 
 	/**
-	 * object accessor for the {@code ReplacementForPlacementId}
+	 * object accessor for the {@code BasePlacementId}
 	 *
-	 * <p>The {@code ReplacementForPlacementId} field is a direct mapping of the {@code replacement_for_placement_id} field in {@code response}.</p>
+	 * <p>The {@code BasePlacementId} field is a direct mapping of the {@code base_placement_id} field in {@code response}.</p>
 	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getReplacementForPlacementId() method.</p>
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getBasePlacementId() method.</p>
 	 *
-	 * @return an object value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code BasePlacementId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
-	@com.opal.annotation.Nullability(nullable = true)
-	public java.lang.Integer getReplacementForPlacementIdAsObject();
+	@com.opal.annotation.Nullability(nullable = false)
+	public java.lang.Integer getBasePlacementIdAsObject();
 
 	/**
-	 * object accessor for the {@code ReplacementForPlacementId} with substitution for a null value
+	 * primitive accessor for the {@code BasePlacementId}
 	 *
-	 * <p>The {@code ReplacementForPlacementId} field is a direct mapping of the {@code replacement_for_placement_id} database column in the table {@code response}.</p>
+	 * <p>The {@code BasePlacementId} field is a direct mapping of the {@code base_placement_id} database column in the table {@code response}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getBasePlacementIdAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code BasePlacementId} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public int getBasePlacementId() {
+		java.lang.Integer lclO = getBasePlacementIdAsObject();
+		return lclO.intValue();
+	}
+
+	/**
+	 * sets the {@code BasePlacementId} to the value of {@code argBasePlacementId}
+	 *
+	 * @param argBasePlacementId the new value of {@code BasePlacementId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code base_placement_id} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argBasePlacementId is null
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Response setBasePlacementId(java.lang.Integer argBasePlacementId);
+
+	/**
+	 * sets the {@code BasePlacementId} to the value of {@code argBasePlacementId}
+	 *
+	 * @param argBasePlacementId the new value of {@code BasePlacementId}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Response setBasePlacementId(int argBasePlacementId);
+
+	/**
+	 * object accessor for the {@code ReplacementPlacementId}
+	 *
+	 * <p>The {@code ReplacementPlacementId} field is a direct mapping of the {@code replacement_placement_id} field in {@code response}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getReplacementPlacementId() method.</p>
+	 *
+	 * @return an object value of {@code ReplacementPlacementId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getReplacementPlacementIdAsObject();
+
+	/**
+	 * object accessor for the {@code ReplacementPlacementId} with substitution for a null value
+	 *
+	 * <p>The {@code ReplacementPlacementId} field is a direct mapping of the {@code replacement_placement_id} database column in the table {@code response}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
-	 * @param argStringToSubstituteIfNull the value to return if the {@code ReplacementForPlacementId} is {@code null}.
-	 * @return an object value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @param argStringToSubstituteIfNull the value to return if the {@code ReplacementPlacementId} is {@code null}.
+	 * @return an object value of {@code ReplacementPlacementId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
-	default public java.lang.String getReplacementForPlacementIdAsObject(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getReplacementForPlacementIdAsObject();
+	default public java.lang.String getReplacementPlacementIdAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getReplacementPlacementIdAsObject();
 		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
 	}
 
 
 	/**
-	 * primitive accessor for the {@code ReplacementForPlacementId}
+	 * primitive accessor for the {@code ReplacementPlacementId}
 	 *
-	 * <p>The {@code ReplacementForPlacementId} field is a direct mapping of the {@code replacement_for_placement_id} database column in the table {@code response}.</p>
+	 * <p>The {@code ReplacementPlacementId} field is a direct mapping of the {@code replacement_placement_id} database column in the table {@code response}.</p>
 	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getReplacementForPlacementIdAsObject() method.</p>
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getReplacementPlacementIdAsObject() method.</p>
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code ReplacementForPlacementId} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code ReplacementPlacementId} (of the current {@link com.opal.TransactionContext})
 	 * @throws com.opal.NullValueException when the internal value is null
 	 */
-	default public int getReplacementForPlacementId() throws com.opal.NullValueException {
-		java.lang.Integer lclO = getReplacementForPlacementIdAsObject();
+	default public int getReplacementPlacementId() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getReplacementPlacementIdAsObject();
 		if (lclO == null) {
 			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
 		}
 		return lclO.intValue();
 	}
 
-	default public int getReplacementForPlacementId(int argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getReplacementForPlacementIdAsObject();
+	default public int getReplacementPlacementId(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getReplacementPlacementIdAsObject();
 		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
 	}
 
-	default public java.lang.String getReplacementForPlacementId(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getReplacementForPlacementIdAsObject();
+	default public java.lang.String getReplacementPlacementId(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getReplacementPlacementIdAsObject();
 		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
 	}
 
 	/**
-	 * sets the {@code ReplacementForPlacementId} to the value of {@code argReplacementForPlacementId}
+	 * sets the {@code ReplacementPlacementId} to the value of {@code argReplacementPlacementId}
 	 *
-	 * @param argReplacementForPlacementId the new value of {@code ReplacementForPlacementId}.  May be <code>null</code>.
+	 * @param argReplacementPlacementId the new value of {@code ReplacementPlacementId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
-	public com.scobolsolo.application.Response setReplacementForPlacementId(java.lang.Integer argReplacementForPlacementId);
+	public com.scobolsolo.application.Response setReplacementPlacementId(java.lang.Integer argReplacementPlacementId);
 
 	/**
-	 * sets the {@code ReplacementForPlacementId} to the value of {@code argReplacementForPlacementId}
+	 * sets the {@code ReplacementPlacementId} to the value of {@code argReplacementPlacementId}
 	 *
-	 * @param argReplacementForPlacementId the new value of {@code ReplacementForPlacementId}
+	 * @param argReplacementPlacementId the new value of {@code ReplacementPlacementId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
-	public com.scobolsolo.application.Response setReplacementForPlacementId(int argReplacementForPlacementId);
+	public com.scobolsolo.application.Response setReplacementPlacementId(int argReplacementPlacementId);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
@@ -267,24 +267,6 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Placement}
-	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_placement_id_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Placement getPlacement();
-	public com.scobolsolo.application.Response setPlacement(com.scobolsolo.application.Placement argPlacement);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.Placement}
-	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_replacement_placement_id_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = true)
-	public com.scobolsolo.application.Placement getReplacementForPlacement();
-	public com.scobolsolo.application.Response setReplacementForPlacement(com.scobolsolo.application.Placement argReplacementForPlacement);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.ResponseType}
 	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code response_response_type_code_fkey}.
 	 *
@@ -292,6 +274,24 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.ResponseType getResponseType();
 	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Placement}
+	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_base_placement_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Placement getBasePlacement();
+	public com.scobolsolo.application.Response setBasePlacement(com.scobolsolo.application.Placement argBasePlacement);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Placement}
+	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_replacement_placement_id_fkey1}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Placement getReplacementPlacement();
+	public com.scobolsolo.application.Response setReplacementPlacement(com.scobolsolo.application.Placement argReplacementPlacement);
 
 	public com.scobolsolo.application.Response copy();
 
