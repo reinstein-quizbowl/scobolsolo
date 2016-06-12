@@ -35,13 +35,13 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 					<%= lclCardsAssigned ? "<th>Initial&nbsp;card</th>" : "" %>
 				</tr>
 			</thead>
-			<tbody id="sortable"><%
+			<tbody class="reorderable"><%
 				List<Player> lclPlayers = lclT.getPlayers();
 				lclPlayers.sort(Player.SeedComparator.getInstance());
 				
 				for (Player lclP : lclPlayers) {
 					%><tr class="ui-state-default">
-						<td class="generated-seed"><input type="hidden" class="generated-seed-target" name="seed-<%= lclP.getId() %>" value="" id="seed-<%= lclP.getId() %>" /></td>
+						<td><input type="number" readonly="readonly" class="number-widget" id="player_<%= lclP.getId() %>_seed" name="player_<%= lclP.getId() %>_seed" value="<%= lclP.getSeed("?") %>" /></td>
 						<td data-tablesorter="<%= lclP.getContact().getSortBy() %>"><a href="player-edit.jsp?player_id=<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></td>
 						<td data-tablesorter="<%= lclP.getSchoolRegistration().getSchool().getShortName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclP.getSchoolRegistration().getId() %>"><%= lclP.getSchoolRegistration().getSchool().getShortName() %></a></td>
 						<td data-tablesorter="<%= lclP.getSchoolYear() == null ? 0 : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "?" : lclP.getSchoolYear().getShortName() %></td>
@@ -103,42 +103,85 @@ if (lclP != null && lclP.isCardSystem()) {
 }
 
 %><style type="text/css">
-	#sortable {
-		counter-reset: generatedseed;
-	}
-	
-	#sortable * {
+	.reorderable tr {
 		background-color: #fff;
 		cursor: grab;
 	}
 	
-	#sortable a {
+	.reorderable a {
 		cursor: pointer;
 	}
 	
-	#sortable .generated-seed:after {
-		content: "\00a0 " counter(generatedseed);
-		counter-increment: generatedseed;
+	input[readonly].number-widget {
+		width: 4em;
+		cursor: not-allowed;
+		background-color: inherit !important;
+		border: none;
 	}
 </style>
 
 <script>
-	$(function() {
-		$("#sortable").sortable({
-			axis: 'y',
-			containment: 'parent',
-			cursor: 'grabbing'
-		});
-		$("#sortable").disableSelection();
-	});
-	
-	function populateSeeds() {
-		var lclSeedTargets = document.getElementsByClassName('generated-seed-target');
+	var renumber = function(argMoved) {
+		var lclWidgets = extractNumberWidgets(argMoved.parent());
 		
-		for (var lclSeed = 1; lclSeed <= lclSeedTargets.length; ++lclSeed) {
-			lclSeedTargets[lclSeed-1].value = lclSeed;
+		var lclMin = Number.MAX_SAFE_INTEGER;
+		
+		lclWidgets.each(
+			function(argI, argWidget) {
+				var lclNumber = $(argWidget).val();
+				
+				if (lclNumber < lclMin) {
+					lclMin = lclNumber;
+				}
+			}
+		);
+		
+		var lclCurrentNumber = lclMin;
+		lclWidgets.each(
+			function(argI, argWidget) {
+				$(argWidget).val(lclCurrentNumber);
+				++lclCurrentNumber;
+			}
+		);
+	};
+	
+	var extractNumberWidgets = function(argParent) {
+		return argParent.find("input[type=number].number-widget");
+	};
+	
+	var extractNumberWidget = function(argParent) {
+		return extractNumberWidgets(argParent).first();
+	};
+	
+	$(
+		function() {
+			$('.reorderable').sortable(
+				{
+					axis: 'y',
+					containment: 'parent',
+					cursor: 'grabbing',
+					update: function (argEvent, argUI) {
+						renumber(argUI.item);
+					},
+					helper: function(argEvent, argRow) {
+						// from http://stackoverflow.com/questions/1307705/jquery-ui-sortable-with-table-and-tr-width
+						var lclOriginals = argRow.children();
+						
+						var lclHelper = argRow.clone();
+						
+						lclHelper.children().each(
+							function(argIndex, argChild) {
+								$(this).width(lclOriginals.eq(argIndex).width());
+							}
+						);
+						
+						return lclHelper;
+					}
+				}
+			);
+			$('.reorderable').disableSelection();
 		}
-	}
+	);
 </script>
 
 <jsp:include page="/template/footer.jsp" />
