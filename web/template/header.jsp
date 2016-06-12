@@ -49,16 +49,16 @@ if (argDescriptionParameter == null) {
 	<meta name="description" content="<%= StringEscapeUtils.escapeHtml4(argDescription) %>">
 	
 	<!-- jQuery -->
-	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 	
 	<!-- jQuery UI -->
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	
 	<!-- Tablesorter -->
-	<script src="/template/tablesorter/jquery.tablesorter.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.2/js/jquery.tablesorter.min.js"></script>
 	
 	<!-- Automatic smart quotes -->
 	<script src="/template/js/smartquotes.min.js"></script>
