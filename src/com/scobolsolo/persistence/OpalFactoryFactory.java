@@ -7,6 +7,7 @@ public abstract class OpalFactoryFactory extends AbstractOpalFactoryFactory {
 
 	public abstract PlayerCategoryPointVOpalFactory getPlayerCategoryPointVOpalFactory();
 	public abstract GameOpalFactory getGameOpalFactory();
+	public abstract PronunciationGuideSuppressionOpalFactory getPronunciationGuideSuppressionOpalFactory();
 	public abstract PlayerMatchVOpalFactory getPlayerMatchVOpalFactory();
 	public abstract PlacementConversionVOpalFactory getPlacementConversionVOpalFactory();
 	public abstract ResponseTypeOpalFactory getResponseTypeOpalFactory();

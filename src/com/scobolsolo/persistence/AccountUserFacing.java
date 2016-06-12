@@ -347,6 +347,33 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Contact getContact();
 	public com.scobolsolo.application.Account setContact(com.scobolsolo.application.Contact argContact);
 
+	public int getPronunciationGuideSuppressionCount();
+	public java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression();
+
+	public com.scobolsolo.application.Account addPronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
+	public com.scobolsolo.application.Account removePronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.PronunciationGuideSuppression>> T acquirePronunciationGuideSuppression(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.PronunciationGuideSuppression[] createPronunciationGuideSuppressionArray() {
+		int lclLength = getPronunciationGuideSuppressionCount();
+		com.scobolsolo.application.PronunciationGuideSuppression[] lclA = new com.scobolsolo.application.PronunciationGuideSuppression[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
 	public int getWriterQuestionCount();
 	public java.util.Iterator<com.scobolsolo.application.Question> createWriterQuestionIterator();
 

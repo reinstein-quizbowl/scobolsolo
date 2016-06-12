@@ -149,6 +149,18 @@ public interface Account extends AccountUserFacing {
 		return this;
 	}
 	
+	default boolean showPronunciationGuidesFor(final Placement argPlacement) {
+		Validate.notNull(argPlacement);
+		
+		return showPronunciationGuidesFor(argPlacement.getCategory());
+	}
+	
+	default boolean showPronunciationGuidesFor(final Category argCategory) {
+		Validate.notNull(argCategory);
+		
+		return streamPronunciationGuideSuppression().noneMatch(argPGS -> argPGS.getCategory() == argCategory);
+	}
+	
 	public static Account determineCurrent(final HttpServletRequest argRequest) {
 		Validate.notNull(argRequest);
 		

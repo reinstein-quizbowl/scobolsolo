@@ -285,7 +285,8 @@ CREATE TABLE Category (
 	name name_t UNIQUE,
 	short_name short_name_t UNIQUE,
 	sequence sequence_t,
-	category_group_code code_t REFERENCES Category_Group ON UPDATE CASCADE ON DELETE RESTRICT
+	category_group_code code_t REFERENCES Category_Group ON UPDATE CASCADE ON DELETE RESTRICT,
+	allow_pronunciation_guide_suppression BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 CREATE TABLE Category_Use (
@@ -400,6 +401,14 @@ CREATE TABLE Response (
 	UNIQUE(performance_id, placement_id)
 );
 ALTER SEQUENCE response_id_seq RESTART WITH 1000;
+
+CREATE TABLE Pronunciation_Guide_Suppression (
+	id SERIAL PRIMARY KEY,
+	account_id INTEGER NOT NULL REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
+	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
+	UNIQUE(account_id, category_code)
+);
+ALTER SEQUENCE pronunciation_guide_suppression_id_seq RESTART WITH 1000;
 
 
 

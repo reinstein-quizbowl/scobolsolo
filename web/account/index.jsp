@@ -1,11 +1,16 @@
+<%@ page import="com.google.common.collect.SortedSetMultimap" %>
+<%@ page import="com.google.common.collect.TreeMultimap" %>
 <%@ page import="com.scobolsolo.application.Account" %>
+<%@ page import="com.scobolsolo.application.Category" %>
+<%@ page import="com.scobolsolo.application.CategoryGroup" %>
+<%@ page import="com.scobolsolo.application.CategoryGroupFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Account Home" />
 	<jsp:param name="pageDescription" value="Account Home" />
 	<jsp:param name="topMenu" value="<%= Menus.TOURNAMENTS().asTopLevel().output(request, \"account\") %>" />
-	<jsp:param name="h1" value="Account Home" />
+	<jsp:param name="h1" value="Account Home &amp; Preferences" />
 </jsp:include>
 
 <div class="row">
@@ -16,5 +21,44 @@
 		<p>You may <a href="change-password.jsp">change your password</a>.</p>
 	</div>
 </div>
+
+<form action="UpdatePronunciationGuidePreferences" method="post">
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Pronunciation Guide Preferences</h2>
+			<p>You can choose to show or not show pronunciation guides in different categories.</p>
+		</div>
+	</div>
+	<div class="row"><%
+		SortedSetMultimap<CategoryGroup, Category> lclGrouped = TreeMultimap.create();
+		for (CategoryGroup lclCG : CategoryGroupFactory.getInstance().createAllArray()) {
+			for (Category lclC : lclCG.createCategoryArray()) {
+				if (lclC.isAllowPronunciationGuideSuppression()) {
+					lclGrouped.put(lclCG, lclC);
+				}
+			}
+		}
+		
+		for (CategoryGroup lclCG : lclGrouped.keySet()) {
+			%><div class="small-12 medium-6 large-4 columns">
+				<fieldset>
+					<legend><%= lclCG.getName() %></legend><%
+					for (Category lclC : lclGrouped.get(lclCG)) {
+						%><label>
+							<input type="checkbox" name="category_code" value="<%= lclC.getCode() %>" <%= lclUser.showPronunciationGuidesFor(lclC) ? "checked=\"checked\"" : "" %>>&nbsp;Show&nbsp;for&nbsp;<%= lclC.getName() %>
+						</label><%
+					}
+				%></fieldset>
+			</div><%
+		}
+	%></div>
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="submit btn-group btn-group-1">
+				<input type="submit" value="Save" />
+			</div>
+		</div>
+	</div>
+</form>
 
 <jsp:include page="/template/footer.jsp" />

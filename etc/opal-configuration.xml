@@ -52,6 +52,8 @@
 			
 			<Mapping Table="Category_Use" />
 			
+			<Mapping Table="Pronunciation_Guide_Suppression" />
+			
 			<Mapping Table="Contact">
 				<Column Name="active" Inverse="True" InverseAccessor="isInactive" />
 				<Column Name="sort_by" Ordering="True" Comparator="True" />

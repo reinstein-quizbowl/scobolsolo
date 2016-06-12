@@ -172,6 +172,54 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Category setCategoryGroupCode(java.lang.String argCategoryGroupCode);
 
 	/**
+	 * object accessor for the {@code AllowPronunciationGuideSuppression}
+	 *
+	 * <p>The {@code AllowPronunciationGuideSuppression} field is a direct mapping of the {@code allow_pronunciation_guide_suppression} field in {@code category}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isAllowPronunciationGuideSuppression() method.</p>
+	 *
+	 * @return an object value of {@code AllowPronunciationGuideSuppression} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	public java.lang.Boolean isAllowPronunciationGuideSuppressionAsObject();
+
+	/**
+	 * primitive accessor for the {@code AllowPronunciationGuideSuppression}
+	 *
+	 * <p>The {@code AllowPronunciationGuideSuppression} field is a direct mapping of the {@code allow_pronunciation_guide_suppression} database column in the table {@code category}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isAllowPronunciationGuideSuppressionAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code AllowPronunciationGuideSuppression} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isAllowPronunciationGuideSuppression() {
+		java.lang.Boolean lclO = isAllowPronunciationGuideSuppressionAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code AllowPronunciationGuideSuppression} to the value of {@code argAllowPronunciationGuideSuppression}
+	 *
+	 * @param argAllowPronunciationGuideSuppression the new value of {@code AllowPronunciationGuideSuppression}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code allow_pronunciation_guide_suppression} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argAllowPronunciationGuideSuppression is null
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	public com.scobolsolo.application.Category setAllowPronunciationGuideSuppression(java.lang.Boolean argAllowPronunciationGuideSuppression);
+
+	/**
+	 * sets the {@code AllowPronunciationGuideSuppression} to the value of {@code argAllowPronunciationGuideSuppression}
+	 *
+	 * @param argAllowPronunciationGuideSuppression the new value of {@code AllowPronunciationGuideSuppression}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Category setAllowPronunciationGuideSuppression(boolean argAllowPronunciationGuideSuppression);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.CategoryGroup}
 	 * The returned {@code com.scobolsolo.application.CategoryGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category_group} that is referenced by {@code category_category_group_code_fkey}.
 	 *
@@ -179,6 +227,33 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.CategoryGroup getCategoryGroup();
 	public com.scobolsolo.application.Category setCategoryGroup(com.scobolsolo.application.CategoryGroup argCategoryGroup);
+
+	public int getPronunciationGuideSuppressionCount();
+	public java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression();
+
+	public com.scobolsolo.application.Category addPronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
+	public com.scobolsolo.application.Category removePronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.PronunciationGuideSuppression>> T acquirePronunciationGuideSuppression(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.PronunciationGuideSuppression[] createPronunciationGuideSuppressionArray() {
+		int lclLength = getPronunciationGuideSuppressionCount();
+		com.scobolsolo.application.PronunciationGuideSuppression[] lclA = new com.scobolsolo.application.PronunciationGuideSuppression[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
 
 	public int getQuestionCount();
 	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator();

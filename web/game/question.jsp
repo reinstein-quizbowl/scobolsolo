@@ -114,10 +114,10 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		
 		if (lclUser.mayViewQuestions(lclMatch)) {
 			if (lclActualPlacement.getQuestion().getText() != null) {
-				%><p class="question-text"><%= lclActualPlacement.getQuestion().outputTextHTML() %></p><%
+				%><p class="question-text"><%= lclActualPlacement.getQuestion().outputTextHTML(lclUser.showPronunciationGuidesFor(lclActualPlacement)) %></p><%
 			}
 			if (lclActualPlacement.getQuestion().getAnswer() != null) {
-				%><p class="question-answer"><%= lclActualPlacement.getQuestion().outputAnswerHTML() %></p><%
+				%><p class="question-answer"><%= lclActualPlacement.getQuestion().outputAnswerHTML(lclUser.showPronunciationGuidesFor(lclActualPlacement)) %></p><%
 			}
 		}
 	%></div>

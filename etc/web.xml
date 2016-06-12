@@ -40,6 +40,11 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>UpdatePronunciationGuidePreferences</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.UpdatePronunciationGuidePreferences</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>SetSides</servlet-name>
 		<servlet-class>com.scobolsolo.matches.SetSides</servlet-class>
 	</servlet>
@@ -154,6 +159,11 @@
 		<servlet-name>OpalFormController</servlet-name>
 		<servlet-class>com.opal.cma.OpalFormController</servlet-class>
 	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>UpdatePronunciationGuidePreferences</servlet-name>
+		<url-pattern>/account/UpdatePronunciationGuidePreferences</url-pattern>
+	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>SetSides</servlet-name>

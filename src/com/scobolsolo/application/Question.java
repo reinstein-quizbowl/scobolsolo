@@ -12,6 +12,7 @@ import java.util.function.Predicate;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.cache.LoadingCache;
 import com.google.common.cache.CacheBuilder;
@@ -30,16 +31,17 @@ import com.scobolsolo.persistence.QuestionUserFacing;
 public interface Question extends QuestionUserFacing {
 	static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Question.class);
 	
-	static final LoadingCache<Question, String> ourCachedTextHTML = CacheBuilder.newBuilder()
+	static final LoadingCache<Pair<Question, Boolean>, String> ourCachedTextHTML = CacheBuilder.newBuilder()
 		.maximumSize(500)
 		.build(
-			new CacheLoader<Question, String>() {
+			new CacheLoader<Pair<Question, Boolean>, String>() {
 				@Override
-				public String load(Question argQ) {
-					Validate.notNull(argQ);
+				public String load(Pair<Question, Boolean> argPair) {
+					Question lclQ = Validate.notNull(argPair.getLeft());
+					boolean lclShowPGs = argPair.getRight().booleanValue();
 					
 					try {
-						return latexToHTML(argQ.getText());
+						return latexToHTML(lclQ.getText(), lclShowPGs);
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
 						return "Couldn't convert: " + lclE.getMessage();
@@ -47,14 +49,17 @@ public interface Question extends QuestionUserFacing {
 				}
 			}
 		);
-	static final LoadingCache<Question, String> ourCachedAnswerHTML = CacheBuilder.newBuilder()
+	static final LoadingCache<Pair<Question, Boolean>, String> ourCachedAnswerHTML = CacheBuilder.newBuilder()
 		.maximumSize(500)
 		.build(
-			new CacheLoader<Question, String>() {
+			new CacheLoader<Pair<Question, Boolean>, String>() {
 				@Override
-				public String load(Question argQ) {
+				public String load(Pair<Question, Boolean> argPair) {
+					Question lclQ = Validate.notNull(argPair.getLeft());
+					boolean lclShowPGs = argPair.getRight().booleanValue();
+					
 					try {
-						return latexToHTML(argQ.getAnswer());
+						return latexToHTML(lclQ.getAnswer(), lclShowPGs);
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
 						return "Couldn't convert: " + lclE.getMessage();
@@ -103,20 +108,22 @@ public interface Question extends QuestionUserFacing {
 		);
 	}
 	
-	default String outputTextHTML() {
-		return ourCachedTextHTML.getUnchecked(this);
+	default String outputTextHTML(final boolean argShowPGs) {
+		return ourCachedTextHTML.getUnchecked(Pair.of(this, argShowPGs));
 	}
 	
-	default String outputAnswerHTML() {
-		return ourCachedAnswerHTML.getUnchecked(this);
+	default String outputAnswerHTML(final boolean argShowPGs) {
+		return ourCachedAnswerHTML.getUnchecked(Pair.of(this, argShowPGs));
 	}
 	
 	default void recache() {
-		ourCachedTextHTML.refresh(this);
-		ourCachedAnswerHTML.refresh(this);
+		ourCachedTextHTML.refresh(Pair.of(this, true));
+		ourCachedTextHTML.refresh(Pair.of(this, false));
+		ourCachedAnswerHTML.refresh(Pair.of(this, true));
+		ourCachedAnswerHTML.refresh(Pair.of(this, false));
 	}
 	
-	public static String latexToHTML(String argS) {
+	public static String latexToHTML(String argS, boolean argShowPGs) {
 		if (StringUtils.isBlank(argS)) {
 			return "&nbsp;";
 		} else {
@@ -331,11 +338,15 @@ public interface Question extends QuestionUserFacing {
 											break;
 										case "\\pg":
 											Validate.isTrue(lclArgs.size() == 2, "lclArgs = " + lclArgs);
-											lclSB.append("<span class=\"has-pronunciation-guide\">")
-												.append(latexToHTML(lclArgs.get(0)))
-												.append("</span>&nbsp;<span class=\"pronunciation-guide\">")
-												.append(latexToHTML(lclArgs.get(1)))
-												.append("</span>");
+											if (argShowPGs) {
+												lclSB.append("<span class=\"has-pronunciation-guide\">")
+													.append(latexToHTML(lclArgs.get(0), argShowPGs))
+													.append("</span>&nbsp;<span class=\"pronunciation-guide\">")
+													.append(latexToHTML(lclArgs.get(1), argShowPGs))
+													.append("</span>");
+											} else {
+												lclSB.append(latexToHTML(lclArgs.get(0), argShowPGs));
+											}
 											break;
 										case "\\textsubscript":
 											Validate.isTrue(lclArgs.size() == 1);
@@ -401,7 +412,9 @@ public interface Question extends QuestionUserFacing {
 							break;
 						
 						case '*':
-							lclSB.append("&middot;");
+							if (argShowPGs) {
+								lclSB.append("&middot;");
+							}
 							break;
 						
 						case '&':

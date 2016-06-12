@@ -105,6 +105,27 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public java.lang.Boolean isAllowPronunciationGuideSuppressionAsObject() {
+		return getCategoryOpal().isAllowPronunciationGuideSuppressionAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public CategoryImpl setAllowPronunciationGuideSuppression(java.lang.Boolean argAllowPronunciationGuideSuppression) {
+		getCategoryOpal().setAllowPronunciationGuideSuppression(argAllowPronunciationGuideSuppression);
+		return this;
+	}
+
+	@Override
+	public CategoryImpl setAllowPronunciationGuideSuppression(boolean argAllowPronunciationGuideSuppression) {
+		getCategoryOpal().setAllowPronunciationGuideSuppression(argAllowPronunciationGuideSuppression);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -125,6 +146,33 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<Category, Catego
 
 	/* The following methods allow access to the user objects that have references
 	to this object. */
+
+	@Override
+	public com.scobolsolo.application.Category addPronunciationGuideSuppression(PronunciationGuideSuppression argPronunciationGuideSuppression) {
+		getCategoryOpal().addPronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Category removePronunciationGuideSuppression(PronunciationGuideSuppression argPronunciationGuideSuppression) {
+		getCategoryOpal().removePronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
+		return this;
+	}
+
+	@Override
+	public int getPronunciationGuideSuppressionCount() {
+		return getCategoryOpal().getPronunciationGuideSuppressionOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<PronunciationGuideSuppression> streamPronunciationGuideSuppression() {
+		return getCategoryOpal().streamPronunciationGuideSuppressionOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator() {
+		return new com.opal.OpalIterator<> (getCategoryOpal().createPronunciationGuideSuppressionOpalIterator());
+	}
 
 	@Override
 	public com.scobolsolo.application.Category addQuestion(Question argQuestion) {

@@ -29,6 +29,7 @@ import com.scobolsolo.persistence.PlayerMatchVOpalFactory;
 import com.scobolsolo.persistence.PlayerOpalFactory;
 import com.scobolsolo.persistence.PlayerPointVOpalFactory;
 import com.scobolsolo.persistence.PlayerRecordVOpalFactory;
+import com.scobolsolo.persistence.PronunciationGuideSuppressionOpalFactory;
 import com.scobolsolo.persistence.QuestionOpalFactory;
 import com.scobolsolo.persistence.QuestionStatusOpalFactory;
 import com.scobolsolo.persistence.ResponseOpalFactory;
@@ -64,6 +65,11 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	@Override
 	public GameOpalFactory getGameOpalFactory() {
 		return PostgresGameOpalFactory.getInstance();
+	}
+
+	@Override
+	public PronunciationGuideSuppressionOpalFactory getPronunciationGuideSuppressionOpalFactory() {
+		return PostgresPronunciationGuideSuppressionOpalFactory.getInstance();
 	}
 
 	@Override

@@ -190,6 +190,33 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	to this object. */
 
 	@Override
+	public com.scobolsolo.application.Account addPronunciationGuideSuppression(PronunciationGuideSuppression argPronunciationGuideSuppression) {
+		getAccountOpal().addPronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Account removePronunciationGuideSuppression(PronunciationGuideSuppression argPronunciationGuideSuppression) {
+		getAccountOpal().removePronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
+		return this;
+	}
+
+	@Override
+	public int getPronunciationGuideSuppressionCount() {
+		return getAccountOpal().getPronunciationGuideSuppressionOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<PronunciationGuideSuppression> streamPronunciationGuideSuppression() {
+		return getAccountOpal().streamPronunciationGuideSuppressionOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator() {
+		return new com.opal.OpalIterator<> (getAccountOpal().createPronunciationGuideSuppressionOpalIterator());
+	}
+
+	@Override
 	public com.scobolsolo.application.Account addWriterQuestion(Question argQuestion) {
 		getAccountOpal().addWriterQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
 		return this;

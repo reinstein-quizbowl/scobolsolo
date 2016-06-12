@@ -28,6 +28,7 @@ public class PostgresCategoryOpalFactory extends com.opal.AbstractDatabaseIdenti
 		"short_name", 
 		"sequence", 
 		"category_group_code", 
+		"allow_pronunciation_guide_suppression", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -100,7 +101,7 @@ public class PostgresCategoryOpalFactory extends com.opal.AbstractDatabaseIdenti
 
 	protected void registerOpal(CategoryOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 5) { throw new IllegalStateException(); }
+		if (argValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache<CategoryOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameOpalKey((java.lang.String) argValues[1]), argOpal, true);
@@ -113,7 +114,7 @@ public class PostgresCategoryOpalFactory extends com.opal.AbstractDatabaseIdenti
 	protected void unregisterOpal(CategoryOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache<CategoryOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameOpalKey((java.lang.String) lclOldValues[1]));
@@ -127,10 +128,10 @@ public class PostgresCategoryOpalFactory extends com.opal.AbstractDatabaseIdenti
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 5) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 6) { throw new IllegalStateException(); }
 		OpalCache<CategoryOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<CategoryOpal> lclOldKey = null;
