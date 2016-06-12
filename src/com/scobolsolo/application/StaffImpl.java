@@ -227,6 +227,33 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<Staff, StaffOpal> i
 	}
 
 	@Override
+	public com.scobolsolo.application.Staff addScorekeeperGame(Game argGame) {
+		getStaffOpal().addScorekeeperGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Staff removeScorekeeperGame(Game argGame) {
+		getStaffOpal().removeScorekeeperGameOpal(((GameImpl) argGame).getGameOpal());
+		return this;
+	}
+
+	@Override
+	public int getScorekeeperGameCount() {
+		return getStaffOpal().getScorekeeperGameOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Game> streamScorekeeperGame() {
+		return getStaffOpal().streamScorekeeperGameOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Game> createScorekeeperGameIterator() {
+		return new com.opal.OpalIterator<> (getStaffOpal().createScorekeeperGameOpalIterator());
+	}
+
+	@Override
 	public com.scobolsolo.application.Staff addStaffAssignment(StaffAssignment argStaffAssignment) {
 		getStaffOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
 		return this;

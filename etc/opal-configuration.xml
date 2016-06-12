@@ -91,9 +91,11 @@
 				</Comparator>
 				<Comparator Name="SchoolNameComparator">
 					<Child Name="SchoolRegistration" Comparator="SchoolNameComparator" />
+					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>
 				<Comparator Name="SchoolShortNameComparator">
 					<Child Name="SchoolRegistration" Comparator="SchoolNameComparator" />
+					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>
 			</Mapping>
 			

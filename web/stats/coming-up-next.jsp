@@ -61,6 +61,9 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 									%><abbr class="stealth-tool-tip" title="to be determined">TBD</abbr><%
 								} else {
 									%><%= lclG.getModeratorStaff().getContact().getName() %><%
+									if (lclG.getScorekeeperStaff() != null && lclG.getScorekeeperStaff() != lclG.getModeratorStaff()) {
+										%><br />Scorekeeper: <%= lclG.getScorekeeperStaff().getContact().getName() %><%
+									}
 								}
 							} else {
 								%><abbr class="stealth-tool-tip" title="to be determined">TBD</abbr><%

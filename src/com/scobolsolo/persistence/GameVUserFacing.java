@@ -377,6 +377,64 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	}
 
 	/**
+	 * object accessor for the {@code ScorekeeperStaffId}
+	 *
+	 * <p>The {@code ScorekeeperStaffId} field is a direct mapping of the {@code scorekeeper_staff_id} field in {@code game_v}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getScorekeeperStaffId() method.</p>
+	 *
+	 * @return an object value of {@code ScorekeeperStaffId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getScorekeeperStaffIdAsObject();
+
+	/**
+	 * object accessor for the {@code ScorekeeperStaffId} with substitution for a null value
+	 *
+	 * <p>The {@code ScorekeeperStaffId} field is a direct mapping of the {@code scorekeeper_staff_id} database column in the table {@code game_v}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code ScorekeeperStaffId} is {@code null}.
+	 * @return an object value of {@code ScorekeeperStaffId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getScorekeeperStaffIdAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getScorekeeperStaffIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code ScorekeeperStaffId}
+	 *
+	 * <p>The {@code ScorekeeperStaffId} field is a direct mapping of the {@code scorekeeper_staff_id} database column in the table {@code game_v}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getScorekeeperStaffIdAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code ScorekeeperStaffId} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getScorekeeperStaffId() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getScorekeeperStaffIdAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getScorekeeperStaffId(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getScorekeeperStaffIdAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getScorekeeperStaffId(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getScorekeeperStaffIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
 	 * object accessor for the {@code TossupsHeard}
 	 *
 	 * <p>The {@code TossupsHeard} field is a direct mapping of the {@code tossups_heard} field in {@code game_v}.</p>
@@ -947,6 +1005,13 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Staff getModeratorStaff();
+	/**
+	 * @return the {@code com.scobolsolo.application.Staff}
+	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Staff getScorekeeperStaff();
 	/**
 	 * @return the {@code com.scobolsolo.application.Room}
 	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code UNNAMED_INFERRED_KEY}.

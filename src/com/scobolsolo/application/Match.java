@@ -84,6 +84,17 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 		}
 	}
 	
+	default Staff determineLikelyScorekeeper() {
+		List<StaffAssignment> lclScorekeepers = getRoom().streamStaffAssignment()
+			.filter(argSA -> argSA.getRole() == StaffRoleFactory.SCOREKEEPER())
+			.collect(Collectors.toList());
+		if (lclScorekeepers.size() == 1) {
+			return lclScorekeepers.iterator().next().getStaff();
+		} else {
+			return null;
+		}
+	}
+	
 	default RoundGroup getRoundGroup() {
 		return getRound().getRoundGroup();
 	}

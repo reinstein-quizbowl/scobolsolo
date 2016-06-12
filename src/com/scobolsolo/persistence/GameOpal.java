@@ -32,6 +32,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myOldOutgoingWinningCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldIncomingLosingCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldIncomingWinningCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
+		myOldScorekeeperStaffOpal = StaffOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -43,9 +44,11 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		"OutgoingWinningCardPlayerId",
 		"OutgoingLosingCardPlayerId",
 		"ModeratorStaffId",
+		"ScorekeeperStaffId",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
+		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
@@ -63,9 +66,11 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		true,
 		true,
 		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -121,6 +126,10 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 
 	public synchronized java.lang.Integer getModeratorStaffIdAsObject() {
 		return (java.lang.Integer) getReadValueSet()[6];
+	}
+
+	public synchronized java.lang.Integer getScorekeeperStaffIdAsObject() {
+		return (java.lang.Integer) getReadValueSet()[7];
 	}
 
 	public synchronized GameOpal setId(final java.lang.Integer argId) {
@@ -203,6 +212,17 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return this;
 	}
 
+	public synchronized GameOpal setScorekeeperStaffId(final java.lang.Integer argScorekeeperStaffId) {
+		tryMutate();
+		getNewValues()[7] = argScorekeeperStaffId;
+		return this;
+	}
+
+	public GameOpal setScorekeeperStaffId(final int argScorekeeperStaffId) {
+		setScorekeeperStaffId(java.lang.Integer.valueOf(argScorekeeperStaffId));
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -221,6 +241,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myNewOutgoingWinningCardPlayerOpal = myOldOutgoingWinningCardPlayerOpal;
 		myNewIncomingLosingCardPlayerOpal = myOldIncomingLosingCardPlayerOpal;
 		myNewIncomingWinningCardPlayerOpal = myOldIncomingWinningCardPlayerOpal;
+		myNewScorekeeperStaffOpal = myOldScorekeeperStaffOpal;
 		myNewPerformanceOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myPerformanceOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -235,6 +256,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myOldOutgoingWinningCardPlayerOpal = myNewOutgoingWinningCardPlayerOpal;
 		myOldIncomingLosingCardPlayerOpal = myNewIncomingLosingCardPlayerOpal;
 		myOldIncomingWinningCardPlayerOpal = myNewIncomingWinningCardPlayerOpal;
+		myOldScorekeeperStaffOpal = myNewScorekeeperStaffOpal;
 
 		if (needsToClearOldCollections()) {
 			myOldPerformanceOpalFast3Set = null;
@@ -278,6 +300,9 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (getIncomingWinningCardPlayerOpal() != null) {
 			getIncomingWinningCardPlayerOpal().removeIncomingWinningCardGameOpalInternal(this);
 		}
+		if (getScorekeeperStaffOpal() != null) {
+			getScorekeeperStaffOpal().removeScorekeeperGameOpalInternal(this);
+		}
 		if (getMatchOpal() != null) {
 			getMatchOpal().setGameOpalInternal(null);
 		}
@@ -295,6 +320,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		lclTargetNewValues[4] = lclValues[4]; /* OutgoingWinningCardPlayerId (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* OutgoingLosingCardPlayerId (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* ModeratorStaffId (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* ScorekeeperStaffId (immutable) */
 
 		return;
 	}
@@ -318,6 +344,9 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		}
 		if (myNewIncomingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
 			setIncomingWinningCardPlayerId(myNewIncomingWinningCardPlayerOpal == null ? null : myNewIncomingWinningCardPlayerOpal.getIdAsObject());
+		}
+		if (myNewScorekeeperStaffOpal != StaffOpal.NOT_YET_LOADED) {
+			setScorekeeperStaffId(myNewScorekeeperStaffOpal == null ? null : myNewScorekeeperStaffOpal.getIdAsObject());
 		}
 		return;
 	}
@@ -360,6 +389,13 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewOutgoingWinningCardPlayerOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewScorekeeperStaffOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -428,6 +464,15 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 			}
 			lclTAs.add(lclUO);
 		}
+		if ((lclUO = myOldScorekeeperStaffOpal) == StaffOpal.NOT_YET_LOADED) {
+			lclUO = myOldScorekeeperStaffOpal = retrieveScorekeeperStaffOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
+			lclTAs.add(lclUO);
+		}
 		return (lclTAs != null) && (lclTAs.size() > 0) ? lclTAs : java.util.Collections.emptySet();
 	}
 
@@ -453,6 +498,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		argOutput.println("OutgoingWinningCardPlayerId = " + getOutgoingWinningCardPlayerIdAsObject());
 		argOutput.println("OutgoingLosingCardPlayerId = " + getOutgoingLosingCardPlayerIdAsObject());
 		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
+		argOutput.println("ScorekeeperStaffId = " + getScorekeeperStaffIdAsObject());
 	}
 
 	@Override
@@ -464,6 +510,7 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		argOutput.println("OutgoingWinningCardPlayerId = " + getOutgoingWinningCardPlayerIdAsObject());
 		argOutput.println("OutgoingLosingCardPlayerId = " + getOutgoingLosingCardPlayerIdAsObject());
 		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
+		argOutput.println("ScorekeeperStaffId = " + getScorekeeperStaffIdAsObject());
 	}
 
 	private MatchOpal myOldMatchOpal;
@@ -734,6 +781,51 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myNewIncomingWinningCardPlayerOpal = argPlayerOpal;
 	}
 
+	private StaffOpal myOldScorekeeperStaffOpal;
+	private StaffOpal myNewScorekeeperStaffOpal;
+
+	protected StaffOpal retrieveScorekeeperStaffOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[7] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getStaffOpalFactory().forId(getScorekeeperStaffIdAsObject());
+	}
+
+	public synchronized StaffOpal getScorekeeperStaffOpal() {
+		StaffOpal lclStaffOpal;
+		boolean lclAccess = tryAccess();
+		lclStaffOpal = lclAccess ? myNewScorekeeperStaffOpal : myOldScorekeeperStaffOpal;
+		if (lclStaffOpal == StaffOpal.NOT_YET_LOADED) {
+			lclStaffOpal = retrieveScorekeeperStaffOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewScorekeeperStaffOpal = lclStaffOpal;
+			} else {
+				myOldScorekeeperStaffOpal = lclStaffOpal;
+			}
+		}
+		return lclStaffOpal;
+	}
+
+	public synchronized GameOpal setScorekeeperStaffOpal(StaffOpal argStaffOpal) {
+		tryMutate();
+		StaffOpal lclStaffOpal = getScorekeeperStaffOpal();
+		if (lclStaffOpal == argStaffOpal) { return this; }
+		if (lclStaffOpal != null) {
+			lclStaffOpal.removeScorekeeperGameOpalInternal(this);
+		}
+		myNewScorekeeperStaffOpal = argStaffOpal;
+		if (argStaffOpal != null) {
+			argStaffOpal.addScorekeeperGameOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setScorekeeperStaffOpalInternal(StaffOpal argStaffOpal) {
+		tryMutate();
+		myNewScorekeeperStaffOpal = argStaffOpal;
+	}
+
 	private java.util.Set<PerformanceOpal> myOldPerformanceOpalFast3Set = null;
 	private java.util.Set<PerformanceOpal> myNewPerformanceOpalFast3Set = null;
 	private java.util.ArrayList<com.opal.CachedOperation<PerformanceOpal>> myPerformanceOpalCachedOperations = null;
@@ -849,6 +941,9 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		}
 		if (myNewIncomingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
 			setIncomingWinningCardPlayerOpal(retrieveIncomingWinningCardPlayerOpal(getNewValues()));
+		}
+		if (myNewScorekeeperStaffOpal != StaffOpal.NOT_YET_LOADED) {
+			setScorekeeperStaffOpal(retrieveScorekeeperStaffOpal(getNewValues()));
 		}
 	}
 

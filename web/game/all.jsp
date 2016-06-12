@@ -72,6 +72,9 @@ Account lclUser = Account.demand(request);
 									%>?<%
 								} else {
 									%><%= lclG.getModeratorStaff().getContact().getName() %><%
+									if (lclG.getScorekeeperStaff() != null && lclG.getScorekeeperStaff() != lclG.getModeratorStaff()) {
+										%><br />Scorekeeper: <%= lclG.getScorekeeperStaff().getContact().getName() %><%
+									}
 								}
 							} else {
 								%>&nbsp;<%

@@ -25,6 +25,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		/* Initialize the back Collections to empty sets. */
 
 		myNewModeratorGameOpalHashSet = new java.util.HashSet<>();
+		myNewScorekeeperGameOpalFast3Set = new com.siliconage.util.Fast3Set<>();
 		myNewStaffAssignmentOpalFast3Set = new com.siliconage.util.Fast3Set<>();
 
 		return;
@@ -206,6 +207,8 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myNewTechnologyChoiceOpal = myOldTechnologyChoiceOpal;
 		myNewModeratorGameOpalHashSet = null; /* Necessary if it has been rolled back */
 		myModeratorGameOpalCachedOperations = null; /* Ditto */
+		myNewScorekeeperGameOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myScorekeeperGameOpalCachedOperations = null; /* Ditto */
 		myNewStaffAssignmentOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myStaffAssignmentOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -221,6 +224,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 
 		if (needsToClearOldCollections()) {
 			myOldModeratorGameOpalHashSet = null;
+			myOldScorekeeperGameOpalFast3Set = null;
 			myOldStaffAssignmentOpalFast3Set = null;
 		} else {
 			if (myNewModeratorGameOpalHashSet != null) {
@@ -232,6 +236,16 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 				myNewModeratorGameOpalHashSet = null;
 			} else {
 				myModeratorGameOpalCachedOperations = null;
+			}
+			if (myNewScorekeeperGameOpalFast3Set != null) {
+				if (myNewScorekeeperGameOpalFast3Set.size() > 0) {
+					myOldScorekeeperGameOpalFast3Set = myNewScorekeeperGameOpalFast3Set;
+				} else {
+					myOldScorekeeperGameOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewScorekeeperGameOpalFast3Set = null;
+			} else {
+				myScorekeeperGameOpalCachedOperations = null;
 			}
 			if (myNewStaffAssignmentOpalFast3Set != null) {
 				if (myNewStaffAssignmentOpalFast3Set.size() > 0) {
@@ -255,6 +269,12 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 			lclI = createModeratorGameOpalIterator();
 			while (lclI.hasNext()) {
 				((GameOpal) lclI.next()).setModeratorStaffOpalInternal(null);
+			}
+		}
+		if (myNewScorekeeperGameOpalFast3Set != null || myScorekeeperGameOpalCachedOperations != null) {
+			lclI = createScorekeeperGameOpalIterator();
+			while (lclI.hasNext()) {
+				((GameOpal) lclI.next()).setScorekeeperStaffOpalInternal(null);
 			}
 		}
 		if (myNewStaffAssignmentOpalFast3Set != null || myStaffAssignmentOpalCachedOperations != null) {
@@ -667,6 +687,92 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 
 	public synchronized java.util.stream.Stream<GameOpal> streamModeratorGameOpal() {
 		return getModeratorGameOpalHashSet().stream();
+	}
+
+	private java.util.Set<GameOpal> myOldScorekeeperGameOpalFast3Set = null;
+	private java.util.Set<GameOpal> myNewScorekeeperGameOpalFast3Set = null;
+	private java.util.ArrayList<com.opal.CachedOperation<GameOpal>> myScorekeeperGameOpalCachedOperations = null;
+
+	/* package */ java.util.Set<GameOpal> getScorekeeperGameOpalFast3Set() {
+		if (tryAccess()) {
+			if (myNewScorekeeperGameOpalFast3Set == null) {
+				if (myOldScorekeeperGameOpalFast3Set == null) {
+					if (isNew()) {
+						myOldScorekeeperGameOpalFast3Set = java.util.Collections.emptySet();
+					} else {
+						java.util.Set<GameOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forScorekeeperStaffIdCollection(getIdAsObject());
+						myOldScorekeeperGameOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+					}
+				}
+				myNewScorekeeperGameOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldScorekeeperGameOpalFast3Set);
+				if (myScorekeeperGameOpalCachedOperations != null) {
+					com.opal.OpalUtility.handleCachedOperations(myScorekeeperGameOpalCachedOperations, myNewScorekeeperGameOpalFast3Set);
+					myScorekeeperGameOpalCachedOperations = null;
+				}
+			}
+			return myNewScorekeeperGameOpalFast3Set;
+		} else {
+			if (myOldScorekeeperGameOpalFast3Set == null) {
+				java.util.Set<GameOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forScorekeeperStaffIdCollection(getIdAsObject());
+				myOldScorekeeperGameOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+			}
+			return myOldScorekeeperGameOpalFast3Set;
+		}
+	}
+
+	public synchronized void addScorekeeperGameOpal(GameOpal argGameOpal) {
+		tryMutate();
+		argGameOpal.setScorekeeperStaffOpal(this);
+		return;
+	}
+
+	protected synchronized void addScorekeeperGameOpalInternal(GameOpal argGameOpal) {
+		tryMutate();
+		if (myNewScorekeeperGameOpalFast3Set == null) {
+			if (myOldScorekeeperGameOpalFast3Set == null) {
+				if (myScorekeeperGameOpalCachedOperations == null) { myScorekeeperGameOpalCachedOperations = new java.util.ArrayList<>(); }
+				myScorekeeperGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
+			} else {
+				myNewScorekeeperGameOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldScorekeeperGameOpalFast3Set);
+				myNewScorekeeperGameOpalFast3Set.add(argGameOpal);
+			}
+		} else {
+			myNewScorekeeperGameOpalFast3Set.add(argGameOpal);
+		}
+		return;
+	}
+
+	public synchronized void removeScorekeeperGameOpal(GameOpal argGameOpal) {
+		tryMutate();
+		argGameOpal.setScorekeeperStaffOpal(null);
+	}
+
+	protected synchronized void removeScorekeeperGameOpalInternal(GameOpal argGameOpal) {
+		tryMutate();
+		if (myNewScorekeeperGameOpalFast3Set == null) {
+			if (myOldScorekeeperGameOpalFast3Set == null) {
+				if (myScorekeeperGameOpalCachedOperations == null) { myScorekeeperGameOpalCachedOperations = new java.util.ArrayList<>(); }
+				myScorekeeperGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
+			} else {
+				myNewScorekeeperGameOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldScorekeeperGameOpalFast3Set);
+				myNewScorekeeperGameOpalFast3Set.remove(argGameOpal);
+			}
+		} else {
+			myNewScorekeeperGameOpalFast3Set.remove(argGameOpal);
+		}
+		return;
+	}
+
+	public synchronized int getScorekeeperGameOpalCount() { return getScorekeeperGameOpalFast3Set().size(); }
+
+	public synchronized java.util.Iterator<GameOpal> createScorekeeperGameOpalIterator() {
+		return getScorekeeperGameOpalFast3Set().iterator();
+	}
+
+	public synchronized java.util.stream.Stream<GameOpal> streamScorekeeperGameOpal() {
+		return getScorekeeperGameOpalFast3Set().stream();
 	}
 
 	private java.util.Set<StaffAssignmentOpal> myOldStaffAssignmentOpalFast3Set = null;

@@ -23,6 +23,7 @@ public class PostgresGameVOpalFactory extends com.opal.AbstractDatabaseEphemeral
 		"winning_card_id", 
 		"losing_card_id", 
 		"moderator_staff_id", 
+		"scorekeeper_staff_id", 
 		"tossups_heard", 
 		"incoming_winning_card_player_id", 
 		"incoming_losing_card_player_id", 

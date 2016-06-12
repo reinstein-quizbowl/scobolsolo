@@ -24,7 +24,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 <div class="row">
 	<div class="small-12 large-9 columns"><%
 		List<Player> lclPlayers = lclT.getPlayers();
-		SetMultimap<School, Player> lclSchoolToPlayers = TreeMultimap.create(School.NameComparator.getInstance(), Comparator.naturalOrder());
+		SetMultimap<School, Player> lclSchoolToPlayers = TreeMultimap.create(School.NameComparator.getInstance(), Player.NameComparator.getInstance());
 		for (Player lclP : lclPlayers) {
 			lclSchoolToPlayers.put(lclP.getSchoolRegistration().getSchool(), lclP);
 		}
@@ -34,7 +34,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 			lclPMVList,
 			new ImplicitTableDatabaseQuery("tournament_code = ?", lclT.getCode())
 		);
-		SetMultimap<Player, PlayerMatchV> lclPlayerToPMVs = TreeMultimap.create(Comparator.naturalOrder(), PlayerMatchV.ROUND_COMPARATOR);
+		SetMultimap<Player, PlayerMatchV> lclPlayerToPMVs = TreeMultimap.create(Player.SchoolNameComparator.getInstance(), PlayerMatchV.ROUND_COMPARATOR);
 		for (PlayerMatchV lclPMV : lclPMVList) {
 			lclPlayerToPMVs.put(lclPMV.getPlayer(), lclPMV);
 		}

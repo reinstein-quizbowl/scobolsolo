@@ -708,7 +708,11 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Player argFirst, com.scobolsolo.application.Player argSecond) {
-			return com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
+			int lclResult = com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
+			if (lclResult != 0) {
+				return lclResult;
+			}
+			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(),  argSecond.getContact());
 		}
 	}
 
@@ -720,7 +724,11 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 		@Override
 		public int compareInternal(com.scobolsolo.application.Player argFirst, com.scobolsolo.application.Player argSecond) {
-			return com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
+			int lclResult = com.scobolsolo.application.SchoolRegistration.SchoolNameComparator.getInstance().compare(argFirst.getSchoolRegistration(),  argSecond.getSchoolRegistration());
+			if (lclResult != 0) {
+				return lclResult;
+			}
+			return com.scobolsolo.application.Contact.SortByComparator.getInstance().compare(argFirst.getContact(),  argSecond.getContact());
 		}
 	}
 

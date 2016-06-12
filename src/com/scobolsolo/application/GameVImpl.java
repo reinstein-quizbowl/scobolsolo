@@ -78,6 +78,12 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 
 	@com.opal.annotation.Nullability(nullable = true)
 	@Override
+	public java.lang.Integer getScorekeeperStaffIdAsObject() {
+		return getGameVOpal().getScorekeeperStaffIdAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
 	public java.lang.Integer getTossupsHeardAsObject() {
 		return getGameVOpal().getTossupsHeardAsObject();
 	}
@@ -193,6 +199,15 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 	@Override
 	public Staff getModeratorStaff() {
 		StaffOpal lclStaffOpal = getGameVOpal().getModeratorStaffOpal();
+		return lclStaffOpal == null ? null : lclStaffOpal.getUserFacing();
+	}
+
+	/** @return the Staff object created from game_v through reference UNNAMED_INFERRED_KEY */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public Staff getScorekeeperStaff() {
+		StaffOpal lclStaffOpal = getGameVOpal().getScorekeeperStaffOpal();
 		return lclStaffOpal == null ? null : lclStaffOpal.getUserFacing();
 	}
 

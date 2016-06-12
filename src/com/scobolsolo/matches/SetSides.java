@@ -35,6 +35,12 @@ public class SetSides extends ScobolSoloControllerServlet {
 				argUser.getContact().findStaff(lclMatch.getTournament())
 			),
 			"You must choose the moderator.");
+		final Staff lclScorekeeper = Validate.notNull(
+			ObjectUtils.firstNonNull(
+				StaffFactory.getInstance().fromHttpRequest(argRequest, "scorekeeper_staff_id"),
+				lclModerator
+			),
+			"You must choose the moderator.");
 		final Player lclLeftPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "left_player_id"), "You must choose the player on the left.");
 		final Player lclRightPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(argRequest, "right_player_id"), "You must choose the player on the right.");
 		
@@ -60,6 +66,7 @@ public class SetSides extends ScobolSoloControllerServlet {
 			}
 			
 			lclGame.setModeratorStaff(lclModerator);
+			lclGame.setScorekeeperStaff(lclScorekeeper);
 			
 			lclTC.complete();
 		}

@@ -23,6 +23,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		myOldWinnerPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldLoserPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldModeratorStaffOpal = StaffOpal.NOT_YET_LOADED;
+		myOldScorekeeperStaffOpal = StaffOpal.NOT_YET_LOADED;
 		myOldRoomOpal = RoomOpal.NOT_YET_LOADED;
 		myOldWinnerPerformanceOpal = PerformanceOpal.NOT_YET_LOADED;
 		myOldLoserPerformanceOpal = PerformanceOpal.NOT_YET_LOADED;
@@ -40,6 +41,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		"WinningCardId",
 		"LosingCardId",
 		"ModeratorStaffId",
+		"ScorekeeperStaffId",
 		"TossupsHeard",
 		"IncomingWinningCardPlayerId",
 		"IncomingLosingCardPlayerId",
@@ -53,6 +55,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
 		java.lang.String.class,
+		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
@@ -87,9 +90,11 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		true,
 		true,
 		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -156,40 +161,44 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		return (java.lang.Integer) getValues()[6];
 	}
 
-	public java.lang.Integer getTossupsHeardAsObject() {
+	public java.lang.Integer getScorekeeperStaffIdAsObject() {
 		return (java.lang.Integer) getValues()[7];
 	}
 
-	public java.lang.Integer getIncomingWinningCardPlayerIdAsObject() {
+	public java.lang.Integer getTossupsHeardAsObject() {
 		return (java.lang.Integer) getValues()[8];
 	}
 
-	public java.lang.Integer getIncomingLosingCardPlayerIdAsObject() {
+	public java.lang.Integer getIncomingWinningCardPlayerIdAsObject() {
 		return (java.lang.Integer) getValues()[9];
 	}
 
-	public java.lang.Integer getWinnerPlayerIdAsObject() {
+	public java.lang.Integer getIncomingLosingCardPlayerIdAsObject() {
 		return (java.lang.Integer) getValues()[10];
 	}
 
-	public java.lang.Integer getLoserPlayerIdAsObject() {
+	public java.lang.Integer getWinnerPlayerIdAsObject() {
 		return (java.lang.Integer) getValues()[11];
 	}
 
-	public java.lang.Integer getWinnerPerformanceIdAsObject() {
+	public java.lang.Integer getLoserPlayerIdAsObject() {
 		return (java.lang.Integer) getValues()[12];
 	}
 
-	public java.lang.Integer getLoserPerformanceIdAsObject() {
+	public java.lang.Integer getWinnerPerformanceIdAsObject() {
 		return (java.lang.Integer) getValues()[13];
 	}
 
-	public java.lang.Integer getWinnerScoreAsObject() {
+	public java.lang.Integer getLoserPerformanceIdAsObject() {
 		return (java.lang.Integer) getValues()[14];
 	}
 
-	public java.lang.Integer getLoserScoreAsObject() {
+	public java.lang.Integer getWinnerScoreAsObject() {
 		return (java.lang.Integer) getValues()[15];
+	}
+
+	public java.lang.Integer getLoserScoreAsObject() {
+		return (java.lang.Integer) getValues()[16];
 	}
 
 	@Override
@@ -201,6 +210,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		myNewWinnerPlayerOpal = myOldWinnerPlayerOpal;
 		myNewLoserPlayerOpal = myOldLoserPlayerOpal;
 		myNewModeratorStaffOpal = myOldModeratorStaffOpal;
+		myNewScorekeeperStaffOpal = myOldScorekeeperStaffOpal;
 		myNewRoomOpal = myOldRoomOpal;
 		myNewWinnerPerformanceOpal = myOldWinnerPerformanceOpal;
 		myNewLoserPerformanceOpal = myOldLoserPerformanceOpal;
@@ -220,6 +230,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		myOldWinnerPlayerOpal = myNewWinnerPlayerOpal;
 		myOldLoserPlayerOpal = myNewLoserPlayerOpal;
 		myOldModeratorStaffOpal = myNewModeratorStaffOpal;
+		myOldScorekeeperStaffOpal = myNewScorekeeperStaffOpal;
 		myOldRoomOpal = myNewRoomOpal;
 		myOldWinnerPerformanceOpal = myNewWinnerPerformanceOpal;
 		myOldLoserPerformanceOpal = myNewLoserPerformanceOpal;
@@ -252,6 +263,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
 		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
 		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
+		argOutput.println("ScorekeeperStaffId = " + getScorekeeperStaffIdAsObject());
 		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
 		argOutput.println("IncomingWinningCardPlayerId = " + getIncomingWinningCardPlayerIdAsObject());
 		argOutput.println("IncomingLosingCardPlayerId = " + getIncomingLosingCardPlayerIdAsObject());
@@ -272,6 +284,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
 		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
 		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
+		argOutput.println("ScorekeeperStaffId = " + getScorekeeperStaffIdAsObject());
 		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
 		argOutput.println("IncomingWinningCardPlayerId = " + getIncomingWinningCardPlayerIdAsObject());
 		argOutput.println("IncomingLosingCardPlayerId = " + getIncomingLosingCardPlayerIdAsObject());
@@ -340,7 +353,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
 	protected PlayerOpal retrieveIncomingWinningCardPlayerOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[8] == null)) {
+		if ((argValueSet[9] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getIncomingWinningCardPlayerIdAsObject());
@@ -366,7 +379,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
 	protected PlayerOpal retrieveIncomingLosingCardPlayerOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[9] == null)) {
+		if ((argValueSet[10] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getIncomingLosingCardPlayerIdAsObject());
@@ -392,7 +405,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
 	protected PlayerOpal retrieveWinnerPlayerOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[10] == null)) {
+		if ((argValueSet[11] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getWinnerPlayerIdAsObject());
@@ -418,7 +431,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
 	protected PlayerOpal retrieveLoserPlayerOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[11] == null)) {
+		if ((argValueSet[12] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getLoserPlayerIdAsObject());
@@ -465,6 +478,32 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		return lclStaffOpal;
 	}
 
+	private StaffOpal myOldScorekeeperStaffOpal;
+	private StaffOpal myNewScorekeeperStaffOpal;
+
+	protected StaffOpal retrieveScorekeeperStaffOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[7] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getStaffOpalFactory().forId(getScorekeeperStaffIdAsObject());
+	}
+
+	public synchronized StaffOpal getScorekeeperStaffOpal() {
+		StaffOpal lclStaffOpal;
+		boolean lclAccess = tryAccess();
+		lclStaffOpal = lclAccess ? myNewScorekeeperStaffOpal : myOldScorekeeperStaffOpal;
+		if (lclStaffOpal == StaffOpal.NOT_YET_LOADED) {
+			lclStaffOpal = retrieveScorekeeperStaffOpal(getValues());
+			if (lclAccess) {
+				myNewScorekeeperStaffOpal = lclStaffOpal;
+			} else {
+				myOldScorekeeperStaffOpal = lclStaffOpal;
+			}
+		}
+		return lclStaffOpal;
+	}
+
 	private RoomOpal myOldRoomOpal;
 	private RoomOpal myNewRoomOpal;
 
@@ -496,7 +535,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
 	protected PerformanceOpal retrieveWinnerPerformanceOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[12] == null)) {
+		if ((argValueSet[13] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forId(getWinnerPerformanceIdAsObject());
@@ -522,7 +561,7 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 
 	protected PerformanceOpal retrieveLoserPerformanceOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[13] == null)) {
+		if ((argValueSet[14] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forId(getLoserPerformanceIdAsObject());

@@ -30,6 +30,7 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		"outgoing_winning_card_player_id", 
 		"outgoing_losing_card_player_id", 
 		"moderator_staff_id", 
+		"scorekeeper_staff_id", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -102,7 +103,7 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	protected void registerOpal(GameOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 7) { throw new IllegalStateException(); }
+		if (argValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache<GameOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -113,7 +114,7 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void unregisterOpal(GameOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache<GameOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -125,10 +126,10 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 8) { throw new IllegalStateException(); }
 		OpalCache<GameOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<GameOpal> lclOldKey = null;
@@ -199,6 +200,15 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		final Object[] lclParameters = new Object[] { argIncomingWinningCardPlayerId };
 		final String[] lclFieldNames = new String[] { "incoming_winning_card_player_id" };
 		java.util.HashSet<GameOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public com.siliconage.util.Fast3Set<GameOpal> forScorekeeperStaffIdCollection(java.lang.Integer argScorekeeperStaffId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argScorekeeperStaffId };
+		final String[] lclFieldNames = new String[] { "scorekeeper_staff_id" };
+		com.siliconage.util.Fast3Set<GameOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

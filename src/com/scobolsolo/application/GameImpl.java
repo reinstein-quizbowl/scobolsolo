@@ -161,6 +161,25 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Integer getScorekeeperStaffIdAsObject() {
+		return getGameOpal().getScorekeeperStaffIdAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public GameImpl setScorekeeperStaffId(java.lang.Integer argScorekeeperStaffId) {
+		getGameOpal().setScorekeeperStaffId(argScorekeeperStaffId);
+		return this;
+	}
+
+	@Override
+	public GameImpl setScorekeeperStaffId(int argScorekeeperStaffId) {
+		getGameOpal().setScorekeeperStaffId(argScorekeeperStaffId);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -251,6 +270,21 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<Game, GameOpal> impl
 	@Override
 	public Game setIncomingWinningCardPlayer(Player argPlayer) {
 		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
+	}
+
+	/** @return the Staff object created from game through reference game_scorekeeper_staff_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public Staff getScorekeeperStaff() {
+		StaffOpal lclStaffOpal = getGameOpal().getScorekeeperStaffOpal();
+		return lclStaffOpal == null ? null : lclStaffOpal.getUserFacing();
+	}
+
+	@Override
+	public Game setScorekeeperStaff(Staff argStaff) {
+		getGameOpal().setScorekeeperStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
 		return this;
 	}
 

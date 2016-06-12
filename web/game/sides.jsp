@@ -29,7 +29,8 @@ Tournament lclT = lclMatch.getTournament();
 boolean lclTD = lclUser.mayActAsTournamentDirector(lclT);
 
 Staff lclS = lclUser.getContact().findStaff(lclT);
-Staff lclSelectedStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
+Staff lclSelectedModeratorStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
+Staff lclSelectedScorekeeperStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyScorekeeper(), lclS) : lclGame.getScorekeeperStaff();
 
 MatchStatus lclStatus = lclMatch.determineStatus();
 %>
@@ -43,22 +44,27 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 
 <form action="SetSides" method="post">
 	<input type="hidden" name="match_id" value="<%= lclMatch.getId() %>" />
-	<div class="row" data-equalizer>
-		<div class="small-12 medium-12 large-4 columns"><%
-				if (lclTD) {
-					%><fieldset data-equalizer-watch>
-						<legend>Moderator</legend>
-						<label><%= new AssembledDropdownField<>("moderator_staff_id", lclSelectedStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label><%
-					%></fieldset><%
-			} else {
-				%><p>If the moderator for this match is someone other than you (<%= lclUser.getContact().getName() %>), contact the control room (<%= lclT.getControlRoom().getName() %>).</p><%
-			}
-		%></div><%
+	<div class="row">
+		<div class="small-12 medium-12 large-6 columns">
+			<fieldset>
+				<legend>Moderator</legend>
+				<label><%= new AssembledDropdownField<>("moderator_staff_id", lclSelectedModeratorStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label>
+			</fieldset>
+		</div>
+		<div class="small-12 medium-12 large-6 columns">
+			<fieldset>
+				<legend>Scorekeeper</legend>
+				<label><%= new AssembledDropdownField<>("scorekeeper_staff_id", lclSelectedScorekeeperStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label>
+			</fieldset>
+		</div>
+	</div>
+	<div class="row" data-equalizer><%
 		List<Player> lclCandidates;
 		NameCodeExtractor<Player> lclPlayerNCE = new FunctionalNameCodeExtractor<>(Player::getNameWithSchoolShortName, Player::getUniqueString); 
 		
 		if (lclTD) {
 			lclCandidates = lclT.getPlayers();
+			lclCandidates.sort(Player.NameComparator.getInstance());
 		} else {
 			switch (lclStatus) {
 				case NO_DATA:
@@ -68,6 +74,7 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 					Validate.notNull(lclGame);
 					lclCandidates = new LinkedList<>(lclT.getPlayers());
 					lclCandidates.add(0, lclGame.getSingleKnownPlayer());
+					lclCandidates.sort(Player.NameComparator.getInstance());
 					break;
 				case READY:
 				case IN_PROGRESS:
@@ -78,8 +85,8 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 			}
 		}
 		
-		%><div class="small-12 medium-6 large-4 columns"><%= makeChoices(lclUser, lclCandidates, lclPlayerNCE, "left_player_id", "Left Player") %></div>
-		<div class="small-12 medium-6 large-4 columns"><%= makeChoices(lclUser, lclCandidates, lclPlayerNCE, "right_player_id", "Right Player") %></div>
+		%><div class="small-12 medium-6 large-6 columns"><%= makeChoices(lclUser, lclCandidates, lclPlayerNCE, "left_player_id", "Left Player") %></div>
+		<div class="small-12 medium-6 large-6 columns"><%= makeChoices(lclUser, lclCandidates, lclPlayerNCE, "right_player_id", "Right Player") %></div>
 	</div><%
 	
 	if (lclMatch.requiresIdentificationOfWinningAndLosingCardPlayers()) {

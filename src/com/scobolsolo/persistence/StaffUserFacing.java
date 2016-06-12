@@ -343,6 +343,33 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 		return lclA;
 	}
 
+	public int getScorekeeperGameCount();
+	public java.util.Iterator<com.scobolsolo.application.Game> createScorekeeperGameIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Game> streamScorekeeperGame();
+
+	public com.scobolsolo.application.Staff addScorekeeperGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Staff removeScorekeeperGame(com.scobolsolo.application.Game argGame);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireScorekeeperGame(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createScorekeeperGameIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Game[] createScorekeeperGameArray() {
+		int lclLength = getScorekeeperGameCount();
+		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createScorekeeperGameIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
 	public int getStaffAssignmentCount();
 	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator();
 

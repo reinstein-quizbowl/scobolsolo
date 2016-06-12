@@ -101,6 +101,7 @@ SELECT
 	M.room_id,
 	M.winning_card_id, M.losing_card_id,
 	G.moderator_staff_id,
+	G.scorekeeper_staff_id,
 	G.tossups_heard,
 	G.incoming_winning_card_player_id, G.incoming_losing_card_player_id,
 	G.outgoing_winning_card_player_id AS winner_player_id, G.outgoing_losing_card_player_id AS loser_player_id,
@@ -124,7 +125,7 @@ WHERE
 		OR
 		Ph.card_system = FALSE
 	)
-GROUP BY Ph.tournament_code, G.id, M.round_id, M.room_id, M.winning_card_id, M.losing_card_id, G.moderator_staff_id, G.tossups_heard, G.incoming_winning_card_player_id, G.incoming_losing_card_player_id, G.outgoing_winning_card_player_id, G.outgoing_losing_card_player_id, Pwin.id, Plose.id;
+GROUP BY Ph.tournament_code, G.id, M.round_id, M.room_id, M.winning_card_id, M.losing_card_id, G.moderator_staff_id, G.scorekeeper_staff_id, G.tossups_heard, G.incoming_winning_card_player_id, G.incoming_losing_card_player_id, G.outgoing_winning_card_player_id, G.outgoing_losing_card_player_id, Pwin.id, Plose.id;
 
 CREATE VIEW Player_Record_v AS
 SELECT
