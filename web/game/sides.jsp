@@ -46,13 +46,13 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 	<input type="hidden" name="match_id" value="<%= lclMatch.getId() %>" />
 	<div class="row">
 		<div class="small-12 medium-12 large-6 columns">
-			<fieldset>
+			<fieldset class="fieldset">
 				<legend>Moderator</legend>
 				<label><%= new AssembledDropdownField<>("moderator_staff_id", lclSelectedModeratorStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label>
 			</fieldset>
 		</div>
 		<div class="small-12 medium-12 large-6 columns">
-			<fieldset>
+			<fieldset class="fieldset">
 				<legend>Scorekeeper</legend>
 				<label><%= new AssembledDropdownField<>("scorekeeper_staff_id", lclSelectedScorekeeperStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label>
 			</fieldset>
@@ -92,7 +92,7 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 	if (lclMatch.requiresIdentificationOfWinningAndLosingCardPlayers()) {
 		%><div class="row">
 			<div class="small-12 medium-6 columns">
-				<fieldset>
+				<fieldset class="fieldset">
 					<legend>Which came in with the <em>winning</em> card&nbsp;(<%= lclMatch.getWinningCard().getShortName() %>)?</legend>
 					<label><input type="radio" name="winning_card_holder" value="left" checked="checked" />&nbsp;the left player</label>
 					<label><input type="radio" name="winning_card_holder" value="right" />&nbsp;the right player</label>
@@ -157,7 +157,7 @@ String makeChoices(Account lclUser, Collection<Player> argCandidates, NameCodeEx
 	
 	if (lclUseRadios) {
 		StringBuilder lclSB = new StringBuilder()
-			.append("<fieldset data-equalizer-watch>")
+			.append("<fieldset class=\"fieldset\" data-equalizer-watch>")
 			.append("<legend>").append(argLabel).append("</legend>");
 		for (Player lclP : argCandidates) {
 			lclSB.append("<label id=\"").append(argName).append("_label_").append(argNCE.extractCode(lclP)).append("\">")
@@ -170,7 +170,7 @@ String makeChoices(Account lclUser, Collection<Player> argCandidates, NameCodeEx
 		
 		return lclSB.toString();
 	} else {
-		return "<fieldset data-equalizer-watch><legend>" + argLabel + "</legend>" + (new AssembledDropdownField<>(argName, (Player) null).choices(argCandidates).namer(argNCE).attribute("onchange", "dropdownSidesUpdated(this)")).required() + "</fieldset>";
+		return "<fieldset class=\"fieldset\" data-equalizer-watch><legend>" + argLabel + "</legend>" + (new AssembledDropdownField<>(argName, (Player) null).choices(argCandidates).namer(argNCE).attribute("onchange", "dropdownSidesUpdated(this)")).required() + "</fieldset>";
 	}
 }
 

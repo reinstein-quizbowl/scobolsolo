@@ -145,8 +145,8 @@ if (lclIncompleteTournaments.isEmpty()) {
 									<td><%= lclNeededThisCategory %></td>
 									<td><%= lclPct.format(lclCompletion) %></td>
 									<td>
-										<div class="progress">
-											<span class="meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></span>
+										<div class="progress" role="progressbar" aria-valuemin="0" aria-valuenow="<%= lclCappedWrittenThisCategory %>" aria-valuemax="<%= lclNeededThisCategory %>">
+											<div class="progress-meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></div>
 										</div>
 									</td>
 								</tr><%
@@ -172,8 +172,8 @@ if (lclIncompleteTournaments.isEmpty()) {
 								<th><%= lclNeededThisCG %></th>
 								<th><%= lclPct.format(lclCompletion) %></th>
 								<td>
-									<div class="progress">
-										<span class="meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></span>
+									<div class="progress" role="progressbar" aria-valuemin="0" aria-valuenow="<%= lclCappedWrittenThisCG %>" aria-valuemax="<%= lclNeededThisCG %>">
+										<div class="progress-meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></div>
 									</div>
 								</td>
 							</tr>
@@ -203,8 +203,8 @@ if (lclIncompleteTournaments.isEmpty()) {
 							<td><%= lclNeededTotal %></td>
 							<td><%= lclPct.format(lclCompletion) %></td>
 							<td>
-								<div class="progress">
-									<span class="meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></span>
+								<div class="progress" role="progressbar" aria-valuemin="0" aria-valuenow="<%= lclCappedWrittenTotal %>" aria-valuemax="<%= lclNeededTotal %>">
+									<div class="progress-meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></div>
 								</div>
 							</td>
 						</tr>

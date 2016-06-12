@@ -12,7 +12,7 @@ td { // Deliberately not th
 }
 
 .switch {
-	padding: $form-spacing / 2 + rem-calc($input-border-width) 0 !important;
+	padding: $form-spacing / 2 + rem-calc(1px) 0 !important;
 }
 
 td div.switch {
@@ -22,6 +22,12 @@ td div.switch {
 abbr, acronym {
 	text-transform: none !important;
 	font-size: 100% !important;
+}
+
+[title]:not(.stealth-tool-tip), .tooltipped {
+	text-decoration-line: underline;
+	text-decoration-style: wavy;
+	text-decoration-color: $dark-gray;
 }
 
 [title].stealth-tool-tip {
@@ -42,7 +48,7 @@ abbr, acronym {
 }
 
 .info {
-	background-color: $info-color !important;
+	background-color: map-get($foundation-palette, info) !important;
 }
 
 .success {
@@ -78,9 +84,17 @@ input[disabled] {
 	position: fixed;
 }
 
-.magellan li.active, .magellan li.active a {
-	color: #000 !important;
-	font-weight: 700 !important;
+.magellan a {
+	display: block;
+	width: 100%;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.magellan a.active {
+	color: $white;
+	background-color: $primary-color;
+	font-weight: 700;
 }
 
 
@@ -133,6 +147,16 @@ h2 {
 	margin-top: 1rem;
 }
 
+button.menu-icon, button.menu-icon:hover, button.menu-icon:active, button.menu-icon:focus,
+button.close-button, button.close-button:hover, button.close-button:active, button.close-button:focus, {
+	color: $white;
+	background-color: inherit;
+}
+
+.callout {
+	margin-top: 1rem !important;
+}
+
 .button-in-row {
 	padding-top: 20px;
 	
@@ -146,9 +170,14 @@ a.subtle-highlight {
 	border-bottom: 1px dotted $primary-color;
 }
 
+a.no-highlight {
+	color: inherit;
+	border-bottom: none;
+}
+
 .has-pronunciation-guide, .pronunciation-guide {
 	font-family: 'STIXGeneral', $font-family-serif;
-	color: $steel;
+	color: $dark-gray;
 }
 
 .pronunciation-guide::before {

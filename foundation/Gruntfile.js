@@ -4,7 +4,16 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss', 'compass/stylesheets/']
+        includePaths: [
+			'bower_components/foundation-sites/scss',
+			'bower_components/foundation-sites/scss/components',
+			'bower_components/foundation-sites/scss/forms',
+			'bower_components/foundation-sites/scss/grid',
+			'bower_components/foundation-sites/scss/settings',
+			'bower_components/foundation-sites/scss/typography',
+			'bower_components/foundation-sites/scss/util',
+			'bower_components/motion-ui'
+		]
       },
       dist: {
         options: {

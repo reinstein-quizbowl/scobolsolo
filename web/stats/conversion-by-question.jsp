@@ -36,20 +36,6 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 	.packet-not-public {
 		color: #999;
 	}
-	
-	li.packet-list-nested {
-		margin-left: 0.25em;
-		list-style-type: none;
-	}
-	
-	li.packet-list-nested:before {
-		content: '- ';
-	}
-	
-	li.packet-list-nested a {
-		color: #666;
-		font-size: 13px;
-	}
 </style>
 
 <div class="row">
@@ -62,7 +48,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 		
 		List<Round> lclRounds = lclT.getRounds(); // comes pre-sorted
 		for (Round lclR : lclRounds) {
-			%><h2 id="round_<%= lclR.getId() %>" data-magellan-destination="round_<%= lclR.getId() %>"><%= lclR.getName() %></h2><%
+			%><h2 id="round_<%= lclR.getId() %>" data-magellan-target="round_<%= lclR.getId() %>"><%= lclR.getName() %></h2><%
 			Packet lclP = lclR.getPacket();
 			
 			if (lclP.isQuestionsPublic()) {
@@ -153,15 +139,13 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 	%></div>
 	
 	<div class="show-for-large-up large-3 columns">
-		<div data-magellan-expedition>
-			<ul class="magellan side-nav"><%
-				for (Round lclR : lclT.getRounds()) {
-					Packet lclP = lclR.getPacket();
-					String lclClass = lclP.isQuestionsPublic() ? "packet-public" : "packet-not-public";
-					%><li data-magellan-arrival="round_<%= lclR.getId() %>" class="<%= lclClass %>"><a href="#round_<%= lclR.getId() %>"><%= lclR.getName() %></a></li><%
-				}
-			%></ul>
-		</div>
+		<ul class="magellan side-nav no-bullet" data-magellan><%
+			for (Round lclR : lclT.getRounds()) {
+				Packet lclP = lclR.getPacket();
+				String lclClass = lclP.isQuestionsPublic() ? "packet-public" : "packet-not-public";
+				%><li class="<%= lclClass %>"><a href="#round_<%= lclR.getId() %>"><%= lclR.getName() %></a></li><%
+			}
+		%></ul>
 	</div>
 </div>
 

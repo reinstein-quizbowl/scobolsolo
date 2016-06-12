@@ -144,41 +144,41 @@ public class Menu extends MenuItem {
 				
 				case FOUNDATION:
 					if (this instanceof TopLevelMenu) {
-						lclSB.append("<div class=\"sticky\">\n")
-						     .append("	<nav class=\"top-bar\" data-topbar data-options=\"sticky_on: large\" role=\"navigation\">\n")
-						     .append("		<ul class=\"title-area\">\n")
-						     .append("			<li class=\"name\"><h1><a>" + getTitle() + "</a></h1></li>\n")
-						     .append("			<li class=\"toggle-topbar menu-icon\"><a href=\"#\"><span>Menu</span></a></li>\n")
-						     .append("		</ul>\n")
-						     .append("		<section class=\"top-bar-section\">\n")
-						     .append("			<ul class=\"left\">\n");
+						lclSB.append("<div class=\"title-bar\" data-responsive-toggle=\"main-menu\" data-hide-for=\"medium\">\n")
+							 .append("	<button class=\"menu-icon\" type=\"button\" data-toggle></button>\n")
+							 .append("	<div class=\"title-bar-title\">" + getTitle() + "</div>\n")
+							 .append("</div>\n")
+							 .append("<div class=\"top-bar\" id=\"main-menu\">\n")
+							 .append("	<div class=\"top-bar-left\">\n")
+							 .append("		<ul class=\"menu\" data-responsive-menu=\"drilldown medium-dropdown\">\n")
+							 .append("			<li class=\"menu-text show-for-medium\">" + getTitle() + "</li>\n");
 					} else {
-						lclSB.append("				<li class=\"has-dropdown\">")
-						     .append("					<a href=\"" + (hasUrl() ? getUrl() : "#") + "\">" + getTitle() + "</a>\n")
-						     .append("					<ul class=\"dropdown\">\n");
+						lclSB.append("			<li class=\"has-submenu\">\n")
+							 .append("				<a href=\"" + (hasUrl() ? getUrl() : "#") + "\">" + getTitle() + "</a>\n")
+							 .append("				<ul class=\"submenu menu vertical\" data-submenu>\n");
 					}
 					
 					for (final MenuItem lclItem : getItems()) {
-						lclSB.append("				" + lclItem.output(argMT, argUser, argCurrentPageName) + '\n');
+						lclSB.append("			" + lclItem.output(argMT, argUser, argCurrentPageName) + '\n');
 					}
 					
 					if (this instanceof TopLevelMenu) {
-						lclSB.append("				</ul>\n")
-						     .append("		</section>\n");
+						lclSB.append("		</ul>\n")
+							 .append("	</div>\n");
 						
 						if (argUser != null) {
-							lclSB.append("			<section class=\"top-bar-section\">\n")
-							     .append("				<ul class=\"right logged-in-container\">\n")
-							     .append("					<li><a class=\"account\" title=\"Account settings\" href=\"/account/\"><i class=\"fa fa-gear\"></i></a></li>\n")
-							     .append("					<li><a class=\"log-out\" title=\"Log out (currently logged in as " + argUser.getContact().getName() + ")\" href=\"/logout.jsp\"><i class=\"fa fa-sign-out\"></i></a></li>\n")
-							     .append("				</ul>\n")
-							     .append("			</section>");
+						lclSB.append("	<div class=\"top-bar-right\">\n")
+							 .append("		<ul class=\"dropdown menu logged-in-container\" data-dropdown-menu>\n")
+							 .append("			<li><a class=\"account\" title=\"Account settings\" href=\"/account/\"><i class=\"fa fa-gear\"></i></a></li>\n")
+							 .append("			<li><a class=\"log-out\" title=\"Log out (currently logged in as " + argUser.getContact().getName() + ")\" href=\"/logout.jsp\"><i class=\"fa fa-sign-out\"></i></a></li>\n")
+							 .append("		</ul>\n")
+							 .append("	</div>\n");
 						}
 						
-						lclSB.append("	</nav>\n")
-						     .append("</div>");
+						lclSB.append("</div>\n");
 					} else {
-						lclSB.append("				</ul>\n");
+						lclSB.append("			</li>")
+							 .append("		</ul>");
 					}
 					
 					return lclSB.toString();

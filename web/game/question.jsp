@@ -102,13 +102,11 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		) %><%
 		
 		if (lclPreviousPL != null && lclPreviousPL.isScorecheckAfter()) {
-			%><div class="row">
-				<div class="small-12 columns">
-					<div data-alert class="row alert-box info">
-						Before continuing, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>. If either player believes the score is otherwise, please resolve the discrepancy.
-						<a href="#" class="close">&times;</a>
-					</div>
-				</div>
+			%><div class="info callout" data-closable>
+				<button class="large close-button" aria-label="Close alert" type="button" data-close>
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<p>Before continuing, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>. If either player believes the score is otherwise, please resolve the discrepancy.</p>
 			</div><%
 		}
 		

@@ -18,7 +18,11 @@ public final class HTMLUtility {
 		Validate.notEmpty(argFieldName);
 		Validate.notEmpty(argSize);
 		
-		return "<div class=\"switch " + argSize + "\">" + argOF.checkbox(argFieldName) + "<label for=\"" + argOF.id(argFieldName) + "\"></label></div>";
+		return
+			"<div class=\"switch " + argSize + "\">" +
+				argOF.checkbox(argFieldName).addCssClass("switch-input") +
+				"<label class=\"switch-paddle\" for=\"" + argOF.id(argFieldName) + "\"></label>" +
+			"</div>";
 	}
 	
 	public static String switchWidget(final OpalForm<?> argOF, final String argFieldName) {
@@ -30,7 +34,11 @@ public final class HTMLUtility {
 		Validate.notEmpty(argSize);
 		
 		if (argOF.alreadyExists()) {
-			return "<div class=\"switch " + argSize + "\">" + argOF.delete() + "<label for=\"" + argOF.id("Delete") + "\"></label></div>";
+			return
+				"<div class=\"switch " + argSize + "\">" +
+					argOF.delete().addCssClass("switch-input") +
+					"<label class=\"switch-paddle\" for=\"" + argOF.id("Delete") + "\"></label>" +
+				"</div>";
 		} else {
 			return "";
 		}

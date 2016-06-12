@@ -32,7 +32,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 
 <div class="row">
 	<div class="small-12 large-9 columns">
-		<h2 id="overall" data-magellan-destination="overall">Overall</h2>
+		<h2 id="overall" data-magellan-target="overall">Overall</h2>
 		<table class="responsive">
 			<thead>
 				<tr>
@@ -91,7 +91,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 		
 		
 		for (Category lclC : lclCategories) {
-			%><h2 id="<%= lclC.getCode() %>" data-magellan-destination="<%= lclC.getCode() %>"><%= lclC.getName() %></h2><%
+			%><h2 id="<%= lclC.getCode() %>" data-magellan-target="<%= lclC.getCode() %>"><%= lclC.getName() %></h2><%
 			
 			List<PlayerCategoryPointV> lclPCPVs = lclMultimap.get(lclC);
 			if (lclPCPVs == null || lclPCPVs.size() == 0) {
@@ -125,14 +125,12 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 	%></div>
 	
 	<div class="show-for-large-up large-3 columns">
-		<div data-magellan-expedition>
-			<ul class="magellan side-nav">
-				<li data-magellan-arrival="overall"><a href="#overall">Overall</a></li><%
-				for (Category lclC : lclCategories) {
-					%><li data-magellan-arrival="<%= lclC.getCode() %>"><a href="#<%= lclC.getCode() %>"><%= lclC.getName() %></a></li><%
-				}
-			%></dl>
-		</div>
+		<ul class="magellan side-nav no-bullet" data-magellan>
+			<li><a href="#overall">Overall</a></li><%
+			for (Category lclC : lclCategories) {
+				%><li><a href="#<%= lclC.getCode() %>"><%= lclC.getName() %></a></li><%
+			}
+		%></ul>
 	</div>
 </div>
 

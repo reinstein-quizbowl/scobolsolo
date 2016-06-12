@@ -25,7 +25,7 @@
 	
 	<property name="grunt.path" value="/usr/bin/grunt" />
 	<property name="foundation.base" value="${user.home}/scobolsolo/foundation/" />
-	<property name="foundation.vendor.base" value="${user.home}/scobolsolo/foundation/bower_components/foundation/" />
+	<property name="foundation.vendor.base" value="${user.home}/scobolsolo/foundation/bower_components/foundation-sites/" />
 	<property name="foundation.target" value="${user.home}/scobolsolo/web/template/foundation/" />
 	
 	<path id="project.class.path">
@@ -255,10 +255,7 @@
 		
 		<copy todir="${foundation.target}/js" overwrite="true">
 			<fileset dir="${foundation.base}/js/" />
-			<fileset file="${foundation.vendor.base}/js/foundation.min.js" />
-			<fileset dir="${foundation.vendor.base}/js/foundation/" />
-			<fileset dir="${foundation.vendor.base}/js/foundation/" />
-			<fileset dir="${foundation.vendor.base}/js/vendor/" />
+			<fileset dir="${foundation.vendor.base}/js/" />
 		</copy>
 	</target>
 </project>

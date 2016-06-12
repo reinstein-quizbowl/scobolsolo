@@ -41,7 +41,7 @@
 		
 		for (CategoryGroup lclCG : lclGrouped.keySet()) {
 			%><div class="small-12 medium-6 large-4 columns">
-				<fieldset>
+				<fieldset class="fieldset">
 					<legend><%= lclCG.getName() %></legend><%
 					for (Category lclC : lclGrouped.get(lclCG)) {
 						%><label>

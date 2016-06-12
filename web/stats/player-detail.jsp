@@ -50,7 +50,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 		}
 
 		for (School lclS : lclSchoolToPlayers.keySet()) {
-			%><h2 id="school_<%= lclS.getId() %>" data-magellan-destination="school_<%= lclS.getId() %>"><%= lclS.getExplainedName() %></h2><%
+			%><h2 id="school_<%= lclS.getId() %>" data-magellan-target="school_<%= lclS.getId() %>"><%= lclS.getExplainedName() %></h2><%
 			
 			for (Player lclP : lclSchoolToPlayers.get(lclS)) {
 				%><h3 id="player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></h3><%
@@ -109,13 +109,11 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 	%></div>
 	
 	<div class="show-for-large-up large-3 columns">
-		<div data-magellan-expedition>
-			<ul class="magellan side-nav"><%
-				for (School lclS : lclSchoolToPlayers.keySet()) {
-					%><li data-magellan-arrival="school_<%= lclS.getId() %>"><a href="#school_<%= lclS.getId() %>"><%= lclS.getName() %></a></li><%
-				}
-			%></ul>
-		</div>
+		<ul class="magellan side-nav no-bullet" data-magellan><%
+			for (School lclS : lclSchoolToPlayers.keySet()) {
+				%><li><a href="#school_<%= lclS.getId() %>"><%= lclS.getName() %></a></li><%
+			}
+		%></ul>
 	</div>
 </div>
 

@@ -25,35 +25,35 @@ public final class GameEntryQuestionMenu {
 		final StringBuilder lclSB = new StringBuilder();
 		lclSB.append("		<h2>").append(argCurrent).append("</h2>");
 		if (argCurrentQuestionIndex >= 0) {
-			lclSB.append("		<dl class=\"sub-nav\">")
-				.append("			<dt>Actions</dt>")
-				.append("				<dd><a href=\"").append(QuestionResponse.generateQueryString(argGame, argRightPlayer, argLeftPlayer, argCurrentQuestionIndex, argReplacement, argOvertime)).append("\">switch sides</a></dd>");
+			lclSB.append("		<ul class=\"menu\">")
+				.append("			<li class=\"menu-text\">Actions</li>")
+				.append("			<li><a href=\"").append(QuestionResponse.generateQueryString(argGame, argRightPlayer, argLeftPlayer, argCurrentQuestionIndex, argReplacement, argOvertime)).append("\">switch sides</a></li>");
 			if (argReplacement) {
-				lclSB.append("				<dd><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, argCurrentQuestionIndex, false, argOvertime)).append("\">cancel replacement</a></dd>");
+				lclSB.append("		<li><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, argCurrentQuestionIndex, false, argOvertime)).append("\">cancel replacement</a></li>");
 			} else {
-				lclSB.append("				<dd><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, argCurrentQuestionIndex, true, argOvertime)).append("\">replace question</a></dd>");
+				lclSB.append("		<li><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, argCurrentQuestionIndex, true, argOvertime)).append("\">replace question</a></li>");
 			}
-			lclSB.append("		</dl>");
+			lclSB.append("		</ul>");
 		}
 		
-		lclSB.append("		<dl class=\"sub-nav\">")
-			.append("			<dt>Question</dt>");
+		lclSB.append("		<ul class=\"menu\">")
+			.append("			<li class=\"menu-text\">Question</li>");
 		int lclIndex = 0;
 		for (final Placement lclRegPL : lclPacket.getRegulationPlacements()) {
-			lclSB.append("				<dd").append(!argOvertime && lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, false)).append("\">").append(lclRegPL.getNumber()).append("</a></dd>");
+			lclSB.append("		<li").append(!argOvertime && lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, false)).append("\">").append(lclRegPL.getNumber()).append("</a></li>");
 			++lclIndex;
 		}
-		lclSB.append("		</dl>");
+		lclSB.append("		</ul>");
 		
 		if (argOvertime) {
-			lclSB.append("			<dl class=\"sub-nav\">")
-				.append("				<dt>Tiebreakers</dt>");
+			lclSB.append("		<ul class=\"menu\">")
+				.append("			<li class=\"menu-text\">Tiebreakers</li>");
 				lclIndex = 0;
 				for (final Placement lclOTPL : lclPacket.getOvertimePlacements()) {
-					lclSB.append("					<dd").append(lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, true)).append("\">").append(lclOTPL.getNumber()).append("</a></dd>");
+					lclSB.append("				<li").append(lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, true)).append("\">").append(lclOTPL.getNumber()).append("</a></li>");
 					++lclIndex;
 				}
-			lclSB.append("			</dl>");
+			lclSB.append("		</ul>");
 		}
 		
 		return lclSB.toString();
