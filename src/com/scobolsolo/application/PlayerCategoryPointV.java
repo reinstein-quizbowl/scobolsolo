@@ -15,7 +15,7 @@ import com.scobolsolo.persistence.PlayerCategoryPointVUserFacing;
 public interface PlayerCategoryPointV extends PlayerCategoryPointVUserFacing {
 	public static final Comparator<PlayerCategoryPointV> CATEGORY_COMPARATOR = Comparator.comparing(PlayerCategoryPointV::getCategory)
 		.thenComparingInt(argPCPV -> -1 * argPCPV.getPoints(0)) // descending order of points
-		.thenComparing(PlayerCategoryPointV::getPlayer);
+		.thenComparing(PlayerCategoryPointV::getPlayer, Player.NameComparator.getInstance());
 	
 	public static final Comparator<PlayerCategoryPointV> PPTUH_COMPARATOR = Comparator.comparingDouble(PlayerCategoryPointV::getPPTUH).reversed();
 	

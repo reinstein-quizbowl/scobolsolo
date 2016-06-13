@@ -159,8 +159,8 @@ if (lclOF.alreadyExists() && lclQ.getText() != null && lclQ.getAnswer() != null)
 	%><div class="row">
 		<div class="small-12 columns">
 			<h2>Rendered</h2>
-			<p class="question-text"><%= lclQ.outputTextHTML() %></p>
-			<p class="question-answer"><%= lclQ.outputAnswerHTML() %></p>
+			<p class="question-text"><%= lclQ.outputTextHTML(true) %></p>
+			<p class="question-answer"><%= lclQ.outputAnswerHTML(true) %></p>
 		</div>
 	</div><%
 }

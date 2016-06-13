@@ -168,8 +168,8 @@ String renderAll(Tournament argT, ListMultimap<Category, Question> argCategorize
 					.append("<a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">").append(lclQ.getDescription()).append("</a>")
 					.append(lclPlacementString)
 					.append("</h4>")
-					.append("<p class=\"question-text small\">").append(lclQ.outputTextHTML()).append("</p>")
-					.append("<p class=\"question-answer small\">").append(lclQ.outputAnswerHTML()).append("</p>");
+					.append("<p class=\"question-text small\">").append(lclQ.outputTextHTML(true)).append("</p>")
+					.append("<p class=\"question-answer small\">").append(lclQ.outputAnswerHTML(true)).append("</p>");
 				if (lclQ.getNote() != null) {
 					lclSB.append("<p class=\"question-note small\">").append(WebDataFilter.scrubForHTMLDisplay(lclQ.getNote())).append("</p>");
 				}
