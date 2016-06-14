@@ -1,16 +1,25 @@
-﻿<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.Collections" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
+<%@ page import="com.google.common.collect.SortedSetMultimap" %>
+<%@ page import="com.google.common.collect.TreeMultimap" %>
+<%@ page import="com.siliconage.util.WebDataFilter" %>
+<%@ page import="com.siliconage.web.ControllerServlet" %>
+<%@ page import="com.scobolsolo.application.Account" %>
+<%@ page import="com.scobolsolo.application.Message" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 
 <%
-String TITLE_SEPARATOR = " | ";
+final String TITLE_SEPARATOR = " | ";
 
-Tournament argTournament = TournamentFactory.getInstance().fromHttpRequest(request, "tournamentCode");
+final Tournament argTournament = TournamentFactory.getInstance().fromHttpRequest(request, "tournamentCode");
 
-String argTitle, argDescription;
+final String argTitle, argDescription;
 
-String argTitleParameter = request.getParameter("pageTitle");
+final String argTitleParameter = request.getParameter("pageTitle");
 
 if (argTitleParameter == null) {
 	if (argTournament == null) {
@@ -36,6 +45,15 @@ if (argDescriptionParameter == null) {
 		argDescription = argTournament.getName() + TITLE_SEPARATOR + argDescriptionParameter;
 	}
 }
+
+final Account lclUser = Account.determineCurrent(request);
+final List<Message> lclUnreadMessages;
+if (lclUser == null || ControllerServlet.getBooleanParameter(request, "suppressMessagesModal")) {
+	lclUnreadMessages = Collections.emptyList();
+} else {
+	lclUnreadMessages = lclUser.getUnreadMessages();
+}
+
 %>
 <!doctype html>
 
@@ -95,9 +113,39 @@ if (argDescriptionParameter == null) {
 </head>
 
 <body>
-<%= ObjectUtils.firstNonNull(request.getParameter("topMenu"), "") %>
+<%= ObjectUtils.firstNonNull(request.getParameter("topMenu"), "") %><%
 
-<section role="main" class="scroll-container">
+if (lclUnreadMessages.isEmpty() == false) {
+	%><div class="reveal modal-open-on-load" id="messages-modal" data-reveal><%
+		if (lclUnreadMessages.size() == 1) {
+			Message lclM = lclUnreadMessages.get(0);
+			
+			%><h1>New message</h1>
+			<p><span class="message-sender"><%= lclM.getSender().getContact().getName() %></span>&nbsp;<span class="message-timestamp"><%= Message.format(lclM.getSentTimestamp()) %></span><span class="message-separator">:</span> <%= WebDataFilter.scrub(lclM.getText()) %></p>
+			<p>
+				<button class="button" onclick="acknowledgeMessage(<%= lclM.getId() %>)">Acknowledge</button>
+				<a class="button" href="/messages/?respond_to_account_id=<%= lclM.getSender().getId() %>#<%= lclM.getSender().getId() %>" target="_blank">Respond</a>
+			</p><%
+		} else {
+			SortedSetMultimap<Account, Message> lclUnreadMessagesGrouped = TreeMultimap.create(Account.NameComparator.getInstance(), Comparator.naturalOrder());
+			for (Message lclM : lclUnreadMessages) {
+				lclUnreadMessagesGrouped.put(lclM.getSender(), lclM);
+			}
+			%><h1><%= lclUnreadMessages.size() + " new messages" %></h1><%
+			for (Account lclFrom : lclUnreadMessagesGrouped.keySet()) {
+				for (Message lclM : lclUnreadMessagesGrouped.get(lclFrom)) {
+					%><p>
+						<span class="message-sender"><%= lclM.getSender().getContact().getName() %></span>&nbsp;<span class="message-timestamp"><%= Message.format(lclM.getSentTimestamp()) %></span><span class="message-separator">:</span> <%= WebDataFilter.scrub(lclM.getText()) %>
+						<button class="button" onclick="acknowledgeMessage(<%= lclM.getId() %>)">Acknowledge</button>
+						<a class="button" href="/messages/?respond_to_account_id=<%= lclM.getSender().getId() %>#<%= lclM.getSender().getId() %>" target="_blank">Respond</a>
+					</p><%
+				}
+			}
+		}
+	%></div><%
+}
+
+%><section role="main" class="scroll-container">
 	<div class="row">
 		<div class="small-12 columns">
 			<h1 class="page-header" id="<%= ObjectUtils.firstNonNull(request.getParameter("h1Id"), "mainHeader") %>"><%= ObjectUtils.firstNonNull(request.getParameter("h1"), "") %></h1>

@@ -45,6 +45,21 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>AcknowledgeMessage</servlet-name>
+		<servlet-class>com.scobolsolo.messages.AcknowledgeMessage</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>SendMessage</servlet-name>
+		<servlet-class>com.scobolsolo.messages.SendMessage</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BulkMessage</servlet-name>
+		<servlet-class>com.scobolsolo.messages.BulkMessage</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>SetSides</servlet-name>
 		<servlet-class>com.scobolsolo.matches.SetSides</servlet-class>
 	</servlet>
@@ -163,6 +178,21 @@
 	<servlet-mapping>
 		<servlet-name>UpdatePronunciationGuidePreferences</servlet-name>
 		<url-pattern>/account/UpdatePronunciationGuidePreferences</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AcknowledgeMessage</servlet-name>
+		<url-pattern>/messages/AcknowledgeMessage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>SendMessage</servlet-name>
+		<url-pattern>/messages/SendMessage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>BulkMessage</servlet-name>
+		<url-pattern>/tournament/BulkMessage</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
@@ -296,6 +326,7 @@
 		<web-resource-collection>
 			<web-resource-name>Valid User Pages</web-resource-name>
 			<url-pattern>/account/*</url-pattern>
+			<url-pattern>/messages/*</url-pattern>
 			<url-pattern>/game/*</url-pattern>
 			<url-pattern>/games/*</url-pattern>
 			<url-pattern>/tournament/*</url-pattern>

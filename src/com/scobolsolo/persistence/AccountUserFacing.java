@@ -339,6 +339,54 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Account setPasswordResetTokenExpiration(java.time.LocalDateTime argPasswordResetTokenExpiration);
 
 	/**
+	 * object accessor for the {@code CanReceiveUnsolicitedMessages}
+	 *
+	 * <p>The {@code CanReceiveUnsolicitedMessages} field is a direct mapping of the {@code can_receive_unsolicited_messages} field in {@code account}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isCanReceiveUnsolicitedMessages() method.</p>
+	 *
+	 * @return an object value of {@code CanReceiveUnsolicitedMessages} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	public java.lang.Boolean isCanReceiveUnsolicitedMessagesAsObject();
+
+	/**
+	 * primitive accessor for the {@code CanReceiveUnsolicitedMessages}
+	 *
+	 * <p>The {@code CanReceiveUnsolicitedMessages} field is a direct mapping of the {@code can_receive_unsolicited_messages} database column in the table {@code account}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isCanReceiveUnsolicitedMessagesAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code CanReceiveUnsolicitedMessages} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isCanReceiveUnsolicitedMessages() {
+		java.lang.Boolean lclO = isCanReceiveUnsolicitedMessagesAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code CanReceiveUnsolicitedMessages} to the value of {@code argCanReceiveUnsolicitedMessages}
+	 *
+	 * @param argCanReceiveUnsolicitedMessages the new value of {@code CanReceiveUnsolicitedMessages}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code can_receive_unsolicited_messages} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argCanReceiveUnsolicitedMessages is null
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	public com.scobolsolo.application.Account setCanReceiveUnsolicitedMessages(java.lang.Boolean argCanReceiveUnsolicitedMessages);
+
+	/**
+	 * sets the {@code CanReceiveUnsolicitedMessages} to the value of {@code argCanReceiveUnsolicitedMessages}
+	 *
+	 * @param argCanReceiveUnsolicitedMessages the new value of {@code CanReceiveUnsolicitedMessages}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Account setCanReceiveUnsolicitedMessages(boolean argCanReceiveUnsolicitedMessages);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
 	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code account_id_fkey}.
 	 *
@@ -422,6 +470,60 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 		com.scobolsolo.application.Diff[] lclA = new com.scobolsolo.application.Diff[lclLength];
 		int lclIndex = 0;
 		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createEditorDiffIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
+	public int getFromMessageCount();
+	public java.util.Iterator<com.scobolsolo.application.Message> createFromMessageIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Message> streamFromMessage();
+
+	public com.scobolsolo.application.Account addFromMessage(com.scobolsolo.application.Message argMessage);
+	public com.scobolsolo.application.Account removeFromMessage(com.scobolsolo.application.Message argMessage);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Message>> T acquireFromMessage(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Message> lclI = createFromMessageIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Message[] createFromMessageArray() {
+		int lclLength = getFromMessageCount();
+		com.scobolsolo.application.Message[] lclA = new com.scobolsolo.application.Message[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Message> lclI = createFromMessageIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
+	public int getToMessageCount();
+	public java.util.Iterator<com.scobolsolo.application.Message> createToMessageIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Message> streamToMessage();
+
+	public com.scobolsolo.application.Account addToMessage(com.scobolsolo.application.Message argMessage);
+	public com.scobolsolo.application.Account removeToMessage(com.scobolsolo.application.Message argMessage);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Message>> T acquireToMessage(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Message> lclI = createToMessageIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Message[] createToMessageArray() {
+		int lclLength = getToMessageCount();
+		com.scobolsolo.application.Message[] lclA = new com.scobolsolo.application.Message[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Message> lclI = createToMessageIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}

@@ -8,6 +8,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	public static final java.lang.Boolean ourDefaultAdministrator = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultActive = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultWriter = java.lang.Boolean.FALSE;
+	public static final java.lang.Boolean ourDefaultCanReceiveUnsolicitedMessages = java.lang.Boolean.FALSE;
 
 	private AccountOpal() {
 		super();
@@ -25,6 +26,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		getNewValues()[3] = ourDefaultAdministrator;
 		getNewValues()[4] = ourDefaultActive;
 		getNewValues()[5] = ourDefaultWriter;
+		getNewValues()[8] = ourDefaultCanReceiveUnsolicitedMessages;
 
 
 		/* Initialize the back Collections to empty sets. */
@@ -32,6 +34,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		myNewPronunciationGuideSuppressionOpalFast3Set = new com.siliconage.util.Fast3Set<>();
 		myNewWriterQuestionOpalHashSet = new java.util.HashSet<>();
 		myNewEditorDiffOpalHashSet = new java.util.HashSet<>();
+		myNewFromMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewToMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>();
 
 		return;
 	}
@@ -51,6 +55,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		"Writer",
 		"PasswordResetToken",
 		"PasswordResetTokenExpiration",
+		"CanReceiveUnsolicitedMessages",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -62,6 +67,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		java.lang.Boolean.class,
 		java.lang.String.class,
 		java.time.LocalDateTime.class,
+		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -73,9 +79,11 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		false,
 		true,
 		true,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -136,6 +144,10 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	public synchronized java.time.LocalDateTime getPasswordResetTokenExpiration() {
 		return (java.time.LocalDateTime) getReadValueSet()[7];
+	}
+
+	public synchronized java.lang.Boolean isCanReceiveUnsolicitedMessagesAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[8];
 	}
 
 	public synchronized AccountOpal setId(final java.lang.Integer argId) {
@@ -233,6 +245,20 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		return this;
 	}
 
+	public synchronized AccountOpal setCanReceiveUnsolicitedMessages(final java.lang.Boolean argCanReceiveUnsolicitedMessages) {
+		tryMutate();
+		if (argCanReceiveUnsolicitedMessages == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myCanReceiveUnsolicitedMessages on " + this + " to null.");
+		}
+		getNewValues()[8] = argCanReceiveUnsolicitedMessages;
+		return this;
+	}
+
+	public AccountOpal setCanReceiveUnsolicitedMessages(final boolean argCanReceiveUnsolicitedMessages) {
+		setCanReceiveUnsolicitedMessages(argCanReceiveUnsolicitedMessages ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -252,6 +278,10 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		myWriterQuestionOpalCachedOperations = null; /* Ditto */
 		myNewEditorDiffOpalHashSet = null; /* Necessary if it has been rolled back */
 		myEditorDiffOpalCachedOperations = null; /* Ditto */
+		myNewFromMessageOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myFromMessageOpalCachedOperations = null; /* Ditto */
+		myNewToMessageOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myToMessageOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -264,6 +294,8 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 			myOldPronunciationGuideSuppressionOpalFast3Set = null;
 			myOldWriterQuestionOpalHashSet = null;
 			myOldEditorDiffOpalHashSet = null;
+			myOldFromMessageOpalFast3Set = null;
+			myOldToMessageOpalFast3Set = null;
 		} else {
 			if (myNewPronunciationGuideSuppressionOpalFast3Set != null) {
 				if (myNewPronunciationGuideSuppressionOpalFast3Set.size() > 0) {
@@ -295,6 +327,26 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 			} else {
 				myEditorDiffOpalCachedOperations = null;
 			}
+			if (myNewFromMessageOpalFast3Set != null) {
+				if (myNewFromMessageOpalFast3Set.size() > 0) {
+					myOldFromMessageOpalFast3Set = myNewFromMessageOpalFast3Set;
+				} else {
+					myOldFromMessageOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewFromMessageOpalFast3Set = null;
+			} else {
+				myFromMessageOpalCachedOperations = null;
+			}
+			if (myNewToMessageOpalFast3Set != null) {
+				if (myNewToMessageOpalFast3Set.size() > 0) {
+					myOldToMessageOpalFast3Set = myNewToMessageOpalFast3Set;
+				} else {
+					myOldToMessageOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewToMessageOpalFast3Set = null;
+			} else {
+				myToMessageOpalCachedOperations = null;
+			}
 		}
 		setClearOldCollections(false);
 		return;
@@ -321,6 +373,18 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 				((DiffOpal) lclI.next()).setEditorOpalInternal(null);
 			}
 		}
+		if (myNewFromMessageOpalFast3Set != null || myFromMessageOpalCachedOperations != null) {
+			lclI = createFromMessageOpalIterator();
+			while (lclI.hasNext()) {
+				((MessageOpal) lclI.next()).setFromAccountOpalInternal(null);
+			}
+		}
+		if (myNewToMessageOpalFast3Set != null || myToMessageOpalCachedOperations != null) {
+			lclI = createToMessageOpalIterator();
+			while (lclI.hasNext()) {
+				((MessageOpal) lclI.next()).setToAccountOpalInternal(null);
+			}
+		}
 		if (getContactOpal() != null) {
 			getContactOpal().setAccountOpalInternal(null);
 		}
@@ -339,6 +403,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		lclTargetNewValues[5] = lclValues[5]; /* Writer (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* PasswordResetToken (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* PasswordResetTokenExpiration (immutable) */
+		lclTargetNewValues[8] = lclValues[8]; /* CanReceiveUnsolicitedMessages (immutable) */
 
 		return;
 	}
@@ -403,6 +468,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argOutput.println("Writer = " + isWriterAsObject());
 		argOutput.println("PasswordResetToken = " + getPasswordResetToken());
 		argOutput.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
+		argOutput.println("CanReceiveUnsolicitedMessages = " + isCanReceiveUnsolicitedMessagesAsObject());
 	}
 
 	@Override
@@ -415,6 +481,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argOutput.println("Writer = " + isWriterAsObject());
 		argOutput.println("PasswordResetToken = " + getPasswordResetToken());
 		argOutput.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
+		argOutput.println("CanReceiveUnsolicitedMessages = " + isCanReceiveUnsolicitedMessagesAsObject());
 	}
 
 	private ContactOpal myOldContactOpal;
@@ -716,6 +783,178 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	public synchronized java.util.stream.Stream<DiffOpal> streamEditorDiffOpal() {
 		return getEditorDiffOpalHashSet().stream();
+	}
+
+	private java.util.Set<MessageOpal> myOldFromMessageOpalFast3Set = null;
+	private java.util.Set<MessageOpal> myNewFromMessageOpalFast3Set = null;
+	private java.util.ArrayList<com.opal.CachedOperation<MessageOpal>> myFromMessageOpalCachedOperations = null;
+
+	/* package */ java.util.Set<MessageOpal> getFromMessageOpalFast3Set() {
+		if (tryAccess()) {
+			if (myNewFromMessageOpalFast3Set == null) {
+				if (myOldFromMessageOpalFast3Set == null) {
+					if (isNew()) {
+						myOldFromMessageOpalFast3Set = java.util.Collections.emptySet();
+					} else {
+						java.util.Set<MessageOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forFromAccountIdCollection(getIdAsObject());
+						myOldFromMessageOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+					}
+				}
+				myNewFromMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldFromMessageOpalFast3Set);
+				if (myFromMessageOpalCachedOperations != null) {
+					com.opal.OpalUtility.handleCachedOperations(myFromMessageOpalCachedOperations, myNewFromMessageOpalFast3Set);
+					myFromMessageOpalCachedOperations = null;
+				}
+			}
+			return myNewFromMessageOpalFast3Set;
+		} else {
+			if (myOldFromMessageOpalFast3Set == null) {
+				java.util.Set<MessageOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forFromAccountIdCollection(getIdAsObject());
+				myOldFromMessageOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+			}
+			return myOldFromMessageOpalFast3Set;
+		}
+	}
+
+	public synchronized void addFromMessageOpal(MessageOpal argMessageOpal) {
+		tryMutate();
+		argMessageOpal.setFromAccountOpal(this);
+		return;
+	}
+
+	protected synchronized void addFromMessageOpalInternal(MessageOpal argMessageOpal) {
+		tryMutate();
+		if (myNewFromMessageOpalFast3Set == null) {
+			if (myOldFromMessageOpalFast3Set == null) {
+				if (myFromMessageOpalCachedOperations == null) { myFromMessageOpalCachedOperations = new java.util.ArrayList<>(); }
+				myFromMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMessageOpal));
+			} else {
+				myNewFromMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldFromMessageOpalFast3Set);
+				myNewFromMessageOpalFast3Set.add(argMessageOpal);
+			}
+		} else {
+			myNewFromMessageOpalFast3Set.add(argMessageOpal);
+		}
+		return;
+	}
+
+	public synchronized void removeFromMessageOpal(MessageOpal argMessageOpal) {
+		tryMutate();
+		argMessageOpal.setFromAccountOpal(null);
+	}
+
+	protected synchronized void removeFromMessageOpalInternal(MessageOpal argMessageOpal) {
+		tryMutate();
+		if (myNewFromMessageOpalFast3Set == null) {
+			if (myOldFromMessageOpalFast3Set == null) {
+				if (myFromMessageOpalCachedOperations == null) { myFromMessageOpalCachedOperations = new java.util.ArrayList<>(); }
+				myFromMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMessageOpal));
+			} else {
+				myNewFromMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldFromMessageOpalFast3Set);
+				myNewFromMessageOpalFast3Set.remove(argMessageOpal);
+			}
+		} else {
+			myNewFromMessageOpalFast3Set.remove(argMessageOpal);
+		}
+		return;
+	}
+
+	public synchronized int getFromMessageOpalCount() { return getFromMessageOpalFast3Set().size(); }
+
+	public synchronized java.util.Iterator<MessageOpal> createFromMessageOpalIterator() {
+		return getFromMessageOpalFast3Set().iterator();
+	}
+
+	public synchronized java.util.stream.Stream<MessageOpal> streamFromMessageOpal() {
+		return getFromMessageOpalFast3Set().stream();
+	}
+
+	private java.util.Set<MessageOpal> myOldToMessageOpalFast3Set = null;
+	private java.util.Set<MessageOpal> myNewToMessageOpalFast3Set = null;
+	private java.util.ArrayList<com.opal.CachedOperation<MessageOpal>> myToMessageOpalCachedOperations = null;
+
+	/* package */ java.util.Set<MessageOpal> getToMessageOpalFast3Set() {
+		if (tryAccess()) {
+			if (myNewToMessageOpalFast3Set == null) {
+				if (myOldToMessageOpalFast3Set == null) {
+					if (isNew()) {
+						myOldToMessageOpalFast3Set = java.util.Collections.emptySet();
+					} else {
+						java.util.Set<MessageOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forToAccountIdCollection(getIdAsObject());
+						myOldToMessageOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+					}
+				}
+				myNewToMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldToMessageOpalFast3Set);
+				if (myToMessageOpalCachedOperations != null) {
+					com.opal.OpalUtility.handleCachedOperations(myToMessageOpalCachedOperations, myNewToMessageOpalFast3Set);
+					myToMessageOpalCachedOperations = null;
+				}
+			}
+			return myNewToMessageOpalFast3Set;
+		} else {
+			if (myOldToMessageOpalFast3Set == null) {
+				java.util.Set<MessageOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forToAccountIdCollection(getIdAsObject());
+				myOldToMessageOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+			}
+			return myOldToMessageOpalFast3Set;
+		}
+	}
+
+	public synchronized void addToMessageOpal(MessageOpal argMessageOpal) {
+		tryMutate();
+		argMessageOpal.setToAccountOpal(this);
+		return;
+	}
+
+	protected synchronized void addToMessageOpalInternal(MessageOpal argMessageOpal) {
+		tryMutate();
+		if (myNewToMessageOpalFast3Set == null) {
+			if (myOldToMessageOpalFast3Set == null) {
+				if (myToMessageOpalCachedOperations == null) { myToMessageOpalCachedOperations = new java.util.ArrayList<>(); }
+				myToMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMessageOpal));
+			} else {
+				myNewToMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldToMessageOpalFast3Set);
+				myNewToMessageOpalFast3Set.add(argMessageOpal);
+			}
+		} else {
+			myNewToMessageOpalFast3Set.add(argMessageOpal);
+		}
+		return;
+	}
+
+	public synchronized void removeToMessageOpal(MessageOpal argMessageOpal) {
+		tryMutate();
+		argMessageOpal.setToAccountOpal(null);
+	}
+
+	protected synchronized void removeToMessageOpalInternal(MessageOpal argMessageOpal) {
+		tryMutate();
+		if (myNewToMessageOpalFast3Set == null) {
+			if (myOldToMessageOpalFast3Set == null) {
+				if (myToMessageOpalCachedOperations == null) { myToMessageOpalCachedOperations = new java.util.ArrayList<>(); }
+				myToMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMessageOpal));
+			} else {
+				myNewToMessageOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldToMessageOpalFast3Set);
+				myNewToMessageOpalFast3Set.remove(argMessageOpal);
+			}
+		} else {
+			myNewToMessageOpalFast3Set.remove(argMessageOpal);
+		}
+		return;
+	}
+
+	public synchronized int getToMessageOpalCount() { return getToMessageOpalFast3Set().size(); }
+
+	public synchronized java.util.Iterator<MessageOpal> createToMessageOpalIterator() {
+		return getToMessageOpalFast3Set().iterator();
+	}
+
+	public synchronized java.util.stream.Stream<MessageOpal> streamToMessageOpal() {
+		return getToMessageOpalFast3Set().stream();
 	}
 
 	@Override

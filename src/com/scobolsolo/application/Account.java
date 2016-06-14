@@ -4,6 +4,8 @@ import java.math.BigInteger;
 import java.security.Principal;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
@@ -159,6 +161,13 @@ public interface Account extends AccountUserFacing {
 		Validate.notNull(argCategory);
 		
 		return streamPronunciationGuideSuppression().noneMatch(argPGS -> argPGS.getCategory() == argCategory);
+	}
+	
+	default List<Message> getUnreadMessages() {
+		return streamToMessage()
+			.filter(Message::isUnread)
+			.sorted()
+			.collect(Collectors.toList());
 	}
 	
 	public static Account determineCurrent(final HttpServletRequest argRequest) {

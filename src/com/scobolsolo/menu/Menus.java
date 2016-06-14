@@ -233,6 +233,7 @@ public final class Menus {
 					new MenuPage("players-" + argT.getUniqueString(), "Players", "/tournament/players.jsp?object=" + argT.getUniqueString()),
 					new MenuPage("staff-" + argT.getUniqueString(), "Staff", "/tournament/staff.jsp?object=" + argT.getUniqueString()),
 					new MenuPage("email-" + argT.getUniqueString(), "Email Attendees", "/tournament/email.jsp?object=" + argT.getUniqueString()),
+					new MenuPage("message-" + argT.getUniqueString(), "Message Staff", "/tournament/message.jsp?object=" + argT.getUniqueString()),
 					new Menu(
 						argT.getUniqueString() + "-admin-games",
 						"Games",

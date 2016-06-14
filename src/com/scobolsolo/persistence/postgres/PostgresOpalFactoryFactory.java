@@ -18,6 +18,7 @@ import com.scobolsolo.persistence.DiffOpalFactory;
 import com.scobolsolo.persistence.GameOpalFactory;
 import com.scobolsolo.persistence.GameVOpalFactory;
 import com.scobolsolo.persistence.MatchOpalFactory;
+import com.scobolsolo.persistence.MessageOpalFactory;
 import com.scobolsolo.persistence.OpalFactoryFactory;
 import com.scobolsolo.persistence.PacketOpalFactory;
 import com.scobolsolo.persistence.PerformanceOpalFactory;
@@ -200,6 +201,11 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	@Override
 	public PacketOpalFactory getPacketOpalFactory() {
 		return PostgresPacketOpalFactory.getInstance();
+	}
+
+	@Override
+	public MessageOpalFactory getMessageOpalFactory() {
+		return PostgresMessageOpalFactory.getInstance();
 	}
 
 	@Override

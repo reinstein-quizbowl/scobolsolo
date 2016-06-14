@@ -168,8 +168,15 @@ public class Menu extends MenuItem {
 						
 						if (argUser != null) {
 						lclSB.append("	<div class=\"top-bar-right\">\n")
-							 .append("		<ul class=\"dropdown menu logged-in-container\" data-dropdown-menu>\n")
-							 .append("			<li><a class=\"account\" title=\"Account settings\" href=\"/account/\"><i class=\"fa fa-gear\"></i></a></li>\n")
+							 .append("		<ul class=\"dropdown menu logged-in-container\" data-dropdown-menu>\n");
+						
+						if (argUser.getUnreadMessages().isEmpty()) {
+							lclSB.append("			<li><a class=\"messages none-unread\" title=\"Messages (none unread)\" href=\"/messages/\"><i class=\"fa fa-envelope-o\"></i></a></li>\n");
+						} else {
+							lclSB.append("			<li><a class=\"messages unread\" title=\"Messages (new!)\" href=\"/messages/\"><i class=\"fa fa-envelope\"></i></a></li>\n");
+						}
+						
+						lclSB.append("			<li><a class=\"account\" title=\"Account settings\" href=\"/account/\"><i class=\"fa fa-gear\"></i></a></li>\n")
 							 .append("			<li><a class=\"log-out\" title=\"Log out (currently logged in as " + argUser.getContact().getName() + ")\" href=\"/logout.jsp\"><i class=\"fa fa-sign-out\"></i></a></li>\n")
 							 .append("		</ul>\n")
 							 .append("	</div>\n");

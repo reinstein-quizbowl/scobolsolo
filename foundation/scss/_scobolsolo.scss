@@ -227,12 +227,28 @@ input[type=number] {
 	-moz-appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	margin: 0; 
+.messages.unread, .messages.unread:hover, .messages.unread:active, .messages.unread:focus {
+	color: #f00;
+}
+
+.unread-message {
+	color: #f00;
+}
+
+.message-sender {
+	font-weight: bold;
+}
+
+.message-timestamp {
+	color: $dark-gray;
+}
+
+.message-timestamp::before {
+	content: '(';
+}
+
+.message-timestamp::after {
+	content: ')';
 }
 
 // STIX loading

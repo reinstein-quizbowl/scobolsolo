@@ -149,9 +149,16 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 				Writer?
 				<%= HTMLUtility.switchWidget(lclAOF, "Writer") %>
 			</label>
+		</div>
+		<div class="small-3 medium-2 columns">
+			<label>
+				<span class="show-for-small-only">Messageable?</span>
+				<span class="show-for-medium-up">Can Receive Unsolicited Messages?</span>
+				<%= HTMLUtility.switchWidget(lclAOF, "CanReceiveUnsolicitedMessages") %>
+			</label>
 		</div><%
 		if (lclAOF.alreadyExists()) {
-			%><div class="small-3 medium-2 columns">
+			%><div class="small-12 columns">
 				<a href="contact-reset-password.jsp?account_id=<%= lclAOF.getUserFacing().getId() %>">Reset password</a>
 			</div><%
 		}

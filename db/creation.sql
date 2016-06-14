@@ -49,6 +49,7 @@ CREATE TABLE Account (
 	administrator BOOLEAN NOT NULL DEFAULT FALSE,
 	writer BOOLEAN NOT NULL DEFAULT FALSE,
 	active BOOLEAN NOT NULL DEFAULT TRUE,
+	can_receive_unsolicited_messages BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE School (
@@ -409,6 +410,16 @@ CREATE TABLE Pronunciation_Guide_Suppression (
 	UNIQUE(account_id, category_code)
 );
 ALTER SEQUENCE pronunciation_guide_suppression_id_seq RESTART WITH 1000;
+
+CREATE TABLE Message (
+	id SERIAL PRIMARY KEY,
+	from_account_id INTEGER NOT NULL REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
+	to_account_id INTEGER NOT NULL REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
+	text TEXT NOT NULL,
+	sent_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	acknowledged_timestamp TIMESTAMP
+);
+ALTER SEQUENCE message_id_seq RESTART WITH 1000;
 
 
 

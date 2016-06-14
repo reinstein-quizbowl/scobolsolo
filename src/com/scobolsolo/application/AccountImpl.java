@@ -168,6 +168,27 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	@Override
+	public java.lang.Boolean isCanReceiveUnsolicitedMessagesAsObject() {
+		return getAccountOpal().isCanReceiveUnsolicitedMessagesAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	@Override
+	public AccountImpl setCanReceiveUnsolicitedMessages(java.lang.Boolean argCanReceiveUnsolicitedMessages) {
+		getAccountOpal().setCanReceiveUnsolicitedMessages(argCanReceiveUnsolicitedMessages);
+		return this;
+	}
+
+	@Override
+	public AccountImpl setCanReceiveUnsolicitedMessages(boolean argCanReceiveUnsolicitedMessages) {
+		getAccountOpal().setCanReceiveUnsolicitedMessages(argCanReceiveUnsolicitedMessages);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -268,6 +289,60 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<Account, AccountO
 	@Override
 	public java.util.Iterator<Diff> createEditorDiffIterator() {
 		return new com.opal.OpalIterator<> (getAccountOpal().createEditorDiffOpalIterator());
+	}
+
+	@Override
+	public com.scobolsolo.application.Account addFromMessage(Message argMessage) {
+		getAccountOpal().addFromMessageOpal(((MessageImpl) argMessage).getMessageOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Account removeFromMessage(Message argMessage) {
+		getAccountOpal().removeFromMessageOpal(((MessageImpl) argMessage).getMessageOpal());
+		return this;
+	}
+
+	@Override
+	public int getFromMessageCount() {
+		return getAccountOpal().getFromMessageOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Message> streamFromMessage() {
+		return getAccountOpal().streamFromMessageOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Message> createFromMessageIterator() {
+		return new com.opal.OpalIterator<> (getAccountOpal().createFromMessageOpalIterator());
+	}
+
+	@Override
+	public com.scobolsolo.application.Account addToMessage(Message argMessage) {
+		getAccountOpal().addToMessageOpal(((MessageImpl) argMessage).getMessageOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Account removeToMessage(Message argMessage) {
+		getAccountOpal().removeToMessageOpal(((MessageImpl) argMessage).getMessageOpal());
+		return this;
+	}
+
+	@Override
+	public int getToMessageCount() {
+		return getAccountOpal().getToMessageOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Message> streamToMessage() {
+		return getAccountOpal().streamToMessageOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Message> createToMessageIterator() {
+		return new com.opal.OpalIterator<> (getAccountOpal().createToMessageOpalIterator());
 	}
 
 	@Override

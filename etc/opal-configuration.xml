@@ -194,6 +194,10 @@
 				<Target Type="Room" />
 			</Reference>
 			
+			<Mapping Table="Message">
+				<Column Name="sent_timestamp" Ordering="True" />
+			</Mapping>
+			
 			<!-- Stats views -->
 			<Mapping View="Player_Point_v">
 				<Column Name="points" Type="java.lang.Integer" />

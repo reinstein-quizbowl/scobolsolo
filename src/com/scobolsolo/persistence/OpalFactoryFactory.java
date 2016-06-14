@@ -34,6 +34,7 @@ public abstract class OpalFactoryFactory extends AbstractOpalFactoryFactory {
 	public abstract StaffOpalFactory getStaffOpalFactory();
 	public abstract CategoryUseOpalFactory getCategoryUseOpalFactory();
 	public abstract PacketOpalFactory getPacketOpalFactory();
+	public abstract MessageOpalFactory getMessageOpalFactory();
 	public abstract RoomOpalFactory getRoomOpalFactory();
 	public abstract PlayerPointVOpalFactory getPlayerPointVOpalFactory();
 	public abstract PerformanceOpalFactory getPerformanceOpalFactory();
