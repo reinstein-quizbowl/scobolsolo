@@ -47,7 +47,7 @@ if (lclByCorrespondent.isEmpty()) {
 	for (Account lclCorrespondent : lclMostRecentFirst) {
 		%><div class="correspondent row" id="<%= lclCorrespondent.getId() %>">
 			<div class="small-12 columns responses">
-				<h2>From <%= lclCorrespondent.getContact().getName() %></h2><%
+				<h2>With <%= lclCorrespondent.getContact().getName() %></h2><%
 				Iterator<Message> lclMI = lclByCorrespondent.get(lclCorrespondent).iterator();
 				while (lclMI.hasNext()) {
 					Message lclM = lclMI.next();
