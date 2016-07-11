@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Predicate;
@@ -17,6 +18,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.google.common.cache.LoadingCache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
+import com.google.common.collect.ImmutableSet;
 
 import com.scobolsolo.persistence.QuestionUserFacing;
 
@@ -29,19 +31,24 @@ import com.scobolsolo.persistence.QuestionUserFacing;
  */
 
 public interface Question extends QuestionUserFacing {
+	public static final int SHOW_PRONUNCIATION_GUIDES = 1 << 0;
+	public static final int SHOW_BUZZ_LINKS = 1 << 1;
+	
+	public static final char[] WORD_BREAKING_CHARACTERS = {' ', '-', '/'};
+	
 	static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Question.class);
 	
-	static final LoadingCache<Pair<Question, Boolean>, String> ourCachedTextHTML = CacheBuilder.newBuilder()
+	static final LoadingCache<Pair<Question, Integer>, String> ourCachedTextHTML = CacheBuilder.newBuilder()
 		.maximumSize(500)
 		.build(
-			new CacheLoader<Pair<Question, Boolean>, String>() {
+			new CacheLoader<Pair<Question, Integer>, String>() {
 				@Override
-				public String load(Pair<Question, Boolean> argPair) {
+				public String load(Pair<Question, Integer> argPair) {
 					Question lclQ = Validate.notNull(argPair.getLeft());
-					boolean lclShowPGs = argPair.getRight().booleanValue();
+					int lclBitField = argPair.getRight().intValue();
 					
 					try {
-						return latexToHTML(lclQ.getText(), lclShowPGs);
+						return latexToHTML(lclQ.getText(), lclBitField, 0);
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
 						return "Couldn't convert: " + lclE.getMessage();
@@ -59,7 +66,7 @@ public interface Question extends QuestionUserFacing {
 					boolean lclShowPGs = argPair.getRight().booleanValue();
 					
 					try {
-						return latexToHTML(lclQ.getAnswer(), lclShowPGs);
+						return latexToHTML(lclQ.getAnswer(), lclShowPGs ? SHOW_PRONUNCIATION_GUIDES : 0, 0);
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
 						return "Couldn't convert: " + lclE.getMessage();
@@ -88,13 +95,8 @@ public interface Question extends QuestionUserFacing {
 		return acquireDiff(new TreeSet<>());
 	}
 	
-	default Diff getLastChange() {
-		SortedSet<Diff> lclDiffs = getDiffs();
-		if (lclDiffs.isEmpty()) {
-			return null;
-		} else {
-			return lclDiffs.last();
-		}
+	default Diff getCurrentDiff() {
+		return streamDiff().max(Comparator.naturalOrder()).orElse(null);
 	}
 	
 	default int getNextRevisionNumber() {
@@ -108,8 +110,8 @@ public interface Question extends QuestionUserFacing {
 		);
 	}
 	
-	default String outputTextHTML(final boolean argShowPGs) {
-		return ourCachedTextHTML.getUnchecked(Pair.of(this, argShowPGs));
+	default String outputTextHTML(final int argBitField) {
+		return ourCachedTextHTML.getUnchecked(Pair.of(this, argBitField));
 	}
 	
 	default String outputAnswerHTML(final boolean argShowPGs) {
@@ -117,22 +119,47 @@ public interface Question extends QuestionUserFacing {
 	}
 	
 	default void recache() {
-		ourCachedTextHTML.refresh(Pair.of(this, true));
-		ourCachedTextHTML.refresh(Pair.of(this, false));
+		ourCachedTextHTML.refresh(Pair.of(this, 0));
+		ourCachedTextHTML.refresh(Pair.of(this, SHOW_PRONUNCIATION_GUIDES));
+		ourCachedTextHTML.refresh(Pair.of(this, SHOW_BUZZ_LINKS));
+		ourCachedTextHTML.refresh(Pair.of(this, SHOW_PRONUNCIATION_GUIDES | SHOW_BUZZ_LINKS));
+		
 		ourCachedAnswerHTML.refresh(Pair.of(this, true));
 		ourCachedAnswerHTML.refresh(Pair.of(this, false));
 	}
 	
-	public static String latexToHTML(String argS, boolean argShowPGs) {
+	static String startBuzzLink(final int argIndex) {
+		Validate.isTrue(argIndex >= 0);
+		
+		return "<span class=\"originally-buzzable\" id=\"buzzIndex" + argIndex + "\" data-buzz-index=\"" + argIndex + "\">";
+	}
+	
+	static String endBuzzLink(@SuppressWarnings("unused") final int argIndex) {
+		Validate.isTrue(argIndex >= 0);
+		
+		return "</span>";
+	}
+	
+	public static String latexToHTML(final String argS, final int argBitField, final int argStartIndex) {
 		if (StringUtils.isBlank(argS)) {
 			return "&nbsp;";
 		} else {
-			StringBuilder lclSB = new StringBuilder(2*argS.length()); // lame guess
+			final StringBuilder lclSB = new StringBuilder(2*argS.length()); // lame guess
+			
+			final boolean lclShowPGs = showPGs(argBitField);
+			final boolean lclShowBuzzLinks = showBuzzLinks(argBitField);
 			
 			boolean lclInItalics = false;
 			boolean lclInUnderlining = false;
 			boolean lclInMath = false;
 			int lclBracketNesting = 0;
+			
+			boolean lclInBuzzable = false;
+			if (lclShowBuzzLinks) {
+				lclSB.append(startBuzzLink(argStartIndex));
+				lclInBuzzable = true;
+			}
+			
 			// ENTIRE_STRING:
 			for (int lclI = 0; lclI < argS.length(); ++lclI) {
 				char lclC = argS.charAt(lclI);
@@ -141,6 +168,13 @@ public interface Question extends QuestionUserFacing {
 				char lclPrev = lclI == 0 ? ' ' : argS.charAt(lclI - 1);
 				char lclNext = lclI + 1 > argS.length() - 1 ? ' ' : argS.charAt(lclI + 1);
 				char lclTwoNext = lclI + 2 > argS.length() - 1 ? ' ' : argS.charAt(lclI + 2);
+				
+				
+				
+				if (lclShowBuzzLinks && lclInBuzzable && isWordBreakingCharacter(lclC)) {
+					lclSB.append(endBuzzLink(argStartIndex + lclI));
+					lclInBuzzable = false;
+				}
 				
 				if (lclInMath) {
 					if (lclC == '$') {
@@ -338,14 +372,14 @@ public interface Question extends QuestionUserFacing {
 											break;
 										case "\\pg":
 											Validate.isTrue(lclArgs.size() == 2, "lclArgs = " + lclArgs);
-											if (argShowPGs) {
+											if (lclShowPGs) {
 												lclSB.append("<span class=\"has-pronunciation-guide\">")
-													.append(latexToHTML(lclArgs.get(0), argShowPGs))
+													.append(latexToHTML(lclArgs.get(0), argBitField, lclI))
 													.append("</span>&nbsp;<span class=\"pronunciation-guide\">")
-													.append(latexToHTML(lclArgs.get(1), argShowPGs))
+													.append(latexToHTML(lclArgs.get(1), argBitField, lclI))
 													.append("</span>");
 											} else {
-												lclSB.append(latexToHTML(lclArgs.get(0), argShowPGs));
+												lclSB.append(latexToHTML(lclArgs.get(0), argBitField, lclI));
 											}
 											break;
 										case "\\textsubscript":
@@ -412,7 +446,7 @@ public interface Question extends QuestionUserFacing {
 							break;
 						
 						case '*':
-							if (argShowPGs) {
+							if (lclShowPGs) {
 								lclSB.append("&middot;");
 							}
 							break;
@@ -424,6 +458,11 @@ public interface Question extends QuestionUserFacing {
 						default:
 							lclSB.append(lclC);
 					}
+				}
+				
+				if (lclShowBuzzLinks && !lclInBuzzable && isWordBreakingCharacter(lclC)) {
+					lclSB.append(startBuzzLink(argStartIndex + lclI));
+					lclInBuzzable = true;
 				}
 			}
 			
@@ -438,6 +477,11 @@ public interface Question extends QuestionUserFacing {
 			}
 			if (lclBracketNesting > 0) {
 				throw new LatexToHTMLConversionException("Square brackets are not nested correctly");
+			}
+			
+			if (lclShowBuzzLinks) {
+				lclSB.append(endBuzzLink(argStartIndex + argS.length()));
+				lclInBuzzable = false; // Doesn't matter at this point, but it feels right to write.
 			}
 			
 			return lclSB.toString();
@@ -578,5 +622,22 @@ public interface Question extends QuestionUserFacing {
 		public LatexToHTMLConversionException(Throwable argCause) {
 			super(argCause);
 		}
+	}
+	
+	static boolean showPGs(int argBitField) {
+		return (argBitField & SHOW_PRONUNCIATION_GUIDES) != 0;
+	}
+	
+	static boolean showBuzzLinks(int argBitField) {
+		return (argBitField & SHOW_BUZZ_LINKS) != 0;
+	}
+	
+	static boolean isWordBreakingCharacter(char argC) {
+		for (char lclWBC : WORD_BREAKING_CHARACTERS) {
+			if (lclWBC == argC) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

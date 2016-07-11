@@ -203,7 +203,7 @@ String outputTables(Tournament argT, ListMultimap<Category, Question> argCategor
 								lclSB.append("</td>");
 							}
 							
-							Diff lclLastChange = lclQ.getLastChange();
+							Diff lclLastChange = lclQ.getCurrentDiff();
 							if (lclLastChange == null) {
 								lclSB.append("<td>&nbsp;</td>");
 							} else {

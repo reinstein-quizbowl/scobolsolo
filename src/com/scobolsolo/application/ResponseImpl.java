@@ -4,6 +4,7 @@ import com.scobolsolo.persistence.ResponseOpal;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.PlacementOpal;
+import com.scobolsolo.persistence.DiffOpal;
 
 public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, ResponseOpal> implements Response {
 
@@ -119,6 +120,44 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Integer getDiffIdAsObject() {
+		return getResponseOpal().getDiffIdAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public ResponseImpl setDiffId(java.lang.Integer argDiffId) {
+		getResponseOpal().setDiffId(argDiffId);
+		return this;
+	}
+
+	@Override
+	public ResponseImpl setDiffId(int argDiffId) {
+		getResponseOpal().setDiffId(argDiffId);
+		return this;
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Integer getLocationAsObject() {
+		return getResponseOpal().getLocationAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public ResponseImpl setLocation(java.lang.Integer argLocation) {
+		getResponseOpal().setLocation(argLocation);
+		return this;
+	}
+
+	@Override
+	public ResponseImpl setLocation(int argLocation) {
+		getResponseOpal().setLocation(argLocation);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -179,6 +218,21 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<Response, Respon
 	@Override
 	public Response setReplacementPlacement(Placement argPlacement) {
 		getResponseOpal().setReplacementPlacementOpal(argPlacement == null ? null : ((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
+	}
+
+	/** @return the Diff object created from response through reference response_diff_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public Diff getDiff() {
+		DiffOpal lclDiffOpal = getResponseOpal().getDiffOpal();
+		return lclDiffOpal == null ? null : lclDiffOpal.getUserFacing();
+	}
+
+	@Override
+	public Response setDiff(Diff argDiff) {
+		getResponseOpal().setDiffOpal(argDiff == null ? null : ((DiffImpl) argDiff).getDiffOpal());
 		return this;
 	}
 

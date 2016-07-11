@@ -21,6 +21,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		myOldResponseTypeOpal = ResponseTypeOpal.NOT_YET_LOADED;
 		myOldBasePlacementOpal = PlacementOpal.NOT_YET_LOADED;
 		myOldReplacementPlacementOpal = PlacementOpal.NOT_YET_LOADED;
+		myOldDiffOpal = DiffOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -30,12 +31,16 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		"ResponseTypeCode",
 		"BasePlacementId",
 		"ReplacementPlacementId",
+		"DiffId",
+		"Location",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.String.class,
+		java.lang.Integer.class,
+		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 	};
@@ -46,9 +51,13 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		false,
 		false,
 		true,
+		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -94,6 +103,14 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
 	public synchronized java.lang.Integer getReplacementPlacementIdAsObject() {
 		return (java.lang.Integer) getReadValueSet()[4];
+	}
+
+	public synchronized java.lang.Integer getDiffIdAsObject() {
+		return (java.lang.Integer) getReadValueSet()[5];
+	}
+
+	public synchronized java.lang.Integer getLocationAsObject() {
+		return (java.lang.Integer) getReadValueSet()[6];
 	}
 
 	public synchronized ResponseOpal setId(final java.lang.Integer argId) {
@@ -161,12 +178,35 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return this;
 	}
 
+	public synchronized ResponseOpal setDiffId(final java.lang.Integer argDiffId) {
+		tryMutate();
+		getNewValues()[5] = argDiffId;
+		return this;
+	}
+
+	public ResponseOpal setDiffId(final int argDiffId) {
+		setDiffId(java.lang.Integer.valueOf(argDiffId));
+		return this;
+	}
+
+	public synchronized ResponseOpal setLocation(final java.lang.Integer argLocation) {
+		tryMutate();
+		getNewValues()[6] = argLocation;
+		return this;
+	}
+
+	public ResponseOpal setLocation(final int argLocation) {
+		setLocation(java.lang.Integer.valueOf(argLocation));
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewPerformanceOpal = myOldPerformanceOpal;
 		myNewResponseTypeOpal = myOldResponseTypeOpal;
 		myNewBasePlacementOpal = myOldBasePlacementOpal;
 		myNewReplacementPlacementOpal = myOldReplacementPlacementOpal;
+		myNewDiffOpal = myOldDiffOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -177,6 +217,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		myOldResponseTypeOpal = myNewResponseTypeOpal;
 		myOldBasePlacementOpal = myNewBasePlacementOpal;
 		myOldReplacementPlacementOpal = myNewReplacementPlacementOpal;
+		myOldDiffOpal = myNewDiffOpal;
 
 		return;
 	}
@@ -192,6 +233,9 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (getReplacementPlacementOpal() != null) {
 			getReplacementPlacementOpal().removeReplacementResponseOpalInternal(this);
 		}
+		if (getDiffOpal() != null) {
+			getDiffOpal().removeResponseOpalInternal(this);
+		}
 		return;
 	}
 
@@ -204,6 +248,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		lclTargetNewValues[2] = lclValues[2]; /* ResponseTypeCode (immutable) */
 		lclTargetNewValues[3] = lclValues[3]; /* BasePlacementId (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* ReplacementPlacementId (immutable) */
+		lclTargetNewValues[5] = lclValues[5]; /* DiffId (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* Location (immutable) */
 
 		return;
 	}
@@ -222,6 +268,9 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if (myNewReplacementPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
 			setReplacementPlacementId(myNewReplacementPlacementOpal == null ? null : myNewReplacementPlacementOpal.getIdAsObject());
 		}
+		if (myNewDiffOpal != DiffOpal.NOT_YET_LOADED) {
+			setDiffId(myNewDiffOpal == null ? null : myNewDiffOpal.getIdAsObject());
+		}
 		return;
 	}
 
@@ -232,6 +281,13 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		lclUO = myNewBasePlacementOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewDiffOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewPerformanceOpal;
@@ -270,6 +326,15 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		}
 		if (lclUO != null && lclUO.isDeleted()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		if ((lclUO = myOldDiffOpal) == DiffOpal.NOT_YET_LOADED) {
+			lclUO = myOldDiffOpal = retrieveDiffOpal(getOldValues());
+		}
+		if (lclUO != null && lclUO.isDeleted()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldPerformanceOpal) == PerformanceOpal.NOT_YET_LOADED) {
@@ -322,6 +387,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
 		argOutput.println("BasePlacementId = " + getBasePlacementIdAsObject());
 		argOutput.println("ReplacementPlacementId = " + getReplacementPlacementIdAsObject());
+		argOutput.println("DiffId = " + getDiffIdAsObject());
+		argOutput.println("Location = " + getLocationAsObject());
 	}
 
 	@Override
@@ -331,6 +398,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
 		argOutput.println("BasePlacementId = " + getBasePlacementIdAsObject());
 		argOutput.println("ReplacementPlacementId = " + getReplacementPlacementIdAsObject());
+		argOutput.println("DiffId = " + getDiffIdAsObject());
+		argOutput.println("Location = " + getLocationAsObject());
 	}
 
 	private PerformanceOpal myOldPerformanceOpal;
@@ -500,6 +569,51 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		myNewReplacementPlacementOpal = argPlacementOpal;
 	}
 
+	private DiffOpal myOldDiffOpal;
+	private DiffOpal myNewDiffOpal;
+
+	protected DiffOpal retrieveDiffOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[5] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getDiffOpalFactory().forId(getDiffIdAsObject());
+	}
+
+	public synchronized DiffOpal getDiffOpal() {
+		DiffOpal lclDiffOpal;
+		boolean lclAccess = tryAccess();
+		lclDiffOpal = lclAccess ? myNewDiffOpal : myOldDiffOpal;
+		if (lclDiffOpal == DiffOpal.NOT_YET_LOADED) {
+			lclDiffOpal = retrieveDiffOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewDiffOpal = lclDiffOpal;
+			} else {
+				myOldDiffOpal = lclDiffOpal;
+			}
+		}
+		return lclDiffOpal;
+	}
+
+	public synchronized ResponseOpal setDiffOpal(DiffOpal argDiffOpal) {
+		tryMutate();
+		DiffOpal lclDiffOpal = getDiffOpal();
+		if (lclDiffOpal == argDiffOpal) { return this; }
+		if (lclDiffOpal != null) {
+			lclDiffOpal.removeResponseOpalInternal(this);
+		}
+		myNewDiffOpal = argDiffOpal;
+		if (argDiffOpal != null) {
+			argDiffOpal.addResponseOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setDiffOpalInternal(DiffOpal argDiffOpal) {
+		tryMutate();
+		myNewDiffOpal = argDiffOpal;
+	}
+
 	@Override
 	public java.lang.String toString() {
 		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
@@ -523,6 +637,9 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		}
 		if (myNewReplacementPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
 			setReplacementPlacementOpal(retrieveReplacementPlacementOpal(getNewValues()));
+		}
+		if (myNewDiffOpal != DiffOpal.NOT_YET_LOADED) {
+			setDiffOpal(retrieveDiffOpal(getNewValues()));
 		}
 	}
 

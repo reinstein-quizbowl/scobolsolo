@@ -296,6 +296,33 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 	to this object. */
 
 	@Override
+	public com.scobolsolo.application.Diff addResponse(Response argResponse) {
+		getDiffOpal().addResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.application.Diff removeResponse(Response argResponse) {
+		getDiffOpal().removeResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
+		return this;
+	}
+
+	@Override
+	public int getResponseCount() {
+		return getDiffOpal().getResponseOpalCount();
+	}
+
+	@Override
+	public java.util.stream.Stream<Response> streamResponse() {
+		return getDiffOpal().streamResponseOpal().map(com.opal.Opal::getUserFacing);
+	}
+
+	@Override
+	public java.util.Iterator<Response> createResponseIterator() {
+		return new com.opal.OpalIterator<> (getDiffOpal().createResponseOpalIterator());
+	}
+
+	@Override
 	public void unlink() {
 		getDiffOpal().unlink();
 	}

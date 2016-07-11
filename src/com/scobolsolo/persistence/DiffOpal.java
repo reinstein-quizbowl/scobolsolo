@@ -20,6 +20,11 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		/* Initialize fields with their default values. */
 		getNewValues()[7] = com.opal.LocalDateCache.now();
 
+
+		/* Initialize the back Collections to empty sets. */
+
+		myNewResponseOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+
 		return;
 	}
 
@@ -290,12 +295,24 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		return this;
 	}
 
+	private boolean myClearOldCollections = false;
+
+	protected boolean needsToClearOldCollections() {
+		return myClearOldCollections;
+	}
+
+	protected final void setClearOldCollections(boolean argValue) {
+		myClearOldCollections = argValue;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewEditorOpal = myOldEditorOpal;
 		myNewQuestionOpal = myOldQuestionOpal;
 		myNewStatusOpal = myOldStatusOpal;
 		myNewCategoryOpal = myOldCategoryOpal;
+		myNewResponseOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myResponseOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -307,11 +324,33 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		myOldStatusOpal = myNewStatusOpal;
 		myOldCategoryOpal = myNewCategoryOpal;
 
+		if (needsToClearOldCollections()) {
+			myOldResponseOpalFast3Set = null;
+		} else {
+			if (myNewResponseOpalFast3Set != null) {
+				if (myNewResponseOpalFast3Set.size() > 0) {
+					myOldResponseOpalFast3Set = myNewResponseOpalFast3Set;
+				} else {
+					myOldResponseOpalFast3Set = java.util.Collections.emptySet();
+				}
+				myNewResponseOpalFast3Set = null;
+			} else {
+				myResponseOpalCachedOperations = null;
+			}
+		}
+		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
+		java.util.Iterator<?> lclI;
+		if (myNewResponseOpalFast3Set != null || myResponseOpalCachedOperations != null) {
+			lclI = createResponseOpalIterator();
+			while (lclI.hasNext()) {
+				((ResponseOpal) lclI.next()).setDiffOpalInternal(null);
+			}
+		}
 		if (getEditorOpal() != null) {
 			getEditorOpal().removeEditorDiffOpalInternal(this);
 		}
@@ -666,6 +705,92 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		myNewCategoryOpal = argCategoryOpal;
 	}
 
+	private java.util.Set<ResponseOpal> myOldResponseOpalFast3Set = null;
+	private java.util.Set<ResponseOpal> myNewResponseOpalFast3Set = null;
+	private java.util.ArrayList<com.opal.CachedOperation<ResponseOpal>> myResponseOpalCachedOperations = null;
+
+	/* package */ java.util.Set<ResponseOpal> getResponseOpalFast3Set() {
+		if (tryAccess()) {
+			if (myNewResponseOpalFast3Set == null) {
+				if (myOldResponseOpalFast3Set == null) {
+					if (isNew()) {
+						myOldResponseOpalFast3Set = java.util.Collections.emptySet();
+					} else {
+						java.util.Set<ResponseOpal> lclS;
+						lclS = OpalFactoryFactory.getInstance().getResponseOpalFactory().forDiffIdCollection(getIdAsObject());
+						myOldResponseOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+					}
+				}
+				myNewResponseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldResponseOpalFast3Set);
+				if (myResponseOpalCachedOperations != null) {
+					com.opal.OpalUtility.handleCachedOperations(myResponseOpalCachedOperations, myNewResponseOpalFast3Set);
+					myResponseOpalCachedOperations = null;
+				}
+			}
+			return myNewResponseOpalFast3Set;
+		} else {
+			if (myOldResponseOpalFast3Set == null) {
+				java.util.Set<ResponseOpal> lclS;
+				lclS = OpalFactoryFactory.getInstance().getResponseOpalFactory().forDiffIdCollection(getIdAsObject());
+				myOldResponseOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+			}
+			return myOldResponseOpalFast3Set;
+		}
+	}
+
+	public synchronized void addResponseOpal(ResponseOpal argResponseOpal) {
+		tryMutate();
+		argResponseOpal.setDiffOpal(this);
+		return;
+	}
+
+	protected synchronized void addResponseOpalInternal(ResponseOpal argResponseOpal) {
+		tryMutate();
+		if (myNewResponseOpalFast3Set == null) {
+			if (myOldResponseOpalFast3Set == null) {
+				if (myResponseOpalCachedOperations == null) { myResponseOpalCachedOperations = new java.util.ArrayList<>(); }
+				myResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argResponseOpal));
+			} else {
+				myNewResponseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldResponseOpalFast3Set);
+				myNewResponseOpalFast3Set.add(argResponseOpal);
+			}
+		} else {
+			myNewResponseOpalFast3Set.add(argResponseOpal);
+		}
+		return;
+	}
+
+	public synchronized void removeResponseOpal(ResponseOpal argResponseOpal) {
+		tryMutate();
+		argResponseOpal.setDiffOpal(null);
+	}
+
+	protected synchronized void removeResponseOpalInternal(ResponseOpal argResponseOpal) {
+		tryMutate();
+		if (myNewResponseOpalFast3Set == null) {
+			if (myOldResponseOpalFast3Set == null) {
+				if (myResponseOpalCachedOperations == null) { myResponseOpalCachedOperations = new java.util.ArrayList<>(); }
+				myResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argResponseOpal));
+			} else {
+				myNewResponseOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldResponseOpalFast3Set);
+				myNewResponseOpalFast3Set.remove(argResponseOpal);
+			}
+		} else {
+			myNewResponseOpalFast3Set.remove(argResponseOpal);
+		}
+		return;
+	}
+
+	public synchronized int getResponseOpalCount() { return getResponseOpalFast3Set().size(); }
+
+	public synchronized java.util.Iterator<ResponseOpal> createResponseOpalIterator() {
+		return getResponseOpalFast3Set().iterator();
+	}
+
+	public synchronized java.util.stream.Stream<ResponseOpal> streamResponseOpal() {
+		return getResponseOpalFast3Set().stream();
+	}
+
 	@Override
 	public java.lang.String toString() {
 		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
@@ -690,6 +815,12 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
 			setCategoryOpal(retrieveCategoryOpal(getNewValues()));
 		}
+	}
+
+	@Override
+	protected void updateCollectionsAfterReload() {
+		assert needsToClearOldCollections() == false;
+		setClearOldCollections(true);
 	}
 
 }

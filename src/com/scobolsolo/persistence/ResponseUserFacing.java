@@ -258,6 +258,156 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Response setReplacementPlacementId(int argReplacementPlacementId);
 
 	/**
+	 * object accessor for the {@code DiffId}
+	 *
+	 * <p>The {@code DiffId} field is a direct mapping of the {@code diff_id} field in {@code response}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getDiffId() method.</p>
+	 *
+	 * @return an object value of {@code DiffId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getDiffIdAsObject();
+
+	/**
+	 * object accessor for the {@code DiffId} with substitution for a null value
+	 *
+	 * <p>The {@code DiffId} field is a direct mapping of the {@code diff_id} database column in the table {@code response}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code DiffId} is {@code null}.
+	 * @return an object value of {@code DiffId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getDiffIdAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getDiffIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code DiffId}
+	 *
+	 * <p>The {@code DiffId} field is a direct mapping of the {@code diff_id} database column in the table {@code response}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getDiffIdAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code DiffId} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getDiffId() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getDiffIdAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getDiffId(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getDiffIdAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getDiffId(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getDiffIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * sets the {@code DiffId} to the value of {@code argDiffId}
+	 *
+	 * @param argDiffId the new value of {@code DiffId}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Response setDiffId(java.lang.Integer argDiffId);
+
+	/**
+	 * sets the {@code DiffId} to the value of {@code argDiffId}
+	 *
+	 * @param argDiffId the new value of {@code DiffId}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Response setDiffId(int argDiffId);
+
+	/**
+	 * object accessor for the {@code Location}
+	 *
+	 * <p>The {@code Location} field is a direct mapping of the {@code location} field in {@code response}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getLocation() method.</p>
+	 *
+	 * @return an object value of {@code Location} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getLocationAsObject();
+
+	/**
+	 * object accessor for the {@code Location} with substitution for a null value
+	 *
+	 * <p>The {@code Location} field is a direct mapping of the {@code location} database column in the table {@code response}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code Location} is {@code null}.
+	 * @return an object value of {@code Location} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getLocationAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getLocationAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code Location}
+	 *
+	 * <p>The {@code Location} field is a direct mapping of the {@code location} database column in the table {@code response}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getLocationAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code Location} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getLocation() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getLocationAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getLocation(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getLocationAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getLocation(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getLocationAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * sets the {@code Location} to the value of {@code argLocation}
+	 *
+	 * @param argLocation the new value of {@code Location}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Response setLocation(java.lang.Integer argLocation);
+
+	/**
+	 * sets the {@code Location} to the value of {@code argLocation}
+	 *
+	 * @param argLocation the new value of {@code Location}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Response setLocation(int argLocation);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
 	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code response_performance_id_fkey}.
 	 *
@@ -292,6 +442,15 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Placement getReplacementPlacement();
 	public com.scobolsolo.application.Response setReplacementPlacement(com.scobolsolo.application.Placement argReplacementPlacement);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Diff}
+	 * The returned {@code com.scobolsolo.application.Diff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code diff} that is referenced by {@code response_diff_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Diff getDiff();
+	public com.scobolsolo.application.Response setDiff(com.scobolsolo.application.Diff argDiff);
 
 	public com.scobolsolo.application.Response copy();
 

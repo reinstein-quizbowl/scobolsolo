@@ -28,6 +28,8 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		"response_type_code", 
 		"base_placement_id", 
 		"replacement_placement_id", 
+		"diff_id", 
+		"location", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -114,7 +116,7 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 
 	protected void registerOpal(ResponseOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 5) { throw new IllegalStateException(); }
+		if (argValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -125,7 +127,7 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	protected void unregisterOpal(ResponseOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -137,10 +139,10 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 5) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 5) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<ResponseOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<ResponseOpal> lclOldKey = null;
@@ -192,6 +194,15 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	public com.siliconage.util.Fast3Set<ResponseOpal> forReplacementPlacementIdCollection(java.lang.Integer argReplacementPlacementId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argReplacementPlacementId };
 		final String[] lclFieldNames = new String[] { "replacement_placement_id" };
+		com.siliconage.util.Fast3Set<ResponseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public com.siliconage.util.Fast3Set<ResponseOpal> forDiffIdCollection(java.lang.Integer argDiffId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argDiffId };
+		final String[] lclFieldNames = new String[] { "diff_id" };
 		com.siliconage.util.Fast3Set<ResponseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

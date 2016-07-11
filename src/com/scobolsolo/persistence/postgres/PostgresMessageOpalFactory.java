@@ -172,19 +172,19 @@ public class PostgresMessageOpalFactory extends com.opal.AbstractDatabaseIdentit
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<MessageOpal> forFromAccountIdCollection(java.lang.Integer argFromAccountId) /* throws PersistenceException */ {
+	public java.util.HashSet<MessageOpal> forFromAccountIdCollection(java.lang.Integer argFromAccountId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argFromAccountId };
 		final String[] lclFieldNames = new String[] { "from_account_id" };
-		com.siliconage.util.Fast3Set<MessageOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<MessageOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<MessageOpal> forToAccountIdCollection(java.lang.Integer argToAccountId) /* throws PersistenceException */ {
+	public java.util.HashSet<MessageOpal> forToAccountIdCollection(java.lang.Integer argToAccountId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argToAccountId };
 		final String[] lclFieldNames = new String[] { "to_account_id" };
-		com.siliconage.util.Fast3Set<MessageOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<MessageOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

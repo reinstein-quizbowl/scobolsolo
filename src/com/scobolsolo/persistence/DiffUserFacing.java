@@ -508,6 +508,33 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Category getCategory();
 	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory);
 
+	public int getResponseCount();
+	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse();
+
+	public com.scobolsolo.application.Diff addResponse(com.scobolsolo.application.Response argResponse);
+	public com.scobolsolo.application.Diff removeResponse(com.scobolsolo.application.Response argResponse);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireResponse(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Response[] createResponseArray() {
+		int lclLength = getResponseCount();
+		com.scobolsolo.application.Response[] lclA = new com.scobolsolo.application.Response[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
 	public com.scobolsolo.application.Diff copy();
 
 	/** This is a Comparator that can be used to compare Diff objects based on their {@code Id} values. */

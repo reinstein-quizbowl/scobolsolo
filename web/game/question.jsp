@@ -1,6 +1,7 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.ObjectUtils" %>
+<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
 <%@ page import="com.siliconage.util.Tally" %>
@@ -14,6 +15,7 @@
 <%@ page import="com.scobolsolo.application.Placement" %>
 <%@ page import="com.scobolsolo.application.Player" %>
 <%@ page import="com.scobolsolo.application.PlayerFactory" %>
+<%@ page import="com.scobolsolo.application.Question" %>
 <%@ page import="com.scobolsolo.application.Response" %>
 <%@ page import="com.scobolsolo.application.ResponseType" %>
 <%@ page import="com.scobolsolo.application.Round" %>
@@ -106,67 +108,62 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 				<button class="large close-button" aria-label="Close alert" type="button" data-close>
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<p>Before continuing, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>. If either player believes the score is otherwise, please resolve the discrepancy.</p>
+				<p>Before continuing, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>.</p>
+				<p>If either player believes the score is otherwise, please resolve the discrepancy.</p>
 			</div><%
 		}
 		
 		if (lclUser.mayViewQuestions(lclMatch)) {
 			if (lclActualPlacement.getQuestion().getText() != null) {
-				%><p class="question-text"><%= lclActualPlacement.getQuestion().outputTextHTML(lclUser.showPronunciationGuidesFor(lclActualPlacement)) %></p><%
+				%><p class="question-text"><%= lclActualPlacement.getQuestion().outputTextHTML(Question.SHOW_BUZZ_LINKS | (lclUser.showPronunciationGuidesFor(lclActualPlacement) ? Question.SHOW_PRONUNCIATION_GUIDES : 0)) %></p><%
 			}
 			if (lclActualPlacement.getQuestion().getAnswer() != null) {
 				%><p class="question-answer"><%= lclActualPlacement.getQuestion().outputAnswerHTML(lclUser.showPronunciationGuidesFor(lclActualPlacement)) %></p><%
 			}
 		}
 	%></div>
-</div><%
-
-%><form action="QuestionResponse" method="post">
-	<input type="hidden" name="game_id" value="<%= lclGame.getId() %>" />
-	<input type="hidden" name="left_player_id" value="<%= lclLeftPlayer.getId() %>" />
-	<input type="hidden" name="right_player_id" value="<%= lclRightPlayer.getId() %>" />
-	<input type="hidden" name="index" value="<%= lclIndex %>" />
-	<input type="hidden" name="overtime" value="<%= lclOvertime %>" />
-	<input type="hidden" name="base_placement_id" value="<%= lclBasePL.getId() %>" /><%
-	if (lclReplacementPL != null) {
-		%><input type="hidden" name="replacement_placement_id" value="<%= lclReplacementPL.getId() %>" /><%
-	}
-	%><div class="row"><%
-		for (Player lclPlayer : Arrays.asList(lclLeftPlayer, lclRightPlayer)) {
-			String lclName;
-			if (lclPlayer == lclLeftPlayer) {
-				lclName = "left_player_response_type_code";
-			} else if (lclPlayer == lclRightPlayer) {
-				lclName = "right_player_response_type_code";
-			} else {
-				throw new IllegalStateException();
-			}
-			
-			ResponseType lclSelectedRT = lclPlayer.determineDefaultResponseType();
-			
-			Performance lclPerf = lclGame.findPerformance(lclPlayer);
-			if (lclPerf != null) {
-				final Response lclR = lclPerf.findResponseForBasePlacement(lclBasePL);
-				if (lclR != null) {
-					lclSelectedRT = lclR.getResponseType();
-				}
-			}
-			
-			%><div class="small-12 medium-6 columns">
-				<fieldset>
-					<legend><%= lclPlayer.getNameWithSchoolShortName() %></legend><%
-					for (ResponseType lclRT : lclPlayer.determineResponseTypesToOffer()) {
-						%><label><input type="radio" name="<%= lclName %>" value="<%= lclRT.getCode() %>" <%= lclSelectedRT != null && lclRT == lclSelectedRT ? "checked=\"checked\"" : "" %> />&nbsp;<%= lclRT.getName() %></label><%
-					}
-				%></fieldset>
-			</div><%
-		}
-	%></div>
-	<div class="row">
-		<div class="small-12 columns">
-			<input type="submit" value="Continue..." />
-		</div>
+</div>
+<div class="row">
+	<div class="small-12 columns">
+		<button class="button" id="continueButton" onclick="goOn()">Continue&hellip;</button>
+		<button class="button" id="resetButton" onclick="backToOriginal()">Reset</button>
 	</div>
-</form>
+</div>
+
+<div id="buzzMenuContainer"></div>
+
+<script>
+	var lclOriginalPlayers = {
+		'left': {
+			'player_id': <%= lclLeftPlayer.getId() %>,
+			'name': '<%= StringEscapeUtils.escapeEcmaScript(lclLeftPlayer.getContact().getName()) %>',
+			'buzzed': false
+		},
+		'right': {
+			'player_id': <%= lclRightPlayer.getId() %>,
+			'name': '<%= StringEscapeUtils.escapeEcmaScript(lclRightPlayer.getContact().getName()) %>',
+			'buzzed': false
+		}
+	};
+	
+	function cloneOriginalPlayers() {
+		return $.extend(
+			true, {
+				'game_id': <%= lclGame.getId() %>,
+				'replacement': <%= lclReplacement %>,
+				'overtime': <%= lclOvertime %>,
+				'index': <%= lclIndex %>,
+				'base_placement_id': <%= lclBasePL.getId() %>,
+				'replacement_placement_id': <%= lclReplacementPL == null ? null : lclReplacementPL.getId() %>,
+				'diff_id': <%= lclActualPlacement.getQuestion().getCurrentDiff().getId() %>
+			},
+			lclOriginalPlayers
+		);
+	}
+	
+	var lclData = cloneOriginalPlayers();
+</script>
+
+<script src="response.js"></script>
 
 <jsp:include page="/template/footer.jsp" />

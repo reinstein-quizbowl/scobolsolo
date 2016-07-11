@@ -7,6 +7,8 @@
 	#{$property}: #{$value};
 }
 
+$info-color: map-get($foundation-palette, info);
+
 td { // Deliberately not th
 	vertical-align: top;
 }
@@ -48,7 +50,7 @@ abbr, acronym {
 }
 
 .info {
-	background-color: map-get($foundation-palette, info) !important;
+	background-color: $info-color !important;
 }
 
 .success {
@@ -249,6 +251,86 @@ input[type=number] {
 
 .message-timestamp::after {
 	content: ')';
+}
+
+$buzzable-border-radius: 0.4rem;
+
+.buzzable:hover, .buzzable.active {
+	background-color: $light-gray;
+	border-radius: $buzzable-border-radius;
+	cursor: crosshair;
+}
+
+.buzzed-incorrect {
+	background-color: $warning-color;
+	border-radius: $buzzable-border-radius;
+}
+
+.buzzed-correct {
+	background-color: $success-color;
+	border-radius: $buzzable-border-radius;
+}
+
+.buzzed-incorrect.buzzed-correct { // i.e., two buzzes on the same question, one incorrect and one correct
+	background: repeating-linear-gradient(
+		315deg,
+		$warning-color,
+		$warning-color 7px,
+		$success-color 7px,
+		$success-color 14px
+	);
+	background-color: $info-color; // I don't really have a better idea.  Maybe some stripey background would be ideal.
+	border-radius: $buzzable-border-radius;
+}
+
+.buzz-menu-container {
+	display: inline-block;
+	z-index: 1;
+	padding: 0.3rem;
+	background-color: $white;
+	border: 2px solid $dark-gray;
+	box-shadow: 0 0 1rem $medium-gray;
+	font-size: 80%;
+}
+
+.buzz-choices td {
+	padding: 0;
+}
+
+.buzz-choices td + td {
+	padding-left: 0.5rem;
+}
+
+.buzz-choices .button {
+	margin: 0;
+}
+
+.buzzed-indicator {
+	position: absolute;
+	display: inline-block;
+	z-index: 1;
+	padding: 0.1rem;
+	border: 1px solid $dark-gray;
+	box-shadow: 0 0 0.4rem $medium-gray;
+	font-size: 8pt;
+}
+
+.buzzed-indicator-correct {
+	background-color: $success-color;
+}
+
+.buzzed-indicator-incorrect {
+	background-color: $warning-color;
+}
+
+table.buzz-choices {
+	thead {
+		background-color: $light-gray;
+	}
+	
+	tbody, tbody * {
+		background-color: $white;
+	}
 }
 
 // STIX loading
