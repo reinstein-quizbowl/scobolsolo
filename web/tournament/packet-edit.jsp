@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
+<%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.Account" %>
@@ -12,8 +13,10 @@
 <%@ page import="com.scobolsolo.application.PlacementFactory" %>
 <%@ page import="com.scobolsolo.application.Round" %>
 <%@ page import="com.scobolsolo.application.Question" %>
+<%@ page import="com.scobolsolo.application.QuestionFactory" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.opalforms.specialhandler.QuestionHandler" %>
 <%@ page import="com.scobolsolo.opalforms.updater.PlacementUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -120,10 +123,26 @@ if (lclOF.hasErrors()) {
 				for (OpalForm<Placement> lclPLOF : lclPOFs) {
 					lclPLOF.setUpdaterClass(PlacementUpdater.class);
 					Placement lclPL = lclPLOF.getUserFacing();
-					
 					%><tr>
 						<%= lclPLOF.open() %>
-						<td><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).filter(new Question.PlacingFilter(lclPL)).namer(Question::getDescriptionSafe) %></td>
+						<td><%
+							if (lclPLOF.isNew()) {
+								%><%= lclPLOF.special("Question", 5, QuestionHandler.class) %><%
+							} else {
+								List<Question> lclCandidates = new ArrayList<>();
+								lclCandidates.add(null); // so that we can empty the Placement
+								
+								if (lclPL.isFilled()) {
+									lclCandidates.add(lclPL.getQuestion());
+								}
+								
+								QuestionFactory.getInstance().acquireForQuery(
+									lclCandidates,
+									new DatabaseQuery("SELECT Q.* FROM Question Q WHERE NOT EXISTS (SELECT * FROM Placement PL WHERE PL.question_id = Q.id) AND Q.category_code = ?", lclPL.getCategory().getCode())
+								);
+								%><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).choices(lclCandidates).namer(Question::getDescriptionSafe) %><%
+							}
+						%></td>
 						<td><%= lclPLOF.text("Number", 3) %></td>
 						<td><%= lclPLOF.<Category>dropdown("Category").filter(argC -> argC.isUsedAt(lclT)) %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>
