@@ -390,6 +390,10 @@ public interface Question extends QuestionUserFacing {
 											Validate.isTrue(lclArgs.size() == 1);
 											lclSB.append("<sup>").append(lclArgs.get(0)).append("</sup>");
 											break;
+										case "\\texttt":
+											Validate.isTrue(lclArgs.size() == 1);
+											lclSB.append("<code>").append(lclArgs.get(0)).append("</code>");
+											break;
 										default: throw new LatexToHTMLConversionException("We don't know how to process the command '" + lclCommand + "' / " + lclArgs);
 									}
 							}
