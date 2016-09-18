@@ -370,6 +370,11 @@ public interface Question extends QuestionUserFacing {
 												default: throw new LatexToHTMLConversionException("We don't know how to put a macron on '" + lclArgs.get(0) + '\'');
 											}
 											break;
+										case "\\ldots": // ellipsis
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&hellip;");
+											lclI += 6;
+											break;
 										case "\\pg":
 											Validate.isTrue(lclArgs.size() == 2, "lclArgs = " + lclArgs);
 											if (lclShowPGs) {
