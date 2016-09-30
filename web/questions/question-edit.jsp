@@ -102,12 +102,12 @@ if (lclOF.hasErrors()) {
 			<%= lclOF.textarea("Note", 80, 2) %>
 		</label>
 	</div>
-	<div class="small-12 columns">
+	<!-- <div class="small-12 columns">
 		<label>
 			<span title="This note is associated with the particular revision to the question you are making.">Edit Remark</span>
-			<%= lclOF.getPriorInput().text("/DiffRemark", 60) %>
+			<%= false ? lclOF.getPriorInput().text("/DiffRemark", 60) : "" %>
 		</label>
-	</div>
+	</div> -->
 </div><%
 
 if (lclOF.alreadyExists()) {
