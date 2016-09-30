@@ -194,7 +194,7 @@ String outputTables(Tournament argT, ListMultimap<Category, Question> argCategor
 									Pair<String, String> lclPair = lclPreviewI.next();
 									String lclLabel = lclPair.getLeft();
 									String lclFull = lclPair.getRight();
-									lclSB.append("<span title=\"" + WebDataFilter.scrubForHTMLDisplay(lclFull) + "\">" + lclLabel + "</span>");
+									lclSB.append("<span title=\"" + WebDataFilter.scrub(lclFull) + "\">" + lclLabel + "</span>");
 									
 									if (lclPreviewI.hasNext()) {
 										lclSB.append("&nbsp;/&nbsp;");
