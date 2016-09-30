@@ -108,7 +108,15 @@ if (lclOF.hasErrors()) {
 			<%= false ? lclOF.getPriorInput().text("/DiffRemark", 60) : "" %>
 		</label>
 	</div> -->
-</div><%
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<%= lclOF.submit() %> <%= lclUser.isAdministrator() ? lclOF.delete("Delete") : "" %> <%= lclOF.cancel() %>
+	</div>
+</div>
+
+<%= lclOF.close() %><%
 
 if (lclOF.alreadyExists()) {
 	%><div class="row">
@@ -121,26 +129,15 @@ if (lclOF.alreadyExists()) {
 						<th>Number</th>
 						<th>Score check after?</th>
 						<th>Tiebreaker?</th>
-						<th>Remove?</th>
 					</tr>
 				</thead>
 				<tbody><%
-					List<OpalForm<Placement>> lclPOFs = lclOF.children(
-						"Placement",
-						PlacementFactory.getInstance(),
-						0 // rows for new placements
-					);
-					
-					for (OpalForm<Placement> lclPOF : lclPOFs) {
-						Placement lclP = lclPOF.getUserFacing();
+					for (Placement lclPL : lclQ.createPlacementArray()) {
 						%><tr>
-							<%= lclPOF.open() %>
-							<td><%= lclPOF.<Packet>dropdown("Packet").namer(Packet::getShortNameWithTournament) %></td>
-							<td><%= lclPOF.text("Number", 3) %></td>
-							<td><%= HTMLUtility.switchWidget(lclPOF, "ScorecheckAfter") %></td>
-							<td><%= HTMLUtility.switchWidget(lclPOF, "Tiebreaker") %></td>
-							<td><%= HTMLUtility.deleteWidget(lclPOF) %>
-							<%= lclPOF.close() %>
+							<td><%= lclPL.getPacket().getShortNameWithTournament() %></td>
+							<td><%= lclPL.getNumber() %></td>
+							<td><%= lclPL.isScorecheckAfter() ? "<i class=\"fa fa-check\"></i>" : "-" %></td>
+							<td><%= lclPL.isTiebreaker() ? "<i class=\"fa fa-check\"></i>" : "-" %></td>
 						</tr><%
 					}
 				%></tbody>
@@ -148,12 +145,6 @@ if (lclOF.alreadyExists()) {
 		</div>
 	</div><%
 }
-
-%><div class="row">
-	<div class="small-12 columns">
-		<%= lclOF.submit() %> <%= lclUser.isAdministrator() ? lclOF.delete("Delete") : "" %> <%= lclOF.cancel() %>
-	</div>
-</div><%
 
 if (lclOF.alreadyExists() && lclQ.getText() != null && lclQ.getAnswer() != null) {
 	%><div class="row">
@@ -164,6 +155,6 @@ if (lclOF.alreadyExists() && lclQ.getText() != null && lclQ.getAnswer() != null)
 		</div>
 	</div><%
 }
-%><%= lclOF.close() %>
+%>
 
 <jsp:include page="/template/footer.jsp" />
