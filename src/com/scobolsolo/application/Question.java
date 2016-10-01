@@ -370,6 +370,18 @@ public interface Question extends QuestionUserFacing {
 												default: throw new LatexToHTMLConversionException("We don't know how to put a macron on '" + lclArgs.get(0) + '\'');
 											}
 											break;
+										case "\\dot": // dot over the letter
+											Validate.isTrue(lclArgs.size() == 1);
+											switch (lclArgs.get(0)) {
+												case "C" : lclSB.append("&#266;"); break;
+												case "c" : lclSB.append("&#267;"); break;
+												case "E" : lclSB.append("&#278;"); break;
+												case "e" : lclSB.append("&#279;"); break;
+												case "Z" : lclSB.append("&#379;"); break;
+												case "z" : lclSB.append("&#380;"); break;
+												default: throw new LatexToHTMLConversionException("We don't know how to put a dot over '" + lclArgs.get(0) + '\'');
+											}
+											break;
 										case "\\ldots": // ellipsis
 											Validate.isTrue(lclArgs.isEmpty());
 											lclSB.append("&hellip;");
