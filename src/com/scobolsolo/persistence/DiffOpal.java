@@ -50,6 +50,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		"RevisionNumber",
 		"QuestionStatusCode",
 		"CategoryCode",
+		"TextLength",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -65,6 +66,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		java.lang.Integer.class,
 		java.lang.String.class,
 		java.lang.String.class,
+		java.lang.Integer.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -80,9 +82,11 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		false,
 		false,
 		false,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -165,6 +169,10 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		return (java.lang.String) getReadValueSet()[11];
 	}
 
+	public synchronized java.lang.Integer getTextLengthAsObject() {
+		return (java.lang.Integer) getReadValueSet()[12];
+	}
+
 	public synchronized DiffOpal setId(final java.lang.Integer argId) {
 		tryMutate();
 		if (argId == null) {
@@ -199,6 +207,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myText on " + this + " to null.");
 		}
 		getNewValues()[2] = argText;
+		getNewValues()[12] = getUserFacing().getText().length();
 		return this;
 	}
 
@@ -382,6 +391,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		lclTargetNewValues[9] = lclValues[9]; /* RevisionNumber (immutable) */
 		lclTargetNewValues[10] = lclValues[10]; /* QuestionStatusCode (immutable) */
 		lclTargetNewValues[11] = lclValues[11]; /* CategoryCode (immutable) */
+		lclTargetNewValues[12] = lclValues[12]; /* TextLength (immutable) */
 
 		return;
 	}
@@ -507,6 +517,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		argOutput.println("RevisionNumber = " + getRevisionNumberAsObject());
 		argOutput.println("QuestionStatusCode = " + getQuestionStatusCode());
 		argOutput.println("CategoryCode = " + getCategoryCode());
+		argOutput.println("TextLength = " + getTextLengthAsObject());
 	}
 
 	@Override
@@ -523,6 +534,7 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 		argOutput.println("RevisionNumber = " + getRevisionNumberAsObject());
 		argOutput.println("QuestionStatusCode = " + getQuestionStatusCode());
 		argOutput.println("CategoryCode = " + getCategoryCode());
+		argOutput.println("TextLength = " + getTextLengthAsObject());
 	}
 
 	private AccountOpal myOldEditorOpal;

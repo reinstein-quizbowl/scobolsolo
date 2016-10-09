@@ -229,6 +229,12 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<Diff, DiffOpal> impl
 		return this;
 	}
 
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public java.lang.Integer getTextLengthAsObject() {
+		return getDiffOpal().getTextLengthAsObject();
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

@@ -60,6 +60,12 @@ public class PlayerCategoryPointVImpl extends com.opal.AbstractImpl<PlayerCatego
 		return getPlayerCategoryPointVOpal().getPointsAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Double getAverageCorrectBuzzDepthAsObject() {
+		return getPlayerCategoryPointVOpal().getAverageCorrectBuzzDepthAsObject();
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

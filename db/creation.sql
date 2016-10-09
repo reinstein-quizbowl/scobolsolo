@@ -170,6 +170,9 @@ CREATE TABLE Player (
 	note note_t
 );
 ALTER SEQUENCE player_id_seq RESTART WITH 1000;
+CREATE INDEX player_schoolregistration_idx ON Player(school_registration_id);
+CREATE INDEX player_contact_idx ON Player(contact_id);
+
 
 CREATE TABLE Room (
 	id SERIAL PRIMARY KEY,
@@ -214,6 +217,7 @@ CREATE TABLE Round_Group (
 	UNIQUE(tournament_code, short_name)
 );
 ALTER SEQUENCE round_group_id_seq RESTART WITH 1000;
+CREATE INDEX roundgroup_phase_idx ON Round_Group(phase_id);
 
 CREATE TABLE Round (
 	id SERIAL PRIMARY KEY,
@@ -228,6 +232,7 @@ CREATE TABLE Round (
 	UNIQUE(round_group_id, short_name)
 );
 ALTER SEQUENCE round_id_seq RESTART WITH 1000;
+CREATE INDEX round_roundgroup_idx ON Round(round_group_id);
 
 CREATE TABLE Card (
 	id SERIAL PRIMARY KEY,
@@ -252,6 +257,7 @@ CREATE TABLE Match (
 	UNIQUE(round_id, losing_card_id)
 );
 ALTER SEQUENCE match_id_seq RESTART WITH 1000;
+CREATE INDEX match_round_idx ON Match(round_id);
 
 CREATE TABLE Game (-- 1-1 with Match
 	id INTEGER PRIMARY KEY REFERENCES Match ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -273,6 +279,9 @@ CREATE TABLE Performance (
 	UNIQUE (game_id, player_id)
 );
 ALTER SEQUENCE performance_id_seq RESTART WITH 1000;
+CREATE INDEX performance_player_idx ON Performance(player_id);
+CREATE INDEX performance_game_idx ON Performance(game_id);
+CREATE INDEX performance_player_game_idx ON Performance(player_id, game_id);
 
 CREATE TABLE Category_Group (
 	code code_t PRIMARY KEY,
@@ -299,7 +308,6 @@ CREATE TABLE Category_Use (
 
 CREATE TABLE Question (
 	id SERIAL PRIMARY KEY,
-	tournament_code code_t REFERENCES Tournament ON UPDATE CASCADE ON DELETE RESTRICT,
 	description TEXT,
 	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
 	writer_account_id INTEGER REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -310,6 +318,7 @@ CREATE TABLE Question (
 	UNIQUE(tournament_code, description)
 );
 ALTER SEQUENCE question_id_seq RESTART WITH 1000;
+CREATE INDEX question_category_idx ON Question(category_code);
 
 CREATE TABLE Question_Status (
 	code code_t PRIMARY KEY,
@@ -334,7 +343,8 @@ CREATE TABLE Diff (
 	answer TEXT NOT NULL,
 	note TEXT, -- Question.note
 	remark TEXT, -- a remark specific to this editing
-	edit_distance INTEGER NOT NULL,
+	edit_distance INTEGER NOT NULL CHECK(edit_distance >= 0),
+	text_length INTEGER NOT NULL CHECK(text_length >= 0),
 	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	UNIQUE(question_id, revision_number)
 );
@@ -373,6 +383,8 @@ CREATE TABLE Placement (
 	UNIQUE(question_id, packet_id)
 );
 ALTER SEQUENCE placement_id_seq RESTART WITH 1000;
+CREATE INDEX placement_question_idx ON Placement(question_id);
+CREATE INDEX placement_packet_idx ON Placement(packet_id);
 
 CREATE TABLE Response_Type (
 	code code_t PRIMARY KEY,
@@ -404,6 +416,9 @@ CREATE TABLE Response (
 	UNIQUE(performance_id, placement_id)
 );
 ALTER SEQUENCE response_id_seq RESTART WITH 1000;
+CREATE INDEX response_diff_idx ON Response(diff_id);
+CREATE INDEX response_performance_idx ON Response(performance_id);
+CREATE INDEX response_responsetype_idx ON Response(response_type_code);
 
 CREATE TABLE Pronunciation_Guide_Suppression (
 	id SERIAL PRIMARY KEY,

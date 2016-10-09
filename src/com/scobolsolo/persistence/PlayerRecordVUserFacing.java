@@ -319,6 +319,122 @@ public interface PlayerRecordVUserFacing extends com.opal.UserFacing {
 	}
 
 	/**
+	 * object accessor for the {@code AverageCorrectBuzzDepthInWins}
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepthInWins} field is a direct mapping of the {@code average_correct_buzz_depth_in_wins} field in {@code player_record_v}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getAverageCorrectBuzzDepthInWins() method.</p>
+	 *
+	 * @return an object value of {@code AverageCorrectBuzzDepthInWins} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Double getAverageCorrectBuzzDepthInWinsAsObject();
+
+	/**
+	 * object accessor for the {@code AverageCorrectBuzzDepthInWins} with substitution for a null value
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepthInWins} field is a direct mapping of the {@code average_correct_buzz_depth_in_wins} database column in the table {@code player_record_v}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code AverageCorrectBuzzDepthInWins} is {@code null}.
+	 * @return an object value of {@code AverageCorrectBuzzDepthInWins} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getAverageCorrectBuzzDepthInWinsAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInWinsAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code AverageCorrectBuzzDepthInWins}
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepthInWins} field is a direct mapping of the {@code average_correct_buzz_depth_in_wins} database column in the table {@code player_record_v}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getAverageCorrectBuzzDepthInWinsAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code AverageCorrectBuzzDepthInWins} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public double getAverageCorrectBuzzDepthInWins() throws com.opal.NullValueException {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInWinsAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.doubleValue();
+	}
+
+	default public double getAverageCorrectBuzzDepthInWins(double argStringToSubstituteIfNull) {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInWinsAsObject();
+		return lclO != null ? lclO.doubleValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getAverageCorrectBuzzDepthInWins(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInWinsAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * object accessor for the {@code AverageCorrectBuzzDepthInLosses}
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepthInLosses} field is a direct mapping of the {@code average_correct_buzz_depth_in_losses} field in {@code player_record_v}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getAverageCorrectBuzzDepthInLosses() method.</p>
+	 *
+	 * @return an object value of {@code AverageCorrectBuzzDepthInLosses} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Double getAverageCorrectBuzzDepthInLossesAsObject();
+
+	/**
+	 * object accessor for the {@code AverageCorrectBuzzDepthInLosses} with substitution for a null value
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepthInLosses} field is a direct mapping of the {@code average_correct_buzz_depth_in_losses} database column in the table {@code player_record_v}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code AverageCorrectBuzzDepthInLosses} is {@code null}.
+	 * @return an object value of {@code AverageCorrectBuzzDepthInLosses} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getAverageCorrectBuzzDepthInLossesAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInLossesAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code AverageCorrectBuzzDepthInLosses}
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepthInLosses} field is a direct mapping of the {@code average_correct_buzz_depth_in_losses} database column in the table {@code player_record_v}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getAverageCorrectBuzzDepthInLossesAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code AverageCorrectBuzzDepthInLosses} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public double getAverageCorrectBuzzDepthInLosses() throws com.opal.NullValueException {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInLossesAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.doubleValue();
+	}
+
+	default public double getAverageCorrectBuzzDepthInLosses(double argStringToSubstituteIfNull) {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInLossesAsObject();
+		return lclO != null ? lclO.doubleValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getAverageCorrectBuzzDepthInLosses(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Double lclO = getAverageCorrectBuzzDepthInLossesAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
 	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *

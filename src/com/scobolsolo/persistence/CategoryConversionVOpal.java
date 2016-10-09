@@ -27,6 +27,7 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		"CategoryCode",
 		"ResponseTypeCode",
 		"ResponseTypeCount",
+		"AverageBuzzDepth",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -34,6 +35,7 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		java.lang.String.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
+		java.lang.Double.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -41,9 +43,11 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		false,
 		false,
 		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -86,6 +90,10 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		return (java.lang.Integer) getValues()[3];
 	}
 
+	public java.lang.Double getAverageBuzzDepthAsObject() {
+		return (java.lang.Double) getValues()[4];
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewCategoryOpal = myOldCategoryOpal;
@@ -123,6 +131,7 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		argOutput.println("CategoryCode = " + getCategoryCode());
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
 		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+		argOutput.println("AverageBuzzDepth = " + getAverageBuzzDepthAsObject());
 	}
 
 	@Override
@@ -131,6 +140,7 @@ public final class CategoryConversionVOpal extends com.opal.EphemeralOpal<Catego
 		argOutput.println("CategoryCode = " + getCategoryCode());
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
 		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+		argOutput.println("AverageBuzzDepth = " + getAverageBuzzDepthAsObject());
 	}
 
 	private CategoryOpal myOldCategoryOpal;

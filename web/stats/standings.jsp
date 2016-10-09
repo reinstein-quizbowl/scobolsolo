@@ -2,6 +2,7 @@
 <%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.OptionalDouble" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.scobolsolo.application.PlayerRecordV" %>
@@ -32,10 +33,12 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					<th>Points</th>
 					<th>Tossups Heard</th>
 					<th><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
+					<th><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th>
 				</tr>
 			</thead>
 			<tbody><%
 				DecimalFormat lclDF = new DecimalFormat("0.00");
+				DecimalFormat lclPF = new DecimalFormat("0.0%");
 				
 				List<PlayerRecordV> lclPRVs = new ArrayList<>();
 				PlayerRecordVFactory.getInstance().acquireForQuery(
@@ -48,10 +51,18 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					%><tr>
 						<td data-tablesorter="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></td>
 						<td><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
-						<td data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&#8211;<%= lclPRV.getLossCount(0) %></td>
+						<td data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
 						<td><%= lclPRV.getPoints(0) %></td>
 						<td><%= lclPRV.getTossupsHeard(0) %></td>
 						<td><%= lclDF.format(20.0d * lclPRV.getPPTUH()) %></td>
+						<td><%
+							OptionalDouble lclACBD = lclPRV.getAverageCorrectBuzzDepth();
+							if (lclACBD.isPresent()) {
+								%><%= lclPF.format(lclACBD.getAsDouble()) %><%
+							} else {
+								%>n/a<%
+							}
+						%></td>
 					</tr><%
 				}
 			%></tbody>

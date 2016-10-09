@@ -35,6 +35,7 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		"revision_number", 
 		"question_status_code", 
 		"category_code", 
+		"text_length", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -121,7 +122,7 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	protected void registerOpal(DiffOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 12) { throw new IllegalStateException(); }
+		if (argValues.length != 13) { throw new IllegalStateException(); }
 		OpalCache<DiffOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -132,7 +133,7 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void unregisterOpal(DiffOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 12) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 13) { throw new IllegalStateException(); }
 		OpalCache<DiffOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -144,10 +145,10 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 12) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 13) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 12) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 13) { throw new IllegalStateException(); }
 		OpalCache<DiffOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<DiffOpal> lclOldKey = null;

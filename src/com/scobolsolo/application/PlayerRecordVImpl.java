@@ -64,6 +64,18 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<PlayerRecordV, Play
 		return getPlayerRecordVOpal().getTossupsHeardAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Double getAverageCorrectBuzzDepthInWinsAsObject() {
+		return getPlayerRecordVOpal().getAverageCorrectBuzzDepthInWinsAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Double getAverageCorrectBuzzDepthInLossesAsObject() {
+		return getPlayerRecordVOpal().getAverageCorrectBuzzDepthInLossesAsObject();
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

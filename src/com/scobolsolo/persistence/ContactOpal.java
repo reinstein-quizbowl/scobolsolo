@@ -26,7 +26,7 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 
 		myNewTournamentDirectorTournamentOpalHashSet = new java.util.HashSet<>();
 		myNewPlayerOpalFast3Set = new com.siliconage.util.Fast3Set<>();
-		myNewMainSchoolRegistrationOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewMainSchoolRegistrationOpalHashSet = new java.util.HashSet<>();
 		myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>();
 
 		return;
@@ -250,7 +250,7 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		myTournamentDirectorTournamentOpalCachedOperations = null; /* Ditto */
 		myNewPlayerOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myPlayerOpalCachedOperations = null; /* Ditto */
-		myNewMainSchoolRegistrationOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewMainSchoolRegistrationOpalHashSet = null; /* Necessary if it has been rolled back */
 		myMainSchoolRegistrationOpalCachedOperations = null; /* Ditto */
 		myNewStaffOpalFast3Set = null; /* Necessary if it has been rolled back */
 		myStaffOpalCachedOperations = null; /* Ditto */
@@ -265,7 +265,7 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		if (needsToClearOldCollections()) {
 			myOldTournamentDirectorTournamentOpalHashSet = null;
 			myOldPlayerOpalFast3Set = null;
-			myOldMainSchoolRegistrationOpalFast3Set = null;
+			myOldMainSchoolRegistrationOpalHashSet = null;
 			myOldStaffOpalFast3Set = null;
 		} else {
 			if (myNewTournamentDirectorTournamentOpalHashSet != null) {
@@ -288,13 +288,13 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 			} else {
 				myPlayerOpalCachedOperations = null;
 			}
-			if (myNewMainSchoolRegistrationOpalFast3Set != null) {
-				if (myNewMainSchoolRegistrationOpalFast3Set.size() > 0) {
-					myOldMainSchoolRegistrationOpalFast3Set = myNewMainSchoolRegistrationOpalFast3Set;
+			if (myNewMainSchoolRegistrationOpalHashSet != null) {
+				if (myNewMainSchoolRegistrationOpalHashSet.size() > 0) {
+					myOldMainSchoolRegistrationOpalHashSet = myNewMainSchoolRegistrationOpalHashSet;
 				} else {
-					myOldMainSchoolRegistrationOpalFast3Set = java.util.Collections.emptySet();
+					myOldMainSchoolRegistrationOpalHashSet = java.util.Collections.emptySet();
 				}
-				myNewMainSchoolRegistrationOpalFast3Set = null;
+				myNewMainSchoolRegistrationOpalHashSet = null;
 			} else {
 				myMainSchoolRegistrationOpalCachedOperations = null;
 			}
@@ -328,7 +328,7 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 				((PlayerOpal) lclI.next()).setContactOpalInternal(null);
 			}
 		}
-		if (myNewMainSchoolRegistrationOpalFast3Set != null || myMainSchoolRegistrationOpalCachedOperations != null) {
+		if (myNewMainSchoolRegistrationOpalHashSet != null || myMainSchoolRegistrationOpalCachedOperations != null) {
 			lclI = createMainSchoolRegistrationOpalIterator();
 			while (lclI.hasNext()) {
 				((SchoolRegistrationOpal) lclI.next()).setMainContactOpalInternal(null);
@@ -629,36 +629,36 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		return getPlayerOpalFast3Set().stream();
 	}
 
-	private java.util.Set<SchoolRegistrationOpal> myOldMainSchoolRegistrationOpalFast3Set = null;
-	private java.util.Set<SchoolRegistrationOpal> myNewMainSchoolRegistrationOpalFast3Set = null;
+	private java.util.Set<SchoolRegistrationOpal> myOldMainSchoolRegistrationOpalHashSet = null;
+	private java.util.Set<SchoolRegistrationOpal> myNewMainSchoolRegistrationOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<SchoolRegistrationOpal>> myMainSchoolRegistrationOpalCachedOperations = null;
 
-	/* package */ java.util.Set<SchoolRegistrationOpal> getMainSchoolRegistrationOpalFast3Set() {
+	/* package */ java.util.Set<SchoolRegistrationOpal> getMainSchoolRegistrationOpalHashSet() {
 		if (tryAccess()) {
-			if (myNewMainSchoolRegistrationOpalFast3Set == null) {
-				if (myOldMainSchoolRegistrationOpalFast3Set == null) {
+			if (myNewMainSchoolRegistrationOpalHashSet == null) {
+				if (myOldMainSchoolRegistrationOpalHashSet == null) {
 					if (isNew()) {
-						myOldMainSchoolRegistrationOpalFast3Set = java.util.Collections.emptySet();
+						myOldMainSchoolRegistrationOpalHashSet = java.util.Collections.emptySet();
 					} else {
 						java.util.Set<SchoolRegistrationOpal> lclS;
 						lclS = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forMainContactIdCollection(getIdAsObject());
-						myOldMainSchoolRegistrationOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+						myOldMainSchoolRegistrationOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewMainSchoolRegistrationOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldMainSchoolRegistrationOpalFast3Set);
+				myNewMainSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldMainSchoolRegistrationOpalHashSet);
 				if (myMainSchoolRegistrationOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myMainSchoolRegistrationOpalCachedOperations, myNewMainSchoolRegistrationOpalFast3Set);
+					com.opal.OpalUtility.handleCachedOperations(myMainSchoolRegistrationOpalCachedOperations, myNewMainSchoolRegistrationOpalHashSet);
 					myMainSchoolRegistrationOpalCachedOperations = null;
 				}
 			}
-			return myNewMainSchoolRegistrationOpalFast3Set;
+			return myNewMainSchoolRegistrationOpalHashSet;
 		} else {
-			if (myOldMainSchoolRegistrationOpalFast3Set == null) {
+			if (myOldMainSchoolRegistrationOpalHashSet == null) {
 				java.util.Set<SchoolRegistrationOpal> lclS;
 				lclS = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forMainContactIdCollection(getIdAsObject());
-				myOldMainSchoolRegistrationOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+				myOldMainSchoolRegistrationOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldMainSchoolRegistrationOpalFast3Set;
+			return myOldMainSchoolRegistrationOpalHashSet;
 		}
 	}
 
@@ -670,16 +670,16 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 
 	protected synchronized void addMainSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
-		if (myNewMainSchoolRegistrationOpalFast3Set == null) {
-			if (myOldMainSchoolRegistrationOpalFast3Set == null) {
+		if (myNewMainSchoolRegistrationOpalHashSet == null) {
+			if (myOldMainSchoolRegistrationOpalHashSet == null) {
 				if (myMainSchoolRegistrationOpalCachedOperations == null) { myMainSchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
 				myMainSchoolRegistrationOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argSchoolRegistrationOpal));
 			} else {
-				myNewMainSchoolRegistrationOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldMainSchoolRegistrationOpalFast3Set);
-				myNewMainSchoolRegistrationOpalFast3Set.add(argSchoolRegistrationOpal);
+				myNewMainSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldMainSchoolRegistrationOpalHashSet);
+				myNewMainSchoolRegistrationOpalHashSet.add(argSchoolRegistrationOpal);
 			}
 		} else {
-			myNewMainSchoolRegistrationOpalFast3Set.add(argSchoolRegistrationOpal);
+			myNewMainSchoolRegistrationOpalHashSet.add(argSchoolRegistrationOpal);
 		}
 		return;
 	}
@@ -691,28 +691,28 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 
 	protected synchronized void removeMainSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
 		tryMutate();
-		if (myNewMainSchoolRegistrationOpalFast3Set == null) {
-			if (myOldMainSchoolRegistrationOpalFast3Set == null) {
+		if (myNewMainSchoolRegistrationOpalHashSet == null) {
+			if (myOldMainSchoolRegistrationOpalHashSet == null) {
 				if (myMainSchoolRegistrationOpalCachedOperations == null) { myMainSchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
 				myMainSchoolRegistrationOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argSchoolRegistrationOpal));
 			} else {
-				myNewMainSchoolRegistrationOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldMainSchoolRegistrationOpalFast3Set);
-				myNewMainSchoolRegistrationOpalFast3Set.remove(argSchoolRegistrationOpal);
+				myNewMainSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldMainSchoolRegistrationOpalHashSet);
+				myNewMainSchoolRegistrationOpalHashSet.remove(argSchoolRegistrationOpal);
 			}
 		} else {
-			myNewMainSchoolRegistrationOpalFast3Set.remove(argSchoolRegistrationOpal);
+			myNewMainSchoolRegistrationOpalHashSet.remove(argSchoolRegistrationOpal);
 		}
 		return;
 	}
 
-	public synchronized int getMainSchoolRegistrationOpalCount() { return getMainSchoolRegistrationOpalFast3Set().size(); }
+	public synchronized int getMainSchoolRegistrationOpalCount() { return getMainSchoolRegistrationOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<SchoolRegistrationOpal> createMainSchoolRegistrationOpalIterator() {
-		return getMainSchoolRegistrationOpalFast3Set().iterator();
+		return getMainSchoolRegistrationOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<SchoolRegistrationOpal> streamMainSchoolRegistrationOpal() {
-		return getMainSchoolRegistrationOpalFast3Set().stream();
+		return getMainSchoolRegistrationOpalHashSet().stream();
 	}
 
 	private java.util.Set<StaffOpal> myOldStaffOpalFast3Set = null;

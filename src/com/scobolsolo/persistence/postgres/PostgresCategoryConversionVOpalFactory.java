@@ -20,6 +20,7 @@ public class PostgresCategoryConversionVOpalFactory extends com.opal.AbstractDat
 		"category_code", 
 		"response_type_code", 
 		"response_type_count", 
+		"average_buzz_depth", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }

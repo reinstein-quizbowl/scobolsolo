@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.Comparator" %>
+﻿<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
@@ -12,6 +13,7 @@
 
 <%
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
+DecimalFormat lclPF = new DecimalFormat("0.0%");
 %>
 
 <jsp:include page="/template/header.jsp">
@@ -63,6 +65,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 								<th>Score</th>
 								<th>Opp.&nbsp;Score</th>
 								<th><abbr title="tossups heard">TUH</abbr></th>
+								<th><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
 								<th>Record After</th>
 							</tr>
 						</thead>
@@ -88,6 +91,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 									throw new IllegalStateException();
 								}
 								
+								Double lclCDepth = lclWon ? lclGV.getWinnerAverageCorrectBuzzDepthAsObject() : lclGV.getLoserAverageCorrectBuzzDepthAsObject();
+								
 								Player lclOpponentPlayer = Validate.notNull(lclWon ? lclGV.getLoserPlayer() : lclGV.getWinnerPlayer());
 								%><tr>
 									<td data-tablesorter="<%= lclM.getRound().getSequence() %>"><%= lclM.getRound().getShortName() %></td>
@@ -95,6 +100,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 									<td><%= lclWon ? lclGV.getWinnerScore(0) : lclGV.getLoserScore(0) %></td>
 									<td><%= lclWon ? lclGV.getLoserScore(0) : lclGV.getWinnerScore(0) %></td>
 									<td><%= lclGV.getTossupsHeard(0) %></td>
+									<td><%= lclCDepth == null ? "n/a" : lclPF.format(lclCDepth.doubleValue()) %></td>
 									<td><%= lclWins %>&ndash;<%= lclLosses %></td>
 								</tr><%
 							}

@@ -21,6 +21,7 @@ public class PostgresPlayerCategoryPointVOpalFactory extends com.opal.AbstractDa
 		"category_code", 
 		"tossups_heard", 
 		"points", 
+		"average_correct_buzz_depth", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }

@@ -33,6 +33,8 @@ public class PostgresGameVOpalFactory extends com.opal.AbstractDatabaseEphemeral
 		"loser_performance_id", 
 		"winner_score", 
 		"loser_score", 
+		"winner_average_correct_buzz_depth", 
+		"loser_average_correct_buzz_depth", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }

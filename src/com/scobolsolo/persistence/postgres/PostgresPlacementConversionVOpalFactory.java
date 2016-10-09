@@ -21,6 +21,7 @@ public class PostgresPlacementConversionVOpalFactory extends com.opal.AbstractDa
 		"question_id", 
 		"response_type_code", 
 		"response_type_count", 
+		"average_buzz_depth", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }

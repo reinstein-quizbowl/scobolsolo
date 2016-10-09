@@ -174,10 +174,10 @@ public class PostgresSchoolRegistrationOpalFactory extends com.opal.AbstractData
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<SchoolRegistrationOpal> forMainContactIdCollection(java.lang.Integer argMainContactId) /* throws PersistenceException */ {
+	public java.util.HashSet<SchoolRegistrationOpal> forMainContactIdCollection(java.lang.Integer argMainContactId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argMainContactId };
 		final String[] lclFieldNames = new String[] { "main_contact_id" };
-		com.siliconage.util.Fast3Set<SchoolRegistrationOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<SchoolRegistrationOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

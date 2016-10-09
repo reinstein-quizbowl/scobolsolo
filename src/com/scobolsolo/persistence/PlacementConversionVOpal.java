@@ -29,6 +29,7 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		"QuestionId",
 		"ResponseTypeCode",
 		"ResponseTypeCount",
+		"AverageBuzzDepth",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -37,6 +38,7 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		java.lang.Integer.class,
 		java.lang.String.class,
 		java.lang.Integer.class,
+		java.lang.Double.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -45,9 +47,11 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		true,
 		false,
 		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -95,6 +99,10 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		return (java.lang.Integer) getValues()[4];
 	}
 
+	public java.lang.Double getAverageBuzzDepthAsObject() {
+		return (java.lang.Double) getValues()[5];
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewResponseTypeOpal = myOldResponseTypeOpal;
@@ -135,6 +143,7 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		argOutput.println("QuestionId = " + getQuestionIdAsObject());
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
 		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+		argOutput.println("AverageBuzzDepth = " + getAverageBuzzDepthAsObject());
 	}
 
 	@Override
@@ -144,6 +153,7 @@ public final class PlacementConversionVOpal extends com.opal.EphemeralOpal<Place
 		argOutput.println("QuestionId = " + getQuestionIdAsObject());
 		argOutput.println("ResponseTypeCode = " + getResponseTypeCode());
 		argOutput.println("ResponseTypeCount = " + getResponseTypeCountAsObject());
+		argOutput.println("AverageBuzzDepth = " + getAverageBuzzDepthAsObject());
 	}
 
 	private ResponseTypeOpal myOldResponseTypeOpal;

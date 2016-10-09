@@ -473,6 +473,32 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Diff setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
+	 * object accessor for the {@code TextLength}
+	 *
+	 * <p>The {@code TextLength} field is a direct mapping of the {@code text_length} field in {@code diff}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getTextLength() method.</p>
+	 *
+	 * @return an object value of {@code TextLength} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public java.lang.Integer getTextLengthAsObject();
+
+	/**
+	 * primitive accessor for the {@code TextLength}
+	 *
+	 * <p>The {@code TextLength} field is a direct mapping of the {@code text_length} database column in the table {@code diff}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getTextLengthAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code TextLength} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public int getTextLength() {
+		java.lang.Integer lclO = getTextLengthAsObject();
+		return lclO.intValue();
+	}
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Account}
 	 * The returned {@code com.scobolsolo.application.Account} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code diff_editor_account_id_fkey}.
 	 *

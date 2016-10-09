@@ -28,6 +28,8 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		"LossCount",
 		"Points",
 		"TossupsHeard",
+		"AverageCorrectBuzzDepthInWins",
+		"AverageCorrectBuzzDepthInLosses",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -37,6 +39,8 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		java.lang.Long.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.Double.class,
+		java.lang.Double.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -46,9 +50,13 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		true,
 		true,
 		true,
+		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -101,6 +109,14 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		return (java.lang.Integer) getValues()[5];
 	}
 
+	public java.lang.Double getAverageCorrectBuzzDepthInWinsAsObject() {
+		return (java.lang.Double) getValues()[6];
+	}
+
+	public java.lang.Double getAverageCorrectBuzzDepthInLossesAsObject() {
+		return (java.lang.Double) getValues()[7];
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewTournamentOpal = myOldTournamentOpal;
@@ -138,6 +154,8 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		argOutput.println("LossCount = " + getLossCountAsObject());
 		argOutput.println("Points = " + getPointsAsObject());
 		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
+		argOutput.println("AverageCorrectBuzzDepthInWins = " + getAverageCorrectBuzzDepthInWinsAsObject());
+		argOutput.println("AverageCorrectBuzzDepthInLosses = " + getAverageCorrectBuzzDepthInLossesAsObject());
 	}
 
 	@Override
@@ -148,6 +166,8 @@ public final class PlayerRecordVOpal extends com.opal.EphemeralOpal<PlayerRecord
 		argOutput.println("LossCount = " + getLossCountAsObject());
 		argOutput.println("Points = " + getPointsAsObject());
 		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
+		argOutput.println("AverageCorrectBuzzDepthInWins = " + getAverageCorrectBuzzDepthInWinsAsObject());
+		argOutput.println("AverageCorrectBuzzDepthInLosses = " + getAverageCorrectBuzzDepthInLossesAsObject());
 	}
 
 	private TournamentOpal myOldTournamentOpal;

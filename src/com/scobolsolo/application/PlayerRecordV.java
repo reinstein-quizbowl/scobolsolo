@@ -1,6 +1,7 @@
 package com.scobolsolo.application;
 
 import java.util.Comparator;
+import java.util.OptionalDouble;
 
 import com.scobolsolo.persistence.PlayerRecordVUserFacing;
 
@@ -32,5 +33,28 @@ public interface PlayerRecordV extends PlayerRecordVUserFacing {
 		}
 		
 		return 1.0d * getPoints(0) / getTossupsHeard(0);
+	}
+	
+	default OptionalDouble getAverageCorrectBuzzDepth() {
+		double lclNumerator = 0.0d;
+		int lclDenominator = 0;
+		
+		Double lclCorrectBuzzDepthWins = getAverageCorrectBuzzDepthInWinsAsObject();
+		if (lclCorrectBuzzDepthWins != null) {
+			lclNumerator += lclCorrectBuzzDepthWins.doubleValue() * getWinCount(0);
+			lclDenominator += getWinCount(0);
+		}
+		
+		Double lclCorrectBuzzDepthLosses = getAverageCorrectBuzzDepthInLossesAsObject();
+		if (lclCorrectBuzzDepthLosses != null) {
+			lclNumerator += lclCorrectBuzzDepthLosses.doubleValue() * getLossCount(0);
+			lclDenominator += getLossCount(0);
+		}
+		
+		if (lclDenominator > 0) {
+			return OptionalDouble.of(lclNumerator / lclDenominator);
+		} else {
+			return OptionalDouble.empty();
+		}
 	}
 }

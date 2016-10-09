@@ -51,6 +51,8 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		"LoserPerformanceId",
 		"WinnerScore",
 		"LoserScore",
+		"WinnerAverageCorrectBuzzDepth",
+		"LoserAverageCorrectBuzzDepth",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -71,6 +73,8 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.Double.class,
+		java.lang.Double.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -91,9 +95,13 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		true,
 		true,
 		true,
+		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -201,6 +209,14 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		return (java.lang.Integer) getValues()[16];
 	}
 
+	public java.lang.Double getWinnerAverageCorrectBuzzDepthAsObject() {
+		return (java.lang.Double) getValues()[17];
+	}
+
+	public java.lang.Double getLoserAverageCorrectBuzzDepthAsObject() {
+		return (java.lang.Double) getValues()[18];
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewGameOpal = myOldGameOpal;
@@ -273,6 +289,8 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		argOutput.println("LoserPerformanceId = " + getLoserPerformanceIdAsObject());
 		argOutput.println("WinnerScore = " + getWinnerScoreAsObject());
 		argOutput.println("LoserScore = " + getLoserScoreAsObject());
+		argOutput.println("WinnerAverageCorrectBuzzDepth = " + getWinnerAverageCorrectBuzzDepthAsObject());
+		argOutput.println("LoserAverageCorrectBuzzDepth = " + getLoserAverageCorrectBuzzDepthAsObject());
 	}
 
 	@Override
@@ -294,6 +312,8 @@ public final class GameVOpal extends com.opal.EphemeralOpal<GameV> {
 		argOutput.println("LoserPerformanceId = " + getLoserPerformanceIdAsObject());
 		argOutput.println("WinnerScore = " + getWinnerScoreAsObject());
 		argOutput.println("LoserScore = " + getLoserScoreAsObject());
+		argOutput.println("WinnerAverageCorrectBuzzDepth = " + getWinnerAverageCorrectBuzzDepthAsObject());
+		argOutput.println("LoserAverageCorrectBuzzDepth = " + getLoserAverageCorrectBuzzDepthAsObject());
 	}
 
 	private GameOpal myOldGameOpal;

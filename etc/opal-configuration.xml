@@ -111,6 +111,9 @@
 			
 			<Mapping Table="Diff">
 				<Column Name="revision_number" Comparator="True" />
+				<Column Name="text_length" Computed="Expression">
+					<Expression>%this%.getText().length()</Expression>
+				</Column>
 			</Mapping>
 			
 			<Mapping Table="School_Registration">
@@ -210,17 +213,22 @@
 			<Mapping View="Player_Category_Point_v">
 				<Column Name="tossups_heard" Type="java.lang.Integer" />
 				<Column Name="points" Type="java.lang.Integer" />
+				<Column Name="average_correct_buzz_depth" Type="java.lang.Double" />
 			</Mapping>
 			
 			<Mapping View="Game_v">
 				<Column Name="winner_score" Type="java.lang.Integer" />
 				<Column Name="loser_score" Type="java.lang.Integer" />
+				<Column Name="winner_average_correct_buzz_depth" Type="java.lang.Double" />
+				<Column Name="loser_average_correct_buzz_depth" Type="java.lang.Double" />
 			</Mapping>
 			
 			<Mapping View="Player_Match_v" />
 			
 			<Mapping View="Player_Record_v">
 				<Column Name="tossups_heard" Type="java.lang.Integer" />
+				<Column Name="average_correct_buzz_depth_in_wins" Type="java.lang.Double" />
+				<Column Name="average_correct_buzz_depth_in_losses" Type="java.lang.Double" />
 				<Comparator Name="PlayerComparator">
 					<Child Name="Player" Comparator="NameComparator" />
 				</Comparator>
@@ -228,6 +236,7 @@
 			
 			<Mapping View="Category_Conversion_v">
 				<Column Name="response_type_count" Type="java.lang.Integer" />
+				<Column Name="average_buzz_depth" Type="java.lang.Double" />
 				<Comparator>
 					<Child Name="Category" Comparator="SequenceComparator" />
 				</Comparator>
@@ -235,6 +244,7 @@
 			
 			<Mapping View="Placement_Conversion_v">
 				<Column Name="response_type_count" Type="java.lang.Integer" />
+				<Column Name="average_buzz_depth" Type="java.lang.Double" />
 			</Mapping>
 		</Mappings>
 		

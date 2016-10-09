@@ -22,6 +22,8 @@ public class PostgresPlayerRecordVOpalFactory extends com.opal.AbstractDatabaseE
 		"loss_count", 
 		"points", 
 		"tossups_heard", 
+		"average_correct_buzz_depth_in_wins", 
+		"average_correct_buzz_depth_in_losses", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }

@@ -136,6 +136,18 @@ public class GameVImpl extends com.opal.AbstractImpl<GameV, GameVOpal> implement
 		return getGameVOpal().getLoserScoreAsObject();
 	}
 
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Double getWinnerAverageCorrectBuzzDepthAsObject() {
+		return getGameVOpal().getWinnerAverageCorrectBuzzDepthAsObject();
+	}
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Double getLoserAverageCorrectBuzzDepthAsObject() {
+		return getGameVOpal().getLoserAverageCorrectBuzzDepthAsObject();
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

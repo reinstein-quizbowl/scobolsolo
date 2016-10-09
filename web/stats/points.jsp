@@ -2,6 +2,7 @@
 <%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.OptionalDouble" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
 <%@ page import="com.google.common.collect.ArrayListMultimap" %>
@@ -21,6 +22,7 @@
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
 
 DecimalFormat lclDF = new DecimalFormat("0.00");
+DecimalFormat lclPF = new DecimalFormat("0.0%");
 %>
 
 <jsp:include page="/template/header.jsp">
@@ -42,6 +44,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 					<th>Record</th>
 					<th><abbr title="tossups heard">TUH</abbr></th>
 					<th><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
+					<th><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th>
 				</tr>
 			</thead>
 			<tbody><%
@@ -60,6 +63,14 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 						<td data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&#8211;<%= lclPRV.getLossCount(0) %></td>
 						<td><%= lclPRV.getTossupsHeard(0) %></td>
 						<td><%= lclDF.format(20.0f * lclPRV.getPPTUH()) %></td>
+						<td><%
+							OptionalDouble lclACBD = lclPRV.getAverageCorrectBuzzDepth();
+							if (lclACBD.isPresent()) {
+								%><%= lclPF.format(lclACBD.getAsDouble()) %><%
+							} else {
+								%>n/a<%
+							}
+						%></td>
 					</tr><%
 				}
 			%></tbody>
@@ -106,6 +117,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 							<th>School</th>
 							<th><abbr title="tossups heard">TUH</abbr></th>
 							<th><abbr title="points per tossup heard">PPTUH</abbr></th>
+							<th><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
 						</tr>
 					</thead>
 					<tbody><%
@@ -116,6 +128,14 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 								<td><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
 								<td><%= lclPCPV.getTossupsHeard(0) %></td>
 								<td><%= lclDF.format(lclPCPV.getPPTUH()) %></td>
+								<td><%
+									Double lclACBD = lclPCPV.getAverageCorrectBuzzDepthAsObject();
+									if (lclACBD == null) {
+										%>n/a<%
+									} else {
+										%><%= lclPF.format(lclACBD.doubleValue()) %><%
+									}
+								%></td>
 							</tr><%
 						}
 					%></tbody>

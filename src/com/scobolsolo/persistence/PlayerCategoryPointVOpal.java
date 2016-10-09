@@ -28,6 +28,7 @@ public final class PlayerCategoryPointVOpal extends com.opal.EphemeralOpal<Playe
 		"CategoryCode",
 		"TossupsHeard",
 		"Points",
+		"AverageCorrectBuzzDepth",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -36,6 +37,7 @@ public final class PlayerCategoryPointVOpal extends com.opal.EphemeralOpal<Playe
 		java.lang.String.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.Double.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -44,9 +46,11 @@ public final class PlayerCategoryPointVOpal extends com.opal.EphemeralOpal<Playe
 		false,
 		true,
 		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -94,6 +98,10 @@ public final class PlayerCategoryPointVOpal extends com.opal.EphemeralOpal<Playe
 		return (java.lang.Integer) getValues()[4];
 	}
 
+	public java.lang.Double getAverageCorrectBuzzDepthAsObject() {
+		return (java.lang.Double) getValues()[5];
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewTournamentOpal = myOldTournamentOpal;
@@ -132,6 +140,7 @@ public final class PlayerCategoryPointVOpal extends com.opal.EphemeralOpal<Playe
 		argOutput.println("CategoryCode = " + getCategoryCode());
 		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
 		argOutput.println("Points = " + getPointsAsObject());
+		argOutput.println("AverageCorrectBuzzDepth = " + getAverageCorrectBuzzDepthAsObject());
 	}
 
 	@Override
@@ -141,6 +150,7 @@ public final class PlayerCategoryPointVOpal extends com.opal.EphemeralOpal<Playe
 		argOutput.println("CategoryCode = " + getCategoryCode());
 		argOutput.println("TossupsHeard = " + getTossupsHeardAsObject());
 		argOutput.println("Points = " + getPointsAsObject());
+		argOutput.println("AverageCorrectBuzzDepth = " + getAverageCorrectBuzzDepthAsObject());
 	}
 
 	private TournamentOpal myOldTournamentOpal;
