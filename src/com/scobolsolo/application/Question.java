@@ -382,6 +382,16 @@ public interface Question extends QuestionUserFacing {
 												default: throw new LatexToHTMLConversionException("We don't know how to put a dot over '" + lclArgs.get(0) + '\'');
 											}
 											break;
+										case "\\dh": // lowercase thorn
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&eth;");
+											lclI += 3;
+											break;
+										case "\\DH": // capital thorn
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&ETH;");
+											lclI += 3;
+											break;
 										case "\\ldots": // ellipsis
 											Validate.isTrue(lclArgs.isEmpty());
 											lclSB.append("&hellip;");
