@@ -196,7 +196,6 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getPlayerCount() %>"><%= lclWEOF.text("PlayerCount", 2) %></td>
 						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getSequence() %>"><%= lclWEOF.text("Sequence", 2) %></td>
 						<td><%= lclWEOF.textarea("Note", 60, 3) %></td>
-						<td><%= lclWEOF.delete() %></td>
 						<td><%= HTMLUtility.deleteWidget(lclWEOF) %></td>
 					</tr><%
 				}
