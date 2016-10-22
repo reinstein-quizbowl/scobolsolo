@@ -3,6 +3,7 @@ package com.scobolsolo.servlets.tournament;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,8 +52,11 @@ public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
 			lclColumn += 2;
 		}
 		
+		Room[] lclRooms = lclT.createRoomArray();
+		Arrays.sort(lclRooms);
+		
 		int lclRow = 1;
-		for (final Room lclR : lclPhase.getGameRooms()) {
+		for (final Room lclR : lclRooms) {
 			final Row lclRoomRow = lclSheet.createRow(lclRow);
 			final Cell lclRoomNameCell = lclRoomRow.createCell(0);
 			lclRoomNameCell.setCellValue(lclR.getName());
