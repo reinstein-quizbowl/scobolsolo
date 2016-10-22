@@ -61,7 +61,7 @@
 		<pathelement location="${lib.dir}/postgresql-9.4.1208.jar" />
 		<!-- <pathelement location="${lib.dir}/sendgrid-java.jar" /> -->
 		<!-- <pathelement location="${lib.dir}/stax-api-1.0.1.jar" /> -->
-		<!-- <pathelement location="${lib.dir}/xmlbeans-2.3.0.jar" /> -->
+		<pathelement location="${lib.dir}/xmlbeans-2.6.0.jar" />
 		
 		<pathelement location="${lib.dir}/siliconage.jar" />
 		<pathelement location="${lib.dir}/opal.jar" />
