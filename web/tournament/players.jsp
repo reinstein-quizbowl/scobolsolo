@@ -122,22 +122,8 @@ if (lclP != null && lclP.isCardSystem()) {
 
 <script>
 	var renumber = function(argMoved) {
-		var lclWidgets = extractNumberWidgets(argMoved.parent());
-		
-		var lclMin = Number.MAX_SAFE_INTEGER;
-		
-		lclWidgets.each(
-			function(argI, argWidget) {
-				var lclNumber = $(argWidget).val();
-				
-				if (lclNumber < lclMin) {
-					lclMin = lclNumber;
-				}
-			}
-		);
-		
-		var lclCurrentNumber = lclMin;
-		lclWidgets.each(
+		var lclCurrentNumber = 1;
+		extractNumberWidgets(argMoved.parent()).each(
 			function(argI, argWidget) {
 				$(argWidget).val(lclCurrentNumber);
 				++lclCurrentNumber;
@@ -149,10 +135,6 @@ if (lclP != null && lclP.isCardSystem()) {
 		return argParent.find("input[type=number].number-widget");
 	};
 	
-	var extractNumberWidget = function(argParent) {
-		return extractNumberWidgets(argParent).first();
-	};
-	
 	$(
 		function() {
 			$('.reorderable').sortable(
@@ -160,7 +142,7 @@ if (lclP != null && lclP.isCardSystem()) {
 					axis: 'y',
 					containment: 'parent',
 					cursor: 'grabbing',
-					update: function (argEvent, argUI) {
+					update: function(argEvent, argUI) {
 						renumber(argUI.item);
 					},
 					helper: function(argEvent, argRow) {
