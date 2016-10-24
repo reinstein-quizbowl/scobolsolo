@@ -15,7 +15,7 @@ import com.scobolsolo.persistence.PlayerUserFacing;
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
 
-public interface Player extends PlayerUserFacing {
+public interface Player extends PlayerUserFacing, Comparable<Player> {
 	public static final Comparator<Player> SCHOOL_THEN_NAME_COMPARATOR = Comparator.<Player, String>comparing(argP -> argP.getSchoolRegistration().getSchool().getName()).thenComparing(NameComparator.getInstance());
 	
 	default Performance findPerformance(Game argG) {
@@ -61,5 +61,10 @@ public interface Player extends PlayerUserFacing {
 		} else {
 			return ResponseTypeFactory.NO_ATTEMPT();
 		}
+	}
+	
+	@Override
+	default public int compareTo(Player that) {
+		return NameComparator.getInstance().compare(this, that);
 	}
 }
