@@ -39,6 +39,9 @@ Staff lclS = lclUser.getContact().findStaff(lclT);
 Player lclLeftPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(request, "left_player_id"));
 Player lclRightPlayer = Validate.notNull(PlayerFactory.getInstance().fromHttpRequest(request, "right_player_id"));
 
+Performance lclLeftPerf = lclGame.findPerformance(lclLeftPlayer);
+Performance lclRightPerf = lclGame.findPerformance(lclRightPlayer);
+
 boolean lclReplacement = ControllerServlet.getBooleanParameter(request, "needs_replacement");
 boolean lclOvertime = ControllerServlet.getBooleanParameter(request, "overtime");
 
@@ -74,6 +77,10 @@ if (lclPlacements == null) {
 	lclPreviousPL = lclPlacements.get(lclIndex - 1);
 }
 
+Response lclLeftResponse = lclLeftPerf.findResponseForBasePlacement(lclBasePL);
+Response lclRightResponse = lclRightPerf.findResponseForBasePlacement(lclBasePL);
+boolean lclExtantResponses = (lclLeftResponse != null && lclLeftResponse.hasLocation()) || (lclRightResponse != null && lclRightResponse.hasLocation());
+
 Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 %>
 
@@ -87,7 +94,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 <div class="row">
 	<div class="small-12 columns">
 		<p>You are reading <%= lclRound.getName() %>, question&nbsp;#<%= lclBasePL.getNumber() %>. On your left is <%= lclLeftPlayer.getNameWithSchool() %>; on your right is <%= lclRightPlayer.getNameWithSchool() %>. If any of this is incorrect, stop immediately and rectify the situation!</p>
-		<p>The score going into this question is <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>.</p>
+		<p>The score going into this question is <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclLeftPerf) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclRightPerf) %>.</p>
 	</div>
 </div>
 
@@ -100,6 +107,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 			lclRightPlayer,
 			lclIndex,
 			lclReplacement,
+			lclBasePL.isReplaceable(),
 			lclOvertime
 		) %><%
 		
@@ -125,15 +133,25 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 </div>
 <div class="row">
 	<div class="small-12 columns">
-		<button class="button" id="continueButton" onclick="goOn()">Continue&hellip;</button>
-		<button class="button" id="resetButton" onclick="backToOriginal()">Reset</button>
+		<button class="button" id="continueButton" onclick="goOn()">Continue&hellip;</button><%
+		if (lclExtantResponses) {
+			%> <button class="button" id="resetButton" onclick="usePersisted()">Restore Saved Data</button><%
+		}
+		%> <button class="button" id="clearButton" onclick="clearResponses()">Clear</button>
 	</div>
 </div>
 
 <div id="buzzMenuContainer"></div>
 
 <script>
-	var lclOriginalPlayers = {
+	var lclOriginalData = {
+		'game_id': <%= lclGame.getId() %>,
+		'replacement': <%= lclReplacement %>,
+		'overtime': <%= lclOvertime %>,
+		'index': <%= lclIndex %>,
+		'base_placement_id': <%= lclBasePL.getId() %>,
+		'replacement_placement_id': <%= lclReplacementPL == null ? null : lclReplacementPL.getId() %>,
+		'diff_id': <%= lclActualPlacement.getQuestion().getCurrentDiff().getId() %>,
 		'left': {
 			'player_id': <%= lclLeftPlayer.getId() %>,
 			'name': '<%= StringEscapeUtils.escapeEcmaScript(lclLeftPlayer.getContact().getName()) %>',
@@ -146,22 +164,27 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		}
 	};
 	
-	function cloneOriginalPlayers() {
-		return $.extend(
-			true, {
-				'game_id': <%= lclGame.getId() %>,
-				'replacement': <%= lclReplacement %>,
-				'overtime': <%= lclOvertime %>,
-				'index': <%= lclIndex %>,
-				'base_placement_id': <%= lclBasePL.getId() %>,
-				'replacement_placement_id': <%= lclReplacementPL == null ? null : lclReplacementPL.getId() %>,
-				'diff_id': <%= lclActualPlacement.getQuestion().getCurrentDiff().getId() %>
-			},
-			lclOriginalPlayers
-		);
+	function recordPersistedBuzzes() {<%
+		if (lclLeftResponse != null && lclLeftResponse.hasLocation()) { // THINK: This won't show anything if there's no location. What should we do then?
+			%>buzz('left', findWordId(<%= lclLeftResponse.getLocation(-1) %>), <%= lclLeftResponse.getType().isCorrect() %>);<%
+		}
+		
+		if (lclRightResponse != null && lclRightResponse.hasLocation()) { // THINK: This won't show anything if there's no location. What should we do then?
+			%>buzz('right', findWordId(<%= lclRightResponse.getLocation(-1) %>), <%= lclRightResponse.getType().isCorrect() %>);<%
+		}
+	%>}
+	
+	$(document).ready(
+		function() {
+			usePersisted();
+		}
+	);
+	
+	function cloneData(argData) {
+		return JSON.parse(JSON.stringify(argData));
 	}
 	
-	var lclData = cloneOriginalPlayers();
+	var lclData = cloneData(lclOriginalData);
 </script>
 
 <script src="response.js"></script>

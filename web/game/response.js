@@ -133,11 +133,47 @@ function goOn() {
 	// $.post('QuestionResponse', 'data=' + JSON.stringify(lclData));
 }
 
-function backToOriginal() {
-	lclData = cloneOriginalPlayers();
+function usePersisted() {
+	restore(true);
+}
+
+function clearResponses() {
+	restore(false);
+}
+
+function restore(argUsePersisted) {
+	lclData = cloneData(lclOriginalData);
 	
 	$('.buzzed-indicator').remove();
 	$('.originally-buzzable').addClass('buzzable');
 	$('.buzzable').removeClass('buzzed-correct');
 	$('.buzzable').removeClass('buzzed-incorrect');
+	
+	if (argUsePersisted) {
+		recordPersistedBuzzes();
+	}
+}
+
+function findWordId(argDesiredBuzzIndex) {
+	var lclClosestWordId;
+	var lclClosestWordCloseness;
+	
+	var lclWords = $('.originally-buzzable');
+	for (var lclI = 0; lclI < lclWords.length; ++lclI) {
+		var lclBuzzableWord = $(lclWords[lclI]);
+		var lclBuzzableWordId = lclBuzzableWord.attr('id');
+		var lclThisWordBuzzIndex = lclBuzzableWord.data('buzzIndex');
+		
+		if (lclThisWordBuzzIndex == argDesiredBuzzIndex) {
+			return lclBuzzableWordId;
+		} else {
+			var lclCloseness = Math.abs(lclThisWordBuzzIndex - argDesiredBuzzIndex);
+			if (lclCloseness < lclClosestWordCloseness) {
+				lclClosestWordId = lclBuzzableWordId;
+				lclClosestWordCloseness = lclCloseness;
+			}
+		}
+	}
+	
+	return lclClosestWordId;
 }

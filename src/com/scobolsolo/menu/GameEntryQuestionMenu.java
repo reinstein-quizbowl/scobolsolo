@@ -13,7 +13,7 @@ public final class GameEntryQuestionMenu {
 		throw new UnsupportedOperationException();
 	}
 	
-	public static String outputFoundationMenu(final Game argGame, final String argCurrent, final Player argLeftPlayer, final Player argRightPlayer, final int argCurrentQuestionIndex, final boolean argReplacement, final boolean argOvertime) {
+	public static String outputFoundationMenu(final Game argGame, final String argCurrent, final Player argLeftPlayer, final Player argRightPlayer, final int argCurrentQuestionIndex, final boolean argReplacement, final boolean argReplacementAvailable, final boolean argOvertime) {
 		Validate.notNull(argGame);
 		Validate.notBlank(argCurrent);
 		Validate.notNull(argLeftPlayer);
@@ -30,7 +30,7 @@ public final class GameEntryQuestionMenu {
 				.append("			<li><a href=\"").append(QuestionResponse.generateQueryString(argGame, argRightPlayer, argLeftPlayer, argCurrentQuestionIndex, argReplacement, argOvertime)).append("\">switch sides</a></li>");
 			if (argReplacement) {
 				lclSB.append("		<li><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, argCurrentQuestionIndex, false, argOvertime)).append("\">cancel replacement</a></li>");
-			} else {
+			} else if (argReplacementAvailable) {
 				lclSB.append("		<li><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, argCurrentQuestionIndex, true, argOvertime)).append("\">replace question</a></li>");
 			}
 			lclSB.append("		</ul>");
