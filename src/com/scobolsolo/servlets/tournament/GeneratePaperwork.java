@@ -36,6 +36,7 @@ import com.scobolsolo.ScobolSoloConfiguration;
 
 public class GeneratePaperwork extends DownloadServlet {
 	private static final long serialVersionUID = 1L;
+	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(GeneratePaperwork.class);
 	
 	public static final String DIRECTORY = ScobolSoloConfiguration.getInstance().getString("DATA_DIRECTORY") + File.separator + ScobolSoloConfiguration.getInstance().getString("PAPERWORK_SUBDIRECTORY") + File.separator;
 	
@@ -107,6 +108,7 @@ public class GeneratePaperwork extends DownloadServlet {
 		final List<File> lclFiles = new ArrayList<>(lclIncludeTexFiles ? 2*lclOutputters.size() : lclOutputters.size());
 		
 		for (final LaTeXOutputter lclO : lclOutputters) {
+			// ourLogger.debug("Outputting " + lclO.getClass().getName());
 			lclO.output();
 			
 			if (lclIncludeTexFiles) {
