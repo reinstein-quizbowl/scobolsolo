@@ -29,7 +29,7 @@ public class RearrangeSeeds extends ScobolSoloControllerServlet {
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			for (final Player lclP : lclPs) {
-				lclP.setSeed(getRequiredIntParameter(argRequest, "seed-" + lclP.getId()));
+				lclP.setSeed(getRequiredIntParameter(argRequest, "player_" + lclP.getId() + "_seed"));
 			}
 			
 			lclTC.complete();
