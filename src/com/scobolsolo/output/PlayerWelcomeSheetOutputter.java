@@ -8,6 +8,8 @@ import com.scobolsolo.application.SchoolRegistration;
 import com.scobolsolo.application.Tournament;
 
 public class PlayerWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputter {
+	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(PlayerWelcomeSheetOutputter.class);
+	
 	public PlayerWelcomeSheetOutputter(final File argOutputFile, final Tournament argT) {
 		super(argOutputFile, argT);
 	}
@@ -35,7 +37,7 @@ public class PlayerWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 				if (lclP.getInitialCard() == null) {
 					getWriter().println("Welcome, " + escape(lclP.getContact().getName()) + '!');
 				} else {
-					getWriter().println("Welcome, " + escape(lclP.getContact().getName()) + " (initial card: " + escape(lclP.getInitialCard().getShortName()) + ")!");
+					getWriter().println("Welcome, " + escape(lclP.getContact().getName()) + "!\\hfill Initial card: " + escape(lclP.getInitialCard().getShortName()));
 				}
 				getWriter().println();
 				
