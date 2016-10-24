@@ -11,5 +11,7 @@ import com.scobolsolo.persistence.ResponseTypeUserFacing;
  */
 
 public interface ResponseType extends ResponseTypeUserFacing {
-	/* This block intentionally left empty. */
+	default public boolean isCorrect() {
+		return getPoints() > 0;
+	}
 }
