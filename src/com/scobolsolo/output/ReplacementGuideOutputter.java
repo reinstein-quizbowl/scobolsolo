@@ -46,24 +46,26 @@ public class ReplacementGuideOutputter extends TournamentSpecificLaTeXOutputter 
 			Arrays.sort(lclPlacements);
 			
 			for (final Placement lclPL : lclPlacements) {
-				final Question lclQ = lclPL.getQuestion();
-				final Placement lclReplacement = lclPL.findReplacement();
-				
-				getWriter().print("\\item[\\#" + escape(String.valueOf(lclPL.getNumber())));
-				
-				if (lclPL.isTiebreaker()) {
-					getWriter().print(" (TB)");
+				if (lclPL.isFilled()) {
+					final Question lclQ = lclPL.getQuestion();
+					final Placement lclReplacement = lclPL.findReplacement();
+					
+					getWriter().print("\\item[\\#" + escape(String.valueOf(lclPL.getNumber())));
+					
+					if (lclPL.isTiebreaker()) {
+						getWriter().print(" (TB)");
+					}
+					
+					getWriter().println(": \\textit{" + escape(lclQ.getDescription()) + " (" + escape(lclQ.getCategory().getName()) + ")}]\\hfill\\\\");
+					
+					if (lclReplacement == null || lclReplacement.isEmpty()) {
+						getWriter().println("No replacement available; contact the control room for assistance if necessary.");
+					} else {
+						getWriter().println("Use " + escape(lclReplacement.getPacket().getName()) + " \\#" + escape(String.valueOf(lclReplacement.getNumber())) + ": " + escape(lclReplacement.getQuestion().getDescription()));
+					}
+					
+					getWriter().println();
 				}
-				
-				getWriter().println(": \\textit{" + escape(lclQ.getDescription()) + " (" + escape(lclQ.getCategory().getName()) + ")}]\\hfill\\\\");
-				
-				if (lclReplacement == null) {
-					getWriter().println("No replacement available; contact the control room for assistance if necessary.");
-				} else {
-					getWriter().println("Use " + escape(lclReplacement.getPacket().getName()) + " \\#" + escape(String.valueOf(lclReplacement.getNumber())) + ": " + escape(lclReplacement.getQuestion().getDescription()));
-				}
-				
-				getWriter().println();
 			}
 			
 			getWriter().println("\\end{compactdesc}");
