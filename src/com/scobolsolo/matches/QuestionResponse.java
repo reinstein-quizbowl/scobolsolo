@@ -34,7 +34,7 @@ import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 
 public class QuestionResponse extends ScobolSoloControllerServlet {
 	private static final long serialVersionUID = 1L;
-	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(QuestionResponse.class.getName());
+	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(QuestionResponse.class.getName());
 	
 	private static final String CONTINUE_URL_BASE = "/game/question.jsp";
 	private static final String TIE_URL_BASE = "/game/tie.jsp";
@@ -141,35 +141,35 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				final boolean lclTied = lclGame.isTiedAfter(lclIndex, lclOvertime);
 				if (lclOvertime) { // i.e., we were *already* in overtime
 					if (lclTied) {
-						ourLogger.debug("return A");
+						// ourLogger.debug("return A");
 						return OUT_OF_QUESTIONS_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, true);
 					} else {
 						recordResult(lclGame);
-						ourLogger.debug("return B");
+						// ourLogger.debug("return B");
 						return COMPLETE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, true);
 					}
 				} else {
 					if (lclTied) {
-						ourLogger.debug("return C");
+						// ourLogger.debug("return C");
 						return TIE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, false /* because we haven't started overtime yet */);
 					} else {
 						recordResult(lclGame);
-						ourLogger.debug("return D");
+						// ourLogger.debug("return D");
 						return COMPLETE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, false);
 					}
 				}
 			} else if (lclOvertime) {
 				final boolean lclTied = lclGame.isTiedAfter(lclIndex, lclOvertime);
 				if (lclTied) {
-					ourLogger.debug("return E");
+					// ourLogger.debug("return E");
 					return CONTINUE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, lclOvertime);
 				} else {
 					recordResult(lclGame);
-					ourLogger.debug("return F");
+					// ourLogger.debug("return F");
 					return COMPLETE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, -1, false, false);
 				}
 			} else {
-				ourLogger.debug("return G");
+				// ourLogger.debug("return G");
 				return CONTINUE_URL_BASE + generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, lclIndex + 1, false, lclOvertime);
 			}
 		}
