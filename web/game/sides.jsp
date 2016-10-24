@@ -32,6 +32,8 @@ Staff lclS = lclUser.getContact().findStaff(lclT);
 Staff lclSelectedModeratorStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
 Staff lclSelectedScorekeeperStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyScorekeeper(), lclS) : lclGame.getScorekeeperStaff();
 
+List<Staff> lclStaffChoices = lclT.getStaff();
+
 MatchStatus lclStatus = lclMatch.determineStatus();
 %>
 
@@ -48,13 +50,13 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 		<div class="small-12 medium-12 large-6 columns">
 			<fieldset class="fieldset">
 				<legend>Moderator</legend>
-				<label><%= new AssembledDropdownField<>("moderator_staff_id", lclSelectedModeratorStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label>
+				<label><%= new AssembledDropdownField<>("moderator_staff_id", lclSelectedModeratorStaff).choices(lclStaffChoices).namer(Staff::getName, Staff::getUniqueString) %></label>
 			</fieldset>
 		</div>
 		<div class="small-12 medium-12 large-6 columns">
 			<fieldset class="fieldset">
 				<legend>Scorekeeper</legend>
-				<label><%= new AssembledDropdownField<>("scorekeeper_staff_id", lclSelectedScorekeeperStaff).choices(lclT.getStaff()).namer(Staff::getName, Staff::getUniqueString) %></label>
+				<label><%= new AssembledDropdownField<>("scorekeeper_staff_id", lclSelectedScorekeeperStaff).choices(lclStaffChoices).namer(Staff::getName, Staff::getUniqueString) %></label>
 			</fieldset>
 		</div>
 	</div>
