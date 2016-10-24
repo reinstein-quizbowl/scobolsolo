@@ -21,4 +21,12 @@ public interface Response extends ResponseUserFacing {
 	default public Placement getActualPlacement() {
 		return ObjectUtils.firstNonNull(getReplacementPlacement(), getBasePlacement());
 	}
+	
+	default public boolean hasLocation() {
+		return getLocationAsObject() != null;
+	}
+	
+	default ResponseType getType() {
+		return getResponseType();
+	}
 }
