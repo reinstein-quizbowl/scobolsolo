@@ -74,7 +74,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 			<label>
 				<span class="show-for-small-only">Cards?</span>
 				<span class="show-for-medium-only">Card system?</span>
-				<span class="show-for-large-up">Uses card system?</span>
+				<span class="show-for-large">Uses card system?</span>
 				<%= HTMLUtility.switchWidget(lclPOF, "CardSystem") %><%
 				if (lclPOF.alreadyExists() && lclP.isCardSystem()) {
 					%><a href="cards.jsp?phase_id=<%= lclP.getId() %>">Edit Cards</a><%

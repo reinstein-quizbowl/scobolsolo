@@ -81,8 +81,8 @@ if (lclOF.hasErrors()) {
 	
 	<div class="small-6 large-3 columns">
 		<label>
-			<span class="hide-for-large-up" title="Rank within <%= lclS.getShortName() %>">Rank</span>
-			<span class="show-for-large-up">Rank within <%= lclS.getShortName() %></span>
+			<span class="hide-for-large" title="Rank within <%= lclS.getShortName() %>">Rank</span>
+			<span class="show-for-large">Rank within <%= lclS.getShortName() %></span>
 			<%= lclOF.text("RankWithinSchool", 3) %>
 		</label>
 	</div>

@@ -114,7 +114,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		}
 	%></div>
 	
-	<div class="show-for-large-up large-3 columns">
+	<div class="show-for-large large-3 columns">
 		<ul class="magellan side-nav no-bullet" data-magellan><%
 			for (School lclS : lclSchoolToPlayers.keySet()) {
 				%><li><a href="#school_<%= lclS.getId() %>"><%= lclS.getName() %></a></li><%

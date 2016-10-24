@@ -77,15 +77,15 @@ if (lclOF.hasErrors()) {
 	</div>
 	<div class="small-4 large-5 columns">
 		<label>
-			<span class="hide-for-medium-up">Replacements</span>
-			<span class="show-for-medium-up">Replacements from</span>
+			<span class="hide-for-medium">Replacements</span>
+			<span class="show-for-medium">Replacements from</span>
 			<%= lclOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT) %>
 		</label>
 	</div>
 	<div class="small-4 large-2 columns">
 		<label>
-			<span class="hide-for-medium-up">Questions public?</span>
-			<span class="show-for-medium-up">Are questions public?</span>
+			<span class="hide-for-medium">Questions public?</span>
+			<span class="show-for-medium">Are questions public?</span>
 			<%= HTMLUtility.switchWidget(lclOF, "QuestionsPublic") %>
 		</label>
 	</div>

@@ -144,7 +144,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		}
 	%></div>
 	
-	<div class="show-for-large-up large-3 columns">
+	<div class="show-for-large large-3 columns">
 		<ul class="magellan side-nav no-bullet" data-magellan>
 			<li><a href="#overall">Overall</a></li><%
 			for (Category lclC : lclCategories) {

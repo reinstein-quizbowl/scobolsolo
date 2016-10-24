@@ -139,8 +139,8 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 		</div>
 		<div class="small-3 medium-2 columns">
 			<label>
-				<span class="show-for-small-only">Admin?</span>
-				<span class="show-for-medium-up">Administrator?</span>
+				<span class="hide-for-medium">Admin?</span>
+				<span class="show-for-medium">Administrator?</span>
 				<%= HTMLUtility.switchWidget(lclAOF, "Administrator") %>
 			</label>
 		</div>
@@ -152,8 +152,8 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 		</div>
 		<div class="small-3 medium-2 columns">
 			<label>
-				<span class="show-for-small-only">Messageable?</span>
-				<span class="show-for-medium-up">Can Receive Unsolicited Messages?</span>
+				<span class="hide-for-medium">Messageable?</span>
+				<span class="show-for-medium">Can Receive Unsolicited Messages?</span>
 				<%= HTMLUtility.switchWidget(lclAOF, "CanReceiveUnsolicitedMessages") %>
 			</label>
 		</div><%
