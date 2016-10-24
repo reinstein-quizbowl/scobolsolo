@@ -21,6 +21,10 @@ public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 		return Comparator.comparing(Placement::getPacket).thenComparingInt(Placement::getNumber).compare(this, that);
 	}
 	
+	default boolean isReplaceable() {
+		return findReplacement() != null;
+	}
+	
 	default Placement findReplacement() {
 		// TODO: Add arguments for the players involved (Player[] because of the championship) and make sure the question returned hasn't been heard by any of them!
 		
@@ -32,18 +36,19 @@ public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 		final Placement[] lclReplacements = lclReplacementPacket.createPlacementArray();
 		Arrays.sort(lclReplacements);
 		
-		final Category lclC = getQuestion().getCategory();
+		final Category lclC = getCategory();
+		Validate.isTrue(isEmpty() || lclC == getQuestion().getCategory(), "Category mismatch for placement #" + getId());
 		
 		// Try to find a question in the replacement packet with the same Category
 		for (final Placement lclReplacementCandidate : lclReplacements) {
-			if (lclReplacementCandidate.getQuestion().getCategory() == lclC) {
+			if (lclReplacementCandidate.isFilled() && lclReplacementCandidate.getQuestion().getCategory() == lclC) {
 				return lclReplacementCandidate;
 			}
 		}
 		
 		// No question in the same category was available. Try the same CategoryGroup.
 		for (final Placement lclReplacementCandidate : lclReplacements) {
-			if (lclReplacementCandidate.getQuestion().getCategory().getCategoryGroup() == lclC.getCategoryGroup()) {
+			if (lclReplacementCandidate.isFilled() && lclReplacementCandidate.getQuestion().getCategory().getCategoryGroup() == lclC.getCategoryGroup()) {
 				return lclReplacementCandidate;
 			}
 		}
