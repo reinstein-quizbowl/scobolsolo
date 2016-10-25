@@ -37,7 +37,7 @@ int lclTieScore = lclGame.getTieScore().intValue();
 
 <div class="row">
 	<div class="small-12 columns">
-		<%= GameEntryQuestionMenu.outputFoundationMenu(lclGame, "Out of Questions", lclLeftPlayer, lclRightPlayer, -1, false, true) %>
+		<%= GameEntryQuestionMenu.outputFoundationMenu(lclGame, "Out of Questions", lclLeftPlayer, lclRightPlayer, -1, false, false, true) %>
 		<p>
 			The game <%
 			Performance[] lclPerfs = lclGame.createPerformanceArray();

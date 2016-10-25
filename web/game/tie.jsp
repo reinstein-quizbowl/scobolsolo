@@ -40,7 +40,7 @@ int lclTieScore = Game.getTieScore(lclScoresAfterRegulation).intValue();
 
 <div class="row">
 	<div class="small-12 columns">
-		<%= GameEntryQuestionMenu.outputFoundationMenu(lclGame, "Tie Game", lclLeftPlayer, lclRightPlayer, -1, false, false /* we have not started overtime yet */) %>
+		<%= GameEntryQuestionMenu.outputFoundationMenu(lclGame, "Tie Game", lclLeftPlayer, lclRightPlayer, -1, false, false, false /* we have not started overtime yet */) %>
 		<p>
 			The game <%
 			Performance[] lclPerfs = lclGame.createPerformanceArray();
