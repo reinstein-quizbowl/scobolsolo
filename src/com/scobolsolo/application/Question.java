@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import java.util.Objects;
 import java.util.Comparator;
 import java.util.Collections;
 import java.util.Arrays;
@@ -9,6 +10,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -38,17 +40,17 @@ public interface Question extends QuestionUserFacing {
 	
 	static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Question.class);
 	
-	static final LoadingCache<Pair<Question, Integer>, String> ourCachedTextHTML = CacheBuilder.newBuilder()
+	static final LoadingCache<Pair<Diff, Integer>, String> ourCachedTextHTML = CacheBuilder.newBuilder()
 		.maximumSize(500)
 		.build(
-			new CacheLoader<Pair<Question, Integer>, String>() {
+			new CacheLoader<Pair<Diff, Integer>, String>() {
 				@Override
-				public String load(Pair<Question, Integer> argPair) {
-					Question lclQ = Validate.notNull(argPair.getLeft());
+				public String load(Pair<Diff, Integer> argPair) {
+					Diff lclD = Validate.notNull(argPair.getLeft());
 					int lclBitField = argPair.getRight().intValue();
 					
 					try {
-						return latexToHTML(lclQ.getText(), lclBitField, 0);
+						return latexToHTML(lclD.getText(), lclBitField, 0);
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
 						return "Couldn't convert: " + lclE.getMessage();
@@ -56,17 +58,17 @@ public interface Question extends QuestionUserFacing {
 				}
 			}
 		);
-	static final LoadingCache<Pair<Question, Boolean>, String> ourCachedAnswerHTML = CacheBuilder.newBuilder()
+	static final LoadingCache<Pair<Diff, Boolean>, String> ourCachedAnswerHTML = CacheBuilder.newBuilder()
 		.maximumSize(500)
 		.build(
-			new CacheLoader<Pair<Question, Boolean>, String>() {
+			new CacheLoader<Pair<Diff, Boolean>, String>() {
 				@Override
-				public String load(Pair<Question, Boolean> argPair) {
-					Question lclQ = Validate.notNull(argPair.getLeft());
+				public String load(Pair<Diff, Boolean> argPair) {
+					Diff lclD = Validate.notNull(argPair.getLeft());
 					boolean lclShowPGs = argPair.getRight().booleanValue();
 					
 					try {
-						return latexToHTML(lclQ.getAnswer(), lclShowPGs ? SHOW_PRONUNCIATION_GUIDES : 0, 0);
+						return latexToHTML(lclD.getAnswer(), lclShowPGs ? SHOW_PRONUNCIATION_GUIDES : 0, 0);
 					} catch (LatexToHTMLConversionException lclE) {
 						ourLogger.warn(lclE.getMessage(), lclE);
 						return "Couldn't convert: " + lclE.getMessage();
@@ -110,22 +112,24 @@ public interface Question extends QuestionUserFacing {
 		);
 	}
 	
-	default String outputTextHTML(final int argBitField) {
-		return ourCachedTextHTML.getUnchecked(Pair.of(this, argBitField));
+	public static String outputTextHTML(final Diff argDiff, final int argBitField) {
+		return ourCachedTextHTML.getUnchecked(Pair.of(argDiff, argBitField));
 	}
 	
-	default String outputAnswerHTML(final boolean argShowPGs) {
-		return ourCachedAnswerHTML.getUnchecked(Pair.of(this, argShowPGs));
+	public static String outputAnswerHTML(final Diff argDiff, final boolean argShowPGs) {
+		return ourCachedAnswerHTML.getUnchecked(Pair.of(argDiff, argShowPGs));
 	}
 	
 	default void recache() {
-		ourCachedTextHTML.refresh(Pair.of(this, 0));
-		ourCachedTextHTML.refresh(Pair.of(this, SHOW_PRONUNCIATION_GUIDES));
-		ourCachedTextHTML.refresh(Pair.of(this, SHOW_BUZZ_LINKS));
-		ourCachedTextHTML.refresh(Pair.of(this, SHOW_PRONUNCIATION_GUIDES | SHOW_BUZZ_LINKS));
+		Diff lclDiff = this.getCurrentDiff();
 		
-		ourCachedAnswerHTML.refresh(Pair.of(this, true));
-		ourCachedAnswerHTML.refresh(Pair.of(this, false));
+		ourCachedTextHTML.refresh(Pair.of(lclDiff, 0));
+		ourCachedTextHTML.refresh(Pair.of(lclDiff, SHOW_PRONUNCIATION_GUIDES));
+		ourCachedTextHTML.refresh(Pair.of(lclDiff, SHOW_BUZZ_LINKS));
+		ourCachedTextHTML.refresh(Pair.of(lclDiff, SHOW_PRONUNCIATION_GUIDES | SHOW_BUZZ_LINKS));
+		
+		ourCachedAnswerHTML.refresh(Pair.of(lclDiff, true));
+		ourCachedAnswerHTML.refresh(Pair.of(lclDiff, false));
 	}
 	
 	static String startBuzzLink(final int argIndex) {
@@ -237,7 +241,7 @@ public interface Question extends QuestionUserFacing {
 													--lclBraceDepth;
 													if (lclBraceDepth == 0) {
 														// This is a top-level argument
-														lclArgs.add(lclCurrentArg.toString());
+														lclArgs.add(StringUtils.trimToNull(lclCurrentArg.toString()));
 														lclCurrentArg = new StringBuilder();
 														lclI = lclJ;
 														if (lclNextBackslashChar == '{') {
@@ -265,7 +269,7 @@ public interface Question extends QuestionUserFacing {
 												if (lclCommandSB.length() <= 2) {
 													if (lclBackslashChar == '`' || lclBackslashChar == '\'' || lclBackslashChar == '^' || lclBackslashChar == '"' || lclBackslashChar == '~' || lclBackslashChar == '=') {
 														lclCommand = lclCommandSB.toString();
-														lclArgs = Arrays.asList(String.valueOf(argS.charAt(lclJ + 1)));
+														lclArgs = Arrays.asList(StringUtils.trimToNull(String.valueOf(argS.charAt(lclJ + 1))));
 														lclI += 2;
 														break;
 													} else if (lclBackslashChar == 'O' || lclBackslashChar == 'o') {
@@ -281,6 +285,13 @@ public interface Question extends QuestionUserFacing {
 												}
 											}
 										}
+									}
+									
+									if (lclArgs.isEmpty() == false) {
+										lclArgs = lclArgs.stream()
+											.filter(Objects::nonNull)
+											.collect(Collectors.toList());
+										// We don't just removeAll(singleton(null)) because Arrays.asList() doesn't let us remove elements, and lclArgs could have been created that way
 									}
 									
 									// BACKSLASH_COMMAND_POSSIBILITIES:
@@ -395,18 +406,34 @@ public interface Question extends QuestionUserFacing {
 										case "\\ldots": // ellipsis
 											Validate.isTrue(lclArgs.isEmpty());
 											lclSB.append("&hellip;");
-											lclI += 6;
 											break;
 										case "\\pg":
-											Validate.isTrue(lclArgs.size() == 2, "lclArgs = " + lclArgs);
-											if (lclShowPGs) {
-												lclSB.append("<span class=\"has-pronunciation-guide\">")
-													.append(latexToHTML(lclArgs.get(0), argBitField, lclI))
-													.append("</span>&nbsp;<span class=\"pronunciation-guide\">")
-													.append(latexToHTML(lclArgs.get(1), argBitField, lclI))
-													.append("</span>");
+											Validate.isTrue(lclArgs.size() == 1 || lclArgs.size() == 2);
+											String lclText;
+											String lclPG;
+											
+											if (lclArgs.size() == 1) {
+												lclText = null;
+												lclPG = lclArgs.get(0);
 											} else {
-												lclSB.append(latexToHTML(lclArgs.get(0), argBitField, lclI));
+												lclText = lclArgs.get(0);
+												lclPG = lclArgs.get(1);
+											}
+											
+											if (lclShowPGs) {
+												if (StringUtils.isBlank(lclText)) {
+													lclSB.append("<span class=\"pronunciation-guide\">")
+														.append(latexToHTML(lclPG, argBitField, lclI))
+														.append("</span>");
+												} else {
+													lclSB.append("<span class=\"has-pronunciation-guide\">")
+														.append(latexToHTML(lclText, argBitField, lclI))
+														.append("</span>&nbsp;<span class=\"pronunciation-guide\">")
+														.append(latexToHTML(lclPG, argBitField, lclI))
+														.append("</span>");
+												}
+											} else if (StringUtils.isNotBlank(lclText)) {
+												lclSB.append(latexToHTML(lclText, argBitField, lclI));
 											}
 											break;
 										case "\\textsubscript":

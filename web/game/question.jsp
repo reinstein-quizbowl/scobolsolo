@@ -7,6 +7,7 @@
 <%@ page import="com.siliconage.util.Tally" %>
 <%@ page import="com.siliconage.web.ControllerServlet" %>
 <%@ page import="com.scobolsolo.application.Account" %>
+<%@ page import="com.scobolsolo.application.Diff" %>
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.GameFactory" %>
 <%@ page import="com.scobolsolo.application.Match" %>
@@ -81,6 +82,14 @@ Response lclLeftResponse = lclLeftPerf.findResponseForBasePlacement(lclBasePL);
 Response lclRightResponse = lclRightPerf.findResponseForBasePlacement(lclBasePL);
 boolean lclExtantResponses = (lclLeftResponse != null && lclLeftResponse.hasLocation()) || (lclRightResponse != null && lclRightResponse.hasLocation());
 
+Diff lclDiff;
+if (lclExtantResponses) {
+	Validate.isTrue(lclLeftResponse.getDiff() == lclRightResponse.getDiff(), "Players responded to different versions of the question");
+	lclDiff = lclLeftResponse.getDiff();
+} else {
+	lclDiff = lclActualPlacement.getQuestion().getCurrentDiff();
+}
+
 Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 %>
 
@@ -123,10 +132,10 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		
 		if (lclUser.mayViewQuestions(lclMatch)) {
 			if (lclActualPlacement.getQuestion().getText() != null) {
-				%><p class="question-text"><%= lclActualPlacement.getQuestion().outputTextHTML(Question.SHOW_BUZZ_LINKS | (lclUser.showPronunciationGuidesFor(lclActualPlacement) ? Question.SHOW_PRONUNCIATION_GUIDES : 0)) %></p><%
+				%><p class="question-text"><%= Question.outputTextHTML(lclDiff, Question.SHOW_BUZZ_LINKS | (lclUser.showPronunciationGuidesFor(lclActualPlacement) ? Question.SHOW_PRONUNCIATION_GUIDES : 0)) %></p><%
 			}
 			if (lclActualPlacement.getQuestion().getAnswer() != null) {
-				%><p class="question-answer"><%= lclActualPlacement.getQuestion().outputAnswerHTML(lclUser.showPronunciationGuidesFor(lclActualPlacement)) %></p><%
+				%><p class="question-answer"><%= Question.outputAnswerHTML(lclDiff, lclUser.showPronunciationGuidesFor(lclActualPlacement)) %></p><%
 			}
 		}
 	%></div>
@@ -151,7 +160,7 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		'index': <%= lclIndex %>,
 		'base_placement_id': <%= lclBasePL.getId() %>,
 		'replacement_placement_id': <%= lclReplacementPL == null ? null : lclReplacementPL.getId() %>,
-		'diff_id': <%= lclActualPlacement.getQuestion().getCurrentDiff().getId() %>,
+		'diff_id': <%= lclDiff.getId() %>,
 		'left': {
 			'player_id': <%= lclLeftPlayer.getId() %>,
 			'name': '<%= StringEscapeUtils.escapeEcmaScript(lclLeftPlayer.getContact().getName()) %>',

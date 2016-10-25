@@ -11,6 +11,7 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.stream.Collectors" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
+<%@ page import="org.apache.commons.lang3.exception.ExceptionUtils" %>
 <%@ page import="org.apache.commons.lang3.tuple.Pair" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
 <%@ page import="com.google.common.collect.ArrayListMultimap" %>
@@ -164,14 +165,20 @@ String renderAll(Tournament argT, ListMultimap<Category, Question> argCategorize
 					lclPlacementString = ": " + lclPL.getString();
 				}
 				
-				lclSB.append("<h4>")
-					.append("<a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">").append(lclQ.getDescription()).append("</a>")
-					.append(lclPlacementString)
-					.append("</h4>")
-					.append("<p class=\"question-text small\">").append(lclQ.outputTextHTML(Question.SHOW_PRONUNCIATION_GUIDES)).append("</p>")
-					.append("<p class=\"question-answer small\">").append(lclQ.outputAnswerHTML(true)).append("</p>");
-				if (lclQ.getNote() != null) {
-					lclSB.append("<p class=\"question-note small\">").append(WebDataFilter.scrubForHTMLDisplay(lclQ.getNote())).append("</p>");
+				try {
+					lclSB.append("<h4>")
+						.append("<a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">").append(lclQ.getDescription()).append("</a>")
+						.append(lclPlacementString)
+						.append("</h4>")
+						.append("<p class=\"question-text small\">").append(Question.outputTextHTML(lclQ.getCurrentDiff(), Question.SHOW_PRONUNCIATION_GUIDES)).append("</p>")
+						.append("<p class=\"question-answer small\">").append(Question.outputAnswerHTML(lclQ.getCurrentDiff(), true)).append("</p>");
+					if (lclQ.getNote() != null) {
+						lclSB.append("<p class=\"question-note small\">").append(WebDataFilter.scrubForHTMLDisplay(lclQ.getNote())).append("</p>");
+					}
+				} catch (Exception lclE) {
+					lclSB.append("<h4 class=\"error\">Couldn't output <a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">#").append(lclQ.getId()).append("</a></h4>")
+						.append("<p>").append(WebDataFilter.scrubForHTMLDisplay(lclE.getClass().getName())).append(": ").append(WebDataFilter.scrubForHTMLDisplay(lclE.getMessage())).append("</p>")
+						.append("<pre>").append(ExceptionUtils.getStackTrace(lclE)).append("</pre>");
 				}
 			}
 			

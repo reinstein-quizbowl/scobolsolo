@@ -150,8 +150,8 @@ if (lclOF.alreadyExists() && lclQ.getText() != null && lclQ.getAnswer() != null)
 	%><div class="row">
 		<div class="small-12 columns">
 			<h2>Rendered</h2>
-			<p class="question-text"><%= lclQ.outputTextHTML(Question.SHOW_PRONUNCIATION_GUIDES) %></p>
-			<p class="question-answer"><%= lclQ.outputAnswerHTML(true) %></p>
+			<p class="question-text"><%= Question.outputTextHTML(lclQ.getCurrentDiff(), Question.SHOW_PRONUNCIATION_GUIDES) %></p>
+			<p class="question-answer"><%= Question.outputAnswerHTML(lclQ.getCurrentDiff(), true) %></p>
 		</div>
 	</div><%
 }
