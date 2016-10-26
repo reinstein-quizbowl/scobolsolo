@@ -171,7 +171,7 @@ public class Menu extends MenuItem {
 							 .append("		<ul class=\"dropdown menu logged-in-container\" data-dropdown-menu>\n");
 						
 						if (argUser.getUnreadMessages().isEmpty()) {
-							lclSB.append("			<li><a class=\"messages none-unread\" title=\"Messages (none unread)\" href=\"/messages/\"><i class=\"fa fa-envelope-o\"></i></a></li>\n");
+							lclSB.append("			<li><a class=\"messages none-unread\" title=\"Messages (none unread)\" href=\"/messages/\" target=\"_blank\"><i class=\"fa fa-envelope-o\"></i></a></li>\n");
 						} else {
 							lclSB.append("			<li><a class=\"messages unread\" title=\"Messages (new!)\" href=\"/messages/\"><i class=\"fa fa-envelope\"></i></a></li>\n");
 						}
