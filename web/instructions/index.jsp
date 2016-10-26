@@ -24,7 +24,7 @@
 		<p>When both players are in your room, click on that game, and you'll be asked to choose which player is on which side. After that, you'll be shown the questions, one at a time, like this:</p>
 		<p data-open="img1"><a href="#"><img src="1-question.png" style="width: 50%;" /></a></p>
 		<div class="large reveal" id="img1" data-reveal>
-			<img src="1-question.png" style="width: 1208px; max-width: 1208px; height: 658px;" data-close />
+			<img src="1-question.png" style="width: 1182px; max-width: 1182px; height: 648px;" data-close />
 		</div>
 		
 		
@@ -34,13 +34,13 @@
 
 		<p data-open="img2"><a href="#"><img src="2-buzz-menu.png" style="width: 50%;" /></a></p>
 		<div class="large reveal" id="img2" data-reveal>
-			<img src="2-buzz-menu.png" style="width: 1164px; max-width: 1164px; height: 408px;" data-close />
+			<img src="2-buzz-menu.png" style="width: 1169px; max-width: 1169px; height: 376px;" data-close />
 		</div>
 		
 		<p>Click the "correct" or "incorrect" button below the name of the player who buzzed, and that fact will be marked. If that was a wrong answer, keep reading the question, and you can again click/tap to record the other player's buzz. Once the buzzes are recorded, the screen will look like this:</p>
 		<p data-open="img3"><a href="#"><img src="3-buzzes-recorded.png" style="width: 50%;" /></a></p>
 		<div class="large reveal" id="img3" data-reveal>
-			<img src="3-buzzes-recorded.png" style="width: 1164px; max-width: 1164px; height: 408px;" data-close />
+			<img src="3-buzzes-recorded.png" style="width: 1169px; max-width: 1169px; height: 376px;" data-close />
 		</div>
 		
 		<p>If you make a mistake in terms of what you click, you can click the "Clear" button at the bottom. If you make a mistake in terms of reading the question, in such a way that the question needs to be replaced, you can click the "replace questions" link near "Actions" right above the question. If players want to switch sides, you can click the "switch sides" link next to "Actions" above the question. You can also use the menu above the question to go back or forward to different questions, though it's unusual for that to be a good idea.</p>
