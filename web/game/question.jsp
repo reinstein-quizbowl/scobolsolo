@@ -78,8 +78,8 @@ if (lclPlacements == null) {
 	lclPreviousPL = lclPlacements.get(lclIndex - 1);
 }
 
-Response lclLeftResponse = lclLeftPerf.findResponseForBasePlacement(lclBasePL);
-Response lclRightResponse = lclRightPerf.findResponseForBasePlacement(lclBasePL);
+Response lclLeftResponse = lclLeftPerf == null ? null : lclLeftPerf.findResponseForBasePlacement(lclBasePL);
+Response lclRightResponse = lclRightPerf == null ? null : lclRightPerf.findResponseForBasePlacement(lclBasePL);
 boolean lclExtantResponses = (lclLeftResponse != null && lclLeftResponse.hasLocation()) || (lclRightResponse != null && lclRightResponse.hasLocation());
 
 Diff lclDiff;
