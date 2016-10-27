@@ -92,7 +92,7 @@ public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
 					getWriter().print(" - & - ");
 				} else {
 					final Card lclOpponentCard = lclM.getWinningCard() == lclC ? lclM.getLosingCard() : lclM.getWinningCard();
-					getWriter().print(escape(lclOpponentCard.getShortName()) + " & " + escape(lclM.getRoom().getShortName()));
+					getWriter().print("\\tiny" + escape(lclOpponentCard.getShortName()) + " & \\tiny " + escape(lclM.getRoom().getShortName()));
 				}
 				
 				if (lclRI.hasNext()) {
