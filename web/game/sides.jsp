@@ -75,6 +75,7 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 				case ONE_PLAYER_KNOWN:
 					Validate.notNull(lclGame);
 					lclCandidates = new LinkedList<>(lclT.getPlayers());
+					lclCandidates.remove(lclGame.getSingleKnownPlayer());
 					lclCandidates.add(0, lclGame.getSingleKnownPlayer());
 					lclCandidates.sort(Player.NameComparator.getInstance());
 					break;
