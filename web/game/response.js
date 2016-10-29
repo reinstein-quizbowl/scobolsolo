@@ -27,6 +27,9 @@ $(document).ready(
 					lclActivatedWord = lclClickedWord;
 					
 					var lclId = lclClickedWord.attr('id');
+					while (!lclId) {
+						lclId = lclClickedWord.parent().attr('id');
+					}
 					
 					$('#buzzMenuContainer').html(
 						'<table class="buzz-choices unsortable">' +
