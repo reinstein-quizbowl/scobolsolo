@@ -58,8 +58,8 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 				for (PlayerRecordV lclPRV : lclPRVs) {
 					%><tr>
 						<td><%= lclPRV.getPoints(0) %></td>
-						<td data-tablesorter="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></td>
-						<td data-tablesorter="<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %>"><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
+						<td data-tablesorter="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></td>
+						<td data-tablesorter="<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
 						<td data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&#8211;<%= lclPRV.getLossCount(0) %></td>
 						<td><%= lclPRV.getTossupsHeard(0) %></td>
 						<td><%= lclDF.format(20.0f * lclPRV.getPPTUH()) %></td>
@@ -124,8 +124,8 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 						for (PlayerCategoryPointV lclPCPV : lclPCPVs) {
 							%><tr>
 								<td><%= lclPCPV.getPoints(0) %></td>
-								<td data-tablesorter="<%= lclPCPV.getPlayer().getContact().getSortBy() %>"><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPCPV.getPlayer().getId() %>"><%= lclPCPV.getPlayer().getContact().getName() %></a></td>
-								<td><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
+								<td data-tablesorter="<%= lclPCPV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPCPV.getPlayer().getId() %>"><%= lclPCPV.getPlayer().getContact().getName() %></a></td>
+								<td><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
 								<td><%= lclPCPV.getTossupsHeard(0) %></td>
 								<td><%= lclDF.format(lclPCPV.getPPTUH()) %></td>
 								<td><%

@@ -78,8 +78,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 						%></td>
 						<td><%
 							if (lclG != null && lclG.getIncomingWinningCardPlayer() != null && lclG.getIncomingLosingCardPlayer() != null) {
-								%><a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclG.getIncomingWinningCardPlayer().getId() %>"><%= lclG.getIncomingWinningCardPlayer().getNameWithSchool() %></a><br />
-								<a href="player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclG.getIncomingLosingCardPlayer().getId() %>"><%= lclG.getIncomingLosingCardPlayer().getNameWithSchool() %></a><%
+								%><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclG.getIncomingWinningCardPlayer().getId() %>"><%= lclG.getIncomingWinningCardPlayer().getNameWithSchool() %></a><br />
+								<a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclG.getIncomingLosingCardPlayer().getId() %>"><%= lclG.getIncomingLosingCardPlayer().getNameWithSchool() %></a><%
 							} else {
 								%><abbr class="stealth-tool-tip" title="to be determined">TBD</abbr><%
 							}
