@@ -1,4 +1,6 @@
-﻿<%@ page import="com.scobolsolo.application.TournamentFactory" %>
+﻿<jsp:forward page="/stats/standings.jsp?object=2016" />
+
+<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">
@@ -10,9 +12,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2016 will be held on Saturday, October 29.</p>
-		
-		<p>You can see the <a href="/stats/registrations.jsp?object=2016">list of registrations</a>.</p>
+		<p>Scobol Solo 2016 is being held on Saturday, October 29.</p>
 	</div>
 </div>
 
