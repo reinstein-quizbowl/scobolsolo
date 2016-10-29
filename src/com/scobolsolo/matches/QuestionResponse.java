@@ -317,8 +317,12 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 					return ResponseTypeFactory.INCORRECT_AT_END();
 				} else {
 					String lclAfterBuzzIndex = lclQ.getText().substring(argBuzzIndex);
-					if (StringUtils.containsAny(lclAfterBuzzIndex, Question.WORD_BREAKING_CHARACTERS)) {
-						return ResponseTypeFactory.INTERRUPT();
+					if (argBuzzIndex < lclQ.getText().length()) {
+						if (StringUtils.containsAny(lclAfterBuzzIndex, Question.WORD_BREAKING_CHARACTERS)) {
+							return ResponseTypeFactory.INTERRUPT();
+						} else {
+							return ResponseTypeFactory.INCORRECT_AT_END();
+						}
 					} else {
 						return ResponseTypeFactory.INCORRECT_AT_END();
 					}
