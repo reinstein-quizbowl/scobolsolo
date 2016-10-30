@@ -44,7 +44,7 @@
 					<td>
 						<a href="/stats/player-detail.jsp?object=2016#player_1436">Jack Mayer</a> (Loyola Academy)<br />
 						<a href="/stats/player-detail.jsp?object=2016#player_1524">Ethan Strombeck</a> (Auburn)<br />
-						<a href="/stats/player-detail.jsp?object=2016#player_1512">Aristotle Vainikos</a> (Carl Sandberg)
+						<a href="/stats/player-detail.jsp?object=2016#player_1512">Aristotle Vainikos</a> (Carl Sandburg)
 					</td>
 				</tr>
 				<tr>
