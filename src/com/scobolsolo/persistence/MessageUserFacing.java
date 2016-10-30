@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Message> {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Message setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code FromAccountId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getFromAccountIdAsObject();
 
@@ -98,6 +103,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argFromAccountId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Message setFromAccountId(java.lang.Integer argFromAccountId);
 
@@ -118,6 +124,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code ToAccountId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getToAccountIdAsObject();
 
@@ -144,6 +151,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argToAccountId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Message setToAccountId(java.lang.Integer argToAccountId);
 
@@ -162,6 +170,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getText();
@@ -178,6 +187,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Message setText(java.lang.String argText);
@@ -189,6 +199,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code SentTimestamp} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.CurrentDateTimeDefault
 	public java.time.LocalDateTime getSentTimestamp();
@@ -202,6 +213,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSentTimestamp is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.CurrentDateTimeDefault
 	public com.scobolsolo.application.Message setSentTimestamp(java.time.LocalDateTime argSentTimestamp);
@@ -213,6 +225,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code AcknowledgedTimestamp} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.time.LocalDateTime getAcknowledgedTimestamp();
 
@@ -238,8 +251,59 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @param argAcknowledgedTimestamp the new value of {@code AcknowledgedTimestamp}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Message setAcknowledgedTimestamp(java.time.LocalDateTime argAcknowledgedTimestamp);
+
+	/**
+	 * object accessor for the {@code Archived}
+	 *
+	 * <p>The {@code Archived} field is a direct mapping of the {@code archived} field in {@code message}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isArchived() method.</p>
+	 *
+	 * @return an object value of {@code Archived} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	public java.lang.Boolean isArchivedAsObject();
+
+	/**
+	 * primitive accessor for the {@code Archived}
+	 *
+	 * <p>The {@code Archived} field is a direct mapping of the {@code archived} database column in the table {@code message}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isArchivedAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code Archived} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isArchived() {
+		java.lang.Boolean lclO = isArchivedAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code Archived} to the value of {@code argArchived}
+	 *
+	 * @param argArchived the new value of {@code Archived}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code archived} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argArchived is null
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	public com.scobolsolo.application.Message setArchived(java.lang.Boolean argArchived);
+
+	/**
+	 * sets the {@code Archived} to the value of {@code argArchived}
+	 *
+	 * @param argArchived the new value of {@code Archived}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	public com.scobolsolo.application.Message setArchived(boolean argArchived);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Account}

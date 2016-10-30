@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.StaffAssignment;
-import com.scobolsolo.application.StaffAssignmentImpl;
+import com.scobolsolo.persistence.StaffAssignmentImpl;
 import com.scobolsolo.persistence.StaffAssignmentOpal;
 import com.scobolsolo.persistence.StaffAssignmentOpalFactory;
 
@@ -172,19 +172,19 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
+	public java.util.HashSet<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argStaffId };
 		final String[] lclFieldNames = new String[] { "staff_id" };
-		com.siliconage.util.Fast3Set<StaffAssignmentOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
+	public java.util.HashSet<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoomId };
 		final String[] lclFieldNames = new String[] { "room_id" };
-		com.siliconage.util.Fast3Set<StaffAssignmentOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

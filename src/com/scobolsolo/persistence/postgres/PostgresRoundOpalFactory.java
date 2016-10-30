@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Round;
-import com.scobolsolo.application.RoundImpl;
+import com.scobolsolo.persistence.RoundImpl;
 import com.scobolsolo.persistence.RoundOpal;
 import com.scobolsolo.persistence.RoundOpalFactory;
 
@@ -214,10 +214,10 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<RoundOpal> forRoundGroupIdCollection(java.lang.Integer argRoundGroupId) /* throws PersistenceException */ {
+	public java.util.HashSet<RoundOpal> forRoundGroupIdCollection(java.lang.Integer argRoundGroupId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoundGroupId };
 		final String[] lclFieldNames = new String[] { "round_group_id" };
-		com.siliconage.util.Fast3Set<RoundOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<RoundOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

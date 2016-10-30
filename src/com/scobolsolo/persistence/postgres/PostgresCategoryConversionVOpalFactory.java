@@ -2,7 +2,7 @@ package com.scobolsolo.persistence.postgres;
 
 
 import com.scobolsolo.application.CategoryConversionV;
-import com.scobolsolo.application.CategoryConversionVImpl;
+import com.scobolsolo.persistence.CategoryConversionVImpl;
 import com.scobolsolo.persistence.CategoryConversionVOpal;
 import com.scobolsolo.persistence.CategoryConversionVOpalFactory;
 

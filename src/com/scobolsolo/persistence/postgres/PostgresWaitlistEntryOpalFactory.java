@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.WaitlistEntry;
-import com.scobolsolo.application.WaitlistEntryImpl;
+import com.scobolsolo.persistence.WaitlistEntryImpl;
 import com.scobolsolo.persistence.WaitlistEntryOpal;
 import com.scobolsolo.persistence.WaitlistEntryOpalFactory;
 
@@ -171,10 +171,10 @@ public class PostgresWaitlistEntryOpalFactory extends com.opal.AbstractDatabaseI
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<WaitlistEntryOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
+	public java.util.HashSet<WaitlistEntryOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argSchoolRegistrationId };
 		final String[] lclFieldNames = new String[] { "school_registration_id" };
-		com.siliconage.util.Fast3Set<WaitlistEntryOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<WaitlistEntryOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

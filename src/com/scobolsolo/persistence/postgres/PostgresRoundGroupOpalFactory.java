@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.RoundGroup;
-import com.scobolsolo.application.RoundGroupImpl;
+import com.scobolsolo.persistence.RoundGroupImpl;
 import com.scobolsolo.persistence.RoundGroupOpal;
 import com.scobolsolo.persistence.RoundGroupOpalFactory;
 

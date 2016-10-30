@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = false)
+	@com.opal.annotation.Updatability(updatable = false)
 public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -24,6 +26,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
@@ -37,6 +40,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code PlacementId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getPlacementIdAsObject();
 
@@ -95,6 +99,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getQuestionIdAsObject();
 
@@ -151,6 +156,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code ResponseTypeCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getResponseTypeCode();
@@ -164,6 +170,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code ResponseTypeCount} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getResponseTypeCountAsObject();
 
@@ -222,6 +229,7 @@ public interface PlacementConversionVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code AverageBuzzDepth} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Double getAverageBuzzDepthAsObject();
 

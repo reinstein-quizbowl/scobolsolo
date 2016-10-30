@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = false)
+	@com.opal.annotation.Updatability(updatable = false)
 public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -24,6 +26,7 @@ public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
@@ -37,6 +40,7 @@ public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getPlayerIdAsObject();
 
@@ -93,6 +97,7 @@ public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryCode();
@@ -106,6 +111,7 @@ public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code TossupsHeard} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getTossupsHeardAsObject();
 
@@ -164,6 +170,7 @@ public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code Points} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getPointsAsObject();
 
@@ -222,6 +229,7 @@ public interface PlayerCategoryPointVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code AverageCorrectBuzzDepth} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Double getAverageCorrectBuzzDepthAsObject();
 

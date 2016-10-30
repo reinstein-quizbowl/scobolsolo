@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Staff setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getContactIdAsObject();
 
@@ -98,6 +103,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argContactId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Staff setContactId(java.lang.Integer argContactId);
 
@@ -116,6 +122,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
@@ -132,6 +139,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Staff setTournamentCode(java.lang.String argTournamentCode);
@@ -145,6 +153,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
@@ -200,6 +209,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Staff setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
@@ -218,6 +228,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
@@ -247,6 +258,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Staff setNote(java.lang.String argNote);
@@ -258,6 +270,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TechnologyChoiceCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	@com.opal.annotation.Default(value = "TBD")
@@ -275,6 +288,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code technology_choice_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	@com.opal.annotation.Default(value = "TBD")

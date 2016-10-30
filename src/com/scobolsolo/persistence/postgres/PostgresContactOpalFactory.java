@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Contact;
-import com.scobolsolo.application.ContactImpl;
+import com.scobolsolo.persistence.ContactImpl;
 import com.scobolsolo.persistence.ContactOpal;
 import com.scobolsolo.persistence.ContactOpalFactory;
 

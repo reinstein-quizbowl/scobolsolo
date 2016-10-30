@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Room;
-import com.scobolsolo.application.RoomImpl;
+import com.scobolsolo.persistence.RoomImpl;
 import com.scobolsolo.persistence.RoomOpal;
 import com.scobolsolo.persistence.RoomOpalFactory;
 

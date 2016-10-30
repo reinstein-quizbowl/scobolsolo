@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.TechnologyChoice;
-import com.scobolsolo.application.TechnologyChoiceImpl;
+import com.scobolsolo.persistence.TechnologyChoiceImpl;
 import com.scobolsolo.persistence.TechnologyChoiceOpal;
 import com.scobolsolo.persistence.TechnologyChoiceOpalFactory;
 

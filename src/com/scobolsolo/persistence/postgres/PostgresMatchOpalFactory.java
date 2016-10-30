@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Match;
-import com.scobolsolo.application.MatchImpl;
+import com.scobolsolo.persistence.MatchImpl;
 import com.scobolsolo.persistence.MatchOpal;
 import com.scobolsolo.persistence.MatchOpalFactory;
 

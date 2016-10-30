@@ -23,7 +23,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewPronunciationGuideSuppressionOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>();
 		myNewQuestionOpalHashSet = new java.util.HashSet<>();
 		myNewDiffOpalHashSet = new java.util.HashSet<>();
 		myNewCategoryUseOpalHashSet = new java.util.HashSet<>();
@@ -207,7 +207,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewCategoryGroupOpal = myOldCategoryGroupOpal;
-		myNewPronunciationGuideSuppressionOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewPronunciationGuideSuppressionOpalHashSet = null; /* Necessary if it has been rolled back */
 		myPronunciationGuideSuppressionOpalCachedOperations = null; /* Ditto */
 		myNewQuestionOpalHashSet = null; /* Necessary if it has been rolled back */
 		myQuestionOpalCachedOperations = null; /* Ditto */
@@ -226,19 +226,19 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		myOldCategoryGroupOpal = myNewCategoryGroupOpal;
 
 		if (needsToClearOldCollections()) {
-			myOldPronunciationGuideSuppressionOpalFast3Set = null;
+			myOldPronunciationGuideSuppressionOpalHashSet = null;
 			myOldQuestionOpalHashSet = null;
 			myOldDiffOpalHashSet = null;
 			myOldCategoryUseOpalHashSet = null;
 			myOldPlacementOpalHashSet = null;
 		} else {
-			if (myNewPronunciationGuideSuppressionOpalFast3Set != null) {
-				if (myNewPronunciationGuideSuppressionOpalFast3Set.size() > 0) {
-					myOldPronunciationGuideSuppressionOpalFast3Set = myNewPronunciationGuideSuppressionOpalFast3Set;
+			if (myNewPronunciationGuideSuppressionOpalHashSet != null) {
+				if (myNewPronunciationGuideSuppressionOpalHashSet.size() > 0) {
+					myOldPronunciationGuideSuppressionOpalHashSet = myNewPronunciationGuideSuppressionOpalHashSet;
 				} else {
-					myOldPronunciationGuideSuppressionOpalFast3Set = java.util.Collections.emptySet();
+					myOldPronunciationGuideSuppressionOpalHashSet = java.util.Collections.emptySet();
 				}
-				myNewPronunciationGuideSuppressionOpalFast3Set = null;
+				myNewPronunciationGuideSuppressionOpalHashSet = null;
 			} else {
 				myPronunciationGuideSuppressionOpalCachedOperations = null;
 			}
@@ -290,7 +290,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 	@Override
 	protected void unlinkInternal() {
 		java.util.Iterator<?> lclI;
-		if (myNewPronunciationGuideSuppressionOpalFast3Set != null || myPronunciationGuideSuppressionOpalCachedOperations != null) {
+		if (myNewPronunciationGuideSuppressionOpalHashSet != null || myPronunciationGuideSuppressionOpalCachedOperations != null) {
 			lclI = createPronunciationGuideSuppressionOpalIterator();
 			while (lclI.hasNext()) {
 				((PronunciationGuideSuppressionOpal) lclI.next()).setCategoryOpalInternal(null);
@@ -455,36 +455,36 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		myNewCategoryGroupOpal = argCategoryGroupOpal;
 	}
 
-	private java.util.Set<PronunciationGuideSuppressionOpal> myOldPronunciationGuideSuppressionOpalFast3Set = null;
-	private java.util.Set<PronunciationGuideSuppressionOpal> myNewPronunciationGuideSuppressionOpalFast3Set = null;
+	private java.util.Set<PronunciationGuideSuppressionOpal> myOldPronunciationGuideSuppressionOpalHashSet = null;
+	private java.util.Set<PronunciationGuideSuppressionOpal> myNewPronunciationGuideSuppressionOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<PronunciationGuideSuppressionOpal>> myPronunciationGuideSuppressionOpalCachedOperations = null;
 
-	/* package */ java.util.Set<PronunciationGuideSuppressionOpal> getPronunciationGuideSuppressionOpalFast3Set() {
+	/* package */ java.util.Set<PronunciationGuideSuppressionOpal> getPronunciationGuideSuppressionOpalHashSet() {
 		if (tryAccess()) {
-			if (myNewPronunciationGuideSuppressionOpalFast3Set == null) {
-				if (myOldPronunciationGuideSuppressionOpalFast3Set == null) {
+			if (myNewPronunciationGuideSuppressionOpalHashSet == null) {
+				if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
 					if (isNew()) {
-						myOldPronunciationGuideSuppressionOpalFast3Set = java.util.Collections.emptySet();
+						myOldPronunciationGuideSuppressionOpalHashSet = java.util.Collections.emptySet();
 					} else {
 						java.util.Set<PronunciationGuideSuppressionOpal> lclS;
 						lclS = OpalFactoryFactory.getInstance().getPronunciationGuideSuppressionOpalFactory().forCategoryCodeCollection(getCode());
-						myOldPronunciationGuideSuppressionOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+						myOldPronunciationGuideSuppressionOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewPronunciationGuideSuppressionOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPronunciationGuideSuppressionOpalFast3Set);
+				myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>(myOldPronunciationGuideSuppressionOpalHashSet);
 				if (myPronunciationGuideSuppressionOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myPronunciationGuideSuppressionOpalCachedOperations, myNewPronunciationGuideSuppressionOpalFast3Set);
+					com.opal.OpalUtility.handleCachedOperations(myPronunciationGuideSuppressionOpalCachedOperations, myNewPronunciationGuideSuppressionOpalHashSet);
 					myPronunciationGuideSuppressionOpalCachedOperations = null;
 				}
 			}
-			return myNewPronunciationGuideSuppressionOpalFast3Set;
+			return myNewPronunciationGuideSuppressionOpalHashSet;
 		} else {
-			if (myOldPronunciationGuideSuppressionOpalFast3Set == null) {
+			if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
 				java.util.Set<PronunciationGuideSuppressionOpal> lclS;
 				lclS = OpalFactoryFactory.getInstance().getPronunciationGuideSuppressionOpalFactory().forCategoryCodeCollection(getCode());
-				myOldPronunciationGuideSuppressionOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+				myOldPronunciationGuideSuppressionOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldPronunciationGuideSuppressionOpalFast3Set;
+			return myOldPronunciationGuideSuppressionOpalHashSet;
 		}
 	}
 
@@ -496,16 +496,16 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	protected synchronized void addPronunciationGuideSuppressionOpalInternal(PronunciationGuideSuppressionOpal argPronunciationGuideSuppressionOpal) {
 		tryMutate();
-		if (myNewPronunciationGuideSuppressionOpalFast3Set == null) {
-			if (myOldPronunciationGuideSuppressionOpalFast3Set == null) {
+		if (myNewPronunciationGuideSuppressionOpalHashSet == null) {
+			if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
 				if (myPronunciationGuideSuppressionOpalCachedOperations == null) { myPronunciationGuideSuppressionOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPronunciationGuideSuppressionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPronunciationGuideSuppressionOpal));
 			} else {
-				myNewPronunciationGuideSuppressionOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPronunciationGuideSuppressionOpalFast3Set);
-				myNewPronunciationGuideSuppressionOpalFast3Set.add(argPronunciationGuideSuppressionOpal);
+				myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>(myOldPronunciationGuideSuppressionOpalHashSet);
+				myNewPronunciationGuideSuppressionOpalHashSet.add(argPronunciationGuideSuppressionOpal);
 			}
 		} else {
-			myNewPronunciationGuideSuppressionOpalFast3Set.add(argPronunciationGuideSuppressionOpal);
+			myNewPronunciationGuideSuppressionOpalHashSet.add(argPronunciationGuideSuppressionOpal);
 		}
 		return;
 	}
@@ -517,28 +517,28 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	protected synchronized void removePronunciationGuideSuppressionOpalInternal(PronunciationGuideSuppressionOpal argPronunciationGuideSuppressionOpal) {
 		tryMutate();
-		if (myNewPronunciationGuideSuppressionOpalFast3Set == null) {
-			if (myOldPronunciationGuideSuppressionOpalFast3Set == null) {
+		if (myNewPronunciationGuideSuppressionOpalHashSet == null) {
+			if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
 				if (myPronunciationGuideSuppressionOpalCachedOperations == null) { myPronunciationGuideSuppressionOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPronunciationGuideSuppressionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPronunciationGuideSuppressionOpal));
 			} else {
-				myNewPronunciationGuideSuppressionOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPronunciationGuideSuppressionOpalFast3Set);
-				myNewPronunciationGuideSuppressionOpalFast3Set.remove(argPronunciationGuideSuppressionOpal);
+				myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>(myOldPronunciationGuideSuppressionOpalHashSet);
+				myNewPronunciationGuideSuppressionOpalHashSet.remove(argPronunciationGuideSuppressionOpal);
 			}
 		} else {
-			myNewPronunciationGuideSuppressionOpalFast3Set.remove(argPronunciationGuideSuppressionOpal);
+			myNewPronunciationGuideSuppressionOpalHashSet.remove(argPronunciationGuideSuppressionOpal);
 		}
 		return;
 	}
 
-	public synchronized int getPronunciationGuideSuppressionOpalCount() { return getPronunciationGuideSuppressionOpalFast3Set().size(); }
+	public synchronized int getPronunciationGuideSuppressionOpalCount() { return getPronunciationGuideSuppressionOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<PronunciationGuideSuppressionOpal> createPronunciationGuideSuppressionOpalIterator() {
-		return getPronunciationGuideSuppressionOpalFast3Set().iterator();
+		return getPronunciationGuideSuppressionOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PronunciationGuideSuppressionOpal> streamPronunciationGuideSuppressionOpal() {
-		return getPronunciationGuideSuppressionOpalFast3Set().stream();
+		return getPronunciationGuideSuppressionOpalHashSet().stream();
 	}
 
 	private java.util.Set<QuestionOpal> myOldQuestionOpalHashSet = null;

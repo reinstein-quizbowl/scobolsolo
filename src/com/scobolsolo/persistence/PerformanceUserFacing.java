@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code GameId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getGameIdAsObject();
 
@@ -98,6 +103,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argGameId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance setGameId(java.lang.Integer argGameId);
 
@@ -118,6 +124,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PlayerId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPlayerIdAsObject();
 
@@ -144,6 +151,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPlayerId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance setPlayerId(java.lang.Integer argPlayerId);
 

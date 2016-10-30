@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -24,6 +26,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCode();
@@ -40,6 +43,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Category setCode(java.lang.String argCode);
@@ -51,6 +55,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
@@ -67,6 +72,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Category setName(java.lang.String argName);
@@ -78,6 +84,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
@@ -94,6 +101,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Category setShortName(java.lang.String argShortName);
@@ -107,6 +115,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
@@ -133,6 +142,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category setSequence(java.lang.Integer argSequence);
 
@@ -151,6 +161,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CategoryGroupCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryGroupCode();
@@ -167,6 +178,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code category_group_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Category setCategoryGroupCode(java.lang.String argCategoryGroupCode);
@@ -180,6 +192,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code AllowPronunciationGuideSuppression} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isAllowPronunciationGuideSuppressionAsObject();
@@ -207,6 +220,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argAllowPronunciationGuideSuppression is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.Category setAllowPronunciationGuideSuppression(java.lang.Boolean argAllowPronunciationGuideSuppression);

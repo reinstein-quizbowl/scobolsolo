@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Tournament> {
 
 	/* Accessors and mutators for internal data. */
@@ -24,6 +26,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code Date} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.time.LocalDate getDate();
 
@@ -36,6 +39,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argDate is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament setDate(java.time.LocalDate argDate);
 
@@ -46,6 +50,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
@@ -62,6 +67,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Tournament setName(java.lang.String argName);
@@ -73,6 +79,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
@@ -89,6 +96,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Tournament setShortName(java.lang.String argShortName);
@@ -100,6 +108,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCode();
@@ -116,6 +125,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Tournament setCode(java.lang.String argCode);
@@ -127,6 +137,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code WebXmlRoleCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getWebXmlRoleCode();
@@ -143,6 +154,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code web_xml_role_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Tournament setWebXmlRoleCode(java.lang.String argWebXmlRoleCode);
@@ -156,6 +168,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code TiebreakerSuddenDeath} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isTiebreakerSuddenDeathAsObject();
@@ -183,6 +196,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argTiebreakerSuddenDeath is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath);
@@ -202,6 +216,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code Url} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getUrl();
@@ -231,6 +246,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code url} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Tournament setUrl(java.lang.String argUrl);
@@ -244,6 +260,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code TournamentDirectorContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getTournamentDirectorContactIdAsObject();
 
@@ -270,6 +287,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argTournamentDirectorContactId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament setTournamentDirectorContactId(java.lang.Integer argTournamentDirectorContactId);
 
@@ -288,6 +306,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code PlayerMessage} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getPlayerMessage();
@@ -317,6 +336,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code player_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Tournament setPlayerMessage(java.lang.String argPlayerMessage);
@@ -328,6 +348,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code StaffMessage} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getStaffMessage();
@@ -357,6 +378,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code staff_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Tournament setStaffMessage(java.lang.String argStaffMessage);
@@ -368,6 +390,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code ReplacementQuestionSocialMediaPolicy} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getReplacementQuestionSocialMediaPolicy();
@@ -397,6 +420,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code replacement_question_social_media_policy} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Tournament setReplacementQuestionSocialMediaPolicy(java.lang.String argReplacementQuestionSocialMediaPolicy);
@@ -408,6 +432,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code SchoolMessage} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getSchoolMessage();
@@ -437,6 +462,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code school_message} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Tournament setSchoolMessage(java.lang.String argSchoolMessage);
@@ -450,6 +476,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code ControlRoomRoomId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getControlRoomRoomIdAsObject();
 
@@ -505,6 +532,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @param argControlRoomRoomId the new value of {@code ControlRoomRoomId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Tournament setControlRoomRoomId(java.lang.Integer argControlRoomRoomId);
 
@@ -523,6 +551,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code ChampionshipRules} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getChampionshipRules();
@@ -552,6 +581,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code championship_rules} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Tournament setChampionshipRules(java.lang.String argChampionshipRules);
@@ -563,6 +593,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code ChampionshipMatchUrl} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getChampionshipMatchUrl();
@@ -592,6 +623,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code championship_match_url} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Tournament setChampionshipMatchUrl(java.lang.String argChampionshipMatchUrl);
@@ -605,6 +637,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code QuestionsComplete} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isQuestionsCompleteAsObject();
@@ -632,6 +665,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argQuestionsComplete is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Tournament setQuestionsComplete(java.lang.Boolean argQuestionsComplete);
@@ -651,6 +685,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 *
 	 * @return an object value of {@code QuestionDownloadUrl} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getQuestionDownloadUrl();
@@ -680,6 +715,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * <p>The database column {@code question_download_url} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Tournament setQuestionDownloadUrl(java.lang.String argQuestionDownloadUrl);

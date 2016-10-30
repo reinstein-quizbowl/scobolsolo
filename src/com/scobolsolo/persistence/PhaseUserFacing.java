@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase setId(java.lang.Integer argId);
 
@@ -70,6 +74,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
@@ -86,6 +91,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Phase setTournamentCode(java.lang.String argTournamentCode);
@@ -97,6 +103,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
@@ -113,6 +120,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Phase setName(java.lang.String argName);
@@ -124,6 +132,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
@@ -140,6 +149,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Phase setShortName(java.lang.String argShortName);
@@ -153,6 +163,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
@@ -179,6 +190,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase setSequence(java.lang.Integer argSequence);
 
@@ -199,6 +211,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CardSystem} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Boolean isCardSystemAsObject();
 
@@ -225,6 +238,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argCardSystem is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase setCardSystem(java.lang.Boolean argCardSystem);
 
@@ -243,6 +257,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
@@ -272,6 +287,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Phase setNote(java.lang.String argNote);

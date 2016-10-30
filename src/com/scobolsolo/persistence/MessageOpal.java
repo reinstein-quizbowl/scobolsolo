@@ -5,6 +5,7 @@ import com.scobolsolo.application.Message;
 @com.opal.StoreGeneratedPrimaryKey
 public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 
+	public static final java.lang.Boolean ourDefaultArchived = java.lang.Boolean.FALSE;
 
 	private MessageOpal() {
 		super();
@@ -19,6 +20,7 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 	protected void applyDefaults() {
 		/* Initialize fields with their default values. */
 		getNewValues()[4] = com.opal.LocalDateCache.now();
+		getNewValues()[6] = ourDefaultArchived;
 
 		return;
 	}
@@ -37,6 +39,7 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		"Text",
 		"SentTimestamp",
 		"AcknowledgedTimestamp",
+		"Archived",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -46,6 +49,7 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		java.lang.String.class,
 		java.time.LocalDateTime.class,
 		java.time.LocalDateTime.class,
+		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -55,9 +59,11 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		false,
 		false,
 		true,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -108,6 +114,10 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 
 	public synchronized java.time.LocalDateTime getAcknowledgedTimestamp() {
 		return (java.time.LocalDateTime) getReadValueSet()[5];
+	}
+
+	public synchronized java.lang.Boolean isArchivedAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[6];
 	}
 
 	public synchronized MessageOpal setId(final java.lang.Integer argId) {
@@ -176,6 +186,20 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		return this;
 	}
 
+	public synchronized MessageOpal setArchived(final java.lang.Boolean argArchived) {
+		tryMutate();
+		if (argArchived == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myArchived on " + this + " to null.");
+		}
+		getNewValues()[6] = argArchived;
+		return this;
+	}
+
+	public MessageOpal setArchived(final boolean argArchived) {
+		setArchived(argArchived ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewFromAccountOpal = myOldFromAccountOpal;
@@ -213,6 +237,7 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		lclTargetNewValues[3] = lclValues[3]; /* Text (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* SentTimestamp (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* AcknowledgedTimestamp (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* Archived (immutable) */
 
 		return;
 	}
@@ -294,6 +319,7 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		argOutput.println("Text = " + getText());
 		argOutput.println("SentTimestamp = " + getSentTimestamp());
 		argOutput.println("AcknowledgedTimestamp = " + getAcknowledgedTimestamp());
+		argOutput.println("Archived = " + isArchivedAsObject());
 	}
 
 	@Override
@@ -304,6 +330,7 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		argOutput.println("Text = " + getText());
 		argOutput.println("SentTimestamp = " + getSentTimestamp());
 		argOutput.println("AcknowledgedTimestamp = " + getAcknowledgedTimestamp());
+		argOutput.println("Archived = " + isArchivedAsObject());
 	}
 
 	private AccountOpal myOldFromAccountOpal;

@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = false)
+	@com.opal.annotation.Updatability(updatable = false)
 public interface GameVUserFacing extends com.opal.UserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -24,6 +26,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
@@ -37,6 +40,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code GameId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getGameIdAsObject();
 
@@ -95,6 +99,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code RoundId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getRoundIdAsObject();
 
@@ -153,6 +158,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getRoomIdAsObject();
 
@@ -211,6 +217,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code WinningCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getWinningCardIdAsObject();
 
@@ -269,6 +276,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code LosingCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getLosingCardIdAsObject();
 
@@ -327,6 +335,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code ModeratorStaffId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getModeratorStaffIdAsObject();
 
@@ -385,6 +394,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code ScorekeeperStaffId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getScorekeeperStaffIdAsObject();
 
@@ -443,6 +453,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code TossupsHeard} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getTossupsHeardAsObject();
 
@@ -501,6 +512,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code IncomingWinningCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getIncomingWinningCardPlayerIdAsObject();
 
@@ -559,6 +571,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code IncomingLosingCardPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getIncomingLosingCardPlayerIdAsObject();
 
@@ -617,6 +630,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code WinnerPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getWinnerPlayerIdAsObject();
 
@@ -675,6 +689,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code LoserPlayerId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getLoserPlayerIdAsObject();
 
@@ -733,6 +748,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code WinnerPerformanceId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getWinnerPerformanceIdAsObject();
 
@@ -791,6 +807,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code LoserPerformanceId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getLoserPerformanceIdAsObject();
 
@@ -849,6 +866,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code WinnerScore} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getWinnerScoreAsObject();
 
@@ -907,6 +925,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code LoserScore} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getLoserScoreAsObject();
 
@@ -965,6 +984,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code WinnerAverageCorrectBuzzDepth} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Double getWinnerAverageCorrectBuzzDepthAsObject();
 
@@ -1023,6 +1043,7 @@ public interface GameVUserFacing extends com.opal.UserFacing {
 	 *
 	 * @return an object value of {@code LoserAverageCorrectBuzzDepth} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Double getLoserAverageCorrectBuzzDepthAsObject();
 

@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code QuestionId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getQuestionIdAsObject();
 
@@ -127,6 +132,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argQuestionId the new value of {@code QuestionId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Placement setQuestionId(java.lang.Integer argQuestionId);
 
@@ -147,6 +153,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code PacketId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getPacketIdAsObject();
 
@@ -173,6 +180,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argPacketId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement setPacketId(java.lang.Integer argPacketId);
 
@@ -193,6 +201,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Number} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getNumberAsObject();
 
@@ -219,6 +228,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argNumber is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement setNumber(java.lang.Integer argNumber);
 
@@ -239,6 +249,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Tiebreaker} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isTiebreakerAsObject();
@@ -275,6 +286,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argTiebreaker is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Placement setTiebreaker(java.lang.Boolean argTiebreaker);
@@ -296,6 +308,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ScorecheckAfter} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isScorecheckAfterAsObject();
@@ -323,6 +336,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argScorecheckAfter is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Placement setScorecheckAfter(java.lang.Boolean argScorecheckAfter);
@@ -342,6 +356,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryCode();
@@ -358,6 +373,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Placement setCategoryCode(java.lang.String argCategoryCode);

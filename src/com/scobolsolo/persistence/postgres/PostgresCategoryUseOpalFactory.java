@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.CategoryUse;
-import com.scobolsolo.application.CategoryUseImpl;
+import com.scobolsolo.persistence.CategoryUseImpl;
 import com.scobolsolo.persistence.CategoryUseOpal;
 import com.scobolsolo.persistence.CategoryUseOpalFactory;
 

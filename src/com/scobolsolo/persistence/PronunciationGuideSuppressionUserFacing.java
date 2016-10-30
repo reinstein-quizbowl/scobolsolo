@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface PronunciationGuideSuppressionUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.PronunciationGuideSuppression setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 *
 	 * @return an object value of {@code AccountId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getAccountIdAsObject();
 
@@ -98,6 +103,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argAccountId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.PronunciationGuideSuppression setAccountId(java.lang.Integer argAccountId);
 
@@ -116,6 +122,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 *
 	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryCode();
@@ -132,6 +139,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.PronunciationGuideSuppression setCategoryCode(java.lang.String argCategoryCode);

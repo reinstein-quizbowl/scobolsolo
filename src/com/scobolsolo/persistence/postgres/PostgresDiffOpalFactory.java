@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Diff;
-import com.scobolsolo.application.DiffImpl;
+import com.scobolsolo.persistence.DiffImpl;
 import com.scobolsolo.persistence.DiffOpal;
 import com.scobolsolo.persistence.DiffOpalFactory;
 

@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Card;
-import com.scobolsolo.application.CardImpl;
+import com.scobolsolo.persistence.CardImpl;
 import com.scobolsolo.persistence.CardOpal;
 import com.scobolsolo.persistence.CardOpalFactory;
 

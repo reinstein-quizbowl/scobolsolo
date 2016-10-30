@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Match setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RoundId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getRoundIdAsObject();
 
@@ -98,6 +103,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argRoundId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Match setRoundId(java.lang.Integer argRoundId);
 
@@ -118,6 +124,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getRoomIdAsObject();
 
@@ -144,6 +151,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argRoomId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Match setRoomId(java.lang.Integer argRoomId);
 
@@ -164,6 +172,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code WinningCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getWinningCardIdAsObject();
 
@@ -219,6 +228,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argWinningCardId the new value of {@code WinningCardId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Match setWinningCardId(java.lang.Integer argWinningCardId);
 
@@ -239,6 +249,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code LosingCardId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getLosingCardIdAsObject();
 
@@ -294,6 +305,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argLosingCardId the new value of {@code LosingCardId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Match setLosingCardId(java.lang.Integer argLosingCardId);
 

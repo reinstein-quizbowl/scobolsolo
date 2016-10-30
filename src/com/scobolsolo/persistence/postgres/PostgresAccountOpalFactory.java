@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Account;
-import com.scobolsolo.application.AccountImpl;
+import com.scobolsolo.persistence.AccountImpl;
 import com.scobolsolo.persistence.AccountOpal;
 import com.scobolsolo.persistence.AccountOpalFactory;
 

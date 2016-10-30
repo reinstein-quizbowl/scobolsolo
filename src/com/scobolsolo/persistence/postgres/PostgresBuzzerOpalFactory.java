@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Buzzer;
-import com.scobolsolo.application.BuzzerImpl;
+import com.scobolsolo.persistence.BuzzerImpl;
 import com.scobolsolo.persistence.BuzzerOpal;
 import com.scobolsolo.persistence.BuzzerOpalFactory;
 
@@ -170,19 +170,19 @@ public class PostgresBuzzerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<BuzzerOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
+	public java.util.HashSet<BuzzerOpal> forSchoolRegistrationIdCollection(java.lang.Integer argSchoolRegistrationId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argSchoolRegistrationId };
 		final String[] lclFieldNames = new String[] { "school_registration_id" };
-		com.siliconage.util.Fast3Set<BuzzerOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<BuzzerOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<BuzzerOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
+	public java.util.HashSet<BuzzerOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argRoomId };
 		final String[] lclFieldNames = new String[] { "room_id" };
-		com.siliconage.util.Fast3Set<BuzzerOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<BuzzerOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Question setId(java.lang.Integer argId);
 
@@ -70,6 +74,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Description} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getDescription();
@@ -99,6 +104,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code description} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Question setDescription(java.lang.String argDescription);
@@ -110,6 +116,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code CategoryCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCategoryCode();
@@ -126,6 +133,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code category_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Question setCategoryCode(java.lang.String argCategoryCode);
@@ -137,6 +145,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
@@ -166,6 +175,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Question setNote(java.lang.String argNote);
@@ -179,6 +189,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code WriterAccountId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getWriterAccountIdAsObject();
 
@@ -234,6 +245,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argWriterAccountId the new value of {@code WriterAccountId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Question setWriterAccountId(java.lang.Integer argWriterAccountId);
 
@@ -252,6 +264,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getText();
@@ -281,6 +294,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Question setText(java.lang.String argText);
@@ -292,6 +306,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getAnswer();
@@ -321,6 +336,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code answer} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Question setAnswer(java.lang.String argAnswer);
@@ -332,6 +348,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code QuestionStatusCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	@com.opal.annotation.Default(value = "DRAFTED")
@@ -349,6 +366,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code question_status_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	@com.opal.annotation.Default(value = "DRAFTED")

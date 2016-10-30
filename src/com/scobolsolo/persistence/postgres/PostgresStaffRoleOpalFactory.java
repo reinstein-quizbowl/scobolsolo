@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.StaffRole;
-import com.scobolsolo.application.StaffRoleImpl;
+import com.scobolsolo.persistence.StaffRoleImpl;
 import com.scobolsolo.persistence.StaffRoleOpal;
 import com.scobolsolo.persistence.StaffRoleOpalFactory;
 

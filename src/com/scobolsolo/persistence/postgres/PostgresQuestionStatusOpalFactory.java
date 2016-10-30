@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.QuestionStatus;
-import com.scobolsolo.application.QuestionStatusImpl;
+import com.scobolsolo.persistence.QuestionStatusImpl;
 import com.scobolsolo.persistence.QuestionStatusOpal;
 import com.scobolsolo.persistence.QuestionStatusOpalFactory;
 

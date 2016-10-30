@@ -2,7 +2,7 @@ package com.scobolsolo.persistence.postgres;
 
 
 import com.scobolsolo.application.PlayerPointV;
-import com.scobolsolo.application.PlayerPointVImpl;
+import com.scobolsolo.persistence.PlayerPointVImpl;
 import com.scobolsolo.persistence.PlayerPointVOpal;
 import com.scobolsolo.persistence.PlayerPointVOpalFactory;
 

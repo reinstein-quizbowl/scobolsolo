@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Room> {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Room setId(java.lang.Integer argId);
 
@@ -70,6 +74,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
@@ -86,6 +91,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Room setName(java.lang.String argName);
@@ -97,6 +103,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
@@ -113,6 +120,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Room setShortName(java.lang.String argShortName);
@@ -124,6 +132,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
@@ -153,6 +162,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Room setNote(java.lang.String argNote);
@@ -164,6 +174,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
@@ -180,6 +191,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Room setTournamentCode(java.lang.String argTournamentCode);
@@ -193,6 +205,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
@@ -219,6 +232,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Room setSequence(java.lang.Integer argSequence);
 

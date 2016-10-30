@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Player setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code ContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getContactIdAsObject();
 
@@ -98,6 +103,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argContactId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Player setContactId(java.lang.Integer argContactId);
 
@@ -118,6 +124,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
@@ -173,6 +180,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
@@ -191,6 +199,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code SchoolYearCode} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getSchoolYearCode();
@@ -220,6 +229,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code school_year_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Player setSchoolYearCode(java.lang.String argSchoolYearCode);
@@ -233,6 +243,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RankWithinSchool} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getRankWithinSchoolAsObject();
 
@@ -288,6 +299,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRankWithinSchool the new value of {@code RankWithinSchool}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player setRankWithinSchool(java.lang.Integer argRankWithinSchool);
 
@@ -308,6 +320,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Seed} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getSeedAsObject();
 
@@ -363,6 +376,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSeed the new value of {@code Seed}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player setSeed(java.lang.Integer argSeed);
 
@@ -381,6 +395,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
@@ -410,6 +425,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Player setNote(java.lang.String argNote);
@@ -423,6 +439,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Exhibition} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isExhibitionAsObject();
@@ -450,6 +467,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argExhibition is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.Player setExhibition(java.lang.Boolean argExhibition);

@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Packet;
-import com.scobolsolo.application.PacketImpl;
+import com.scobolsolo.persistence.PacketImpl;
 import com.scobolsolo.persistence.PacketOpal;
 import com.scobolsolo.persistence.PacketOpalFactory;
 

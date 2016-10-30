@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.Contact> {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact setId(java.lang.Integer argId);
 
@@ -70,6 +74,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code EmailAddress} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getEmailAddress();
@@ -99,6 +104,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code email_address} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Contact setEmailAddress(java.lang.String argEmailAddress);
@@ -110,6 +116,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code AdvancePhone} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getAdvancePhone();
@@ -139,6 +146,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code advance_phone} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Contact setAdvancePhone(java.lang.String argAdvancePhone);
@@ -150,6 +158,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code DayOfPhone} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getDayOfPhone();
@@ -179,6 +188,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code day_of_phone} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.Contact setDayOfPhone(java.lang.String argDayOfPhone);
@@ -190,6 +200,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
@@ -219,6 +230,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Contact setNote(java.lang.String argNote);
@@ -230,6 +242,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
@@ -246,6 +259,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Contact setName(java.lang.String argName);
@@ -257,6 +271,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code SortBy} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getSortBy();
@@ -273,6 +288,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code sort_by} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Contact setSortBy(java.lang.String argSortBy);
@@ -286,6 +302,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Active} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isActiveAsObject();
@@ -322,6 +339,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argActive is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.Contact setActive(java.lang.Boolean argActive);
@@ -341,6 +359,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 *
 	 * @return an object value of {@code Address} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getAddress();
@@ -370,6 +389,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * <p>The database column {@code address} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.Contact setAddress(java.lang.String argAddress);

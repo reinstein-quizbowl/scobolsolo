@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Response;
-import com.scobolsolo.application.ResponseImpl;
+import com.scobolsolo.persistence.ResponseImpl;
 import com.scobolsolo.persistence.ResponseOpal;
 import com.scobolsolo.persistence.ResponseOpalFactory;
 
@@ -191,19 +191,19 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<ResponseOpal> forReplacementPlacementIdCollection(java.lang.Integer argReplacementPlacementId) /* throws PersistenceException */ {
+	public java.util.HashSet<ResponseOpal> forReplacementPlacementIdCollection(java.lang.Integer argReplacementPlacementId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argReplacementPlacementId };
 		final String[] lclFieldNames = new String[] { "replacement_placement_id" };
-		com.siliconage.util.Fast3Set<ResponseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<ResponseOpal> forDiffIdCollection(java.lang.Integer argDiffId) /* throws PersistenceException */ {
+	public java.util.HashSet<ResponseOpal> forDiffIdCollection(java.lang.Integer argDiffId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argDiffId };
 		final String[] lclFieldNames = new String[] { "diff_id" };
-		com.siliconage.util.Fast3Set<ResponseOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

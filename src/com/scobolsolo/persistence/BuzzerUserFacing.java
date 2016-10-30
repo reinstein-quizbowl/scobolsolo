@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Buzzer setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSchoolRegistrationIdAsObject();
 
@@ -98,6 +103,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSchoolRegistrationId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Buzzer setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
@@ -118,6 +124,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code RoomId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public java.lang.Integer getRoomIdAsObject();
 
@@ -173,6 +180,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoomId the new value of {@code RoomId}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Buzzer setRoomId(java.lang.Integer argRoomId);
 
@@ -191,6 +199,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
@@ -220,6 +229,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.Buzzer setName(java.lang.String argName);

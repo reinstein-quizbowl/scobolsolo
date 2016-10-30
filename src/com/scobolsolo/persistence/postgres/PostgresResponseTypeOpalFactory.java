@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.ResponseType;
-import com.scobolsolo.application.ResponseTypeImpl;
+import com.scobolsolo.persistence.ResponseTypeImpl;
 import com.scobolsolo.persistence.ResponseTypeOpal;
 import com.scobolsolo.persistence.ResponseTypeOpalFactory;
 

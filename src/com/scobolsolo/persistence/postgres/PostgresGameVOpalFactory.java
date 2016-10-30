@@ -2,7 +2,7 @@ package com.scobolsolo.persistence.postgres;
 
 
 import com.scobolsolo.application.GameV;
-import com.scobolsolo.application.GameVImpl;
+import com.scobolsolo.persistence.GameVImpl;
 import com.scobolsolo.persistence.GameVOpal;
 import com.scobolsolo.persistence.GameVOpalFactory;
 

@@ -25,9 +25,9 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		/* Initialize the back Collections to empty sets. */
 
 		myNewTournamentDirectorTournamentOpalHashSet = new java.util.HashSet<>();
-		myNewPlayerOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewPlayerOpalHashSet = new java.util.HashSet<>();
 		myNewMainSchoolRegistrationOpalHashSet = new java.util.HashSet<>();
-		myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>();
+		myNewStaffOpalHashSet = new java.util.HashSet<>();
 
 		return;
 	}
@@ -248,11 +248,11 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		myNewAccountOpal = myOldAccountOpal;
 		myNewTournamentDirectorTournamentOpalHashSet = null; /* Necessary if it has been rolled back */
 		myTournamentDirectorTournamentOpalCachedOperations = null; /* Ditto */
-		myNewPlayerOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewPlayerOpalHashSet = null; /* Necessary if it has been rolled back */
 		myPlayerOpalCachedOperations = null; /* Ditto */
 		myNewMainSchoolRegistrationOpalHashSet = null; /* Necessary if it has been rolled back */
 		myMainSchoolRegistrationOpalCachedOperations = null; /* Ditto */
-		myNewStaffOpalFast3Set = null; /* Necessary if it has been rolled back */
+		myNewStaffOpalHashSet = null; /* Necessary if it has been rolled back */
 		myStaffOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -264,9 +264,9 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		myOldAccountOpal = myNewAccountOpal;
 		if (needsToClearOldCollections()) {
 			myOldTournamentDirectorTournamentOpalHashSet = null;
-			myOldPlayerOpalFast3Set = null;
+			myOldPlayerOpalHashSet = null;
 			myOldMainSchoolRegistrationOpalHashSet = null;
-			myOldStaffOpalFast3Set = null;
+			myOldStaffOpalHashSet = null;
 		} else {
 			if (myNewTournamentDirectorTournamentOpalHashSet != null) {
 				if (myNewTournamentDirectorTournamentOpalHashSet.size() > 0) {
@@ -278,13 +278,13 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 			} else {
 				myTournamentDirectorTournamentOpalCachedOperations = null;
 			}
-			if (myNewPlayerOpalFast3Set != null) {
-				if (myNewPlayerOpalFast3Set.size() > 0) {
-					myOldPlayerOpalFast3Set = myNewPlayerOpalFast3Set;
+			if (myNewPlayerOpalHashSet != null) {
+				if (myNewPlayerOpalHashSet.size() > 0) {
+					myOldPlayerOpalHashSet = myNewPlayerOpalHashSet;
 				} else {
-					myOldPlayerOpalFast3Set = java.util.Collections.emptySet();
+					myOldPlayerOpalHashSet = java.util.Collections.emptySet();
 				}
-				myNewPlayerOpalFast3Set = null;
+				myNewPlayerOpalHashSet = null;
 			} else {
 				myPlayerOpalCachedOperations = null;
 			}
@@ -298,13 +298,13 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 			} else {
 				myMainSchoolRegistrationOpalCachedOperations = null;
 			}
-			if (myNewStaffOpalFast3Set != null) {
-				if (myNewStaffOpalFast3Set.size() > 0) {
-					myOldStaffOpalFast3Set = myNewStaffOpalFast3Set;
+			if (myNewStaffOpalHashSet != null) {
+				if (myNewStaffOpalHashSet.size() > 0) {
+					myOldStaffOpalHashSet = myNewStaffOpalHashSet;
 				} else {
-					myOldStaffOpalFast3Set = java.util.Collections.emptySet();
+					myOldStaffOpalHashSet = java.util.Collections.emptySet();
 				}
-				myNewStaffOpalFast3Set = null;
+				myNewStaffOpalHashSet = null;
 			} else {
 				myStaffOpalCachedOperations = null;
 			}
@@ -322,7 +322,7 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 				((TournamentOpal) lclI.next()).setTournamentDirectorContactOpalInternal(null);
 			}
 		}
-		if (myNewPlayerOpalFast3Set != null || myPlayerOpalCachedOperations != null) {
+		if (myNewPlayerOpalHashSet != null || myPlayerOpalCachedOperations != null) {
 			lclI = createPlayerOpalIterator();
 			while (lclI.hasNext()) {
 				((PlayerOpal) lclI.next()).setContactOpalInternal(null);
@@ -334,7 +334,7 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 				((SchoolRegistrationOpal) lclI.next()).setMainContactOpalInternal(null);
 			}
 		}
-		if (myNewStaffOpalFast3Set != null || myStaffOpalCachedOperations != null) {
+		if (myNewStaffOpalHashSet != null || myStaffOpalCachedOperations != null) {
 			lclI = createStaffOpalIterator();
 			while (lclI.hasNext()) {
 				((StaffOpal) lclI.next()).setContactOpalInternal(null);
@@ -543,36 +543,36 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		return getTournamentDirectorTournamentOpalHashSet().stream();
 	}
 
-	private java.util.Set<PlayerOpal> myOldPlayerOpalFast3Set = null;
-	private java.util.Set<PlayerOpal> myNewPlayerOpalFast3Set = null;
+	private java.util.Set<PlayerOpal> myOldPlayerOpalHashSet = null;
+	private java.util.Set<PlayerOpal> myNewPlayerOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<PlayerOpal>> myPlayerOpalCachedOperations = null;
 
-	/* package */ java.util.Set<PlayerOpal> getPlayerOpalFast3Set() {
+	/* package */ java.util.Set<PlayerOpal> getPlayerOpalHashSet() {
 		if (tryAccess()) {
-			if (myNewPlayerOpalFast3Set == null) {
-				if (myOldPlayerOpalFast3Set == null) {
+			if (myNewPlayerOpalHashSet == null) {
+				if (myOldPlayerOpalHashSet == null) {
 					if (isNew()) {
-						myOldPlayerOpalFast3Set = java.util.Collections.emptySet();
+						myOldPlayerOpalHashSet = java.util.Collections.emptySet();
 					} else {
 						java.util.Set<PlayerOpal> lclS;
 						lclS = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forContactIdCollection(getIdAsObject());
-						myOldPlayerOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+						myOldPlayerOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewPlayerOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPlayerOpalFast3Set);
+				myNewPlayerOpalHashSet = new java.util.HashSet<>(myOldPlayerOpalHashSet);
 				if (myPlayerOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myPlayerOpalCachedOperations, myNewPlayerOpalFast3Set);
+					com.opal.OpalUtility.handleCachedOperations(myPlayerOpalCachedOperations, myNewPlayerOpalHashSet);
 					myPlayerOpalCachedOperations = null;
 				}
 			}
-			return myNewPlayerOpalFast3Set;
+			return myNewPlayerOpalHashSet;
 		} else {
-			if (myOldPlayerOpalFast3Set == null) {
+			if (myOldPlayerOpalHashSet == null) {
 				java.util.Set<PlayerOpal> lclS;
 				lclS = OpalFactoryFactory.getInstance().getPlayerOpalFactory().forContactIdCollection(getIdAsObject());
-				myOldPlayerOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+				myOldPlayerOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldPlayerOpalFast3Set;
+			return myOldPlayerOpalHashSet;
 		}
 	}
 
@@ -584,16 +584,16 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 
 	protected synchronized void addPlayerOpalInternal(PlayerOpal argPlayerOpal) {
 		tryMutate();
-		if (myNewPlayerOpalFast3Set == null) {
-			if (myOldPlayerOpalFast3Set == null) {
+		if (myNewPlayerOpalHashSet == null) {
+			if (myOldPlayerOpalHashSet == null) {
 				if (myPlayerOpalCachedOperations == null) { myPlayerOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPlayerOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPlayerOpal));
 			} else {
-				myNewPlayerOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPlayerOpalFast3Set);
-				myNewPlayerOpalFast3Set.add(argPlayerOpal);
+				myNewPlayerOpalHashSet = new java.util.HashSet<>(myOldPlayerOpalHashSet);
+				myNewPlayerOpalHashSet.add(argPlayerOpal);
 			}
 		} else {
-			myNewPlayerOpalFast3Set.add(argPlayerOpal);
+			myNewPlayerOpalHashSet.add(argPlayerOpal);
 		}
 		return;
 	}
@@ -605,28 +605,28 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 
 	protected synchronized void removePlayerOpalInternal(PlayerOpal argPlayerOpal) {
 		tryMutate();
-		if (myNewPlayerOpalFast3Set == null) {
-			if (myOldPlayerOpalFast3Set == null) {
+		if (myNewPlayerOpalHashSet == null) {
+			if (myOldPlayerOpalHashSet == null) {
 				if (myPlayerOpalCachedOperations == null) { myPlayerOpalCachedOperations = new java.util.ArrayList<>(); }
 				myPlayerOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPlayerOpal));
 			} else {
-				myNewPlayerOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldPlayerOpalFast3Set);
-				myNewPlayerOpalFast3Set.remove(argPlayerOpal);
+				myNewPlayerOpalHashSet = new java.util.HashSet<>(myOldPlayerOpalHashSet);
+				myNewPlayerOpalHashSet.remove(argPlayerOpal);
 			}
 		} else {
-			myNewPlayerOpalFast3Set.remove(argPlayerOpal);
+			myNewPlayerOpalHashSet.remove(argPlayerOpal);
 		}
 		return;
 	}
 
-	public synchronized int getPlayerOpalCount() { return getPlayerOpalFast3Set().size(); }
+	public synchronized int getPlayerOpalCount() { return getPlayerOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<PlayerOpal> createPlayerOpalIterator() {
-		return getPlayerOpalFast3Set().iterator();
+		return getPlayerOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<PlayerOpal> streamPlayerOpal() {
-		return getPlayerOpalFast3Set().stream();
+		return getPlayerOpalHashSet().stream();
 	}
 
 	private java.util.Set<SchoolRegistrationOpal> myOldMainSchoolRegistrationOpalHashSet = null;
@@ -715,36 +715,36 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 		return getMainSchoolRegistrationOpalHashSet().stream();
 	}
 
-	private java.util.Set<StaffOpal> myOldStaffOpalFast3Set = null;
-	private java.util.Set<StaffOpal> myNewStaffOpalFast3Set = null;
+	private java.util.Set<StaffOpal> myOldStaffOpalHashSet = null;
+	private java.util.Set<StaffOpal> myNewStaffOpalHashSet = null;
 	private java.util.ArrayList<com.opal.CachedOperation<StaffOpal>> myStaffOpalCachedOperations = null;
 
-	/* package */ java.util.Set<StaffOpal> getStaffOpalFast3Set() {
+	/* package */ java.util.Set<StaffOpal> getStaffOpalHashSet() {
 		if (tryAccess()) {
-			if (myNewStaffOpalFast3Set == null) {
-				if (myOldStaffOpalFast3Set == null) {
+			if (myNewStaffOpalHashSet == null) {
+				if (myOldStaffOpalHashSet == null) {
 					if (isNew()) {
-						myOldStaffOpalFast3Set = java.util.Collections.emptySet();
+						myOldStaffOpalHashSet = java.util.Collections.emptySet();
 					} else {
 						java.util.Set<StaffOpal> lclS;
 						lclS = OpalFactoryFactory.getInstance().getStaffOpalFactory().forContactIdCollection(getIdAsObject());
-						myOldStaffOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+						myOldStaffOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 					}
 				}
-				myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffOpalFast3Set);
+				myNewStaffOpalHashSet = new java.util.HashSet<>(myOldStaffOpalHashSet);
 				if (myStaffOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myStaffOpalCachedOperations, myNewStaffOpalFast3Set);
+					com.opal.OpalUtility.handleCachedOperations(myStaffOpalCachedOperations, myNewStaffOpalHashSet);
 					myStaffOpalCachedOperations = null;
 				}
 			}
-			return myNewStaffOpalFast3Set;
+			return myNewStaffOpalHashSet;
 		} else {
-			if (myOldStaffOpalFast3Set == null) {
+			if (myOldStaffOpalHashSet == null) {
 				java.util.Set<StaffOpal> lclS;
 				lclS = OpalFactoryFactory.getInstance().getStaffOpalFactory().forContactIdCollection(getIdAsObject());
-				myOldStaffOpalFast3Set = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
+				myOldStaffOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
 			}
-			return myOldStaffOpalFast3Set;
+			return myOldStaffOpalHashSet;
 		}
 	}
 
@@ -756,16 +756,16 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 
 	protected synchronized void addStaffOpalInternal(StaffOpal argStaffOpal) {
 		tryMutate();
-		if (myNewStaffOpalFast3Set == null) {
-			if (myOldStaffOpalFast3Set == null) {
+		if (myNewStaffOpalHashSet == null) {
+			if (myOldStaffOpalHashSet == null) {
 				if (myStaffOpalCachedOperations == null) { myStaffOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStaffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argStaffOpal));
 			} else {
-				myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffOpalFast3Set);
-				myNewStaffOpalFast3Set.add(argStaffOpal);
+				myNewStaffOpalHashSet = new java.util.HashSet<>(myOldStaffOpalHashSet);
+				myNewStaffOpalHashSet.add(argStaffOpal);
 			}
 		} else {
-			myNewStaffOpalFast3Set.add(argStaffOpal);
+			myNewStaffOpalHashSet.add(argStaffOpal);
 		}
 		return;
 	}
@@ -777,28 +777,28 @@ public final class ContactOpal extends com.opal.UpdatableOpal<Contact> {
 
 	protected synchronized void removeStaffOpalInternal(StaffOpal argStaffOpal) {
 		tryMutate();
-		if (myNewStaffOpalFast3Set == null) {
-			if (myOldStaffOpalFast3Set == null) {
+		if (myNewStaffOpalHashSet == null) {
+			if (myOldStaffOpalHashSet == null) {
 				if (myStaffOpalCachedOperations == null) { myStaffOpalCachedOperations = new java.util.ArrayList<>(); }
 				myStaffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argStaffOpal));
 			} else {
-				myNewStaffOpalFast3Set = new com.siliconage.util.Fast3Set<>(myOldStaffOpalFast3Set);
-				myNewStaffOpalFast3Set.remove(argStaffOpal);
+				myNewStaffOpalHashSet = new java.util.HashSet<>(myOldStaffOpalHashSet);
+				myNewStaffOpalHashSet.remove(argStaffOpal);
 			}
 		} else {
-			myNewStaffOpalFast3Set.remove(argStaffOpal);
+			myNewStaffOpalHashSet.remove(argStaffOpal);
 		}
 		return;
 	}
 
-	public synchronized int getStaffOpalCount() { return getStaffOpalFast3Set().size(); }
+	public synchronized int getStaffOpalCount() { return getStaffOpalHashSet().size(); }
 
 	public synchronized java.util.Iterator<StaffOpal> createStaffOpalIterator() {
-		return getStaffOpalFast3Set().iterator();
+		return getStaffOpalHashSet().iterator();
 	}
 
 	public synchronized java.util.stream.Stream<StaffOpal> streamStaffOpal() {
-		return getStaffOpalFast3Set().stream();
+		return getStaffOpalHashSet().stream();
 	}
 
 	@Override

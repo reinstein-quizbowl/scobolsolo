@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Player;
-import com.scobolsolo.application.PlayerImpl;
+import com.scobolsolo.persistence.PlayerImpl;
 import com.scobolsolo.persistence.PlayerOpal;
 import com.scobolsolo.persistence.PlayerOpalFactory;
 
@@ -174,10 +174,10 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PlayerOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
+	public java.util.HashSet<PlayerOpal> forContactIdCollection(java.lang.Integer argContactId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argContactId };
 		final String[] lclFieldNames = new String[] { "contact_id" };
-		com.siliconage.util.Fast3Set<PlayerOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PlayerOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

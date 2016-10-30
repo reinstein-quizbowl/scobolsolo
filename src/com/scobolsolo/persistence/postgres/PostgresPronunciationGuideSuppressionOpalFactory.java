@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.PronunciationGuideSuppression;
-import com.scobolsolo.application.PronunciationGuideSuppressionImpl;
+import com.scobolsolo.persistence.PronunciationGuideSuppressionImpl;
 import com.scobolsolo.persistence.PronunciationGuideSuppressionOpal;
 import com.scobolsolo.persistence.PronunciationGuideSuppressionOpalFactory;
 
@@ -181,19 +181,19 @@ public class PostgresPronunciationGuideSuppressionOpalFactory extends com.opal.A
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PronunciationGuideSuppressionOpal> forAccountIdCollection(java.lang.Integer argAccountId) /* throws PersistenceException */ {
+	public java.util.HashSet<PronunciationGuideSuppressionOpal> forAccountIdCollection(java.lang.Integer argAccountId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argAccountId };
 		final String[] lclFieldNames = new String[] { "account_id" };
-		com.siliconage.util.Fast3Set<PronunciationGuideSuppressionOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PronunciationGuideSuppressionOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PronunciationGuideSuppressionOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
+	public java.util.HashSet<PronunciationGuideSuppressionOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argCategoryCode };
 		final String[] lclFieldNames = new String[] { "category_code" };
-		com.siliconage.util.Fast3Set<PronunciationGuideSuppressionOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PronunciationGuideSuppressionOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

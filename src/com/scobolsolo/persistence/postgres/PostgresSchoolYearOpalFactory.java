@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.SchoolYear;
-import com.scobolsolo.application.SchoolYearImpl;
+import com.scobolsolo.persistence.SchoolYearImpl;
 import com.scobolsolo.persistence.SchoolYearOpal;
 import com.scobolsolo.persistence.SchoolYearOpalFactory;
 

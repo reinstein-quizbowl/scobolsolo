@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacing {
 
 	/* Accessors and mutators for internal data. */
@@ -26,6 +28,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code Id} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getIdAsObject();
 
@@ -52,6 +55,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration setId(java.lang.Integer argId);
 
@@ -72,6 +76,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code SchoolId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSchoolIdAsObject();
 
@@ -98,6 +103,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSchoolId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration setSchoolId(java.lang.Integer argSchoolId);
 
@@ -118,6 +124,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code MainContactId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getMainContactIdAsObject();
 
@@ -144,6 +151,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argMainContactId is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration setMainContactId(java.lang.Integer argMainContactId);
 
@@ -162,6 +170,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code AmountOwed} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "0.0")
 	public java.math.BigDecimal getAmountOwed();
@@ -175,6 +184,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argAmountOwed is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "0.0")
 	public com.scobolsolo.application.SchoolRegistration setAmountOwed(java.math.BigDecimal argAmountOwed);
@@ -186,6 +196,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code AmountPaid} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "0.0")
 	public java.math.BigDecimal getAmountPaid();
@@ -199,6 +210,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argAmountPaid is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "0.0")
 	public com.scobolsolo.application.SchoolRegistration setAmountPaid(java.math.BigDecimal argAmountPaid);
@@ -210,6 +222,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code Note} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getNote();
@@ -239,6 +252,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * <p>The database column {@code note} is limited to 2147483647 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public com.scobolsolo.application.SchoolRegistration setNote(java.lang.String argNote);
@@ -252,6 +266,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code SpotsReserved} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSpotsReservedAsObject();
 
@@ -278,6 +293,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSpotsReserved is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration setSpotsReserved(java.lang.Integer argSpotsReserved);
 
@@ -296,6 +312,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 *
 	 * @return an object value of {@code TournamentCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getTournamentCode();
@@ -312,6 +329,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * <p>The database column {@code tournament_code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.SchoolRegistration setTournamentCode(java.lang.String argTournamentCode);

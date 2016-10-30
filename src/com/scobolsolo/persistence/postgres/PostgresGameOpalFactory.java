@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Game;
-import com.scobolsolo.application.GameImpl;
+import com.scobolsolo.persistence.GameImpl;
 import com.scobolsolo.persistence.GameOpal;
 import com.scobolsolo.persistence.GameOpalFactory;
 
@@ -205,10 +205,10 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<GameOpal> forScorekeeperStaffIdCollection(java.lang.Integer argScorekeeperStaffId) /* throws PersistenceException */ {
+	public java.util.HashSet<GameOpal> forScorekeeperStaffIdCollection(java.lang.Integer argScorekeeperStaffId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argScorekeeperStaffId };
 		final String[] lclFieldNames = new String[] { "scorekeeper_staff_id" };
-		com.siliconage.util.Fast3Set<GameOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<GameOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

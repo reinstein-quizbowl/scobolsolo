@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Performance;
-import com.scobolsolo.application.PerformanceImpl;
+import com.scobolsolo.persistence.PerformanceImpl;
 import com.scobolsolo.persistence.PerformanceOpal;
 import com.scobolsolo.persistence.PerformanceOpalFactory;
 
@@ -181,10 +181,10 @@ public class PostgresPerformanceOpalFactory extends com.opal.AbstractDatabaseIde
 	}
 
 	@Override
-	public com.siliconage.util.Fast3Set<PerformanceOpal> forGameIdCollection(java.lang.Integer argGameId) /* throws PersistenceException */ {
+	public java.util.HashSet<PerformanceOpal> forGameIdCollection(java.lang.Integer argGameId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argGameId };
 		final String[] lclFieldNames = new String[] { "game_id" };
-		com.siliconage.util.Fast3Set<PerformanceOpal> lclCollection = new com.siliconage.util.Fast3Set<>();
+		java.util.HashSet<PerformanceOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}

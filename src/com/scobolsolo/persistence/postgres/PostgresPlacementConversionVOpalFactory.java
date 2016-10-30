@@ -2,7 +2,7 @@ package com.scobolsolo.persistence.postgres;
 
 
 import com.scobolsolo.application.PlacementConversionV;
-import com.scobolsolo.application.PlacementConversionVImpl;
+import com.scobolsolo.persistence.PlacementConversionVImpl;
 import com.scobolsolo.persistence.PlacementConversionVOpal;
 import com.scobolsolo.persistence.PlacementConversionVOpalFactory;
 

@@ -14,6 +14,8 @@ package com.scobolsolo.persistence;
  *
  * @author		<a href="mailto:jonah@jonahgreenthal.com">Jonah Greenthal</a>
  */
+	@com.opal.annotation.Creatability(creatable = true)
+	@com.opal.annotation.Updatability(updatable = true)
 public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Comparable<com.scobolsolo.application.StaffRole> {
 
 	/* Accessors and mutators for internal data. */
@@ -24,6 +26,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code Code} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getCode();
@@ -40,6 +43,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * <p>The database column {@code code} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.StaffRole setCode(java.lang.String argCode);
@@ -51,6 +55,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code Name} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public java.lang.String getName();
@@ -67,6 +72,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * <p>The database column {@code name} is limited to 256 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	public com.scobolsolo.application.StaffRole setName(java.lang.String argName);
@@ -78,6 +84,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code ShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public java.lang.String getShortName();
@@ -94,6 +101,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * <p>The database column {@code short_name} is limited to 32 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	public com.scobolsolo.application.StaffRole setShortName(java.lang.String argShortName);
@@ -105,6 +113,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code VeryShortName} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 12L)
 	public java.lang.String getVeryShortName();
@@ -121,6 +130,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * <p>The database column {@code very_short_name} is limited to 12 characters.</p>
 	 *
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 12L)
 	public com.scobolsolo.application.StaffRole setVeryShortName(java.lang.String argVeryShortName);
@@ -134,6 +144,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code Sequence} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public java.lang.Integer getSequenceAsObject();
 
@@ -160,6 +171,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argSequence is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffRole setSequence(java.lang.Integer argSequence);
 
@@ -180,6 +192,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code MayEnterAnyMatch} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isMayEnterAnyMatchAsObject();
@@ -207,6 +220,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argMayEnterAnyMatch is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.StaffRole setMayEnterAnyMatch(java.lang.Boolean argMayEnterAnyMatch);
@@ -228,6 +242,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code MayEnterMatchesInAssignedRoom} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isMayEnterMatchesInAssignedRoomAsObject();
@@ -255,6 +270,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argMayEnterMatchesInAssignedRoom is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	public com.scobolsolo.application.StaffRole setMayEnterMatchesInAssignedRoom(java.lang.Boolean argMayEnterMatchesInAssignedRoom);
@@ -276,6 +292,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code MayViewQuestions} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isMayViewQuestionsAsObject();
@@ -303,6 +320,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argMayViewQuestions is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.StaffRole setMayViewQuestions(java.lang.Boolean argMayViewQuestions);
@@ -324,6 +342,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @return an object value of {@code MayEnterMatchesBeforeUsuallyPermitted} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public java.lang.Boolean isMayEnterMatchesBeforeUsuallyPermittedAsObject();
@@ -351,6 +370,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 *
 	 * @throws com.opal.IllegalNullArgumentException if argMayEnterMatchesBeforeUsuallyPermitted is null
 	 */
+	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	public com.scobolsolo.application.StaffRole setMayEnterMatchesBeforeUsuallyPermitted(java.lang.Boolean argMayEnterMatchesBeforeUsuallyPermitted);

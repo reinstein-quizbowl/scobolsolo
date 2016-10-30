@@ -9,7 +9,7 @@ import com.opal.OpalUtility;
 import com.opal.PersistenceException;
 
 import com.scobolsolo.application.Message;
-import com.scobolsolo.application.MessageImpl;
+import com.scobolsolo.persistence.MessageImpl;
 import com.scobolsolo.persistence.MessageOpal;
 import com.scobolsolo.persistence.MessageOpalFactory;
 
@@ -29,6 +29,7 @@ public class PostgresMessageOpalFactory extends com.opal.AbstractDatabaseIdentit
 		"text", 
 		"sent_timestamp", 
 		"acknowledged_timestamp", 
+		"archived", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -115,7 +116,7 @@ public class PostgresMessageOpalFactory extends com.opal.AbstractDatabaseIdentit
 
 	protected void registerOpal(MessageOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 6) { throw new IllegalStateException(); }
+		if (argValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<MessageOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -126,7 +127,7 @@ public class PostgresMessageOpalFactory extends com.opal.AbstractDatabaseIdentit
 	protected void unregisterOpal(MessageOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<MessageOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -138,10 +139,10 @@ public class PostgresMessageOpalFactory extends com.opal.AbstractDatabaseIdentit
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 6) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 7) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 6) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 7) { throw new IllegalStateException(); }
 		OpalCache<MessageOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<MessageOpal> lclOldKey = null;
