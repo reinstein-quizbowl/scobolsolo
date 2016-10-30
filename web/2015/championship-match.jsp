@@ -16,69 +16,6 @@
 	<jsp:param name="h1" value="Championship Match" />
 </jsp:include>
 
-<style type="text/css">
-	#championship-match * {
-		text-align: center;
-		vertical-align: middle;
-	}
-	
-	tr.player-names, tr.player-names * {
-		padding-bottom: 0 !important;
-		border-bottom: 0 !important;
-	}
-	
-	tr.player-names th, tr.player-names td {
-		vertical-align: bottom !important;
-	}
-	
-	tr.player-schools, tr.player-schools * {
-		padding-top: 0 !important;
-		border-top: 0 !important;
-	}
-	
-	tr.player-schools th, tr.player-schools td {
-		vertical-align: top !important;
-	}
-	
-	.player-school {
-		font-size: 67%;
-	}
-	
-	.question-number, .score-check-label {
-		font-weight: 700;
-	}
-	
-	td.player-not-in-game {
-		background-color: #ccc;
-	}
-	
-	td.player-correct-response {
-		background-color: #43aC6a; /* $success-color */
-	}
-	
-	td.player-incorrect-response {
-		background-color: #f08a24; /* $warning-color */
-	}
-	
-	tr.score-check, tr.note {
-		border-top: 1px solid #999;
-		border-bottom: 1px solid #999;
-		background-color: #a0d3e8; /* $info-color */
-	}
-	
-	.player-score-check {
-		font-weight: 700;
-	}
-	
-	.note {
-		font-style: italic;
-	}
-	
-	.answer {
-		font-size: 75%;
-	}
-</style>
-
 <div class="row">
 	<div class="small-12 columns">
 		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the morning champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
@@ -91,7 +28,7 @@
 		
 		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
 		
-		<table class="full-width responsive even-spacing unsortable" id="championship-match">
+		<table class="full-width responsive even-spacing unsortable championship-scoresheet" id="championship-match">
 			<thead>
 				<tr class="player-names">
 					<th>&nbsp;</th>

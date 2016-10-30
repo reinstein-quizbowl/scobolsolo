@@ -211,18 +211,93 @@ img.math {
 	content: "Note: ";
 }
 
-table.standings {
-	border: none;
+table.tournament-final-standings {
+	width: auto;
+	min-width: 40rem;
+	border-style: none;
+	
+	* {
+		vertical-align: top;
+		background-color: #fff;
+	}
+	
+	caption {
+		padding: 0px;
+		font-weight: normal;
+		text-align: left;
+	}
+	
+	tbody {
+		border-style: none;
+	}
+	
+	th, td {
+		padding-top: 0;
+		padding-bottom: 0.25rem;
+	}
 }
 
-table.standings * {
-	vertical-align: top;
-	background-color: #fff;
-}
-
-table.standings th, table.standings td {
-	padding-top: 0;
-	padding-bottom: 0.25rem;
+table.championship-scoresheet {
+	* {
+		text-align: center;
+		vertical-align: middle;
+	}
+	
+	tr.player-names, tr.player-names * {
+		padding-bottom: 0 !important;
+		border-bottom: 0 !important;
+	}
+	
+	tr.player-names th, tr.player-names td {
+		vertical-align: bottom !important;
+	}
+	
+	tr.player-schools, tr.player-schools * {
+		padding-top: 0 !important;
+		border-top: 0 !important;
+	}
+	
+	tr.player-schools th, tr.player-schools td {
+		vertical-align: top !important;
+	}
+	
+	.player-school {
+		font-size: 67%;
+	}
+	
+	.question-number, .score-check-label {
+		font-weight: 700;
+	}
+	
+	td.player-not-in-game {
+		background-color: #ccc;
+	}
+	
+	td.player-correct-response {
+		background-color: #43aC6a; /* $success-color */
+	}
+	
+	td.player-incorrect-response {
+		background-color: #f08a24; /* $warning-color */
+	}
+	
+	tr.score-check, tr.note {
+		border-top: 1px solid #999;
+		border-bottom: 1px solid #999;
+		background-color: #a0d3e8; /* $info-color */
+	}
+	
+	.player-score-check {
+		font-weight: 700;
+	}
+	
+	.note {
+		font-style: italic;
+	}
+	
+	.answer {
+		font-size: 75%;
+	}
 }
 
 input[type=number] {
