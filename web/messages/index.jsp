@@ -28,10 +28,14 @@ Account lclOpenOnLoad = AccountFactory.getInstance().fromHttpRequest(request, "r
 
 SortedSetMultimap<Account, Message> lclByCorrespondent = TreeMultimap.create(Account.NameComparator.getInstance(), Comparator.naturalOrder());
 for (Message lclM : lclUser.createFromMessageArray()) {
-	lclByCorrespondent.put(lclM.getRecipient(), lclM);
+	if (lclM.isArchived() == false) {
+		lclByCorrespondent.put(lclM.getRecipient(), lclM);
+	}
 }
 for (Message lclM : lclUser.createToMessageArray()) {
-	lclByCorrespondent.put(lclM.getSender(), lclM);
+	if (lclM.isArchived() == false) {
+		lclByCorrespondent.put(lclM.getSender(), lclM);
+	}
 }
 
 if (lclByCorrespondent.isEmpty()) {

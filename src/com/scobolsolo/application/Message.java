@@ -55,7 +55,7 @@ public interface Message extends MessageUserFacing {
 		return MessageFactory.getInstance().acquireForQuery(
 			new ArrayList<>(),
 			new ImplicitTableDatabaseQuery(
-				"from_account_id = ? AND to_account_id = ? ORDER BY sent_timestamp",
+				"from_account_id = ? AND to_account_id = ? AND archived = false ORDER BY sent_timestamp",
 				argFrom.getIdAsObject(), argTo.getIdAsObject()
 			)
 		);

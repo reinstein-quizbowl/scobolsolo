@@ -166,6 +166,7 @@ public interface Account extends AccountUserFacing {
 	default List<Message> getUnreadMessages() {
 		return streamToMessage()
 			.filter(Message::isUnread)
+			.filter(argM -> argM.isArchived() == false)
 			.sorted()
 			.collect(Collectors.toList());
 	}
