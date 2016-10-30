@@ -256,6 +256,10 @@ public interface Question extends QuestionUserFacing {
 														lclCurrentArg.append('}');
 														break;
 													}
+												case ' ':
+													if (lclBraceDepth == 0) {
+														break BACKSLASH_PORTION;
+													} // else: fall-through!
 												default:
 													lclCurrentArg.append(lclBackslashChar);
 											}
@@ -406,6 +410,7 @@ public interface Question extends QuestionUserFacing {
 										case "\\ldots": // ellipsis
 											Validate.isTrue(lclArgs.isEmpty());
 											lclSB.append("&hellip;");
+											lclI += 6;
 											break;
 										case "\\pg":
 											Validate.isTrue(lclArgs.size() == 1 || lclArgs.size() == 2);
