@@ -175,7 +175,7 @@ public interface Question extends QuestionUserFacing {
 				
 				
 				
-				if (lclShowBuzzLinks && lclInBuzzable && isWordBreakingCharacter(lclC)) {
+				if (lclShowBuzzLinks && lclInBuzzable && !lclInMath && isWordBreakingCharacter(lclC)) {
 					lclSB.append(endBuzzLink(argStartIndex + lclI));
 					lclInBuzzable = false;
 				}
