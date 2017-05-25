@@ -1,6 +1,7 @@
 package com.scobolsolo.application;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
@@ -124,6 +125,6 @@ public interface Tournament extends TournamentUserFacing {
 	}
 	
 	default Phase findFirstPhase() {
-		return streamPhase().sorted().findFirst().orElse(null);
+		return streamPhase().min(Comparator.naturalOrder()).orElse(null);
 	}
 }
