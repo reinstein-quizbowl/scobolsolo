@@ -120,7 +120,7 @@ public interface Tournament extends TournamentUserFacing {
 	}
 	
 	default boolean hasPublicQuestions() {
-		return streamPacket().filter(Packet::isQuestionsPublic).findAny().isPresent();
+		return streamPacket().anyMatch(Packet::isQuestionsPublic);
 	}
 	
 	default Phase findFirstPhase() {
