@@ -99,7 +99,7 @@ Tournament lclT = lclOF.getUserFacing();
 							if (lclSR == null) {
 								%><%= lclSROF.dropdown("School", School.ShortNameComparator.getInstance()).filter(argS -> !argS.attending(lclT)) %><%
 							} else {
-								%><a href="school-registration-edit.jsp?school_registration_id=<%= lclSR.getId() %>" class="stealth-tool-tip" title="<%= lclSR.getSchool().getName() %>"><%= lclSR.getSchool().getShortName() %></a><%
+								%><a href="school-registration-edit.jsp?school_registration_id=<%= lclSR.getId() %>" class="stealth-tooltip" title="<%= lclSR.getSchool().getName() %>"><%= lclSR.getSchool().getShortName() %></a><%
 							}
 						%></td>
 						<td data-tablesorter="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.<Contact>dropdown("MainContact").filter(Contact::isActive) %></td>

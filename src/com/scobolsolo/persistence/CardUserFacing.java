@@ -341,15 +341,6 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Card setInitialPlayerId(int argInitialPlayerId);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Phase}
-	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code card_phase_id_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Phase getPhase();
-	public com.scobolsolo.application.Card setPhase(com.scobolsolo.application.Phase argPhase);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.Player}
 	 * The returned {@code com.scobolsolo.application.Player} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code player} that is referenced by {@code card_initial_player_id_fkey}.
 	 *
@@ -357,6 +348,15 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getInitialPlayer();
 	public com.scobolsolo.application.Card setInitialPlayer(com.scobolsolo.application.Player argInitialPlayer);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Phase}
+	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code card_phase_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Phase getPhase();
+	public com.scobolsolo.application.Card setPhase(com.scobolsolo.application.Phase argPhase);
 
 	public int getLosingMatchCount();
 	public java.util.Iterator<com.scobolsolo.application.Match> createLosingMatchIterator();

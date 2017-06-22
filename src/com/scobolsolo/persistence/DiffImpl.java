@@ -258,6 +258,21 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
+	/** @return the Category object created from diff through reference diff_category_code_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.Category getCategory() {
+		CategoryOpal lclCategoryOpal = getDiffOpal().getCategoryOpal();
+		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory) {
+		getDiffOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
+		return this;
+	}
+
 	/** @return the Account object created from diff through reference diff_editor_account_id_fkey */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -300,21 +315,6 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	@Override
 	public com.scobolsolo.application.Diff setStatus(com.scobolsolo.application.QuestionStatus argQuestionStatus) {
 		getDiffOpal().setStatusOpal(argQuestionStatus == null ? null : ((QuestionStatusImpl) argQuestionStatus).getQuestionStatusOpal());
-		return this;
-	}
-
-	/** @return the Category object created from diff through reference diff_category_code_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.Category getCategory() {
-		CategoryOpal lclCategoryOpal = getDiffOpal().getCategoryOpal();
-		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory) {
-		getDiffOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
 		return this;
 	}
 

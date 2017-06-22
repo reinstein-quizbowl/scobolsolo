@@ -271,8 +271,4 @@ public final class Menus {
 		
 		return ourInstance.myTournamentAdminMenus.get(argT);
 	}
-	
-	public static MenuType getDefaultMenuType() {
-		return MenuType.FOUNDATION;
-	}
 }

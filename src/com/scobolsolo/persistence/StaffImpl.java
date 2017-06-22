@@ -173,21 +173,6 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 		return this;
 	}
 
-	/** @return the Tournament object created from staff through reference staff_tournament_code_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.Tournament getTournament() {
-		TournamentOpal lclTournamentOpal = getStaffOpal().getTournamentOpal();
-		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament) {
-		getStaffOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
-		return this;
-	}
-
 	/** @return the TechnologyChoice object created from staff through reference staff_technology_choice_code_fkey */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -200,6 +185,21 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	@Override
 	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice) {
 		getStaffOpal().setTechnologyChoiceOpal(argTechnologyChoice == null ? null : ((TechnologyChoiceImpl) argTechnologyChoice).getTechnologyChoiceOpal());
+		return this;
+	}
+
+	/** @return the Tournament object created from staff through reference staff_tournament_code_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.Tournament getTournament() {
+		TournamentOpal lclTournamentOpal = getStaffOpal().getTournamentOpal();
+		return lclTournamentOpal == null ? null : lclTournamentOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament) {
+		getStaffOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
 		return this;
 	}
 

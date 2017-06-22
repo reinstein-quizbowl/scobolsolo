@@ -27,11 +27,11 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	@Override
 	protected void initializeReferences() {
 		myOldMatchOpal = MatchOpal.NOT_YET_LOADED;
+		myOldIncomingLosingCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
+		myOldIncomingWinningCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldModeratorStaffOpal = StaffOpal.NOT_YET_LOADED;
 		myOldOutgoingLosingCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldOutgoingWinningCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
-		myOldIncomingLosingCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
-		myOldIncomingWinningCardPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldScorekeeperStaffOpal = StaffOpal.NOT_YET_LOADED;
 		return;
 	}
@@ -236,11 +236,11 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewMatchOpal = myOldMatchOpal;
+		myNewIncomingLosingCardPlayerOpal = myOldIncomingLosingCardPlayerOpal;
+		myNewIncomingWinningCardPlayerOpal = myOldIncomingWinningCardPlayerOpal;
 		myNewModeratorStaffOpal = myOldModeratorStaffOpal;
 		myNewOutgoingLosingCardPlayerOpal = myOldOutgoingLosingCardPlayerOpal;
 		myNewOutgoingWinningCardPlayerOpal = myOldOutgoingWinningCardPlayerOpal;
-		myNewIncomingLosingCardPlayerOpal = myOldIncomingLosingCardPlayerOpal;
-		myNewIncomingWinningCardPlayerOpal = myOldIncomingWinningCardPlayerOpal;
 		myNewScorekeeperStaffOpal = myOldScorekeeperStaffOpal;
 		myNewPerformanceOpalHashSet = null; /* Necessary if it has been rolled back */
 		myPerformanceOpalCachedOperations = null; /* Ditto */
@@ -251,11 +251,11 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldMatchOpal = myNewMatchOpal;
+		myOldIncomingLosingCardPlayerOpal = myNewIncomingLosingCardPlayerOpal;
+		myOldIncomingWinningCardPlayerOpal = myNewIncomingWinningCardPlayerOpal;
 		myOldModeratorStaffOpal = myNewModeratorStaffOpal;
 		myOldOutgoingLosingCardPlayerOpal = myNewOutgoingLosingCardPlayerOpal;
 		myOldOutgoingWinningCardPlayerOpal = myNewOutgoingWinningCardPlayerOpal;
-		myOldIncomingLosingCardPlayerOpal = myNewIncomingLosingCardPlayerOpal;
-		myOldIncomingWinningCardPlayerOpal = myNewIncomingWinningCardPlayerOpal;
 		myOldScorekeeperStaffOpal = myNewScorekeeperStaffOpal;
 
 		if (needsToClearOldCollections()) {
@@ -285,6 +285,12 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 				((PerformanceOpal) lclI.next()).setGameOpalInternal(null);
 			}
 		}
+		if (getIncomingLosingCardPlayerOpal() != null) {
+			getIncomingLosingCardPlayerOpal().removeIncomingLosingCardGameOpalInternal(this);
+		}
+		if (getIncomingWinningCardPlayerOpal() != null) {
+			getIncomingWinningCardPlayerOpal().removeIncomingWinningCardGameOpalInternal(this);
+		}
 		if (getModeratorStaffOpal() != null) {
 			getModeratorStaffOpal().removeModeratorGameOpalInternal(this);
 		}
@@ -293,12 +299,6 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		}
 		if (getOutgoingWinningCardPlayerOpal() != null) {
 			getOutgoingWinningCardPlayerOpal().removeOutgoingWinningCardGameOpalInternal(this);
-		}
-		if (getIncomingLosingCardPlayerOpal() != null) {
-			getIncomingLosingCardPlayerOpal().removeIncomingLosingCardGameOpalInternal(this);
-		}
-		if (getIncomingWinningCardPlayerOpal() != null) {
-			getIncomingWinningCardPlayerOpal().removeIncomingWinningCardGameOpalInternal(this);
 		}
 		if (getScorekeeperStaffOpal() != null) {
 			getScorekeeperStaffOpal().removeScorekeeperGameOpalInternal(this);
@@ -330,6 +330,12 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (myNewMatchOpal != MatchOpal.NOT_YET_LOADED) {
 			setId(myNewMatchOpal == null ? null : myNewMatchOpal.getIdAsObject());
 		}
+		if (myNewIncomingLosingCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
+			setIncomingLosingCardPlayerId(myNewIncomingLosingCardPlayerOpal == null ? null : myNewIncomingLosingCardPlayerOpal.getIdAsObject());
+		}
+		if (myNewIncomingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
+			setIncomingWinningCardPlayerId(myNewIncomingWinningCardPlayerOpal == null ? null : myNewIncomingWinningCardPlayerOpal.getIdAsObject());
+		}
 		if (myNewModeratorStaffOpal != StaffOpal.NOT_YET_LOADED) {
 			setModeratorStaffId(myNewModeratorStaffOpal == null ? null : myNewModeratorStaffOpal.getIdAsObject());
 		}
@@ -338,12 +344,6 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		}
 		if (myNewOutgoingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
 			setOutgoingWinningCardPlayerId(myNewOutgoingWinningCardPlayerOpal == null ? null : myNewOutgoingWinningCardPlayerOpal.getIdAsObject());
-		}
-		if (myNewIncomingLosingCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
-			setIncomingLosingCardPlayerId(myNewIncomingLosingCardPlayerOpal == null ? null : myNewIncomingLosingCardPlayerOpal.getIdAsObject());
-		}
-		if (myNewIncomingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
-			setIncomingWinningCardPlayerId(myNewIncomingWinningCardPlayerOpal == null ? null : myNewIncomingWinningCardPlayerOpal.getIdAsObject());
 		}
 		if (myNewScorekeeperStaffOpal != StaffOpal.NOT_YET_LOADED) {
 			setScorekeeperStaffId(myNewScorekeeperStaffOpal == null ? null : myNewScorekeeperStaffOpal.getIdAsObject());
@@ -556,6 +556,96 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		myNewMatchOpal = argMatchOpal;
 	}
 
+	private PlayerOpal myOldIncomingLosingCardPlayerOpal;
+	private PlayerOpal myNewIncomingLosingCardPlayerOpal;
+
+	protected PlayerOpal retrieveIncomingLosingCardPlayerOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[3] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getIncomingLosingCardPlayerIdAsObject());
+	}
+
+	public synchronized PlayerOpal getIncomingLosingCardPlayerOpal() {
+		PlayerOpal lclPlayerOpal;
+		boolean lclAccess = tryAccess();
+		lclPlayerOpal = lclAccess ? myNewIncomingLosingCardPlayerOpal : myOldIncomingLosingCardPlayerOpal;
+		if (lclPlayerOpal == PlayerOpal.NOT_YET_LOADED) {
+			lclPlayerOpal = retrieveIncomingLosingCardPlayerOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewIncomingLosingCardPlayerOpal = lclPlayerOpal;
+			} else {
+				myOldIncomingLosingCardPlayerOpal = lclPlayerOpal;
+			}
+		}
+		return lclPlayerOpal;
+	}
+
+	public synchronized GameOpal setIncomingLosingCardPlayerOpal(PlayerOpal argPlayerOpal) {
+		tryMutate();
+		PlayerOpal lclPlayerOpal = getIncomingLosingCardPlayerOpal();
+		if (lclPlayerOpal == argPlayerOpal) { return this; }
+		if (lclPlayerOpal != null) {
+			lclPlayerOpal.removeIncomingLosingCardGameOpalInternal(this);
+		}
+		myNewIncomingLosingCardPlayerOpal = argPlayerOpal;
+		if (argPlayerOpal != null) {
+			argPlayerOpal.addIncomingLosingCardGameOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setIncomingLosingCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
+		tryMutate();
+		myNewIncomingLosingCardPlayerOpal = argPlayerOpal;
+	}
+
+	private PlayerOpal myOldIncomingWinningCardPlayerOpal;
+	private PlayerOpal myNewIncomingWinningCardPlayerOpal;
+
+	protected PlayerOpal retrieveIncomingWinningCardPlayerOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[2] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getIncomingWinningCardPlayerIdAsObject());
+	}
+
+	public synchronized PlayerOpal getIncomingWinningCardPlayerOpal() {
+		PlayerOpal lclPlayerOpal;
+		boolean lclAccess = tryAccess();
+		lclPlayerOpal = lclAccess ? myNewIncomingWinningCardPlayerOpal : myOldIncomingWinningCardPlayerOpal;
+		if (lclPlayerOpal == PlayerOpal.NOT_YET_LOADED) {
+			lclPlayerOpal = retrieveIncomingWinningCardPlayerOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewIncomingWinningCardPlayerOpal = lclPlayerOpal;
+			} else {
+				myOldIncomingWinningCardPlayerOpal = lclPlayerOpal;
+			}
+		}
+		return lclPlayerOpal;
+	}
+
+	public synchronized GameOpal setIncomingWinningCardPlayerOpal(PlayerOpal argPlayerOpal) {
+		tryMutate();
+		PlayerOpal lclPlayerOpal = getIncomingWinningCardPlayerOpal();
+		if (lclPlayerOpal == argPlayerOpal) { return this; }
+		if (lclPlayerOpal != null) {
+			lclPlayerOpal.removeIncomingWinningCardGameOpalInternal(this);
+		}
+		myNewIncomingWinningCardPlayerOpal = argPlayerOpal;
+		if (argPlayerOpal != null) {
+			argPlayerOpal.addIncomingWinningCardGameOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setIncomingWinningCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
+		tryMutate();
+		myNewIncomingWinningCardPlayerOpal = argPlayerOpal;
+	}
+
 	private StaffOpal myOldModeratorStaffOpal;
 	private StaffOpal myNewModeratorStaffOpal;
 
@@ -689,96 +779,6 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 	protected synchronized void setOutgoingWinningCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
 		tryMutate();
 		myNewOutgoingWinningCardPlayerOpal = argPlayerOpal;
-	}
-
-	private PlayerOpal myOldIncomingLosingCardPlayerOpal;
-	private PlayerOpal myNewIncomingLosingCardPlayerOpal;
-
-	protected PlayerOpal retrieveIncomingLosingCardPlayerOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[3] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getIncomingLosingCardPlayerIdAsObject());
-	}
-
-	public synchronized PlayerOpal getIncomingLosingCardPlayerOpal() {
-		PlayerOpal lclPlayerOpal;
-		boolean lclAccess = tryAccess();
-		lclPlayerOpal = lclAccess ? myNewIncomingLosingCardPlayerOpal : myOldIncomingLosingCardPlayerOpal;
-		if (lclPlayerOpal == PlayerOpal.NOT_YET_LOADED) {
-			lclPlayerOpal = retrieveIncomingLosingCardPlayerOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewIncomingLosingCardPlayerOpal = lclPlayerOpal;
-			} else {
-				myOldIncomingLosingCardPlayerOpal = lclPlayerOpal;
-			}
-		}
-		return lclPlayerOpal;
-	}
-
-	public synchronized GameOpal setIncomingLosingCardPlayerOpal(PlayerOpal argPlayerOpal) {
-		tryMutate();
-		PlayerOpal lclPlayerOpal = getIncomingLosingCardPlayerOpal();
-		if (lclPlayerOpal == argPlayerOpal) { return this; }
-		if (lclPlayerOpal != null) {
-			lclPlayerOpal.removeIncomingLosingCardGameOpalInternal(this);
-		}
-		myNewIncomingLosingCardPlayerOpal = argPlayerOpal;
-		if (argPlayerOpal != null) {
-			argPlayerOpal.addIncomingLosingCardGameOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setIncomingLosingCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
-		tryMutate();
-		myNewIncomingLosingCardPlayerOpal = argPlayerOpal;
-	}
-
-	private PlayerOpal myOldIncomingWinningCardPlayerOpal;
-	private PlayerOpal myNewIncomingWinningCardPlayerOpal;
-
-	protected PlayerOpal retrieveIncomingWinningCardPlayerOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[2] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getIncomingWinningCardPlayerIdAsObject());
-	}
-
-	public synchronized PlayerOpal getIncomingWinningCardPlayerOpal() {
-		PlayerOpal lclPlayerOpal;
-		boolean lclAccess = tryAccess();
-		lclPlayerOpal = lclAccess ? myNewIncomingWinningCardPlayerOpal : myOldIncomingWinningCardPlayerOpal;
-		if (lclPlayerOpal == PlayerOpal.NOT_YET_LOADED) {
-			lclPlayerOpal = retrieveIncomingWinningCardPlayerOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewIncomingWinningCardPlayerOpal = lclPlayerOpal;
-			} else {
-				myOldIncomingWinningCardPlayerOpal = lclPlayerOpal;
-			}
-		}
-		return lclPlayerOpal;
-	}
-
-	public synchronized GameOpal setIncomingWinningCardPlayerOpal(PlayerOpal argPlayerOpal) {
-		tryMutate();
-		PlayerOpal lclPlayerOpal = getIncomingWinningCardPlayerOpal();
-		if (lclPlayerOpal == argPlayerOpal) { return this; }
-		if (lclPlayerOpal != null) {
-			lclPlayerOpal.removeIncomingWinningCardGameOpalInternal(this);
-		}
-		myNewIncomingWinningCardPlayerOpal = argPlayerOpal;
-		if (argPlayerOpal != null) {
-			argPlayerOpal.addIncomingWinningCardGameOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setIncomingWinningCardPlayerOpalInternal(PlayerOpal argPlayerOpal) {
-		tryMutate();
-		myNewIncomingWinningCardPlayerOpal = argPlayerOpal;
 	}
 
 	private StaffOpal myOldScorekeeperStaffOpal;
@@ -927,6 +927,12 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		if (myNewMatchOpal != MatchOpal.NOT_YET_LOADED) {
 			setMatchOpal(retrieveMatchOpal(getNewValues()));
 		}
+		if (myNewIncomingLosingCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
+			setIncomingLosingCardPlayerOpal(retrieveIncomingLosingCardPlayerOpal(getNewValues()));
+		}
+		if (myNewIncomingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
+			setIncomingWinningCardPlayerOpal(retrieveIncomingWinningCardPlayerOpal(getNewValues()));
+		}
 		if (myNewModeratorStaffOpal != StaffOpal.NOT_YET_LOADED) {
 			setModeratorStaffOpal(retrieveModeratorStaffOpal(getNewValues()));
 		}
@@ -935,12 +941,6 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		}
 		if (myNewOutgoingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
 			setOutgoingWinningCardPlayerOpal(retrieveOutgoingWinningCardPlayerOpal(getNewValues()));
-		}
-		if (myNewIncomingLosingCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
-			setIncomingLosingCardPlayerOpal(retrieveIncomingLosingCardPlayerOpal(getNewValues()));
-		}
-		if (myNewIncomingWinningCardPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
-			setIncomingWinningCardPlayerOpal(retrieveIncomingWinningCardPlayerOpal(getNewValues()));
 		}
 		if (myNewScorekeeperStaffOpal != StaffOpal.NOT_YET_LOADED) {
 			setScorekeeperStaffOpal(retrieveScorekeeperStaffOpal(getNewValues()));

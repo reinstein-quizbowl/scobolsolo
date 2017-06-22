@@ -382,15 +382,6 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Question setCategory(com.scobolsolo.application.Category argCategory);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Account}
-	 * The returned {@code com.scobolsolo.application.Account} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code question_writer_account_id_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = true)
-	public com.scobolsolo.application.Account getWriter();
-	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argWriter);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.QuestionStatus}
 	 * The returned {@code com.scobolsolo.application.QuestionStatus} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code question_status} that is referenced by {@code question_question_status_code_fkey}.
 	 *
@@ -398,6 +389,15 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.QuestionStatus getStatus();
 	public com.scobolsolo.application.Question setStatus(com.scobolsolo.application.QuestionStatus argStatus);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Account}
+	 * The returned {@code com.scobolsolo.application.Account} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code question_writer_account_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Account getWriter();
+	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argWriter);
 
 	public int getDiffCount();
 	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator();

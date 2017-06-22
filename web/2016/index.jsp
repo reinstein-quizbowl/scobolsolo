@@ -64,7 +64,7 @@
 		
 		<p>The full <a href="/stats/standings.jsp?object=2016">preliminary results</a> are available, as is the <a href="championship-match.jsp">championship match scoresheet</a>.</p>
 		
-		<!-- <p>The <a href="packets.zip">questions are available for download</a>.</p> -->
+		<p>The <a href="packets.zip">questions are available for download</a>.</p>
 	</div>
 </div>
 

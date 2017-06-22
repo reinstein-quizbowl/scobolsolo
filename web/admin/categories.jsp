@@ -35,7 +35,7 @@
 					%><tr>
 						<td><a href="category-edit.jsp?object=<%= lclC.getUniqueString() %>"><%= lclC.getName() %></a></td>
 						<td><a href="category-group-edit.jsp?object=<%= lclC.getCategoryGroup().getUniqueString() %>"><%= lclC.getCategoryGroup().getName() %></a></td>
-						<td><%= lclC.streamCategoryUse().sorted(CategoryUse.TOURNAMENT_COMPARATOR).map(CategoryUse::getTournament).map(argT -> "<span class=\"stealth-tool-tip\" title=\"" + argT.getName() + "\">" + argT.getShortName() + "</span>").collect(Collectors.joining(", ")) %></td></td>
+						<td><%= lclC.streamCategoryUse().sorted(CategoryUse.TOURNAMENT_COMPARATOR).map(CategoryUse::getTournament).map(argT -> "<span class=\"stealth-tooltip\" title=\"" + argT.getName() + "\">" + argT.getShortName() + "</span>").collect(Collectors.joining(", ")) %></td></td>
 					</tr><%
 				}
 			%></tbody>

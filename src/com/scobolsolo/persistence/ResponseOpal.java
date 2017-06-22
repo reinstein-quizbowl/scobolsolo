@@ -17,11 +17,11 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
 	@Override
 	protected void initializeReferences() {
-		myOldPerformanceOpal = PerformanceOpal.NOT_YET_LOADED;
-		myOldResponseTypeOpal = ResponseTypeOpal.NOT_YET_LOADED;
 		myOldBasePlacementOpal = PlacementOpal.NOT_YET_LOADED;
-		myOldReplacementPlacementOpal = PlacementOpal.NOT_YET_LOADED;
 		myOldDiffOpal = DiffOpal.NOT_YET_LOADED;
+		myOldPerformanceOpal = PerformanceOpal.NOT_YET_LOADED;
+		myOldReplacementPlacementOpal = PlacementOpal.NOT_YET_LOADED;
+		myOldResponseTypeOpal = ResponseTypeOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -202,39 +202,39 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewPerformanceOpal = myOldPerformanceOpal;
-		myNewResponseTypeOpal = myOldResponseTypeOpal;
 		myNewBasePlacementOpal = myOldBasePlacementOpal;
-		myNewReplacementPlacementOpal = myOldReplacementPlacementOpal;
 		myNewDiffOpal = myOldDiffOpal;
+		myNewPerformanceOpal = myOldPerformanceOpal;
+		myNewReplacementPlacementOpal = myOldReplacementPlacementOpal;
+		myNewResponseTypeOpal = myOldResponseTypeOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
 
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
-		myOldPerformanceOpal = myNewPerformanceOpal;
-		myOldResponseTypeOpal = myNewResponseTypeOpal;
 		myOldBasePlacementOpal = myNewBasePlacementOpal;
-		myOldReplacementPlacementOpal = myNewReplacementPlacementOpal;
 		myOldDiffOpal = myNewDiffOpal;
+		myOldPerformanceOpal = myNewPerformanceOpal;
+		myOldReplacementPlacementOpal = myNewReplacementPlacementOpal;
+		myOldResponseTypeOpal = myNewResponseTypeOpal;
 
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		if (getPerformanceOpal() != null) {
-			getPerformanceOpal().removeResponseOpalInternal(this);
-		}
 		if (getBasePlacementOpal() != null) {
 			getBasePlacementOpal().removeBaseResponseOpalInternal(this);
 		}
-		if (getReplacementPlacementOpal() != null) {
-			getReplacementPlacementOpal().removeReplacementResponseOpalInternal(this);
-		}
 		if (getDiffOpal() != null) {
 			getDiffOpal().removeResponseOpalInternal(this);
+		}
+		if (getPerformanceOpal() != null) {
+			getPerformanceOpal().removeResponseOpalInternal(this);
+		}
+		if (getReplacementPlacementOpal() != null) {
+			getReplacementPlacementOpal().removeReplacementResponseOpalInternal(this);
 		}
 		return;
 	}
@@ -256,20 +256,20 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
 	@Override
 	public synchronized void translateReferencesToFields() {
-		if (myNewPerformanceOpal != PerformanceOpal.NOT_YET_LOADED) {
-			setPerformanceId(myNewPerformanceOpal == null ? null : myNewPerformanceOpal.getIdAsObject());
-		}
-		if (myNewResponseTypeOpal != ResponseTypeOpal.NOT_YET_LOADED) {
-			setResponseTypeCode(myNewResponseTypeOpal == null ? null : myNewResponseTypeOpal.getCode());
-		}
 		if (myNewBasePlacementOpal != PlacementOpal.NOT_YET_LOADED) {
 			setBasePlacementId(myNewBasePlacementOpal == null ? null : myNewBasePlacementOpal.getIdAsObject());
+		}
+		if (myNewDiffOpal != DiffOpal.NOT_YET_LOADED) {
+			setDiffId(myNewDiffOpal == null ? null : myNewDiffOpal.getIdAsObject());
+		}
+		if (myNewPerformanceOpal != PerformanceOpal.NOT_YET_LOADED) {
+			setPerformanceId(myNewPerformanceOpal == null ? null : myNewPerformanceOpal.getIdAsObject());
 		}
 		if (myNewReplacementPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
 			setReplacementPlacementId(myNewReplacementPlacementOpal == null ? null : myNewReplacementPlacementOpal.getIdAsObject());
 		}
-		if (myNewDiffOpal != DiffOpal.NOT_YET_LOADED) {
-			setDiffId(myNewDiffOpal == null ? null : myNewDiffOpal.getIdAsObject());
+		if (myNewResponseTypeOpal != ResponseTypeOpal.NOT_YET_LOADED) {
+			setResponseTypeCode(myNewResponseTypeOpal == null ? null : myNewResponseTypeOpal.getCode());
 		}
 		return;
 	}
@@ -402,83 +402,6 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		argOutput.println("Location = " + getLocationAsObject());
 	}
 
-	private PerformanceOpal myOldPerformanceOpal;
-	private PerformanceOpal myNewPerformanceOpal;
-
-	protected PerformanceOpal retrievePerformanceOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[1] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forId(getPerformanceIdAsObject());
-	}
-
-	public synchronized PerformanceOpal getPerformanceOpal() {
-		PerformanceOpal lclPerformanceOpal;
-		boolean lclAccess = tryAccess();
-		lclPerformanceOpal = lclAccess ? myNewPerformanceOpal : myOldPerformanceOpal;
-		if (lclPerformanceOpal == PerformanceOpal.NOT_YET_LOADED) {
-			lclPerformanceOpal = retrievePerformanceOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewPerformanceOpal = lclPerformanceOpal;
-			} else {
-				myOldPerformanceOpal = lclPerformanceOpal;
-			}
-		}
-		return lclPerformanceOpal;
-	}
-
-	public synchronized ResponseOpal setPerformanceOpal(PerformanceOpal argPerformanceOpal) {
-		tryMutate();
-		PerformanceOpal lclPerformanceOpal = getPerformanceOpal();
-		if (lclPerformanceOpal == argPerformanceOpal) { return this; }
-		if (lclPerformanceOpal != null) {
-			lclPerformanceOpal.removeResponseOpalInternal(this);
-		}
-		myNewPerformanceOpal = argPerformanceOpal;
-		if (argPerformanceOpal != null) {
-			argPerformanceOpal.addResponseOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setPerformanceOpalInternal(PerformanceOpal argPerformanceOpal) {
-		tryMutate();
-		myNewPerformanceOpal = argPerformanceOpal;
-	}
-
-	private ResponseTypeOpal myOldResponseTypeOpal;
-	private ResponseTypeOpal myNewResponseTypeOpal;
-
-	protected ResponseTypeOpal retrieveResponseTypeOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[2] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getResponseTypeOpalFactory().forCode(getResponseTypeCode());
-	}
-
-	public synchronized ResponseTypeOpal getResponseTypeOpal() {
-		ResponseTypeOpal lclResponseTypeOpal;
-		boolean lclAccess = tryAccess();
-		lclResponseTypeOpal = lclAccess ? myNewResponseTypeOpal : myOldResponseTypeOpal;
-		if (lclResponseTypeOpal == ResponseTypeOpal.NOT_YET_LOADED) {
-			lclResponseTypeOpal = retrieveResponseTypeOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewResponseTypeOpal = lclResponseTypeOpal;
-			} else {
-				myOldResponseTypeOpal = lclResponseTypeOpal;
-			}
-		}
-		return lclResponseTypeOpal;
-	}
-
-	public synchronized ResponseOpal setResponseTypeOpal(ResponseTypeOpal argResponseTypeOpal) {
-		tryMutate();
-		myNewResponseTypeOpal = argResponseTypeOpal;
-		return this;
-	}
-
 	private PlacementOpal myOldBasePlacementOpal;
 	private PlacementOpal myNewBasePlacementOpal;
 
@@ -522,51 +445,6 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	protected synchronized void setBasePlacementOpalInternal(PlacementOpal argPlacementOpal) {
 		tryMutate();
 		myNewBasePlacementOpal = argPlacementOpal;
-	}
-
-	private PlacementOpal myOldReplacementPlacementOpal;
-	private PlacementOpal myNewReplacementPlacementOpal;
-
-	protected PlacementOpal retrieveReplacementPlacementOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[4] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getPlacementOpalFactory().forId(getReplacementPlacementIdAsObject());
-	}
-
-	public synchronized PlacementOpal getReplacementPlacementOpal() {
-		PlacementOpal lclPlacementOpal;
-		boolean lclAccess = tryAccess();
-		lclPlacementOpal = lclAccess ? myNewReplacementPlacementOpal : myOldReplacementPlacementOpal;
-		if (lclPlacementOpal == PlacementOpal.NOT_YET_LOADED) {
-			lclPlacementOpal = retrieveReplacementPlacementOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewReplacementPlacementOpal = lclPlacementOpal;
-			} else {
-				myOldReplacementPlacementOpal = lclPlacementOpal;
-			}
-		}
-		return lclPlacementOpal;
-	}
-
-	public synchronized ResponseOpal setReplacementPlacementOpal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		PlacementOpal lclPlacementOpal = getReplacementPlacementOpal();
-		if (lclPlacementOpal == argPlacementOpal) { return this; }
-		if (lclPlacementOpal != null) {
-			lclPlacementOpal.removeReplacementResponseOpalInternal(this);
-		}
-		myNewReplacementPlacementOpal = argPlacementOpal;
-		if (argPlacementOpal != null) {
-			argPlacementOpal.addReplacementResponseOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setReplacementPlacementOpalInternal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		myNewReplacementPlacementOpal = argPlacementOpal;
 	}
 
 	private DiffOpal myOldDiffOpal;
@@ -614,6 +492,128 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		myNewDiffOpal = argDiffOpal;
 	}
 
+	private PerformanceOpal myOldPerformanceOpal;
+	private PerformanceOpal myNewPerformanceOpal;
+
+	protected PerformanceOpal retrievePerformanceOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[1] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forId(getPerformanceIdAsObject());
+	}
+
+	public synchronized PerformanceOpal getPerformanceOpal() {
+		PerformanceOpal lclPerformanceOpal;
+		boolean lclAccess = tryAccess();
+		lclPerformanceOpal = lclAccess ? myNewPerformanceOpal : myOldPerformanceOpal;
+		if (lclPerformanceOpal == PerformanceOpal.NOT_YET_LOADED) {
+			lclPerformanceOpal = retrievePerformanceOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewPerformanceOpal = lclPerformanceOpal;
+			} else {
+				myOldPerformanceOpal = lclPerformanceOpal;
+			}
+		}
+		return lclPerformanceOpal;
+	}
+
+	public synchronized ResponseOpal setPerformanceOpal(PerformanceOpal argPerformanceOpal) {
+		tryMutate();
+		PerformanceOpal lclPerformanceOpal = getPerformanceOpal();
+		if (lclPerformanceOpal == argPerformanceOpal) { return this; }
+		if (lclPerformanceOpal != null) {
+			lclPerformanceOpal.removeResponseOpalInternal(this);
+		}
+		myNewPerformanceOpal = argPerformanceOpal;
+		if (argPerformanceOpal != null) {
+			argPerformanceOpal.addResponseOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setPerformanceOpalInternal(PerformanceOpal argPerformanceOpal) {
+		tryMutate();
+		myNewPerformanceOpal = argPerformanceOpal;
+	}
+
+	private PlacementOpal myOldReplacementPlacementOpal;
+	private PlacementOpal myNewReplacementPlacementOpal;
+
+	protected PlacementOpal retrieveReplacementPlacementOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[4] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getPlacementOpalFactory().forId(getReplacementPlacementIdAsObject());
+	}
+
+	public synchronized PlacementOpal getReplacementPlacementOpal() {
+		PlacementOpal lclPlacementOpal;
+		boolean lclAccess = tryAccess();
+		lclPlacementOpal = lclAccess ? myNewReplacementPlacementOpal : myOldReplacementPlacementOpal;
+		if (lclPlacementOpal == PlacementOpal.NOT_YET_LOADED) {
+			lclPlacementOpal = retrieveReplacementPlacementOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewReplacementPlacementOpal = lclPlacementOpal;
+			} else {
+				myOldReplacementPlacementOpal = lclPlacementOpal;
+			}
+		}
+		return lclPlacementOpal;
+	}
+
+	public synchronized ResponseOpal setReplacementPlacementOpal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		PlacementOpal lclPlacementOpal = getReplacementPlacementOpal();
+		if (lclPlacementOpal == argPlacementOpal) { return this; }
+		if (lclPlacementOpal != null) {
+			lclPlacementOpal.removeReplacementResponseOpalInternal(this);
+		}
+		myNewReplacementPlacementOpal = argPlacementOpal;
+		if (argPlacementOpal != null) {
+			argPlacementOpal.addReplacementResponseOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setReplacementPlacementOpalInternal(PlacementOpal argPlacementOpal) {
+		tryMutate();
+		myNewReplacementPlacementOpal = argPlacementOpal;
+	}
+
+	private ResponseTypeOpal myOldResponseTypeOpal;
+	private ResponseTypeOpal myNewResponseTypeOpal;
+
+	protected ResponseTypeOpal retrieveResponseTypeOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[2] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getResponseTypeOpalFactory().forCode(getResponseTypeCode());
+	}
+
+	public synchronized ResponseTypeOpal getResponseTypeOpal() {
+		ResponseTypeOpal lclResponseTypeOpal;
+		boolean lclAccess = tryAccess();
+		lclResponseTypeOpal = lclAccess ? myNewResponseTypeOpal : myOldResponseTypeOpal;
+		if (lclResponseTypeOpal == ResponseTypeOpal.NOT_YET_LOADED) {
+			lclResponseTypeOpal = retrieveResponseTypeOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewResponseTypeOpal = lclResponseTypeOpal;
+			} else {
+				myOldResponseTypeOpal = lclResponseTypeOpal;
+			}
+		}
+		return lclResponseTypeOpal;
+	}
+
+	public synchronized ResponseOpal setResponseTypeOpal(ResponseTypeOpal argResponseTypeOpal) {
+		tryMutate();
+		myNewResponseTypeOpal = argResponseTypeOpal;
+		return this;
+	}
+
 	@Override
 	public java.lang.String toString() {
 		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
@@ -626,20 +626,20 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 
 	@Override
 	protected void updateReferencesAfterReload() {
-		if (myNewPerformanceOpal != PerformanceOpal.NOT_YET_LOADED) {
-			setPerformanceOpal(retrievePerformanceOpal(getNewValues()));
-		}
-		if (myNewResponseTypeOpal != ResponseTypeOpal.NOT_YET_LOADED) {
-			setResponseTypeOpal(retrieveResponseTypeOpal(getNewValues()));
-		}
 		if (myNewBasePlacementOpal != PlacementOpal.NOT_YET_LOADED) {
 			setBasePlacementOpal(retrieveBasePlacementOpal(getNewValues()));
+		}
+		if (myNewDiffOpal != DiffOpal.NOT_YET_LOADED) {
+			setDiffOpal(retrieveDiffOpal(getNewValues()));
+		}
+		if (myNewPerformanceOpal != PerformanceOpal.NOT_YET_LOADED) {
+			setPerformanceOpal(retrievePerformanceOpal(getNewValues()));
 		}
 		if (myNewReplacementPlacementOpal != PlacementOpal.NOT_YET_LOADED) {
 			setReplacementPlacementOpal(retrieveReplacementPlacementOpal(getNewValues()));
 		}
-		if (myNewDiffOpal != DiffOpal.NOT_YET_LOADED) {
-			setDiffOpal(retrieveDiffOpal(getNewValues()));
+		if (myNewResponseTypeOpal != ResponseTypeOpal.NOT_YET_LOADED) {
+			setResponseTypeOpal(retrieveResponseTypeOpal(getNewValues()));
 		}
 	}
 

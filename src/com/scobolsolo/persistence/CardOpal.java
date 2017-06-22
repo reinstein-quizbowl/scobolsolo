@@ -28,8 +28,8 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	@Override
 	protected void initializeReferences() {
-		myOldPhaseOpal = PhaseOpal.NOT_YET_LOADED;
 		myOldInitialPlayerOpal = PlayerOpal.NOT_YET_LOADED;
+		myOldPhaseOpal = PhaseOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -216,8 +216,8 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewPhaseOpal = myOldPhaseOpal;
 		myNewInitialPlayerOpal = myOldInitialPlayerOpal;
+		myNewPhaseOpal = myOldPhaseOpal;
 		myNewLosingMatchOpalHashSet = null; /* Necessary if it has been rolled back */
 		myLosingMatchOpalCachedOperations = null; /* Ditto */
 		myNewWinningMatchOpalHashSet = null; /* Necessary if it has been rolled back */
@@ -228,8 +228,8 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
-		myOldPhaseOpal = myNewPhaseOpal;
 		myOldInitialPlayerOpal = myNewInitialPlayerOpal;
+		myOldPhaseOpal = myNewPhaseOpal;
 
 		if (needsToClearOldCollections()) {
 			myOldLosingMatchOpalHashSet = null;
@@ -301,11 +301,11 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	@Override
 	public synchronized void translateReferencesToFields() {
-		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
-			setPhaseId(myNewPhaseOpal == null ? null : myNewPhaseOpal.getIdAsObject());
-		}
 		if (myNewInitialPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
 			setInitialPlayerId(myNewInitialPlayerOpal == null ? null : myNewInitialPlayerOpal.getIdAsObject());
+		}
+		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
+			setPhaseId(myNewPhaseOpal == null ? null : myNewPhaseOpal.getIdAsObject());
 		}
 		return;
 	}
@@ -390,6 +390,49 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		argOutput.println("InitialPlayerId = " + getInitialPlayerIdAsObject());
 	}
 
+	private PlayerOpal myOldInitialPlayerOpal;
+	private PlayerOpal myNewInitialPlayerOpal;
+
+	protected PlayerOpal retrieveInitialPlayerOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[6] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getInitialPlayerIdAsObject());
+	}
+
+	public synchronized PlayerOpal getInitialPlayerOpal() {
+		PlayerOpal lclPlayerOpal;
+		boolean lclAccess = tryAccess();
+		lclPlayerOpal = lclAccess ? myNewInitialPlayerOpal : myOldInitialPlayerOpal;
+		if (lclPlayerOpal == PlayerOpal.NOT_YET_LOADED) {
+			lclPlayerOpal = retrieveInitialPlayerOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewInitialPlayerOpal = lclPlayerOpal;
+			} else {
+				myOldInitialPlayerOpal = lclPlayerOpal;
+			}
+		}
+		return lclPlayerOpal;
+	}
+
+	public synchronized CardOpal setInitialPlayerOpal(PlayerOpal argPlayerOpal) {
+		tryMutate();
+		if (myNewInitialPlayerOpal != null && myNewInitialPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
+			myNewInitialPlayerOpal.setInitialCardOpalInternal(null);
+		}
+		myNewInitialPlayerOpal = argPlayerOpal;
+		if (argPlayerOpal != null) {
+			argPlayerOpal.setInitialCardOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setInitialPlayerOpalInternal(PlayerOpal argPlayerOpal) {
+		tryMutate();
+		myNewInitialPlayerOpal = argPlayerOpal;
+	}
+
 	private PhaseOpal myOldPhaseOpal;
 	private PhaseOpal myNewPhaseOpal;
 
@@ -433,49 +476,6 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	protected synchronized void setPhaseOpalInternal(PhaseOpal argPhaseOpal) {
 		tryMutate();
 		myNewPhaseOpal = argPhaseOpal;
-	}
-
-	private PlayerOpal myOldInitialPlayerOpal;
-	private PlayerOpal myNewInitialPlayerOpal;
-
-	protected PlayerOpal retrieveInitialPlayerOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[6] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getInitialPlayerIdAsObject());
-	}
-
-	public synchronized PlayerOpal getInitialPlayerOpal() {
-		PlayerOpal lclPlayerOpal;
-		boolean lclAccess = tryAccess();
-		lclPlayerOpal = lclAccess ? myNewInitialPlayerOpal : myOldInitialPlayerOpal;
-		if (lclPlayerOpal == PlayerOpal.NOT_YET_LOADED) {
-			lclPlayerOpal = retrieveInitialPlayerOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewInitialPlayerOpal = lclPlayerOpal;
-			} else {
-				myOldInitialPlayerOpal = lclPlayerOpal;
-			}
-		}
-		return lclPlayerOpal;
-	}
-
-	public synchronized CardOpal setInitialPlayerOpal(PlayerOpal argPlayerOpal) {
-		tryMutate();
-		if (myNewInitialPlayerOpal != null && myNewInitialPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
-			myNewInitialPlayerOpal.setInitialCardOpalInternal(null);
-		}
-		myNewInitialPlayerOpal = argPlayerOpal;
-		if (argPlayerOpal != null) {
-			argPlayerOpal.setInitialCardOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setInitialPlayerOpalInternal(PlayerOpal argPlayerOpal) {
-		tryMutate();
-		myNewInitialPlayerOpal = argPlayerOpal;
 	}
 
 	private java.util.Set<MatchOpal> myOldLosingMatchOpalHashSet = null;
@@ -662,11 +662,11 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 	@Override
 	protected void updateReferencesAfterReload() {
-		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
-			setPhaseOpal(retrievePhaseOpal(getNewValues()));
-		}
 		if (myNewInitialPlayerOpal != PlayerOpal.NOT_YET_LOADED) {
 			setInitialPlayerOpal(retrieveInitialPlayerOpal(getNewValues()));
+		}
+		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
+			setPhaseOpal(retrievePhaseOpal(getNewValues()));
 		}
 	}
 

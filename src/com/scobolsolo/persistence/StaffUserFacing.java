@@ -313,15 +313,6 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Staff setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Tournament}
-	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code staff_tournament_code_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Tournament getTournament();
-	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.TechnologyChoice}
 	 * The returned {@code com.scobolsolo.application.TechnologyChoice} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code technology_choice} that is referenced by {@code staff_technology_choice_code_fkey}.
 	 *
@@ -329,6 +320,15 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.TechnologyChoice getTechnologyChoice();
 	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Tournament}
+	 * The returned {@code com.scobolsolo.application.Tournament} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code tournament} that is referenced by {@code staff_tournament_code_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Tournament getTournament();
+	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament);
 
 	public int getModeratorGameCount();
 	public java.util.Iterator<com.scobolsolo.application.Game> createModeratorGameIterator();

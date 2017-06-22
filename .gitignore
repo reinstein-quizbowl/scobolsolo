@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -35,63 +34,10 @@ scobolsolo.log
 
 # Development stuff
 ant/**
-build.csh
+build.bash
 src/com/scobolsolo/StandaloneTest.java
 to-do.txt
 
-=======
-*.DS_Store
-*.gem
-*.orig
-*.rbc
-*.rbenv-version
-*.ruby-version
-*.scssc
-*.sublime-*
-*.swp
-*.swo
-.bundle
-.config
-.grunt
-.idea
-.sass-cache/*
-.yardoc
+# Cache crap
+web-components/scss/.sass-cache
 
-bower_components
-dist
-/docs2/public/*
-vendor
-_yardoc
-coverage
-docs/public/*
-InstalledFiles
-lib/bundler/man
-marketing/.sass-cache/*
-node_modules
-pkg
-rdoc
-spec/reports
-
-test/
-test/.sass-cache/*
-test/css
-test/css/styles.css
-*.orig
-node_modules
-docs/public/*
-*.scssc
-*.rbenv-version
-*.ruby-version
-/docs2/public/*
-.settings
-.project
-test/scss/output-test
-test/tmp
-test/version_tmp
-tmp
-
-
-pizza/
-docs/*
-npm-debug.log
->>>>>>> c56c315e1d7ef24618b82f19423be38af9199658

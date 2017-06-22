@@ -172,24 +172,6 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	}
 
 	@Override
-	public java.util.HashSet<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argStaffId };
-		final String[] lclFieldNames = new String[] { "staff_id" };
-		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
-	public java.util.HashSet<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argRoomId };
-		final String[] lclFieldNames = new String[] { "room_id" };
-		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
 	public java.util.HashSet<StaffAssignmentOpal> forPhaseIdCollection(java.lang.Integer argPhaseId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argPhaseId };
 		final String[] lclFieldNames = new String[] { "phase_id" };
@@ -199,9 +181,27 @@ public class PostgresStaffAssignmentOpalFactory extends com.opal.AbstractDatabas
 	}
 
 	@Override
+	public java.util.HashSet<StaffAssignmentOpal> forStaffIdCollection(java.lang.Integer argStaffId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argStaffId };
+		final String[] lclFieldNames = new String[] { "staff_id" };
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
 	public java.util.HashSet<StaffAssignmentOpal> forStaffRoleCodeCollection(java.lang.String argStaffRoleCode) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argStaffRoleCode };
 		final String[] lclFieldNames = new String[] { "staff_role_code" };
+		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<StaffAssignmentOpal> forRoomIdCollection(java.lang.Integer argRoomId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argRoomId };
+		final String[] lclFieldNames = new String[] { "room_id" };
 		java.util.HashSet<StaffAssignmentOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

@@ -283,24 +283,6 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.StaffAssignment setStaffRoleCode(java.lang.String argStaffRoleCode);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Staff}
-	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code staff_assignment_staff_id_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Staff getStaff();
-	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.Room}
-	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code staffer_assignment_room_id_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Room getRoom();
-	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.Phase}
 	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code staff_assignment_phase_id_fkey}.
 	 *
@@ -310,6 +292,15 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.StaffAssignment setPhase(com.scobolsolo.application.Phase argPhase);
 
 	/**
+	 * @return the {@code com.scobolsolo.application.Staff}
+	 * The returned {@code com.scobolsolo.application.Staff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff} that is referenced by {@code staff_assignment_staff_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Staff getStaff();
+	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.StaffRole}
 	 * The returned {@code com.scobolsolo.application.StaffRole} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code staff_role} that is referenced by {@code staff_assignment_staff_role_code_fkey}.
 	 *
@@ -317,6 +308,15 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffRole getRole();
 	public com.scobolsolo.application.StaffAssignment setRole(com.scobolsolo.application.StaffRole argRole);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Room}
+	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code staffer_assignment_room_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Room getRoom();
+	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom);
 
 	public com.scobolsolo.application.StaffAssignment copy();
 

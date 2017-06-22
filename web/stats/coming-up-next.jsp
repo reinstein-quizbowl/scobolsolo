@@ -58,7 +58,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 						<td><%
 							if (lclG != null) {
 								if (lclG.getModeratorStaff() == null) {
-									%><abbr class="stealth-tool-tip" title="to be determined">TBD</abbr><%
+									%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
 								} else {
 									%><%= lclG.getModeratorStaff().getContact().getName() %><%
 									if (lclG.getScorekeeperStaff() != null && lclG.getScorekeeperStaff() != lclG.getModeratorStaff()) {
@@ -66,14 +66,14 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 									}
 								}
 							} else {
-								%><abbr class="stealth-tool-tip" title="to be determined">TBD</abbr><%
+								%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
 							}
 						%></td>
 						<td><%
 							if (lclM.getRound().getRoundGroup().getPhase().isCardSystem()) {
 								%><%= lclM.getWinningCard().getShortName() %>&nbsp;v.&nbsp;<%= lclM.getLosingCard().getShortName() %><%
 							} else {
-								%><span class="stealth-tool-tip" title="This match does not use the card system">n/a</span><%
+								%><span class="stealth-tooltip" title="This match does not use the card system">n/a</span><%
 							}
 						%></td>
 						<td><%
@@ -81,7 +81,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 								%><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclG.getIncomingWinningCardPlayer().getId() %>"><%= lclG.getIncomingWinningCardPlayer().getNameWithSchool() %></a><br />
 								<a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclG.getIncomingLosingCardPlayer().getId() %>"><%= lclG.getIncomingLosingCardPlayer().getNameWithSchool() %></a><%
 							} else {
-								%><abbr class="stealth-tool-tip" title="to be determined">TBD</abbr><%
+								%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
 							}
 						%></td>
 					</tr><%

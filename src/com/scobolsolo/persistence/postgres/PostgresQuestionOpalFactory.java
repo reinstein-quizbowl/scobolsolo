@@ -183,18 +183,18 @@ public class PostgresQuestionOpalFactory extends com.opal.AbstractDatabaseIdenti
 	}
 
 	@Override
-	public java.util.HashSet<QuestionOpal> forWriterAccountIdCollection(java.lang.Integer argWriterAccountId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argWriterAccountId };
-		final String[] lclFieldNames = new String[] { "writer_account_id" };
+	public java.util.HashSet<QuestionOpal> forQuestionStatusCodeCollection(java.lang.String argQuestionStatusCode) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argQuestionStatusCode };
+		final String[] lclFieldNames = new String[] { "question_status_code" };
 		java.util.HashSet<QuestionOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public java.util.HashSet<QuestionOpal> forQuestionStatusCodeCollection(java.lang.String argQuestionStatusCode) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argQuestionStatusCode };
-		final String[] lclFieldNames = new String[] { "question_status_code" };
+	public java.util.HashSet<QuestionOpal> forWriterAccountIdCollection(java.lang.Integer argWriterAccountId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argWriterAccountId };
+		final String[] lclFieldNames = new String[] { "writer_account_id" };
 		java.util.HashSet<QuestionOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

@@ -160,6 +160,24 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	}
 
 	@Override
+	public java.util.HashSet<GameOpal> forIncomingLosingCardPlayerIdCollection(java.lang.Integer argIncomingLosingCardPlayerId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argIncomingLosingCardPlayerId };
+		final String[] lclFieldNames = new String[] { "incoming_losing_card_player_id" };
+		java.util.HashSet<GameOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<GameOpal> forIncomingWinningCardPlayerIdCollection(java.lang.Integer argIncomingWinningCardPlayerId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argIncomingWinningCardPlayerId };
+		final String[] lclFieldNames = new String[] { "incoming_winning_card_player_id" };
+		java.util.HashSet<GameOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
 	public java.util.HashSet<GameOpal> forModeratorStaffIdCollection(java.lang.Integer argModeratorStaffId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argModeratorStaffId };
 		final String[] lclFieldNames = new String[] { "moderator_staff_id" };
@@ -181,24 +199,6 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	public java.util.HashSet<GameOpal> forOutgoingWinningCardPlayerIdCollection(java.lang.Integer argOutgoingWinningCardPlayerId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argOutgoingWinningCardPlayerId };
 		final String[] lclFieldNames = new String[] { "outgoing_winning_card_player_id" };
-		java.util.HashSet<GameOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
-	public java.util.HashSet<GameOpal> forIncomingLosingCardPlayerIdCollection(java.lang.Integer argIncomingLosingCardPlayerId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argIncomingLosingCardPlayerId };
-		final String[] lclFieldNames = new String[] { "incoming_losing_card_player_id" };
-		java.util.HashSet<GameOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
-	public java.util.HashSet<GameOpal> forIncomingWinningCardPlayerIdCollection(java.lang.Integer argIncomingWinningCardPlayerId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argIncomingWinningCardPlayerId };
-		final String[] lclFieldNames = new String[] { "incoming_winning_card_player_id" };
 		java.util.HashSet<GameOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

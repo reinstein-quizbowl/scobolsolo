@@ -210,6 +210,36 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 		return this;
 	}
 
+	/** @return the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.application.Player getIncomingLosingCardPlayer() {
+		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingLosingCardPlayerOpal();
+		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argPlayer) {
+		getGameOpal().setIncomingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
+	}
+
+	/** @return the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.application.Player getIncomingWinningCardPlayer() {
+		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingWinningCardPlayerOpal();
+		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argPlayer) {
+		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
+	}
+
 	/** @return the Staff object created from game through reference game_moderator_staff_id_fkey */
 
 	@com.opal.annotation.Nullability(nullable = true)
@@ -252,36 +282,6 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	@Override
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayer(com.scobolsolo.application.Player argPlayer) {
 		getGameOpal().setOutgoingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return this;
-	}
-
-	/** @return the Player object created from game through reference game_incoming_losing_card_player_id_fkey */
-
-	@com.opal.annotation.Nullability(nullable = true)
-	@Override
-	public com.scobolsolo.application.Player getIncomingLosingCardPlayer() {
-		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingLosingCardPlayerOpal();
-		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argPlayer) {
-		getGameOpal().setIncomingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
-		return this;
-	}
-
-	/** @return the Player object created from game through reference game_incoming_winning_card_player_id_fkey */
-
-	@com.opal.annotation.Nullability(nullable = true)
-	@Override
-	public com.scobolsolo.application.Player getIncomingWinningCardPlayer() {
-		PlayerOpal lclPlayerOpal = getGameOpal().getIncomingWinningCardPlayerOpal();
-		return lclPlayerOpal == null ? null : lclPlayerOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argPlayer) {
-		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
 		return this;
 	}
 

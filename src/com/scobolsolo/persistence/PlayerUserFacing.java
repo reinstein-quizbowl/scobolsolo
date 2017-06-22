@@ -511,60 +511,6 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Card getInitialCard();
 	public com.scobolsolo.application.Player setInitialCard(com.scobolsolo.application.Card argInitialCard);
 
-	public int getOutgoingLosingCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingLosingCardGameIterator();
-
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingLosingCardGame();
-
-	public com.scobolsolo.application.Player addOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingLosingCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
-	}
-
-	default public com.scobolsolo.application.Game[] createOutgoingLosingCardGameArray() {
-		int lclLength = getOutgoingLosingCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
-	}
-
-	public int getOutgoingWinningCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingWinningCardGameIterator();
-
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingWinningCardGame();
-
-	public com.scobolsolo.application.Player addOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingWinningCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
-	}
-
-	default public com.scobolsolo.application.Game[] createOutgoingWinningCardGameArray() {
-		int lclLength = getOutgoingWinningCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
-	}
-
 	public int getIncomingLosingCardGameCount();
 	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingLosingCardGameIterator();
 
@@ -613,6 +559,60 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
 		int lclIndex = 0;
 		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
+	public int getOutgoingLosingCardGameCount();
+	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingLosingCardGameIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingLosingCardGame();
+
+	public com.scobolsolo.application.Player addOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingLosingCardGame(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Game[] createOutgoingLosingCardGameArray() {
+		int lclLength = getOutgoingLosingCardGameCount();
+		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
+		while (lclI.hasNext()) {
+			lclA[lclIndex++] = lclI.next();
+		}
+		return lclA;
+	}
+
+	public int getOutgoingWinningCardGameCount();
+	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingWinningCardGameIterator();
+
+	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingWinningCardGame();
+
+	public com.scobolsolo.application.Player addOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
+	public com.scobolsolo.application.Player removeOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
+	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingWinningCardGame(T argC) {
+		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
+		while (lclI.hasNext()) {
+			argC.add(lclI.next());
+		}
+		return argC;
+	}
+
+	default public com.scobolsolo.application.Game[] createOutgoingWinningCardGameArray() {
+		int lclLength = getOutgoingWinningCardGameCount();
+		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
+		int lclIndex = 0;
+		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
 		while (lclI.hasNext()) {
 			lclA[lclIndex++] = lclI.next();
 		}

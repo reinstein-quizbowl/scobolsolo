@@ -1,6 +1,6 @@
 ﻿$(document).ready(
 	function() {
-		$('[title]').attr('data-tooltip', '').attr('aria-haspopup', 'true').addClass('has-tip');
+		$('[title]').attr('data-tooltip', '').attr('aria-haspopup', 'true');
 		
 		$('input[type=submit], input[type=reset], input[type=button], button').addClass('button');
 		$('input[type=submit]:not(.tiny):not(.medium):not(.large), input[type=reset]:not(.tiny):not(.medium):not(.large), input[type=button]:not(.tiny):not(.medium):not(.large), button:not(.tiny):not(.medium):not(.large), a.button:not(.tiny):not(.medium):not(.large)').addClass('small');

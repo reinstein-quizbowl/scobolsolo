@@ -526,6 +526,15 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	}
 
 	/**
+	 * @return the {@code com.scobolsolo.application.Category}
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code diff_category_code_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Category getCategory();
+	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Account}
 	 * The returned {@code com.scobolsolo.application.Account} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code account} that is referenced by {@code diff_editor_account_id_fkey}.
 	 *
@@ -551,15 +560,6 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.QuestionStatus getStatus();
 	public com.scobolsolo.application.Diff setStatus(com.scobolsolo.application.QuestionStatus argStatus);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code diff_category_code_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Category getCategory();
-	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory);
 
 	public int getResponseCount();
 	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator();

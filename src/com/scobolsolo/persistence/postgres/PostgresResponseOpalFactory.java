@@ -173,15 +173,6 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	}
 
 	@Override
-	public java.util.HashSet<ResponseOpal> forPerformanceIdCollection(java.lang.Integer argPerformanceId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argPerformanceId };
-		final String[] lclFieldNames = new String[] { "performance_id" };
-		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
 	public java.util.HashSet<ResponseOpal> forBasePlacementIdCollection(java.lang.Integer argBasePlacementId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argBasePlacementId };
 		final String[] lclFieldNames = new String[] { "base_placement_id" };
@@ -191,18 +182,27 @@ public class PostgresResponseOpalFactory extends com.opal.AbstractDatabaseIdenti
 	}
 
 	@Override
-	public java.util.HashSet<ResponseOpal> forReplacementPlacementIdCollection(java.lang.Integer argReplacementPlacementId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argReplacementPlacementId };
-		final String[] lclFieldNames = new String[] { "replacement_placement_id" };
+	public java.util.HashSet<ResponseOpal> forDiffIdCollection(java.lang.Integer argDiffId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argDiffId };
+		final String[] lclFieldNames = new String[] { "diff_id" };
 		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;
 	}
 
 	@Override
-	public java.util.HashSet<ResponseOpal> forDiffIdCollection(java.lang.Integer argDiffId) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argDiffId };
-		final String[] lclFieldNames = new String[] { "diff_id" };
+	public java.util.HashSet<ResponseOpal> forPerformanceIdCollection(java.lang.Integer argPerformanceId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argPerformanceId };
+		final String[] lclFieldNames = new String[] { "performance_id" };
+		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
+	public java.util.HashSet<ResponseOpal> forReplacementPlacementIdCollection(java.lang.Integer argReplacementPlacementId) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argReplacementPlacementId };
+		final String[] lclFieldNames = new String[] { "replacement_placement_id" };
 		java.util.HashSet<ResponseOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

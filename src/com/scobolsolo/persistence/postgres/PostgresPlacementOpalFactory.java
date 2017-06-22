@@ -193,6 +193,15 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	}
 
 	@Override
+	public java.util.HashSet<PlacementOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
+		final Object[] lclParameters = new Object[] { argCategoryCode };
+		final String[] lclFieldNames = new String[] { "category_code" };
+		java.util.HashSet<PlacementOpal> lclCollection = new java.util.HashSet<>();
+		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
+		return lclCollection;
+	}
+
+	@Override
 	public java.util.HashSet<PlacementOpal> forPacketIdCollection(java.lang.Integer argPacketId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argPacketId };
 		final String[] lclFieldNames = new String[] { "packet_id" };
@@ -205,15 +214,6 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 	public java.util.HashSet<PlacementOpal> forQuestionIdCollection(java.lang.Integer argQuestionId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argQuestionId };
 		final String[] lclFieldNames = new String[] { "question_id" };
-		java.util.HashSet<PlacementOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
-	public java.util.HashSet<PlacementOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argCategoryCode };
-		final String[] lclFieldNames = new String[] { "category_code" };
 		java.util.HashSet<PlacementOpal> lclCollection = new java.util.HashSet<>();
 		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
 		return lclCollection;

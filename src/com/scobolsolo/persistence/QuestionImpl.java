@@ -188,21 +188,6 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 		return this;
 	}
 
-	/** @return the Account object created from question through reference question_writer_account_id_fkey */
-
-	@com.opal.annotation.Nullability(nullable = true)
-	@Override
-	public com.scobolsolo.application.Account getWriter() {
-		AccountOpal lclAccountOpal = getQuestionOpal().getWriterOpal();
-		return lclAccountOpal == null ? null : lclAccountOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argAccount) {
-		getQuestionOpal().setWriterOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
-		return this;
-	}
-
 	/** @return the QuestionStatus object created from question through reference question_question_status_code_fkey */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -215,6 +200,21 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	@Override
 	public com.scobolsolo.application.Question setStatus(com.scobolsolo.application.QuestionStatus argQuestionStatus) {
 		getQuestionOpal().setStatusOpal(argQuestionStatus == null ? null : ((QuestionStatusImpl) argQuestionStatus).getQuestionStatusOpal());
+		return this;
+	}
+
+	/** @return the Account object created from question through reference question_writer_account_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.application.Account getWriter() {
+		AccountOpal lclAccountOpal = getQuestionOpal().getWriterOpal();
+		return lclAccountOpal == null ? null : lclAccountOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argAccount) {
+		getQuestionOpal().setWriterOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
 		return this;
 	}
 

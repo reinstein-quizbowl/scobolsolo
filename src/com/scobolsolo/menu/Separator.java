@@ -22,21 +22,18 @@ public class Separator extends MenuItem {
 	}
 	
 	@Override
-	public String output(final MenuType argMT, final Account argUser, @SuppressWarnings("unused") final String argCurrentPageName) {
-		Validate.notNull(argMT);
-		// argUser and argCurrentPageName may be null.
-		
-		if (display(argUser)) {
-			switch (argMT) {
-				case BOOTSTRAP:
-				case FOUNDATION: // yep, they're the same
-					return "<li class=\"divider\"></li>";
-				default:
-					throw new MenuType.UnknownMenuTypeException(argMT);
-			}
-		} else {
-			return "";
-		}
+	protected String outputInitial(final Account argUser, final String argCurrentPageName) {
+		return "";
+	}
+	
+	@Override
+	protected String outputInternal(final Account argUser, final String argCurrentPageName) {
+		return "<li class=\"divider\"></li>";
+	}
+	
+	@Override
+	protected String outputFinal(final Account argUser, final String argCurrentPageName) {
+		return "";
 	}
 	
 	public static Separator displayIf(final DisplayDeterminer argDD) {

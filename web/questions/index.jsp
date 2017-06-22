@@ -53,7 +53,7 @@ if (lclSelectedTournaments.isEmpty()) {
 		for (Tournament lclT : lclTs) {
 			%><div class="small-6 medium-4 large-2 columns">
 				<label>
-					<input type="checkbox" name="tournament_code" value="<%= lclT.getCode() %>"<%= lclSelectedTournaments.contains(lclT) ? " checked=\"checked\"" : "" %>>&nbsp;used in <%= lclT.getShortName() %></label>
+					<input type="checkbox" name="tournament_code" value="<%= lclT.getCode() %>"<%= lclSelectedTournaments.contains(lclT) ? " checked=\"checked\"" : "" %>>&nbsp;used in <%= lclT.getShortName() %>
 				</label>
 			</div><%
 		}
@@ -67,56 +67,54 @@ if (lclSelectedTournaments.isEmpty()) {
 		<div class="small-6 medium-4 large-2 columns">
 			<input type="submit" class="tiny" value="Reload" />
 		</div>
-	</div>
-</div><%
-
-
-List<Question> lclQs = QuestionFactory.getInstance().streamAll()
-	.filter(argQ -> argQ.isUnused() ? lclShowUnused : argQ.streamPlacement().anyMatch(argPL -> lclSelectedTournaments.contains(argPL.getTournament())))
-	.sorted(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR))
-	.collect(Collectors.toList());
-
-Map<Tournament, ListMultimap<Category, Question>> lclUsed = new HashMap<>(lclSelectedTournaments.size());
-ListMultimap<Category, Question> lclUnused = ArrayListMultimap.create();
-for (Question lclQ : lclQs) {
-	if (lclQ.isUsed()) {
-		for (Placement lclPL : lclQ.createPlacementArray()) {
-			if (!lclUsed.containsKey(lclPL.getTournament())) {
-				lclUsed.put(lclPL.getTournament(), ArrayListMultimap.create());
-			}
-			lclUsed.get(lclPL.getTournament()).put(lclQ.getCategory(), lclQ);
-		}
-	} else {
-		lclUnused.put(lclQ.getCategory(), lclQ);
-	}
-}
-
-if (lclShowUnused) {
-	%><div class="row">
-		<div class="small-12 columns">
-			<h2>
-				<a onclick="$('#unused').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
-				Unused (<%= lclUnused.size() %>)
-			</h2>
-			<div id="unused"><%= outputTables(null, lclUnused) %></div>
 		</div>
 	</div><%
-}
-
-for (Tournament lclT : lclSelectedTournaments) {
-	if (lclUsed.containsKey(lclT)) {
+	List<Question> lclQs = QuestionFactory.getInstance().streamAll()
+		.filter(argQ -> argQ.isUnused() ? lclShowUnused : argQ.streamPlacement().anyMatch(argPL -> lclSelectedTournaments.contains(argPL.getTournament())))
+		.sorted(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR))
+		.collect(Collectors.toList());
+	
+	Map<Tournament, ListMultimap<Category, Question>> lclUsed = new HashMap<>(lclSelectedTournaments.size());
+	ListMultimap<Category, Question> lclUnused = ArrayListMultimap.create();
+	for (Question lclQ : lclQs) {
+		if (lclQ.isUsed()) {
+			for (Placement lclPL : lclQ.createPlacementArray()) {
+				if (!lclUsed.containsKey(lclPL.getTournament())) {
+					lclUsed.put(lclPL.getTournament(), ArrayListMultimap.create());
+				}
+				lclUsed.get(lclPL.getTournament()).put(lclQ.getCategory(), lclQ);
+			}
+		} else {
+			lclUnused.put(lclQ.getCategory(), lclQ);
+		}
+	}
+	
+	if (lclShowUnused) {
 		%><div class="row">
 			<div class="small-12 columns">
 				<h2>
-					<a onclick="$('#<%= lclT.getCode() %>').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
-					<%= lclT.getName() %> (<%= lclUsed.get(lclT).size() %>)
+					<a onclick="$('#unused').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
+					Unused (<%= lclUnused.size() %>)
 				</h2>
-				<div id="<%= lclT.getCode() %>"><%= outputTables(lclT, lclUsed.get(lclT)) %></div>
+				<div id="unused"><%= outputTables(null, lclUnused) %></div>
 			</div>
 		</div><%
 	}
-}
-%>
+	
+	for (Tournament lclT : lclSelectedTournaments) {
+		if (lclUsed.containsKey(lclT)) {
+			%><div class="row">
+				<div class="small-12 columns">
+					<h2>
+						<a onclick="$('#<%= lclT.getCode() %>').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
+						<%= lclT.getName() %> (<%= lclUsed.get(lclT).size() %>)
+					</h2>
+					<div id="<%= lclT.getCode() %>"><%= outputTables(lclT, lclUsed.get(lclT)) %></div>
+				</div>
+			</div><%
+		}
+	}
+%></form>
 
 <script type="text/javascript">
 	function flipIcon(argElement) {

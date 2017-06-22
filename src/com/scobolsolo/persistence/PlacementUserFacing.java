@@ -379,6 +379,15 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Placement setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
+	 * @return the {@code com.scobolsolo.application.Category}
+	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code placement_category_code_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Category getCategory();
+	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Packet}
 	 * The returned {@code com.scobolsolo.application.Packet} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code packet} that is referenced by {@code placement_packet_id_fkey}.
 	 *
@@ -395,15 +404,6 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Question getQuestion();
 	public com.scobolsolo.application.Placement setQuestion(com.scobolsolo.application.Question argQuestion);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.Category}
-	 * The returned {@code com.scobolsolo.application.Category} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category} that is referenced by {@code placement_category_code_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Category getCategory();
-	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory);
 
 	public int getBaseResponseCount();
 	public java.util.Iterator<com.scobolsolo.application.Response> createBaseResponseIterator();

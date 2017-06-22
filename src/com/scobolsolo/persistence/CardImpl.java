@@ -162,21 +162,6 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** @return the Phase object created from card through reference card_phase_id_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.Phase getPhase() {
-		PhaseOpal lclPhaseOpal = getCardOpal().getPhaseOpal();
-		return lclPhaseOpal == null ? null : lclPhaseOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Card setPhase(com.scobolsolo.application.Phase argPhase) {
-		getCardOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
-		return this;
-	}
-
 	/** @return the Player object created from card through reference card_initial_player_id_fkey */
 
 	@com.opal.annotation.Nullability(nullable = true)
@@ -189,6 +174,21 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	@Override
 	public com.scobolsolo.application.Card setInitialPlayer(com.scobolsolo.application.Player argPlayer) {
 		getCardOpal().setInitialPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		return this;
+	}
+
+	/** @return the Phase object created from card through reference card_phase_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.Phase getPhase() {
+		PhaseOpal lclPhaseOpal = getCardOpal().getPhaseOpal();
+		return lclPhaseOpal == null ? null : lclPhaseOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Card setPhase(com.scobolsolo.application.Phase argPhase) {
+		getCardOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
 		return this;
 	}
 

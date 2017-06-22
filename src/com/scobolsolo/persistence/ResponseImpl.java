@@ -170,36 +170,6 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** @return the Performance object created from response through reference response_performance_id_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.Performance getPerformance() {
-		PerformanceOpal lclPerformanceOpal = getResponseOpal().getPerformanceOpal();
-		return lclPerformanceOpal == null ? null : lclPerformanceOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance) {
-		getResponseOpal().setPerformanceOpal(argPerformance == null ? null : ((PerformanceImpl) argPerformance).getPerformanceOpal());
-		return this;
-	}
-
-	/** @return the ResponseType object created from response through reference response_response_type_code_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.ResponseType getResponseType() {
-		ResponseTypeOpal lclResponseTypeOpal = getResponseOpal().getResponseTypeOpal();
-		return lclResponseTypeOpal == null ? null : lclResponseTypeOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType) {
-		getResponseOpal().setResponseTypeOpal(argResponseType == null ? null : ((ResponseTypeImpl) argResponseType).getResponseTypeOpal());
-		return this;
-	}
-
 	/** @return the Placement object created from response through reference response_base_placement_id_fkey */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -212,6 +182,36 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	@Override
 	public com.scobolsolo.application.Response setBasePlacement(com.scobolsolo.application.Placement argPlacement) {
 		getResponseOpal().setBasePlacementOpal(argPlacement == null ? null : ((PlacementImpl) argPlacement).getPlacementOpal());
+		return this;
+	}
+
+	/** @return the Diff object created from response through reference response_diff_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.application.Diff getDiff() {
+		DiffOpal lclDiffOpal = getResponseOpal().getDiffOpal();
+		return lclDiffOpal == null ? null : lclDiffOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Response setDiff(com.scobolsolo.application.Diff argDiff) {
+		getResponseOpal().setDiffOpal(argDiff == null ? null : ((DiffImpl) argDiff).getDiffOpal());
+		return this;
+	}
+
+	/** @return the Performance object created from response through reference response_performance_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.Performance getPerformance() {
+		PerformanceOpal lclPerformanceOpal = getResponseOpal().getPerformanceOpal();
+		return lclPerformanceOpal == null ? null : lclPerformanceOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance) {
+		getResponseOpal().setPerformanceOpal(argPerformance == null ? null : ((PerformanceImpl) argPerformance).getPerformanceOpal());
 		return this;
 	}
 
@@ -230,18 +230,18 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 		return this;
 	}
 
-	/** @return the Diff object created from response through reference response_diff_id_fkey */
+	/** @return the ResponseType object created from response through reference response_response_type_code_fkey */
 
-	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
-	public com.scobolsolo.application.Diff getDiff() {
-		DiffOpal lclDiffOpal = getResponseOpal().getDiffOpal();
-		return lclDiffOpal == null ? null : lclDiffOpal.getUserFacing();
+	public com.scobolsolo.application.ResponseType getResponseType() {
+		ResponseTypeOpal lclResponseTypeOpal = getResponseOpal().getResponseTypeOpal();
+		return lclResponseTypeOpal == null ? null : lclResponseTypeOpal.getUserFacing();
 	}
 
 	@Override
-	public com.scobolsolo.application.Response setDiff(com.scobolsolo.application.Diff argDiff) {
-		getResponseOpal().setDiffOpal(argDiff == null ? null : ((DiffImpl) argDiff).getDiffOpal());
+	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType) {
+		getResponseOpal().setResponseTypeOpal(argResponseType == null ? null : ((ResponseTypeImpl) argResponseType).getResponseTypeOpal());
 		return this;
 	}
 

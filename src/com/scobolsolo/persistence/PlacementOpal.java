@@ -34,9 +34,9 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	@Override
 	protected void initializeReferences() {
+		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
 		myOldPacketOpal = PacketOpal.NOT_YET_LOADED;
 		myOldQuestionOpal = QuestionOpal.NOT_YET_LOADED;
-		myOldCategoryOpal = CategoryOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -233,9 +233,9 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
+		myNewCategoryOpal = myOldCategoryOpal;
 		myNewPacketOpal = myOldPacketOpal;
 		myNewQuestionOpal = myOldQuestionOpal;
-		myNewCategoryOpal = myOldCategoryOpal;
 		myNewBaseResponseOpalHashSet = null; /* Necessary if it has been rolled back */
 		myBaseResponseOpalCachedOperations = null; /* Ditto */
 		myNewReplacementResponseOpalHashSet = null; /* Necessary if it has been rolled back */
@@ -246,9 +246,9 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
+		myOldCategoryOpal = myNewCategoryOpal;
 		myOldPacketOpal = myNewPacketOpal;
 		myOldQuestionOpal = myNewQuestionOpal;
-		myOldCategoryOpal = myNewCategoryOpal;
 
 		if (needsToClearOldCollections()) {
 			myOldBaseResponseOpalHashSet = null;
@@ -294,14 +294,14 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 				((ResponseOpal) lclI.next()).setReplacementPlacementOpalInternal(null);
 			}
 		}
+		if (getCategoryOpal() != null) {
+			getCategoryOpal().removePlacementOpalInternal(this);
+		}
 		if (getPacketOpal() != null) {
 			getPacketOpal().removePlacementOpalInternal(this);
 		}
 		if (getQuestionOpal() != null) {
 			getQuestionOpal().removePlacementOpalInternal(this);
-		}
-		if (getCategoryOpal() != null) {
-			getCategoryOpal().removePlacementOpalInternal(this);
 		}
 		return;
 	}
@@ -323,14 +323,14 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	@Override
 	public synchronized void translateReferencesToFields() {
+		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
+			setCategoryCode(myNewCategoryOpal == null ? null : myNewCategoryOpal.getCode());
+		}
 		if (myNewPacketOpal != PacketOpal.NOT_YET_LOADED) {
 			setPacketId(myNewPacketOpal == null ? null : myNewPacketOpal.getIdAsObject());
 		}
 		if (myNewQuestionOpal != QuestionOpal.NOT_YET_LOADED) {
 			setQuestionId(myNewQuestionOpal == null ? null : myNewQuestionOpal.getIdAsObject());
-		}
-		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
-			setCategoryCode(myNewCategoryOpal == null ? null : myNewCategoryOpal.getCode());
 		}
 		return;
 	}
@@ -431,6 +431,51 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		argOutput.println("CategoryCode = " + getCategoryCode());
 	}
 
+	private CategoryOpal myOldCategoryOpal;
+	private CategoryOpal myNewCategoryOpal;
+
+	protected CategoryOpal retrieveCategoryOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[6] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCode(getCategoryCode());
+	}
+
+	public synchronized CategoryOpal getCategoryOpal() {
+		CategoryOpal lclCategoryOpal;
+		boolean lclAccess = tryAccess();
+		lclCategoryOpal = lclAccess ? myNewCategoryOpal : myOldCategoryOpal;
+		if (lclCategoryOpal == CategoryOpal.NOT_YET_LOADED) {
+			lclCategoryOpal = retrieveCategoryOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewCategoryOpal = lclCategoryOpal;
+			} else {
+				myOldCategoryOpal = lclCategoryOpal;
+			}
+		}
+		return lclCategoryOpal;
+	}
+
+	public synchronized PlacementOpal setCategoryOpal(CategoryOpal argCategoryOpal) {
+		tryMutate();
+		CategoryOpal lclCategoryOpal = getCategoryOpal();
+		if (lclCategoryOpal == argCategoryOpal) { return this; }
+		if (lclCategoryOpal != null) {
+			lclCategoryOpal.removePlacementOpalInternal(this);
+		}
+		myNewCategoryOpal = argCategoryOpal;
+		if (argCategoryOpal != null) {
+			argCategoryOpal.addPlacementOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setCategoryOpalInternal(CategoryOpal argCategoryOpal) {
+		tryMutate();
+		myNewCategoryOpal = argCategoryOpal;
+	}
+
 	private PacketOpal myOldPacketOpal;
 	private PacketOpal myNewPacketOpal;
 
@@ -519,51 +564,6 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	protected synchronized void setQuestionOpalInternal(QuestionOpal argQuestionOpal) {
 		tryMutate();
 		myNewQuestionOpal = argQuestionOpal;
-	}
-
-	private CategoryOpal myOldCategoryOpal;
-	private CategoryOpal myNewCategoryOpal;
-
-	protected CategoryOpal retrieveCategoryOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[6] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCode(getCategoryCode());
-	}
-
-	public synchronized CategoryOpal getCategoryOpal() {
-		CategoryOpal lclCategoryOpal;
-		boolean lclAccess = tryAccess();
-		lclCategoryOpal = lclAccess ? myNewCategoryOpal : myOldCategoryOpal;
-		if (lclCategoryOpal == CategoryOpal.NOT_YET_LOADED) {
-			lclCategoryOpal = retrieveCategoryOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewCategoryOpal = lclCategoryOpal;
-			} else {
-				myOldCategoryOpal = lclCategoryOpal;
-			}
-		}
-		return lclCategoryOpal;
-	}
-
-	public synchronized PlacementOpal setCategoryOpal(CategoryOpal argCategoryOpal) {
-		tryMutate();
-		CategoryOpal lclCategoryOpal = getCategoryOpal();
-		if (lclCategoryOpal == argCategoryOpal) { return this; }
-		if (lclCategoryOpal != null) {
-			lclCategoryOpal.removePlacementOpalInternal(this);
-		}
-		myNewCategoryOpal = argCategoryOpal;
-		if (argCategoryOpal != null) {
-			argCategoryOpal.addPlacementOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setCategoryOpalInternal(CategoryOpal argCategoryOpal) {
-		tryMutate();
-		myNewCategoryOpal = argCategoryOpal;
 	}
 
 	private java.util.Set<ResponseOpal> myOldBaseResponseOpalHashSet = null;
@@ -750,14 +750,14 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 	@Override
 	protected void updateReferencesAfterReload() {
+		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
+			setCategoryOpal(retrieveCategoryOpal(getNewValues()));
+		}
 		if (myNewPacketOpal != PacketOpal.NOT_YET_LOADED) {
 			setPacketOpal(retrievePacketOpal(getNewValues()));
 		}
 		if (myNewQuestionOpal != QuestionOpal.NOT_YET_LOADED) {
 			setQuestionOpal(retrieveQuestionOpal(getNewValues()));
-		}
-		if (myNewCategoryOpal != CategoryOpal.NOT_YET_LOADED) {
-			setCategoryOpal(retrieveCategoryOpal(getNewValues()));
 		}
 	}
 

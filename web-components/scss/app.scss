@@ -1,0 +1,452 @@
+@mixin css3-prefix($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-khtml-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-o-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+$info-color: map-get($foundation-palette, info);
+
+td { // Deliberately not th
+	vertical-align: top;
+}
+
+.switch {
+	padding: $form-spacing / 2 + rem-calc($input-border-width) 0 !important;
+}
+
+td div.switch {
+	padding: 0 !important;
+}
+
+abbr, acronym {
+	text-transform: none !important;
+	font-size: 100% !important;
+}
+
+.has-tip:not(.stealth-tooltip), [title]:not(.stealth-tooltip), .tooltipped {
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: $dark-gray;
+}
+
+[title].stealth-tooltip {
+	border-bottom: none;
+	font-weight: 400;
+	
+	:hover {
+		border-bottom: none;
+	}
+}
+
+.success {
+	background-color: $success-color;
+}
+
+
+.alert {
+	background-color: $alert-color;
+}
+
+
+.warning, .incorrect, .incorrect:active, .incorrect:focus {
+	background-color: $warning-color;
+}
+
+.info {
+	background-color: $info-color !important;
+}
+
+.success {
+	background-color: $success-color !important;
+}
+
+.logged-in-container {
+	text-align: center;
+	
+	a, a:hover {
+		color: #fff;
+		border: 0;
+	}
+}
+
+.log-out-container {
+	text-align: center;
+	
+	a.log-out {
+		color: #fff;
+		border: 0;
+	}
+}
+
+
+input.annotated {
+	margin-bottom: 0 !important;
+}
+
+input[disabled] {
+	background-color: #aaa !important;
+}
+
+.form-annotation {
+	font-size: 67%;
+	font-style: italic;
+}
+
+
+.side-nav {
+	position: fixed;
+}
+
+.magellan a {
+	display: block;
+	width: 100%;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.magellan a.active {
+	color: $white;
+	background-color: $primary-color;
+	font-weight: 700;
+}
+
+label {
+	font-weight: 400 !important;
+}
+
+label.my-inline {
+	display: inline;
+}
+
+
+table:not(.unsortable) thead th, table:not(.unsortable) thead td {
+	padding-right: 20px !important;
+	cursor: pointer;
+	background-image: url(/template/tablesorter/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+table:not(.unsortable) thead tr .tablesorter-headerAsc {
+	background-image: url(/template/tablesorter/asc.gif);
+}
+
+table:not(.unsortable) thead tr .tablesorter-headerDesc {
+	background-image: url(/template/tablesorter/desc.gif);
+}
+
+
+.full-width {
+	width: 100%;
+}
+
+@media #{$large-up} {
+	table.even-spacing {
+		table-layout: fixed;
+	}
+}
+
+a.has-tip {
+	color: $primary-color;
+}
+
+h1#mainHeader {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	margin-top: 1rem;
+}
+
+button.menu-icon, button.menu-icon:hover, button.menu-icon:active, button.menu-icon:focus,
+button.close-button, button.close-button:hover, button.close-button:active, button.close-button:focus, {
+	color: $white;
+	background-color: inherit;
+}
+
+.callout {
+	margin-top: 1rem !important;
+}
+
+.button-in-row {
+	padding-top: 20px;
+	
+	input[type=submit], input[type=reset], input[type=button], button, .button {
+		margin-bottom: 0;
+	}
+}
+
+a.subtle-highlight {
+	color: inherit;
+	border-bottom: 1px dotted $primary-color;
+}
+
+a.no-highlight {
+	color: inherit;
+	border-bottom: none;
+}
+
+.has-pronunciation-guide, .pronunciation-guide {
+	font-family: 'STIXGeneral', $font-family-serif;
+	color: $dark-gray;
+}
+
+.pronunciation-guide::before {
+	content: "[";
+}
+
+.pronunciation-guide::after {
+	content: "]";
+}
+
+img.math {
+	vertical-align: text-bottom;
+}
+
+.question-text, .question-answer, .question-note {
+	font-size: 1.25rem;
+	font-family: 'STIXGeneral', $font-family-serif
+}
+
+.question-text.small, .question-answer.small, .question-note.small {
+	font-size: 1rem;
+}
+
+.question-answer::before {
+	content: "answer: ";
+}
+
+.question-note::before {
+	content: "Note: ";
+}
+
+table.tournament-final-standings {
+	width: auto;
+	min-width: 40rem;
+	border-style: none;
+	
+	* {
+		vertical-align: top;
+		background-color: #fff;
+	}
+	
+	caption {
+		padding: 0px;
+		font-weight: normal;
+		text-align: left;
+	}
+	
+	tbody {
+		border-style: none;
+	}
+	
+	th, td {
+		padding-top: 0;
+		padding-bottom: 0.25rem;
+	}
+}
+
+table.championship-scoresheet {
+	* {
+		text-align: center;
+		vertical-align: middle;
+	}
+	
+	tr.player-names, tr.player-names * {
+		padding-bottom: 0 !important;
+		border-bottom: 0 !important;
+	}
+	
+	tr.player-names th, tr.player-names td {
+		vertical-align: bottom !important;
+	}
+	
+	tr.player-schools, tr.player-schools * {
+		padding-top: 0 !important;
+		border-top: 0 !important;
+	}
+	
+	tr.player-schools th, tr.player-schools td {
+		vertical-align: top !important;
+	}
+	
+	.player-school {
+		font-size: 67%;
+	}
+	
+	.question-number, .score-check-label {
+		font-weight: 700;
+	}
+	
+	td.player-not-in-game {
+		background-color: #ccc;
+	}
+	
+	td.player-correct-response {
+		background-color: #43aC6a; /* $success-color */
+	}
+	
+	td.player-incorrect-response {
+		background-color: #f08a24; /* $warning-color */
+	}
+	
+	tr.score-check, tr.note {
+		border-top: 1px solid #999;
+		border-bottom: 1px solid #999;
+		background-color: #a0d3e8; /* $info-color */
+	}
+	
+	.player-score-check {
+		font-weight: 700;
+	}
+	
+	.note {
+		font-style: italic;
+	}
+	
+	.answer {
+		font-size: 75%;
+	}
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.messages.unread, .messages.unread:hover, .messages.unread:active, .messages.unread:focus {
+	color: #f00;
+}
+
+.unread-message {
+	color: #f00;
+}
+
+.message-sender {
+	font-weight: bold;
+}
+
+.message-timestamp {
+	color: $dark-gray;
+}
+
+.message-timestamp::before {
+	content: '(';
+}
+
+.message-timestamp::after {
+	content: ')';
+}
+
+$buzzable-border-radius: 0.4rem;
+
+.buzzable:hover, .buzzable.active {
+	background-color: $light-gray;
+	border-radius: $buzzable-border-radius;
+	cursor: crosshair;
+}
+
+.buzzed-incorrect {
+	background-color: $warning-color;
+	border-radius: $buzzable-border-radius;
+}
+
+.buzzed-correct {
+	background-color: $success-color;
+	border-radius: $buzzable-border-radius;
+}
+
+.buzzed-incorrect.buzzed-correct { // i.e., two buzzes on the same question, one incorrect and one correct
+	background: repeating-linear-gradient(
+		315deg,
+		$warning-color,
+		$warning-color 7px,
+		$success-color 7px,
+		$success-color 14px
+	);
+	background-color: $info-color; // I don't really have a better idea.  Maybe some stripey background would be ideal.
+	border-radius: $buzzable-border-radius;
+}
+
+.buzz-menu-container {
+	display: inline-block;
+	z-index: 1;
+	padding: 0.3rem;
+	background-color: $white;
+	border: 2px solid $dark-gray;
+	box-shadow: 0 0 1rem $medium-gray;
+	font-size: 80%;
+}
+
+.buzz-choices td {
+	padding: 0;
+}
+
+.buzz-choices td + td {
+	padding-left: 0.5rem;
+}
+
+.buzz-choices .button {
+	margin: 0;
+}
+
+.buzzed-indicator {
+	position: absolute;
+	display: inline-block;
+	z-index: 1;
+	padding: 0.1rem;
+	border: 1px solid $dark-gray;
+	box-shadow: 0 0 0.4rem $medium-gray;
+	font-size: 8pt;
+}
+
+.buzzed-indicator-correct {
+	background-color: $success-color;
+}
+
+.buzzed-indicator-incorrect {
+	background-color: $warning-color;
+}
+
+table.buzz-choices {
+	thead {
+		background-color: $light-gray;
+	}
+	
+	tbody, tbody * {
+		background-color: $white;
+	}
+}
+
+// STIX loading
+@font-face {
+	font-family: 'STIXGeneral';
+	src: url('/template/fonts/stixgeneral-webfont.eot');
+	src: local('[smiley]'), url('/template/fonts/stixgeneral-webfont.woff') format('woff'), url('/template/fonts/stixgeneral-webfont.ttf') format('truetype'), url('/template/fonts/stixgeneral-webfont.svg#webfontZXtFAA5Q') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'STIXGeneral';
+	src: url('/template/fonts/stixgeneralitalic-webfont.eot');
+	src: local('[smiley]'), url('/template/fonts/stixgeneralitalic-webfont.woff') format('woff'), url('/template/fonts/stixgeneralitalic-webfont.ttf') format('truetype'), url('/template/fonts/stixgeneralitalic-webfont.svg#webfont2oJeLJIt') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'STIXGeneral';
+	src: url('/template/fonts/stixgeneralbol-webfont.eot');
+	src: local('[smiley]'), url('/template/fonts/stixgeneralbol-webfont.woff') format('woff'), url('/template/fonts/stixgeneralbol-webfont.ttf') format('truetype'), url('/template/fonts/stixgeneralbol-webfont.svg#webfontwFpnxWyx') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'STIXGeneral';
+	src: url('/template/fonts/stixgeneralbolita-webfont.eot');
+	src: local('[smiley]'), url('/template/fonts/stixgeneralbolita-webfont.woff') format('woff'), url('/template/fonts/stixgeneralbolita-webfont.ttf') format('truetype'), url('/template/fonts/stixgeneralbolita-webfont.svg#webfontSsfHxKRo') format('svg');
+	font-weight: bold;
+	font-style: italic;
+}

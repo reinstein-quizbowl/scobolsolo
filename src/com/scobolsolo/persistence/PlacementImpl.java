@@ -174,6 +174,21 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
+	/** @return the Category object created from placement through reference placement_category_code_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.Category getCategory() {
+		CategoryOpal lclCategoryOpal = getPlacementOpal().getCategoryOpal();
+		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory) {
+		getPlacementOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
+		return this;
+	}
+
 	/** @return the Packet object created from placement through reference placement_packet_id_fkey */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -201,21 +216,6 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	@Override
 	public com.scobolsolo.application.Placement setQuestion(com.scobolsolo.application.Question argQuestion) {
 		getPlacementOpal().setQuestionOpal(argQuestion == null ? null : ((QuestionImpl) argQuestion).getQuestionOpal());
-		return this;
-	}
-
-	/** @return the Category object created from placement through reference placement_category_code_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.Category getCategory() {
-		CategoryOpal lclCategoryOpal = getPlacementOpal().getCategoryOpal();
-		return lclCategoryOpal == null ? null : lclCategoryOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory) {
-		getPlacementOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
 		return this;
 	}
 

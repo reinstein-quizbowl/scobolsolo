@@ -145,36 +145,6 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** @return the Staff object created from staff_assignment through reference staff_assignment_staff_id_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.Staff getStaff() {
-		StaffOpal lclStaffOpal = getStaffAssignmentOpal().getStaffOpal();
-		return lclStaffOpal == null ? null : lclStaffOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff) {
-		getStaffAssignmentOpal().setStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
-		return this;
-	}
-
-	/** @return the Room object created from staff_assignment through reference staffer_assignment_room_id_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.Room getRoom() {
-		RoomOpal lclRoomOpal = getStaffAssignmentOpal().getRoomOpal();
-		return lclRoomOpal == null ? null : lclRoomOpal.getUserFacing();
-	}
-
-	@Override
-	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom) {
-		getStaffAssignmentOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
-		return this;
-	}
-
 	/** @return the Phase object created from staff_assignment through reference staff_assignment_phase_id_fkey */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -190,6 +160,21 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 		return this;
 	}
 
+	/** @return the Staff object created from staff_assignment through reference staff_assignment_staff_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.Staff getStaff() {
+		StaffOpal lclStaffOpal = getStaffAssignmentOpal().getStaffOpal();
+		return lclStaffOpal == null ? null : lclStaffOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff) {
+		getStaffAssignmentOpal().setStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
+		return this;
+	}
+
 	/** @return the StaffRole object created from staff_assignment through reference staff_assignment_staff_role_code_fkey */
 
 	@com.opal.annotation.Nullability(nullable = false)
@@ -202,6 +187,21 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 	@Override
 	public com.scobolsolo.application.StaffAssignment setRole(com.scobolsolo.application.StaffRole argStaffRole) {
 		getStaffAssignmentOpal().setRoleOpal(argStaffRole == null ? null : ((StaffRoleImpl) argStaffRole).getStaffRoleOpal());
+		return this;
+	}
+
+	/** @return the Room object created from staff_assignment through reference staffer_assignment_room_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.Room getRoom() {
+		RoomOpal lclRoomOpal = getStaffAssignmentOpal().getRoomOpal();
+		return lclRoomOpal == null ? null : lclRoomOpal.getUserFacing();
+	}
+
+	@Override
+	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom) {
+		getStaffAssignmentOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
 		return this;
 	}
 

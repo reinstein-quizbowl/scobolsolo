@@ -144,11 +144,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 									<td><%= lclWrittenThisCategory %></td>
 									<td><%= lclNeededThisCategory %></td>
 									<td><%= lclPct.format(lclCompletion) %></td>
-									<td>
-										<div class="progress" role="progressbar" aria-valuemin="0" aria-valuenow="<%= lclCappedWrittenThisCategory %>" aria-valuemax="<%= lclNeededThisCategory %>">
-											<div class="progress-meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></div>
-										</div>
-									</td>
+									<td><%= outputProgressBar(lclCappedWrittenThisCategory, lclNeededThisCategory) %></td>
 								</tr><%
 								
 								lclWrittenThisCG += lclWrittenThisCategory;
@@ -171,11 +167,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 								<th><%= lclWrittenThisCG %></th>
 								<th><%= lclNeededThisCG %></th>
 								<th><%= lclPct.format(lclCompletion) %></th>
-								<td>
-									<div class="progress" role="progressbar" aria-valuemin="0" aria-valuenow="<%= lclCappedWrittenThisCG %>" aria-valuemax="<%= lclNeededThisCG %>">
-										<div class="progress-meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></div>
-									</div>
-								</td>
+								<td><%= outputProgressBar(lclCappedWrittenThisCG, lclNeededThisCG) %></td>
 							</tr>
 						</tfoot><%
 					}
@@ -202,11 +194,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 							<td><%= lclWrittenTotal %></td>
 							<td><%= lclNeededTotal %></td>
 							<td><%= lclPct.format(lclCompletion) %></td>
-							<td>
-								<div class="progress" role="progressbar" aria-valuemin="0" aria-valuenow="<%= lclCappedWrittenTotal %>" aria-valuemax="<%= lclNeededTotal %>">
-									<div class="progress-meter" style="width: <%= lclIntPct.format(lclCompletion) %>;"></div>
-								</div>
-							</td>
+							<td><%= outputProgressBar(lclCappedWrittenTotal, lclNeededTotal) %></td>
 						</tr>
 					</tbody>
 				</table><%
@@ -234,6 +222,18 @@ private String determineClass(double argCompletion) {
 	} else {
 		return "info";
 	}
+}
+
+
+
+NumberFormat lclIntPct = new DecimalFormat("#%");
+private String outputProgressBar(int argDone, int argNeeded) {
+	Validate.isTrue(argDone >= 0);
+	Validate.isTrue(argNeeded > 0);
+	
+	return "<div class=\"progress\" role=\"progressbar\" aria-valuenow=\"" + argDone + "\" aria-valuemin=\"0\" aria-valuemax=\"" + argNeeded + "\">\n" +
+	"	<div class=\"progress-meter\" style=\"width: " + lclIntPct.format(1.0d * argDone / argNeeded) + "\"></div>\n" +
+	"</div>";
 }
 
 %>

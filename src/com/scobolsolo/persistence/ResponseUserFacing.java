@@ -424,24 +424,6 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Response setLocation(int argLocation);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Performance}
-	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code response_performance_id_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.Performance getPerformance();
-	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.ResponseType}
-	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code response_response_type_code_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.ResponseType getResponseType();
-	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.Placement}
 	 * The returned {@code com.scobolsolo.application.Placement} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code placement} that is referenced by {@code response_base_placement_id_fkey}.
 	 *
@@ -449,6 +431,24 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement getBasePlacement();
 	public com.scobolsolo.application.Response setBasePlacement(com.scobolsolo.application.Placement argBasePlacement);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Diff}
+	 * The returned {@code com.scobolsolo.application.Diff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code diff} that is referenced by {@code response_diff_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.Diff getDiff();
+	public com.scobolsolo.application.Response setDiff(com.scobolsolo.application.Diff argDiff);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Performance}
+	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code response_performance_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Performance getPerformance();
+	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Placement}
@@ -460,13 +460,13 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Response setReplacementPlacement(com.scobolsolo.application.Placement argReplacementPlacement);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.Diff}
-	 * The returned {@code com.scobolsolo.application.Diff} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code diff} that is referenced by {@code response_diff_id_fkey}.
+	 * @return the {@code com.scobolsolo.application.ResponseType}
+	 * The returned {@code com.scobolsolo.application.ResponseType} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code response_type} that is referenced by {@code response_response_type_code_fkey}.
 	 *
 	 */
-	@com.opal.annotation.Nullability(nullable = true)
-	public com.scobolsolo.application.Diff getDiff();
-	public com.scobolsolo.application.Response setDiff(com.scobolsolo.application.Diff argDiff);
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.ResponseType getResponseType();
+	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType);
 
 	public com.scobolsolo.application.Response copy();
 

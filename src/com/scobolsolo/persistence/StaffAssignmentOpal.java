@@ -17,10 +17,10 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 
 	@Override
 	protected void initializeReferences() {
-		myOldStaffOpal = StaffOpal.NOT_YET_LOADED;
-		myOldRoomOpal = RoomOpal.NOT_YET_LOADED;
 		myOldPhaseOpal = PhaseOpal.NOT_YET_LOADED;
+		myOldStaffOpal = StaffOpal.NOT_YET_LOADED;
 		myOldRoleOpal = StaffRoleOpal.NOT_YET_LOADED;
+		myOldRoomOpal = RoomOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -180,37 +180,37 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewStaffOpal = myOldStaffOpal;
-		myNewRoomOpal = myOldRoomOpal;
 		myNewPhaseOpal = myOldPhaseOpal;
+		myNewStaffOpal = myOldStaffOpal;
 		myNewRoleOpal = myOldRoleOpal;
+		myNewRoomOpal = myOldRoomOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
 
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
-		myOldStaffOpal = myNewStaffOpal;
-		myOldRoomOpal = myNewRoomOpal;
 		myOldPhaseOpal = myNewPhaseOpal;
+		myOldStaffOpal = myNewStaffOpal;
 		myOldRoleOpal = myNewRoleOpal;
+		myOldRoomOpal = myNewRoomOpal;
 
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		if (getStaffOpal() != null) {
-			getStaffOpal().removeStaffAssignmentOpalInternal(this);
-		}
-		if (getRoomOpal() != null) {
-			getRoomOpal().removeStaffAssignmentOpalInternal(this);
-		}
 		if (getPhaseOpal() != null) {
 			getPhaseOpal().removeStaffAssignmentOpalInternal(this);
 		}
+		if (getStaffOpal() != null) {
+			getStaffOpal().removeStaffAssignmentOpalInternal(this);
+		}
 		if (getRoleOpal() != null) {
 			getRoleOpal().removeStaffAssignmentOpalInternal(this);
+		}
+		if (getRoomOpal() != null) {
+			getRoomOpal().removeStaffAssignmentOpalInternal(this);
 		}
 		return;
 	}
@@ -231,17 +231,17 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 
 	@Override
 	public synchronized void translateReferencesToFields() {
-		if (myNewStaffOpal != StaffOpal.NOT_YET_LOADED) {
-			setStaffId(myNewStaffOpal == null ? null : myNewStaffOpal.getIdAsObject());
-		}
-		if (myNewRoomOpal != RoomOpal.NOT_YET_LOADED) {
-			setRoomId(myNewRoomOpal == null ? null : myNewRoomOpal.getIdAsObject());
-		}
 		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
 			setPhaseId(myNewPhaseOpal == null ? null : myNewPhaseOpal.getIdAsObject());
 		}
+		if (myNewStaffOpal != StaffOpal.NOT_YET_LOADED) {
+			setStaffId(myNewStaffOpal == null ? null : myNewStaffOpal.getIdAsObject());
+		}
 		if (myNewRoleOpal != StaffRoleOpal.NOT_YET_LOADED) {
 			setStaffRoleCode(myNewRoleOpal == null ? null : myNewRoleOpal.getCode());
+		}
+		if (myNewRoomOpal != RoomOpal.NOT_YET_LOADED) {
+			setRoomId(myNewRoomOpal == null ? null : myNewRoomOpal.getIdAsObject());
 		}
 		return;
 	}
@@ -356,96 +356,6 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		argOutput.println("StaffRoleCode = " + getStaffRoleCode());
 	}
 
-	private StaffOpal myOldStaffOpal;
-	private StaffOpal myNewStaffOpal;
-
-	protected StaffOpal retrieveStaffOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[3] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getStaffOpalFactory().forId(getStaffIdAsObject());
-	}
-
-	public synchronized StaffOpal getStaffOpal() {
-		StaffOpal lclStaffOpal;
-		boolean lclAccess = tryAccess();
-		lclStaffOpal = lclAccess ? myNewStaffOpal : myOldStaffOpal;
-		if (lclStaffOpal == StaffOpal.NOT_YET_LOADED) {
-			lclStaffOpal = retrieveStaffOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewStaffOpal = lclStaffOpal;
-			} else {
-				myOldStaffOpal = lclStaffOpal;
-			}
-		}
-		return lclStaffOpal;
-	}
-
-	public synchronized StaffAssignmentOpal setStaffOpal(StaffOpal argStaffOpal) {
-		tryMutate();
-		StaffOpal lclStaffOpal = getStaffOpal();
-		if (lclStaffOpal == argStaffOpal) { return this; }
-		if (lclStaffOpal != null) {
-			lclStaffOpal.removeStaffAssignmentOpalInternal(this);
-		}
-		myNewStaffOpal = argStaffOpal;
-		if (argStaffOpal != null) {
-			argStaffOpal.addStaffAssignmentOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setStaffOpalInternal(StaffOpal argStaffOpal) {
-		tryMutate();
-		myNewStaffOpal = argStaffOpal;
-	}
-
-	private RoomOpal myOldRoomOpal;
-	private RoomOpal myNewRoomOpal;
-
-	protected RoomOpal retrieveRoomOpal(Object[] argValueSet) {
-		assert argValueSet != null;
-		if ((argValueSet[1] == null)) {
-			return null;
-		}
-		return OpalFactoryFactory.getInstance().getRoomOpalFactory().forId(getRoomIdAsObject());
-	}
-
-	public synchronized RoomOpal getRoomOpal() {
-		RoomOpal lclRoomOpal;
-		boolean lclAccess = tryAccess();
-		lclRoomOpal = lclAccess ? myNewRoomOpal : myOldRoomOpal;
-		if (lclRoomOpal == RoomOpal.NOT_YET_LOADED) {
-			lclRoomOpal = retrieveRoomOpal(getReadValueSet());
-			if (lclAccess) {
-				myNewRoomOpal = lclRoomOpal;
-			} else {
-				myOldRoomOpal = lclRoomOpal;
-			}
-		}
-		return lclRoomOpal;
-	}
-
-	public synchronized StaffAssignmentOpal setRoomOpal(RoomOpal argRoomOpal) {
-		tryMutate();
-		RoomOpal lclRoomOpal = getRoomOpal();
-		if (lclRoomOpal == argRoomOpal) { return this; }
-		if (lclRoomOpal != null) {
-			lclRoomOpal.removeStaffAssignmentOpalInternal(this);
-		}
-		myNewRoomOpal = argRoomOpal;
-		if (argRoomOpal != null) {
-			argRoomOpal.addStaffAssignmentOpalInternal(this);
-		}
-		return this;
-	}
-
-	protected synchronized void setRoomOpalInternal(RoomOpal argRoomOpal) {
-		tryMutate();
-		myNewRoomOpal = argRoomOpal;
-	}
-
 	private PhaseOpal myOldPhaseOpal;
 	private PhaseOpal myNewPhaseOpal;
 
@@ -489,6 +399,51 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	protected synchronized void setPhaseOpalInternal(PhaseOpal argPhaseOpal) {
 		tryMutate();
 		myNewPhaseOpal = argPhaseOpal;
+	}
+
+	private StaffOpal myOldStaffOpal;
+	private StaffOpal myNewStaffOpal;
+
+	protected StaffOpal retrieveStaffOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[3] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getStaffOpalFactory().forId(getStaffIdAsObject());
+	}
+
+	public synchronized StaffOpal getStaffOpal() {
+		StaffOpal lclStaffOpal;
+		boolean lclAccess = tryAccess();
+		lclStaffOpal = lclAccess ? myNewStaffOpal : myOldStaffOpal;
+		if (lclStaffOpal == StaffOpal.NOT_YET_LOADED) {
+			lclStaffOpal = retrieveStaffOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewStaffOpal = lclStaffOpal;
+			} else {
+				myOldStaffOpal = lclStaffOpal;
+			}
+		}
+		return lclStaffOpal;
+	}
+
+	public synchronized StaffAssignmentOpal setStaffOpal(StaffOpal argStaffOpal) {
+		tryMutate();
+		StaffOpal lclStaffOpal = getStaffOpal();
+		if (lclStaffOpal == argStaffOpal) { return this; }
+		if (lclStaffOpal != null) {
+			lclStaffOpal.removeStaffAssignmentOpalInternal(this);
+		}
+		myNewStaffOpal = argStaffOpal;
+		if (argStaffOpal != null) {
+			argStaffOpal.addStaffAssignmentOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setStaffOpalInternal(StaffOpal argStaffOpal) {
+		tryMutate();
+		myNewStaffOpal = argStaffOpal;
 	}
 
 	private StaffRoleOpal myOldRoleOpal;
@@ -536,6 +491,51 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		myNewRoleOpal = argStaffRoleOpal;
 	}
 
+	private RoomOpal myOldRoomOpal;
+	private RoomOpal myNewRoomOpal;
+
+	protected RoomOpal retrieveRoomOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[1] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getRoomOpalFactory().forId(getRoomIdAsObject());
+	}
+
+	public synchronized RoomOpal getRoomOpal() {
+		RoomOpal lclRoomOpal;
+		boolean lclAccess = tryAccess();
+		lclRoomOpal = lclAccess ? myNewRoomOpal : myOldRoomOpal;
+		if (lclRoomOpal == RoomOpal.NOT_YET_LOADED) {
+			lclRoomOpal = retrieveRoomOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewRoomOpal = lclRoomOpal;
+			} else {
+				myOldRoomOpal = lclRoomOpal;
+			}
+		}
+		return lclRoomOpal;
+	}
+
+	public synchronized StaffAssignmentOpal setRoomOpal(RoomOpal argRoomOpal) {
+		tryMutate();
+		RoomOpal lclRoomOpal = getRoomOpal();
+		if (lclRoomOpal == argRoomOpal) { return this; }
+		if (lclRoomOpal != null) {
+			lclRoomOpal.removeStaffAssignmentOpalInternal(this);
+		}
+		myNewRoomOpal = argRoomOpal;
+		if (argRoomOpal != null) {
+			argRoomOpal.addStaffAssignmentOpalInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setRoomOpalInternal(RoomOpal argRoomOpal) {
+		tryMutate();
+		myNewRoomOpal = argRoomOpal;
+	}
+
 	@Override
 	public java.lang.String toString() {
 		java.lang.StringBuilder lclSB = new java.lang.StringBuilder(64);
@@ -548,17 +548,17 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 
 	@Override
 	protected void updateReferencesAfterReload() {
-		if (myNewStaffOpal != StaffOpal.NOT_YET_LOADED) {
-			setStaffOpal(retrieveStaffOpal(getNewValues()));
-		}
-		if (myNewRoomOpal != RoomOpal.NOT_YET_LOADED) {
-			setRoomOpal(retrieveRoomOpal(getNewValues()));
-		}
 		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
 			setPhaseOpal(retrievePhaseOpal(getNewValues()));
 		}
+		if (myNewStaffOpal != StaffOpal.NOT_YET_LOADED) {
+			setStaffOpal(retrieveStaffOpal(getNewValues()));
+		}
 		if (myNewRoleOpal != StaffRoleOpal.NOT_YET_LOADED) {
 			setRoleOpal(retrieveRoleOpal(getNewValues()));
+		}
+		if (myNewRoomOpal != RoomOpal.NOT_YET_LOADED) {
+			setRoomOpal(retrieveRoomOpal(getNewValues()));
 		}
 	}
 
