@@ -16,6 +16,9 @@ hs_err_pid*
 etc/scobolsolo/authentication.properties
 etc/server.properties
 
+# Server-specific files
+etc/rewrite.config
+
 # Libraries that aren't licensed for public posting
 lib/siliconage.jar
 lib/opal.jar
