@@ -5,6 +5,7 @@
 <%@ page import="java.util.stream.Collectors" %>
 <%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
+<%@ page import="com.siliconage.web.ControllerServlet" %>
 <%@ page import="com.siliconage.web.form.AssembledDropdownField" %>
 <%@ page import="com.siliconage.web.form.FunctionalNameCodeExtractor" %>
 <%@ page import="com.siliconage.web.form.NameCodeExtractor" %>
@@ -26,7 +27,7 @@ Validate.isTrue(lclUser.mayEnter(lclMatch), "Not authorized");
 Game lclGame = lclMatch.getGame(); // may be null
 
 Tournament lclT = lclMatch.getTournament();
-boolean lclTD = lclUser.mayActAsTournamentDirector(lclT);
+boolean lclTD = lclUser.mayActAsTournamentDirector(lclT) && ControllerServlet.getBooleanParameter(request, "admin");
 
 Staff lclS = lclUser.getContact().findStaff(lclT);
 Staff lclSelectedModeratorStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
