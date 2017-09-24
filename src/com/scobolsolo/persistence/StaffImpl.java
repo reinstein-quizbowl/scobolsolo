@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Staff, com.scobolsolo.persistence.StaffOpal> implements com.scobolsolo.application.Staff {
 
 	private final com.scobolsolo.persistence.StaffOpal myStaffOpal;
@@ -15,12 +14,12 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Staff> getOpal() {
+	public com.scobolsolo.persistence.StaffOpal getOpal() {
 		return getStaffOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Staff> getBottomOpal() {
+	public com.scobolsolo.persistence.StaffOpal getBottomOpal() {
 		return getStaffOpal();
 	}
 
@@ -153,8 +152,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Staff setContact(com.scobolsolo.application.Contact argContact) {
-		getStaffOpal().setContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
+		getStaffOpal().setContactOpal(argContact == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Contact, com.scobolsolo.persistence.ContactOpal>) argContact).getOpal());
 		return this;
 	}
 
@@ -168,8 +168,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Staff setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getStaffOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		getStaffOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.SchoolRegistration, com.scobolsolo.persistence.SchoolRegistrationOpal>) argSchoolRegistration).getOpal());
 		return this;
 	}
 
@@ -183,8 +184,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice) {
-		getStaffOpal().setTechnologyChoiceOpal(argTechnologyChoice == null ? null : ((TechnologyChoiceImpl) argTechnologyChoice).getTechnologyChoiceOpal());
+		getStaffOpal().setTechnologyChoiceOpal(argTechnologyChoice == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.TechnologyChoice, com.scobolsolo.persistence.TechnologyChoiceOpal>) argTechnologyChoice).getOpal());
 		return this;
 	}
 
@@ -198,8 +200,9 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament) {
-		getStaffOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		getStaffOpal().setTournamentOpal(argTournament == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Tournament, com.scobolsolo.persistence.TournamentOpal>) argTournament).getOpal());
 		return this;
 	}
 
@@ -207,84 +210,18 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Staff addModeratorGame(com.scobolsolo.application.Game argGame) {
-		getStaffOpal().addModeratorGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Game> getModeratorGameSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getStaffOpal().getModeratorGameOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Staff removeModeratorGame(com.scobolsolo.application.Game argGame) {
-		getStaffOpal().removeModeratorGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Game> getScorekeeperGameSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getStaffOpal().getScorekeeperGameOpalSet());
 	}
 
 	@Override
-	public int getModeratorGameCount() {
-		return getStaffOpal().getModeratorGameOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamModeratorGame() {
-		return getStaffOpal().streamModeratorGameOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Game> createModeratorGameIterator() {
-		return new com.opal.OpalIterator<> (getStaffOpal().createModeratorGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Staff addScorekeeperGame(com.scobolsolo.application.Game argGame) {
-		getStaffOpal().addScorekeeperGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Staff removeScorekeeperGame(com.scobolsolo.application.Game argGame) {
-		getStaffOpal().removeScorekeeperGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public int getScorekeeperGameCount() {
-		return getStaffOpal().getScorekeeperGameOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamScorekeeperGame() {
-		return getStaffOpal().streamScorekeeperGameOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Game> createScorekeeperGameIterator() {
-		return new com.opal.OpalIterator<> (getStaffOpal().createScorekeeperGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Staff addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getStaffOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Staff removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getStaffOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
-	}
-
-	@Override
-	public int getStaffAssignmentCount() {
-		return getStaffOpal().getStaffAssignmentOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
-		return getStaffOpal().streamStaffAssignmentOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator() {
-		return new com.opal.OpalIterator<> (getStaffOpal().createStaffAssignmentOpalIterator());
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getStaffOpal().getStaffAssignmentOpalSet());
 	}
 
 	@Override

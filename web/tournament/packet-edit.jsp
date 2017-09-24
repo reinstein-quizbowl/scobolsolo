@@ -100,7 +100,7 @@ if (lclOF.hasErrors()) {
 
 <div class="row">
 	<div class="small-12 columns">
-		<h2>Questions (<%= lclP.getPlacementCount() %>)</h2>
+		<h2>Questions (<%= lclP.getPlacementSet().size() %>)</h2>
 		<table class="responsive">
 			<thead>
 				<tr>

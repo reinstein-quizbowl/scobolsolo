@@ -27,12 +27,12 @@ Account lclUser = Account.demand(request);
 Account lclOpenOnLoad = AccountFactory.getInstance().fromHttpRequest(request, "respond_to_account_id"); // may be null
 
 SortedSetMultimap<Account, Message> lclByCorrespondent = TreeMultimap.create(Account.NameComparator.getInstance(), Comparator.naturalOrder());
-for (Message lclM : lclUser.createFromMessageArray()) {
+for (Message lclM : lclUser.getFromMessageSet()) {
 	if (lclM.isArchived() == false) {
 		lclByCorrespondent.put(lclM.getRecipient(), lclM);
 	}
 }
-for (Message lclM : lclUser.createToMessageArray()) {
+for (Message lclM : lclUser.getToMessageSet()) {
 	if (lclM.isArchived() == false) {
 		lclByCorrespondent.put(lclM.getSender(), lclM);
 	}

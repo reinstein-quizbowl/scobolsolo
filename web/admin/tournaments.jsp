@@ -1,5 +1,6 @@
 ﻿<%@ page import="java.time.format.DateTimeFormatter" %>
-<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
@@ -11,8 +12,8 @@
 	<jsp:param name="h1" value="Tournaments" />
 </jsp:include><%
 
-Tournament[] lclTs = TournamentFactory.getInstance().createAllArray();
-Arrays.sort(lclTs, Tournament.DateComparator.getInstance().reversed());
+List<Tournament> lclTs = new ArrayList<>(TournamentFactory.getInstance().getAll());
+lclTs.sort(Tournament.DateComparator.getInstance().reversed());
 
 %><div class="row">
 	<div class="small-12 columns">

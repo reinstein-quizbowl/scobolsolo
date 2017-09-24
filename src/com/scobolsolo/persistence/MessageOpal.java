@@ -219,10 +219,10 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 	@Override
 	protected void unlinkInternal() {
 		if (getFromAccountOpal() != null) {
-			getFromAccountOpal().removeFromMessageOpalInternal(this);
+			getFromAccountOpal().getFromMessageOpalSet().removeInternal(this);
 		}
 		if (getToAccountOpal() != null) {
-			getToAccountOpal().removeToMessageOpalInternal(this);
+			getToAccountOpal().getToMessageOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -282,14 +282,14 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		if ((lclUO = myOldFromAccountOpal) == AccountOpal.NOT_YET_LOADED) {
 			lclUO = myOldFromAccountOpal = retrieveFromAccountOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldToAccountOpal) == AccountOpal.NOT_YET_LOADED) {
 			lclUO = myOldToAccountOpal = retrieveToAccountOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -364,11 +364,11 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		AccountOpal lclAccountOpal = getFromAccountOpal();
 		if (lclAccountOpal == argAccountOpal) { return this; }
 		if (lclAccountOpal != null) {
-			lclAccountOpal.removeFromMessageOpalInternal(this);
+			lclAccountOpal.getFromMessageOpalSet().removeInternal(this);
 		}
 		myNewFromAccountOpal = argAccountOpal;
 		if (argAccountOpal != null) {
-			argAccountOpal.addFromMessageOpalInternal(this);
+			argAccountOpal.getFromMessageOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -409,11 +409,11 @@ public final class MessageOpal extends com.opal.UpdatableOpal<Message> {
 		AccountOpal lclAccountOpal = getToAccountOpal();
 		if (lclAccountOpal == argAccountOpal) { return this; }
 		if (lclAccountOpal != null) {
-			lclAccountOpal.removeToMessageOpalInternal(this);
+			lclAccountOpal.getToMessageOpalSet().removeInternal(this);
 		}
 		myNewToAccountOpal = argAccountOpal;
 		if (argAccountOpal != null) {
-			argAccountOpal.addToMessageOpalInternal(this);
+			argAccountOpal.getToMessageOpalSet().addInternal(this);
 		}
 		return this;
 	}

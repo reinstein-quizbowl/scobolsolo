@@ -57,6 +57,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setId(int argId);
 
 	/**
@@ -94,6 +96,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setName(java.lang.String argName);
 
 	/**
@@ -123,6 +126,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setShortName(java.lang.String argShortName);
 
 	/**
@@ -163,6 +167,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -171,6 +176,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setSequence(int argSequence);
 
 	/**
@@ -211,6 +217,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setPhaseId(java.lang.Integer argPhaseId);
 
 	/**
@@ -219,6 +226,7 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argPhaseId the new value of {@code PhaseId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setPhaseId(int argPhaseId);
 
 	/**
@@ -228,33 +236,18 @@ public interface RoundGroupUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase getPhase();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.RoundGroup setPhase(com.scobolsolo.application.Phase argPhase);
 
-	public int getRoundCount();
-	public java.util.Iterator<com.scobolsolo.application.Round> createRoundIterator();
+	public java.util.Set<com.scobolsolo.application.Round> getRoundSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Round> streamRound();
-
-	public com.scobolsolo.application.RoundGroup addRound(com.scobolsolo.application.Round argRound);
-	public com.scobolsolo.application.RoundGroup removeRound(com.scobolsolo.application.Round argRound);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Round>> T acquireRound(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Round> lclI = createRoundIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Round> streamRound() {
+		return getRoundSet().stream();
 	}
 
 	default public com.scobolsolo.application.Round[] createRoundArray() {
-		int lclLength = getRoundCount();
-		com.scobolsolo.application.Round[] lclA = new com.scobolsolo.application.Round[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Round> lclI = createRoundIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Round> lclS = getRoundSet();
+		return lclS.toArray(new com.scobolsolo.application.Round[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.RoundGroup copy();

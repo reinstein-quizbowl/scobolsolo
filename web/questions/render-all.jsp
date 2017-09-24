@@ -46,8 +46,8 @@ if (lclSelectedTournaments.isEmpty()) {
 		<div class="small-12 medium-4 large-2 columns">
 			<label>Show&nbsp;questions&hellip;</label>
 		</div><%
-		List<Tournament> lclTs = TournamentFactory.getInstance().streamAll()
-			.filter(argT -> argT.getPacketCount() > 0)
+		List<Tournament> lclTs = TournamentFactory.getInstance().getAll().stream()
+			.filter(argT -> argT.getPacketSet().isEmpty() == false)
 			.sorted()
 			.collect(Collectors.toList());
 		
@@ -72,7 +72,7 @@ if (lclSelectedTournaments.isEmpty()) {
 </div><%
 
 
-List<Question> lclQs = QuestionFactory.getInstance().streamAll()
+List<Question> lclQs = QuestionFactory.getInstance().getAll().stream()
 	.filter(argQ -> argQ.isUnused() ? lclShowUnused : argQ.streamPlacement().anyMatch(argPL -> lclSelectedTournaments.contains(argPL.getTournament())))
 	.sorted(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR))
 	.collect(Collectors.toList());
@@ -81,7 +81,7 @@ Map<Tournament, ListMultimap<Category, Question>> lclUsed = new HashMap<>(lclSel
 ListMultimap<Category, Question> lclUnused = ArrayListMultimap.create();
 for (Question lclQ : lclQs) {
 	if (lclQ.isUsed()) {
-		for (Placement lclPL : lclQ.createPlacementArray()) {
+		for (Placement lclPL : lclQ.getPlacementSet()) {
 			if (!lclUsed.containsKey(lclPL.getTournament())) {
 				lclUsed.put(lclPL.getTournament(), ArrayListMultimap.create());
 			}

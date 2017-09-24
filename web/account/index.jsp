@@ -31,8 +31,8 @@
 	</div>
 	<div class="row"><%
 		SortedSetMultimap<CategoryGroup, Category> lclGrouped = TreeMultimap.create();
-		for (CategoryGroup lclCG : CategoryGroupFactory.getInstance().createAllArray()) {
-			for (Category lclC : lclCG.createCategoryArray()) {
+		for (CategoryGroup lclCG : CategoryGroupFactory.getInstance().getAll()) {
+			for (Category lclC : lclCG.getCategorySet()) {
 				if (lclC.isAllowPronunciationGuideSuppression()) {
 					lclGrouped.put(lclCG, lclC);
 				}

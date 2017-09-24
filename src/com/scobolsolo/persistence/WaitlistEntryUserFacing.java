@@ -57,6 +57,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -113,6 +116,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
@@ -153,6 +157,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -161,6 +166,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setSequence(int argSequence);
 
 	/**
@@ -203,6 +209,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "1")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setPlayerCount(java.lang.Integer argPlayerCount);
 
 	/**
@@ -211,6 +218,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 * @param argPlayerCount the new value of {@code PlayerCount}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setPlayerCount(int argPlayerCount);
 
 	/**
@@ -253,6 +261,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setNote(java.lang.String argNote);
 
 	/**
@@ -262,6 +271,7 @@ public interface WaitlistEntryUserFacing extends com.opal.IdentityUserFacing, Co
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.WaitlistEntry setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	public com.scobolsolo.application.WaitlistEntry copy();

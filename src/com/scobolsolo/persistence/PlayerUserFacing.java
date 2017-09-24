@@ -57,6 +57,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setContactId(java.lang.Integer argContactId);
 
 	/**
@@ -113,6 +116,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argContactId the new value of {@code ContactId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setContactId(int argContactId);
 
 	/**
@@ -182,6 +186,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -190,6 +195,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
@@ -232,6 +238,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setSchoolYearCode(java.lang.String argSchoolYearCode);
 
 	/**
@@ -301,6 +308,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setRankWithinSchool(java.lang.Integer argRankWithinSchool);
 
 	/**
@@ -309,6 +317,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRankWithinSchool the new value of {@code RankWithinSchool}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setRankWithinSchool(int argRankWithinSchool);
 
 	/**
@@ -378,6 +387,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setSeed(java.lang.Integer argSeed);
 
 	/**
@@ -386,6 +396,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSeed the new value of {@code Seed}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setSeed(int argSeed);
 
 	/**
@@ -428,6 +439,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setNote(java.lang.String argNote);
 
 	/**
@@ -470,6 +482,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setExhibition(java.lang.Boolean argExhibition);
 
 	/**
@@ -478,6 +491,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argExhibition the new value of {@code Exhibition}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setExhibition(boolean argExhibition);
 
 	/**
@@ -487,6 +501,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact getContact();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setContact(com.scobolsolo.application.Contact argContact);
 
 	/**
@@ -496,6 +511,7 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	/**
@@ -505,145 +521,67 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.SchoolYear getSchoolYear();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setSchoolYear(com.scobolsolo.application.SchoolYear argSchoolYear);
 
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Card getInitialCard();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Player setInitialCard(com.scobolsolo.application.Card argInitialCard);
 
-	public int getIncomingLosingCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingLosingCardGameIterator();
+	public java.util.Set<com.scobolsolo.application.Game> getIncomingLosingCardGameSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingLosingCardGame();
-
-	public com.scobolsolo.application.Player addIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeIncomingLosingCardGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingLosingCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingLosingCardGame() {
+		return getIncomingLosingCardGameSet().stream();
 	}
 
 	default public com.scobolsolo.application.Game[] createIncomingLosingCardGameArray() {
-		int lclLength = getIncomingLosingCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Game> lclS = getIncomingLosingCardGameSet();
+		return lclS.toArray(new com.scobolsolo.application.Game[lclS.size()]);
 	}
 
-	public int getIncomingWinningCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingWinningCardGameIterator();
+	public java.util.Set<com.scobolsolo.application.Game> getIncomingWinningCardGameSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingWinningCardGame();
-
-	public com.scobolsolo.application.Player addIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeIncomingWinningCardGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireIncomingWinningCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingWinningCardGame() {
+		return getIncomingWinningCardGameSet().stream();
 	}
 
 	default public com.scobolsolo.application.Game[] createIncomingWinningCardGameArray() {
-		int lclLength = getIncomingWinningCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createIncomingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Game> lclS = getIncomingWinningCardGameSet();
+		return lclS.toArray(new com.scobolsolo.application.Game[lclS.size()]);
 	}
 
-	public int getOutgoingLosingCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingLosingCardGameIterator();
+	public java.util.Set<com.scobolsolo.application.Game> getOutgoingLosingCardGameSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingLosingCardGame();
-
-	public com.scobolsolo.application.Player addOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeOutgoingLosingCardGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingLosingCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingLosingCardGame() {
+		return getOutgoingLosingCardGameSet().stream();
 	}
 
 	default public com.scobolsolo.application.Game[] createOutgoingLosingCardGameArray() {
-		int lclLength = getOutgoingLosingCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingLosingCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Game> lclS = getOutgoingLosingCardGameSet();
+		return lclS.toArray(new com.scobolsolo.application.Game[lclS.size()]);
 	}
 
-	public int getOutgoingWinningCardGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingWinningCardGameIterator();
+	public java.util.Set<com.scobolsolo.application.Game> getOutgoingWinningCardGameSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingWinningCardGame();
-
-	public com.scobolsolo.application.Player addOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Player removeOutgoingWinningCardGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireOutgoingWinningCardGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingWinningCardGame() {
+		return getOutgoingWinningCardGameSet().stream();
 	}
 
 	default public com.scobolsolo.application.Game[] createOutgoingWinningCardGameArray() {
-		int lclLength = getOutgoingWinningCardGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createOutgoingWinningCardGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Game> lclS = getOutgoingWinningCardGameSet();
+		return lclS.toArray(new com.scobolsolo.application.Game[lclS.size()]);
 	}
 
-	public int getPerformanceCount();
-	public java.util.Iterator<com.scobolsolo.application.Performance> createPerformanceIterator();
+	public java.util.Set<com.scobolsolo.application.Performance> getPerformanceSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance();
-
-	public com.scobolsolo.application.Player addPerformance(com.scobolsolo.application.Performance argPerformance);
-	public com.scobolsolo.application.Player removePerformance(com.scobolsolo.application.Performance argPerformance);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Performance>> T acquirePerformance(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance() {
+		return getPerformanceSet().stream();
 	}
 
 	default public com.scobolsolo.application.Performance[] createPerformanceArray() {
-		int lclLength = getPerformanceCount();
-		com.scobolsolo.application.Performance[] lclA = new com.scobolsolo.application.Performance[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Performance> lclS = getPerformanceSet();
+		return lclS.toArray(new com.scobolsolo.application.Performance[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Player copy();

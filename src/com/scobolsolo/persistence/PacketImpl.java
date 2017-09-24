@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PacketImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Packet, com.scobolsolo.persistence.PacketOpal> implements com.scobolsolo.application.Packet {
 
 	private final com.scobolsolo.persistence.PacketOpal myPacketOpal;
@@ -15,12 +14,12 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Packet> getOpal() {
+	public com.scobolsolo.persistence.PacketOpal getOpal() {
 		return getPacketOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Packet> getBottomOpal() {
+	public com.scobolsolo.persistence.PacketOpal getBottomOpal() {
 		return getPacketOpal();
 	}
 
@@ -214,8 +213,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Packet setReplacementPacket(com.scobolsolo.application.Packet argPacket) {
-		getPacketOpal().setReplacementPacketOpal(argPacket == null ? null : ((PacketImpl) argPacket).getPacketOpal());
+		getPacketOpal().setReplacementPacketOpal(argPacket == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Packet, com.scobolsolo.persistence.PacketOpal>) argPacket).getOpal());
 		return this;
 	}
 
@@ -229,8 +229,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Packet setRound(com.scobolsolo.application.Round argRound) {
-		getPacketOpal().setRoundOpal(argRound == null ? null : ((RoundImpl) argRound).getRoundOpal());
+		getPacketOpal().setRoundOpal(argRound == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Round, com.scobolsolo.persistence.RoundOpal>) argRound).getOpal());
 		return this;
 	}
 
@@ -244,8 +245,9 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Packet setTournament(com.scobolsolo.application.Tournament argTournament) {
-		getPacketOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		getPacketOpal().setTournamentOpal(argTournament == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Tournament, com.scobolsolo.persistence.TournamentOpal>) argTournament).getOpal());
 		return this;
 	}
 
@@ -253,57 +255,13 @@ public class PacketImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Packet addReplacementPacket(com.scobolsolo.application.Packet argPacket) {
-		getPacketOpal().addReplacementPacketOpal(((PacketImpl) argPacket).getPacketOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Packet> getReplacementPacketSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPacketOpal().getReplacementPacketOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Packet removeReplacementPacket(com.scobolsolo.application.Packet argPacket) {
-		getPacketOpal().removeReplacementPacketOpal(((PacketImpl) argPacket).getPacketOpal());
-		return this;
-	}
-
-	@Override
-	public int getReplacementPacketCount() {
-		return getPacketOpal().getReplacementPacketOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Packet> streamReplacementPacket() {
-		return getPacketOpal().streamReplacementPacketOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Packet> createReplacementPacketIterator() {
-		return new com.opal.OpalIterator<> (getPacketOpal().createReplacementPacketOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Packet addPlacement(com.scobolsolo.application.Placement argPlacement) {
-		getPacketOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Packet removePlacement(com.scobolsolo.application.Placement argPlacement) {
-		getPacketOpal().removePlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
-		return this;
-	}
-
-	@Override
-	public int getPlacementCount() {
-		return getPacketOpal().getPlacementOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement() {
-		return getPacketOpal().streamPlacementOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator() {
-		return new com.opal.OpalIterator<> (getPacketOpal().createPlacementOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Placement> getPlacementSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPacketOpal().getPlacementOpalSet());
 	}
 
 	@Override

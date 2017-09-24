@@ -46,6 +46,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setCode(java.lang.String argCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setName(java.lang.String argName);
 
 	/**
@@ -104,6 +106,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setShortName(java.lang.String argShortName);
 
 	/**
@@ -133,6 +136,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 12L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setVeryShortName(java.lang.String argVeryShortName);
 
 	/**
@@ -173,6 +177,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -181,6 +186,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setSequence(int argSequence);
 
 	/**
@@ -223,6 +229,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayEnterAnyMatch(java.lang.Boolean argMayEnterAnyMatch);
 
 	/**
@@ -231,6 +238,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * @param argMayEnterAnyMatch the new value of {@code MayEnterAnyMatch}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayEnterAnyMatch(boolean argMayEnterAnyMatch);
 
 	/**
@@ -273,6 +281,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayEnterMatchesInAssignedRoom(java.lang.Boolean argMayEnterMatchesInAssignedRoom);
 
 	/**
@@ -281,6 +290,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * @param argMayEnterMatchesInAssignedRoom the new value of {@code MayEnterMatchesInAssignedRoom}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayEnterMatchesInAssignedRoom(boolean argMayEnterMatchesInAssignedRoom);
 
 	/**
@@ -323,6 +333,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayViewQuestions(java.lang.Boolean argMayViewQuestions);
 
 	/**
@@ -331,6 +342,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * @param argMayViewQuestions the new value of {@code MayViewQuestions}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayViewQuestions(boolean argMayViewQuestions);
 
 	/**
@@ -373,6 +385,7 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayEnterMatchesBeforeUsuallyPermitted(java.lang.Boolean argMayEnterMatchesBeforeUsuallyPermitted);
 
 	/**
@@ -381,33 +394,18 @@ public interface StaffRoleUserFacing extends com.opal.IdentityUserFacing, Compar
 	 * @param argMayEnterMatchesBeforeUsuallyPermitted the new value of {@code MayEnterMatchesBeforeUsuallyPermitted}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffRole setMayEnterMatchesBeforeUsuallyPermitted(boolean argMayEnterMatchesBeforeUsuallyPermitted);
 
-	public int getStaffAssignmentCount();
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator();
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
-
-	public com.scobolsolo.application.StaffRole addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public com.scobolsolo.application.StaffRole removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
+		return getStaffAssignmentSet().stream();
 	}
 
 	default public com.scobolsolo.application.StaffAssignment[] createStaffAssignmentArray() {
-		int lclLength = getStaffAssignmentCount();
-		com.scobolsolo.application.StaffAssignment[] lclA = new com.scobolsolo.application.StaffAssignment[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.StaffAssignment> lclS = getStaffAssignmentSet();
+		return lclS.toArray(new com.scobolsolo.application.StaffAssignment[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.StaffRole copy();

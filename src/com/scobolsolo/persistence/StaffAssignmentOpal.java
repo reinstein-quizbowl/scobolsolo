@@ -201,16 +201,16 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 	@Override
 	protected void unlinkInternal() {
 		if (getPhaseOpal() != null) {
-			getPhaseOpal().removeStaffAssignmentOpalInternal(this);
+			getPhaseOpal().getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		if (getStaffOpal() != null) {
-			getStaffOpal().removeStaffAssignmentOpalInternal(this);
+			getStaffOpal().getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		if (getRoleOpal() != null) {
-			getRoleOpal().removeStaffAssignmentOpalInternal(this);
+			getRoleOpal().getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		if (getRoomOpal() != null) {
-			getRoomOpal().removeStaffAssignmentOpalInternal(this);
+			getRoomOpal().getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -289,14 +289,14 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		if ((lclUO = myOldPhaseOpal) == PhaseOpal.NOT_YET_LOADED) {
 			lclUO = myOldPhaseOpal = retrievePhaseOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldStaffOpal) == StaffOpal.NOT_YET_LOADED) {
 			lclUO = myOldStaffOpal = retrieveStaffOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -305,7 +305,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		if ((lclUO = myOldRoleOpal) == StaffRoleOpal.NOT_YET_LOADED) {
 			lclUO = myOldRoleOpal = retrieveRoleOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -314,7 +314,7 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		if ((lclUO = myOldRoomOpal) == RoomOpal.NOT_YET_LOADED) {
 			lclUO = myOldRoomOpal = retrieveRoomOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -387,11 +387,11 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		PhaseOpal lclPhaseOpal = getPhaseOpal();
 		if (lclPhaseOpal == argPhaseOpal) { return this; }
 		if (lclPhaseOpal != null) {
-			lclPhaseOpal.removeStaffAssignmentOpalInternal(this);
+			lclPhaseOpal.getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		myNewPhaseOpal = argPhaseOpal;
 		if (argPhaseOpal != null) {
-			argPhaseOpal.addStaffAssignmentOpalInternal(this);
+			argPhaseOpal.getStaffAssignmentOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -432,11 +432,11 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		StaffOpal lclStaffOpal = getStaffOpal();
 		if (lclStaffOpal == argStaffOpal) { return this; }
 		if (lclStaffOpal != null) {
-			lclStaffOpal.removeStaffAssignmentOpalInternal(this);
+			lclStaffOpal.getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		myNewStaffOpal = argStaffOpal;
 		if (argStaffOpal != null) {
-			argStaffOpal.addStaffAssignmentOpalInternal(this);
+			argStaffOpal.getStaffAssignmentOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -477,11 +477,11 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		StaffRoleOpal lclStaffRoleOpal = getRoleOpal();
 		if (lclStaffRoleOpal == argStaffRoleOpal) { return this; }
 		if (lclStaffRoleOpal != null) {
-			lclStaffRoleOpal.removeStaffAssignmentOpalInternal(this);
+			lclStaffRoleOpal.getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		myNewRoleOpal = argStaffRoleOpal;
 		if (argStaffRoleOpal != null) {
-			argStaffRoleOpal.addStaffAssignmentOpalInternal(this);
+			argStaffRoleOpal.getStaffAssignmentOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -522,11 +522,11 @@ public final class StaffAssignmentOpal extends com.opal.UpdatableOpal<StaffAssig
 		RoomOpal lclRoomOpal = getRoomOpal();
 		if (lclRoomOpal == argRoomOpal) { return this; }
 		if (lclRoomOpal != null) {
-			lclRoomOpal.removeStaffAssignmentOpalInternal(this);
+			lclRoomOpal.getStaffAssignmentOpalSet().removeInternal(this);
 		}
 		myNewRoomOpal = argRoomOpal;
 		if (argRoomOpal != null) {
-			argRoomOpal.addStaffAssignmentOpalInternal(this);
+			argRoomOpal.getStaffAssignmentOpalSet().addInternal(this);
 		}
 		return this;
 	}

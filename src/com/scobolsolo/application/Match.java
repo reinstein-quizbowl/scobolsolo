@@ -51,8 +51,8 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 					return MatchStatus.COMPLETE;
 				} else {
 					int lclResponsesRecorded = 0;
-					for (Performance lclP : lclG.createPerformanceArray()) {
-						lclResponsesRecorded += lclP.getResponseCount();
+					for (Performance lclP : lclG.getPerformanceSet()) {
+						lclResponsesRecorded += lclP.getResponseSet().size();
 					}
 					
 					if (lclResponsesRecorded == 0) {
@@ -69,7 +69,7 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 		if (getRound().getRoundGroup().getPhase().isCardSystem()) {
 			return true;
 		} else {
-			return getGame() != null && getGame().getPerformanceCount() == 2;
+			return getGame() != null && getGame().getPerformanceSet().size() == 2;
 		}
 	}
 	

@@ -57,6 +57,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.PronunciationGuideSuppression setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.PronunciationGuideSuppression setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.PronunciationGuideSuppression setAccountId(java.lang.Integer argAccountId);
 
 	/**
@@ -113,6 +116,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 * @param argAccountId the new value of {@code AccountId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.PronunciationGuideSuppression setAccountId(int argAccountId);
 
 	/**
@@ -142,6 +146,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.PronunciationGuideSuppression setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
@@ -151,6 +156,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Account getAccount();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.PronunciationGuideSuppression setAccount(com.scobolsolo.application.Account argAccount);
 
 	/**
@@ -160,6 +166,7 @@ public interface PronunciationGuideSuppressionUserFacing extends com.opal.Identi
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category getCategory();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.PronunciationGuideSuppression setCategory(com.scobolsolo.application.Category argCategory);
 
 	public com.scobolsolo.application.PronunciationGuideSuppression copy();

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class MessageImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Message, com.scobolsolo.persistence.MessageOpal> implements com.scobolsolo.application.Message {
 
 	private final com.scobolsolo.persistence.MessageOpal myMessageOpal;
@@ -15,12 +14,12 @@ public class MessageImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Message> getOpal() {
+	public com.scobolsolo.persistence.MessageOpal getOpal() {
 		return getMessageOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Message> getBottomOpal() {
+	public com.scobolsolo.persistence.MessageOpal getBottomOpal() {
 		return getMessageOpal();
 	}
 
@@ -177,8 +176,9 @@ public class MessageImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Message setFromAccount(com.scobolsolo.application.Account argAccount) {
-		getMessageOpal().setFromAccountOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
+		getMessageOpal().setFromAccountOpal(argAccount == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Account, com.scobolsolo.persistence.AccountOpal>) argAccount).getOpal());
 		return this;
 	}
 
@@ -192,8 +192,9 @@ public class MessageImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Message setToAccount(com.scobolsolo.application.Account argAccount) {
-		getMessageOpal().setToAccountOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
+		getMessageOpal().setToAccountOpal(argAccount == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Account, com.scobolsolo.persistence.AccountOpal>) argAccount).getOpal());
 		return this;
 	}
 

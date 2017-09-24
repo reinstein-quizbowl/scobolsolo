@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Response, com.scobolsolo.persistence.ResponseOpal> implements com.scobolsolo.application.Response {
 
 	private final com.scobolsolo.persistence.ResponseOpal myResponseOpal;
@@ -15,12 +14,12 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Response> getOpal() {
+	public com.scobolsolo.persistence.ResponseOpal getOpal() {
 		return getResponseOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Response> getBottomOpal() {
+	public com.scobolsolo.persistence.ResponseOpal getBottomOpal() {
 		return getResponseOpal();
 	}
 
@@ -180,8 +179,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Response setBasePlacement(com.scobolsolo.application.Placement argPlacement) {
-		getResponseOpal().setBasePlacementOpal(argPlacement == null ? null : ((PlacementImpl) argPlacement).getPlacementOpal());
+		getResponseOpal().setBasePlacementOpal(argPlacement == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Placement, com.scobolsolo.persistence.PlacementOpal>) argPlacement).getOpal());
 		return this;
 	}
 
@@ -195,8 +195,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Response setDiff(com.scobolsolo.application.Diff argDiff) {
-		getResponseOpal().setDiffOpal(argDiff == null ? null : ((DiffImpl) argDiff).getDiffOpal());
+		getResponseOpal().setDiffOpal(argDiff == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Diff, com.scobolsolo.persistence.DiffOpal>) argDiff).getOpal());
 		return this;
 	}
 
@@ -210,8 +211,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance) {
-		getResponseOpal().setPerformanceOpal(argPerformance == null ? null : ((PerformanceImpl) argPerformance).getPerformanceOpal());
+		getResponseOpal().setPerformanceOpal(argPerformance == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Performance, com.scobolsolo.persistence.PerformanceOpal>) argPerformance).getOpal());
 		return this;
 	}
 
@@ -225,8 +227,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Response setReplacementPlacement(com.scobolsolo.application.Placement argPlacement) {
-		getResponseOpal().setReplacementPlacementOpal(argPlacement == null ? null : ((PlacementImpl) argPlacement).getPlacementOpal());
+		getResponseOpal().setReplacementPlacementOpal(argPlacement == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Placement, com.scobolsolo.persistence.PlacementOpal>) argPlacement).getOpal());
 		return this;
 	}
 
@@ -240,8 +243,9 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType) {
-		getResponseOpal().setResponseTypeOpal(argResponseType == null ? null : ((ResponseTypeImpl) argResponseType).getResponseTypeOpal());
+		getResponseOpal().setResponseTypeOpal(argResponseType == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.ResponseType, com.scobolsolo.persistence.ResponseTypeOpal>) argResponseType).getOpal());
 		return this;
 	}
 

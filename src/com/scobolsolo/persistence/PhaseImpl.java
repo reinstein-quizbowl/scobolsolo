@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PhaseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Phase, com.scobolsolo.persistence.PhaseOpal> implements com.scobolsolo.application.Phase {
 
 	private final com.scobolsolo.persistence.PhaseOpal myPhaseOpal;
@@ -15,12 +14,12 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Phase> getOpal() {
+	public com.scobolsolo.persistence.PhaseOpal getOpal() {
 		return getPhaseOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Phase> getBottomOpal() {
+	public com.scobolsolo.persistence.PhaseOpal getBottomOpal() {
 		return getPhaseOpal();
 	}
 
@@ -168,8 +167,9 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Phase setTournament(com.scobolsolo.application.Tournament argTournament) {
-		getPhaseOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		getPhaseOpal().setTournamentOpal(argTournament == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Tournament, com.scobolsolo.persistence.TournamentOpal>) argTournament).getOpal());
 		return this;
 	}
 
@@ -177,84 +177,18 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Phase addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getPhaseOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPhaseOpal().getStaffAssignmentOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Phase removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getPhaseOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.RoundGroup> getRoundGroupSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPhaseOpal().getRoundGroupOpalSet());
 	}
 
 	@Override
-	public int getStaffAssignmentCount() {
-		return getPhaseOpal().getStaffAssignmentOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
-		return getPhaseOpal().streamStaffAssignmentOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator() {
-		return new com.opal.OpalIterator<> (getPhaseOpal().createStaffAssignmentOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Phase addRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup) {
-		getPhaseOpal().addRoundGroupOpal(((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Phase removeRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup) {
-		getPhaseOpal().removeRoundGroupOpal(((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
-		return this;
-	}
-
-	@Override
-	public int getRoundGroupCount() {
-		return getPhaseOpal().getRoundGroupOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.RoundGroup> streamRoundGroup() {
-		return getPhaseOpal().streamRoundGroupOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.RoundGroup> createRoundGroupIterator() {
-		return new com.opal.OpalIterator<> (getPhaseOpal().createRoundGroupOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Phase addCard(com.scobolsolo.application.Card argCard) {
-		getPhaseOpal().addCardOpal(((CardImpl) argCard).getCardOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Phase removeCard(com.scobolsolo.application.Card argCard) {
-		getPhaseOpal().removeCardOpal(((CardImpl) argCard).getCardOpal());
-		return this;
-	}
-
-	@Override
-	public int getCardCount() {
-		return getPhaseOpal().getCardOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Card> streamCard() {
-		return getPhaseOpal().streamCardOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Card> createCardIterator() {
-		return new com.opal.OpalIterator<> (getPhaseOpal().createCardOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Card> getCardSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPhaseOpal().getCardOpalSet());
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.WaitlistEntry, com.scobolsolo.persistence.WaitlistEntryOpal> implements com.scobolsolo.application.WaitlistEntry {
 
 	private final com.scobolsolo.persistence.WaitlistEntryOpal myWaitlistEntryOpal;
@@ -15,12 +14,12 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<com.scobols
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.WaitlistEntry> getOpal() {
+	public com.scobolsolo.persistence.WaitlistEntryOpal getOpal() {
 		return getWaitlistEntryOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.WaitlistEntry> getBottomOpal() {
+	public com.scobolsolo.persistence.WaitlistEntryOpal getBottomOpal() {
 		return getWaitlistEntryOpal();
 	}
 
@@ -145,8 +144,9 @@ public class WaitlistEntryImpl extends com.opal.AbstractIdentityImpl<com.scobols
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.WaitlistEntry setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getWaitlistEntryOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		getWaitlistEntryOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.SchoolRegistration, com.scobolsolo.persistence.SchoolRegistrationOpal>) argSchoolRegistration).getOpal());
 		return this;
 	}
 

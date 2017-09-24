@@ -131,10 +131,10 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 	@Override
 	protected void unlinkInternal() {
 		if (getCategoryOpal() != null) {
-			getCategoryOpal().removeCategoryUseOpalInternal(this);
+			getCategoryOpal().getCategoryUseOpalSet().removeInternal(this);
 		}
 		if (getTournamentOpal() != null) {
-			getTournamentOpal().removeCategoryUseOpalInternal(this);
+			getTournamentOpal().getCategoryUseOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -190,14 +190,14 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		if ((lclUO = myOldCategoryOpal) == CategoryOpal.NOT_YET_LOADED) {
 			lclUO = myOldCategoryOpal = retrieveCategoryOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldTournamentOpal) == TournamentOpal.NOT_YET_LOADED) {
 			lclUO = myOldTournamentOpal = retrieveTournamentOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -264,11 +264,11 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		CategoryOpal lclCategoryOpal = getCategoryOpal();
 		if (lclCategoryOpal == argCategoryOpal) { return this; }
 		if (lclCategoryOpal != null) {
-			lclCategoryOpal.removeCategoryUseOpalInternal(this);
+			lclCategoryOpal.getCategoryUseOpalSet().removeInternal(this);
 		}
 		myNewCategoryOpal = argCategoryOpal;
 		if (argCategoryOpal != null) {
-			argCategoryOpal.addCategoryUseOpalInternal(this);
+			argCategoryOpal.getCategoryUseOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -309,11 +309,11 @@ public final class CategoryUseOpal extends com.opal.UpdatableOpal<CategoryUse> {
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
 		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
-			lclTournamentOpal.removeCategoryUseOpalInternal(this);
+			lclTournamentOpal.getCategoryUseOpalSet().removeInternal(this);
 		}
 		myNewTournamentOpal = argTournamentOpal;
 		if (argTournamentOpal != null) {
-			argTournamentOpal.addCategoryUseOpalInternal(this);
+			argTournamentOpal.getCategoryUseOpalSet().addInternal(this);
 		}
 		return this;
 	}

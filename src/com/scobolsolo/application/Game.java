@@ -29,8 +29,8 @@ public interface Game extends GameUserFacing {
 	
 	default Tally<Performance> getScores() {
 		final Tally<Performance> lclTally = new Tally<>();
-		for (Performance lclPerf : createPerformanceArray()) {
-			for (Response lclR : lclPerf.createResponseArray()) {
+		for (Performance lclPerf : getPerformanceSet()) {
+			for (Response lclR : lclPerf.getResponseSet()) {
 				lclTally.tally(lclPerf, lclR.getResponseType().getPoints());
 			}
 		}
@@ -42,8 +42,8 @@ public interface Game extends GameUserFacing {
 		final List<Placement> lclRegulation = getMatch().getRound().getPacket().getRegulationPlacements();
 		final List<Placement> lclOvertime = argOvertime ? getMatch().getRound().getPacket().getOvertimePlacements() : Collections.emptyList();
 		final Tally<Performance> lclTally = new Tally<>();
-		for (Performance lclPerf : createPerformanceArray()) {
-			for (Response lclR : lclPerf.createResponseArray()) {
+		for (Performance lclPerf : getPerformanceSet()) {
+			for (Response lclR : lclPerf.getResponseSet()) {
 				Placement lclPL = lclR.getBasePlacement();
 				int lclRegulationIndex = lclRegulation.indexOf(lclPL);
 				if (argOvertime || (lclRegulationIndex >= 0 && lclRegulationIndex <= argIndex)) {
@@ -162,13 +162,13 @@ public interface Game extends GameUserFacing {
 		}
 		
 		lclP = PerformanceFactory.getInstance().create().setPlayer(argPlayer);
-		this.addPerformance(lclP);
+		this.getPerformanceSet().add(lclP);
 		return lclP;
 	}
 	
 	default int calculateTossupsHeard() {
 		List<Integer> lclDistinctResponseCounts = streamPerformance()
-			.map(Performance::getResponseCount)
+			.map(argP -> argP.getResponseSet().size())
 			.distinct()
 			.collect(Collectors.toList());
 		

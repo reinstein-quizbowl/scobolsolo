@@ -12,6 +12,6 @@ import com.scobolsolo.persistence.SchoolRegistrationUserFacing;
 
 public interface SchoolRegistration extends SchoolRegistrationUserFacing {
 	default int getFullPlayerCount() {
-		return getPlayerCount() + getSpotsReserved();
+		return getPlayerSet().size() + getSpotsReserved();
 	}
 }

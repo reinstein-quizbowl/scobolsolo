@@ -75,19 +75,19 @@ Tournament lclT = lclOF.getUserFacing();
 					
 					if (lclSR != null) {
 						lclSpotsReserved += lclSR.getSpotsReserved();
-						lclDefinedPlayers += lclSR.getPlayerCount();
+						lclDefinedPlayers += lclSR.getPlayerSet().size();
 						
-						for (WaitlistEntry lclWE : lclSR.createWaitlistEntryArray()) {
+						for (WaitlistEntry lclWE : lclSR.getWaitlistEntrySet()) {
 							lclWaitlistPlayers += lclWE.getPlayerCount();
 						}
 						
-						for (StandbyEntry lclSE : lclSR.createStandbyEntryArray()) {
+						for (StandbyEntry lclSE : lclSR.getStandbyEntrySet()) {
 							lclStandbyPlayers += lclSE.getPlayerCount();
 						}
 						
-						lclSchoolStaff += lclSR.getStaffCount();
+						lclSchoolStaff += lclSR.getStaffSet().size();
 						
-						lclBuzzers += lclSR.getBuzzerCount();
+						lclBuzzers += lclSR.getBuzzerSet().size();
 						
 						lclOwed = lclOwed.add(lclSR.getAmountOwed());
 						lclPaid = lclPaid.add(lclSR.getAmountPaid());
@@ -104,9 +104,9 @@ Tournament lclT = lclOF.getUserFacing();
 						%></td>
 						<td data-tablesorter="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.<Contact>dropdown("MainContact").filter(Contact::isActive) %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getSpotsReserved() %>"><%= lclSROF.text("SpotsReserved", 2) %></td>
-						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getPlayerCount() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#players\">" + lclSR.getPlayerCount() + "</a>" %></td>
-						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getStaffCount() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#staff\">" + lclSR.getStaffCount() + "</a>" %></td>
-						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getBuzzerCount() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#buzzers\">" + lclSR.getBuzzerCount() + "</a>" %></td>
+						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getPlayerSet().size() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#players\">" + lclSR.getPlayerSet().size() + "</a>" %></td>
+						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getStaffSet().size() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#staff\">" + lclSR.getStaffSet().size() + "</a>" %></td>
+						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getBuzzerSet().size() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#buzzers\">" + lclSR.getBuzzerSet().size() + "</a>" %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0.00" : lclSR.getAmountOwed() %>"><%= lclSROF.money("AmountOwed") %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0.00" : lclSR.getAmountPaid() %>"><%= lclSROF.money("AmountPaid") %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSROF) %></td>
@@ -124,7 +124,7 @@ Tournament lclT = lclOF.getUserFacing();
 					<th>&nbsp;</th><!-- Contact -->
 					<th><span title="Spots reserved"><%= lclSpotsReserved %></span></th>
 					<th><span title="Players defined"><%= lclDefinedPlayers %></span></th>
-					<th><span title="Staff (school-provided and non-)"><%= lclT.getStaffCount() %></span></th>
+					<th><span title="Staff (school-provided and non-)"><%= lclT.getStaffSet().size() %></span></th>
 					<th><span title="Buzzers"><%= lclBuzzers %></span></th>
 					<th><span title="Owed"><%= NumberFormat.getCurrencyInstance().format(lclOwed) %></span></th>
 					<th><span title="Paid"><%= NumberFormat.getCurrencyInstance().format(lclPaid) %></span></th>

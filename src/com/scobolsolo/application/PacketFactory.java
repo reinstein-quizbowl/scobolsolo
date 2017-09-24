@@ -25,6 +25,7 @@ public class PacketFactory extends com.opal.AbstractIdentityFactory<Packet, Pack
 		return Packet.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Packet create() {
 		return getPacketOpalFactory().create().getUserFacing();
@@ -66,7 +67,7 @@ public class PacketFactory extends com.opal.AbstractIdentityFactory<Packet, Pack
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -83,7 +84,7 @@ public class PacketFactory extends com.opal.AbstractIdentityFactory<Packet, Pack
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			Packet lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any Packet");
 			argCollection.add(lclResult);

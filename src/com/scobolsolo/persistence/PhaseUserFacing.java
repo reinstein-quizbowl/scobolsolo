@@ -57,6 +57,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setId(int argId);
 
 	/**
@@ -94,6 +96,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
@@ -123,6 +126,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setName(java.lang.String argName);
 
 	/**
@@ -152,6 +156,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setShortName(java.lang.String argShortName);
 
 	/**
@@ -192,6 +197,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -200,6 +206,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setSequence(int argSequence);
 
 	/**
@@ -240,6 +247,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setCardSystem(java.lang.Boolean argCardSystem);
 
 	/**
@@ -248,6 +256,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argCardSystem the new value of {@code CardSystem}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setCardSystem(boolean argCardSystem);
 
 	/**
@@ -290,6 +299,7 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setNote(java.lang.String argNote);
 
 	/**
@@ -299,87 +309,40 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Phase setTournament(com.scobolsolo.application.Tournament argTournament);
 
-	public int getStaffAssignmentCount();
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator();
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
-
-	public com.scobolsolo.application.Phase addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public com.scobolsolo.application.Phase removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
+		return getStaffAssignmentSet().stream();
 	}
 
 	default public com.scobolsolo.application.StaffAssignment[] createStaffAssignmentArray() {
-		int lclLength = getStaffAssignmentCount();
-		com.scobolsolo.application.StaffAssignment[] lclA = new com.scobolsolo.application.StaffAssignment[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.StaffAssignment> lclS = getStaffAssignmentSet();
+		return lclS.toArray(new com.scobolsolo.application.StaffAssignment[lclS.size()]);
 	}
 
-	public int getRoundGroupCount();
-	public java.util.Iterator<com.scobolsolo.application.RoundGroup> createRoundGroupIterator();
+	public java.util.Set<com.scobolsolo.application.RoundGroup> getRoundGroupSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.RoundGroup> streamRoundGroup();
-
-	public com.scobolsolo.application.Phase addRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
-	public com.scobolsolo.application.Phase removeRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.RoundGroup>> T acquireRoundGroup(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.RoundGroup> lclI = createRoundGroupIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.RoundGroup> streamRoundGroup() {
+		return getRoundGroupSet().stream();
 	}
 
 	default public com.scobolsolo.application.RoundGroup[] createRoundGroupArray() {
-		int lclLength = getRoundGroupCount();
-		com.scobolsolo.application.RoundGroup[] lclA = new com.scobolsolo.application.RoundGroup[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.RoundGroup> lclI = createRoundGroupIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.RoundGroup> lclS = getRoundGroupSet();
+		return lclS.toArray(new com.scobolsolo.application.RoundGroup[lclS.size()]);
 	}
 
-	public int getCardCount();
-	public java.util.Iterator<com.scobolsolo.application.Card> createCardIterator();
+	public java.util.Set<com.scobolsolo.application.Card> getCardSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Card> streamCard();
-
-	public com.scobolsolo.application.Phase addCard(com.scobolsolo.application.Card argCard);
-	public com.scobolsolo.application.Phase removeCard(com.scobolsolo.application.Card argCard);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Card>> T acquireCard(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Card> lclI = createCardIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Card> streamCard() {
+		return getCardSet().stream();
 	}
 
 	default public com.scobolsolo.application.Card[] createCardArray() {
-		int lclLength = getCardCount();
-		com.scobolsolo.application.Card[] lclA = new com.scobolsolo.application.Card[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Card> lclI = createCardIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Card> lclS = getCardSet();
+		return lclS.toArray(new com.scobolsolo.application.Card[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Phase copy();

@@ -46,15 +46,15 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					int lclStandbyPlayers = lclSR.streamStandbyEntry().mapToInt(StandbyEntry::getPlayerCount).sum();
 					lclStandby += lclStandbyPlayers;
 					
-					lclBuzzers += lclSR.getBuzzerCount();
+					lclBuzzers += lclSR.getBuzzerSet().size();
 					
 					%><tr>
 						<td><a href="/stats/field.jsp?object=<%= lclT.getUniqueString() %>#<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></td>
 						<td><%= lclSR.getFullPlayerCount() %></td>
 						<td><%= lclWaitlistPlayers %></td>
 						<td><%= lclStandbyPlayers %></td>
-						<td><%= lclSR.getStaffCount() %></td>
-						<td><%= lclSR.getBuzzerCount() %></td>
+						<td><%= lclSR.getStaffSet().size() %></td>
+						<td><%= lclSR.getBuzzerSet().size() %></td>
 						<td><%= NumberFormat.getCurrencyInstance().format(lclSR.getAmountPaid()) %></td>
 						<td><%= NumberFormat.getCurrencyInstance().format(lclSR.getAmountOwed()) %></td>
 					</tr><%
@@ -66,7 +66,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					<th><%= lclPlayers %></th>
 					<th><%= lclWaitlist %></th>
 					<th><%= lclStandby %></th>
-					<th><%= lclT.getStaffCount() %></th>
+					<th><%= lclT.getStaffSet().size() %></th>
 					<th><%= lclBuzzers %></th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>

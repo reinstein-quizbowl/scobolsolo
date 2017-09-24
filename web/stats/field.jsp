@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
+<%@ page import="com.opal.LocalDateCache" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
@@ -24,7 +25,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 		DateTimeFormatter lclDTF = DateTimeFormatter.ofPattern("eeee, MMMM d, yyyy");
 		
 		LocalDate lclDate = lclT.getDate();
-		LocalDate lclToday = LocalDate.now();
+		LocalDate lclToday = LocalDateCache.today();
 		
 		String lclHoldingString, lclHaveYetEntered;
 		String lclHaveEnteredSingularSchoolSingularPlayer, lclHaveEnteredSingularSchoolPluralPlayer, lclHaveEnteredPluralSchoolPluralPlayer;
@@ -56,14 +57,14 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 		
 		%><p><%= lclT.getName() %> <%= lclHoldingString %>.</p><%
 		
-		if (lclT.getSchoolRegistrationCount() == 0) {
+		if (lclT.getSchoolRegistrationSet().isEmpty()) {
 			%><p>No schools <%= lclHaveYetEntered %>.</p><%
 		} else {
 			List<WaitlistEntry> lclWEs = new ArrayList<>();
 			List<StandbyEntry> lclSEs = new ArrayList<>();
 			
-			if (lclT.getSchoolRegistrationCount() == 1) {
-				SchoolRegistration lclSR = Validate.notNull(lclT.createSchoolRegistrationIterator().next());
+			if (lclT.getSchoolRegistrationSet().size() == 1) {
+				SchoolRegistration lclSR = Validate.notNull(lclT.getSchoolRegistrationSet().iterator().next());
 				
 				if (lclSR.getFullPlayerCount() == 0) {
 					// Nothing
@@ -80,8 +81,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 			Arrays.sort(lclSRs, SchoolRegistration.SchoolNameComparator.getInstance());
 			
 			for (SchoolRegistration lclSR : lclSRs) {
-				lclSR.acquireWaitlistEntry(lclWEs);
-				lclSR.acquireStandbyEntry(lclSEs);
+				lclWEs.addAll(lclSR.getWaitlistEntrySet());
+				lclSEs.addAll(lclSR.getStandbyEntrySet());
 				
 				if (lclSR.getFullPlayerCount() == 0) {
 					// Only has waitlist or standby entries
@@ -114,7 +115,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 				%></ul><%
 			}
 			
-			if (!lclT.getDate().isBefore(LocalDate.now())) {
+			if (!lclT.getDate().isBefore(lclToday)) {
 				if (!lclWEs.isEmpty()) {
 					lclWEs.sort(null);
 					%><h1 id="waitlist">Waitlist</h1>

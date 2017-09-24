@@ -38,6 +38,7 @@ public class SchoolYearFactory extends com.opal.AbstractIdentityFactory<SchoolYe
 	public static final SchoolYear _8() { return getInstance().forCode("8"); }
 	public static final SchoolYear _9() { return getInstance().forCode("9"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public SchoolYear create() {
 		return getSchoolYearOpalFactory().create().getUserFacing();

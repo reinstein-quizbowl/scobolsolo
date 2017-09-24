@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.CategoryUse, com.scobolsolo.persistence.CategoryUseOpal> implements com.scobolsolo.application.CategoryUse {
 
 	private final com.scobolsolo.persistence.CategoryUseOpal myCategoryUseOpal;
@@ -15,12 +14,12 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<com.scobolsol
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.CategoryUse> getOpal() {
+	public com.scobolsolo.persistence.CategoryUseOpal getOpal() {
 		return getCategoryUseOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.CategoryUse> getBottomOpal() {
+	public com.scobolsolo.persistence.CategoryUseOpal getBottomOpal() {
 		return getCategoryUseOpal();
 	}
 
@@ -92,8 +91,9 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<com.scobolsol
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.CategoryUse setCategory(com.scobolsolo.application.Category argCategory) {
-		getCategoryUseOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
+		getCategoryUseOpal().setCategoryOpal(argCategory == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Category, com.scobolsolo.persistence.CategoryOpal>) argCategory).getOpal());
 		return this;
 	}
 
@@ -107,8 +107,9 @@ public class CategoryUseImpl extends com.opal.AbstractIdentityImpl<com.scobolsol
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.CategoryUse setTournament(com.scobolsolo.application.Tournament argTournament) {
-		getCategoryUseOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		getCategoryUseOpal().setTournamentOpal(argTournament == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Tournament, com.scobolsolo.persistence.TournamentOpal>) argTournament).getOpal());
 		return this;
 	}
 

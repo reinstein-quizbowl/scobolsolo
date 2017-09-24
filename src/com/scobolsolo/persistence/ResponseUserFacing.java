@@ -57,6 +57,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setPerformanceId(java.lang.Integer argPerformanceId);
 
 	/**
@@ -113,6 +116,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argPerformanceId the new value of {@code PerformanceId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setPerformanceId(int argPerformanceId);
 
 	/**
@@ -142,6 +146,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setResponseTypeCode(java.lang.String argResponseTypeCode);
 
 	/**
@@ -182,6 +187,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setBasePlacementId(java.lang.Integer argBasePlacementId);
 
 	/**
@@ -190,6 +196,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argBasePlacementId the new value of {@code BasePlacementId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setBasePlacementId(int argBasePlacementId);
 
 	/**
@@ -259,6 +266,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setReplacementPlacementId(java.lang.Integer argReplacementPlacementId);
 
 	/**
@@ -267,6 +275,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argReplacementPlacementId the new value of {@code ReplacementPlacementId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setReplacementPlacementId(int argReplacementPlacementId);
 
 	/**
@@ -336,6 +345,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setDiffId(java.lang.Integer argDiffId);
 
 	/**
@@ -344,6 +354,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argDiffId the new value of {@code DiffId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setDiffId(int argDiffId);
 
 	/**
@@ -413,6 +424,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setLocation(java.lang.Integer argLocation);
 
 	/**
@@ -421,6 +433,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argLocation the new value of {@code Location}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setLocation(int argLocation);
 
 	/**
@@ -430,6 +443,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Placement getBasePlacement();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setBasePlacement(com.scobolsolo.application.Placement argBasePlacement);
 
 	/**
@@ -439,6 +453,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Diff getDiff();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setDiff(com.scobolsolo.application.Diff argDiff);
 
 	/**
@@ -448,6 +463,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Performance getPerformance();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setPerformance(com.scobolsolo.application.Performance argPerformance);
 
 	/**
@@ -457,6 +473,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Placement getReplacementPlacement();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setReplacementPlacement(com.scobolsolo.application.Placement argReplacementPlacement);
 
 	/**
@@ -466,6 +483,7 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.ResponseType getResponseType();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Response setResponseType(com.scobolsolo.application.ResponseType argResponseType);
 
 	public com.scobolsolo.application.Response copy();

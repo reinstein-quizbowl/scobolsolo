@@ -20,7 +20,11 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>();
+		mySchoolRegistrationSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourSchoolRegistrationOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -182,8 +186,6 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewSchoolRegistrationOpalHashSet = null; /* Necessary if it has been rolled back */
-		mySchoolRegistrationOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -191,33 +193,12 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		/** This Opal has no references to other Opals that need to be copied. */
-		if (needsToClearOldCollections()) {
-			myOldSchoolRegistrationOpalHashSet = null;
-		} else {
-			if (myNewSchoolRegistrationOpalHashSet != null) {
-				if (myNewSchoolRegistrationOpalHashSet.size() > 0) {
-					myOldSchoolRegistrationOpalHashSet = myNewSchoolRegistrationOpalHashSet;
-				} else {
-					myOldSchoolRegistrationOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewSchoolRegistrationOpalHashSet = null;
-			} else {
-				mySchoolRegistrationOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewSchoolRegistrationOpalHashSet != null || mySchoolRegistrationOpalCachedOperations != null) {
-			lclI = createSchoolRegistrationOpalIterator();
-			while (lclI.hasNext()) {
-				((SchoolRegistrationOpal) lclI.next()).setSchoolOpalInternal(null);
-			}
-		}
+		getSchoolRegistrationOpalSet().clear();
 		return;
 	}
 
@@ -283,90 +264,29 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		argOutput.println("Note = " + getNote());
 	}
 
-	private java.util.Set<SchoolRegistrationOpal> myOldSchoolRegistrationOpalHashSet = null;
-	private java.util.Set<SchoolRegistrationOpal> myNewSchoolRegistrationOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<SchoolRegistrationOpal>> mySchoolRegistrationOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<SchoolRegistrationOpal, SchoolOpal> mySchoolRegistrationSet = null;
 
-	/* package */ java.util.Set<SchoolRegistrationOpal> getSchoolRegistrationOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewSchoolRegistrationOpalHashSet == null) {
-				if (myOldSchoolRegistrationOpalHashSet == null) {
-					if (isNew()) {
-						myOldSchoolRegistrationOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<SchoolRegistrationOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
-						myOldSchoolRegistrationOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
-				if (mySchoolRegistrationOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(mySchoolRegistrationOpalCachedOperations, myNewSchoolRegistrationOpalHashSet);
-					mySchoolRegistrationOpalCachedOperations = null;
-				}
-			}
-			return myNewSchoolRegistrationOpalHashSet;
-		} else {
-			if (myOldSchoolRegistrationOpalHashSet == null) {
-				java.util.Set<SchoolRegistrationOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forSchoolIdCollection(getIdAsObject());
-				myOldSchoolRegistrationOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldSchoolRegistrationOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<SchoolRegistrationOpal, SchoolOpal> ourSchoolRegistrationOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory()::forSchoolOpalCollection,
+					OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory()::forSchoolOpalCount,
+					SchoolRegistrationOpal::setSchoolOpal,
+					SchoolRegistrationOpal::setSchoolOpalInternal,
+					SchoolRegistrationOpal::getSchoolOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<SchoolRegistrationOpal, SchoolOpal> getSchoolRegistrationOpalSet() {
+		if (mySchoolRegistrationSet == null) {
+			mySchoolRegistrationSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourSchoolRegistrationOpalLoader,
+					isNew()
+					);
 		}
-	}
-
-	public synchronized void addSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
-		tryMutate();
-		argSchoolRegistrationOpal.setSchoolOpal(this);
-		return;
-	}
-
-	protected synchronized void addSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
-		tryMutate();
-		if (myNewSchoolRegistrationOpalHashSet == null) {
-			if (myOldSchoolRegistrationOpalHashSet == null) {
-				if (mySchoolRegistrationOpalCachedOperations == null) { mySchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
-				mySchoolRegistrationOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argSchoolRegistrationOpal));
-			} else {
-				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
-				myNewSchoolRegistrationOpalHashSet.add(argSchoolRegistrationOpal);
-			}
-		} else {
-			myNewSchoolRegistrationOpalHashSet.add(argSchoolRegistrationOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeSchoolRegistrationOpal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
-		tryMutate();
-		argSchoolRegistrationOpal.setSchoolOpal(null);
-	}
-
-	protected synchronized void removeSchoolRegistrationOpalInternal(SchoolRegistrationOpal argSchoolRegistrationOpal) {
-		tryMutate();
-		if (myNewSchoolRegistrationOpalHashSet == null) {
-			if (myOldSchoolRegistrationOpalHashSet == null) {
-				if (mySchoolRegistrationOpalCachedOperations == null) { mySchoolRegistrationOpalCachedOperations = new java.util.ArrayList<>(); }
-				mySchoolRegistrationOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argSchoolRegistrationOpal));
-			} else {
-				myNewSchoolRegistrationOpalHashSet = new java.util.HashSet<>(myOldSchoolRegistrationOpalHashSet);
-				myNewSchoolRegistrationOpalHashSet.remove(argSchoolRegistrationOpal);
-			}
-		} else {
-			myNewSchoolRegistrationOpalHashSet.remove(argSchoolRegistrationOpal);
-		}
-		return;
-	}
-
-	public synchronized int getSchoolRegistrationOpalCount() { return getSchoolRegistrationOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<SchoolRegistrationOpal> createSchoolRegistrationOpalIterator() {
-		return getSchoolRegistrationOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<SchoolRegistrationOpal> streamSchoolRegistrationOpal() {
-		return getSchoolRegistrationOpalHashSet().stream();
+		return mySchoolRegistrationSet;
 	}
 
 	@Override

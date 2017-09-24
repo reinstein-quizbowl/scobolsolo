@@ -57,6 +57,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setFromAccountId(java.lang.Integer argFromAccountId);
 
 	/**
@@ -113,6 +116,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @param argFromAccountId the new value of {@code FromAccountId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setFromAccountId(int argFromAccountId);
 
 	/**
@@ -153,6 +157,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setToAccountId(java.lang.Integer argToAccountId);
 
 	/**
@@ -161,6 +166,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @param argToAccountId the new value of {@code ToAccountId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setToAccountId(int argToAccountId);
 
 	/**
@@ -190,6 +196,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setText(java.lang.String argText);
 
 	/**
@@ -216,6 +223,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.CurrentDateTimeDefault
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setSentTimestamp(java.time.LocalDateTime argSentTimestamp);
 
 	/**
@@ -253,6 +261,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setAcknowledgedTimestamp(java.time.LocalDateTime argAcknowledgedTimestamp);
 
 	/**
@@ -295,6 +304,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setArchived(java.lang.Boolean argArchived);
 
 	/**
@@ -303,6 +313,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @param argArchived the new value of {@code Archived}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setArchived(boolean argArchived);
 
 	/**
@@ -312,6 +323,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Account getFromAccount();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setFromAccount(com.scobolsolo.application.Account argFromAccount);
 
 	/**
@@ -321,6 +333,7 @@ public interface MessageUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Account getToAccount();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Message setToAccount(com.scobolsolo.application.Account argToAccount);
 
 	public com.scobolsolo.application.Message copy();

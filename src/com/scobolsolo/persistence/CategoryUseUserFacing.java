@@ -46,6 +46,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryUse setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryUse setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
@@ -144,6 +146,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryUse setNeeds(java.lang.Integer argNeeds);
 
 	/**
@@ -152,6 +155,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argNeeds the new value of {@code Needs}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryUse setNeeds(int argNeeds);
 
 	/**
@@ -161,6 +165,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category getCategory();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryUse setCategory(com.scobolsolo.application.Category argCategory);
 
 	/**
@@ -170,6 +175,7 @@ public interface CategoryUseUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryUse setTournament(com.scobolsolo.application.Tournament argTournament);
 
 	public com.scobolsolo.application.CategoryUse copy();

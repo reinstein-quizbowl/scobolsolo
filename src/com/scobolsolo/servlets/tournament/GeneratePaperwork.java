@@ -72,7 +72,7 @@ public class GeneratePaperwork extends DownloadServlet {
 			lclOutputters.add(new ReplacementGuideOutputter(new File(DIRECTORY + lclBaseFilename + "replacement-guides.tex"), lclT));
 		}
 		
-		for (final Phase lclP : lclT.createPhaseArray()) {
+		for (final Phase lclP : lclT.getPhaseSet()) {
 			final String lclPhaseSpecificBaseFilename = lclBaseFilename + cleanFilename(lclP.getShortName() + '-');
 			if (lclP.isCardSystem()) {
 				if (ControllerServlet.getBooleanParameter(argRequest, "player_cards_" + lclP.getId())) {

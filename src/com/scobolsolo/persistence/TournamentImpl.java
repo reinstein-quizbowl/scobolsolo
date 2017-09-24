@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Tournament, com.scobolsolo.persistence.TournamentOpal> implements com.scobolsolo.application.Tournament {
 
 	private final com.scobolsolo.persistence.TournamentOpal myTournamentOpal;
@@ -15,12 +14,12 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Tournament> getOpal() {
+	public com.scobolsolo.persistence.TournamentOpal getOpal() {
 		return getTournamentOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Tournament> getBottomOpal() {
+	public com.scobolsolo.persistence.TournamentOpal getBottomOpal() {
 		return getTournamentOpal();
 	}
 
@@ -349,8 +348,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Tournament setControlRoom(com.scobolsolo.application.Room argRoom) {
-		getTournamentOpal().setControlRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
+		getTournamentOpal().setControlRoomOpal(argRoom == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Room, com.scobolsolo.persistence.RoomOpal>) argRoom).getOpal());
 		return this;
 	}
 
@@ -364,8 +364,9 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Tournament setTournamentDirectorContact(com.scobolsolo.application.Contact argContact) {
-		getTournamentOpal().setTournamentDirectorContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
+		getTournamentOpal().setTournamentDirectorContactOpal(argContact == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Contact, com.scobolsolo.persistence.ContactOpal>) argContact).getOpal());
 		return this;
 	}
 
@@ -373,165 +374,33 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Tournament addPhase(com.scobolsolo.application.Phase argPhase) {
-		getTournamentOpal().addPhaseOpal(((PhaseImpl) argPhase).getPhaseOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Phase> getPhaseSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getTournamentOpal().getPhaseOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Tournament removePhase(com.scobolsolo.application.Phase argPhase) {
-		getTournamentOpal().removePhaseOpal(((PhaseImpl) argPhase).getPhaseOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.SchoolRegistration> getSchoolRegistrationSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getTournamentOpal().getSchoolRegistrationOpalSet());
 	}
 
 	@Override
-	public int getPhaseCount() {
-		return getTournamentOpal().getPhaseOpalCount();
+	public java.util.Set<com.scobolsolo.application.Staff> getStaffSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getTournamentOpal().getStaffOpalSet());
 	}
 
 	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Phase> streamPhase() {
-		return getTournamentOpal().streamPhaseOpal().map(com.opal.Opal::getUserFacing);
+	public java.util.Set<com.scobolsolo.application.CategoryUse> getCategoryUseSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getTournamentOpal().getCategoryUseOpalSet());
 	}
 
 	@Override
-	public java.util.Iterator<com.scobolsolo.application.Phase> createPhaseIterator() {
-		return new com.opal.OpalIterator<> (getTournamentOpal().createPhaseOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Packet> getPacketSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getTournamentOpal().getPacketOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Tournament addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getTournamentOpal().addSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getTournamentOpal().removeSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return this;
-	}
-
-	@Override
-	public int getSchoolRegistrationCount() {
-		return getTournamentOpal().getSchoolRegistrationOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration() {
-		return getTournamentOpal().streamSchoolRegistrationOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.SchoolRegistration> createSchoolRegistrationIterator() {
-		return new com.opal.OpalIterator<> (getTournamentOpal().createSchoolRegistrationOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament addStaff(com.scobolsolo.application.Staff argStaff) {
-		getTournamentOpal().addStaffOpal(((StaffImpl) argStaff).getStaffOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament removeStaff(com.scobolsolo.application.Staff argStaff) {
-		getTournamentOpal().removeStaffOpal(((StaffImpl) argStaff).getStaffOpal());
-		return this;
-	}
-
-	@Override
-	public int getStaffCount() {
-		return getTournamentOpal().getStaffOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff() {
-		return getTournamentOpal().streamStaffOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Staff> createStaffIterator() {
-		return new com.opal.OpalIterator<> (getTournamentOpal().createStaffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse) {
-		getTournamentOpal().addCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse) {
-		getTournamentOpal().removeCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
-		return this;
-	}
-
-	@Override
-	public int getCategoryUseCount() {
-		return getTournamentOpal().getCategoryUseOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse() {
-		return getTournamentOpal().streamCategoryUseOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.CategoryUse> createCategoryUseIterator() {
-		return new com.opal.OpalIterator<> (getTournamentOpal().createCategoryUseOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament addPacket(com.scobolsolo.application.Packet argPacket) {
-		getTournamentOpal().addPacketOpal(((PacketImpl) argPacket).getPacketOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament removePacket(com.scobolsolo.application.Packet argPacket) {
-		getTournamentOpal().removePacketOpal(((PacketImpl) argPacket).getPacketOpal());
-		return this;
-	}
-
-	@Override
-	public int getPacketCount() {
-		return getTournamentOpal().getPacketOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Packet> streamPacket() {
-		return getTournamentOpal().streamPacketOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Packet> createPacketIterator() {
-		return new com.opal.OpalIterator<> (getTournamentOpal().createPacketOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament addRoom(com.scobolsolo.application.Room argRoom) {
-		getTournamentOpal().addRoomOpal(((RoomImpl) argRoom).getRoomOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Tournament removeRoom(com.scobolsolo.application.Room argRoom) {
-		getTournamentOpal().removeRoomOpal(((RoomImpl) argRoom).getRoomOpal());
-		return this;
-	}
-
-	@Override
-	public int getRoomCount() {
-		return getTournamentOpal().getRoomOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Room> streamRoom() {
-		return getTournamentOpal().streamRoomOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Room> createRoomIterator() {
-		return new com.opal.OpalIterator<> (getTournamentOpal().createRoomOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Room> getRoomSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getTournamentOpal().getRoomOpalSet());
 	}
 
 	@Override

@@ -26,8 +26,16 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewBaseResponseOpalHashSet = new java.util.HashSet<>();
-		myNewReplacementResponseOpalHashSet = new java.util.HashSet<>();
+		myBaseResponseSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourBaseResponseOpalLoader,
+				true
+				);
+		myReplacementResponseSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourReplacementResponseOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -236,10 +244,6 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		myNewCategoryOpal = myOldCategoryOpal;
 		myNewPacketOpal = myOldPacketOpal;
 		myNewQuestionOpal = myOldQuestionOpal;
-		myNewBaseResponseOpalHashSet = null; /* Necessary if it has been rolled back */
-		myBaseResponseOpalCachedOperations = null; /* Ditto */
-		myNewReplacementResponseOpalHashSet = null; /* Necessary if it has been rolled back */
-		myReplacementResponseOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -250,58 +254,21 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		myOldPacketOpal = myNewPacketOpal;
 		myOldQuestionOpal = myNewQuestionOpal;
 
-		if (needsToClearOldCollections()) {
-			myOldBaseResponseOpalHashSet = null;
-			myOldReplacementResponseOpalHashSet = null;
-		} else {
-			if (myNewBaseResponseOpalHashSet != null) {
-				if (myNewBaseResponseOpalHashSet.size() > 0) {
-					myOldBaseResponseOpalHashSet = myNewBaseResponseOpalHashSet;
-				} else {
-					myOldBaseResponseOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewBaseResponseOpalHashSet = null;
-			} else {
-				myBaseResponseOpalCachedOperations = null;
-			}
-			if (myNewReplacementResponseOpalHashSet != null) {
-				if (myNewReplacementResponseOpalHashSet.size() > 0) {
-					myOldReplacementResponseOpalHashSet = myNewReplacementResponseOpalHashSet;
-				} else {
-					myOldReplacementResponseOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewReplacementResponseOpalHashSet = null;
-			} else {
-				myReplacementResponseOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewBaseResponseOpalHashSet != null || myBaseResponseOpalCachedOperations != null) {
-			lclI = createBaseResponseOpalIterator();
-			while (lclI.hasNext()) {
-				((ResponseOpal) lclI.next()).setBasePlacementOpalInternal(null);
-			}
-		}
-		if (myNewReplacementResponseOpalHashSet != null || myReplacementResponseOpalCachedOperations != null) {
-			lclI = createReplacementResponseOpalIterator();
-			while (lclI.hasNext()) {
-				((ResponseOpal) lclI.next()).setReplacementPlacementOpalInternal(null);
-			}
-		}
+		getBaseResponseOpalSet().clear();
+		getReplacementResponseOpalSet().clear();
 		if (getCategoryOpal() != null) {
-			getCategoryOpal().removePlacementOpalInternal(this);
+			getCategoryOpal().getPlacementOpalSet().removeInternal(this);
 		}
 		if (getPacketOpal() != null) {
-			getPacketOpal().removePlacementOpalInternal(this);
+			getPacketOpal().getPlacementOpalSet().removeInternal(this);
 		}
 		if (getQuestionOpal() != null) {
-			getQuestionOpal().removePlacementOpalInternal(this);
+			getQuestionOpal().getPlacementOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -371,14 +338,14 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		if ((lclUO = myOldCategoryOpal) == CategoryOpal.NOT_YET_LOADED) {
 			lclUO = myOldCategoryOpal = retrieveCategoryOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldPacketOpal) == PacketOpal.NOT_YET_LOADED) {
 			lclUO = myOldPacketOpal = retrievePacketOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -387,7 +354,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		if ((lclUO = myOldQuestionOpal) == QuestionOpal.NOT_YET_LOADED) {
 			lclUO = myOldQuestionOpal = retrieveQuestionOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -462,11 +429,11 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		CategoryOpal lclCategoryOpal = getCategoryOpal();
 		if (lclCategoryOpal == argCategoryOpal) { return this; }
 		if (lclCategoryOpal != null) {
-			lclCategoryOpal.removePlacementOpalInternal(this);
+			lclCategoryOpal.getPlacementOpalSet().removeInternal(this);
 		}
 		myNewCategoryOpal = argCategoryOpal;
 		if (argCategoryOpal != null) {
-			argCategoryOpal.addPlacementOpalInternal(this);
+			argCategoryOpal.getPlacementOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -507,11 +474,11 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		PacketOpal lclPacketOpal = getPacketOpal();
 		if (lclPacketOpal == argPacketOpal) { return this; }
 		if (lclPacketOpal != null) {
-			lclPacketOpal.removePlacementOpalInternal(this);
+			lclPacketOpal.getPlacementOpalSet().removeInternal(this);
 		}
 		myNewPacketOpal = argPacketOpal;
 		if (argPacketOpal != null) {
-			argPacketOpal.addPlacementOpalInternal(this);
+			argPacketOpal.getPlacementOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -552,11 +519,11 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		QuestionOpal lclQuestionOpal = getQuestionOpal();
 		if (lclQuestionOpal == argQuestionOpal) { return this; }
 		if (lclQuestionOpal != null) {
-			lclQuestionOpal.removePlacementOpalInternal(this);
+			lclQuestionOpal.getPlacementOpalSet().removeInternal(this);
 		}
 		myNewQuestionOpal = argQuestionOpal;
 		if (argQuestionOpal != null) {
-			argQuestionOpal.addPlacementOpalInternal(this);
+			argQuestionOpal.getPlacementOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -566,176 +533,54 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		myNewQuestionOpal = argQuestionOpal;
 	}
 
-	private java.util.Set<ResponseOpal> myOldBaseResponseOpalHashSet = null;
-	private java.util.Set<ResponseOpal> myNewBaseResponseOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<ResponseOpal>> myBaseResponseOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<ResponseOpal, PlacementOpal> myBaseResponseSet = null;
 
-	/* package */ java.util.Set<ResponseOpal> getBaseResponseOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewBaseResponseOpalHashSet == null) {
-				if (myOldBaseResponseOpalHashSet == null) {
-					if (isNew()) {
-						myOldBaseResponseOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<ResponseOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getResponseOpalFactory().forBasePlacementIdCollection(getIdAsObject());
-						myOldBaseResponseOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewBaseResponseOpalHashSet = new java.util.HashSet<>(myOldBaseResponseOpalHashSet);
-				if (myBaseResponseOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myBaseResponseOpalCachedOperations, myNewBaseResponseOpalHashSet);
-					myBaseResponseOpalCachedOperations = null;
-				}
-			}
-			return myNewBaseResponseOpalHashSet;
-		} else {
-			if (myOldBaseResponseOpalHashSet == null) {
-				java.util.Set<ResponseOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getResponseOpalFactory().forBasePlacementIdCollection(getIdAsObject());
-				myOldBaseResponseOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldBaseResponseOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<ResponseOpal, PlacementOpal> ourBaseResponseOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getResponseOpalFactory()::forBasePlacementOpalCollection,
+					OpalFactoryFactory.getInstance().getResponseOpalFactory()::forBasePlacementOpalCount,
+					ResponseOpal::setBasePlacementOpal,
+					ResponseOpal::setBasePlacementOpalInternal,
+					ResponseOpal::getBasePlacementOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<ResponseOpal, PlacementOpal> getBaseResponseOpalSet() {
+		if (myBaseResponseSet == null) {
+			myBaseResponseSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourBaseResponseOpalLoader,
+					isNew()
+					);
 		}
+		return myBaseResponseSet;
 	}
 
-	public synchronized void addBaseResponseOpal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		argResponseOpal.setBasePlacementOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<ResponseOpal, PlacementOpal> myReplacementResponseSet = null;
 
-	protected synchronized void addBaseResponseOpalInternal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		if (myNewBaseResponseOpalHashSet == null) {
-			if (myOldBaseResponseOpalHashSet == null) {
-				if (myBaseResponseOpalCachedOperations == null) { myBaseResponseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myBaseResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argResponseOpal));
-			} else {
-				myNewBaseResponseOpalHashSet = new java.util.HashSet<>(myOldBaseResponseOpalHashSet);
-				myNewBaseResponseOpalHashSet.add(argResponseOpal);
-			}
-		} else {
-			myNewBaseResponseOpalHashSet.add(argResponseOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<ResponseOpal, PlacementOpal> ourReplacementResponseOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getResponseOpalFactory()::forReplacementPlacementOpalCollection,
+					OpalFactoryFactory.getInstance().getResponseOpalFactory()::forReplacementPlacementOpalCount,
+					ResponseOpal::setReplacementPlacementOpal,
+					ResponseOpal::setReplacementPlacementOpalInternal,
+					ResponseOpal::getReplacementPlacementOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<ResponseOpal, PlacementOpal> getReplacementResponseOpalSet() {
+		if (myReplacementResponseSet == null) {
+			myReplacementResponseSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourReplacementResponseOpalLoader,
+					isNew()
+					);
 		}
-		return;
-	}
-
-	public synchronized void removeBaseResponseOpal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		argResponseOpal.setBasePlacementOpal(null);
-	}
-
-	protected synchronized void removeBaseResponseOpalInternal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		if (myNewBaseResponseOpalHashSet == null) {
-			if (myOldBaseResponseOpalHashSet == null) {
-				if (myBaseResponseOpalCachedOperations == null) { myBaseResponseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myBaseResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argResponseOpal));
-			} else {
-				myNewBaseResponseOpalHashSet = new java.util.HashSet<>(myOldBaseResponseOpalHashSet);
-				myNewBaseResponseOpalHashSet.remove(argResponseOpal);
-			}
-		} else {
-			myNewBaseResponseOpalHashSet.remove(argResponseOpal);
-		}
-		return;
-	}
-
-	public synchronized int getBaseResponseOpalCount() { return getBaseResponseOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<ResponseOpal> createBaseResponseOpalIterator() {
-		return getBaseResponseOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<ResponseOpal> streamBaseResponseOpal() {
-		return getBaseResponseOpalHashSet().stream();
-	}
-
-	private java.util.Set<ResponseOpal> myOldReplacementResponseOpalHashSet = null;
-	private java.util.Set<ResponseOpal> myNewReplacementResponseOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<ResponseOpal>> myReplacementResponseOpalCachedOperations = null;
-
-	/* package */ java.util.Set<ResponseOpal> getReplacementResponseOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewReplacementResponseOpalHashSet == null) {
-				if (myOldReplacementResponseOpalHashSet == null) {
-					if (isNew()) {
-						myOldReplacementResponseOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<ResponseOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementPlacementIdCollection(getIdAsObject());
-						myOldReplacementResponseOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewReplacementResponseOpalHashSet = new java.util.HashSet<>(myOldReplacementResponseOpalHashSet);
-				if (myReplacementResponseOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myReplacementResponseOpalCachedOperations, myNewReplacementResponseOpalHashSet);
-					myReplacementResponseOpalCachedOperations = null;
-				}
-			}
-			return myNewReplacementResponseOpalHashSet;
-		} else {
-			if (myOldReplacementResponseOpalHashSet == null) {
-				java.util.Set<ResponseOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getResponseOpalFactory().forReplacementPlacementIdCollection(getIdAsObject());
-				myOldReplacementResponseOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldReplacementResponseOpalHashSet;
-		}
-	}
-
-	public synchronized void addReplacementResponseOpal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		argResponseOpal.setReplacementPlacementOpal(this);
-		return;
-	}
-
-	protected synchronized void addReplacementResponseOpalInternal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		if (myNewReplacementResponseOpalHashSet == null) {
-			if (myOldReplacementResponseOpalHashSet == null) {
-				if (myReplacementResponseOpalCachedOperations == null) { myReplacementResponseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myReplacementResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argResponseOpal));
-			} else {
-				myNewReplacementResponseOpalHashSet = new java.util.HashSet<>(myOldReplacementResponseOpalHashSet);
-				myNewReplacementResponseOpalHashSet.add(argResponseOpal);
-			}
-		} else {
-			myNewReplacementResponseOpalHashSet.add(argResponseOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeReplacementResponseOpal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		argResponseOpal.setReplacementPlacementOpal(null);
-	}
-
-	protected synchronized void removeReplacementResponseOpalInternal(ResponseOpal argResponseOpal) {
-		tryMutate();
-		if (myNewReplacementResponseOpalHashSet == null) {
-			if (myOldReplacementResponseOpalHashSet == null) {
-				if (myReplacementResponseOpalCachedOperations == null) { myReplacementResponseOpalCachedOperations = new java.util.ArrayList<>(); }
-				myReplacementResponseOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argResponseOpal));
-			} else {
-				myNewReplacementResponseOpalHashSet = new java.util.HashSet<>(myOldReplacementResponseOpalHashSet);
-				myNewReplacementResponseOpalHashSet.remove(argResponseOpal);
-			}
-		} else {
-			myNewReplacementResponseOpalHashSet.remove(argResponseOpal);
-		}
-		return;
-	}
-
-	public synchronized int getReplacementResponseOpalCount() { return getReplacementResponseOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<ResponseOpal> createReplacementResponseOpalIterator() {
-		return getReplacementResponseOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<ResponseOpal> streamReplacementResponseOpal() {
-		return getReplacementResponseOpalHashSet().stream();
+		return myReplacementResponseSet;
 	}
 
 	@Override

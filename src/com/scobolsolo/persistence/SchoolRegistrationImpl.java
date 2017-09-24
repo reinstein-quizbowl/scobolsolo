@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.SchoolRegistration, com.scobolsolo.persistence.SchoolRegistrationOpal> implements com.scobolsolo.application.SchoolRegistration {
 
 	private final com.scobolsolo.persistence.SchoolRegistrationOpal mySchoolRegistrationOpal;
@@ -15,12 +14,12 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<com.sc
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.SchoolRegistration> getOpal() {
+	public com.scobolsolo.persistence.SchoolRegistrationOpal getOpal() {
 		return getSchoolRegistrationOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.SchoolRegistration> getBottomOpal() {
+	public com.scobolsolo.persistence.SchoolRegistrationOpal getBottomOpal() {
 		return getSchoolRegistrationOpal();
 	}
 
@@ -189,8 +188,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<com.sc
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.SchoolRegistration setMainContact(com.scobolsolo.application.Contact argContact) {
-		getSchoolRegistrationOpal().setMainContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
+		getSchoolRegistrationOpal().setMainContactOpal(argContact == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Contact, com.scobolsolo.persistence.ContactOpal>) argContact).getOpal());
 		return this;
 	}
 
@@ -204,8 +204,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<com.sc
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.SchoolRegistration setSchool(com.scobolsolo.application.School argSchool) {
-		getSchoolRegistrationOpal().setSchoolOpal(argSchool == null ? null : ((SchoolImpl) argSchool).getSchoolOpal());
+		getSchoolRegistrationOpal().setSchoolOpal(argSchool == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.School, com.scobolsolo.persistence.SchoolOpal>) argSchool).getOpal());
 		return this;
 	}
 
@@ -219,8 +220,9 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<com.sc
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.SchoolRegistration setTournament(com.scobolsolo.application.Tournament argTournament) {
-		getSchoolRegistrationOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		getSchoolRegistrationOpal().setTournamentOpal(argTournament == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Tournament, com.scobolsolo.persistence.TournamentOpal>) argTournament).getOpal());
 		return this;
 	}
 
@@ -228,138 +230,28 @@ public class SchoolRegistrationImpl extends com.opal.AbstractIdentityImpl<com.sc
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.SchoolRegistration addStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry) {
-		getSchoolRegistrationOpal().addStandbyEntryOpal(((StandbyEntryImpl) argStandbyEntry).getStandbyEntryOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.StandbyEntry> getStandbyEntrySet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getSchoolRegistrationOpal().getStandbyEntryOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.SchoolRegistration removeStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry) {
-		getSchoolRegistrationOpal().removeStandbyEntryOpal(((StandbyEntryImpl) argStandbyEntry).getStandbyEntryOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Player> getPlayerSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getSchoolRegistrationOpal().getPlayerOpalSet());
 	}
 
 	@Override
-	public int getStandbyEntryCount() {
-		return getSchoolRegistrationOpal().getStandbyEntryOpalCount();
+	public java.util.Set<com.scobolsolo.application.Buzzer> getBuzzerSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getSchoolRegistrationOpal().getBuzzerOpalSet());
 	}
 
 	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.StandbyEntry> streamStandbyEntry() {
-		return getSchoolRegistrationOpal().streamStandbyEntryOpal().map(com.opal.Opal::getUserFacing);
+	public java.util.Set<com.scobolsolo.application.WaitlistEntry> getWaitlistEntrySet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getSchoolRegistrationOpal().getWaitlistEntryOpalSet());
 	}
 
 	@Override
-	public java.util.Iterator<com.scobolsolo.application.StandbyEntry> createStandbyEntryIterator() {
-		return new com.opal.OpalIterator<> (getSchoolRegistrationOpal().createStandbyEntryOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration addPlayer(com.scobolsolo.application.Player argPlayer) {
-		getSchoolRegistrationOpal().addPlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration removePlayer(com.scobolsolo.application.Player argPlayer) {
-		getSchoolRegistrationOpal().removePlayerOpal(((PlayerImpl) argPlayer).getPlayerOpal());
-		return this;
-	}
-
-	@Override
-	public int getPlayerCount() {
-		return getSchoolRegistrationOpal().getPlayerOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Player> streamPlayer() {
-		return getSchoolRegistrationOpal().streamPlayerOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Player> createPlayerIterator() {
-		return new com.opal.OpalIterator<> (getSchoolRegistrationOpal().createPlayerOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration addBuzzer(com.scobolsolo.application.Buzzer argBuzzer) {
-		getSchoolRegistrationOpal().addBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer) {
-		getSchoolRegistrationOpal().removeBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
-		return this;
-	}
-
-	@Override
-	public int getBuzzerCount() {
-		return getSchoolRegistrationOpal().getBuzzerOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer() {
-		return getSchoolRegistrationOpal().streamBuzzerOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Buzzer> createBuzzerIterator() {
-		return new com.opal.OpalIterator<> (getSchoolRegistrationOpal().createBuzzerOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration addWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry) {
-		getSchoolRegistrationOpal().addWaitlistEntryOpal(((WaitlistEntryImpl) argWaitlistEntry).getWaitlistEntryOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration removeWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry) {
-		getSchoolRegistrationOpal().removeWaitlistEntryOpal(((WaitlistEntryImpl) argWaitlistEntry).getWaitlistEntryOpal());
-		return this;
-	}
-
-	@Override
-	public int getWaitlistEntryCount() {
-		return getSchoolRegistrationOpal().getWaitlistEntryOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.WaitlistEntry> streamWaitlistEntry() {
-		return getSchoolRegistrationOpal().streamWaitlistEntryOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.WaitlistEntry> createWaitlistEntryIterator() {
-		return new com.opal.OpalIterator<> (getSchoolRegistrationOpal().createWaitlistEntryOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration addStaff(com.scobolsolo.application.Staff argStaff) {
-		getSchoolRegistrationOpal().addStaffOpal(((StaffImpl) argStaff).getStaffOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.SchoolRegistration removeStaff(com.scobolsolo.application.Staff argStaff) {
-		getSchoolRegistrationOpal().removeStaffOpal(((StaffImpl) argStaff).getStaffOpal());
-		return this;
-	}
-
-	@Override
-	public int getStaffCount() {
-		return getSchoolRegistrationOpal().getStaffOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff() {
-		return getSchoolRegistrationOpal().streamStaffOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Staff> createStaffIterator() {
-		return new com.opal.OpalIterator<> (getSchoolRegistrationOpal().createStaffOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Staff> getStaffSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getSchoolRegistrationOpal().getStaffOpalSet());
 	}
 
 	@Override

@@ -25,6 +25,7 @@ public class RoundFactory extends com.opal.AbstractIdentityFactory<Round, RoundO
 		return Round.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Round create() {
 		return getRoundOpalFactory().create().getUserFacing();
@@ -61,7 +62,7 @@ public class RoundFactory extends com.opal.AbstractIdentityFactory<Round, RoundO
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -78,7 +79,7 @@ public class RoundFactory extends com.opal.AbstractIdentityFactory<Round, RoundO
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			Round lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any Round");
 			argCollection.add(lclResult);

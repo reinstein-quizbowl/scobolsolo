@@ -166,7 +166,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 
 <div class="row">
 	<div class="small-12 columns">
-		<h2>Buzzers (<%= lclR.getBuzzerCount() %>)</h2>
+		<h2>Buzzers (<%= lclR.getBuzzerSet().size() %>)</h2>
 	</div>
 	
 	<div class="small-12 columns">

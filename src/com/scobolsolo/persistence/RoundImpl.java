@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class RoundImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Round, com.scobolsolo.persistence.RoundOpal> implements com.scobolsolo.application.Round {
 
 	private final com.scobolsolo.persistence.RoundOpal myRoundOpal;
@@ -15,12 +14,12 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Round> getOpal() {
+	public com.scobolsolo.persistence.RoundOpal getOpal() {
 		return getRoundOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Round> getBottomOpal() {
+	public com.scobolsolo.persistence.RoundOpal getBottomOpal() {
 		return getRoundOpal();
 	}
 
@@ -189,8 +188,9 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Round setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup) {
-		getRoundOpal().setRoundGroupOpal(argRoundGroup == null ? null : ((RoundGroupImpl) argRoundGroup).getRoundGroupOpal());
+		getRoundOpal().setRoundGroupOpal(argRoundGroup == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.RoundGroup, com.scobolsolo.persistence.RoundGroupOpal>) argRoundGroup).getOpal());
 		return this;
 	}
 
@@ -210,30 +210,8 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Round addMatch(com.scobolsolo.application.Match argMatch) {
-		getRoundOpal().addMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Round removeMatch(com.scobolsolo.application.Match argMatch) {
-		getRoundOpal().removeMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
-	}
-
-	@Override
-	public int getMatchCount() {
-		return getRoundOpal().getMatchOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch() {
-		return getRoundOpal().streamMatchOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Match> createMatchIterator() {
-		return new com.opal.OpalIterator<> (getRoundOpal().createMatchOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Match> getMatchSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getRoundOpal().getMatchOpalSet());
 	}
 
 	@Override

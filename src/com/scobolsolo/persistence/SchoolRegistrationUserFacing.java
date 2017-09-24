@@ -57,6 +57,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setSchoolId(java.lang.Integer argSchoolId);
 
 	/**
@@ -113,6 +116,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @param argSchoolId the new value of {@code SchoolId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setSchoolId(int argSchoolId);
 
 	/**
@@ -153,6 +157,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setMainContactId(java.lang.Integer argMainContactId);
 
 	/**
@@ -161,6 +166,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @param argMainContactId the new value of {@code MainContactId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setMainContactId(int argMainContactId);
 
 	/**
@@ -187,6 +193,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "0.0")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setAmountOwed(java.math.BigDecimal argAmountOwed);
 
 	/**
@@ -213,6 +220,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "0.0")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setAmountPaid(java.math.BigDecimal argAmountPaid);
 
 	/**
@@ -255,6 +263,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setNote(java.lang.String argNote);
 
 	/**
@@ -295,6 +304,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setSpotsReserved(java.lang.Integer argSpotsReserved);
 
 	/**
@@ -303,6 +313,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 * @param argSpotsReserved the new value of {@code SpotsReserved}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setSpotsReserved(int argSpotsReserved);
 
 	/**
@@ -332,6 +343,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
@@ -341,6 +353,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact getMainContact();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setMainContact(com.scobolsolo.application.Contact argMainContact);
 
 	/**
@@ -350,6 +363,7 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.School getSchool();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setSchool(com.scobolsolo.application.School argSchool);
 
 	/**
@@ -359,141 +373,62 @@ public interface SchoolRegistrationUserFacing extends com.opal.IdentityUserFacin
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolRegistration setTournament(com.scobolsolo.application.Tournament argTournament);
 
-	public int getStandbyEntryCount();
-	public java.util.Iterator<com.scobolsolo.application.StandbyEntry> createStandbyEntryIterator();
+	public java.util.Set<com.scobolsolo.application.StandbyEntry> getStandbyEntrySet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.StandbyEntry> streamStandbyEntry();
-
-	public com.scobolsolo.application.SchoolRegistration addStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry);
-	public com.scobolsolo.application.SchoolRegistration removeStandbyEntry(com.scobolsolo.application.StandbyEntry argStandbyEntry);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.StandbyEntry>> T acquireStandbyEntry(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.StandbyEntry> lclI = createStandbyEntryIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.StandbyEntry> streamStandbyEntry() {
+		return getStandbyEntrySet().stream();
 	}
 
 	default public com.scobolsolo.application.StandbyEntry[] createStandbyEntryArray() {
-		int lclLength = getStandbyEntryCount();
-		com.scobolsolo.application.StandbyEntry[] lclA = new com.scobolsolo.application.StandbyEntry[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.StandbyEntry> lclI = createStandbyEntryIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.StandbyEntry> lclS = getStandbyEntrySet();
+		return lclS.toArray(new com.scobolsolo.application.StandbyEntry[lclS.size()]);
 	}
 
-	public int getPlayerCount();
-	public java.util.Iterator<com.scobolsolo.application.Player> createPlayerIterator();
+	public java.util.Set<com.scobolsolo.application.Player> getPlayerSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Player> streamPlayer();
-
-	public com.scobolsolo.application.SchoolRegistration addPlayer(com.scobolsolo.application.Player argPlayer);
-	public com.scobolsolo.application.SchoolRegistration removePlayer(com.scobolsolo.application.Player argPlayer);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Player>> T acquirePlayer(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Player> lclI = createPlayerIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Player> streamPlayer() {
+		return getPlayerSet().stream();
 	}
 
 	default public com.scobolsolo.application.Player[] createPlayerArray() {
-		int lclLength = getPlayerCount();
-		com.scobolsolo.application.Player[] lclA = new com.scobolsolo.application.Player[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Player> lclI = createPlayerIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Player> lclS = getPlayerSet();
+		return lclS.toArray(new com.scobolsolo.application.Player[lclS.size()]);
 	}
 
-	public int getBuzzerCount();
-	public java.util.Iterator<com.scobolsolo.application.Buzzer> createBuzzerIterator();
+	public java.util.Set<com.scobolsolo.application.Buzzer> getBuzzerSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer();
-
-	public com.scobolsolo.application.SchoolRegistration addBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	public com.scobolsolo.application.SchoolRegistration removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Buzzer>> T acquireBuzzer(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Buzzer> lclI = createBuzzerIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer() {
+		return getBuzzerSet().stream();
 	}
 
 	default public com.scobolsolo.application.Buzzer[] createBuzzerArray() {
-		int lclLength = getBuzzerCount();
-		com.scobolsolo.application.Buzzer[] lclA = new com.scobolsolo.application.Buzzer[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Buzzer> lclI = createBuzzerIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Buzzer> lclS = getBuzzerSet();
+		return lclS.toArray(new com.scobolsolo.application.Buzzer[lclS.size()]);
 	}
 
-	public int getWaitlistEntryCount();
-	public java.util.Iterator<com.scobolsolo.application.WaitlistEntry> createWaitlistEntryIterator();
+	public java.util.Set<com.scobolsolo.application.WaitlistEntry> getWaitlistEntrySet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.WaitlistEntry> streamWaitlistEntry();
-
-	public com.scobolsolo.application.SchoolRegistration addWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry);
-	public com.scobolsolo.application.SchoolRegistration removeWaitlistEntry(com.scobolsolo.application.WaitlistEntry argWaitlistEntry);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.WaitlistEntry>> T acquireWaitlistEntry(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.WaitlistEntry> lclI = createWaitlistEntryIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.WaitlistEntry> streamWaitlistEntry() {
+		return getWaitlistEntrySet().stream();
 	}
 
 	default public com.scobolsolo.application.WaitlistEntry[] createWaitlistEntryArray() {
-		int lclLength = getWaitlistEntryCount();
-		com.scobolsolo.application.WaitlistEntry[] lclA = new com.scobolsolo.application.WaitlistEntry[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.WaitlistEntry> lclI = createWaitlistEntryIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.WaitlistEntry> lclS = getWaitlistEntrySet();
+		return lclS.toArray(new com.scobolsolo.application.WaitlistEntry[lclS.size()]);
 	}
 
-	public int getStaffCount();
-	public java.util.Iterator<com.scobolsolo.application.Staff> createStaffIterator();
+	public java.util.Set<com.scobolsolo.application.Staff> getStaffSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff();
-
-	public com.scobolsolo.application.SchoolRegistration addStaff(com.scobolsolo.application.Staff argStaff);
-	public com.scobolsolo.application.SchoolRegistration removeStaff(com.scobolsolo.application.Staff argStaff);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Staff>> T acquireStaff(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff() {
+		return getStaffSet().stream();
 	}
 
 	default public com.scobolsolo.application.Staff[] createStaffArray() {
-		int lclLength = getStaffCount();
-		com.scobolsolo.application.Staff[] lclA = new com.scobolsolo.application.Staff[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Staff> lclS = getStaffSet();
+		return lclS.toArray(new com.scobolsolo.application.Staff[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.SchoolRegistration copy();

@@ -25,6 +25,7 @@ public class BuzzerFactory extends com.opal.AbstractIdentityFactory<Buzzer, Buzz
 		return Buzzer.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Buzzer create() {
 		return getBuzzerOpalFactory().create().getUserFacing();
@@ -51,7 +52,7 @@ public class BuzzerFactory extends com.opal.AbstractIdentityFactory<Buzzer, Buzz
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -68,7 +69,7 @@ public class BuzzerFactory extends com.opal.AbstractIdentityFactory<Buzzer, Buzz
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			Buzzer lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any Buzzer");
 			argCollection.add(lclResult);

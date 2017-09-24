@@ -87,8 +87,8 @@ if (lclOF.hasErrors()) {
 		<h2 id="create">Create Cards</h2>
 		<form action="CreateCards" method="post">
 			<input type="hidden" name="phase_id" value="<%= lclP.getId() %>"><%
-			if (lclP.getCardCount() > 0) {
-				%><p>The <%= lclP.getCardCount() %> existing <%= lclP.getCardCount() == 1 ? "card" : "cards" %> will be deleted and new ones created.</p><%
+			if (lclP.getCardSet().isEmpty() == false) {
+				%><p>The <%= lclP.getCardSet().size() %> existing <%= lclP.getCardSet().size() == 1 ? "card" : "cards" %> will be deleted and new ones created.</p><%
 			}
 			
 			%><div class="row">

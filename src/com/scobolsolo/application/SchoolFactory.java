@@ -25,6 +25,7 @@ public class SchoolFactory extends com.opal.AbstractIdentityFactory<School, Scho
 		return School.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public School create() {
 		return getSchoolOpalFactory().create().getUserFacing();
@@ -66,7 +67,7 @@ public class SchoolFactory extends com.opal.AbstractIdentityFactory<School, Scho
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -83,7 +84,7 @@ public class SchoolFactory extends com.opal.AbstractIdentityFactory<School, Scho
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			School lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any School");
 			argCollection.add(lclResult);

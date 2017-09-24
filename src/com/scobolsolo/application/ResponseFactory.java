@@ -25,6 +25,7 @@ public class ResponseFactory extends com.opal.AbstractIdentityFactory<Response, 
 		return Response.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Response create() {
 		return getResponseOpalFactory().create().getUserFacing();
@@ -51,7 +52,7 @@ public class ResponseFactory extends com.opal.AbstractIdentityFactory<Response, 
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -68,7 +69,7 @@ public class ResponseFactory extends com.opal.AbstractIdentityFactory<Response, 
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			Response lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any Response");
 			argCollection.add(lclResult);

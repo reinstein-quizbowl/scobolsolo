@@ -181,7 +181,7 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 	@Override
 	protected void unlinkInternal() {
 		if (getSchoolRegistrationOpal() != null) {
-			getSchoolRegistrationOpal().removeWaitlistEntryOpalInternal(this);
+			getSchoolRegistrationOpal().getWaitlistEntryOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -229,7 +229,7 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 		if ((lclUO = myOldSchoolRegistrationOpal) == SchoolRegistrationOpal.NOT_YET_LOADED) {
 			lclUO = myOldSchoolRegistrationOpal = retrieveSchoolRegistrationOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
@@ -298,11 +298,11 @@ public final class WaitlistEntryOpal extends com.opal.UpdatableOpal<WaitlistEntr
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
 		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
-			lclSchoolRegistrationOpal.removeWaitlistEntryOpalInternal(this);
+			lclSchoolRegistrationOpal.getWaitlistEntryOpalSet().removeInternal(this);
 		}
 		myNewSchoolRegistrationOpal = argSchoolRegistrationOpal;
 		if (argSchoolRegistrationOpal != null) {
-			argSchoolRegistrationOpal.addWaitlistEntryOpalInternal(this);
+			argSchoolRegistrationOpal.getWaitlistEntryOpalSet().addInternal(this);
 		}
 		return this;
 	}

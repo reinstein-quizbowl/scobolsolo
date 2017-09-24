@@ -36,6 +36,7 @@ public class ResponseTypeFactory extends com.opal.AbstractIdentityFactory<Respon
 	public static final ResponseType NO_ATTEMPT() { return getInstance().forCode("NO_ATTEMPT"); }
 	public static final ResponseType PHANTOM() { return getInstance().forCode("PHANTOM"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public ResponseType create() {
 		return getResponseTypeOpalFactory().create().getUserFacing();

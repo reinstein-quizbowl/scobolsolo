@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Placement, com.scobolsolo.persistence.PlacementOpal> implements com.scobolsolo.application.Placement {
 
 	private final com.scobolsolo.persistence.PlacementOpal myPlacementOpal;
@@ -15,12 +14,12 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Placement> getOpal() {
+	public com.scobolsolo.persistence.PlacementOpal getOpal() {
 		return getPlacementOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Placement> getBottomOpal() {
+	public com.scobolsolo.persistence.PlacementOpal getBottomOpal() {
 		return getPlacementOpal();
 	}
 
@@ -184,8 +183,9 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory) {
-		getPlacementOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
+		getPlacementOpal().setCategoryOpal(argCategory == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Category, com.scobolsolo.persistence.CategoryOpal>) argCategory).getOpal());
 		return this;
 	}
 
@@ -199,8 +199,9 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Placement setPacket(com.scobolsolo.application.Packet argPacket) {
-		getPlacementOpal().setPacketOpal(argPacket == null ? null : ((PacketImpl) argPacket).getPacketOpal());
+		getPlacementOpal().setPacketOpal(argPacket == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Packet, com.scobolsolo.persistence.PacketOpal>) argPacket).getOpal());
 		return this;
 	}
 
@@ -214,8 +215,9 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Placement setQuestion(com.scobolsolo.application.Question argQuestion) {
-		getPlacementOpal().setQuestionOpal(argQuestion == null ? null : ((QuestionImpl) argQuestion).getQuestionOpal());
+		getPlacementOpal().setQuestionOpal(argQuestion == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Question, com.scobolsolo.persistence.QuestionOpal>) argQuestion).getOpal());
 		return this;
 	}
 
@@ -223,57 +225,13 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Placement addBaseResponse(com.scobolsolo.application.Response argResponse) {
-		getPlacementOpal().addBaseResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Response> getBaseResponseSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPlacementOpal().getBaseResponseOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Placement removeBaseResponse(com.scobolsolo.application.Response argResponse) {
-		getPlacementOpal().removeBaseResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
-	}
-
-	@Override
-	public int getBaseResponseCount() {
-		return getPlacementOpal().getBaseResponseOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamBaseResponse() {
-		return getPlacementOpal().streamBaseResponseOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Response> createBaseResponseIterator() {
-		return new com.opal.OpalIterator<> (getPlacementOpal().createBaseResponseOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Placement addReplacementResponse(com.scobolsolo.application.Response argResponse) {
-		getPlacementOpal().addReplacementResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Placement removeReplacementResponse(com.scobolsolo.application.Response argResponse) {
-		getPlacementOpal().removeReplacementResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
-	}
-
-	@Override
-	public int getReplacementResponseCount() {
-		return getPlacementOpal().getReplacementResponseOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamReplacementResponse() {
-		return getPlacementOpal().streamReplacementResponseOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Response> createReplacementResponseIterator() {
-		return new com.opal.OpalIterator<> (getPlacementOpal().createReplacementResponseOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Response> getReplacementResponseSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPlacementOpal().getReplacementResponseOpalSet());
 	}
 
 	@Override

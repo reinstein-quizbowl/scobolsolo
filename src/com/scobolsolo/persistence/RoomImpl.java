@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class RoomImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Room, com.scobolsolo.persistence.RoomOpal> implements com.scobolsolo.application.Room {
 
 	private final com.scobolsolo.persistence.RoomOpal myRoomOpal;
@@ -15,12 +14,12 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Room> getOpal() {
+	public com.scobolsolo.persistence.RoomOpal getOpal() {
 		return getRoomOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Room> getBottomOpal() {
+	public com.scobolsolo.persistence.RoomOpal getBottomOpal() {
 		return getRoomOpal();
 	}
 
@@ -152,8 +151,9 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Room setTournament(com.scobolsolo.application.Tournament argTournament) {
-		getRoomOpal().setTournamentOpal(argTournament == null ? null : ((TournamentImpl) argTournament).getTournamentOpal());
+		getRoomOpal().setTournamentOpal(argTournament == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Tournament, com.scobolsolo.persistence.TournamentOpal>) argTournament).getOpal());
 		return this;
 	}
 
@@ -161,111 +161,23 @@ public class RoomImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Room addControlRoomTournament(com.scobolsolo.application.Tournament argTournament) {
-		getRoomOpal().addControlRoomTournamentOpal(((TournamentImpl) argTournament).getTournamentOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Tournament> getControlRoomTournamentSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getRoomOpal().getControlRoomTournamentOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Room removeControlRoomTournament(com.scobolsolo.application.Tournament argTournament) {
-		getRoomOpal().removeControlRoomTournamentOpal(((TournamentImpl) argTournament).getTournamentOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getRoomOpal().getStaffAssignmentOpalSet());
 	}
 
 	@Override
-	public int getControlRoomTournamentCount() {
-		return getRoomOpal().getControlRoomTournamentOpalCount();
+	public java.util.Set<com.scobolsolo.application.Buzzer> getBuzzerSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getRoomOpal().getBuzzerOpalSet());
 	}
 
 	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Tournament> streamControlRoomTournament() {
-		return getRoomOpal().streamControlRoomTournamentOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Tournament> createControlRoomTournamentIterator() {
-		return new com.opal.OpalIterator<> (getRoomOpal().createControlRoomTournamentOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Room addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getRoomOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Room removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getRoomOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
-	}
-
-	@Override
-	public int getStaffAssignmentCount() {
-		return getRoomOpal().getStaffAssignmentOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
-		return getRoomOpal().streamStaffAssignmentOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator() {
-		return new com.opal.OpalIterator<> (getRoomOpal().createStaffAssignmentOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Room addBuzzer(com.scobolsolo.application.Buzzer argBuzzer) {
-		getRoomOpal().addBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Room removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer) {
-		getRoomOpal().removeBuzzerOpal(((BuzzerImpl) argBuzzer).getBuzzerOpal());
-		return this;
-	}
-
-	@Override
-	public int getBuzzerCount() {
-		return getRoomOpal().getBuzzerOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer() {
-		return getRoomOpal().streamBuzzerOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Buzzer> createBuzzerIterator() {
-		return new com.opal.OpalIterator<> (getRoomOpal().createBuzzerOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Room addMatch(com.scobolsolo.application.Match argMatch) {
-		getRoomOpal().addMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Room removeMatch(com.scobolsolo.application.Match argMatch) {
-		getRoomOpal().removeMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
-	}
-
-	@Override
-	public int getMatchCount() {
-		return getRoomOpal().getMatchOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch() {
-		return getRoomOpal().streamMatchOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Match> createMatchIterator() {
-		return new com.opal.OpalIterator<> (getRoomOpal().createMatchOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Match> getMatchSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getRoomOpal().getMatchOpalSet());
 	}
 
 	@Override

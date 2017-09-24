@@ -78,8 +78,8 @@ public class AssignCards extends ScobolSoloControllerServlet {
 			final RoundGroup[] lclRGs = Validate.notEmpty(lclPhase.createRoundGroupArray());
 			Arrays.sort(lclRGs);
 			final RoundGroup lclFirst = Validate.notNull(lclRGs[0]);
-			for (final Round lclR : lclFirst.createRoundArray()) {
-				for (final Match lclM : lclR.createMatchArray()) {
+			for (final Round lclR : lclFirst.getRoundSet()) {
+				for (final Match lclM : lclR.getMatchSet()) {
 					final Card lclW = Validate.notNull(lclM.getWinningCard());
 					final Card lclL = Validate.notNull(lclM.getLosingCard());
 					

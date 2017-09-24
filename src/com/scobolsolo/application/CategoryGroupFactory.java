@@ -36,6 +36,7 @@ public class CategoryGroupFactory extends com.opal.AbstractIdentityFactory<Categ
 	public static final CategoryGroup OTHER() { return getInstance().forCode("OTHER"); }
 	public static final CategoryGroup SCIENCE() { return getInstance().forCode("SCIENCE"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public CategoryGroup create() {
 		return getCategoryGroupOpalFactory().create().getUserFacing();

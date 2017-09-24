@@ -57,6 +57,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setId(int argId);
 
 	/**
@@ -94,6 +96,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setName(java.lang.String argName);
 
 	/**
@@ -123,6 +126,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setShortName(java.lang.String argShortName);
 
 	/**
@@ -163,6 +167,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -171,6 +176,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setSequence(int argSequence);
 
 	/**
@@ -213,6 +219,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setFinalMessage(java.lang.String argFinalMessage);
 
 	/**
@@ -253,6 +260,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setPhaseId(java.lang.Integer argPhaseId);
 
 	/**
@@ -261,6 +269,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argPhaseId the new value of {@code PhaseId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setPhaseId(int argPhaseId);
 
 	/**
@@ -330,6 +339,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setInitialPlayerId(java.lang.Integer argInitialPlayerId);
 
 	/**
@@ -338,6 +348,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argInitialPlayerId the new value of {@code InitialPlayerId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setInitialPlayerId(int argInitialPlayerId);
 
 	/**
@@ -347,6 +358,7 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getInitialPlayer();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setInitialPlayer(com.scobolsolo.application.Player argInitialPlayer);
 
 	/**
@@ -356,60 +368,29 @@ public interface CardUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase getPhase();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Card setPhase(com.scobolsolo.application.Phase argPhase);
 
-	public int getLosingMatchCount();
-	public java.util.Iterator<com.scobolsolo.application.Match> createLosingMatchIterator();
+	public java.util.Set<com.scobolsolo.application.Match> getLosingMatchSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamLosingMatch();
-
-	public com.scobolsolo.application.Card addLosingMatch(com.scobolsolo.application.Match argMatch);
-	public com.scobolsolo.application.Card removeLosingMatch(com.scobolsolo.application.Match argMatch);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireLosingMatch(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createLosingMatchIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Match> streamLosingMatch() {
+		return getLosingMatchSet().stream();
 	}
 
 	default public com.scobolsolo.application.Match[] createLosingMatchArray() {
-		int lclLength = getLosingMatchCount();
-		com.scobolsolo.application.Match[] lclA = new com.scobolsolo.application.Match[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createLosingMatchIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Match> lclS = getLosingMatchSet();
+		return lclS.toArray(new com.scobolsolo.application.Match[lclS.size()]);
 	}
 
-	public int getWinningMatchCount();
-	public java.util.Iterator<com.scobolsolo.application.Match> createWinningMatchIterator();
+	public java.util.Set<com.scobolsolo.application.Match> getWinningMatchSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamWinningMatch();
-
-	public com.scobolsolo.application.Card addWinningMatch(com.scobolsolo.application.Match argMatch);
-	public com.scobolsolo.application.Card removeWinningMatch(com.scobolsolo.application.Match argMatch);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireWinningMatch(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createWinningMatchIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Match> streamWinningMatch() {
+		return getWinningMatchSet().stream();
 	}
 
 	default public com.scobolsolo.application.Match[] createWinningMatchArray() {
-		int lclLength = getWinningMatchCount();
-		com.scobolsolo.application.Match[] lclA = new com.scobolsolo.application.Match[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createWinningMatchIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Match> lclS = getWinningMatchSet();
+		return lclS.toArray(new com.scobolsolo.application.Match[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Card copy();

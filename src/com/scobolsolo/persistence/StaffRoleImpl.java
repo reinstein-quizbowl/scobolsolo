@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.StaffRole, com.scobolsolo.persistence.StaffRoleOpal> implements com.scobolsolo.application.StaffRole {
 
 	private final com.scobolsolo.persistence.StaffRoleOpal myStaffRoleOpal;
@@ -15,12 +14,12 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.StaffRole> getOpal() {
+	public com.scobolsolo.persistence.StaffRoleOpal getOpal() {
 		return getStaffRoleOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.StaffRole> getBottomOpal() {
+	public com.scobolsolo.persistence.StaffRoleOpal getBottomOpal() {
 		return getStaffRoleOpal();
 	}
 
@@ -217,30 +216,8 @@ public class StaffRoleImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.StaffRole addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getStaffRoleOpal().addStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.StaffRole removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment) {
-		getStaffRoleOpal().removeStaffAssignmentOpal(((StaffAssignmentImpl) argStaffAssignment).getStaffAssignmentOpal());
-		return this;
-	}
-
-	@Override
-	public int getStaffAssignmentCount() {
-		return getStaffRoleOpal().getStaffAssignmentOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
-		return getStaffRoleOpal().streamStaffAssignmentOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator() {
-		return new com.opal.OpalIterator<> (getStaffRoleOpal().createStaffAssignmentOpalIterator());
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getStaffRoleOpal().getStaffAssignmentOpalSet());
 	}
 
 	@Override

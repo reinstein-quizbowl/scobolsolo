@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class CardImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Card, com.scobolsolo.persistence.CardOpal> implements com.scobolsolo.application.Card {
 
 	private final com.scobolsolo.persistence.CardOpal myCardOpal;
@@ -15,12 +14,12 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Card> getOpal() {
+	public com.scobolsolo.persistence.CardOpal getOpal() {
 		return getCardOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Card> getBottomOpal() {
+	public com.scobolsolo.persistence.CardOpal getBottomOpal() {
 		return getCardOpal();
 	}
 
@@ -172,8 +171,9 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Card setInitialPlayer(com.scobolsolo.application.Player argPlayer) {
-		getCardOpal().setInitialPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		getCardOpal().setInitialPlayerOpal(argPlayer == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Player, com.scobolsolo.persistence.PlayerOpal>) argPlayer).getOpal());
 		return this;
 	}
 
@@ -187,8 +187,9 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Card setPhase(com.scobolsolo.application.Phase argPhase) {
-		getCardOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
+		getCardOpal().setPhaseOpal(argPhase == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Phase, com.scobolsolo.persistence.PhaseOpal>) argPhase).getOpal());
 		return this;
 	}
 
@@ -196,57 +197,13 @@ public class CardImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Card addLosingMatch(com.scobolsolo.application.Match argMatch) {
-		getCardOpal().addLosingMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Match> getLosingMatchSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCardOpal().getLosingMatchOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Card removeLosingMatch(com.scobolsolo.application.Match argMatch) {
-		getCardOpal().removeLosingMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
-	}
-
-	@Override
-	public int getLosingMatchCount() {
-		return getCardOpal().getLosingMatchOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamLosingMatch() {
-		return getCardOpal().streamLosingMatchOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Match> createLosingMatchIterator() {
-		return new com.opal.OpalIterator<> (getCardOpal().createLosingMatchOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Card addWinningMatch(com.scobolsolo.application.Match argMatch) {
-		getCardOpal().addWinningMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Card removeWinningMatch(com.scobolsolo.application.Match argMatch) {
-		getCardOpal().removeWinningMatchOpal(((MatchImpl) argMatch).getMatchOpal());
-		return this;
-	}
-
-	@Override
-	public int getWinningMatchCount() {
-		return getCardOpal().getWinningMatchOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamWinningMatch() {
-		return getCardOpal().streamWinningMatchOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Match> createWinningMatchIterator() {
-		return new com.opal.OpalIterator<> (getCardOpal().createWinningMatchOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Match> getWinningMatchSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCardOpal().getWinningMatchOpalSet());
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class AccountImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Account, com.scobolsolo.persistence.AccountOpal> implements com.scobolsolo.application.Account {
 
 	private final com.scobolsolo.persistence.AccountOpal myAccountOpal;
@@ -15,12 +14,12 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Account> getOpal() {
+	public com.scobolsolo.persistence.AccountOpal getOpal() {
 		return getAccountOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Account> getBottomOpal() {
+	public com.scobolsolo.persistence.AccountOpal getBottomOpal() {
 		return getAccountOpal();
 	}
 
@@ -218,8 +217,9 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Account setContact(com.scobolsolo.application.Contact argContact) {
-		getAccountOpal().setContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
+		getAccountOpal().setContactOpal(argContact == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Contact, com.scobolsolo.persistence.ContactOpal>) argContact).getOpal());
 		return this;
 	}
 
@@ -227,138 +227,28 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Account addPronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression) {
-		getAccountOpal().addPronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.PronunciationGuideSuppression> getPronunciationGuideSuppressionSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getAccountOpal().getPronunciationGuideSuppressionOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Account removePronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression) {
-		getAccountOpal().removePronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Question> getWriterQuestionSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getAccountOpal().getWriterQuestionOpalSet());
 	}
 
 	@Override
-	public int getPronunciationGuideSuppressionCount() {
-		return getAccountOpal().getPronunciationGuideSuppressionOpalCount();
+	public java.util.Set<com.scobolsolo.application.Diff> getEditorDiffSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getAccountOpal().getEditorDiffOpalSet());
 	}
 
 	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression() {
-		return getAccountOpal().streamPronunciationGuideSuppressionOpal().map(com.opal.Opal::getUserFacing);
+	public java.util.Set<com.scobolsolo.application.Message> getFromMessageSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getAccountOpal().getFromMessageOpalSet());
 	}
 
 	@Override
-	public java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator() {
-		return new com.opal.OpalIterator<> (getAccountOpal().createPronunciationGuideSuppressionOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Account addWriterQuestion(com.scobolsolo.application.Question argQuestion) {
-		getAccountOpal().addWriterQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Account removeWriterQuestion(com.scobolsolo.application.Question argQuestion) {
-		getAccountOpal().removeWriterQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-		return this;
-	}
-
-	@Override
-	public int getWriterQuestionCount() {
-		return getAccountOpal().getWriterQuestionOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Question> streamWriterQuestion() {
-		return getAccountOpal().streamWriterQuestionOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Question> createWriterQuestionIterator() {
-		return new com.opal.OpalIterator<> (getAccountOpal().createWriterQuestionOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Account addEditorDiff(com.scobolsolo.application.Diff argDiff) {
-		getAccountOpal().addEditorDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Account removeEditorDiff(com.scobolsolo.application.Diff argDiff) {
-		getAccountOpal().removeEditorDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
-	}
-
-	@Override
-	public int getEditorDiffCount() {
-		return getAccountOpal().getEditorDiffOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamEditorDiff() {
-		return getAccountOpal().streamEditorDiffOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Diff> createEditorDiffIterator() {
-		return new com.opal.OpalIterator<> (getAccountOpal().createEditorDiffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Account addFromMessage(com.scobolsolo.application.Message argMessage) {
-		getAccountOpal().addFromMessageOpal(((MessageImpl) argMessage).getMessageOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Account removeFromMessage(com.scobolsolo.application.Message argMessage) {
-		getAccountOpal().removeFromMessageOpal(((MessageImpl) argMessage).getMessageOpal());
-		return this;
-	}
-
-	@Override
-	public int getFromMessageCount() {
-		return getAccountOpal().getFromMessageOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Message> streamFromMessage() {
-		return getAccountOpal().streamFromMessageOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Message> createFromMessageIterator() {
-		return new com.opal.OpalIterator<> (getAccountOpal().createFromMessageOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Account addToMessage(com.scobolsolo.application.Message argMessage) {
-		getAccountOpal().addToMessageOpal(((MessageImpl) argMessage).getMessageOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Account removeToMessage(com.scobolsolo.application.Message argMessage) {
-		getAccountOpal().removeToMessageOpal(((MessageImpl) argMessage).getMessageOpal());
-		return this;
-	}
-
-	@Override
-	public int getToMessageCount() {
-		return getAccountOpal().getToMessageOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Message> streamToMessage() {
-		return getAccountOpal().streamToMessageOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Message> createToMessageIterator() {
-		return new com.opal.OpalIterator<> (getAccountOpal().createToMessageOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Message> getToMessageSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getAccountOpal().getToMessageOpalSet());
 	}
 
 	@Override

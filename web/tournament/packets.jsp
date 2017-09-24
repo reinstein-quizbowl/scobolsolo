@@ -105,7 +105,7 @@ if (lclOF.hasErrors()) {
 
 <%= lclOF.close() %><%
 
-if (lclUser.isAdministrator() && lclT.getPacketCount() > 0) {
+if (lclUser.isAdministrator() && lclT.getPacketSet().isEmpty() == false) {
 	%>
 	<div class="row">
 		<div class="small-12 columns">

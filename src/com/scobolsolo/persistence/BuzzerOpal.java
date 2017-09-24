@@ -153,10 +153,10 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 	@Override
 	protected void unlinkInternal() {
 		if (getSchoolRegistrationOpal() != null) {
-			getSchoolRegistrationOpal().removeBuzzerOpalInternal(this);
+			getSchoolRegistrationOpal().getBuzzerOpalSet().removeInternal(this);
 		}
 		if (getRoomOpal() != null) {
-			getRoomOpal().removeBuzzerOpalInternal(this);
+			getRoomOpal().getBuzzerOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -213,14 +213,14 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		if ((lclUO = myOldSchoolRegistrationOpal) == SchoolRegistrationOpal.NOT_YET_LOADED) {
 			lclUO = myOldSchoolRegistrationOpal = retrieveSchoolRegistrationOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldRoomOpal) == RoomOpal.NOT_YET_LOADED) {
 			lclUO = myOldRoomOpal = retrieveRoomOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -289,11 +289,11 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
 		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
-			lclSchoolRegistrationOpal.removeBuzzerOpalInternal(this);
+			lclSchoolRegistrationOpal.getBuzzerOpalSet().removeInternal(this);
 		}
 		myNewSchoolRegistrationOpal = argSchoolRegistrationOpal;
 		if (argSchoolRegistrationOpal != null) {
-			argSchoolRegistrationOpal.addBuzzerOpalInternal(this);
+			argSchoolRegistrationOpal.getBuzzerOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -334,11 +334,11 @@ public final class BuzzerOpal extends com.opal.UpdatableOpal<Buzzer> {
 		RoomOpal lclRoomOpal = getRoomOpal();
 		if (lclRoomOpal == argRoomOpal) { return this; }
 		if (lclRoomOpal != null) {
-			lclRoomOpal.removeBuzzerOpalInternal(this);
+			lclRoomOpal.getBuzzerOpalSet().removeInternal(this);
 		}
 		myNewRoomOpal = argRoomOpal;
 		if (argRoomOpal != null) {
-			argRoomOpal.addBuzzerOpalInternal(this);
+			argRoomOpal.getBuzzerOpalSet().addInternal(this);
 		}
 		return this;
 	}

@@ -19,6 +19,7 @@ public interface RoundGroup extends RoundGroupUserFacing, Comparable<RoundGroup>
 		return Comparator.comparing(RoundGroup::getPhase).thenComparingInt(RoundGroup::getSequence).compare(this, that);
 	}
 	
+	// FIXME: This is a ridiculous way to do this.
 	default RoundGroup getNext() {
 		final RoundGroup[] lclAll = getPhase().createRoundGroupArray();
 		Arrays.sort(lclAll);

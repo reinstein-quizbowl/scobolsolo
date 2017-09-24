@@ -57,6 +57,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setId(int argId);
 
 	/**
@@ -107,6 +109,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setEmailAddress(java.lang.String argEmailAddress);
 
 	/**
@@ -149,6 +152,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setAdvancePhone(java.lang.String argAdvancePhone);
 
 	/**
@@ -191,6 +195,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setDayOfPhone(java.lang.String argDayOfPhone);
 
 	/**
@@ -233,6 +238,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setNote(java.lang.String argNote);
 
 	/**
@@ -262,6 +268,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setName(java.lang.String argName);
 
 	/**
@@ -291,6 +298,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setSortBy(java.lang.String argSortBy);
 
 	/**
@@ -342,6 +350,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setActive(java.lang.Boolean argActive);
 
 	/**
@@ -350,6 +359,7 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	 * @param argActive the new value of {@code Active}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setActive(boolean argActive);
 
 	/**
@@ -392,118 +402,56 @@ public interface ContactUserFacing extends com.opal.IdentityUserFacing, Comparab
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setAddress(java.lang.String argAddress);
 
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Account getAccount();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Contact setAccount(com.scobolsolo.application.Account argAccount);
 
-	public int getTournamentDirectorTournamentCount();
-	public java.util.Iterator<com.scobolsolo.application.Tournament> createTournamentDirectorTournamentIterator();
+	public java.util.Set<com.scobolsolo.application.Tournament> getTournamentDirectorTournamentSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Tournament> streamTournamentDirectorTournament();
-
-	public com.scobolsolo.application.Contact addTournamentDirectorTournament(com.scobolsolo.application.Tournament argTournament);
-	public com.scobolsolo.application.Contact removeTournamentDirectorTournament(com.scobolsolo.application.Tournament argTournament);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Tournament>> T acquireTournamentDirectorTournament(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Tournament> lclI = createTournamentDirectorTournamentIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Tournament> streamTournamentDirectorTournament() {
+		return getTournamentDirectorTournamentSet().stream();
 	}
 
 	default public com.scobolsolo.application.Tournament[] createTournamentDirectorTournamentArray() {
-		int lclLength = getTournamentDirectorTournamentCount();
-		com.scobolsolo.application.Tournament[] lclA = new com.scobolsolo.application.Tournament[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Tournament> lclI = createTournamentDirectorTournamentIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Tournament> lclS = getTournamentDirectorTournamentSet();
+		return lclS.toArray(new com.scobolsolo.application.Tournament[lclS.size()]);
 	}
 
-	public int getPlayerCount();
-	public java.util.Iterator<com.scobolsolo.application.Player> createPlayerIterator();
+	public java.util.Set<com.scobolsolo.application.Player> getPlayerSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Player> streamPlayer();
-
-	public com.scobolsolo.application.Contact addPlayer(com.scobolsolo.application.Player argPlayer);
-	public com.scobolsolo.application.Contact removePlayer(com.scobolsolo.application.Player argPlayer);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Player>> T acquirePlayer(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Player> lclI = createPlayerIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Player> streamPlayer() {
+		return getPlayerSet().stream();
 	}
 
 	default public com.scobolsolo.application.Player[] createPlayerArray() {
-		int lclLength = getPlayerCount();
-		com.scobolsolo.application.Player[] lclA = new com.scobolsolo.application.Player[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Player> lclI = createPlayerIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Player> lclS = getPlayerSet();
+		return lclS.toArray(new com.scobolsolo.application.Player[lclS.size()]);
 	}
 
-	public int getMainSchoolRegistrationCount();
-	public java.util.Iterator<com.scobolsolo.application.SchoolRegistration> createMainSchoolRegistrationIterator();
+	public java.util.Set<com.scobolsolo.application.SchoolRegistration> getMainSchoolRegistrationSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamMainSchoolRegistration();
-
-	public com.scobolsolo.application.Contact addMainSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public com.scobolsolo.application.Contact removeMainSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.SchoolRegistration>> T acquireMainSchoolRegistration(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createMainSchoolRegistrationIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamMainSchoolRegistration() {
+		return getMainSchoolRegistrationSet().stream();
 	}
 
 	default public com.scobolsolo.application.SchoolRegistration[] createMainSchoolRegistrationArray() {
-		int lclLength = getMainSchoolRegistrationCount();
-		com.scobolsolo.application.SchoolRegistration[] lclA = new com.scobolsolo.application.SchoolRegistration[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createMainSchoolRegistrationIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.SchoolRegistration> lclS = getMainSchoolRegistrationSet();
+		return lclS.toArray(new com.scobolsolo.application.SchoolRegistration[lclS.size()]);
 	}
 
-	public int getStaffCount();
-	public java.util.Iterator<com.scobolsolo.application.Staff> createStaffIterator();
+	public java.util.Set<com.scobolsolo.application.Staff> getStaffSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff();
-
-	public com.scobolsolo.application.Contact addStaff(com.scobolsolo.application.Staff argStaff);
-	public com.scobolsolo.application.Contact removeStaff(com.scobolsolo.application.Staff argStaff);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Staff>> T acquireStaff(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff() {
+		return getStaffSet().stream();
 	}
 
 	default public com.scobolsolo.application.Staff[] createStaffArray() {
-		int lclLength = getStaffCount();
-		com.scobolsolo.application.Staff[] lclA = new com.scobolsolo.application.Staff[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Staff> lclS = getStaffSet();
+		return lclS.toArray(new com.scobolsolo.application.Staff[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Contact copy();

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.StandbyEntry, com.scobolsolo.persistence.StandbyEntryOpal> implements com.scobolsolo.application.StandbyEntry {
 
 	private final com.scobolsolo.persistence.StandbyEntryOpal myStandbyEntryOpal;
@@ -15,12 +14,12 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<com.scobolso
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.StandbyEntry> getOpal() {
+	public com.scobolsolo.persistence.StandbyEntryOpal getOpal() {
 		return getStandbyEntryOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.StandbyEntry> getBottomOpal() {
+	public com.scobolsolo.persistence.StandbyEntryOpal getBottomOpal() {
 		return getStandbyEntryOpal();
 	}
 
@@ -145,8 +144,9 @@ public class StandbyEntryImpl extends com.opal.AbstractIdentityImpl<com.scobolso
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.StandbyEntry setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getStandbyEntryOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		getStandbyEntryOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.SchoolRegistration, com.scobolsolo.persistence.SchoolRegistrationOpal>) argSchoolRegistration).getOpal());
 		return this;
 	}
 

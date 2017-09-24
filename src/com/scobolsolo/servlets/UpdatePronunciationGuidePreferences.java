@@ -29,7 +29,7 @@ public class UpdatePronunciationGuidePreferences extends ScobolSoloControllerSer
 		final Set<Category> lclCategoriesToShowPGsFor = CategoryFactory.getInstance().acquireFromHttpRequest(new HashSet<>(), argRequest);
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
-			for (final Category lclC : CategoryFactory.getInstance().createAllArray()) {
+			for (final Category lclC : CategoryFactory.getInstance().getAll()) {
 				if (lclC.isAllowPronunciationGuideSuppression()) {
 					final boolean lclOldSetting = argUser.showPronunciationGuidesFor(lclC);
 					final boolean lclNewSetting = lclCategoriesToShowPGsFor.contains(lclC);
@@ -40,7 +40,7 @@ public class UpdatePronunciationGuidePreferences extends ScobolSoloControllerSer
 						Validate.isTrue(lclOldSetting);
 						
 						// We have to add a suppression.
-						argUser.addPronunciationGuideSuppression(
+						argUser.getPronunciationGuideSuppressionSet().add(
 							PronunciationGuideSuppressionFactory.getInstance().create().setCategory(lclC)
 						);
 					} else if (lclNewSetting == true) {

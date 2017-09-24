@@ -67,7 +67,7 @@ if (lclOF.hasErrors()) {
 						<td><%= lclROF.text("Name", 20) %></td>
 						<td><%= lclROF.text("ShortName", 10) %></td>
 						<td><%= lclROF.textarea("Note", 30, 1) %></td>
-						<td><%= lclR == null ? "-" : lclR.getBuzzerCount() %></td>
+						<td><%= lclR == null ? "-" : lclR.getBuzzerSet().size() %></td>
 						<td><%= lclROF.text("Sequence", 3) %></td>
 						<td><%
 							for (OpalForm<StaffAssignment> lclSAOF : lclROF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.STAFF_NAME_COMPARATOR)) {
@@ -78,7 +78,7 @@ if (lclOF.hasErrors()) {
 								<%= lclSAOF.close() %><%
 							}
 							
-							if (lclR != null && lclR.getStaffAssignmentCount() == 0) {
+							if (lclR != null && lclR.getStaffAssignmentSet().isEmpty()) {
 								%>(none)<%
 							}
 						%></td>

@@ -23,13 +23,9 @@ public interface Player extends PlayerUserFacing, Comparable<Player> {
 			return null;
 		}
 		
-		for (Performance lclP : argG.createPerformanceArray()) {
-			if (lclP.getPlayer() == this) {
-				return lclP;
-			}
-		}
-		
-		return null;
+		return argG.streamPerformance()
+			.filter(argPerf -> argPerf.getPlayer() == this)
+			.findAny().orElse(null);
 	}
 	
 	default String getName() {
@@ -49,7 +45,7 @@ public interface Player extends PlayerUserFacing, Comparable<Player> {
 	}
 	
 	default List<ResponseType> determineResponseTypesToOffer() {
-		return Arrays.stream(ResponseTypeFactory.getInstance().createAllArray())
+		return ResponseTypeFactory.getInstance().getAll().stream()
 			.filter(isExhibition() ? ResponseType::isShowForExhibitionPlayers : ResponseType::isShowForNonExhibitionPlayers)
 			.sorted()
 			.collect(Collectors.toList());

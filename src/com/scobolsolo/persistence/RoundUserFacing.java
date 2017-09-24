@@ -57,6 +57,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setId(int argId);
 
 	/**
@@ -134,6 +136,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setRoundGroupId(java.lang.Integer argRoundGroupId);
 
 	/**
@@ -142,6 +145,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoundGroupId the new value of {@code RoundGroupId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setRoundGroupId(int argRoundGroupId);
 
 	/**
@@ -171,6 +175,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setName(java.lang.String argName);
 
 	/**
@@ -200,6 +205,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setShortName(java.lang.String argShortName);
 
 	/**
@@ -240,6 +246,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -248,6 +255,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setSequence(int argSequence);
 
 	/**
@@ -290,6 +298,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 16L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setStartTime(java.lang.String argStartTime);
 
 	/**
@@ -332,6 +341,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setLunchAfter(java.lang.Boolean argLunchAfter);
 
 	/**
@@ -340,6 +350,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argLunchAfter the new value of {@code LunchAfter}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setLunchAfter(boolean argLunchAfter);
 
 	/**
@@ -377,6 +388,7 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setEarliestEntryAllowed(java.time.LocalDateTime argEarliestEntryAllowed);
 
 	/**
@@ -386,37 +398,23 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.RoundGroup getRoundGroup();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
 
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Packet getPacket();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Round setPacket(com.scobolsolo.application.Packet argPacket);
 
-	public int getMatchCount();
-	public java.util.Iterator<com.scobolsolo.application.Match> createMatchIterator();
+	public java.util.Set<com.scobolsolo.application.Match> getMatchSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch();
-
-	public com.scobolsolo.application.Round addMatch(com.scobolsolo.application.Match argMatch);
-	public com.scobolsolo.application.Round removeMatch(com.scobolsolo.application.Match argMatch);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireMatch(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch() {
+		return getMatchSet().stream();
 	}
 
 	default public com.scobolsolo.application.Match[] createMatchArray() {
-		int lclLength = getMatchCount();
-		com.scobolsolo.application.Match[] lclA = new com.scobolsolo.application.Match[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Match> lclS = getMatchSet();
+		return lclS.toArray(new com.scobolsolo.application.Match[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Round copy();

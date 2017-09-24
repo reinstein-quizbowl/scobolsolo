@@ -1,5 +1,6 @@
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="com.opal.LocalDateCache" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.AccountFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
@@ -40,7 +41,7 @@
 						<p>This user account has not been issued a token for resetting its password.</p>
 					</div><%
 				} else {
-					LocalDateTime lclNow = LocalDateTime.now();
+					LocalDateTime lclNow = LocalDateCache.now();
 					if (lclCorrectTokenExpires.isBefore(lclNow)) {
 						%><div class="small-12 columns">
 							<p>The password reset token has expired.</p>

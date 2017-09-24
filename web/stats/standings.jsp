@@ -6,6 +6,7 @@
 <%@ page import="java.util.OptionalDouble" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
+<%@ page import="com.opal.LocalDateCache" %>
 <%@ page import="com.scobolsolo.application.PlayerRecordV" %>
 <%@ page import="com.scobolsolo.application.PlayerRecordVFactory" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
@@ -33,7 +34,7 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 <div class="row">
 	<div class="small-12 columns"><%
 		if (lclPRVs.isEmpty()) {
-			LocalDate lclToday = LocalDate.now();
+			LocalDate lclToday = LocalDateCache.today();
 			if (lclT.getDate().equals(lclToday) || lclT.getDate().isBefore(lclToday)) {
 				%><p>There are no results available yet. Keep checking back!</p><%
 			} else {

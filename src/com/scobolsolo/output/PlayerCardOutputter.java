@@ -60,10 +60,10 @@ public class PlayerCardOutputter extends PhaseSpecificLaTeXOutputter {
 			getWriter().println("\\rowcolor[gray]{0} \\ColumnHeader{Round} & \\ColumnHeader{Time} & \\ColumnHeader{Room} & \\ColumnHeader{Opponent} \\tabularnewline");
 			
 			final Map<Round, Match> lclMatchMap = new HashMap<>(lclRounds.size());
-			for (final Match lclM : lclC.createWinningMatchArray()) {
+			for (final Match lclM : lclC.getWinningMatchSet()) {
 				lclMatchMap.put(lclM.getRound(), lclM);
 			}
-			for (final Match lclM : lclC.createLosingMatchArray()) {
+			for (final Match lclM : lclC.getLosingMatchSet()) {
 				lclMatchMap.put(lclM.getRound(), lclM);
 			}
 			

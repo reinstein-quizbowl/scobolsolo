@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PlayerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Player, com.scobolsolo.persistence.PlayerOpal> implements com.scobolsolo.application.Player {
 
 	private final com.scobolsolo.persistence.PlayerOpal myPlayerOpal;
@@ -15,12 +14,12 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Player> getOpal() {
+	public com.scobolsolo.persistence.PlayerOpal getOpal() {
 		return getPlayerOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Player> getBottomOpal() {
+	public com.scobolsolo.persistence.PlayerOpal getBottomOpal() {
 		return getPlayerOpal();
 	}
 
@@ -199,8 +198,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Player setContact(com.scobolsolo.application.Contact argContact) {
-		getPlayerOpal().setContactOpal(argContact == null ? null : ((ContactImpl) argContact).getContactOpal());
+		getPlayerOpal().setContactOpal(argContact == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Contact, com.scobolsolo.persistence.ContactOpal>) argContact).getOpal());
 		return this;
 	}
 
@@ -214,8 +214,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Player setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getPlayerOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		getPlayerOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.SchoolRegistration, com.scobolsolo.persistence.SchoolRegistrationOpal>) argSchoolRegistration).getOpal());
 		return this;
 	}
 
@@ -229,8 +230,9 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Player setSchoolYear(com.scobolsolo.application.SchoolYear argSchoolYear) {
-		getPlayerOpal().setSchoolYearOpal(argSchoolYear == null ? null : ((SchoolYearImpl) argSchoolYear).getSchoolYearOpal());
+		getPlayerOpal().setSchoolYearOpal(argSchoolYear == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.SchoolYear, com.scobolsolo.persistence.SchoolYearOpal>) argSchoolYear).getOpal());
 		return this;
 	}
 
@@ -250,138 +252,28 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Player addIncomingLosingCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().addIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Game> getIncomingLosingCardGameSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPlayerOpal().getIncomingLosingCardGameOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Player removeIncomingLosingCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().removeIncomingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Game> getIncomingWinningCardGameSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPlayerOpal().getIncomingWinningCardGameOpalSet());
 	}
 
 	@Override
-	public int getIncomingLosingCardGameCount() {
-		return getPlayerOpal().getIncomingLosingCardGameOpalCount();
+	public java.util.Set<com.scobolsolo.application.Game> getOutgoingLosingCardGameSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPlayerOpal().getOutgoingLosingCardGameOpalSet());
 	}
 
 	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingLosingCardGame() {
-		return getPlayerOpal().streamIncomingLosingCardGameOpal().map(com.opal.Opal::getUserFacing);
+	public java.util.Set<com.scobolsolo.application.Game> getOutgoingWinningCardGameSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPlayerOpal().getOutgoingWinningCardGameOpalSet());
 	}
 
 	@Override
-	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingLosingCardGameIterator() {
-		return new com.opal.OpalIterator<> (getPlayerOpal().createIncomingLosingCardGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player addIncomingWinningCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().addIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Player removeIncomingWinningCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().removeIncomingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public int getIncomingWinningCardGameCount() {
-		return getPlayerOpal().getIncomingWinningCardGameOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamIncomingWinningCardGame() {
-		return getPlayerOpal().streamIncomingWinningCardGameOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Game> createIncomingWinningCardGameIterator() {
-		return new com.opal.OpalIterator<> (getPlayerOpal().createIncomingWinningCardGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player addOutgoingLosingCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().addOutgoingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Player removeOutgoingLosingCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().removeOutgoingLosingCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public int getOutgoingLosingCardGameCount() {
-		return getPlayerOpal().getOutgoingLosingCardGameOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingLosingCardGame() {
-		return getPlayerOpal().streamOutgoingLosingCardGameOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingLosingCardGameIterator() {
-		return new com.opal.OpalIterator<> (getPlayerOpal().createOutgoingLosingCardGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player addOutgoingWinningCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().addOutgoingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Player removeOutgoingWinningCardGame(com.scobolsolo.application.Game argGame) {
-		getPlayerOpal().removeOutgoingWinningCardGameOpal(((GameImpl) argGame).getGameOpal());
-		return this;
-	}
-
-	@Override
-	public int getOutgoingWinningCardGameCount() {
-		return getPlayerOpal().getOutgoingWinningCardGameOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamOutgoingWinningCardGame() {
-		return getPlayerOpal().streamOutgoingWinningCardGameOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Game> createOutgoingWinningCardGameIterator() {
-		return new com.opal.OpalIterator<> (getPlayerOpal().createOutgoingWinningCardGameOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Player addPerformance(com.scobolsolo.application.Performance argPerformance) {
-		getPlayerOpal().addPerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Player removePerformance(com.scobolsolo.application.Performance argPerformance) {
-		getPlayerOpal().removePerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
-		return this;
-	}
-
-	@Override
-	public int getPerformanceCount() {
-		return getPlayerOpal().getPerformanceOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance() {
-		return getPlayerOpal().streamPerformanceOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Performance> createPerformanceIterator() {
-		return new com.opal.OpalIterator<> (getPlayerOpal().createPerformanceOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Performance> getPerformanceSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPlayerOpal().getPerformanceOpalSet());
 	}
 
 	@Override

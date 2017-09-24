@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class MatchImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Match, com.scobolsolo.persistence.MatchOpal> implements com.scobolsolo.application.Match {
 
 	private final com.scobolsolo.persistence.MatchOpal myMatchOpal;
@@ -15,12 +14,12 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Match> getOpal() {
+	public com.scobolsolo.persistence.MatchOpal getOpal() {
 		return getMatchOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Match> getBottomOpal() {
+	public com.scobolsolo.persistence.MatchOpal getBottomOpal() {
 		return getMatchOpal();
 	}
 
@@ -142,8 +141,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Match setLosingCard(com.scobolsolo.application.Card argCard) {
-		getMatchOpal().setLosingCardOpal(argCard == null ? null : ((CardImpl) argCard).getCardOpal());
+		getMatchOpal().setLosingCardOpal(argCard == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Card, com.scobolsolo.persistence.CardOpal>) argCard).getOpal());
 		return this;
 	}
 
@@ -157,8 +157,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Match setRoom(com.scobolsolo.application.Room argRoom) {
-		getMatchOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
+		getMatchOpal().setRoomOpal(argRoom == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Room, com.scobolsolo.persistence.RoomOpal>) argRoom).getOpal());
 		return this;
 	}
 
@@ -172,8 +173,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Match setRound(com.scobolsolo.application.Round argRound) {
-		getMatchOpal().setRoundOpal(argRound == null ? null : ((RoundImpl) argRound).getRoundOpal());
+		getMatchOpal().setRoundOpal(argRound == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Round, com.scobolsolo.persistence.RoundOpal>) argRound).getOpal());
 		return this;
 	}
 
@@ -187,8 +189,9 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Match setWinningCard(com.scobolsolo.application.Card argCard) {
-		getMatchOpal().setWinningCardOpal(argCard == null ? null : ((CardImpl) argCard).getCardOpal());
+		getMatchOpal().setWinningCardOpal(argCard == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Card, com.scobolsolo.persistence.CardOpal>) argCard).getOpal());
 		return this;
 	}
 

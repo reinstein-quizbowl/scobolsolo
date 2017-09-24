@@ -225,16 +225,16 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 	@Override
 	protected void unlinkInternal() {
 		if (getBasePlacementOpal() != null) {
-			getBasePlacementOpal().removeBaseResponseOpalInternal(this);
+			getBasePlacementOpal().getBaseResponseOpalSet().removeInternal(this);
 		}
 		if (getDiffOpal() != null) {
-			getDiffOpal().removeResponseOpalInternal(this);
+			getDiffOpal().getResponseOpalSet().removeInternal(this);
 		}
 		if (getPerformanceOpal() != null) {
-			getPerformanceOpal().removeResponseOpalInternal(this);
+			getPerformanceOpal().getResponseOpalSet().removeInternal(this);
 		}
 		if (getReplacementPlacementOpal() != null) {
-			getReplacementPlacementOpal().removeReplacementResponseOpalInternal(this);
+			getReplacementPlacementOpal().getReplacementResponseOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -324,14 +324,14 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if ((lclUO = myOldBasePlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
 			lclUO = myOldBasePlacementOpal = retrieveBasePlacementOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldDiffOpal) == DiffOpal.NOT_YET_LOADED) {
 			lclUO = myOldDiffOpal = retrieveDiffOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -340,7 +340,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if ((lclUO = myOldPerformanceOpal) == PerformanceOpal.NOT_YET_LOADED) {
 			lclUO = myOldPerformanceOpal = retrievePerformanceOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -349,7 +349,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if ((lclUO = myOldReplacementPlacementOpal) == PlacementOpal.NOT_YET_LOADED) {
 			lclUO = myOldReplacementPlacementOpal = retrieveReplacementPlacementOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -358,7 +358,7 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		if ((lclUO = myOldResponseTypeOpal) == ResponseTypeOpal.NOT_YET_LOADED) {
 			lclUO = myOldResponseTypeOpal = retrieveResponseTypeOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -433,11 +433,11 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		PlacementOpal lclPlacementOpal = getBasePlacementOpal();
 		if (lclPlacementOpal == argPlacementOpal) { return this; }
 		if (lclPlacementOpal != null) {
-			lclPlacementOpal.removeBaseResponseOpalInternal(this);
+			lclPlacementOpal.getBaseResponseOpalSet().removeInternal(this);
 		}
 		myNewBasePlacementOpal = argPlacementOpal;
 		if (argPlacementOpal != null) {
-			argPlacementOpal.addBaseResponseOpalInternal(this);
+			argPlacementOpal.getBaseResponseOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -478,11 +478,11 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		DiffOpal lclDiffOpal = getDiffOpal();
 		if (lclDiffOpal == argDiffOpal) { return this; }
 		if (lclDiffOpal != null) {
-			lclDiffOpal.removeResponseOpalInternal(this);
+			lclDiffOpal.getResponseOpalSet().removeInternal(this);
 		}
 		myNewDiffOpal = argDiffOpal;
 		if (argDiffOpal != null) {
-			argDiffOpal.addResponseOpalInternal(this);
+			argDiffOpal.getResponseOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -523,11 +523,11 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		PerformanceOpal lclPerformanceOpal = getPerformanceOpal();
 		if (lclPerformanceOpal == argPerformanceOpal) { return this; }
 		if (lclPerformanceOpal != null) {
-			lclPerformanceOpal.removeResponseOpalInternal(this);
+			lclPerformanceOpal.getResponseOpalSet().removeInternal(this);
 		}
 		myNewPerformanceOpal = argPerformanceOpal;
 		if (argPerformanceOpal != null) {
-			argPerformanceOpal.addResponseOpalInternal(this);
+			argPerformanceOpal.getResponseOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -568,11 +568,11 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		PlacementOpal lclPlacementOpal = getReplacementPlacementOpal();
 		if (lclPlacementOpal == argPlacementOpal) { return this; }
 		if (lclPlacementOpal != null) {
-			lclPlacementOpal.removeReplacementResponseOpalInternal(this);
+			lclPlacementOpal.getReplacementResponseOpalSet().removeInternal(this);
 		}
 		myNewReplacementPlacementOpal = argPlacementOpal;
 		if (argPlacementOpal != null) {
-			argPlacementOpal.addReplacementResponseOpalInternal(this);
+			argPlacementOpal.getReplacementResponseOpalSet().addInternal(this);
 		}
 		return this;
 	}

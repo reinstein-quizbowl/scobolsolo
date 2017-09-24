@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class CategoryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Category, com.scobolsolo.persistence.CategoryOpal> implements com.scobolsolo.application.Category {
 
 	private final com.scobolsolo.persistence.CategoryOpal myCategoryOpal;
@@ -15,12 +14,12 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Category> getOpal() {
+	public com.scobolsolo.persistence.CategoryOpal getOpal() {
 		return getCategoryOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Category> getBottomOpal() {
+	public com.scobolsolo.persistence.CategoryOpal getBottomOpal() {
 		return getCategoryOpal();
 	}
 
@@ -149,8 +148,9 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Category setCategoryGroup(com.scobolsolo.application.CategoryGroup argCategoryGroup) {
-		getCategoryOpal().setCategoryGroupOpal(argCategoryGroup == null ? null : ((CategoryGroupImpl) argCategoryGroup).getCategoryGroupOpal());
+		getCategoryOpal().setCategoryGroupOpal(argCategoryGroup == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.CategoryGroup, com.scobolsolo.persistence.CategoryGroupOpal>) argCategoryGroup).getOpal());
 		return this;
 	}
 
@@ -158,138 +158,28 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Category addPronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression) {
-		getCategoryOpal().addPronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.PronunciationGuideSuppression> getPronunciationGuideSuppressionSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCategoryOpal().getPronunciationGuideSuppressionOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Category removePronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression) {
-		getCategoryOpal().removePronunciationGuideSuppressionOpal(((PronunciationGuideSuppressionImpl) argPronunciationGuideSuppression).getPronunciationGuideSuppressionOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Question> getQuestionSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCategoryOpal().getQuestionOpalSet());
 	}
 
 	@Override
-	public int getPronunciationGuideSuppressionCount() {
-		return getCategoryOpal().getPronunciationGuideSuppressionOpalCount();
+	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCategoryOpal().getDiffOpalSet());
 	}
 
 	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression() {
-		return getCategoryOpal().streamPronunciationGuideSuppressionOpal().map(com.opal.Opal::getUserFacing);
+	public java.util.Set<com.scobolsolo.application.CategoryUse> getCategoryUseSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCategoryOpal().getCategoryUseOpalSet());
 	}
 
 	@Override
-	public java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator() {
-		return new com.opal.OpalIterator<> (getCategoryOpal().createPronunciationGuideSuppressionOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Category addQuestion(com.scobolsolo.application.Question argQuestion) {
-		getCategoryOpal().addQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Category removeQuestion(com.scobolsolo.application.Question argQuestion) {
-		getCategoryOpal().removeQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-		return this;
-	}
-
-	@Override
-	public int getQuestionCount() {
-		return getCategoryOpal().getQuestionOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion() {
-		return getCategoryOpal().streamQuestionOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator() {
-		return new com.opal.OpalIterator<> (getCategoryOpal().createQuestionOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Category addDiff(com.scobolsolo.application.Diff argDiff) {
-		getCategoryOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Category removeDiff(com.scobolsolo.application.Diff argDiff) {
-		getCategoryOpal().removeDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
-	}
-
-	@Override
-	public int getDiffCount() {
-		return getCategoryOpal().getDiffOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {
-		return getCategoryOpal().streamDiffOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator() {
-		return new com.opal.OpalIterator<> (getCategoryOpal().createDiffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Category addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse) {
-		getCategoryOpal().addCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Category removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse) {
-		getCategoryOpal().removeCategoryUseOpal(((CategoryUseImpl) argCategoryUse).getCategoryUseOpal());
-		return this;
-	}
-
-	@Override
-	public int getCategoryUseCount() {
-		return getCategoryOpal().getCategoryUseOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse() {
-		return getCategoryOpal().streamCategoryUseOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.CategoryUse> createCategoryUseIterator() {
-		return new com.opal.OpalIterator<> (getCategoryOpal().createCategoryUseOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Category addPlacement(com.scobolsolo.application.Placement argPlacement) {
-		getCategoryOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Category removePlacement(com.scobolsolo.application.Placement argPlacement) {
-		getCategoryOpal().removePlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
-		return this;
-	}
-
-	@Override
-	public int getPlacementCount() {
-		return getCategoryOpal().getPlacementOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement() {
-		return getCategoryOpal().streamPlacementOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator() {
-		return new com.opal.OpalIterator<> (getCategoryOpal().createPlacementOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Placement> getPlacementSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCategoryOpal().getPlacementOpalSet());
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.apache.commons.lang3.Validate;
 
 import com.opal.ImplicitTableDatabaseQuery;
+import com.opal.LocalDateCache;
 
 import com.scobolsolo.persistence.MessageUserFacing;
 
@@ -41,7 +42,7 @@ public interface Message extends MessageUserFacing {
 	public static String format(final LocalDateTime argTimestamp) {
 		Validate.notNull(argTimestamp);
 		
-		if (argTimestamp.toLocalDate().equals(LocalDate.now())) {
+		if (argTimestamp.toLocalDate().equals(LocalDateCache.today())) {
 			return TIMESTAMP_FORMATTER_WITHOUT_DATE.format(argTimestamp);
 		} else {
 			return TIMESTAMP_FORMATTER_WITH_DATE.format(argTimestamp);

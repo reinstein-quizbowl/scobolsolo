@@ -40,7 +40,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 
 <div class="row">
 	<div class="small-12 large-9 columns"><%
-		List<ResponseType> lclRTs = ResponseTypeFactory.getInstance().streamAll()
+		List<ResponseType> lclRTs = ResponseTypeFactory.getInstance().getAll().stream()
 			.filter(ResponseType::isShowInReports)
 			.sorted()
 			.collect(Collectors.toList());

@@ -31,11 +31,31 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>();
-		myNewWriterQuestionOpalHashSet = new java.util.HashSet<>();
-		myNewEditorDiffOpalHashSet = new java.util.HashSet<>();
-		myNewFromMessageOpalHashSet = new java.util.HashSet<>();
-		myNewToMessageOpalHashSet = new java.util.HashSet<>();
+		myPronunciationGuideSuppressionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourPronunciationGuideSuppressionOpalLoader,
+				true
+				);
+		myWriterQuestionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourWriterQuestionOpalLoader,
+				true
+				);
+		myEditorDiffSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourEditorDiffOpalLoader,
+				true
+				);
+		myFromMessageSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourFromMessageOpalLoader,
+				true
+				);
+		myToMessageSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourToMessageOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -272,16 +292,6 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewContactOpal = myOldContactOpal;
-		myNewPronunciationGuideSuppressionOpalHashSet = null; /* Necessary if it has been rolled back */
-		myPronunciationGuideSuppressionOpalCachedOperations = null; /* Ditto */
-		myNewWriterQuestionOpalHashSet = null; /* Necessary if it has been rolled back */
-		myWriterQuestionOpalCachedOperations = null; /* Ditto */
-		myNewEditorDiffOpalHashSet = null; /* Necessary if it has been rolled back */
-		myEditorDiffOpalCachedOperations = null; /* Ditto */
-		myNewFromMessageOpalHashSet = null; /* Necessary if it has been rolled back */
-		myFromMessageOpalCachedOperations = null; /* Ditto */
-		myNewToMessageOpalHashSet = null; /* Necessary if it has been rolled back */
-		myToMessageOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -290,101 +300,16 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldContactOpal = myNewContactOpal;
 
-		if (needsToClearOldCollections()) {
-			myOldPronunciationGuideSuppressionOpalHashSet = null;
-			myOldWriterQuestionOpalHashSet = null;
-			myOldEditorDiffOpalHashSet = null;
-			myOldFromMessageOpalHashSet = null;
-			myOldToMessageOpalHashSet = null;
-		} else {
-			if (myNewPronunciationGuideSuppressionOpalHashSet != null) {
-				if (myNewPronunciationGuideSuppressionOpalHashSet.size() > 0) {
-					myOldPronunciationGuideSuppressionOpalHashSet = myNewPronunciationGuideSuppressionOpalHashSet;
-				} else {
-					myOldPronunciationGuideSuppressionOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewPronunciationGuideSuppressionOpalHashSet = null;
-			} else {
-				myPronunciationGuideSuppressionOpalCachedOperations = null;
-			}
-			if (myNewWriterQuestionOpalHashSet != null) {
-				if (myNewWriterQuestionOpalHashSet.size() > 0) {
-					myOldWriterQuestionOpalHashSet = myNewWriterQuestionOpalHashSet;
-				} else {
-					myOldWriterQuestionOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewWriterQuestionOpalHashSet = null;
-			} else {
-				myWriterQuestionOpalCachedOperations = null;
-			}
-			if (myNewEditorDiffOpalHashSet != null) {
-				if (myNewEditorDiffOpalHashSet.size() > 0) {
-					myOldEditorDiffOpalHashSet = myNewEditorDiffOpalHashSet;
-				} else {
-					myOldEditorDiffOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewEditorDiffOpalHashSet = null;
-			} else {
-				myEditorDiffOpalCachedOperations = null;
-			}
-			if (myNewFromMessageOpalHashSet != null) {
-				if (myNewFromMessageOpalHashSet.size() > 0) {
-					myOldFromMessageOpalHashSet = myNewFromMessageOpalHashSet;
-				} else {
-					myOldFromMessageOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewFromMessageOpalHashSet = null;
-			} else {
-				myFromMessageOpalCachedOperations = null;
-			}
-			if (myNewToMessageOpalHashSet != null) {
-				if (myNewToMessageOpalHashSet.size() > 0) {
-					myOldToMessageOpalHashSet = myNewToMessageOpalHashSet;
-				} else {
-					myOldToMessageOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewToMessageOpalHashSet = null;
-			} else {
-				myToMessageOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewPronunciationGuideSuppressionOpalHashSet != null || myPronunciationGuideSuppressionOpalCachedOperations != null) {
-			lclI = createPronunciationGuideSuppressionOpalIterator();
-			while (lclI.hasNext()) {
-				((PronunciationGuideSuppressionOpal) lclI.next()).setAccountOpalInternal(null);
-			}
-		}
-		if (myNewWriterQuestionOpalHashSet != null || myWriterQuestionOpalCachedOperations != null) {
-			lclI = createWriterQuestionOpalIterator();
-			while (lclI.hasNext()) {
-				((QuestionOpal) lclI.next()).setWriterOpalInternal(null);
-			}
-		}
-		if (myNewEditorDiffOpalHashSet != null || myEditorDiffOpalCachedOperations != null) {
-			lclI = createEditorDiffOpalIterator();
-			while (lclI.hasNext()) {
-				((DiffOpal) lclI.next()).setEditorOpalInternal(null);
-			}
-		}
-		if (myNewFromMessageOpalHashSet != null || myFromMessageOpalCachedOperations != null) {
-			lclI = createFromMessageOpalIterator();
-			while (lclI.hasNext()) {
-				((MessageOpal) lclI.next()).setFromAccountOpalInternal(null);
-			}
-		}
-		if (myNewToMessageOpalHashSet != null || myToMessageOpalCachedOperations != null) {
-			lclI = createToMessageOpalIterator();
-			while (lclI.hasNext()) {
-				((MessageOpal) lclI.next()).setToAccountOpalInternal(null);
-			}
-		}
+		getPronunciationGuideSuppressionOpalSet().clear();
+		getWriterQuestionOpalSet().clear();
+		getEditorDiffOpalSet().clear();
+		getFromMessageOpalSet().clear();
+		getToMessageOpalSet().clear();
 		if (getContactOpal() != null) {
 			getContactOpal().setAccountOpalInternal(null);
 		}
@@ -438,7 +363,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		if ((lclUO = myOldContactOpal) == ContactOpal.NOT_YET_LOADED) {
 			lclUO = myOldContactOpal = retrieveContactOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
@@ -527,434 +452,129 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		myNewContactOpal = argContactOpal;
 	}
 
-	private java.util.Set<PronunciationGuideSuppressionOpal> myOldPronunciationGuideSuppressionOpalHashSet = null;
-	private java.util.Set<PronunciationGuideSuppressionOpal> myNewPronunciationGuideSuppressionOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<PronunciationGuideSuppressionOpal>> myPronunciationGuideSuppressionOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<PronunciationGuideSuppressionOpal, AccountOpal> myPronunciationGuideSuppressionSet = null;
 
-	/* package */ java.util.Set<PronunciationGuideSuppressionOpal> getPronunciationGuideSuppressionOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewPronunciationGuideSuppressionOpalHashSet == null) {
-				if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
-					if (isNew()) {
-						myOldPronunciationGuideSuppressionOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<PronunciationGuideSuppressionOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getPronunciationGuideSuppressionOpalFactory().forAccountIdCollection(getIdAsObject());
-						myOldPronunciationGuideSuppressionOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>(myOldPronunciationGuideSuppressionOpalHashSet);
-				if (myPronunciationGuideSuppressionOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myPronunciationGuideSuppressionOpalCachedOperations, myNewPronunciationGuideSuppressionOpalHashSet);
-					myPronunciationGuideSuppressionOpalCachedOperations = null;
-				}
-			}
-			return myNewPronunciationGuideSuppressionOpalHashSet;
-		} else {
-			if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
-				java.util.Set<PronunciationGuideSuppressionOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getPronunciationGuideSuppressionOpalFactory().forAccountIdCollection(getIdAsObject());
-				myOldPronunciationGuideSuppressionOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldPronunciationGuideSuppressionOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<PronunciationGuideSuppressionOpal, AccountOpal> ourPronunciationGuideSuppressionOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getPronunciationGuideSuppressionOpalFactory()::forAccountOpalCollection,
+					OpalFactoryFactory.getInstance().getPronunciationGuideSuppressionOpalFactory()::forAccountOpalCount,
+					PronunciationGuideSuppressionOpal::setAccountOpal,
+					PronunciationGuideSuppressionOpal::setAccountOpalInternal,
+					PronunciationGuideSuppressionOpal::getAccountOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<PronunciationGuideSuppressionOpal, AccountOpal> getPronunciationGuideSuppressionOpalSet() {
+		if (myPronunciationGuideSuppressionSet == null) {
+			myPronunciationGuideSuppressionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourPronunciationGuideSuppressionOpalLoader,
+					isNew()
+					);
 		}
+		return myPronunciationGuideSuppressionSet;
 	}
 
-	public synchronized void addPronunciationGuideSuppressionOpal(PronunciationGuideSuppressionOpal argPronunciationGuideSuppressionOpal) {
-		tryMutate();
-		argPronunciationGuideSuppressionOpal.setAccountOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<QuestionOpal, AccountOpal> myWriterQuestionSet = null;
 
-	protected synchronized void addPronunciationGuideSuppressionOpalInternal(PronunciationGuideSuppressionOpal argPronunciationGuideSuppressionOpal) {
-		tryMutate();
-		if (myNewPronunciationGuideSuppressionOpalHashSet == null) {
-			if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
-				if (myPronunciationGuideSuppressionOpalCachedOperations == null) { myPronunciationGuideSuppressionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPronunciationGuideSuppressionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPronunciationGuideSuppressionOpal));
-			} else {
-				myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>(myOldPronunciationGuideSuppressionOpalHashSet);
-				myNewPronunciationGuideSuppressionOpalHashSet.add(argPronunciationGuideSuppressionOpal);
-			}
-		} else {
-			myNewPronunciationGuideSuppressionOpalHashSet.add(argPronunciationGuideSuppressionOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<QuestionOpal, AccountOpal> ourWriterQuestionOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getQuestionOpalFactory()::forWriterOpalCollection,
+					OpalFactoryFactory.getInstance().getQuestionOpalFactory()::forWriterOpalCount,
+					QuestionOpal::setWriterOpal,
+					QuestionOpal::setWriterOpalInternal,
+					QuestionOpal::getWriterOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<QuestionOpal, AccountOpal> getWriterQuestionOpalSet() {
+		if (myWriterQuestionSet == null) {
+			myWriterQuestionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourWriterQuestionOpalLoader,
+					isNew()
+					);
 		}
-		return;
+		return myWriterQuestionSet;
 	}
 
-	public synchronized void removePronunciationGuideSuppressionOpal(PronunciationGuideSuppressionOpal argPronunciationGuideSuppressionOpal) {
-		tryMutate();
-		argPronunciationGuideSuppressionOpal.setAccountOpal(null);
-	}
+	private com.opal.types.OpalBackCollectionSet<DiffOpal, AccountOpal> myEditorDiffSet = null;
 
-	protected synchronized void removePronunciationGuideSuppressionOpalInternal(PronunciationGuideSuppressionOpal argPronunciationGuideSuppressionOpal) {
-		tryMutate();
-		if (myNewPronunciationGuideSuppressionOpalHashSet == null) {
-			if (myOldPronunciationGuideSuppressionOpalHashSet == null) {
-				if (myPronunciationGuideSuppressionOpalCachedOperations == null) { myPronunciationGuideSuppressionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPronunciationGuideSuppressionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPronunciationGuideSuppressionOpal));
-			} else {
-				myNewPronunciationGuideSuppressionOpalHashSet = new java.util.HashSet<>(myOldPronunciationGuideSuppressionOpalHashSet);
-				myNewPronunciationGuideSuppressionOpalHashSet.remove(argPronunciationGuideSuppressionOpal);
-			}
-		} else {
-			myNewPronunciationGuideSuppressionOpalHashSet.remove(argPronunciationGuideSuppressionOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<DiffOpal, AccountOpal> ourEditorDiffOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getDiffOpalFactory()::forEditorOpalCollection,
+					OpalFactoryFactory.getInstance().getDiffOpalFactory()::forEditorOpalCount,
+					DiffOpal::setEditorOpal,
+					DiffOpal::setEditorOpalInternal,
+					DiffOpal::getEditorOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<DiffOpal, AccountOpal> getEditorDiffOpalSet() {
+		if (myEditorDiffSet == null) {
+			myEditorDiffSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourEditorDiffOpalLoader,
+					isNew()
+					);
 		}
-		return;
+		return myEditorDiffSet;
 	}
 
-	public synchronized int getPronunciationGuideSuppressionOpalCount() { return getPronunciationGuideSuppressionOpalHashSet().size(); }
+	private com.opal.types.OpalBackCollectionSet<MessageOpal, AccountOpal> myFromMessageSet = null;
 
-	public synchronized java.util.Iterator<PronunciationGuideSuppressionOpal> createPronunciationGuideSuppressionOpalIterator() {
-		return getPronunciationGuideSuppressionOpalHashSet().iterator();
-	}
+	private static final com.opal.types.OpalBackCollectionLoader<MessageOpal, AccountOpal> ourFromMessageOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getMessageOpalFactory()::forFromAccountOpalCollection,
+					OpalFactoryFactory.getInstance().getMessageOpalFactory()::forFromAccountOpalCount,
+					MessageOpal::setFromAccountOpal,
+					MessageOpal::setFromAccountOpalInternal,
+					MessageOpal::getFromAccountOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
 
-	public synchronized java.util.stream.Stream<PronunciationGuideSuppressionOpal> streamPronunciationGuideSuppressionOpal() {
-		return getPronunciationGuideSuppressionOpalHashSet().stream();
-	}
-
-	private java.util.Set<QuestionOpal> myOldWriterQuestionOpalHashSet = null;
-	private java.util.Set<QuestionOpal> myNewWriterQuestionOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<QuestionOpal>> myWriterQuestionOpalCachedOperations = null;
-
-	/* package */ java.util.Set<QuestionOpal> getWriterQuestionOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewWriterQuestionOpalHashSet == null) {
-				if (myOldWriterQuestionOpalHashSet == null) {
-					if (isNew()) {
-						myOldWriterQuestionOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<QuestionOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forWriterAccountIdCollection(getIdAsObject());
-						myOldWriterQuestionOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewWriterQuestionOpalHashSet = new java.util.HashSet<>(myOldWriterQuestionOpalHashSet);
-				if (myWriterQuestionOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myWriterQuestionOpalCachedOperations, myNewWriterQuestionOpalHashSet);
-					myWriterQuestionOpalCachedOperations = null;
-				}
-			}
-			return myNewWriterQuestionOpalHashSet;
-		} else {
-			if (myOldWriterQuestionOpalHashSet == null) {
-				java.util.Set<QuestionOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getQuestionOpalFactory().forWriterAccountIdCollection(getIdAsObject());
-				myOldWriterQuestionOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldWriterQuestionOpalHashSet;
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<MessageOpal, AccountOpal> getFromMessageOpalSet() {
+		if (myFromMessageSet == null) {
+			myFromMessageSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourFromMessageOpalLoader,
+					isNew()
+					);
 		}
+		return myFromMessageSet;
 	}
 
-	public synchronized void addWriterQuestionOpal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		argQuestionOpal.setWriterOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<MessageOpal, AccountOpal> myToMessageSet = null;
 
-	protected synchronized void addWriterQuestionOpalInternal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		if (myNewWriterQuestionOpalHashSet == null) {
-			if (myOldWriterQuestionOpalHashSet == null) {
-				if (myWriterQuestionOpalCachedOperations == null) { myWriterQuestionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWriterQuestionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argQuestionOpal));
-			} else {
-				myNewWriterQuestionOpalHashSet = new java.util.HashSet<>(myOldWriterQuestionOpalHashSet);
-				myNewWriterQuestionOpalHashSet.add(argQuestionOpal);
-			}
-		} else {
-			myNewWriterQuestionOpalHashSet.add(argQuestionOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<MessageOpal, AccountOpal> ourToMessageOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getMessageOpalFactory()::forToAccountOpalCollection,
+					OpalFactoryFactory.getInstance().getMessageOpalFactory()::forToAccountOpalCount,
+					MessageOpal::setToAccountOpal,
+					MessageOpal::setToAccountOpalInternal,
+					MessageOpal::getToAccountOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<MessageOpal, AccountOpal> getToMessageOpalSet() {
+		if (myToMessageSet == null) {
+			myToMessageSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourToMessageOpalLoader,
+					isNew()
+					);
 		}
-		return;
-	}
-
-	public synchronized void removeWriterQuestionOpal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		argQuestionOpal.setWriterOpal(null);
-	}
-
-	protected synchronized void removeWriterQuestionOpalInternal(QuestionOpal argQuestionOpal) {
-		tryMutate();
-		if (myNewWriterQuestionOpalHashSet == null) {
-			if (myOldWriterQuestionOpalHashSet == null) {
-				if (myWriterQuestionOpalCachedOperations == null) { myWriterQuestionOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWriterQuestionOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argQuestionOpal));
-			} else {
-				myNewWriterQuestionOpalHashSet = new java.util.HashSet<>(myOldWriterQuestionOpalHashSet);
-				myNewWriterQuestionOpalHashSet.remove(argQuestionOpal);
-			}
-		} else {
-			myNewWriterQuestionOpalHashSet.remove(argQuestionOpal);
-		}
-		return;
-	}
-
-	public synchronized int getWriterQuestionOpalCount() { return getWriterQuestionOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<QuestionOpal> createWriterQuestionOpalIterator() {
-		return getWriterQuestionOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<QuestionOpal> streamWriterQuestionOpal() {
-		return getWriterQuestionOpalHashSet().stream();
-	}
-
-	private java.util.Set<DiffOpal> myOldEditorDiffOpalHashSet = null;
-	private java.util.Set<DiffOpal> myNewEditorDiffOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<DiffOpal>> myEditorDiffOpalCachedOperations = null;
-
-	/* package */ java.util.Set<DiffOpal> getEditorDiffOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewEditorDiffOpalHashSet == null) {
-				if (myOldEditorDiffOpalHashSet == null) {
-					if (isNew()) {
-						myOldEditorDiffOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<DiffOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
-						myOldEditorDiffOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
-				if (myEditorDiffOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myEditorDiffOpalCachedOperations, myNewEditorDiffOpalHashSet);
-					myEditorDiffOpalCachedOperations = null;
-				}
-			}
-			return myNewEditorDiffOpalHashSet;
-		} else {
-			if (myOldEditorDiffOpalHashSet == null) {
-				java.util.Set<DiffOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getDiffOpalFactory().forEditorAccountIdCollection(getIdAsObject());
-				myOldEditorDiffOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldEditorDiffOpalHashSet;
-		}
-	}
-
-	public synchronized void addEditorDiffOpal(DiffOpal argDiffOpal) {
-		tryMutate();
-		argDiffOpal.setEditorOpal(this);
-		return;
-	}
-
-	protected synchronized void addEditorDiffOpalInternal(DiffOpal argDiffOpal) {
-		tryMutate();
-		if (myNewEditorDiffOpalHashSet == null) {
-			if (myOldEditorDiffOpalHashSet == null) {
-				if (myEditorDiffOpalCachedOperations == null) { myEditorDiffOpalCachedOperations = new java.util.ArrayList<>(); }
-				myEditorDiffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argDiffOpal));
-			} else {
-				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
-				myNewEditorDiffOpalHashSet.add(argDiffOpal);
-			}
-		} else {
-			myNewEditorDiffOpalHashSet.add(argDiffOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeEditorDiffOpal(DiffOpal argDiffOpal) {
-		tryMutate();
-		argDiffOpal.setEditorOpal(null);
-	}
-
-	protected synchronized void removeEditorDiffOpalInternal(DiffOpal argDiffOpal) {
-		tryMutate();
-		if (myNewEditorDiffOpalHashSet == null) {
-			if (myOldEditorDiffOpalHashSet == null) {
-				if (myEditorDiffOpalCachedOperations == null) { myEditorDiffOpalCachedOperations = new java.util.ArrayList<>(); }
-				myEditorDiffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argDiffOpal));
-			} else {
-				myNewEditorDiffOpalHashSet = new java.util.HashSet<>(myOldEditorDiffOpalHashSet);
-				myNewEditorDiffOpalHashSet.remove(argDiffOpal);
-			}
-		} else {
-			myNewEditorDiffOpalHashSet.remove(argDiffOpal);
-		}
-		return;
-	}
-
-	public synchronized int getEditorDiffOpalCount() { return getEditorDiffOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<DiffOpal> createEditorDiffOpalIterator() {
-		return getEditorDiffOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<DiffOpal> streamEditorDiffOpal() {
-		return getEditorDiffOpalHashSet().stream();
-	}
-
-	private java.util.Set<MessageOpal> myOldFromMessageOpalHashSet = null;
-	private java.util.Set<MessageOpal> myNewFromMessageOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<MessageOpal>> myFromMessageOpalCachedOperations = null;
-
-	/* package */ java.util.Set<MessageOpal> getFromMessageOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewFromMessageOpalHashSet == null) {
-				if (myOldFromMessageOpalHashSet == null) {
-					if (isNew()) {
-						myOldFromMessageOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<MessageOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forFromAccountIdCollection(getIdAsObject());
-						myOldFromMessageOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewFromMessageOpalHashSet = new java.util.HashSet<>(myOldFromMessageOpalHashSet);
-				if (myFromMessageOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myFromMessageOpalCachedOperations, myNewFromMessageOpalHashSet);
-					myFromMessageOpalCachedOperations = null;
-				}
-			}
-			return myNewFromMessageOpalHashSet;
-		} else {
-			if (myOldFromMessageOpalHashSet == null) {
-				java.util.Set<MessageOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forFromAccountIdCollection(getIdAsObject());
-				myOldFromMessageOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldFromMessageOpalHashSet;
-		}
-	}
-
-	public synchronized void addFromMessageOpal(MessageOpal argMessageOpal) {
-		tryMutate();
-		argMessageOpal.setFromAccountOpal(this);
-		return;
-	}
-
-	protected synchronized void addFromMessageOpalInternal(MessageOpal argMessageOpal) {
-		tryMutate();
-		if (myNewFromMessageOpalHashSet == null) {
-			if (myOldFromMessageOpalHashSet == null) {
-				if (myFromMessageOpalCachedOperations == null) { myFromMessageOpalCachedOperations = new java.util.ArrayList<>(); }
-				myFromMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMessageOpal));
-			} else {
-				myNewFromMessageOpalHashSet = new java.util.HashSet<>(myOldFromMessageOpalHashSet);
-				myNewFromMessageOpalHashSet.add(argMessageOpal);
-			}
-		} else {
-			myNewFromMessageOpalHashSet.add(argMessageOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeFromMessageOpal(MessageOpal argMessageOpal) {
-		tryMutate();
-		argMessageOpal.setFromAccountOpal(null);
-	}
-
-	protected synchronized void removeFromMessageOpalInternal(MessageOpal argMessageOpal) {
-		tryMutate();
-		if (myNewFromMessageOpalHashSet == null) {
-			if (myOldFromMessageOpalHashSet == null) {
-				if (myFromMessageOpalCachedOperations == null) { myFromMessageOpalCachedOperations = new java.util.ArrayList<>(); }
-				myFromMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMessageOpal));
-			} else {
-				myNewFromMessageOpalHashSet = new java.util.HashSet<>(myOldFromMessageOpalHashSet);
-				myNewFromMessageOpalHashSet.remove(argMessageOpal);
-			}
-		} else {
-			myNewFromMessageOpalHashSet.remove(argMessageOpal);
-		}
-		return;
-	}
-
-	public synchronized int getFromMessageOpalCount() { return getFromMessageOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<MessageOpal> createFromMessageOpalIterator() {
-		return getFromMessageOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<MessageOpal> streamFromMessageOpal() {
-		return getFromMessageOpalHashSet().stream();
-	}
-
-	private java.util.Set<MessageOpal> myOldToMessageOpalHashSet = null;
-	private java.util.Set<MessageOpal> myNewToMessageOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<MessageOpal>> myToMessageOpalCachedOperations = null;
-
-	/* package */ java.util.Set<MessageOpal> getToMessageOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewToMessageOpalHashSet == null) {
-				if (myOldToMessageOpalHashSet == null) {
-					if (isNew()) {
-						myOldToMessageOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<MessageOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forToAccountIdCollection(getIdAsObject());
-						myOldToMessageOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewToMessageOpalHashSet = new java.util.HashSet<>(myOldToMessageOpalHashSet);
-				if (myToMessageOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myToMessageOpalCachedOperations, myNewToMessageOpalHashSet);
-					myToMessageOpalCachedOperations = null;
-				}
-			}
-			return myNewToMessageOpalHashSet;
-		} else {
-			if (myOldToMessageOpalHashSet == null) {
-				java.util.Set<MessageOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getMessageOpalFactory().forToAccountIdCollection(getIdAsObject());
-				myOldToMessageOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldToMessageOpalHashSet;
-		}
-	}
-
-	public synchronized void addToMessageOpal(MessageOpal argMessageOpal) {
-		tryMutate();
-		argMessageOpal.setToAccountOpal(this);
-		return;
-	}
-
-	protected synchronized void addToMessageOpalInternal(MessageOpal argMessageOpal) {
-		tryMutate();
-		if (myNewToMessageOpalHashSet == null) {
-			if (myOldToMessageOpalHashSet == null) {
-				if (myToMessageOpalCachedOperations == null) { myToMessageOpalCachedOperations = new java.util.ArrayList<>(); }
-				myToMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMessageOpal));
-			} else {
-				myNewToMessageOpalHashSet = new java.util.HashSet<>(myOldToMessageOpalHashSet);
-				myNewToMessageOpalHashSet.add(argMessageOpal);
-			}
-		} else {
-			myNewToMessageOpalHashSet.add(argMessageOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeToMessageOpal(MessageOpal argMessageOpal) {
-		tryMutate();
-		argMessageOpal.setToAccountOpal(null);
-	}
-
-	protected synchronized void removeToMessageOpalInternal(MessageOpal argMessageOpal) {
-		tryMutate();
-		if (myNewToMessageOpalHashSet == null) {
-			if (myOldToMessageOpalHashSet == null) {
-				if (myToMessageOpalCachedOperations == null) { myToMessageOpalCachedOperations = new java.util.ArrayList<>(); }
-				myToMessageOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMessageOpal));
-			} else {
-				myNewToMessageOpalHashSet = new java.util.HashSet<>(myOldToMessageOpalHashSet);
-				myNewToMessageOpalHashSet.remove(argMessageOpal);
-			}
-		} else {
-			myNewToMessageOpalHashSet.remove(argMessageOpal);
-		}
-		return;
-	}
-
-	public synchronized int getToMessageOpalCount() { return getToMessageOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<MessageOpal> createToMessageOpalIterator() {
-		return getToMessageOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<MessageOpal> streamToMessageOpal() {
-		return getToMessageOpalHashSet().stream();
+		return myToMessageSet;
 	}
 
 	@Override

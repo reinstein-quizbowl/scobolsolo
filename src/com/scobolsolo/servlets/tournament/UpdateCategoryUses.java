@@ -1,6 +1,7 @@
 package com.scobolsolo.servlets.tournament;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,10 +30,10 @@ public class UpdateCategoryUses extends ScobolSoloControllerServlet {
 		final Tournament lclT = Validate.notNull(TournamentFactory.getInstance().fromHttpRequest(argRequest));
 		Validate.isTrue(argUser.mayActAsTournamentDirector(lclT), "Not authorized");
 		
-		final Category[] lclCs = CategoryFactory.getInstance().createAllArray();
+		final Set<Category> lclCs = CategoryFactory.getInstance().getAll();
 		
-		final Map<Category, CategoryUse> lclCurrentlyInUse = new ConcurrentHashMap<>(lclCs.length); // Why did I use a ConcurrentHashMap here instead of a regular HashMap?
-		for (final CategoryUse lclCU : lclT.createCategoryUseArray()) {
+		final Map<Category, CategoryUse> lclCurrentlyInUse = new ConcurrentHashMap<>(lclCs.size()); // THINK: Why did I use a ConcurrentHashMap here instead of a regular HashMap?
+		for (final CategoryUse lclCU : lclT.getCategoryUseSet()) {
 			lclCurrentlyInUse.put(lclCU.getCategory(), lclCU);
 		}
 		

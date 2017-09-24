@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class TechnologyChoiceImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.TechnologyChoice, com.scobolsolo.persistence.TechnologyChoiceOpal> implements com.scobolsolo.application.TechnologyChoice {
 
 	private final com.scobolsolo.persistence.TechnologyChoiceOpal myTechnologyChoiceOpal;
@@ -15,12 +14,12 @@ public class TechnologyChoiceImpl extends com.opal.AbstractIdentityImpl<com.scob
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.TechnologyChoice> getOpal() {
+	public com.scobolsolo.persistence.TechnologyChoiceOpal getOpal() {
 		return getTechnologyChoiceOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.TechnologyChoice> getBottomOpal() {
+	public com.scobolsolo.persistence.TechnologyChoiceOpal getBottomOpal() {
 		return getTechnologyChoiceOpal();
 	}
 

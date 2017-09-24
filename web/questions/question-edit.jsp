@@ -121,7 +121,7 @@ if (lclOF.hasErrors()) {
 if (lclOF.alreadyExists()) {
 	%><div class="row">
 		<div class="small-12 columns">
-			<h2><%= lclQ.getPlacementCount() == 1 ? "Placement" : "Placements (" + lclQ.getPlacementCount() + ")" %></h2>
+			<h2><%= lclQ.getPlacementSet().size() == 1 ? "Placement" : "Placements (" + lclQ.getPlacementSet().size() + ")" %></h2>
 			<table class="responsive">
 				<thead>
 					<tr>
@@ -132,7 +132,7 @@ if (lclOF.alreadyExists()) {
 					</tr>
 				</thead>
 				<tbody><%
-					for (Placement lclPL : lclQ.createPlacementArray()) {
+					for (Placement lclPL : lclQ.getPlacementSet()) {
 						%><tr>
 							<td><%= lclPL.getPacket().getShortNameWithTournament() %></td>
 							<td><%= lclPL.getNumber() %></td>

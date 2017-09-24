@@ -49,7 +49,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 	List<Staff> lclNonTeamStaff = new ArrayList<>();
 	List<Staff> lclTeamStaff = new ArrayList<>();
 	
-	for (Staff lclS : lclT.createStaffArray()) {
+	for (Staff lclS : lclT.getStaffSet()) {
 		if (lclS.getContact().getAccount() != null) {
 			if (lclS.getSchoolRegistration() == null) {
 				lclNonTeamStaff.add(lclS);

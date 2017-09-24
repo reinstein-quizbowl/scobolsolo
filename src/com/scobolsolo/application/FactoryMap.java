@@ -10,6 +10,14 @@ public class FactoryMap extends AbstractFactoryMap {
 		return ourInstance;
 	}
 
+	public static <T extends com.opal.Opal<?>> java.util.function.Supplier<java.util.Set<T>> getNoArgCtorSetCreator() {
+		return java.util.HashSet::new;
+	}
+
+	public static <T extends com.opal.Opal<?>> java.util.function.Function<java.util.Collection<T>, java.util.Set<T>> getCollectionArgSetCreator() {
+		return java.util.HashSet<T>::new;
+	}
+
 	private FactoryMap() {
 		super();
 	}

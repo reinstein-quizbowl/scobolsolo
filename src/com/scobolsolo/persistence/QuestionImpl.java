@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Question, com.scobolsolo.persistence.QuestionOpal> implements com.scobolsolo.application.Question {
 
 	private final com.scobolsolo.persistence.QuestionOpal myQuestionOpal;
@@ -15,12 +14,12 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Question> getOpal() {
+	public com.scobolsolo.persistence.QuestionOpal getOpal() {
 		return getQuestionOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Question> getBottomOpal() {
+	public com.scobolsolo.persistence.QuestionOpal getBottomOpal() {
 		return getQuestionOpal();
 	}
 
@@ -183,8 +182,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Question setCategory(com.scobolsolo.application.Category argCategory) {
-		getQuestionOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
+		getQuestionOpal().setCategoryOpal(argCategory == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Category, com.scobolsolo.persistence.CategoryOpal>) argCategory).getOpal());
 		return this;
 	}
 
@@ -198,8 +198,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Question setStatus(com.scobolsolo.application.QuestionStatus argQuestionStatus) {
-		getQuestionOpal().setStatusOpal(argQuestionStatus == null ? null : ((QuestionStatusImpl) argQuestionStatus).getQuestionStatusOpal());
+		getQuestionOpal().setStatusOpal(argQuestionStatus == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.QuestionStatus, com.scobolsolo.persistence.QuestionStatusOpal>) argQuestionStatus).getOpal());
 		return this;
 	}
 
@@ -213,8 +214,9 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argAccount) {
-		getQuestionOpal().setWriterOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
+		getQuestionOpal().setWriterOpal(argAccount == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Account, com.scobolsolo.persistence.AccountOpal>) argAccount).getOpal());
 		return this;
 	}
 
@@ -222,57 +224,13 @@ public class QuestionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Question addDiff(com.scobolsolo.application.Diff argDiff) {
-		getQuestionOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getQuestionOpal().getDiffOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.Question removeDiff(com.scobolsolo.application.Diff argDiff) {
-		getQuestionOpal().removeDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
-	}
-
-	@Override
-	public int getDiffCount() {
-		return getQuestionOpal().getDiffOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {
-		return getQuestionOpal().streamDiffOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator() {
-		return new com.opal.OpalIterator<> (getQuestionOpal().createDiffOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.Question addPlacement(com.scobolsolo.application.Placement argPlacement) {
-		getQuestionOpal().addPlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Question removePlacement(com.scobolsolo.application.Placement argPlacement) {
-		getQuestionOpal().removePlacementOpal(((PlacementImpl) argPlacement).getPlacementOpal());
-		return this;
-	}
-
-	@Override
-	public int getPlacementCount() {
-		return getQuestionOpal().getPlacementOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement() {
-		return getQuestionOpal().streamPlacementOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator() {
-		return new com.opal.OpalIterator<> (getQuestionOpal().createPlacementOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Placement> getPlacementSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getQuestionOpal().getPlacementOpalSet());
 	}
 
 	@Override

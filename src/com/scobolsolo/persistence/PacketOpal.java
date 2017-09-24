@@ -26,8 +26,16 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewReplacementPacketOpalHashSet = new java.util.HashSet<>();
-		myNewPlacementOpalHashSet = new java.util.HashSet<>();
+		myReplacementPacketSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourReplacementPacketOpalLoader,
+				true
+				);
+		myPlacementSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourPlacementOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -265,10 +273,6 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		myNewReplacementPacketOpal = myOldReplacementPacketOpal;
 		myNewRoundOpal = myOldRoundOpal;
 		myNewTournamentOpal = myOldTournamentOpal;
-		myNewReplacementPacketOpalHashSet = null; /* Necessary if it has been rolled back */
-		myReplacementPacketOpalCachedOperations = null; /* Ditto */
-		myNewPlacementOpalHashSet = null; /* Necessary if it has been rolled back */
-		myPlacementOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -279,58 +283,21 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		myOldRoundOpal = myNewRoundOpal;
 		myOldTournamentOpal = myNewTournamentOpal;
 
-		if (needsToClearOldCollections()) {
-			myOldReplacementPacketOpalHashSet = null;
-			myOldPlacementOpalHashSet = null;
-		} else {
-			if (myNewReplacementPacketOpalHashSet != null) {
-				if (myNewReplacementPacketOpalHashSet.size() > 0) {
-					myOldReplacementPacketOpalHashSet = myNewReplacementPacketOpalHashSet;
-				} else {
-					myOldReplacementPacketOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewReplacementPacketOpalHashSet = null;
-			} else {
-				myReplacementPacketOpalCachedOperations = null;
-			}
-			if (myNewPlacementOpalHashSet != null) {
-				if (myNewPlacementOpalHashSet.size() > 0) {
-					myOldPlacementOpalHashSet = myNewPlacementOpalHashSet;
-				} else {
-					myOldPlacementOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewPlacementOpalHashSet = null;
-			} else {
-				myPlacementOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewReplacementPacketOpalHashSet != null || myReplacementPacketOpalCachedOperations != null) {
-			lclI = createReplacementPacketOpalIterator();
-			while (lclI.hasNext()) {
-				((PacketOpal) lclI.next()).setReplacementPacketOpalInternal(null);
-			}
-		}
-		if (myNewPlacementOpalHashSet != null || myPlacementOpalCachedOperations != null) {
-			lclI = createPlacementOpalIterator();
-			while (lclI.hasNext()) {
-				((PlacementOpal) lclI.next()).setPacketOpalInternal(null);
-			}
-		}
-		if (getReplacementPacketOpal() != null) {
-			getReplacementPacketOpal().removeReplacementPacketOpalInternal(this);
-		}
-		if (getTournamentOpal() != null) {
-			getTournamentOpal().removePacketOpalInternal(this);
-		}
+		getReplacementPacketOpalSet().clear();
+		getPlacementOpalSet().clear();
 		if (getRoundOpal() != null) {
 			getRoundOpal().setPacketOpalInternal(null);
+		}
+		if (getReplacementPacketOpal() != null) {
+			getReplacementPacketOpal().getReplacementPacketOpalSet().removeInternal(this);
+		}
+		if (getTournamentOpal() != null) {
+			getTournamentOpal().getPacketOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -402,14 +369,14 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		if ((lclUO = myOldReplacementPacketOpal) == PacketOpal.NOT_YET_LOADED) {
 			lclUO = myOldReplacementPacketOpal = retrieveReplacementPacketOpal(getOldValues());
 		}
-		if (lclUO != null && (lclUO != this) && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO != this) && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldRoundOpal) == RoundOpal.NOT_YET_LOADED) {
 			lclUO = myOldRoundOpal = retrieveRoundOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -418,7 +385,7 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		if ((lclUO = myOldTournamentOpal) == TournamentOpal.NOT_YET_LOADED) {
 			lclUO = myOldTournamentOpal = retrieveTournamentOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -497,11 +464,11 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		PacketOpal lclPacketOpal = getReplacementPacketOpal();
 		if (lclPacketOpal == argPacketOpal) { return this; }
 		if (lclPacketOpal != null) {
-			lclPacketOpal.removeReplacementPacketOpalInternal(this);
+			lclPacketOpal.getReplacementPacketOpalSet().removeInternal(this);
 		}
 		myNewReplacementPacketOpal = argPacketOpal;
 		if (argPacketOpal != null) {
-			argPacketOpal.addReplacementPacketOpalInternal(this);
+			argPacketOpal.getReplacementPacketOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -585,11 +552,11 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
 		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
-			lclTournamentOpal.removePacketOpalInternal(this);
+			lclTournamentOpal.getPacketOpalSet().removeInternal(this);
 		}
 		myNewTournamentOpal = argTournamentOpal;
 		if (argTournamentOpal != null) {
-			argTournamentOpal.addPacketOpalInternal(this);
+			argTournamentOpal.getPacketOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -599,176 +566,54 @@ public final class PacketOpal extends com.opal.UpdatableOpal<Packet> {
 		myNewTournamentOpal = argTournamentOpal;
 	}
 
-	private java.util.Set<PacketOpal> myOldReplacementPacketOpalHashSet = null;
-	private java.util.Set<PacketOpal> myNewReplacementPacketOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<PacketOpal>> myReplacementPacketOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<PacketOpal, PacketOpal> myReplacementPacketSet = null;
 
-	/* package */ java.util.Set<PacketOpal> getReplacementPacketOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewReplacementPacketOpalHashSet == null) {
-				if (myOldReplacementPacketOpalHashSet == null) {
-					if (isNew()) {
-						myOldReplacementPacketOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<PacketOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getPacketOpalFactory().forReplacementPacketIdCollection(getIdAsObject());
-						myOldReplacementPacketOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewReplacementPacketOpalHashSet = new java.util.HashSet<>(myOldReplacementPacketOpalHashSet);
-				if (myReplacementPacketOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myReplacementPacketOpalCachedOperations, myNewReplacementPacketOpalHashSet);
-					myReplacementPacketOpalCachedOperations = null;
-				}
-			}
-			return myNewReplacementPacketOpalHashSet;
-		} else {
-			if (myOldReplacementPacketOpalHashSet == null) {
-				java.util.Set<PacketOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getPacketOpalFactory().forReplacementPacketIdCollection(getIdAsObject());
-				myOldReplacementPacketOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldReplacementPacketOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<PacketOpal, PacketOpal> ourReplacementPacketOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getPacketOpalFactory()::forReplacementPacketOpalCollection,
+					OpalFactoryFactory.getInstance().getPacketOpalFactory()::forReplacementPacketOpalCount,
+					PacketOpal::setReplacementPacketOpal,
+					PacketOpal::setReplacementPacketOpalInternal,
+					PacketOpal::getReplacementPacketOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<PacketOpal, PacketOpal> getReplacementPacketOpalSet() {
+		if (myReplacementPacketSet == null) {
+			myReplacementPacketSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourReplacementPacketOpalLoader,
+					isNew()
+					);
 		}
+		return myReplacementPacketSet;
 	}
 
-	public synchronized void addReplacementPacketOpal(PacketOpal argPacketOpal) {
-		tryMutate();
-		argPacketOpal.setReplacementPacketOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<PlacementOpal, PacketOpal> myPlacementSet = null;
 
-	protected synchronized void addReplacementPacketOpalInternal(PacketOpal argPacketOpal) {
-		tryMutate();
-		if (myNewReplacementPacketOpalHashSet == null) {
-			if (myOldReplacementPacketOpalHashSet == null) {
-				if (myReplacementPacketOpalCachedOperations == null) { myReplacementPacketOpalCachedOperations = new java.util.ArrayList<>(); }
-				myReplacementPacketOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPacketOpal));
-			} else {
-				myNewReplacementPacketOpalHashSet = new java.util.HashSet<>(myOldReplacementPacketOpalHashSet);
-				myNewReplacementPacketOpalHashSet.add(argPacketOpal);
-			}
-		} else {
-			myNewReplacementPacketOpalHashSet.add(argPacketOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<PlacementOpal, PacketOpal> ourPlacementOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getPlacementOpalFactory()::forPacketOpalCollection,
+					OpalFactoryFactory.getInstance().getPlacementOpalFactory()::forPacketOpalCount,
+					PlacementOpal::setPacketOpal,
+					PlacementOpal::setPacketOpalInternal,
+					PlacementOpal::getPacketOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<PlacementOpal, PacketOpal> getPlacementOpalSet() {
+		if (myPlacementSet == null) {
+			myPlacementSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourPlacementOpalLoader,
+					isNew()
+					);
 		}
-		return;
-	}
-
-	public synchronized void removeReplacementPacketOpal(PacketOpal argPacketOpal) {
-		tryMutate();
-		argPacketOpal.setReplacementPacketOpal(null);
-	}
-
-	protected synchronized void removeReplacementPacketOpalInternal(PacketOpal argPacketOpal) {
-		tryMutate();
-		if (myNewReplacementPacketOpalHashSet == null) {
-			if (myOldReplacementPacketOpalHashSet == null) {
-				if (myReplacementPacketOpalCachedOperations == null) { myReplacementPacketOpalCachedOperations = new java.util.ArrayList<>(); }
-				myReplacementPacketOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPacketOpal));
-			} else {
-				myNewReplacementPacketOpalHashSet = new java.util.HashSet<>(myOldReplacementPacketOpalHashSet);
-				myNewReplacementPacketOpalHashSet.remove(argPacketOpal);
-			}
-		} else {
-			myNewReplacementPacketOpalHashSet.remove(argPacketOpal);
-		}
-		return;
-	}
-
-	public synchronized int getReplacementPacketOpalCount() { return getReplacementPacketOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<PacketOpal> createReplacementPacketOpalIterator() {
-		return getReplacementPacketOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<PacketOpal> streamReplacementPacketOpal() {
-		return getReplacementPacketOpalHashSet().stream();
-	}
-
-	private java.util.Set<PlacementOpal> myOldPlacementOpalHashSet = null;
-	private java.util.Set<PlacementOpal> myNewPlacementOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
-
-	/* package */ java.util.Set<PlacementOpal> getPlacementOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewPlacementOpalHashSet == null) {
-				if (myOldPlacementOpalHashSet == null) {
-					if (isNew()) {
-						myOldPlacementOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<PlacementOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forPacketIdCollection(getIdAsObject());
-						myOldPlacementOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
-				if (myPlacementOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myPlacementOpalCachedOperations, myNewPlacementOpalHashSet);
-					myPlacementOpalCachedOperations = null;
-				}
-			}
-			return myNewPlacementOpalHashSet;
-		} else {
-			if (myOldPlacementOpalHashSet == null) {
-				java.util.Set<PlacementOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forPacketIdCollection(getIdAsObject());
-				myOldPlacementOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldPlacementOpalHashSet;
-		}
-	}
-
-	public synchronized void addPlacementOpal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		argPlacementOpal.setPacketOpal(this);
-		return;
-	}
-
-	protected synchronized void addPlacementOpalInternal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		if (myNewPlacementOpalHashSet == null) {
-			if (myOldPlacementOpalHashSet == null) {
-				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPlacementOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPlacementOpal));
-			} else {
-				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
-				myNewPlacementOpalHashSet.add(argPlacementOpal);
-			}
-		} else {
-			myNewPlacementOpalHashSet.add(argPlacementOpal);
-		}
-		return;
-	}
-
-	public synchronized void removePlacementOpal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		argPlacementOpal.setPacketOpal(null);
-	}
-
-	protected synchronized void removePlacementOpalInternal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		if (myNewPlacementOpalHashSet == null) {
-			if (myOldPlacementOpalHashSet == null) {
-				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPlacementOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPlacementOpal));
-			} else {
-				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
-				myNewPlacementOpalHashSet.remove(argPlacementOpal);
-			}
-		} else {
-			myNewPlacementOpalHashSet.remove(argPlacementOpal);
-		}
-		return;
-	}
-
-	public synchronized int getPlacementOpalCount() { return getPlacementOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<PlacementOpal> createPlacementOpalIterator() {
-		return getPlacementOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<PlacementOpal> streamPlacementOpal() {
-		return getPlacementOpalHashSet().stream();
+		return myPlacementSet;
 	}
 
 	@Override

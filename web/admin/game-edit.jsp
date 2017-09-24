@@ -1,5 +1,5 @@
-﻿<%@ page import="java.util.Arrays" %>
-<%@ page import="java.util.List" %>
+﻿<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
@@ -163,7 +163,7 @@ if (lclOF.hasErrors()) {
 							%><%= lclROF.open() %>
 								<tr>
 									<td><%= lclROF.<Placement>dropdown("BasePlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
-									<td><%= lclROF.<ResponseType>dropdown("ResponseType").choices(lclPOF.isNew() ? Arrays.asList(ResponseTypeFactory.getInstance().createAllArray()) : lclPlayer.determineResponseTypesToOffer()).namer(ResponseType::getShortName) %></td>
+									<td><%= lclROF.<ResponseType>dropdown("ResponseType").choices(lclPOF.isNew() ? new ArrayList<>(ResponseTypeFactory.getInstance().getAll()) : lclPlayer.determineResponseTypesToOffer()).namer(ResponseType::getShortName) %></td>
 									<td><%= lclROF.<Placement>dropdown("ReplacementPlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket().getReplacementPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
 									<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
 								</tr>

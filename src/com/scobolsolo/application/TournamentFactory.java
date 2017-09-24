@@ -48,6 +48,7 @@ public class TournamentFactory extends com.opal.AbstractIdentityFactory<Tourname
 	public static final Tournament _2016() { return getInstance().forCode("2016"); }
 	public static final Tournament _2017() { return getInstance().forCode("2017"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Tournament create() {
 		return getTournamentOpalFactory().create().getUserFacing();

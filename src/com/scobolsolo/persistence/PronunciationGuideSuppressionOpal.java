@@ -137,10 +137,10 @@ public final class PronunciationGuideSuppressionOpal extends com.opal.UpdatableO
 	@Override
 	protected void unlinkInternal() {
 		if (getAccountOpal() != null) {
-			getAccountOpal().removePronunciationGuideSuppressionOpalInternal(this);
+			getAccountOpal().getPronunciationGuideSuppressionOpalSet().removeInternal(this);
 		}
 		if (getCategoryOpal() != null) {
-			getCategoryOpal().removePronunciationGuideSuppressionOpalInternal(this);
+			getCategoryOpal().getPronunciationGuideSuppressionOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -194,14 +194,14 @@ public final class PronunciationGuideSuppressionOpal extends com.opal.UpdatableO
 		if ((lclUO = myOldAccountOpal) == AccountOpal.NOT_YET_LOADED) {
 			lclUO = myOldAccountOpal = retrieveAccountOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldCategoryOpal) == CategoryOpal.NOT_YET_LOADED) {
 			lclUO = myOldCategoryOpal = retrieveCategoryOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -268,11 +268,11 @@ public final class PronunciationGuideSuppressionOpal extends com.opal.UpdatableO
 		AccountOpal lclAccountOpal = getAccountOpal();
 		if (lclAccountOpal == argAccountOpal) { return this; }
 		if (lclAccountOpal != null) {
-			lclAccountOpal.removePronunciationGuideSuppressionOpalInternal(this);
+			lclAccountOpal.getPronunciationGuideSuppressionOpalSet().removeInternal(this);
 		}
 		myNewAccountOpal = argAccountOpal;
 		if (argAccountOpal != null) {
-			argAccountOpal.addPronunciationGuideSuppressionOpalInternal(this);
+			argAccountOpal.getPronunciationGuideSuppressionOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -313,11 +313,11 @@ public final class PronunciationGuideSuppressionOpal extends com.opal.UpdatableO
 		CategoryOpal lclCategoryOpal = getCategoryOpal();
 		if (lclCategoryOpal == argCategoryOpal) { return this; }
 		if (lclCategoryOpal != null) {
-			lclCategoryOpal.removePronunciationGuideSuppressionOpalInternal(this);
+			lclCategoryOpal.getPronunciationGuideSuppressionOpalSet().removeInternal(this);
 		}
 		myNewCategoryOpal = argCategoryOpal;
 		if (argCategoryOpal != null) {
-			argCategoryOpal.addPronunciationGuideSuppressionOpalInternal(this);
+			argCategoryOpal.getPronunciationGuideSuppressionOpalSet().addInternal(this);
 		}
 		return this;
 	}

@@ -8,6 +8,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
+import com.opal.LocalDateCache;
 import com.opal.cma.OpalFormUpdater;
 import com.opal.cma.Validator;
 
@@ -121,7 +122,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 				.setNote(lclQ.getNote())
 				.setRemark(lclRemark)
 				.setEditDistance(StringUtils.getLevenshteinDistance(ObjectUtils.firstNonNull(myInitialText, ""), lclQ.getText()))
-				.setTimestamp(LocalDateTime.now());
+				.setTimestamp(LocalDateCache.now());
 			
 			lclQ.recache();
 		}
@@ -135,8 +136,8 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 				addError("This question has been used in a tournament, so it cannot be deleted.");
 				return;
 			} else {
-				Validate.isTrue(lclQ.getPlacementCount() == 0);
-				lclQ.streamDiff().forEach(Diff::unlink);
+				Validate.isTrue(lclQ.getPlacementSet().isEmpty());
+				lclQ.getDiffSet().clear();
 			}
 		} else {
 			addError("Only administrators may delete questions.");

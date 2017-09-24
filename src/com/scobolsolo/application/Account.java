@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
+import com.opal.LocalDateCache;
+
 import com.scobolsolo.persistence.AccountUserFacing;
 import com.scobolsolo.security.BCrypt;
 import com.scobolsolo.ScobolSoloConfiguration;
@@ -63,7 +65,7 @@ public interface Account extends AccountUserFacing {
 			if (lclS == null) {
 				return false;
 			} else {
-				final LocalDateTime lclNow = LocalDateTime.now();
+				final LocalDateTime lclNow = LocalDateCache.now();
 				return lclS.streamStaffAssignment().anyMatch(argSA -> {
 					final StaffRole lclRole = argSA.getRole();
 					if (lclRole.isMayEnterMatchesBeforeUsuallyPermitted()) {
@@ -221,6 +223,6 @@ public interface Account extends AccountUserFacing {
 	}
 	
 	public static LocalDateTime generatePasswordResetTokenExpiration() {
-		return LocalDateTime.now().plusDays(PASSWORD_RESET_TOKEN_EXPIRATION);
+		return LocalDateCache.now().plusDays(PASSWORD_RESET_TOKEN_EXPIRATION);
 	}
 }

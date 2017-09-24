@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class SchoolImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.School, com.scobolsolo.persistence.SchoolOpal> implements com.scobolsolo.application.School {
 
 	private final com.scobolsolo.persistence.SchoolOpal mySchoolOpal;
@@ -15,12 +14,12 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.School> getOpal() {
+	public com.scobolsolo.persistence.SchoolOpal getOpal() {
 		return getSchoolOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.School> getBottomOpal() {
+	public com.scobolsolo.persistence.SchoolOpal getBottomOpal() {
 		return getSchoolOpal();
 	}
 
@@ -142,30 +141,8 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.School addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getSchoolOpal().addSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.School removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getSchoolOpal().removeSchoolRegistrationOpal(((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
-		return this;
-	}
-
-	@Override
-	public int getSchoolRegistrationCount() {
-		return getSchoolOpal().getSchoolRegistrationOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration() {
-		return getSchoolOpal().streamSchoolRegistrationOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.SchoolRegistration> createSchoolRegistrationIterator() {
-		return new com.opal.OpalIterator<> (getSchoolOpal().createSchoolRegistrationOpalIterator());
+	public java.util.Set<com.scobolsolo.application.SchoolRegistration> getSchoolRegistrationSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getSchoolOpal().getSchoolRegistrationOpalSet());
 	}
 
 	@Override

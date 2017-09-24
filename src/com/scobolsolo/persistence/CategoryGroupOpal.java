@@ -19,7 +19,11 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewCategoryOpalHashSet = new java.util.HashSet<>();
+		myCategorySet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourCategoryOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -150,8 +154,6 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewCategoryOpalHashSet = null; /* Necessary if it has been rolled back */
-		myCategoryOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -159,33 +161,12 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		/** This Opal has no references to other Opals that need to be copied. */
-		if (needsToClearOldCollections()) {
-			myOldCategoryOpalHashSet = null;
-		} else {
-			if (myNewCategoryOpalHashSet != null) {
-				if (myNewCategoryOpalHashSet.size() > 0) {
-					myOldCategoryOpalHashSet = myNewCategoryOpalHashSet;
-				} else {
-					myOldCategoryOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewCategoryOpalHashSet = null;
-			} else {
-				myCategoryOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewCategoryOpalHashSet != null || myCategoryOpalCachedOperations != null) {
-			lclI = createCategoryOpalIterator();
-			while (lclI.hasNext()) {
-				((CategoryOpal) lclI.next()).setCategoryGroupOpalInternal(null);
-			}
-		}
+		getCategoryOpalSet().clear();
 		return;
 	}
 
@@ -245,90 +226,29 @@ public final class CategoryGroupOpal extends com.opal.UpdatableOpal<CategoryGrou
 		argOutput.println("Sequence = " + getSequenceAsObject());
 	}
 
-	private java.util.Set<CategoryOpal> myOldCategoryOpalHashSet = null;
-	private java.util.Set<CategoryOpal> myNewCategoryOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<CategoryOpal>> myCategoryOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<CategoryOpal, CategoryGroupOpal> myCategorySet = null;
 
-	/* package */ java.util.Set<CategoryOpal> getCategoryOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewCategoryOpalHashSet == null) {
-				if (myOldCategoryOpalHashSet == null) {
-					if (isNew()) {
-						myOldCategoryOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<CategoryOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
-						myOldCategoryOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewCategoryOpalHashSet = new java.util.HashSet<>(myOldCategoryOpalHashSet);
-				if (myCategoryOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myCategoryOpalCachedOperations, myNewCategoryOpalHashSet);
-					myCategoryOpalCachedOperations = null;
-				}
-			}
-			return myNewCategoryOpalHashSet;
-		} else {
-			if (myOldCategoryOpalHashSet == null) {
-				java.util.Set<CategoryOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getCategoryOpalFactory().forCategoryGroupCodeCollection(getCode());
-				myOldCategoryOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldCategoryOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<CategoryOpal, CategoryGroupOpal> ourCategoryOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getCategoryOpalFactory()::forCategoryGroupOpalCollection,
+					OpalFactoryFactory.getInstance().getCategoryOpalFactory()::forCategoryGroupOpalCount,
+					CategoryOpal::setCategoryGroupOpal,
+					CategoryOpal::setCategoryGroupOpalInternal,
+					CategoryOpal::getCategoryGroupOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<CategoryOpal, CategoryGroupOpal> getCategoryOpalSet() {
+		if (myCategorySet == null) {
+			myCategorySet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourCategoryOpalLoader,
+					isNew()
+					);
 		}
-	}
-
-	public synchronized void addCategoryOpal(CategoryOpal argCategoryOpal) {
-		tryMutate();
-		argCategoryOpal.setCategoryGroupOpal(this);
-		return;
-	}
-
-	protected synchronized void addCategoryOpalInternal(CategoryOpal argCategoryOpal) {
-		tryMutate();
-		if (myNewCategoryOpalHashSet == null) {
-			if (myOldCategoryOpalHashSet == null) {
-				if (myCategoryOpalCachedOperations == null) { myCategoryOpalCachedOperations = new java.util.ArrayList<>(); }
-				myCategoryOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argCategoryOpal));
-			} else {
-				myNewCategoryOpalHashSet = new java.util.HashSet<>(myOldCategoryOpalHashSet);
-				myNewCategoryOpalHashSet.add(argCategoryOpal);
-			}
-		} else {
-			myNewCategoryOpalHashSet.add(argCategoryOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeCategoryOpal(CategoryOpal argCategoryOpal) {
-		tryMutate();
-		argCategoryOpal.setCategoryGroupOpal(null);
-	}
-
-	protected synchronized void removeCategoryOpalInternal(CategoryOpal argCategoryOpal) {
-		tryMutate();
-		if (myNewCategoryOpalHashSet == null) {
-			if (myOldCategoryOpalHashSet == null) {
-				if (myCategoryOpalCachedOperations == null) { myCategoryOpalCachedOperations = new java.util.ArrayList<>(); }
-				myCategoryOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argCategoryOpal));
-			} else {
-				myNewCategoryOpalHashSet = new java.util.HashSet<>(myOldCategoryOpalHashSet);
-				myNewCategoryOpalHashSet.remove(argCategoryOpal);
-			}
-		} else {
-			myNewCategoryOpalHashSet.remove(argCategoryOpal);
-		}
-		return;
-	}
-
-	public synchronized int getCategoryOpalCount() { return getCategoryOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<CategoryOpal> createCategoryOpalIterator() {
-		return getCategoryOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<CategoryOpal> streamCategoryOpal() {
-		return getCategoryOpalHashSet().stream();
+		return myCategorySet;
 	}
 
 	@Override

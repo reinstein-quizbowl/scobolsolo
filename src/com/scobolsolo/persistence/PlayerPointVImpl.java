@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PlayerPointVImpl extends com.opal.AbstractImpl<com.scobolsolo.application.PlayerPointV, com.scobolsolo.persistence.PlayerPointVOpal> implements com.scobolsolo.application.PlayerPointV {
 
 	private final com.scobolsolo.persistence.PlayerPointVOpal myPlayerPointVOpal;
@@ -15,12 +14,12 @@ public class PlayerPointVImpl extends com.opal.AbstractImpl<com.scobolsolo.appli
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlayerPointV> getOpal() {
+	public com.scobolsolo.persistence.PlayerPointVOpal getOpal() {
 		return getPlayerPointVOpal();
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlayerPointV> getBottomOpal() {
+	public com.scobolsolo.persistence.PlayerPointVOpal getBottomOpal() {
 		return getPlayerPointVOpal();
 	}
 

@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.Arrays" %>
+﻿<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.stream.Collectors" %>
 <%@ page import="com.scobolsolo.application.Category" %>
 <%@ page import="com.scobolsolo.application.CategoryFactory" %>
@@ -29,8 +30,8 @@
 					<td><a href="category-group-edit.jsp">Create group</a></td>
 					<td>&nbsp;</td>
 				</tr><%
-				Category[] lclCs = CategoryFactory.getInstance().createAllArray();
-				Arrays.sort(lclCs);
+				List<Category> lclCs = new ArrayList<>(CategoryFactory.getInstance().getAll());
+				lclCs.sort(null);
 				for (Category lclC : lclCs) {
 					%><tr>
 						<td><a href="category-edit.jsp?object=<%= lclC.getUniqueString() %>"><%= lclC.getName() %></a></td>

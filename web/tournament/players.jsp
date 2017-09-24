@@ -66,7 +66,7 @@ if (lclP != null && lclP.isCardSystem()) {
 	%><div class="row">
 		<div class="small-12 columns">
 			<h2 id="assign-cards">Assign Initial Cards</h2><%
-			int lclCardCount = lclP.getCardCount();
+			int lclCardCount = lclP.getCardSet().size();
 			
 			if (lclPlayers.size() != lclCardCount) {
 				%><p>This is not currently possible because <%= lclPlayers.size() == 1 ? "there is one player" : "there are " + lclPlayers.size() + " players" %> but <%= lclCardCount == 1 ? "one card" : String.valueOf(lclCardCount) + " cards" %>. Ensure that the number of players is equal to the number of cards.</p><%

@@ -37,6 +37,7 @@ public class StaffRoleFactory extends com.opal.AbstractIdentityFactory<StaffRole
 	public static final StaffRole STATISTICIAN() { return getInstance().forCode("STATISTICIAN"); }
 	public static final StaffRole TOURNAMENT_DIRECTOR() { return getInstance().forCode("TOURNAMENT_DIRECTOR"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public StaffRole create() {
 		return getStaffRoleOpalFactory().create().getUserFacing();

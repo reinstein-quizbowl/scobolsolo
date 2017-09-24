@@ -24,8 +24,16 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewDiffOpalHashSet = new java.util.HashSet<>();
-		myNewPlacementOpalHashSet = new java.util.HashSet<>();
+		myDiffSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourDiffOpalLoader,
+				true
+				);
+		myPlacementSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourPlacementOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -222,10 +230,6 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		myNewCategoryOpal = myOldCategoryOpal;
 		myNewStatusOpal = myOldStatusOpal;
 		myNewWriterOpal = myOldWriterOpal;
-		myNewDiffOpalHashSet = null; /* Necessary if it has been rolled back */
-		myDiffOpalCachedOperations = null; /* Ditto */
-		myNewPlacementOpalHashSet = null; /* Necessary if it has been rolled back */
-		myPlacementOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -236,58 +240,21 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		myOldStatusOpal = myNewStatusOpal;
 		myOldWriterOpal = myNewWriterOpal;
 
-		if (needsToClearOldCollections()) {
-			myOldDiffOpalHashSet = null;
-			myOldPlacementOpalHashSet = null;
-		} else {
-			if (myNewDiffOpalHashSet != null) {
-				if (myNewDiffOpalHashSet.size() > 0) {
-					myOldDiffOpalHashSet = myNewDiffOpalHashSet;
-				} else {
-					myOldDiffOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewDiffOpalHashSet = null;
-			} else {
-				myDiffOpalCachedOperations = null;
-			}
-			if (myNewPlacementOpalHashSet != null) {
-				if (myNewPlacementOpalHashSet.size() > 0) {
-					myOldPlacementOpalHashSet = myNewPlacementOpalHashSet;
-				} else {
-					myOldPlacementOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewPlacementOpalHashSet = null;
-			} else {
-				myPlacementOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewDiffOpalHashSet != null || myDiffOpalCachedOperations != null) {
-			lclI = createDiffOpalIterator();
-			while (lclI.hasNext()) {
-				((DiffOpal) lclI.next()).setQuestionOpalInternal(null);
-			}
-		}
-		if (myNewPlacementOpalHashSet != null || myPlacementOpalCachedOperations != null) {
-			lclI = createPlacementOpalIterator();
-			while (lclI.hasNext()) {
-				((PlacementOpal) lclI.next()).setQuestionOpalInternal(null);
-			}
-		}
+		getDiffOpalSet().clear();
+		getPlacementOpalSet().clear();
 		if (getCategoryOpal() != null) {
-			getCategoryOpal().removeQuestionOpalInternal(this);
+			getCategoryOpal().getQuestionOpalSet().removeInternal(this);
 		}
 		if (getStatusOpal() != null) {
-			getStatusOpal().removeQuestionOpalInternal(this);
+			getStatusOpal().getQuestionOpalSet().removeInternal(this);
 		}
 		if (getWriterOpal() != null) {
-			getWriterOpal().removeWriterQuestionOpalInternal(this);
+			getWriterOpal().getWriterQuestionOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -358,14 +325,14 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		if ((lclUO = myOldCategoryOpal) == CategoryOpal.NOT_YET_LOADED) {
 			lclUO = myOldCategoryOpal = retrieveCategoryOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldStatusOpal) == QuestionStatusOpal.NOT_YET_LOADED) {
 			lclUO = myOldStatusOpal = retrieveStatusOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -374,7 +341,7 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		if ((lclUO = myOldWriterOpal) == AccountOpal.NOT_YET_LOADED) {
 			lclUO = myOldWriterOpal = retrieveWriterOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -451,11 +418,11 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		CategoryOpal lclCategoryOpal = getCategoryOpal();
 		if (lclCategoryOpal == argCategoryOpal) { return this; }
 		if (lclCategoryOpal != null) {
-			lclCategoryOpal.removeQuestionOpalInternal(this);
+			lclCategoryOpal.getQuestionOpalSet().removeInternal(this);
 		}
 		myNewCategoryOpal = argCategoryOpal;
 		if (argCategoryOpal != null) {
-			argCategoryOpal.addQuestionOpalInternal(this);
+			argCategoryOpal.getQuestionOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -496,11 +463,11 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		QuestionStatusOpal lclQuestionStatusOpal = getStatusOpal();
 		if (lclQuestionStatusOpal == argQuestionStatusOpal) { return this; }
 		if (lclQuestionStatusOpal != null) {
-			lclQuestionStatusOpal.removeQuestionOpalInternal(this);
+			lclQuestionStatusOpal.getQuestionOpalSet().removeInternal(this);
 		}
 		myNewStatusOpal = argQuestionStatusOpal;
 		if (argQuestionStatusOpal != null) {
-			argQuestionStatusOpal.addQuestionOpalInternal(this);
+			argQuestionStatusOpal.getQuestionOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -541,11 +508,11 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		AccountOpal lclAccountOpal = getWriterOpal();
 		if (lclAccountOpal == argAccountOpal) { return this; }
 		if (lclAccountOpal != null) {
-			lclAccountOpal.removeWriterQuestionOpalInternal(this);
+			lclAccountOpal.getWriterQuestionOpalSet().removeInternal(this);
 		}
 		myNewWriterOpal = argAccountOpal;
 		if (argAccountOpal != null) {
-			argAccountOpal.addWriterQuestionOpalInternal(this);
+			argAccountOpal.getWriterQuestionOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -555,176 +522,54 @@ public final class QuestionOpal extends com.opal.UpdatableOpal<Question> {
 		myNewWriterOpal = argAccountOpal;
 	}
 
-	private java.util.Set<DiffOpal> myOldDiffOpalHashSet = null;
-	private java.util.Set<DiffOpal> myNewDiffOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<DiffOpal>> myDiffOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<DiffOpal, QuestionOpal> myDiffSet = null;
 
-	/* package */ java.util.Set<DiffOpal> getDiffOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewDiffOpalHashSet == null) {
-				if (myOldDiffOpalHashSet == null) {
-					if (isNew()) {
-						myOldDiffOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<DiffOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionIdCollection(getIdAsObject());
-						myOldDiffOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewDiffOpalHashSet = new java.util.HashSet<>(myOldDiffOpalHashSet);
-				if (myDiffOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myDiffOpalCachedOperations, myNewDiffOpalHashSet);
-					myDiffOpalCachedOperations = null;
-				}
-			}
-			return myNewDiffOpalHashSet;
-		} else {
-			if (myOldDiffOpalHashSet == null) {
-				java.util.Set<DiffOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getDiffOpalFactory().forQuestionIdCollection(getIdAsObject());
-				myOldDiffOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldDiffOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<DiffOpal, QuestionOpal> ourDiffOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getDiffOpalFactory()::forQuestionOpalCollection,
+					OpalFactoryFactory.getInstance().getDiffOpalFactory()::forQuestionOpalCount,
+					DiffOpal::setQuestionOpal,
+					DiffOpal::setQuestionOpalInternal,
+					DiffOpal::getQuestionOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<DiffOpal, QuestionOpal> getDiffOpalSet() {
+		if (myDiffSet == null) {
+			myDiffSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourDiffOpalLoader,
+					isNew()
+					);
 		}
+		return myDiffSet;
 	}
 
-	public synchronized void addDiffOpal(DiffOpal argDiffOpal) {
-		tryMutate();
-		argDiffOpal.setQuestionOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<PlacementOpal, QuestionOpal> myPlacementSet = null;
 
-	protected synchronized void addDiffOpalInternal(DiffOpal argDiffOpal) {
-		tryMutate();
-		if (myNewDiffOpalHashSet == null) {
-			if (myOldDiffOpalHashSet == null) {
-				if (myDiffOpalCachedOperations == null) { myDiffOpalCachedOperations = new java.util.ArrayList<>(); }
-				myDiffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argDiffOpal));
-			} else {
-				myNewDiffOpalHashSet = new java.util.HashSet<>(myOldDiffOpalHashSet);
-				myNewDiffOpalHashSet.add(argDiffOpal);
-			}
-		} else {
-			myNewDiffOpalHashSet.add(argDiffOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<PlacementOpal, QuestionOpal> ourPlacementOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getPlacementOpalFactory()::forQuestionOpalCollection,
+					OpalFactoryFactory.getInstance().getPlacementOpalFactory()::forQuestionOpalCount,
+					PlacementOpal::setQuestionOpal,
+					PlacementOpal::setQuestionOpalInternal,
+					PlacementOpal::getQuestionOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<PlacementOpal, QuestionOpal> getPlacementOpalSet() {
+		if (myPlacementSet == null) {
+			myPlacementSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourPlacementOpalLoader,
+					isNew()
+					);
 		}
-		return;
-	}
-
-	public synchronized void removeDiffOpal(DiffOpal argDiffOpal) {
-		tryMutate();
-		argDiffOpal.setQuestionOpal(null);
-	}
-
-	protected synchronized void removeDiffOpalInternal(DiffOpal argDiffOpal) {
-		tryMutate();
-		if (myNewDiffOpalHashSet == null) {
-			if (myOldDiffOpalHashSet == null) {
-				if (myDiffOpalCachedOperations == null) { myDiffOpalCachedOperations = new java.util.ArrayList<>(); }
-				myDiffOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argDiffOpal));
-			} else {
-				myNewDiffOpalHashSet = new java.util.HashSet<>(myOldDiffOpalHashSet);
-				myNewDiffOpalHashSet.remove(argDiffOpal);
-			}
-		} else {
-			myNewDiffOpalHashSet.remove(argDiffOpal);
-		}
-		return;
-	}
-
-	public synchronized int getDiffOpalCount() { return getDiffOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<DiffOpal> createDiffOpalIterator() {
-		return getDiffOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<DiffOpal> streamDiffOpal() {
-		return getDiffOpalHashSet().stream();
-	}
-
-	private java.util.Set<PlacementOpal> myOldPlacementOpalHashSet = null;
-	private java.util.Set<PlacementOpal> myNewPlacementOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<PlacementOpal>> myPlacementOpalCachedOperations = null;
-
-	/* package */ java.util.Set<PlacementOpal> getPlacementOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewPlacementOpalHashSet == null) {
-				if (myOldPlacementOpalHashSet == null) {
-					if (isNew()) {
-						myOldPlacementOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<PlacementOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
-						myOldPlacementOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
-				if (myPlacementOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myPlacementOpalCachedOperations, myNewPlacementOpalHashSet);
-					myPlacementOpalCachedOperations = null;
-				}
-			}
-			return myNewPlacementOpalHashSet;
-		} else {
-			if (myOldPlacementOpalHashSet == null) {
-				java.util.Set<PlacementOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getPlacementOpalFactory().forQuestionIdCollection(getIdAsObject());
-				myOldPlacementOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldPlacementOpalHashSet;
-		}
-	}
-
-	public synchronized void addPlacementOpal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		argPlacementOpal.setQuestionOpal(this);
-		return;
-	}
-
-	protected synchronized void addPlacementOpalInternal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		if (myNewPlacementOpalHashSet == null) {
-			if (myOldPlacementOpalHashSet == null) {
-				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPlacementOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPlacementOpal));
-			} else {
-				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
-				myNewPlacementOpalHashSet.add(argPlacementOpal);
-			}
-		} else {
-			myNewPlacementOpalHashSet.add(argPlacementOpal);
-		}
-		return;
-	}
-
-	public synchronized void removePlacementOpal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		argPlacementOpal.setQuestionOpal(null);
-	}
-
-	protected synchronized void removePlacementOpalInternal(PlacementOpal argPlacementOpal) {
-		tryMutate();
-		if (myNewPlacementOpalHashSet == null) {
-			if (myOldPlacementOpalHashSet == null) {
-				if (myPlacementOpalCachedOperations == null) { myPlacementOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPlacementOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPlacementOpal));
-			} else {
-				myNewPlacementOpalHashSet = new java.util.HashSet<>(myOldPlacementOpalHashSet);
-				myNewPlacementOpalHashSet.remove(argPlacementOpal);
-			}
-		} else {
-			myNewPlacementOpalHashSet.remove(argPlacementOpal);
-		}
-		return;
-	}
-
-	public synchronized int getPlacementOpalCount() { return getPlacementOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<PlacementOpal> createPlacementOpalIterator() {
-		return getPlacementOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<PlacementOpal> streamPlacementOpal() {
-		return getPlacementOpalHashSet().stream();
+		return myPlacementSet;
 	}
 
 	@Override

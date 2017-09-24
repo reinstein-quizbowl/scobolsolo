@@ -57,6 +57,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setId(int argId);
 
 	/**
@@ -94,6 +96,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 64L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setUsername(java.lang.String argUsername);
 
 	/**
@@ -125,6 +128,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 60L)
 	@com.opal.annotation.Default(value = "$2a$16$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setPasswordHash(java.lang.String argPasswordHash);
 
 	/**
@@ -167,6 +171,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setAdministrator(java.lang.Boolean argAdministrator);
 
 	/**
@@ -175,6 +180,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argAdministrator the new value of {@code Administrator}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setAdministrator(boolean argAdministrator);
 
 	/**
@@ -217,6 +223,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setActive(java.lang.Boolean argActive);
 
 	/**
@@ -225,6 +232,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argActive the new value of {@code Active}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setActive(boolean argActive);
 
 	/**
@@ -267,6 +275,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setWriter(java.lang.Boolean argWriter);
 
 	/**
@@ -275,6 +284,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argWriter the new value of {@code Writer}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setWriter(boolean argWriter);
 
 	/**
@@ -317,6 +327,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 64L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setPasswordResetToken(java.lang.String argPasswordResetToken);
 
 	/**
@@ -354,6 +365,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setPasswordResetTokenExpiration(java.time.LocalDateTime argPasswordResetTokenExpiration);
 
 	/**
@@ -396,6 +408,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setCanReceiveUnsolicitedMessages(java.lang.Boolean argCanReceiveUnsolicitedMessages);
 
 	/**
@@ -404,6 +417,7 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argCanReceiveUnsolicitedMessages the new value of {@code CanReceiveUnsolicitedMessages}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setCanReceiveUnsolicitedMessages(boolean argCanReceiveUnsolicitedMessages);
 
 	/**
@@ -413,141 +427,62 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact getContact();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Account setContact(com.scobolsolo.application.Contact argContact);
 
-	public int getPronunciationGuideSuppressionCount();
-	public java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator();
+	public java.util.Set<com.scobolsolo.application.PronunciationGuideSuppression> getPronunciationGuideSuppressionSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression();
-
-	public com.scobolsolo.application.Account addPronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
-	public com.scobolsolo.application.Account removePronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.PronunciationGuideSuppression>> T acquirePronunciationGuideSuppression(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression() {
+		return getPronunciationGuideSuppressionSet().stream();
 	}
 
 	default public com.scobolsolo.application.PronunciationGuideSuppression[] createPronunciationGuideSuppressionArray() {
-		int lclLength = getPronunciationGuideSuppressionCount();
-		com.scobolsolo.application.PronunciationGuideSuppression[] lclA = new com.scobolsolo.application.PronunciationGuideSuppression[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.PronunciationGuideSuppression> lclS = getPronunciationGuideSuppressionSet();
+		return lclS.toArray(new com.scobolsolo.application.PronunciationGuideSuppression[lclS.size()]);
 	}
 
-	public int getWriterQuestionCount();
-	public java.util.Iterator<com.scobolsolo.application.Question> createWriterQuestionIterator();
+	public java.util.Set<com.scobolsolo.application.Question> getWriterQuestionSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Question> streamWriterQuestion();
-
-	public com.scobolsolo.application.Account addWriterQuestion(com.scobolsolo.application.Question argQuestion);
-	public com.scobolsolo.application.Account removeWriterQuestion(com.scobolsolo.application.Question argQuestion);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireWriterQuestion(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createWriterQuestionIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Question> streamWriterQuestion() {
+		return getWriterQuestionSet().stream();
 	}
 
 	default public com.scobolsolo.application.Question[] createWriterQuestionArray() {
-		int lclLength = getWriterQuestionCount();
-		com.scobolsolo.application.Question[] lclA = new com.scobolsolo.application.Question[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createWriterQuestionIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Question> lclS = getWriterQuestionSet();
+		return lclS.toArray(new com.scobolsolo.application.Question[lclS.size()]);
 	}
 
-	public int getEditorDiffCount();
-	public java.util.Iterator<com.scobolsolo.application.Diff> createEditorDiffIterator();
+	public java.util.Set<com.scobolsolo.application.Diff> getEditorDiffSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamEditorDiff();
-
-	public com.scobolsolo.application.Account addEditorDiff(com.scobolsolo.application.Diff argDiff);
-	public com.scobolsolo.application.Account removeEditorDiff(com.scobolsolo.application.Diff argDiff);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireEditorDiff(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createEditorDiffIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Diff> streamEditorDiff() {
+		return getEditorDiffSet().stream();
 	}
 
 	default public com.scobolsolo.application.Diff[] createEditorDiffArray() {
-		int lclLength = getEditorDiffCount();
-		com.scobolsolo.application.Diff[] lclA = new com.scobolsolo.application.Diff[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createEditorDiffIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Diff> lclS = getEditorDiffSet();
+		return lclS.toArray(new com.scobolsolo.application.Diff[lclS.size()]);
 	}
 
-	public int getFromMessageCount();
-	public java.util.Iterator<com.scobolsolo.application.Message> createFromMessageIterator();
+	public java.util.Set<com.scobolsolo.application.Message> getFromMessageSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Message> streamFromMessage();
-
-	public com.scobolsolo.application.Account addFromMessage(com.scobolsolo.application.Message argMessage);
-	public com.scobolsolo.application.Account removeFromMessage(com.scobolsolo.application.Message argMessage);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Message>> T acquireFromMessage(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Message> lclI = createFromMessageIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Message> streamFromMessage() {
+		return getFromMessageSet().stream();
 	}
 
 	default public com.scobolsolo.application.Message[] createFromMessageArray() {
-		int lclLength = getFromMessageCount();
-		com.scobolsolo.application.Message[] lclA = new com.scobolsolo.application.Message[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Message> lclI = createFromMessageIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Message> lclS = getFromMessageSet();
+		return lclS.toArray(new com.scobolsolo.application.Message[lclS.size()]);
 	}
 
-	public int getToMessageCount();
-	public java.util.Iterator<com.scobolsolo.application.Message> createToMessageIterator();
+	public java.util.Set<com.scobolsolo.application.Message> getToMessageSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Message> streamToMessage();
-
-	public com.scobolsolo.application.Account addToMessage(com.scobolsolo.application.Message argMessage);
-	public com.scobolsolo.application.Account removeToMessage(com.scobolsolo.application.Message argMessage);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Message>> T acquireToMessage(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Message> lclI = createToMessageIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Message> streamToMessage() {
+		return getToMessageSet().stream();
 	}
 
 	default public com.scobolsolo.application.Message[] createToMessageArray() {
-		int lclLength = getToMessageCount();
-		com.scobolsolo.application.Message[] lclA = new com.scobolsolo.application.Message[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Message> lclI = createToMessageIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Message> lclS = getToMessageSet();
+		return lclS.toArray(new com.scobolsolo.application.Message[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Account copy();

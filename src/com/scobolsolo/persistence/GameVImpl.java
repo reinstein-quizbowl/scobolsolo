@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class GameVImpl extends com.opal.AbstractImpl<com.scobolsolo.application.GameV, com.scobolsolo.persistence.GameVOpal> implements com.scobolsolo.application.GameV {
 
 	private final com.scobolsolo.persistence.GameVOpal myGameVOpal;
@@ -15,12 +14,12 @@ public class GameVImpl extends com.opal.AbstractImpl<com.scobolsolo.application.
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.GameV> getOpal() {
+	public com.scobolsolo.persistence.GameVOpal getOpal() {
 		return getGameVOpal();
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.GameV> getBottomOpal() {
+	public com.scobolsolo.persistence.GameVOpal getBottomOpal() {
 		return getGameVOpal();
 	}
 

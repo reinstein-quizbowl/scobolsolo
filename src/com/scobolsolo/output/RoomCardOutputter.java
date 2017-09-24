@@ -51,7 +51,7 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 			getWriter().println("\\RoomHeader{" + escape(lclRoom.getName()) + "}");
 			getWriter().println();
 			
-			if (lclRoom.getStaffAssignmentCount() > 0) {
+			if (lclRoom.getStaffAssignmentSet().isEmpty() == false) {
 				final StaffAssignment[] lclSAs = lclRoom.createStaffAssignmentArray();
 				Arrays.sort(lclSAs, StaffAssignment.STAFF_COMPARATOR);
 				for (final StaffAssignment lclSA : lclSAs) {

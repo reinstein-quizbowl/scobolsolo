@@ -31,15 +31,15 @@ public class StaffWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputter
 			getWriter().println("Welcome, " + escape(lclS.getContact().getName()) + '!');
 			getWriter().println();
 			
-			if (lclS.getStaffAssignmentCount() == 0) {
+			if (lclS.getStaffAssignmentSet().isEmpty()) {
 				if (getTournament().getControlRoom() == null) {
 					getWriter().print("You have not yet been given an assignment. Please go to the control room to find out what to do.");
 				} else {
 					getWriter().print("You have not yet been given an assignment. Please go to " + escape(getTournament().getControlRoom().getName()) + " to find out what to do.");
 				}
 				getWriter().println();
-			} else if (lclS.getStaffAssignmentCount() == 1) {
-				final StaffAssignment lclSA = lclS.createStaffAssignmentIterator().next();
+			} else if (lclS.getStaffAssignmentSet().size() == 1) {
+				final StaffAssignment lclSA = lclS.getStaffAssignmentSet().iterator().next();
 				if (lclSA.getNote() == null) {
 					getWriter().println("You are assigned to " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getRole().getName()) + ") during " + escape(lclSA.getPhase().getName()) + '.');
 				} else {
@@ -49,7 +49,7 @@ public class StaffWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputter
 			} else {
 				getWriter().println("You have the following assignments:");
 				getWriter().println("\\begin{compactitem}");
-				for (final StaffAssignment lclSA : lclS.createStaffAssignmentArray()) {
+				for (final StaffAssignment lclSA : lclS.getStaffAssignmentSet()) { // THINK: Should this be sorted?
 					if (lclSA.getNote() == null) {
 						getWriter().println("\\item " + escape(lclSA.getRoom().getName()) + " (" + escape(lclSA.getRole().getName()) + ") during " + escape(lclSA.getPhase().getName()));
 					} else {

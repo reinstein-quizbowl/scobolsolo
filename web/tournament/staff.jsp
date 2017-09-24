@@ -72,7 +72,7 @@ Tournament lclT = lclOF.getUserFacing();
 								<%= lclSAOF.close() %><%
 							}
 							
-							if (lclStaff != null && lclStaff.getStaffAssignmentCount() == 0) {
+							if (lclStaff != null && lclStaff.getStaffAssignmentSet().isEmpty()) {
 								%>(none)<%
 							}
 						%></td>

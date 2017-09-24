@@ -57,6 +57,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -113,6 +116,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
@@ -182,6 +186,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setRoomId(java.lang.Integer argRoomId);
 
 	/**
@@ -190,6 +195,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoomId the new value of {@code RoomId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setRoomId(int argRoomId);
 
 	/**
@@ -232,6 +238,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setName(java.lang.String argName);
 
 	/**
@@ -241,6 +248,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	/**
@@ -250,6 +258,7 @@ public interface BuzzerUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Room getRoom();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Buzzer setRoom(com.scobolsolo.application.Room argRoom);
 
 	public com.scobolsolo.application.Buzzer copy();

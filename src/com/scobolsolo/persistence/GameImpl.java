@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Game, com.scobolsolo.persistence.GameOpal> implements com.scobolsolo.application.Game {
 
 	private final com.scobolsolo.persistence.GameOpal myGameOpal;
@@ -15,12 +14,12 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Game> getOpal() {
+	public com.scobolsolo.persistence.GameOpal getOpal() {
 		return getGameOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Game> getBottomOpal() {
+	public com.scobolsolo.persistence.GameOpal getBottomOpal() {
 		return getGameOpal();
 	}
 
@@ -205,8 +204,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Game setMatch(com.scobolsolo.application.Match argMatch) {
-		getGameOpal().setMatchOpal(argMatch == null ? null : ((MatchImpl) argMatch).getMatchOpal());
+		getGameOpal().setMatchOpal(argMatch == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Match, com.scobolsolo.persistence.MatchOpal>) argMatch).getOpal());
 		return this;
 	}
 
@@ -220,8 +220,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argPlayer) {
-		getGameOpal().setIncomingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		getGameOpal().setIncomingLosingCardPlayerOpal(argPlayer == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Player, com.scobolsolo.persistence.PlayerOpal>) argPlayer).getOpal());
 		return this;
 	}
 
@@ -235,8 +236,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argPlayer) {
-		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		getGameOpal().setIncomingWinningCardPlayerOpal(argPlayer == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Player, com.scobolsolo.persistence.PlayerOpal>) argPlayer).getOpal());
 		return this;
 	}
 
@@ -250,8 +252,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Game setModeratorStaff(com.scobolsolo.application.Staff argStaff) {
-		getGameOpal().setModeratorStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
+		getGameOpal().setModeratorStaffOpal(argStaff == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Staff, com.scobolsolo.persistence.StaffOpal>) argStaff).getOpal());
 		return this;
 	}
 
@@ -265,8 +268,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Game setOutgoingLosingCardPlayer(com.scobolsolo.application.Player argPlayer) {
-		getGameOpal().setOutgoingLosingCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		getGameOpal().setOutgoingLosingCardPlayerOpal(argPlayer == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Player, com.scobolsolo.persistence.PlayerOpal>) argPlayer).getOpal());
 		return this;
 	}
 
@@ -280,8 +284,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayer(com.scobolsolo.application.Player argPlayer) {
-		getGameOpal().setOutgoingWinningCardPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		getGameOpal().setOutgoingWinningCardPlayerOpal(argPlayer == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Player, com.scobolsolo.persistence.PlayerOpal>) argPlayer).getOpal());
 		return this;
 	}
 
@@ -295,8 +300,9 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Game setScorekeeperStaff(com.scobolsolo.application.Staff argStaff) {
-		getGameOpal().setScorekeeperStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
+		getGameOpal().setScorekeeperStaffOpal(argStaff == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Staff, com.scobolsolo.persistence.StaffOpal>) argStaff).getOpal());
 		return this;
 	}
 
@@ -304,30 +310,8 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Game addPerformance(com.scobolsolo.application.Performance argPerformance) {
-		getGameOpal().addPerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Game removePerformance(com.scobolsolo.application.Performance argPerformance) {
-		getGameOpal().removePerformanceOpal(((PerformanceImpl) argPerformance).getPerformanceOpal());
-		return this;
-	}
-
-	@Override
-	public int getPerformanceCount() {
-		return getGameOpal().getPerformanceOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance() {
-		return getGameOpal().streamPerformanceOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Performance> createPerformanceIterator() {
-		return new com.opal.OpalIterator<> (getGameOpal().createPerformanceOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Performance> getPerformanceSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getGameOpal().getPerformanceOpalSet());
 	}
 
 	@Override

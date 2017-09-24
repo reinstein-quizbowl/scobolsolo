@@ -28,7 +28,7 @@ public interface Performance extends PerformanceUserFacing {
 			lclR = ResponseFactory.getInstance().create()
 				.setBasePlacement(argBasePlacement)
 				.setReplacementPlacement(argReplacementPlacement);
-			this.addResponse(lclR);
+			this.getResponseSet().add(lclR);
 			return lclR;
 		} else {
 			lclR.setReplacementPlacement(argReplacementPlacement); // which may not be a change

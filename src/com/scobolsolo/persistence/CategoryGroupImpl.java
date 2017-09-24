@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.CategoryGroup, com.scobolsolo.persistence.CategoryGroupOpal> implements com.scobolsolo.application.CategoryGroup {
 
 	private final com.scobolsolo.persistence.CategoryGroupOpal myCategoryGroupOpal;
@@ -15,12 +14,12 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<com.scobols
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.CategoryGroup> getOpal() {
+	public com.scobolsolo.persistence.CategoryGroupOpal getOpal() {
 		return getCategoryGroupOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.CategoryGroup> getBottomOpal() {
+	public com.scobolsolo.persistence.CategoryGroupOpal getBottomOpal() {
 		return getCategoryGroupOpal();
 	}
 
@@ -108,30 +107,8 @@ public class CategoryGroupImpl extends com.opal.AbstractIdentityImpl<com.scobols
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.CategoryGroup addCategory(com.scobolsolo.application.Category argCategory) {
-		getCategoryGroupOpal().addCategoryOpal(((CategoryImpl) argCategory).getCategoryOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.CategoryGroup removeCategory(com.scobolsolo.application.Category argCategory) {
-		getCategoryGroupOpal().removeCategoryOpal(((CategoryImpl) argCategory).getCategoryOpal());
-		return this;
-	}
-
-	@Override
-	public int getCategoryCount() {
-		return getCategoryGroupOpal().getCategoryOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Category> streamCategory() {
-		return getCategoryGroupOpal().streamCategoryOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Category> createCategoryIterator() {
-		return new com.opal.OpalIterator<> (getCategoryGroupOpal().createCategoryOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Category> getCategorySet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getCategoryGroupOpal().getCategoryOpalSet());
 	}
 
 	@Override

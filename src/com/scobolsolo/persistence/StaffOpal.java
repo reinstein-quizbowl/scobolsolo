@@ -24,9 +24,21 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewModeratorGameOpalHashSet = new java.util.HashSet<>();
-		myNewScorekeeperGameOpalHashSet = new java.util.HashSet<>();
-		myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>();
+		myModeratorGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourModeratorGameOpalLoader,
+				true
+				);
+		myScorekeeperGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourScorekeeperGameOpalLoader,
+				true
+				);
+		myStaffAssignmentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourStaffAssignmentOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -205,12 +217,6 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myNewSchoolRegistrationOpal = myOldSchoolRegistrationOpal;
 		myNewTechnologyChoiceOpal = myOldTechnologyChoiceOpal;
 		myNewTournamentOpal = myOldTournamentOpal;
-		myNewModeratorGameOpalHashSet = null; /* Necessary if it has been rolled back */
-		myModeratorGameOpalCachedOperations = null; /* Ditto */
-		myNewScorekeeperGameOpalHashSet = null; /* Necessary if it has been rolled back */
-		myScorekeeperGameOpalCachedOperations = null; /* Ditto */
-		myNewStaffAssignmentOpalHashSet = null; /* Necessary if it has been rolled back */
-		myStaffAssignmentOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -222,75 +228,22 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myOldTechnologyChoiceOpal = myNewTechnologyChoiceOpal;
 		myOldTournamentOpal = myNewTournamentOpal;
 
-		if (needsToClearOldCollections()) {
-			myOldModeratorGameOpalHashSet = null;
-			myOldScorekeeperGameOpalHashSet = null;
-			myOldStaffAssignmentOpalHashSet = null;
-		} else {
-			if (myNewModeratorGameOpalHashSet != null) {
-				if (myNewModeratorGameOpalHashSet.size() > 0) {
-					myOldModeratorGameOpalHashSet = myNewModeratorGameOpalHashSet;
-				} else {
-					myOldModeratorGameOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewModeratorGameOpalHashSet = null;
-			} else {
-				myModeratorGameOpalCachedOperations = null;
-			}
-			if (myNewScorekeeperGameOpalHashSet != null) {
-				if (myNewScorekeeperGameOpalHashSet.size() > 0) {
-					myOldScorekeeperGameOpalHashSet = myNewScorekeeperGameOpalHashSet;
-				} else {
-					myOldScorekeeperGameOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewScorekeeperGameOpalHashSet = null;
-			} else {
-				myScorekeeperGameOpalCachedOperations = null;
-			}
-			if (myNewStaffAssignmentOpalHashSet != null) {
-				if (myNewStaffAssignmentOpalHashSet.size() > 0) {
-					myOldStaffAssignmentOpalHashSet = myNewStaffAssignmentOpalHashSet;
-				} else {
-					myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewStaffAssignmentOpalHashSet = null;
-			} else {
-				myStaffAssignmentOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewModeratorGameOpalHashSet != null || myModeratorGameOpalCachedOperations != null) {
-			lclI = createModeratorGameOpalIterator();
-			while (lclI.hasNext()) {
-				((GameOpal) lclI.next()).setModeratorStaffOpalInternal(null);
-			}
-		}
-		if (myNewScorekeeperGameOpalHashSet != null || myScorekeeperGameOpalCachedOperations != null) {
-			lclI = createScorekeeperGameOpalIterator();
-			while (lclI.hasNext()) {
-				((GameOpal) lclI.next()).setScorekeeperStaffOpalInternal(null);
-			}
-		}
-		if (myNewStaffAssignmentOpalHashSet != null || myStaffAssignmentOpalCachedOperations != null) {
-			lclI = createStaffAssignmentOpalIterator();
-			while (lclI.hasNext()) {
-				((StaffAssignmentOpal) lclI.next()).setStaffOpalInternal(null);
-			}
-		}
+		getModeratorGameOpalSet().clear();
+		getScorekeeperGameOpalSet().clear();
+		getStaffAssignmentOpalSet().clear();
 		if (getContactOpal() != null) {
-			getContactOpal().removeStaffOpalInternal(this);
+			getContactOpal().getStaffOpalSet().removeInternal(this);
 		}
 		if (getSchoolRegistrationOpal() != null) {
-			getSchoolRegistrationOpal().removeStaffOpalInternal(this);
+			getSchoolRegistrationOpal().getStaffOpalSet().removeInternal(this);
 		}
 		if (getTournamentOpal() != null) {
-			getTournamentOpal().removeStaffOpalInternal(this);
+			getTournamentOpal().getStaffOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -369,14 +322,14 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if ((lclUO = myOldContactOpal) == ContactOpal.NOT_YET_LOADED) {
 			lclUO = myOldContactOpal = retrieveContactOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldSchoolRegistrationOpal) == SchoolRegistrationOpal.NOT_YET_LOADED) {
 			lclUO = myOldSchoolRegistrationOpal = retrieveSchoolRegistrationOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -385,7 +338,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if ((lclUO = myOldTechnologyChoiceOpal) == TechnologyChoiceOpal.NOT_YET_LOADED) {
 			lclUO = myOldTechnologyChoiceOpal = retrieveTechnologyChoiceOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -394,7 +347,7 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		if ((lclUO = myOldTournamentOpal) == TournamentOpal.NOT_YET_LOADED) {
 			lclUO = myOldTournamentOpal = retrieveTournamentOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -467,11 +420,11 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		ContactOpal lclContactOpal = getContactOpal();
 		if (lclContactOpal == argContactOpal) { return this; }
 		if (lclContactOpal != null) {
-			lclContactOpal.removeStaffOpalInternal(this);
+			lclContactOpal.getStaffOpalSet().removeInternal(this);
 		}
 		myNewContactOpal = argContactOpal;
 		if (argContactOpal != null) {
-			argContactOpal.addStaffOpalInternal(this);
+			argContactOpal.getStaffOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -512,11 +465,11 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
 		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
-			lclSchoolRegistrationOpal.removeStaffOpalInternal(this);
+			lclSchoolRegistrationOpal.getStaffOpalSet().removeInternal(this);
 		}
 		myNewSchoolRegistrationOpal = argSchoolRegistrationOpal;
 		if (argSchoolRegistrationOpal != null) {
-			argSchoolRegistrationOpal.addStaffOpalInternal(this);
+			argSchoolRegistrationOpal.getStaffOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -589,11 +542,11 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
 		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
-			lclTournamentOpal.removeStaffOpalInternal(this);
+			lclTournamentOpal.getStaffOpalSet().removeInternal(this);
 		}
 		myNewTournamentOpal = argTournamentOpal;
 		if (argTournamentOpal != null) {
-			argTournamentOpal.addStaffOpalInternal(this);
+			argTournamentOpal.getStaffOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -603,262 +556,79 @@ public final class StaffOpal extends com.opal.UpdatableOpal<Staff> {
 		myNewTournamentOpal = argTournamentOpal;
 	}
 
-	private java.util.Set<GameOpal> myOldModeratorGameOpalHashSet = null;
-	private java.util.Set<GameOpal> myNewModeratorGameOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<GameOpal>> myModeratorGameOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<GameOpal, StaffOpal> myModeratorGameSet = null;
 
-	/* package */ java.util.Set<GameOpal> getModeratorGameOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewModeratorGameOpalHashSet == null) {
-				if (myOldModeratorGameOpalHashSet == null) {
-					if (isNew()) {
-						myOldModeratorGameOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<GameOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forModeratorStaffIdCollection(getIdAsObject());
-						myOldModeratorGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewModeratorGameOpalHashSet = new java.util.HashSet<>(myOldModeratorGameOpalHashSet);
-				if (myModeratorGameOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myModeratorGameOpalCachedOperations, myNewModeratorGameOpalHashSet);
-					myModeratorGameOpalCachedOperations = null;
-				}
-			}
-			return myNewModeratorGameOpalHashSet;
-		} else {
-			if (myOldModeratorGameOpalHashSet == null) {
-				java.util.Set<GameOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forModeratorStaffIdCollection(getIdAsObject());
-				myOldModeratorGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldModeratorGameOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<GameOpal, StaffOpal> ourModeratorGameOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forModeratorStaffOpalCollection,
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forModeratorStaffOpalCount,
+					GameOpal::setModeratorStaffOpal,
+					GameOpal::setModeratorStaffOpalInternal,
+					GameOpal::getModeratorStaffOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<GameOpal, StaffOpal> getModeratorGameOpalSet() {
+		if (myModeratorGameSet == null) {
+			myModeratorGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourModeratorGameOpalLoader,
+					isNew()
+					);
 		}
+		return myModeratorGameSet;
 	}
 
-	public synchronized void addModeratorGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setModeratorStaffOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<GameOpal, StaffOpal> myScorekeeperGameSet = null;
 
-	protected synchronized void addModeratorGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewModeratorGameOpalHashSet == null) {
-			if (myOldModeratorGameOpalHashSet == null) {
-				if (myModeratorGameOpalCachedOperations == null) { myModeratorGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myModeratorGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
-			} else {
-				myNewModeratorGameOpalHashSet = new java.util.HashSet<>(myOldModeratorGameOpalHashSet);
-				myNewModeratorGameOpalHashSet.add(argGameOpal);
-			}
-		} else {
-			myNewModeratorGameOpalHashSet.add(argGameOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<GameOpal, StaffOpal> ourScorekeeperGameOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forScorekeeperStaffOpalCollection,
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forScorekeeperStaffOpalCount,
+					GameOpal::setScorekeeperStaffOpal,
+					GameOpal::setScorekeeperStaffOpalInternal,
+					GameOpal::getScorekeeperStaffOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<GameOpal, StaffOpal> getScorekeeperGameOpalSet() {
+		if (myScorekeeperGameSet == null) {
+			myScorekeeperGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourScorekeeperGameOpalLoader,
+					isNew()
+					);
 		}
-		return;
+		return myScorekeeperGameSet;
 	}
 
-	public synchronized void removeModeratorGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setModeratorStaffOpal(null);
-	}
+	private com.opal.types.OpalBackCollectionSet<StaffAssignmentOpal, StaffOpal> myStaffAssignmentSet = null;
 
-	protected synchronized void removeModeratorGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewModeratorGameOpalHashSet == null) {
-			if (myOldModeratorGameOpalHashSet == null) {
-				if (myModeratorGameOpalCachedOperations == null) { myModeratorGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myModeratorGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
-			} else {
-				myNewModeratorGameOpalHashSet = new java.util.HashSet<>(myOldModeratorGameOpalHashSet);
-				myNewModeratorGameOpalHashSet.remove(argGameOpal);
-			}
-		} else {
-			myNewModeratorGameOpalHashSet.remove(argGameOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<StaffAssignmentOpal, StaffOpal> ourStaffAssignmentOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory()::forStaffOpalCollection,
+					OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory()::forStaffOpalCount,
+					StaffAssignmentOpal::setStaffOpal,
+					StaffAssignmentOpal::setStaffOpalInternal,
+					StaffAssignmentOpal::getStaffOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<StaffAssignmentOpal, StaffOpal> getStaffAssignmentOpalSet() {
+		if (myStaffAssignmentSet == null) {
+			myStaffAssignmentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourStaffAssignmentOpalLoader,
+					isNew()
+					);
 		}
-		return;
-	}
-
-	public synchronized int getModeratorGameOpalCount() { return getModeratorGameOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<GameOpal> createModeratorGameOpalIterator() {
-		return getModeratorGameOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<GameOpal> streamModeratorGameOpal() {
-		return getModeratorGameOpalHashSet().stream();
-	}
-
-	private java.util.Set<GameOpal> myOldScorekeeperGameOpalHashSet = null;
-	private java.util.Set<GameOpal> myNewScorekeeperGameOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<GameOpal>> myScorekeeperGameOpalCachedOperations = null;
-
-	/* package */ java.util.Set<GameOpal> getScorekeeperGameOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewScorekeeperGameOpalHashSet == null) {
-				if (myOldScorekeeperGameOpalHashSet == null) {
-					if (isNew()) {
-						myOldScorekeeperGameOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<GameOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forScorekeeperStaffIdCollection(getIdAsObject());
-						myOldScorekeeperGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewScorekeeperGameOpalHashSet = new java.util.HashSet<>(myOldScorekeeperGameOpalHashSet);
-				if (myScorekeeperGameOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myScorekeeperGameOpalCachedOperations, myNewScorekeeperGameOpalHashSet);
-					myScorekeeperGameOpalCachedOperations = null;
-				}
-			}
-			return myNewScorekeeperGameOpalHashSet;
-		} else {
-			if (myOldScorekeeperGameOpalHashSet == null) {
-				java.util.Set<GameOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forScorekeeperStaffIdCollection(getIdAsObject());
-				myOldScorekeeperGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldScorekeeperGameOpalHashSet;
-		}
-	}
-
-	public synchronized void addScorekeeperGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setScorekeeperStaffOpal(this);
-		return;
-	}
-
-	protected synchronized void addScorekeeperGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewScorekeeperGameOpalHashSet == null) {
-			if (myOldScorekeeperGameOpalHashSet == null) {
-				if (myScorekeeperGameOpalCachedOperations == null) { myScorekeeperGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myScorekeeperGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
-			} else {
-				myNewScorekeeperGameOpalHashSet = new java.util.HashSet<>(myOldScorekeeperGameOpalHashSet);
-				myNewScorekeeperGameOpalHashSet.add(argGameOpal);
-			}
-		} else {
-			myNewScorekeeperGameOpalHashSet.add(argGameOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeScorekeeperGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setScorekeeperStaffOpal(null);
-	}
-
-	protected synchronized void removeScorekeeperGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewScorekeeperGameOpalHashSet == null) {
-			if (myOldScorekeeperGameOpalHashSet == null) {
-				if (myScorekeeperGameOpalCachedOperations == null) { myScorekeeperGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myScorekeeperGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
-			} else {
-				myNewScorekeeperGameOpalHashSet = new java.util.HashSet<>(myOldScorekeeperGameOpalHashSet);
-				myNewScorekeeperGameOpalHashSet.remove(argGameOpal);
-			}
-		} else {
-			myNewScorekeeperGameOpalHashSet.remove(argGameOpal);
-		}
-		return;
-	}
-
-	public synchronized int getScorekeeperGameOpalCount() { return getScorekeeperGameOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<GameOpal> createScorekeeperGameOpalIterator() {
-		return getScorekeeperGameOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<GameOpal> streamScorekeeperGameOpal() {
-		return getScorekeeperGameOpalHashSet().stream();
-	}
-
-	private java.util.Set<StaffAssignmentOpal> myOldStaffAssignmentOpalHashSet = null;
-	private java.util.Set<StaffAssignmentOpal> myNewStaffAssignmentOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<StaffAssignmentOpal>> myStaffAssignmentOpalCachedOperations = null;
-
-	/* package */ java.util.Set<StaffAssignmentOpal> getStaffAssignmentOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewStaffAssignmentOpalHashSet == null) {
-				if (myOldStaffAssignmentOpalHashSet == null) {
-					if (isNew()) {
-						myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<StaffAssignmentOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffIdCollection(getIdAsObject());
-						myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				if (myStaffAssignmentOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalHashSet);
-					myStaffAssignmentOpalCachedOperations = null;
-				}
-			}
-			return myNewStaffAssignmentOpalHashSet;
-		} else {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				java.util.Set<StaffAssignmentOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffIdCollection(getIdAsObject());
-				myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldStaffAssignmentOpalHashSet;
-		}
-	}
-
-	public synchronized void addStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		argStaffAssignmentOpal.setStaffOpal(this);
-		return;
-	}
-
-	protected synchronized void addStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		if (myNewStaffAssignmentOpalHashSet == null) {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argStaffAssignmentOpal));
-			} else {
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
-			}
-		} else {
-			myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		argStaffAssignmentOpal.setStaffOpal(null);
-	}
-
-	protected synchronized void removeStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		if (myNewStaffAssignmentOpalHashSet == null) {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argStaffAssignmentOpal));
-			} else {
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
-			}
-		} else {
-			myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
-		}
-		return;
-	}
-
-	public synchronized int getStaffAssignmentOpalCount() { return getStaffAssignmentOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<StaffAssignmentOpal> createStaffAssignmentOpalIterator() {
-		return getStaffAssignmentOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<StaffAssignmentOpal> streamStaffAssignmentOpal() {
-		return getStaffAssignmentOpalHashSet().stream();
+		return myStaffAssignmentSet;
 	}
 
 	@Override

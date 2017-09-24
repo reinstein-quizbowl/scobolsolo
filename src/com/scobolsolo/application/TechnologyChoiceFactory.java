@@ -35,6 +35,7 @@ public class TechnologyChoiceFactory extends com.opal.AbstractIdentityFactory<Te
 	public static final TechnologyChoice NO_COMPUTER() { return getInstance().forCode("NO_COMPUTER"); }
 	public static final TechnologyChoice TBD() { return getInstance().forCode("TBD"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public TechnologyChoice create() {
 		return getTechnologyChoiceOpalFactory().create().getUserFacing();

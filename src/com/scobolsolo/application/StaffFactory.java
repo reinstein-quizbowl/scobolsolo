@@ -25,6 +25,7 @@ public class StaffFactory extends com.opal.AbstractIdentityFactory<Staff, StaffO
 		return Staff.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Staff create() {
 		return getStaffOpalFactory().create().getUserFacing();
@@ -51,7 +52,7 @@ public class StaffFactory extends com.opal.AbstractIdentityFactory<Staff, StaffO
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -68,7 +69,7 @@ public class StaffFactory extends com.opal.AbstractIdentityFactory<Staff, StaffO
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			Staff lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any Staff");
 			argCollection.add(lclResult);

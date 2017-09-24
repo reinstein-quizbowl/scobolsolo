@@ -25,6 +25,7 @@ public class PhaseFactory extends com.opal.AbstractIdentityFactory<Phase, PhaseO
 		return Phase.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Phase create() {
 		return getPhaseOpalFactory().create().getUserFacing();
@@ -61,7 +62,7 @@ public class PhaseFactory extends com.opal.AbstractIdentityFactory<Phase, PhaseO
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -78,7 +79,7 @@ public class PhaseFactory extends com.opal.AbstractIdentityFactory<Phase, PhaseO
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			Phase lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any Phase");
 			argCollection.add(lclResult);

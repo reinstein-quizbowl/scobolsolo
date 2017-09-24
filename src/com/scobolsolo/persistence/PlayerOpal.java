@@ -24,11 +24,31 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewIncomingLosingCardGameOpalHashSet = new java.util.HashSet<>();
-		myNewIncomingWinningCardGameOpalHashSet = new java.util.HashSet<>();
-		myNewOutgoingLosingCardGameOpalHashSet = new java.util.HashSet<>();
-		myNewOutgoingWinningCardGameOpalHashSet = new java.util.HashSet<>();
-		myNewPerformanceOpalHashSet = new java.util.HashSet<>();
+		myIncomingLosingCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourIncomingLosingCardGameOpalLoader,
+				true
+				);
+		myIncomingWinningCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourIncomingWinningCardGameOpalLoader,
+				true
+				);
+		myOutgoingLosingCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourOutgoingLosingCardGameOpalLoader,
+				true
+				);
+		myOutgoingWinningCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourOutgoingWinningCardGameOpalLoader,
+				true
+				);
+		myPerformanceSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourPerformanceOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -244,16 +264,6 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		myNewSchoolRegistrationOpal = myOldSchoolRegistrationOpal;
 		myNewSchoolYearOpal = myOldSchoolYearOpal;
 		myNewInitialCardOpal = myOldInitialCardOpal;
-		myNewIncomingLosingCardGameOpalHashSet = null; /* Necessary if it has been rolled back */
-		myIncomingLosingCardGameOpalCachedOperations = null; /* Ditto */
-		myNewIncomingWinningCardGameOpalHashSet = null; /* Necessary if it has been rolled back */
-		myIncomingWinningCardGameOpalCachedOperations = null; /* Ditto */
-		myNewOutgoingLosingCardGameOpalHashSet = null; /* Necessary if it has been rolled back */
-		myOutgoingLosingCardGameOpalCachedOperations = null; /* Ditto */
-		myNewOutgoingWinningCardGameOpalHashSet = null; /* Necessary if it has been rolled back */
-		myOutgoingWinningCardGameOpalCachedOperations = null; /* Ditto */
-		myNewPerformanceOpalHashSet = null; /* Necessary if it has been rolled back */
-		myPerformanceOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -265,109 +275,24 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		myOldSchoolYearOpal = myNewSchoolYearOpal;
 
 		myOldInitialCardOpal = myNewInitialCardOpal;
-		if (needsToClearOldCollections()) {
-			myOldIncomingLosingCardGameOpalHashSet = null;
-			myOldIncomingWinningCardGameOpalHashSet = null;
-			myOldOutgoingLosingCardGameOpalHashSet = null;
-			myOldOutgoingWinningCardGameOpalHashSet = null;
-			myOldPerformanceOpalHashSet = null;
-		} else {
-			if (myNewIncomingLosingCardGameOpalHashSet != null) {
-				if (myNewIncomingLosingCardGameOpalHashSet.size() > 0) {
-					myOldIncomingLosingCardGameOpalHashSet = myNewIncomingLosingCardGameOpalHashSet;
-				} else {
-					myOldIncomingLosingCardGameOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewIncomingLosingCardGameOpalHashSet = null;
-			} else {
-				myIncomingLosingCardGameOpalCachedOperations = null;
-			}
-			if (myNewIncomingWinningCardGameOpalHashSet != null) {
-				if (myNewIncomingWinningCardGameOpalHashSet.size() > 0) {
-					myOldIncomingWinningCardGameOpalHashSet = myNewIncomingWinningCardGameOpalHashSet;
-				} else {
-					myOldIncomingWinningCardGameOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewIncomingWinningCardGameOpalHashSet = null;
-			} else {
-				myIncomingWinningCardGameOpalCachedOperations = null;
-			}
-			if (myNewOutgoingLosingCardGameOpalHashSet != null) {
-				if (myNewOutgoingLosingCardGameOpalHashSet.size() > 0) {
-					myOldOutgoingLosingCardGameOpalHashSet = myNewOutgoingLosingCardGameOpalHashSet;
-				} else {
-					myOldOutgoingLosingCardGameOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewOutgoingLosingCardGameOpalHashSet = null;
-			} else {
-				myOutgoingLosingCardGameOpalCachedOperations = null;
-			}
-			if (myNewOutgoingWinningCardGameOpalHashSet != null) {
-				if (myNewOutgoingWinningCardGameOpalHashSet.size() > 0) {
-					myOldOutgoingWinningCardGameOpalHashSet = myNewOutgoingWinningCardGameOpalHashSet;
-				} else {
-					myOldOutgoingWinningCardGameOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewOutgoingWinningCardGameOpalHashSet = null;
-			} else {
-				myOutgoingWinningCardGameOpalCachedOperations = null;
-			}
-			if (myNewPerformanceOpalHashSet != null) {
-				if (myNewPerformanceOpalHashSet.size() > 0) {
-					myOldPerformanceOpalHashSet = myNewPerformanceOpalHashSet;
-				} else {
-					myOldPerformanceOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewPerformanceOpalHashSet = null;
-			} else {
-				myPerformanceOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewIncomingLosingCardGameOpalHashSet != null || myIncomingLosingCardGameOpalCachedOperations != null) {
-			lclI = createIncomingLosingCardGameOpalIterator();
-			while (lclI.hasNext()) {
-				((GameOpal) lclI.next()).setIncomingLosingCardPlayerOpalInternal(null);
-			}
-		}
-		if (myNewIncomingWinningCardGameOpalHashSet != null || myIncomingWinningCardGameOpalCachedOperations != null) {
-			lclI = createIncomingWinningCardGameOpalIterator();
-			while (lclI.hasNext()) {
-				((GameOpal) lclI.next()).setIncomingWinningCardPlayerOpalInternal(null);
-			}
-		}
-		if (myNewOutgoingLosingCardGameOpalHashSet != null || myOutgoingLosingCardGameOpalCachedOperations != null) {
-			lclI = createOutgoingLosingCardGameOpalIterator();
-			while (lclI.hasNext()) {
-				((GameOpal) lclI.next()).setOutgoingLosingCardPlayerOpalInternal(null);
-			}
-		}
-		if (myNewOutgoingWinningCardGameOpalHashSet != null || myOutgoingWinningCardGameOpalCachedOperations != null) {
-			lclI = createOutgoingWinningCardGameOpalIterator();
-			while (lclI.hasNext()) {
-				((GameOpal) lclI.next()).setOutgoingWinningCardPlayerOpalInternal(null);
-			}
-		}
-		if (myNewPerformanceOpalHashSet != null || myPerformanceOpalCachedOperations != null) {
-			lclI = createPerformanceOpalIterator();
-			while (lclI.hasNext()) {
-				((PerformanceOpal) lclI.next()).setPlayerOpalInternal(null);
-			}
-		}
+		getIncomingLosingCardGameOpalSet().clear();
+		getIncomingWinningCardGameOpalSet().clear();
+		getOutgoingLosingCardGameOpalSet().clear();
+		getOutgoingWinningCardGameOpalSet().clear();
+		getPerformanceOpalSet().clear();
 		if (getInitialCardOpal() != null) {
 			getInitialCardOpal().setInitialPlayerOpalInternal(null);
 		}
 		if (getContactOpal() != null) {
-			getContactOpal().removePlayerOpalInternal(this);
+			getContactOpal().getPlayerOpalSet().removeInternal(this);
 		}
 		if (getSchoolRegistrationOpal() != null) {
-			getSchoolRegistrationOpal().removePlayerOpalInternal(this);
+			getSchoolRegistrationOpal().getPlayerOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -438,14 +363,14 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		if ((lclUO = myOldContactOpal) == ContactOpal.NOT_YET_LOADED) {
 			lclUO = myOldContactOpal = retrieveContactOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldSchoolRegistrationOpal) == SchoolRegistrationOpal.NOT_YET_LOADED) {
 			lclUO = myOldSchoolRegistrationOpal = retrieveSchoolRegistrationOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -454,7 +379,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		if ((lclUO = myOldSchoolYearOpal) == SchoolYearOpal.NOT_YET_LOADED) {
 			lclUO = myOldSchoolYearOpal = retrieveSchoolYearOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -531,11 +456,11 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		ContactOpal lclContactOpal = getContactOpal();
 		if (lclContactOpal == argContactOpal) { return this; }
 		if (lclContactOpal != null) {
-			lclContactOpal.removePlayerOpalInternal(this);
+			lclContactOpal.getPlayerOpalSet().removeInternal(this);
 		}
 		myNewContactOpal = argContactOpal;
 		if (argContactOpal != null) {
-			argContactOpal.addPlayerOpalInternal(this);
+			argContactOpal.getPlayerOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -576,11 +501,11 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		SchoolRegistrationOpal lclSchoolRegistrationOpal = getSchoolRegistrationOpal();
 		if (lclSchoolRegistrationOpal == argSchoolRegistrationOpal) { return this; }
 		if (lclSchoolRegistrationOpal != null) {
-			lclSchoolRegistrationOpal.removePlayerOpalInternal(this);
+			lclSchoolRegistrationOpal.getPlayerOpalSet().removeInternal(this);
 		}
 		myNewSchoolRegistrationOpal = argSchoolRegistrationOpal;
 		if (argSchoolRegistrationOpal != null) {
-			argSchoolRegistrationOpal.addPlayerOpalInternal(this);
+			argSchoolRegistrationOpal.getPlayerOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -662,434 +587,129 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		myNewInitialCardOpal = argCardOpal;
 	}
 
-	private java.util.Set<GameOpal> myOldIncomingLosingCardGameOpalHashSet = null;
-	private java.util.Set<GameOpal> myNewIncomingLosingCardGameOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<GameOpal>> myIncomingLosingCardGameOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> myIncomingLosingCardGameSet = null;
 
-	/* package */ java.util.Set<GameOpal> getIncomingLosingCardGameOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewIncomingLosingCardGameOpalHashSet == null) {
-				if (myOldIncomingLosingCardGameOpalHashSet == null) {
-					if (isNew()) {
-						myOldIncomingLosingCardGameOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<GameOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forIncomingLosingCardPlayerIdCollection(getIdAsObject());
-						myOldIncomingLosingCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewIncomingLosingCardGameOpalHashSet = new java.util.HashSet<>(myOldIncomingLosingCardGameOpalHashSet);
-				if (myIncomingLosingCardGameOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myIncomingLosingCardGameOpalCachedOperations, myNewIncomingLosingCardGameOpalHashSet);
-					myIncomingLosingCardGameOpalCachedOperations = null;
-				}
-			}
-			return myNewIncomingLosingCardGameOpalHashSet;
-		} else {
-			if (myOldIncomingLosingCardGameOpalHashSet == null) {
-				java.util.Set<GameOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forIncomingLosingCardPlayerIdCollection(getIdAsObject());
-				myOldIncomingLosingCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldIncomingLosingCardGameOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<GameOpal, PlayerOpal> ourIncomingLosingCardGameOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forIncomingLosingCardPlayerOpalCollection,
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forIncomingLosingCardPlayerOpalCount,
+					GameOpal::setIncomingLosingCardPlayerOpal,
+					GameOpal::setIncomingLosingCardPlayerOpalInternal,
+					GameOpal::getIncomingLosingCardPlayerOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> getIncomingLosingCardGameOpalSet() {
+		if (myIncomingLosingCardGameSet == null) {
+			myIncomingLosingCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourIncomingLosingCardGameOpalLoader,
+					isNew()
+					);
 		}
+		return myIncomingLosingCardGameSet;
 	}
 
-	public synchronized void addIncomingLosingCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setIncomingLosingCardPlayerOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> myIncomingWinningCardGameSet = null;
 
-	protected synchronized void addIncomingLosingCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewIncomingLosingCardGameOpalHashSet == null) {
-			if (myOldIncomingLosingCardGameOpalHashSet == null) {
-				if (myIncomingLosingCardGameOpalCachedOperations == null) { myIncomingLosingCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myIncomingLosingCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
-			} else {
-				myNewIncomingLosingCardGameOpalHashSet = new java.util.HashSet<>(myOldIncomingLosingCardGameOpalHashSet);
-				myNewIncomingLosingCardGameOpalHashSet.add(argGameOpal);
-			}
-		} else {
-			myNewIncomingLosingCardGameOpalHashSet.add(argGameOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<GameOpal, PlayerOpal> ourIncomingWinningCardGameOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forIncomingWinningCardPlayerOpalCollection,
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forIncomingWinningCardPlayerOpalCount,
+					GameOpal::setIncomingWinningCardPlayerOpal,
+					GameOpal::setIncomingWinningCardPlayerOpalInternal,
+					GameOpal::getIncomingWinningCardPlayerOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> getIncomingWinningCardGameOpalSet() {
+		if (myIncomingWinningCardGameSet == null) {
+			myIncomingWinningCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourIncomingWinningCardGameOpalLoader,
+					isNew()
+					);
 		}
-		return;
+		return myIncomingWinningCardGameSet;
 	}
 
-	public synchronized void removeIncomingLosingCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setIncomingLosingCardPlayerOpal(null);
-	}
+	private com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> myOutgoingLosingCardGameSet = null;
 
-	protected synchronized void removeIncomingLosingCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewIncomingLosingCardGameOpalHashSet == null) {
-			if (myOldIncomingLosingCardGameOpalHashSet == null) {
-				if (myIncomingLosingCardGameOpalCachedOperations == null) { myIncomingLosingCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myIncomingLosingCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
-			} else {
-				myNewIncomingLosingCardGameOpalHashSet = new java.util.HashSet<>(myOldIncomingLosingCardGameOpalHashSet);
-				myNewIncomingLosingCardGameOpalHashSet.remove(argGameOpal);
-			}
-		} else {
-			myNewIncomingLosingCardGameOpalHashSet.remove(argGameOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<GameOpal, PlayerOpal> ourOutgoingLosingCardGameOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forOutgoingLosingCardPlayerOpalCollection,
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forOutgoingLosingCardPlayerOpalCount,
+					GameOpal::setOutgoingLosingCardPlayerOpal,
+					GameOpal::setOutgoingLosingCardPlayerOpalInternal,
+					GameOpal::getOutgoingLosingCardPlayerOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> getOutgoingLosingCardGameOpalSet() {
+		if (myOutgoingLosingCardGameSet == null) {
+			myOutgoingLosingCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourOutgoingLosingCardGameOpalLoader,
+					isNew()
+					);
 		}
-		return;
+		return myOutgoingLosingCardGameSet;
 	}
 
-	public synchronized int getIncomingLosingCardGameOpalCount() { return getIncomingLosingCardGameOpalHashSet().size(); }
+	private com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> myOutgoingWinningCardGameSet = null;
 
-	public synchronized java.util.Iterator<GameOpal> createIncomingLosingCardGameOpalIterator() {
-		return getIncomingLosingCardGameOpalHashSet().iterator();
-	}
+	private static final com.opal.types.OpalBackCollectionLoader<GameOpal, PlayerOpal> ourOutgoingWinningCardGameOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forOutgoingWinningCardPlayerOpalCollection,
+					OpalFactoryFactory.getInstance().getGameOpalFactory()::forOutgoingWinningCardPlayerOpalCount,
+					GameOpal::setOutgoingWinningCardPlayerOpal,
+					GameOpal::setOutgoingWinningCardPlayerOpalInternal,
+					GameOpal::getOutgoingWinningCardPlayerOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
 
-	public synchronized java.util.stream.Stream<GameOpal> streamIncomingLosingCardGameOpal() {
-		return getIncomingLosingCardGameOpalHashSet().stream();
-	}
-
-	private java.util.Set<GameOpal> myOldIncomingWinningCardGameOpalHashSet = null;
-	private java.util.Set<GameOpal> myNewIncomingWinningCardGameOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<GameOpal>> myIncomingWinningCardGameOpalCachedOperations = null;
-
-	/* package */ java.util.Set<GameOpal> getIncomingWinningCardGameOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewIncomingWinningCardGameOpalHashSet == null) {
-				if (myOldIncomingWinningCardGameOpalHashSet == null) {
-					if (isNew()) {
-						myOldIncomingWinningCardGameOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<GameOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forIncomingWinningCardPlayerIdCollection(getIdAsObject());
-						myOldIncomingWinningCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewIncomingWinningCardGameOpalHashSet = new java.util.HashSet<>(myOldIncomingWinningCardGameOpalHashSet);
-				if (myIncomingWinningCardGameOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myIncomingWinningCardGameOpalCachedOperations, myNewIncomingWinningCardGameOpalHashSet);
-					myIncomingWinningCardGameOpalCachedOperations = null;
-				}
-			}
-			return myNewIncomingWinningCardGameOpalHashSet;
-		} else {
-			if (myOldIncomingWinningCardGameOpalHashSet == null) {
-				java.util.Set<GameOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forIncomingWinningCardPlayerIdCollection(getIdAsObject());
-				myOldIncomingWinningCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldIncomingWinningCardGameOpalHashSet;
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<GameOpal, PlayerOpal> getOutgoingWinningCardGameOpalSet() {
+		if (myOutgoingWinningCardGameSet == null) {
+			myOutgoingWinningCardGameSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourOutgoingWinningCardGameOpalLoader,
+					isNew()
+					);
 		}
+		return myOutgoingWinningCardGameSet;
 	}
 
-	public synchronized void addIncomingWinningCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setIncomingWinningCardPlayerOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<PerformanceOpal, PlayerOpal> myPerformanceSet = null;
 
-	protected synchronized void addIncomingWinningCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewIncomingWinningCardGameOpalHashSet == null) {
-			if (myOldIncomingWinningCardGameOpalHashSet == null) {
-				if (myIncomingWinningCardGameOpalCachedOperations == null) { myIncomingWinningCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myIncomingWinningCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
-			} else {
-				myNewIncomingWinningCardGameOpalHashSet = new java.util.HashSet<>(myOldIncomingWinningCardGameOpalHashSet);
-				myNewIncomingWinningCardGameOpalHashSet.add(argGameOpal);
-			}
-		} else {
-			myNewIncomingWinningCardGameOpalHashSet.add(argGameOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<PerformanceOpal, PlayerOpal> ourPerformanceOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getPerformanceOpalFactory()::forPlayerOpalCollection,
+					OpalFactoryFactory.getInstance().getPerformanceOpalFactory()::forPlayerOpalCount,
+					PerformanceOpal::setPlayerOpal,
+					PerformanceOpal::setPlayerOpalInternal,
+					PerformanceOpal::getPlayerOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<PerformanceOpal, PlayerOpal> getPerformanceOpalSet() {
+		if (myPerformanceSet == null) {
+			myPerformanceSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourPerformanceOpalLoader,
+					isNew()
+					);
 		}
-		return;
-	}
-
-	public synchronized void removeIncomingWinningCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setIncomingWinningCardPlayerOpal(null);
-	}
-
-	protected synchronized void removeIncomingWinningCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewIncomingWinningCardGameOpalHashSet == null) {
-			if (myOldIncomingWinningCardGameOpalHashSet == null) {
-				if (myIncomingWinningCardGameOpalCachedOperations == null) { myIncomingWinningCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myIncomingWinningCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
-			} else {
-				myNewIncomingWinningCardGameOpalHashSet = new java.util.HashSet<>(myOldIncomingWinningCardGameOpalHashSet);
-				myNewIncomingWinningCardGameOpalHashSet.remove(argGameOpal);
-			}
-		} else {
-			myNewIncomingWinningCardGameOpalHashSet.remove(argGameOpal);
-		}
-		return;
-	}
-
-	public synchronized int getIncomingWinningCardGameOpalCount() { return getIncomingWinningCardGameOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<GameOpal> createIncomingWinningCardGameOpalIterator() {
-		return getIncomingWinningCardGameOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<GameOpal> streamIncomingWinningCardGameOpal() {
-		return getIncomingWinningCardGameOpalHashSet().stream();
-	}
-
-	private java.util.Set<GameOpal> myOldOutgoingLosingCardGameOpalHashSet = null;
-	private java.util.Set<GameOpal> myNewOutgoingLosingCardGameOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<GameOpal>> myOutgoingLosingCardGameOpalCachedOperations = null;
-
-	/* package */ java.util.Set<GameOpal> getOutgoingLosingCardGameOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewOutgoingLosingCardGameOpalHashSet == null) {
-				if (myOldOutgoingLosingCardGameOpalHashSet == null) {
-					if (isNew()) {
-						myOldOutgoingLosingCardGameOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<GameOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forOutgoingLosingCardPlayerIdCollection(getIdAsObject());
-						myOldOutgoingLosingCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewOutgoingLosingCardGameOpalHashSet = new java.util.HashSet<>(myOldOutgoingLosingCardGameOpalHashSet);
-				if (myOutgoingLosingCardGameOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myOutgoingLosingCardGameOpalCachedOperations, myNewOutgoingLosingCardGameOpalHashSet);
-					myOutgoingLosingCardGameOpalCachedOperations = null;
-				}
-			}
-			return myNewOutgoingLosingCardGameOpalHashSet;
-		} else {
-			if (myOldOutgoingLosingCardGameOpalHashSet == null) {
-				java.util.Set<GameOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forOutgoingLosingCardPlayerIdCollection(getIdAsObject());
-				myOldOutgoingLosingCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldOutgoingLosingCardGameOpalHashSet;
-		}
-	}
-
-	public synchronized void addOutgoingLosingCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setOutgoingLosingCardPlayerOpal(this);
-		return;
-	}
-
-	protected synchronized void addOutgoingLosingCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewOutgoingLosingCardGameOpalHashSet == null) {
-			if (myOldOutgoingLosingCardGameOpalHashSet == null) {
-				if (myOutgoingLosingCardGameOpalCachedOperations == null) { myOutgoingLosingCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myOutgoingLosingCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
-			} else {
-				myNewOutgoingLosingCardGameOpalHashSet = new java.util.HashSet<>(myOldOutgoingLosingCardGameOpalHashSet);
-				myNewOutgoingLosingCardGameOpalHashSet.add(argGameOpal);
-			}
-		} else {
-			myNewOutgoingLosingCardGameOpalHashSet.add(argGameOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeOutgoingLosingCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setOutgoingLosingCardPlayerOpal(null);
-	}
-
-	protected synchronized void removeOutgoingLosingCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewOutgoingLosingCardGameOpalHashSet == null) {
-			if (myOldOutgoingLosingCardGameOpalHashSet == null) {
-				if (myOutgoingLosingCardGameOpalCachedOperations == null) { myOutgoingLosingCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myOutgoingLosingCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
-			} else {
-				myNewOutgoingLosingCardGameOpalHashSet = new java.util.HashSet<>(myOldOutgoingLosingCardGameOpalHashSet);
-				myNewOutgoingLosingCardGameOpalHashSet.remove(argGameOpal);
-			}
-		} else {
-			myNewOutgoingLosingCardGameOpalHashSet.remove(argGameOpal);
-		}
-		return;
-	}
-
-	public synchronized int getOutgoingLosingCardGameOpalCount() { return getOutgoingLosingCardGameOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<GameOpal> createOutgoingLosingCardGameOpalIterator() {
-		return getOutgoingLosingCardGameOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<GameOpal> streamOutgoingLosingCardGameOpal() {
-		return getOutgoingLosingCardGameOpalHashSet().stream();
-	}
-
-	private java.util.Set<GameOpal> myOldOutgoingWinningCardGameOpalHashSet = null;
-	private java.util.Set<GameOpal> myNewOutgoingWinningCardGameOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<GameOpal>> myOutgoingWinningCardGameOpalCachedOperations = null;
-
-	/* package */ java.util.Set<GameOpal> getOutgoingWinningCardGameOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewOutgoingWinningCardGameOpalHashSet == null) {
-				if (myOldOutgoingWinningCardGameOpalHashSet == null) {
-					if (isNew()) {
-						myOldOutgoingWinningCardGameOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<GameOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forOutgoingWinningCardPlayerIdCollection(getIdAsObject());
-						myOldOutgoingWinningCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewOutgoingWinningCardGameOpalHashSet = new java.util.HashSet<>(myOldOutgoingWinningCardGameOpalHashSet);
-				if (myOutgoingWinningCardGameOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myOutgoingWinningCardGameOpalCachedOperations, myNewOutgoingWinningCardGameOpalHashSet);
-					myOutgoingWinningCardGameOpalCachedOperations = null;
-				}
-			}
-			return myNewOutgoingWinningCardGameOpalHashSet;
-		} else {
-			if (myOldOutgoingWinningCardGameOpalHashSet == null) {
-				java.util.Set<GameOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getGameOpalFactory().forOutgoingWinningCardPlayerIdCollection(getIdAsObject());
-				myOldOutgoingWinningCardGameOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldOutgoingWinningCardGameOpalHashSet;
-		}
-	}
-
-	public synchronized void addOutgoingWinningCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setOutgoingWinningCardPlayerOpal(this);
-		return;
-	}
-
-	protected synchronized void addOutgoingWinningCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewOutgoingWinningCardGameOpalHashSet == null) {
-			if (myOldOutgoingWinningCardGameOpalHashSet == null) {
-				if (myOutgoingWinningCardGameOpalCachedOperations == null) { myOutgoingWinningCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myOutgoingWinningCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argGameOpal));
-			} else {
-				myNewOutgoingWinningCardGameOpalHashSet = new java.util.HashSet<>(myOldOutgoingWinningCardGameOpalHashSet);
-				myNewOutgoingWinningCardGameOpalHashSet.add(argGameOpal);
-			}
-		} else {
-			myNewOutgoingWinningCardGameOpalHashSet.add(argGameOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeOutgoingWinningCardGameOpal(GameOpal argGameOpal) {
-		tryMutate();
-		argGameOpal.setOutgoingWinningCardPlayerOpal(null);
-	}
-
-	protected synchronized void removeOutgoingWinningCardGameOpalInternal(GameOpal argGameOpal) {
-		tryMutate();
-		if (myNewOutgoingWinningCardGameOpalHashSet == null) {
-			if (myOldOutgoingWinningCardGameOpalHashSet == null) {
-				if (myOutgoingWinningCardGameOpalCachedOperations == null) { myOutgoingWinningCardGameOpalCachedOperations = new java.util.ArrayList<>(); }
-				myOutgoingWinningCardGameOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argGameOpal));
-			} else {
-				myNewOutgoingWinningCardGameOpalHashSet = new java.util.HashSet<>(myOldOutgoingWinningCardGameOpalHashSet);
-				myNewOutgoingWinningCardGameOpalHashSet.remove(argGameOpal);
-			}
-		} else {
-			myNewOutgoingWinningCardGameOpalHashSet.remove(argGameOpal);
-		}
-		return;
-	}
-
-	public synchronized int getOutgoingWinningCardGameOpalCount() { return getOutgoingWinningCardGameOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<GameOpal> createOutgoingWinningCardGameOpalIterator() {
-		return getOutgoingWinningCardGameOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<GameOpal> streamOutgoingWinningCardGameOpal() {
-		return getOutgoingWinningCardGameOpalHashSet().stream();
-	}
-
-	private java.util.Set<PerformanceOpal> myOldPerformanceOpalHashSet = null;
-	private java.util.Set<PerformanceOpal> myNewPerformanceOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<PerformanceOpal>> myPerformanceOpalCachedOperations = null;
-
-	/* package */ java.util.Set<PerformanceOpal> getPerformanceOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewPerformanceOpalHashSet == null) {
-				if (myOldPerformanceOpalHashSet == null) {
-					if (isNew()) {
-						myOldPerformanceOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<PerformanceOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forPlayerIdCollection(getIdAsObject());
-						myOldPerformanceOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewPerformanceOpalHashSet = new java.util.HashSet<>(myOldPerformanceOpalHashSet);
-				if (myPerformanceOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myPerformanceOpalCachedOperations, myNewPerformanceOpalHashSet);
-					myPerformanceOpalCachedOperations = null;
-				}
-			}
-			return myNewPerformanceOpalHashSet;
-		} else {
-			if (myOldPerformanceOpalHashSet == null) {
-				java.util.Set<PerformanceOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forPlayerIdCollection(getIdAsObject());
-				myOldPerformanceOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldPerformanceOpalHashSet;
-		}
-	}
-
-	public synchronized void addPerformanceOpal(PerformanceOpal argPerformanceOpal) {
-		tryMutate();
-		argPerformanceOpal.setPlayerOpal(this);
-		return;
-	}
-
-	protected synchronized void addPerformanceOpalInternal(PerformanceOpal argPerformanceOpal) {
-		tryMutate();
-		if (myNewPerformanceOpalHashSet == null) {
-			if (myOldPerformanceOpalHashSet == null) {
-				if (myPerformanceOpalCachedOperations == null) { myPerformanceOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPerformanceOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argPerformanceOpal));
-			} else {
-				myNewPerformanceOpalHashSet = new java.util.HashSet<>(myOldPerformanceOpalHashSet);
-				myNewPerformanceOpalHashSet.add(argPerformanceOpal);
-			}
-		} else {
-			myNewPerformanceOpalHashSet.add(argPerformanceOpal);
-		}
-		return;
-	}
-
-	public synchronized void removePerformanceOpal(PerformanceOpal argPerformanceOpal) {
-		tryMutate();
-		argPerformanceOpal.setPlayerOpal(null);
-	}
-
-	protected synchronized void removePerformanceOpalInternal(PerformanceOpal argPerformanceOpal) {
-		tryMutate();
-		if (myNewPerformanceOpalHashSet == null) {
-			if (myOldPerformanceOpalHashSet == null) {
-				if (myPerformanceOpalCachedOperations == null) { myPerformanceOpalCachedOperations = new java.util.ArrayList<>(); }
-				myPerformanceOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argPerformanceOpal));
-			} else {
-				myNewPerformanceOpalHashSet = new java.util.HashSet<>(myOldPerformanceOpalHashSet);
-				myNewPerformanceOpalHashSet.remove(argPerformanceOpal);
-			}
-		} else {
-			myNewPerformanceOpalHashSet.remove(argPerformanceOpal);
-		}
-		return;
-	}
-
-	public synchronized int getPerformanceOpalCount() { return getPerformanceOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<PerformanceOpal> createPerformanceOpalIterator() {
-		return getPerformanceOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<PerformanceOpal> streamPerformanceOpal() {
-		return getPerformanceOpalHashSet().stream();
+		return myPerformanceSet;
 	}
 
 	@Override

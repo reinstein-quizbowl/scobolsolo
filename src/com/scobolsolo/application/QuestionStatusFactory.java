@@ -35,6 +35,7 @@ public class QuestionStatusFactory extends com.opal.AbstractIdentityFactory<Ques
 	public static final QuestionStatus DRAFTED() { return getInstance().forCode("DRAFTED"); }
 	public static final QuestionStatus READY_FOR_REVIEW() { return getInstance().forCode("READY_FOR_REVIEW"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public QuestionStatus create() {
 		return getQuestionStatusOpalFactory().create().getUserFacing();

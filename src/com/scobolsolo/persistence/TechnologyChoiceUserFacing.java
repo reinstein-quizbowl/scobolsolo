@@ -46,6 +46,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setCode(java.lang.String argCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setName(java.lang.String argName);
 
 	/**
@@ -104,6 +106,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setShortName(java.lang.String argShortName);
 
 	/**
@@ -133,6 +136,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 12L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setVeryShortName(java.lang.String argVeryShortName);
 
 	/**
@@ -173,6 +177,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -181,6 +186,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setSequence(int argSequence);
 
 	/**
@@ -223,6 +229,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setComputer(java.lang.Boolean argComputer);
 
 	/**
@@ -231,6 +238,7 @@ public interface TechnologyChoiceUserFacing extends com.opal.IdentityUserFacing,
 	 * @param argComputer the new value of {@code Computer}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.TechnologyChoice setComputer(boolean argComputer);
 
 	public com.scobolsolo.application.TechnologyChoice copy();

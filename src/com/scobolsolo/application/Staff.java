@@ -29,7 +29,7 @@ public interface Staff extends StaffUserFacing {
 			this.streamModeratorGame().map(Game::getMatch).collect(Collectors.toList())
 		);
 		
-		for (StaffAssignment lclSA : this.createStaffAssignmentArray()) {
+		for (StaffAssignment lclSA : this.getStaffAssignmentSet()) {
 			Room lclR = lclSA.getRoom();
 			lclMatchesSet.addAll(
 				lclR.streamMatch()

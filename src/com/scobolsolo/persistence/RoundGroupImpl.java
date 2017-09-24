@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.RoundGroup, com.scobolsolo.persistence.RoundGroupOpal> implements com.scobolsolo.application.RoundGroup {
 
 	private final com.scobolsolo.persistence.RoundGroupOpal myRoundGroupOpal;
@@ -15,12 +14,12 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.RoundGroup> getOpal() {
+	public com.scobolsolo.persistence.RoundGroupOpal getOpal() {
 		return getRoundGroupOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.RoundGroup> getBottomOpal() {
+	public com.scobolsolo.persistence.RoundGroupOpal getBottomOpal() {
 		return getRoundGroupOpal();
 	}
 
@@ -134,8 +133,9 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.RoundGroup setPhase(com.scobolsolo.application.Phase argPhase) {
-		getRoundGroupOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
+		getRoundGroupOpal().setPhaseOpal(argPhase == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Phase, com.scobolsolo.persistence.PhaseOpal>) argPhase).getOpal());
 		return this;
 	}
 
@@ -143,30 +143,8 @@ public class RoundGroupImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.RoundGroup addRound(com.scobolsolo.application.Round argRound) {
-		getRoundGroupOpal().addRoundOpal(((RoundImpl) argRound).getRoundOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.RoundGroup removeRound(com.scobolsolo.application.Round argRound) {
-		getRoundGroupOpal().removeRoundOpal(((RoundImpl) argRound).getRoundOpal());
-		return this;
-	}
-
-	@Override
-	public int getRoundCount() {
-		return getRoundGroupOpal().getRoundOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Round> streamRound() {
-		return getRoundGroupOpal().streamRoundOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Round> createRoundIterator() {
-		return new com.opal.OpalIterator<> (getRoundGroupOpal().createRoundOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Round> getRoundSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getRoundGroupOpal().getRoundOpalSet());
 	}
 
 	@Override

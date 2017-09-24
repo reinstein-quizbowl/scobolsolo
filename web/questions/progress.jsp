@@ -38,13 +38,13 @@ if (lclIncompleteTournaments.isEmpty()) {
 } else {
 	Collection<QuestionStatus> lclChosenStatuses = QuestionStatusFactory.getInstance().multipleFromHttpRequest(request);
 	if (lclChosenStatuses.isEmpty()) {
-		lclChosenStatuses = QuestionStatusFactory.getInstance().acquireAll(new ArrayList<>());
+		lclChosenStatuses = new ArrayList<>(QuestionStatusFactory.getInstance().getAll());
 		lclChosenStatuses.remove(QuestionStatusFactory.ANSWER_CHOSEN());
 	}
 	Validate.notEmpty(lclChosenStatuses);
 	
-	QuestionStatus[] lclAllStatuses = QuestionStatusFactory.getInstance().createAllArray();
-	Arrays.sort(lclAllStatuses);
+	List<QuestionStatus> lclAllStatuses = new ArrayList<>(QuestionStatusFactory.getInstance().getAll());
+	lclAllStatuses.sort(null);
 	
 	%><div class="row">
 		<div class="small-12 columns text-center">

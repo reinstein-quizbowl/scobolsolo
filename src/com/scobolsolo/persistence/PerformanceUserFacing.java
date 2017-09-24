@@ -57,6 +57,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setGameId(java.lang.Integer argGameId);
 
 	/**
@@ -113,6 +116,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argGameId the new value of {@code GameId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setGameId(int argGameId);
 
 	/**
@@ -153,6 +157,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setPlayerId(java.lang.Integer argPlayerId);
 
 	/**
@@ -161,6 +166,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argPlayerId the new value of {@code PlayerId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setPlayerId(int argPlayerId);
 
 	/**
@@ -170,6 +176,7 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Game getGame();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setGame(com.scobolsolo.application.Game argGame);
 
 	/**
@@ -179,33 +186,18 @@ public interface PerformanceUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Player getPlayer();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Performance setPlayer(com.scobolsolo.application.Player argPlayer);
 
-	public int getResponseCount();
-	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator();
+	public java.util.Set<com.scobolsolo.application.Response> getResponseSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse();
-
-	public com.scobolsolo.application.Performance addResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Performance removeResponse(com.scobolsolo.application.Response argResponse);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireResponse(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse() {
+		return getResponseSet().stream();
 	}
 
 	default public com.scobolsolo.application.Response[] createResponseArray() {
-		int lclLength = getResponseCount();
-		com.scobolsolo.application.Response[] lclA = new com.scobolsolo.application.Response[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createResponseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Response> lclS = getResponseSet();
+		return lclS.toArray(new com.scobolsolo.application.Response[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Performance copy();

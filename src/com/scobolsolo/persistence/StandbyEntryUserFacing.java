@@ -57,6 +57,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -113,6 +116,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
@@ -153,6 +157,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -161,6 +166,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setSequence(int argSequence);
 
 	/**
@@ -203,6 +209,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "1")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setPlayerCount(java.lang.Integer argPlayerCount);
 
 	/**
@@ -211,6 +218,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argPlayerCount the new value of {@code PlayerCount}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setPlayerCount(int argPlayerCount);
 
 	/**
@@ -253,6 +261,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setNote(java.lang.String argNote);
 
 	/**
@@ -262,6 +271,7 @@ public interface StandbyEntryUserFacing extends com.opal.IdentityUserFacing, Com
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StandbyEntry setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	public com.scobolsolo.application.StandbyEntry copy();

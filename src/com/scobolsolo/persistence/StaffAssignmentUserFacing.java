@@ -57,6 +57,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setRoomId(java.lang.Integer argRoomId);
 
 	/**
@@ -113,6 +116,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoomId the new value of {@code RoomId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setRoomId(int argRoomId);
 
 	/**
@@ -155,6 +159,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setNote(java.lang.String argNote);
 
 	/**
@@ -195,6 +200,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setStaffId(java.lang.Integer argStaffId);
 
 	/**
@@ -203,6 +209,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argStaffId the new value of {@code StaffId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setStaffId(int argStaffId);
 
 	/**
@@ -243,6 +250,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setPhaseId(java.lang.Integer argPhaseId);
 
 	/**
@@ -251,6 +259,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argPhaseId the new value of {@code PhaseId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setPhaseId(int argPhaseId);
 
 	/**
@@ -280,6 +289,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setStaffRoleCode(java.lang.String argStaffRoleCode);
 
 	/**
@@ -289,6 +299,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Phase getPhase();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setPhase(com.scobolsolo.application.Phase argPhase);
 
 	/**
@@ -298,6 +309,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Staff getStaff();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff);
 
 	/**
@@ -307,6 +319,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.StaffRole getRole();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setRole(com.scobolsolo.application.StaffRole argRole);
 
 	/**
@@ -316,6 +329,7 @@ public interface StaffAssignmentUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Room getRoom();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom);
 
 	public com.scobolsolo.application.StaffAssignment copy();

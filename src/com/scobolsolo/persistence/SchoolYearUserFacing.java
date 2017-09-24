@@ -46,6 +46,7 @@ public interface SchoolYearUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolYear setCode(java.lang.String argCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface SchoolYearUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolYear setName(java.lang.String argName);
 
 	/**
@@ -104,6 +106,7 @@ public interface SchoolYearUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolYear setShortName(java.lang.String argShortName);
 
 	/**
@@ -133,6 +136,7 @@ public interface SchoolYearUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 12L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolYear setVeryShortName(java.lang.String argVeryShortName);
 
 	/**
@@ -173,6 +177,7 @@ public interface SchoolYearUserFacing extends com.opal.IdentityUserFacing, Compa
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolYear setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -181,6 +186,7 @@ public interface SchoolYearUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.SchoolYear setSequence(int argSequence);
 
 	public com.scobolsolo.application.SchoolYear copy();

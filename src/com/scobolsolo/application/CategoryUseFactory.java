@@ -25,6 +25,7 @@ public class CategoryUseFactory extends com.opal.AbstractIdentityFactory<Categor
 		return CategoryUse.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public CategoryUse create() {
 		return getCategoryUseOpalFactory().create().getUserFacing();

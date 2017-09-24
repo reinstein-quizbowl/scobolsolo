@@ -33,13 +33,13 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 
 <div class="row">
 	<div class="small-12 columns"><%
-		List<ResponseType> lclRTs = ResponseTypeFactory.getInstance().streamAll()
+		List<ResponseType> lclRTs = ResponseTypeFactory.getInstance().getAll().stream()
 			.filter(ResponseType::isShowInReports)
 			.sorted()
 			.collect(Collectors.toList());
 		lclRTs.sort(null);
 
-		List<Category> lclCategories = CategoryFactory.getInstance().acquireAll(new ArrayList<>());
+		List<Category> lclCategories = new ArrayList<>(CategoryFactory.getInstance().getAll());
 		lclCategories.sort(null);
 
 		%><table class="reponsive">

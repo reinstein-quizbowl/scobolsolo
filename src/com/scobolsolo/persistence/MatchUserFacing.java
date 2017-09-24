@@ -57,6 +57,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setRoundId(java.lang.Integer argRoundId);
 
 	/**
@@ -113,6 +116,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoundId the new value of {@code RoundId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setRoundId(int argRoundId);
 
 	/**
@@ -153,6 +157,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setRoomId(java.lang.Integer argRoomId);
 
 	/**
@@ -161,6 +166,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoomId the new value of {@code RoomId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setRoomId(int argRoomId);
 
 	/**
@@ -230,6 +236,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setWinningCardId(java.lang.Integer argWinningCardId);
 
 	/**
@@ -238,6 +245,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argWinningCardId the new value of {@code WinningCardId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setWinningCardId(int argWinningCardId);
 
 	/**
@@ -307,6 +315,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setLosingCardId(java.lang.Integer argLosingCardId);
 
 	/**
@@ -315,6 +324,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argLosingCardId the new value of {@code LosingCardId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setLosingCardId(int argLosingCardId);
 
 	/**
@@ -324,6 +334,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Card getLosingCard();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setLosingCard(com.scobolsolo.application.Card argLosingCard);
 
 	/**
@@ -333,6 +344,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Room getRoom();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setRoom(com.scobolsolo.application.Room argRoom);
 
 	/**
@@ -342,6 +354,7 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Round getRound();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setRound(com.scobolsolo.application.Round argRound);
 
 	/**
@@ -351,10 +364,12 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Card getWinningCard();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setWinningCard(com.scobolsolo.application.Card argWinningCard);
 
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Game getGame();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Match setGame(com.scobolsolo.application.Game argGame);
 
 	public com.scobolsolo.application.Match copy();

@@ -20,10 +20,26 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewControlRoomTournamentOpalHashSet = new java.util.HashSet<>();
-		myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>();
-		myNewBuzzerOpalHashSet = new java.util.HashSet<>();
-		myNewMatchOpalHashSet = new java.util.HashSet<>();
+		myControlRoomTournamentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourControlRoomTournamentOpalLoader,
+				true
+				);
+		myStaffAssignmentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourStaffAssignmentOpalLoader,
+				true
+				);
+		myBuzzerSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourBuzzerOpalLoader,
+				true
+				);
+		myMatchSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourMatchOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -197,14 +213,6 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewTournamentOpal = myOldTournamentOpal;
-		myNewControlRoomTournamentOpalHashSet = null; /* Necessary if it has been rolled back */
-		myControlRoomTournamentOpalCachedOperations = null; /* Ditto */
-		myNewStaffAssignmentOpalHashSet = null; /* Necessary if it has been rolled back */
-		myStaffAssignmentOpalCachedOperations = null; /* Ditto */
-		myNewBuzzerOpalHashSet = null; /* Necessary if it has been rolled back */
-		myBuzzerOpalCachedOperations = null; /* Ditto */
-		myNewMatchOpalHashSet = null; /* Necessary if it has been rolled back */
-		myMatchOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -213,86 +221,17 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldTournamentOpal = myNewTournamentOpal;
 
-		if (needsToClearOldCollections()) {
-			myOldControlRoomTournamentOpalHashSet = null;
-			myOldStaffAssignmentOpalHashSet = null;
-			myOldBuzzerOpalHashSet = null;
-			myOldMatchOpalHashSet = null;
-		} else {
-			if (myNewControlRoomTournamentOpalHashSet != null) {
-				if (myNewControlRoomTournamentOpalHashSet.size() > 0) {
-					myOldControlRoomTournamentOpalHashSet = myNewControlRoomTournamentOpalHashSet;
-				} else {
-					myOldControlRoomTournamentOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewControlRoomTournamentOpalHashSet = null;
-			} else {
-				myControlRoomTournamentOpalCachedOperations = null;
-			}
-			if (myNewStaffAssignmentOpalHashSet != null) {
-				if (myNewStaffAssignmentOpalHashSet.size() > 0) {
-					myOldStaffAssignmentOpalHashSet = myNewStaffAssignmentOpalHashSet;
-				} else {
-					myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewStaffAssignmentOpalHashSet = null;
-			} else {
-				myStaffAssignmentOpalCachedOperations = null;
-			}
-			if (myNewBuzzerOpalHashSet != null) {
-				if (myNewBuzzerOpalHashSet.size() > 0) {
-					myOldBuzzerOpalHashSet = myNewBuzzerOpalHashSet;
-				} else {
-					myOldBuzzerOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewBuzzerOpalHashSet = null;
-			} else {
-				myBuzzerOpalCachedOperations = null;
-			}
-			if (myNewMatchOpalHashSet != null) {
-				if (myNewMatchOpalHashSet.size() > 0) {
-					myOldMatchOpalHashSet = myNewMatchOpalHashSet;
-				} else {
-					myOldMatchOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewMatchOpalHashSet = null;
-			} else {
-				myMatchOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewControlRoomTournamentOpalHashSet != null || myControlRoomTournamentOpalCachedOperations != null) {
-			lclI = createControlRoomTournamentOpalIterator();
-			while (lclI.hasNext()) {
-				((TournamentOpal) lclI.next()).setControlRoomOpalInternal(null);
-			}
-		}
-		if (myNewStaffAssignmentOpalHashSet != null || myStaffAssignmentOpalCachedOperations != null) {
-			lclI = createStaffAssignmentOpalIterator();
-			while (lclI.hasNext()) {
-				((StaffAssignmentOpal) lclI.next()).setRoomOpalInternal(null);
-			}
-		}
-		if (myNewBuzzerOpalHashSet != null || myBuzzerOpalCachedOperations != null) {
-			lclI = createBuzzerOpalIterator();
-			while (lclI.hasNext()) {
-				((BuzzerOpal) lclI.next()).setRoomOpalInternal(null);
-			}
-		}
-		if (myNewMatchOpalHashSet != null || myMatchOpalCachedOperations != null) {
-			lclI = createMatchOpalIterator();
-			while (lclI.hasNext()) {
-				((MatchOpal) lclI.next()).setRoomOpalInternal(null);
-			}
-		}
+		getControlRoomTournamentOpalSet().clear();
+		getStaffAssignmentOpalSet().clear();
+		getBuzzerOpalSet().clear();
+		getMatchOpalSet().clear();
 		if (getTournamentOpal() != null) {
-			getTournamentOpal().removeRoomOpalInternal(this);
+			getTournamentOpal().getRoomOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -341,7 +280,7 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		if ((lclUO = myOldTournamentOpal) == TournamentOpal.NOT_YET_LOADED) {
 			lclUO = myOldTournamentOpal = retrieveTournamentOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
@@ -412,11 +351,11 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		TournamentOpal lclTournamentOpal = getTournamentOpal();
 		if (lclTournamentOpal == argTournamentOpal) { return this; }
 		if (lclTournamentOpal != null) {
-			lclTournamentOpal.removeRoomOpalInternal(this);
+			lclTournamentOpal.getRoomOpalSet().removeInternal(this);
 		}
 		myNewTournamentOpal = argTournamentOpal;
 		if (argTournamentOpal != null) {
-			argTournamentOpal.addRoomOpalInternal(this);
+			argTournamentOpal.getRoomOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -426,348 +365,104 @@ public final class RoomOpal extends com.opal.UpdatableOpal<Room> {
 		myNewTournamentOpal = argTournamentOpal;
 	}
 
-	private java.util.Set<TournamentOpal> myOldControlRoomTournamentOpalHashSet = null;
-	private java.util.Set<TournamentOpal> myNewControlRoomTournamentOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<TournamentOpal>> myControlRoomTournamentOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<TournamentOpal, RoomOpal> myControlRoomTournamentSet = null;
 
-	/* package */ java.util.Set<TournamentOpal> getControlRoomTournamentOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewControlRoomTournamentOpalHashSet == null) {
-				if (myOldControlRoomTournamentOpalHashSet == null) {
-					if (isNew()) {
-						myOldControlRoomTournamentOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<TournamentOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getTournamentOpalFactory().forControlRoomRoomIdCollection(getIdAsObject());
-						myOldControlRoomTournamentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewControlRoomTournamentOpalHashSet = new java.util.HashSet<>(myOldControlRoomTournamentOpalHashSet);
-				if (myControlRoomTournamentOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myControlRoomTournamentOpalCachedOperations, myNewControlRoomTournamentOpalHashSet);
-					myControlRoomTournamentOpalCachedOperations = null;
-				}
-			}
-			return myNewControlRoomTournamentOpalHashSet;
-		} else {
-			if (myOldControlRoomTournamentOpalHashSet == null) {
-				java.util.Set<TournamentOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getTournamentOpalFactory().forControlRoomRoomIdCollection(getIdAsObject());
-				myOldControlRoomTournamentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldControlRoomTournamentOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<TournamentOpal, RoomOpal> ourControlRoomTournamentOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getTournamentOpalFactory()::forControlRoomOpalCollection,
+					OpalFactoryFactory.getInstance().getTournamentOpalFactory()::forControlRoomOpalCount,
+					TournamentOpal::setControlRoomOpal,
+					TournamentOpal::setControlRoomOpalInternal,
+					TournamentOpal::getControlRoomOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<TournamentOpal, RoomOpal> getControlRoomTournamentOpalSet() {
+		if (myControlRoomTournamentSet == null) {
+			myControlRoomTournamentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourControlRoomTournamentOpalLoader,
+					isNew()
+					);
 		}
+		return myControlRoomTournamentSet;
 	}
 
-	public synchronized void addControlRoomTournamentOpal(TournamentOpal argTournamentOpal) {
-		tryMutate();
-		argTournamentOpal.setControlRoomOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<StaffAssignmentOpal, RoomOpal> myStaffAssignmentSet = null;
 
-	protected synchronized void addControlRoomTournamentOpalInternal(TournamentOpal argTournamentOpal) {
-		tryMutate();
-		if (myNewControlRoomTournamentOpalHashSet == null) {
-			if (myOldControlRoomTournamentOpalHashSet == null) {
-				if (myControlRoomTournamentOpalCachedOperations == null) { myControlRoomTournamentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myControlRoomTournamentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argTournamentOpal));
-			} else {
-				myNewControlRoomTournamentOpalHashSet = new java.util.HashSet<>(myOldControlRoomTournamentOpalHashSet);
-				myNewControlRoomTournamentOpalHashSet.add(argTournamentOpal);
-			}
-		} else {
-			myNewControlRoomTournamentOpalHashSet.add(argTournamentOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<StaffAssignmentOpal, RoomOpal> ourStaffAssignmentOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory()::forRoomOpalCollection,
+					OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory()::forRoomOpalCount,
+					StaffAssignmentOpal::setRoomOpal,
+					StaffAssignmentOpal::setRoomOpalInternal,
+					StaffAssignmentOpal::getRoomOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<StaffAssignmentOpal, RoomOpal> getStaffAssignmentOpalSet() {
+		if (myStaffAssignmentSet == null) {
+			myStaffAssignmentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourStaffAssignmentOpalLoader,
+					isNew()
+					);
 		}
-		return;
+		return myStaffAssignmentSet;
 	}
 
-	public synchronized void removeControlRoomTournamentOpal(TournamentOpal argTournamentOpal) {
-		tryMutate();
-		argTournamentOpal.setControlRoomOpal(null);
-	}
+	private com.opal.types.OpalBackCollectionSet<BuzzerOpal, RoomOpal> myBuzzerSet = null;
 
-	protected synchronized void removeControlRoomTournamentOpalInternal(TournamentOpal argTournamentOpal) {
-		tryMutate();
-		if (myNewControlRoomTournamentOpalHashSet == null) {
-			if (myOldControlRoomTournamentOpalHashSet == null) {
-				if (myControlRoomTournamentOpalCachedOperations == null) { myControlRoomTournamentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myControlRoomTournamentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argTournamentOpal));
-			} else {
-				myNewControlRoomTournamentOpalHashSet = new java.util.HashSet<>(myOldControlRoomTournamentOpalHashSet);
-				myNewControlRoomTournamentOpalHashSet.remove(argTournamentOpal);
-			}
-		} else {
-			myNewControlRoomTournamentOpalHashSet.remove(argTournamentOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<BuzzerOpal, RoomOpal> ourBuzzerOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getBuzzerOpalFactory()::forRoomOpalCollection,
+					OpalFactoryFactory.getInstance().getBuzzerOpalFactory()::forRoomOpalCount,
+					BuzzerOpal::setRoomOpal,
+					BuzzerOpal::setRoomOpalInternal,
+					BuzzerOpal::getRoomOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<BuzzerOpal, RoomOpal> getBuzzerOpalSet() {
+		if (myBuzzerSet == null) {
+			myBuzzerSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourBuzzerOpalLoader,
+					isNew()
+					);
 		}
-		return;
+		return myBuzzerSet;
 	}
 
-	public synchronized int getControlRoomTournamentOpalCount() { return getControlRoomTournamentOpalHashSet().size(); }
+	private com.opal.types.OpalBackCollectionSet<MatchOpal, RoomOpal> myMatchSet = null;
 
-	public synchronized java.util.Iterator<TournamentOpal> createControlRoomTournamentOpalIterator() {
-		return getControlRoomTournamentOpalHashSet().iterator();
-	}
+	private static final com.opal.types.OpalBackCollectionLoader<MatchOpal, RoomOpal> ourMatchOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getMatchOpalFactory()::forRoomOpalCollection,
+					OpalFactoryFactory.getInstance().getMatchOpalFactory()::forRoomOpalCount,
+					MatchOpal::setRoomOpal,
+					MatchOpal::setRoomOpalInternal,
+					MatchOpal::getRoomOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
 
-	public synchronized java.util.stream.Stream<TournamentOpal> streamControlRoomTournamentOpal() {
-		return getControlRoomTournamentOpalHashSet().stream();
-	}
-
-	private java.util.Set<StaffAssignmentOpal> myOldStaffAssignmentOpalHashSet = null;
-	private java.util.Set<StaffAssignmentOpal> myNewStaffAssignmentOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<StaffAssignmentOpal>> myStaffAssignmentOpalCachedOperations = null;
-
-	/* package */ java.util.Set<StaffAssignmentOpal> getStaffAssignmentOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewStaffAssignmentOpalHashSet == null) {
-				if (myOldStaffAssignmentOpalHashSet == null) {
-					if (isNew()) {
-						myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<StaffAssignmentOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forRoomIdCollection(getIdAsObject());
-						myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				if (myStaffAssignmentOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalHashSet);
-					myStaffAssignmentOpalCachedOperations = null;
-				}
-			}
-			return myNewStaffAssignmentOpalHashSet;
-		} else {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				java.util.Set<StaffAssignmentOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forRoomIdCollection(getIdAsObject());
-				myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldStaffAssignmentOpalHashSet;
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<MatchOpal, RoomOpal> getMatchOpalSet() {
+		if (myMatchSet == null) {
+			myMatchSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourMatchOpalLoader,
+					isNew()
+					);
 		}
-	}
-
-	public synchronized void addStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		argStaffAssignmentOpal.setRoomOpal(this);
-		return;
-	}
-
-	protected synchronized void addStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		if (myNewStaffAssignmentOpalHashSet == null) {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argStaffAssignmentOpal));
-			} else {
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
-			}
-		} else {
-			myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		argStaffAssignmentOpal.setRoomOpal(null);
-	}
-
-	protected synchronized void removeStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		if (myNewStaffAssignmentOpalHashSet == null) {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argStaffAssignmentOpal));
-			} else {
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
-			}
-		} else {
-			myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
-		}
-		return;
-	}
-
-	public synchronized int getStaffAssignmentOpalCount() { return getStaffAssignmentOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<StaffAssignmentOpal> createStaffAssignmentOpalIterator() {
-		return getStaffAssignmentOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<StaffAssignmentOpal> streamStaffAssignmentOpal() {
-		return getStaffAssignmentOpalHashSet().stream();
-	}
-
-	private java.util.Set<BuzzerOpal> myOldBuzzerOpalHashSet = null;
-	private java.util.Set<BuzzerOpal> myNewBuzzerOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<BuzzerOpal>> myBuzzerOpalCachedOperations = null;
-
-	/* package */ java.util.Set<BuzzerOpal> getBuzzerOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewBuzzerOpalHashSet == null) {
-				if (myOldBuzzerOpalHashSet == null) {
-					if (isNew()) {
-						myOldBuzzerOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<BuzzerOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forRoomIdCollection(getIdAsObject());
-						myOldBuzzerOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewBuzzerOpalHashSet = new java.util.HashSet<>(myOldBuzzerOpalHashSet);
-				if (myBuzzerOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myBuzzerOpalCachedOperations, myNewBuzzerOpalHashSet);
-					myBuzzerOpalCachedOperations = null;
-				}
-			}
-			return myNewBuzzerOpalHashSet;
-		} else {
-			if (myOldBuzzerOpalHashSet == null) {
-				java.util.Set<BuzzerOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getBuzzerOpalFactory().forRoomIdCollection(getIdAsObject());
-				myOldBuzzerOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldBuzzerOpalHashSet;
-		}
-	}
-
-	public synchronized void addBuzzerOpal(BuzzerOpal argBuzzerOpal) {
-		tryMutate();
-		argBuzzerOpal.setRoomOpal(this);
-		return;
-	}
-
-	protected synchronized void addBuzzerOpalInternal(BuzzerOpal argBuzzerOpal) {
-		tryMutate();
-		if (myNewBuzzerOpalHashSet == null) {
-			if (myOldBuzzerOpalHashSet == null) {
-				if (myBuzzerOpalCachedOperations == null) { myBuzzerOpalCachedOperations = new java.util.ArrayList<>(); }
-				myBuzzerOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argBuzzerOpal));
-			} else {
-				myNewBuzzerOpalHashSet = new java.util.HashSet<>(myOldBuzzerOpalHashSet);
-				myNewBuzzerOpalHashSet.add(argBuzzerOpal);
-			}
-		} else {
-			myNewBuzzerOpalHashSet.add(argBuzzerOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeBuzzerOpal(BuzzerOpal argBuzzerOpal) {
-		tryMutate();
-		argBuzzerOpal.setRoomOpal(null);
-	}
-
-	protected synchronized void removeBuzzerOpalInternal(BuzzerOpal argBuzzerOpal) {
-		tryMutate();
-		if (myNewBuzzerOpalHashSet == null) {
-			if (myOldBuzzerOpalHashSet == null) {
-				if (myBuzzerOpalCachedOperations == null) { myBuzzerOpalCachedOperations = new java.util.ArrayList<>(); }
-				myBuzzerOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argBuzzerOpal));
-			} else {
-				myNewBuzzerOpalHashSet = new java.util.HashSet<>(myOldBuzzerOpalHashSet);
-				myNewBuzzerOpalHashSet.remove(argBuzzerOpal);
-			}
-		} else {
-			myNewBuzzerOpalHashSet.remove(argBuzzerOpal);
-		}
-		return;
-	}
-
-	public synchronized int getBuzzerOpalCount() { return getBuzzerOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<BuzzerOpal> createBuzzerOpalIterator() {
-		return getBuzzerOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<BuzzerOpal> streamBuzzerOpal() {
-		return getBuzzerOpalHashSet().stream();
-	}
-
-	private java.util.Set<MatchOpal> myOldMatchOpalHashSet = null;
-	private java.util.Set<MatchOpal> myNewMatchOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myMatchOpalCachedOperations = null;
-
-	/* package */ java.util.Set<MatchOpal> getMatchOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewMatchOpalHashSet == null) {
-				if (myOldMatchOpalHashSet == null) {
-					if (isNew()) {
-						myOldMatchOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<MatchOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoomIdCollection(getIdAsObject());
-						myOldMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
-				if (myMatchOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myMatchOpalCachedOperations, myNewMatchOpalHashSet);
-					myMatchOpalCachedOperations = null;
-				}
-			}
-			return myNewMatchOpalHashSet;
-		} else {
-			if (myOldMatchOpalHashSet == null) {
-				java.util.Set<MatchOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forRoomIdCollection(getIdAsObject());
-				myOldMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldMatchOpalHashSet;
-		}
-	}
-
-	public synchronized void addMatchOpal(MatchOpal argMatchOpal) {
-		tryMutate();
-		argMatchOpal.setRoomOpal(this);
-		return;
-	}
-
-	protected synchronized void addMatchOpalInternal(MatchOpal argMatchOpal) {
-		tryMutate();
-		if (myNewMatchOpalHashSet == null) {
-			if (myOldMatchOpalHashSet == null) {
-				if (myMatchOpalCachedOperations == null) { myMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMatchOpal));
-			} else {
-				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
-				myNewMatchOpalHashSet.add(argMatchOpal);
-			}
-		} else {
-			myNewMatchOpalHashSet.add(argMatchOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeMatchOpal(MatchOpal argMatchOpal) {
-		tryMutate();
-		argMatchOpal.setRoomOpal(null);
-	}
-
-	protected synchronized void removeMatchOpalInternal(MatchOpal argMatchOpal) {
-		tryMutate();
-		if (myNewMatchOpalHashSet == null) {
-			if (myOldMatchOpalHashSet == null) {
-				if (myMatchOpalCachedOperations == null) { myMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMatchOpal));
-			} else {
-				myNewMatchOpalHashSet = new java.util.HashSet<>(myOldMatchOpalHashSet);
-				myNewMatchOpalHashSet.remove(argMatchOpal);
-			}
-		} else {
-			myNewMatchOpalHashSet.remove(argMatchOpal);
-		}
-		return;
-	}
-
-	public synchronized int getMatchOpalCount() { return getMatchOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<MatchOpal> createMatchOpalIterator() {
-		return getMatchOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<MatchOpal> streamMatchOpal() {
-		return getMatchOpalHashSet().stream();
+		return myMatchSet;
 	}
 
 	@Override

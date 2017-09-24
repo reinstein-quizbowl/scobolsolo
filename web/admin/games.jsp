@@ -1,5 +1,6 @@
-﻿<%@ page import="java.util.Arrays" %>
-<%@ page import="java.util.Comparator" %>
+﻿<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.GameFactory" %>
 <%@ page import="com.scobolsolo.application.Match" %>
@@ -26,8 +27,8 @@
 				</tr>
 			</thead>
 			<tbody><%
-				Game[] lclGames = GameFactory.getInstance().createAllArray();
-				Arrays.sort(lclGames, Comparator.comparing(Game::getMatch));
+				List<Game> lclGames = new ArrayList<>(GameFactory.getInstance().getAll());
+				lclGames.sort(Comparator.comparing(Game::getMatch));
 				for (Game lclG : lclGames) {
 					Match lclM = lclG.getMatch();
 					%><tr>
@@ -36,7 +37,7 @@
 						<td><%= lclM.getRound().getShortName() %></td>
 						<td><%= lclM.getRoom().getShortName() %></td>
 						<td><%
-							for (Performance lclP : lclG.createPerformanceArray()) {
+							for (Performance lclP : lclG.getPerformanceSet()) {
 								%><%= lclP.getPlayer().getNameWithSchoolShortName() %><br /><%
 							}
 						%></td>

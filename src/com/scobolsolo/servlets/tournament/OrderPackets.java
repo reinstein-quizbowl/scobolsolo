@@ -79,7 +79,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 	public static boolean isOrdered(final Packet lclP) {
 		Validate.notNull(lclP);
 		
-		final boolean lclNoRepeatedNumbers = areThereNoRepeatedNumbers(Arrays.asList(lclP.createPlacementArray()));
+		final boolean lclNoRepeatedNumbers = areThereNoRepeatedNumbers(new ArrayList<>(lclP.getPlacementSet()));
 		if (!lclNoRepeatedNumbers) {
 			// ourLogger.debug(lclP.getName() + " has a repeated number");
 			return false;
@@ -122,7 +122,7 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		final Tally<CategoryGroup> lclFirstHalfCategoryGroups = Tally.of(argFirstHalf, CATEGORY_GROUP_EXTRACTOR);
 		final Tally<CategoryGroup> lclSecondHalfCategoryGroups = Tally.of(argSecondHalf, CATEGORY_GROUP_EXTRACTOR);
 		
-		for (final CategoryGroup lclCG : CategoryGroupFactory.getInstance().createAllArray()) {
+		for (final CategoryGroup lclCG : CategoryGroupFactory.getInstance().getAll()) {
 			if (Math.abs(lclFirstHalfCategoryGroups.get(lclCG) - lclSecondHalfCategoryGroups.get(lclCG)) > 1) {
 				// ourLogger.debug("Halves not validly split for " + lclCG.getCode());
 				// ourLogger.debug("First half: " + lclFirstHalfCategoryGroups);

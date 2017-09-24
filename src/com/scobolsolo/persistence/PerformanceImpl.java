@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PerformanceImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Performance, com.scobolsolo.persistence.PerformanceOpal> implements com.scobolsolo.application.Performance {
 
 	private final com.scobolsolo.persistence.PerformanceOpal myPerformanceOpal;
@@ -15,12 +14,12 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<com.scobolsol
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Performance> getOpal() {
+	public com.scobolsolo.persistence.PerformanceOpal getOpal() {
 		return getPerformanceOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Performance> getBottomOpal() {
+	public com.scobolsolo.persistence.PerformanceOpal getBottomOpal() {
 		return getPerformanceOpal();
 	}
 
@@ -100,8 +99,9 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<com.scobolsol
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Performance setGame(com.scobolsolo.application.Game argGame) {
-		getPerformanceOpal().setGameOpal(argGame == null ? null : ((GameImpl) argGame).getGameOpal());
+		getPerformanceOpal().setGameOpal(argGame == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Game, com.scobolsolo.persistence.GameOpal>) argGame).getOpal());
 		return this;
 	}
 
@@ -115,8 +115,9 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<com.scobolsol
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Performance setPlayer(com.scobolsolo.application.Player argPlayer) {
-		getPerformanceOpal().setPlayerOpal(argPlayer == null ? null : ((PlayerImpl) argPlayer).getPlayerOpal());
+		getPerformanceOpal().setPlayerOpal(argPlayer == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Player, com.scobolsolo.persistence.PlayerOpal>) argPlayer).getOpal());
 		return this;
 	}
 
@@ -124,30 +125,8 @@ public class PerformanceImpl extends com.opal.AbstractIdentityImpl<com.scobolsol
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Performance addResponse(com.scobolsolo.application.Response argResponse) {
-		getPerformanceOpal().addResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Performance removeResponse(com.scobolsolo.application.Response argResponse) {
-		getPerformanceOpal().removeResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
-	}
-
-	@Override
-	public int getResponseCount() {
-		return getPerformanceOpal().getResponseOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse() {
-		return getPerformanceOpal().streamResponseOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator() {
-		return new com.opal.OpalIterator<> (getPerformanceOpal().createResponseOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Response> getResponseSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPerformanceOpal().getResponseOpalSet());
 	}
 
 	@Override

@@ -53,6 +53,7 @@ public class CategoryFactory extends com.opal.AbstractIdentityFactory<Category, 
 	public static final Category US_LITERATURE() { return getInstance().forCode("US_LITERATURE"); }
 	public static final Category WORLD_HISTORY() { return getInstance().forCode("WORLD_HISTORY"); }
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Category create() {
 		return getCategoryOpalFactory().create().getUserFacing();

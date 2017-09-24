@@ -26,7 +26,7 @@ public class UnassignCards extends ScobolSoloControllerServlet {
 		Validate.isTrue(argUser.mayManageCardSystem(lclT), "Not authorized");
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
-			for (final Card lclC : lclPhase.createCardArray()) {
+			for (final Card lclC : lclPhase.getCardSet()) {
 				lclC.setInitialPlayer(null);
 			}
 			

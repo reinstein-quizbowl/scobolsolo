@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 
+import com.opal.LocalDateCache;
+
 import com.scobolsolo.application.Match;
 import com.scobolsolo.application.Staff;
 import com.scobolsolo.application.Tournament;
@@ -23,16 +25,15 @@ public final class Menus {
 	private final Menu myTournamentsInternalMenu;
 	private final Menu myTournamentsStatsMenu;
 	private final Menu myQuestionsMenu;
-	private final Map<Tournament, Menu> myStatsMenus = new ConcurrentHashMap<>(TournamentFactory.getInstance().createAllArray().length);
-	private final Map<Tournament, Menu> myTournamentAdminMenus = new ConcurrentHashMap<>(TournamentFactory.getInstance().createAllArray().length);
+	private final Map<Tournament, Menu> myStatsMenus = new ConcurrentHashMap<>(TournamentFactory.getInstance().getAll().size());
+	private final Map<Tournament, Menu> myTournamentAdminMenus = new ConcurrentHashMap<>(TournamentFactory.getInstance().getAll().size());
 	
 	private final Menu myAdminMenu;
 	
 	private Menus() {
 		super();
 		
-		final List<Tournament> lclTournaments = new ArrayList<>();
-		TournamentFactory.getInstance().acquireAll(lclTournaments);
+		final List<Tournament> lclTournaments = new ArrayList<>(TournamentFactory.getInstance().getAll());
 		lclTournaments.sort(Comparator.<Tournament>naturalOrder().reversed());
 		
 		myTournamentsPublicMenu = new Menu(
@@ -55,7 +56,7 @@ public final class Menus {
 			"tournaments-stats",
 			"Stats",
 			lclTournaments.stream()
-				.map(argT -> new MenuPage(argT.getUniqueString() + "-stats", argT.getName(), (argT.getDate().isAfter(LocalDate.now()) ? "/stats/field.jsp?object=" + argT.getUniqueString() : "/stats/standings.jsp?object=" + argT.getUniqueString())))
+				.map(argT -> new MenuPage(argT.getUniqueString() + "-stats", argT.getName(), (argT.getDate().isAfter(LocalDateCache.today()) ? "/stats/field.jsp?object=" + argT.getUniqueString() : "/stats/standings.jsp?object=" + argT.getUniqueString())))
 				.collect(Collectors.toList())
 		);
 		
@@ -72,7 +73,7 @@ public final class Menus {
 					"tournament-packets",
 					"Tournament Packet Sets",
 					lclTournaments.stream()
-						.filter(argT -> argT.getPacketCount() > 0)
+						.filter(argT -> argT.getPacketSet().isEmpty() == false)
 						.map(argT ->
 							new Menu(
 								argT.getCode() + "-packets",
@@ -135,7 +136,7 @@ public final class Menus {
 		if (!ourInstance.myStatsMenus.containsKey(argT)) {
 			final List<MenuItem> lclItems = new ArrayList<>(7);
 			
-			final LocalDate lclTodayDate = LocalDate.now();
+			final LocalDate lclTodayDate = LocalDateCache.today();
 			final LocalDate lclTournamentDate = argT.getDate();
 			final boolean lclFuture = lclTournamentDate.isAfter(lclTodayDate);
 			final boolean lclSoon = lclFuture && lclTournamentDate.minusDays(6).isBefore(lclTodayDate);
@@ -188,8 +189,8 @@ public final class Menus {
 		
 		final Tournament lclT = argS.getTournament();
 		final String lclMenuTitle;
-		if (argS.getStaffAssignmentCount() == 1) {
-			lclMenuTitle = lclT.getName() + ": " + argS.createStaffAssignmentIterator().next().getRoom().getName();
+		if (argS.getStaffAssignmentSet().size() == 1) {
+			lclMenuTitle = lclT.getName() + ": " + argS.getStaffAssignmentSet().iterator().next().getRoom().getName();
 		} else {
 			lclMenuTitle = argS.getContact().getName() + " @ " + lclT.getName();
 		}

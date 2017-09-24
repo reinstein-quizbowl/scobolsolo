@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Diff, com.scobolsolo.persistence.DiffOpal> implements com.scobolsolo.application.Diff {
 
 	private final com.scobolsolo.persistence.DiffOpal myDiffOpal;
@@ -15,12 +14,12 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Diff> getOpal() {
+	public com.scobolsolo.persistence.DiffOpal getOpal() {
 		return getDiffOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Diff> getBottomOpal() {
+	public com.scobolsolo.persistence.DiffOpal getBottomOpal() {
 		return getDiffOpal();
 	}
 
@@ -268,8 +267,9 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Diff setCategory(com.scobolsolo.application.Category argCategory) {
-		getDiffOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
+		getDiffOpal().setCategoryOpal(argCategory == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Category, com.scobolsolo.persistence.CategoryOpal>) argCategory).getOpal());
 		return this;
 	}
 
@@ -283,8 +283,9 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Diff setEditor(com.scobolsolo.application.Account argAccount) {
-		getDiffOpal().setEditorOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
+		getDiffOpal().setEditorOpal(argAccount == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Account, com.scobolsolo.persistence.AccountOpal>) argAccount).getOpal());
 		return this;
 	}
 
@@ -298,8 +299,9 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Diff setQuestion(com.scobolsolo.application.Question argQuestion) {
-		getDiffOpal().setQuestionOpal(argQuestion == null ? null : ((QuestionImpl) argQuestion).getQuestionOpal());
+		getDiffOpal().setQuestionOpal(argQuestion == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Question, com.scobolsolo.persistence.QuestionOpal>) argQuestion).getOpal());
 		return this;
 	}
 
@@ -313,8 +315,9 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Diff setStatus(com.scobolsolo.application.QuestionStatus argQuestionStatus) {
-		getDiffOpal().setStatusOpal(argQuestionStatus == null ? null : ((QuestionStatusImpl) argQuestionStatus).getQuestionStatusOpal());
+		getDiffOpal().setStatusOpal(argQuestionStatus == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.QuestionStatus, com.scobolsolo.persistence.QuestionStatusOpal>) argQuestionStatus).getOpal());
 		return this;
 	}
 
@@ -322,30 +325,8 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.Diff addResponse(com.scobolsolo.application.Response argResponse) {
-		getDiffOpal().addResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.Diff removeResponse(com.scobolsolo.application.Response argResponse) {
-		getDiffOpal().removeResponseOpal(((ResponseImpl) argResponse).getResponseOpal());
-		return this;
-	}
-
-	@Override
-	public int getResponseCount() {
-		return getDiffOpal().getResponseOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamResponse() {
-		return getDiffOpal().streamResponseOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Response> createResponseIterator() {
-		return new com.opal.OpalIterator<> (getDiffOpal().createResponseOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Response> getResponseSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getDiffOpal().getResponseOpalSet());
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PlayerRecordVImpl extends com.opal.AbstractImpl<com.scobolsolo.application.PlayerRecordV, com.scobolsolo.persistence.PlayerRecordVOpal> implements com.scobolsolo.application.PlayerRecordV {
 
 	private final com.scobolsolo.persistence.PlayerRecordVOpal myPlayerRecordVOpal;
@@ -15,12 +14,12 @@ public class PlayerRecordVImpl extends com.opal.AbstractImpl<com.scobolsolo.appl
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlayerRecordV> getOpal() {
+	public com.scobolsolo.persistence.PlayerRecordVOpal getOpal() {
 		return getPlayerRecordVOpal();
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlayerRecordV> getBottomOpal() {
+	public com.scobolsolo.persistence.PlayerRecordVOpal getBottomOpal() {
 		return getPlayerRecordVOpal();
 	}
 

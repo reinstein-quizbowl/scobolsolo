@@ -29,7 +29,11 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>();
+		myStaffAssignmentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourStaffAssignmentOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -268,8 +272,6 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewStaffAssignmentOpalHashSet = null; /* Necessary if it has been rolled back */
-		myStaffAssignmentOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -277,33 +279,12 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		/** This Opal has no references to other Opals that need to be copied. */
-		if (needsToClearOldCollections()) {
-			myOldStaffAssignmentOpalHashSet = null;
-		} else {
-			if (myNewStaffAssignmentOpalHashSet != null) {
-				if (myNewStaffAssignmentOpalHashSet.size() > 0) {
-					myOldStaffAssignmentOpalHashSet = myNewStaffAssignmentOpalHashSet;
-				} else {
-					myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewStaffAssignmentOpalHashSet = null;
-			} else {
-				myStaffAssignmentOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewStaffAssignmentOpalHashSet != null || myStaffAssignmentOpalCachedOperations != null) {
-			lclI = createStaffAssignmentOpalIterator();
-			while (lclI.hasNext()) {
-				((StaffAssignmentOpal) lclI.next()).setRoleOpalInternal(null);
-			}
-		}
+		getStaffAssignmentOpalSet().clear();
 		return;
 	}
 
@@ -378,90 +359,29 @@ public final class StaffRoleOpal extends com.opal.UpdatableOpal<StaffRole> {
 		argOutput.println("MayEnterMatchesBeforeUsuallyPermitted = " + isMayEnterMatchesBeforeUsuallyPermittedAsObject());
 	}
 
-	private java.util.Set<StaffAssignmentOpal> myOldStaffAssignmentOpalHashSet = null;
-	private java.util.Set<StaffAssignmentOpal> myNewStaffAssignmentOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<StaffAssignmentOpal>> myStaffAssignmentOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<StaffAssignmentOpal, StaffRoleOpal> myStaffAssignmentSet = null;
 
-	/* package */ java.util.Set<StaffAssignmentOpal> getStaffAssignmentOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewStaffAssignmentOpalHashSet == null) {
-				if (myOldStaffAssignmentOpalHashSet == null) {
-					if (isNew()) {
-						myOldStaffAssignmentOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<StaffAssignmentOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffRoleCodeCollection(getCode());
-						myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				if (myStaffAssignmentOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myStaffAssignmentOpalCachedOperations, myNewStaffAssignmentOpalHashSet);
-					myStaffAssignmentOpalCachedOperations = null;
-				}
-			}
-			return myNewStaffAssignmentOpalHashSet;
-		} else {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				java.util.Set<StaffAssignmentOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory().forStaffRoleCodeCollection(getCode());
-				myOldStaffAssignmentOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldStaffAssignmentOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<StaffAssignmentOpal, StaffRoleOpal> ourStaffAssignmentOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory()::forRoleOpalCollection,
+					OpalFactoryFactory.getInstance().getStaffAssignmentOpalFactory()::forRoleOpalCount,
+					StaffAssignmentOpal::setRoleOpal,
+					StaffAssignmentOpal::setRoleOpalInternal,
+					StaffAssignmentOpal::getRoleOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<StaffAssignmentOpal, StaffRoleOpal> getStaffAssignmentOpalSet() {
+		if (myStaffAssignmentSet == null) {
+			myStaffAssignmentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourStaffAssignmentOpalLoader,
+					isNew()
+					);
 		}
-	}
-
-	public synchronized void addStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		argStaffAssignmentOpal.setRoleOpal(this);
-		return;
-	}
-
-	protected synchronized void addStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		if (myNewStaffAssignmentOpalHashSet == null) {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argStaffAssignmentOpal));
-			} else {
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
-			}
-		} else {
-			myNewStaffAssignmentOpalHashSet.add(argStaffAssignmentOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeStaffAssignmentOpal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		argStaffAssignmentOpal.setRoleOpal(null);
-	}
-
-	protected synchronized void removeStaffAssignmentOpalInternal(StaffAssignmentOpal argStaffAssignmentOpal) {
-		tryMutate();
-		if (myNewStaffAssignmentOpalHashSet == null) {
-			if (myOldStaffAssignmentOpalHashSet == null) {
-				if (myStaffAssignmentOpalCachedOperations == null) { myStaffAssignmentOpalCachedOperations = new java.util.ArrayList<>(); }
-				myStaffAssignmentOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argStaffAssignmentOpal));
-			} else {
-				myNewStaffAssignmentOpalHashSet = new java.util.HashSet<>(myOldStaffAssignmentOpalHashSet);
-				myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
-			}
-		} else {
-			myNewStaffAssignmentOpalHashSet.remove(argStaffAssignmentOpal);
-		}
-		return;
-	}
-
-	public synchronized int getStaffAssignmentOpalCount() { return getStaffAssignmentOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<StaffAssignmentOpal> createStaffAssignmentOpalIterator() {
-		return getStaffAssignmentOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<StaffAssignmentOpal> streamStaffAssignmentOpal() {
-		return getStaffAssignmentOpalHashSet().stream();
+		return myStaffAssignmentSet;
 	}
 
 	@Override

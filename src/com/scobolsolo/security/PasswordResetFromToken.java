@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
+import com.opal.LocalDateCache;
 import com.opal.TransactionContext;
 
 import com.scobolsolo.application.Account;
@@ -49,7 +50,7 @@ public class PasswordResetFromToken extends ScobolSoloControllerServlet {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "This user has not been issued a token for resetting their password.");
 			return ERROR_URL;
 		}
-		final LocalDateTime lclNow = LocalDateTime.now();
+		final LocalDateTime lclNow = LocalDateCache.now();
 		if (lclCorrectTokenExpires.isBefore(lclNow)) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "The password reset token has expired.");
 			return ERROR_URL;

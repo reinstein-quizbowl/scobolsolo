@@ -4,6 +4,7 @@
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
 <%@ page import="com.google.common.collect.ArrayListMultimap" %>
+<%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Contact" %>
 <%@ page import="com.scobolsolo.application.ContactFactory" %>
@@ -36,8 +37,10 @@
 				<tr>
 					<td colspan="5"><a href="contact-edit.jsp">Create</a></td>
 				</tr><%
-				List<Contact> lclCs = ContactFactory.getInstance().acquireAll(new ArrayList<>());
-				lclCs.removeIf(Contact::isInactive);
+				List<Contact> lclCs = ContactFactory.getInstance().acquireForQuery(
+					new ArrayList<>(),
+					new ImplicitTableDatabaseQuery("active = 1")
+				);
 				for (Contact lclC : lclCs) {
 					%><tr>
 						<td><a href="contact-edit.jsp?contact_id=<%= lclC.getId() %>"><%= lclC.getName() %></a></td>
@@ -57,11 +60,11 @@
 								<%= lclA.isWriter() ? "Writer" : "" %><br /><%
 							}
 							
-							SchoolRegistration[] lclMainContactFor = lclC.createMainSchoolRegistrationArray();
-							if (lclMainContactFor != null && lclMainContactFor.length > 0) {
-								Arrays.sort(lclMainContactFor, SchoolRegistration.TournamentDateComparator.getInstance());
+							List<SchoolRegistration> lclMainContactFor = new ArrayList<>(lclC.getMainSchoolRegistrationSet());
+							if (lclMainContactFor.isEmpty() == false) {
+								lclMainContactFor.sort(SchoolRegistration.TournamentDateComparator.getInstance());
 								
-								ListMultimap<School, String> lclFor = ArrayListMultimap.create(1, lclMainContactFor.length);
+								ListMultimap<School, String> lclFor = ArrayListMultimap.create(1, lclMainContactFor.size());
 								
 								for (SchoolRegistration lclR : lclMainContactFor) {
 									lclFor.put(lclR.getSchool(), lclR.getTournament().getShortName());
@@ -72,11 +75,11 @@
 								}
 							}
 							
-							Staff[] lclSs = lclC.createStaffArray();
-							if (lclSs != null && lclSs.length > 0) {
-								Arrays.sort(lclSs, Staff.TournamentDateComparator.getInstance());
+							List<Staff> lclSs = new ArrayList<>(lclC.getStaffSet());
+							if (lclSs.isEmpty() == false) {
+								lclSs.sort(Staff.TournamentDateComparator.getInstance());
 								
-								ListMultimap<School, String> lclFor = ArrayListMultimap.create(1, lclSs.length);
+								ListMultimap<School, String> lclFor = ArrayListMultimap.create(1, lclSs.size());
 								
 								for (Staff lclS : lclSs) {
 									School lclSchool = lclS.getSchoolRegistration() == null ? null : lclS.getSchoolRegistration().getSchool();
@@ -93,11 +96,11 @@
 								}
 							}
 							
-							Player[] lclPs = lclC.createPlayerArray();
-							if (lclPs != null && lclPs.length > 0) {
-								Arrays.sort(lclPs, Player.TournamentDateComparator.getInstance());
+							List<Player> lclPs = new ArrayList<>(lclC.getPlayerSet());
+							if (lclPs.isEmpty() == false) {
+								lclPs.sort(Player.TournamentDateComparator.getInstance());
 								
-								ListMultimap<School, String> lclFor = ArrayListMultimap.create(1, lclSs.length);
+								ListMultimap<School, String> lclFor = ArrayListMultimap.create(1, lclSs.size());
 								
 								for (Player lclP : lclPs) {
 									lclFor.put(lclP.getSchoolRegistration().getSchool(), lclP.getSchoolRegistration().getTournament().getShortName());

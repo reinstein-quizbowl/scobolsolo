@@ -30,17 +30,12 @@ public interface Card extends CardUserFacing, Comparable<Card> {
 	default Match getNextMatch(final Round argAfterWhen) {
 		Validate.notNull(argAfterWhen);
 		
-		for (final Round lclOtherRound : getPhase().getRounds()) { // Tournament.getRounds() returns the Rounds in order; this is important here
-			if (lclOtherRound.isAfter(argAfterWhen)) {
-				for (final Match lclM : lclOtherRound.createMatchArray()) {
-					if (lclM.getWinningCard() == this || lclM.getLosingCard() == this) {
-						return lclM;
-					}
-				}
-			}
-		}
-		
-		return null;
+		return getPhase().getRounds() // returns the Roudns in order; this is important here
+			.stream()
+			.filter(argOtherRound -> argOtherRound.isAfter(argAfterWhen))
+			.flatMap(Round::streamMatch)
+			.filter(argM -> argM.getWinningCard() == this || argM.getLosingCard() == this)
+			.findAny().orElse(null);
 	}
 	
 	public static final class InitialPlayerSchoolNameComparator extends NullSafeComparator<Card> {

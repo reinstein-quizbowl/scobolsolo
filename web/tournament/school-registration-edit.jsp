@@ -114,7 +114,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 
 <div class="row">
 	<div class="small-12 columns">
-		<h2 id="players">Players (<%= lclSR.getPlayerCount() %>)</h2>
+		<h2 id="players">Players (<%= lclSR.getPlayerSet().size() %>)</h2>
 		<table class="full-width responsive">
 			<thead>
 				<tr>
@@ -245,7 +245,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 
 <div class="row">
 	<div class="small-12 columns">
-		<h2 id="staff">Staff (<%= lclSR.getStaffCount() %>)</h2>
+		<h2 id="staff">Staff (<%= lclSR.getStaffSet().size() %>)</h2>
 		<table class="full-width responsive">
 			<thead>
 				<tr>
@@ -286,7 +286,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 
 <div class="row">
 	<div class="small-12 columns">
-		<h2 id="buzzers">Buzzers (<%= lclSR.getBuzzerCount() %>)</h2>
+		<h2 id="buzzers">Buzzers (<%= lclSR.getBuzzerSet().size() %>)</h2>
 		<table class="full-width responsive">
 			<thead>
 				<tr>

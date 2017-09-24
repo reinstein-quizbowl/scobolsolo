@@ -189,16 +189,16 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 			getGameOpal().setMatchOpalInternal(null);
 		}
 		if (getLosingCardOpal() != null) {
-			getLosingCardOpal().removeLosingMatchOpalInternal(this);
+			getLosingCardOpal().getLosingMatchOpalSet().removeInternal(this);
 		}
 		if (getRoomOpal() != null) {
-			getRoomOpal().removeMatchOpalInternal(this);
+			getRoomOpal().getMatchOpalSet().removeInternal(this);
 		}
 		if (getRoundOpal() != null) {
-			getRoundOpal().removeMatchOpalInternal(this);
+			getRoundOpal().getMatchOpalSet().removeInternal(this);
 		}
 		if (getWinningCardOpal() != null) {
-			getWinningCardOpal().removeWinningMatchOpalInternal(this);
+			getWinningCardOpal().getWinningMatchOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -276,14 +276,14 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		if ((lclUO = myOldLosingCardOpal) == CardOpal.NOT_YET_LOADED) {
 			lclUO = myOldLosingCardOpal = retrieveLosingCardOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldRoomOpal) == RoomOpal.NOT_YET_LOADED) {
 			lclUO = myOldRoomOpal = retrieveRoomOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -292,7 +292,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		if ((lclUO = myOldRoundOpal) == RoundOpal.NOT_YET_LOADED) {
 			lclUO = myOldRoundOpal = retrieveRoundOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -301,7 +301,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		if ((lclUO = myOldWinningCardOpal) == CardOpal.NOT_YET_LOADED) {
 			lclUO = myOldWinningCardOpal = retrieveWinningCardOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -372,11 +372,11 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		CardOpal lclCardOpal = getLosingCardOpal();
 		if (lclCardOpal == argCardOpal) { return this; }
 		if (lclCardOpal != null) {
-			lclCardOpal.removeLosingMatchOpalInternal(this);
+			lclCardOpal.getLosingMatchOpalSet().removeInternal(this);
 		}
 		myNewLosingCardOpal = argCardOpal;
 		if (argCardOpal != null) {
-			argCardOpal.addLosingMatchOpalInternal(this);
+			argCardOpal.getLosingMatchOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -417,11 +417,11 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		RoomOpal lclRoomOpal = getRoomOpal();
 		if (lclRoomOpal == argRoomOpal) { return this; }
 		if (lclRoomOpal != null) {
-			lclRoomOpal.removeMatchOpalInternal(this);
+			lclRoomOpal.getMatchOpalSet().removeInternal(this);
 		}
 		myNewRoomOpal = argRoomOpal;
 		if (argRoomOpal != null) {
-			argRoomOpal.addMatchOpalInternal(this);
+			argRoomOpal.getMatchOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -462,11 +462,11 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		RoundOpal lclRoundOpal = getRoundOpal();
 		if (lclRoundOpal == argRoundOpal) { return this; }
 		if (lclRoundOpal != null) {
-			lclRoundOpal.removeMatchOpalInternal(this);
+			lclRoundOpal.getMatchOpalSet().removeInternal(this);
 		}
 		myNewRoundOpal = argRoundOpal;
 		if (argRoundOpal != null) {
-			argRoundOpal.addMatchOpalInternal(this);
+			argRoundOpal.getMatchOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -507,11 +507,11 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		CardOpal lclCardOpal = getWinningCardOpal();
 		if (lclCardOpal == argCardOpal) { return this; }
 		if (lclCardOpal != null) {
-			lclCardOpal.removeWinningMatchOpalInternal(this);
+			lclCardOpal.getWinningMatchOpalSet().removeInternal(this);
 		}
 		myNewWinningCardOpal = argCardOpal;
 		if (argCardOpal != null) {
-			argCardOpal.addWinningMatchOpalInternal(this);
+			argCardOpal.getWinningMatchOpalSet().addInternal(this);
 		}
 		return this;
 	}

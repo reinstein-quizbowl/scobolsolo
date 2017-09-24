@@ -1,4 +1,6 @@
-﻿<%@ page import="java.util.Arrays" %>
+﻿<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="com.siliconage.util.WebDataFilter" %>
 <%@ page import="com.scobolsolo.application.School" %>
 <%@ page import="com.scobolsolo.application.SchoolFactory" %>
@@ -11,15 +13,10 @@
 	<jsp:param name="h1" value="Schools" />
 </jsp:include><%
 
-School[] lclSs = SchoolFactory.getInstance().createAllArray();
-Arrays.sort(lclSs);
+List<School> lclSs = new ArrayList<>(SchoolFactory.getInstance().getAll());
+lclSs.sort(null);
 
-boolean lclShowNotes = false;
-for (School lclS : lclSs) {
-	if (lclS.getNote() != null) {
-		lclShowNotes = true;
-	}
-}
+boolean lclShowNotes = lclSs.stream().anyMatch(argS -> StringUtils.isNotBlank(argS.getNote()));
 
 %><div class="row">
 	<div class="small-12 columns">

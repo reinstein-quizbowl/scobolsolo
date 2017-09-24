@@ -57,6 +57,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setId(int argId);
 
 	/**
@@ -107,6 +109,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setDescription(java.lang.String argDescription);
 
 	/**
@@ -136,6 +139,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
@@ -178,6 +182,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setNote(java.lang.String argNote);
 
 	/**
@@ -247,6 +252,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setWriterAccountId(java.lang.Integer argWriterAccountId);
 
 	/**
@@ -255,6 +261,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argWriterAccountId the new value of {@code WriterAccountId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setWriterAccountId(int argWriterAccountId);
 
 	/**
@@ -297,6 +304,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setText(java.lang.String argText);
 
 	/**
@@ -339,6 +347,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setAnswer(java.lang.String argAnswer);
 
 	/**
@@ -370,6 +379,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	@com.opal.annotation.Default(value = "DRAFTED")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setQuestionStatusCode(java.lang.String argQuestionStatusCode);
 
 	/**
@@ -379,6 +389,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category getCategory();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setCategory(com.scobolsolo.application.Category argCategory);
 
 	/**
@@ -388,6 +399,7 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.QuestionStatus getStatus();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setStatus(com.scobolsolo.application.QuestionStatus argStatus);
 
 	/**
@@ -397,60 +409,29 @@ public interface QuestionUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Account getWriter();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Question setWriter(com.scobolsolo.application.Account argWriter);
 
-	public int getDiffCount();
-	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator();
+	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff();
-
-	public com.scobolsolo.application.Question addDiff(com.scobolsolo.application.Diff argDiff);
-	public com.scobolsolo.application.Question removeDiff(com.scobolsolo.application.Diff argDiff);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {
+		return getDiffSet().stream();
 	}
 
 	default public com.scobolsolo.application.Diff[] createDiffArray() {
-		int lclLength = getDiffCount();
-		com.scobolsolo.application.Diff[] lclA = new com.scobolsolo.application.Diff[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Diff> lclS = getDiffSet();
+		return lclS.toArray(new com.scobolsolo.application.Diff[lclS.size()]);
 	}
 
-	public int getPlacementCount();
-	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator();
+	public java.util.Set<com.scobolsolo.application.Placement> getPlacementSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement();
-
-	public com.scobolsolo.application.Question addPlacement(com.scobolsolo.application.Placement argPlacement);
-	public com.scobolsolo.application.Question removePlacement(com.scobolsolo.application.Placement argPlacement);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement() {
+		return getPlacementSet().stream();
 	}
 
 	default public com.scobolsolo.application.Placement[] createPlacementArray() {
-		int lclLength = getPlacementCount();
-		com.scobolsolo.application.Placement[] lclA = new com.scobolsolo.application.Placement[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Placement> lclS = getPlacementSet();
+		return lclS.toArray(new com.scobolsolo.application.Placement[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Question copy();

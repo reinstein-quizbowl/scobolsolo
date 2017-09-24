@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.QuestionStatus, com.scobolsolo.persistence.QuestionStatusOpal> implements com.scobolsolo.application.QuestionStatus {
 
 	private final com.scobolsolo.persistence.QuestionStatusOpal myQuestionStatusOpal;
@@ -15,12 +14,12 @@ public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<com.scobol
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.QuestionStatus> getOpal() {
+	public com.scobolsolo.persistence.QuestionStatusOpal getOpal() {
 		return getQuestionStatusOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.QuestionStatus> getBottomOpal() {
+	public com.scobolsolo.persistence.QuestionStatusOpal getBottomOpal() {
 		return getQuestionStatusOpal();
 	}
 
@@ -108,57 +107,13 @@ public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<com.scobol
 	to this object. */
 
 	@Override
-	public com.scobolsolo.application.QuestionStatus addQuestion(com.scobolsolo.application.Question argQuestion) {
-		getQuestionStatusOpal().addQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-		return this;
+	public java.util.Set<com.scobolsolo.application.Question> getQuestionSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getQuestionStatusOpal().getQuestionOpalSet());
 	}
 
 	@Override
-	public com.scobolsolo.application.QuestionStatus removeQuestion(com.scobolsolo.application.Question argQuestion) {
-		getQuestionStatusOpal().removeQuestionOpal(((QuestionImpl) argQuestion).getQuestionOpal());
-		return this;
-	}
-
-	@Override
-	public int getQuestionCount() {
-		return getQuestionStatusOpal().getQuestionOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion() {
-		return getQuestionStatusOpal().streamQuestionOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator() {
-		return new com.opal.OpalIterator<> (getQuestionStatusOpal().createQuestionOpalIterator());
-	}
-
-	@Override
-	public com.scobolsolo.application.QuestionStatus addDiff(com.scobolsolo.application.Diff argDiff) {
-		getQuestionStatusOpal().addDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.application.QuestionStatus removeDiff(com.scobolsolo.application.Diff argDiff) {
-		getQuestionStatusOpal().removeDiffOpal(((DiffImpl) argDiff).getDiffOpal());
-		return this;
-	}
-
-	@Override
-	public int getDiffCount() {
-		return getQuestionStatusOpal().getDiffOpalCount();
-	}
-
-	@Override
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {
-		return getQuestionStatusOpal().streamDiffOpal().map(com.opal.Opal::getUserFacing);
-	}
-
-	@Override
-	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator() {
-		return new com.opal.OpalIterator<> (getQuestionStatusOpal().createDiffOpalIterator());
+	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getQuestionStatusOpal().getDiffOpalSet());
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.SchoolYear, com.scobolsolo.persistence.SchoolYearOpal> implements com.scobolsolo.application.SchoolYear {
 
 	private final com.scobolsolo.persistence.SchoolYearOpal mySchoolYearOpal;
@@ -15,12 +14,12 @@ public class SchoolYearImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.SchoolYear> getOpal() {
+	public com.scobolsolo.persistence.SchoolYearOpal getOpal() {
 		return getSchoolYearOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.SchoolYear> getBottomOpal() {
+	public com.scobolsolo.persistence.SchoolYearOpal getBottomOpal() {
 		return getSchoolYearOpal();
 	}
 

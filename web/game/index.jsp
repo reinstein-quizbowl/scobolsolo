@@ -78,10 +78,10 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 			if (lclInProcess.size() == 1) {
 				Match lclM = lclInProcess.iterator().next();
 				%><h2>In Process</h2>
-				<p><a href="sides.jsp?match_id=<%= lclM.getId() %>">The <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a> is in the middle of being entered in your <%= lclS.getStaffAssignmentCount() > 1 ? "rooms" : "room" %>.</p><%
+				<p><a href="sides.jsp?match_id=<%= lclM.getId() %>">The <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a> is in the middle of being entered in your <%= lclS.getStaffAssignmentSet().size() > 1 ? "rooms" : "room" %>.</p><%
 			} else if (lclInProcess.size() > 1) {
 				%><h2>In Process</h2>
-				<p>These matches are in the middle of being entered in your <%= lclS.getStaffAssignmentCount() > 1 ? "rooms" : "room" %>:</p>
+				<p>These matches are in the middle of being entered in your <%= lclS.getStaffAssignmentSet().size() > 1 ? "rooms" : "room" %>:</p>
 				<ul><%
 					for (Match lclM : lclInProcess) {
 						%><li><a href="sides.jsp?match_id=<%= lclM.getId() %>"><%= lclM.getRound().getName() %> between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a></li><%
@@ -96,7 +96,7 @@ ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.fi
 				<p>Eventually you'll have <a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a>.</p><%
 			} else if (lclNotReady.size() > 1) {
 				%><h2>Later</h2>
-				<p>These matches are coming up in your <%= lclS.getStaffAssignmentCount() > 1 ? "rooms" : "room" %>:</p>
+				<p>These matches are coming up in your <%= lclS.getStaffAssignmentSet().size() > 1 ? "rooms" : "room" %>:</p>
 				<ul><%
 					for (Match lclM : lclNotReady) {
 						%><li><a href="sides.jsp?match_id=<%= lclM.getId() %>"><%= lclM.getRound().getName() %> between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a></li><%

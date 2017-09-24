@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
+import com.opal.LocalDateCache;
+
 import com.scobolsolo.persistence.TournamentUserFacing;
 
 /**
@@ -20,8 +22,10 @@ import com.scobolsolo.persistence.TournamentUserFacing;
 
 public interface Tournament extends TournamentUserFacing {
 	public static Tournament findNext() {
-		return TournamentFactory.getInstance().streamAll()
-			.filter(argT -> argT.getDate().isAfter(LocalDate.now()) || argT.getDate().equals(LocalDate.now()))
+		LocalDate lclToday = LocalDateCache.today();
+		
+		return TournamentFactory.getInstance().getAll().stream()
+			.filter(argT -> argT.getDate().isBefore(lclToday) == false)
 			.sorted()
 			.findFirst().orElse(null);
 	}
@@ -87,8 +91,8 @@ public interface Tournament extends TournamentUserFacing {
 	default List<StandbyEntry> getStandbyEntries() {
 		final List<StandbyEntry> lclSEs = new ArrayList<>();
 		final List<StandbyEntry> lclNullSequenceSEs = new ArrayList<>();
-		for (final SchoolRegistration lclSR : createSchoolRegistrationArray()) {
-			for (final StandbyEntry lclSE : lclSR.createStandbyEntryArray()) {
+		for (final SchoolRegistration lclSR : getSchoolRegistrationSet()) {
+			for (final StandbyEntry lclSE : lclSR.getStandbyEntrySet()) {
 				if (lclSE.getSequenceAsObject() == null) {
 					lclNullSequenceSEs.add(lclSE);
 				} else {
@@ -105,8 +109,8 @@ public interface Tournament extends TournamentUserFacing {
 	default List<WaitlistEntry> getWaitlistEntries() {
 		final List<WaitlistEntry> lclWEs = new ArrayList<>();
 		final List<WaitlistEntry> lclNullSequenceWEs = new ArrayList<>();
-		for (final SchoolRegistration lclSR : createSchoolRegistrationArray()) {
-			for (final WaitlistEntry lclWE : lclSR.createWaitlistEntryArray()) {
+		for (final SchoolRegistration lclSR : getSchoolRegistrationSet()) {
+			for (final WaitlistEntry lclWE : lclSR.getWaitlistEntrySet()) {
 				if (lclWE.getSequenceAsObject() == null) {
 					lclNullSequenceWEs.add(lclWE);
 				} else {

@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.ResponseType, com.scobolsolo.persistence.ResponseTypeOpal> implements com.scobolsolo.application.ResponseType {
 
 	private final com.scobolsolo.persistence.ResponseTypeOpal myResponseTypeOpal;
@@ -15,12 +14,12 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<com.scobolso
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.ResponseType> getOpal() {
+	public com.scobolsolo.persistence.ResponseTypeOpal getOpal() {
 		return getResponseTypeOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.ResponseType> getBottomOpal() {
+	public com.scobolsolo.persistence.ResponseTypeOpal getBottomOpal() {
 		return getResponseTypeOpal();
 	}
 

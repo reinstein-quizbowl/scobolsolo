@@ -41,6 +41,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setDate(java.time.LocalDate argDate);
 
 	/**
@@ -70,6 +71,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setName(java.lang.String argName);
 
 	/**
@@ -99,6 +101,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setShortName(java.lang.String argShortName);
 
 	/**
@@ -128,6 +131,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setCode(java.lang.String argCode);
 
 	/**
@@ -157,6 +161,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setWebXmlRoleCode(java.lang.String argWebXmlRoleCode);
 
 	/**
@@ -199,6 +204,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath);
 
 	/**
@@ -207,6 +213,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @param argTiebreakerSuddenDeath the new value of {@code TiebreakerSuddenDeath}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(boolean argTiebreakerSuddenDeath);
 
 	/**
@@ -249,6 +256,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setUrl(java.lang.String argUrl);
 
 	/**
@@ -289,6 +297,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setTournamentDirectorContactId(java.lang.Integer argTournamentDirectorContactId);
 
 	/**
@@ -297,6 +306,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @param argTournamentDirectorContactId the new value of {@code TournamentDirectorContactId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setTournamentDirectorContactId(int argTournamentDirectorContactId);
 
 	/**
@@ -339,6 +349,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setPlayerMessage(java.lang.String argPlayerMessage);
 
 	/**
@@ -381,6 +392,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setStaffMessage(java.lang.String argStaffMessage);
 
 	/**
@@ -423,6 +435,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setReplacementQuestionSocialMediaPolicy(java.lang.String argReplacementQuestionSocialMediaPolicy);
 
 	/**
@@ -465,6 +478,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setSchoolMessage(java.lang.String argSchoolMessage);
 
 	/**
@@ -534,6 +548,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setControlRoomRoomId(java.lang.Integer argControlRoomRoomId);
 
 	/**
@@ -542,6 +557,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @param argControlRoomRoomId the new value of {@code ControlRoomRoomId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setControlRoomRoomId(int argControlRoomRoomId);
 
 	/**
@@ -584,6 +600,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setChampionshipRules(java.lang.String argChampionshipRules);
 
 	/**
@@ -626,6 +643,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setChampionshipMatchUrl(java.lang.String argChampionshipMatchUrl);
 
 	/**
@@ -668,6 +686,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setQuestionsComplete(java.lang.Boolean argQuestionsComplete);
 
 	/**
@@ -676,6 +695,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 * @param argQuestionsComplete the new value of {@code QuestionsComplete}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setQuestionsComplete(boolean argQuestionsComplete);
 
 	/**
@@ -718,6 +738,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setQuestionDownloadUrl(java.lang.String argQuestionDownloadUrl);
 
 	/**
@@ -727,6 +748,7 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Room getControlRoom();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setControlRoom(com.scobolsolo.application.Room argControlRoom);
 
 	/**
@@ -736,168 +758,73 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact getTournamentDirectorContact();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setTournamentDirectorContact(com.scobolsolo.application.Contact argTournamentDirectorContact);
 
-	public int getPhaseCount();
-	public java.util.Iterator<com.scobolsolo.application.Phase> createPhaseIterator();
+	public java.util.Set<com.scobolsolo.application.Phase> getPhaseSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Phase> streamPhase();
-
-	public com.scobolsolo.application.Tournament addPhase(com.scobolsolo.application.Phase argPhase);
-	public com.scobolsolo.application.Tournament removePhase(com.scobolsolo.application.Phase argPhase);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Phase>> T acquirePhase(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Phase> lclI = createPhaseIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Phase> streamPhase() {
+		return getPhaseSet().stream();
 	}
 
 	default public com.scobolsolo.application.Phase[] createPhaseArray() {
-		int lclLength = getPhaseCount();
-		com.scobolsolo.application.Phase[] lclA = new com.scobolsolo.application.Phase[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Phase> lclI = createPhaseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Phase> lclS = getPhaseSet();
+		return lclS.toArray(new com.scobolsolo.application.Phase[lclS.size()]);
 	}
 
-	public int getSchoolRegistrationCount();
-	public java.util.Iterator<com.scobolsolo.application.SchoolRegistration> createSchoolRegistrationIterator();
+	public java.util.Set<com.scobolsolo.application.SchoolRegistration> getSchoolRegistrationSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration();
-
-	public com.scobolsolo.application.Tournament addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public com.scobolsolo.application.Tournament removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.SchoolRegistration>> T acquireSchoolRegistration(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createSchoolRegistrationIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration() {
+		return getSchoolRegistrationSet().stream();
 	}
 
 	default public com.scobolsolo.application.SchoolRegistration[] createSchoolRegistrationArray() {
-		int lclLength = getSchoolRegistrationCount();
-		com.scobolsolo.application.SchoolRegistration[] lclA = new com.scobolsolo.application.SchoolRegistration[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createSchoolRegistrationIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.SchoolRegistration> lclS = getSchoolRegistrationSet();
+		return lclS.toArray(new com.scobolsolo.application.SchoolRegistration[lclS.size()]);
 	}
 
-	public int getStaffCount();
-	public java.util.Iterator<com.scobolsolo.application.Staff> createStaffIterator();
+	public java.util.Set<com.scobolsolo.application.Staff> getStaffSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff();
-
-	public com.scobolsolo.application.Tournament addStaff(com.scobolsolo.application.Staff argStaff);
-	public com.scobolsolo.application.Tournament removeStaff(com.scobolsolo.application.Staff argStaff);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Staff>> T acquireStaff(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Staff> streamStaff() {
+		return getStaffSet().stream();
 	}
 
 	default public com.scobolsolo.application.Staff[] createStaffArray() {
-		int lclLength = getStaffCount();
-		com.scobolsolo.application.Staff[] lclA = new com.scobolsolo.application.Staff[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Staff> lclI = createStaffIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Staff> lclS = getStaffSet();
+		return lclS.toArray(new com.scobolsolo.application.Staff[lclS.size()]);
 	}
 
-	public int getCategoryUseCount();
-	public java.util.Iterator<com.scobolsolo.application.CategoryUse> createCategoryUseIterator();
+	public java.util.Set<com.scobolsolo.application.CategoryUse> getCategoryUseSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse();
-
-	public com.scobolsolo.application.Tournament addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public com.scobolsolo.application.Tournament removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.CategoryUse>> T acquireCategoryUse(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse() {
+		return getCategoryUseSet().stream();
 	}
 
 	default public com.scobolsolo.application.CategoryUse[] createCategoryUseArray() {
-		int lclLength = getCategoryUseCount();
-		com.scobolsolo.application.CategoryUse[] lclA = new com.scobolsolo.application.CategoryUse[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.CategoryUse> lclS = getCategoryUseSet();
+		return lclS.toArray(new com.scobolsolo.application.CategoryUse[lclS.size()]);
 	}
 
-	public int getPacketCount();
-	public java.util.Iterator<com.scobolsolo.application.Packet> createPacketIterator();
+	public java.util.Set<com.scobolsolo.application.Packet> getPacketSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Packet> streamPacket();
-
-	public com.scobolsolo.application.Tournament addPacket(com.scobolsolo.application.Packet argPacket);
-	public com.scobolsolo.application.Tournament removePacket(com.scobolsolo.application.Packet argPacket);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Packet>> T acquirePacket(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createPacketIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Packet> streamPacket() {
+		return getPacketSet().stream();
 	}
 
 	default public com.scobolsolo.application.Packet[] createPacketArray() {
-		int lclLength = getPacketCount();
-		com.scobolsolo.application.Packet[] lclA = new com.scobolsolo.application.Packet[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createPacketIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Packet> lclS = getPacketSet();
+		return lclS.toArray(new com.scobolsolo.application.Packet[lclS.size()]);
 	}
 
-	public int getRoomCount();
-	public java.util.Iterator<com.scobolsolo.application.Room> createRoomIterator();
+	public java.util.Set<com.scobolsolo.application.Room> getRoomSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Room> streamRoom();
-
-	public com.scobolsolo.application.Tournament addRoom(com.scobolsolo.application.Room argRoom);
-	public com.scobolsolo.application.Tournament removeRoom(com.scobolsolo.application.Room argRoom);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Room>> T acquireRoom(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Room> lclI = createRoomIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Room> streamRoom() {
+		return getRoomSet().stream();
 	}
 
 	default public com.scobolsolo.application.Room[] createRoomArray() {
-		int lclLength = getRoomCount();
-		com.scobolsolo.application.Room[] lclA = new com.scobolsolo.application.Room[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Room> lclI = createRoomIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Room> lclS = getRoomSet();
+		return lclS.toArray(new com.scobolsolo.application.Room[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Tournament copy();

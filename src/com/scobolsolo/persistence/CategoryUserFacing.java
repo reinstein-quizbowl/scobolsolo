@@ -46,6 +46,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setCode(java.lang.String argCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setName(java.lang.String argName);
 
 	/**
@@ -104,6 +106,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setShortName(java.lang.String argShortName);
 
 	/**
@@ -144,6 +147,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -152,6 +156,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setSequence(int argSequence);
 
 	/**
@@ -181,6 +186,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setCategoryGroupCode(java.lang.String argCategoryGroupCode);
 
 	/**
@@ -223,6 +229,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setAllowPronunciationGuideSuppression(java.lang.Boolean argAllowPronunciationGuideSuppression);
 
 	/**
@@ -231,6 +238,7 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argAllowPronunciationGuideSuppression the new value of {@code AllowPronunciationGuideSuppression}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setAllowPronunciationGuideSuppression(boolean argAllowPronunciationGuideSuppression);
 
 	/**
@@ -240,141 +248,62 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.CategoryGroup getCategoryGroup();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Category setCategoryGroup(com.scobolsolo.application.CategoryGroup argCategoryGroup);
 
-	public int getPronunciationGuideSuppressionCount();
-	public java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> createPronunciationGuideSuppressionIterator();
+	public java.util.Set<com.scobolsolo.application.PronunciationGuideSuppression> getPronunciationGuideSuppressionSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression();
-
-	public com.scobolsolo.application.Category addPronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
-	public com.scobolsolo.application.Category removePronunciationGuideSuppression(com.scobolsolo.application.PronunciationGuideSuppression argPronunciationGuideSuppression);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.PronunciationGuideSuppression>> T acquirePronunciationGuideSuppression(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.PronunciationGuideSuppression> streamPronunciationGuideSuppression() {
+		return getPronunciationGuideSuppressionSet().stream();
 	}
 
 	default public com.scobolsolo.application.PronunciationGuideSuppression[] createPronunciationGuideSuppressionArray() {
-		int lclLength = getPronunciationGuideSuppressionCount();
-		com.scobolsolo.application.PronunciationGuideSuppression[] lclA = new com.scobolsolo.application.PronunciationGuideSuppression[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.PronunciationGuideSuppression> lclI = createPronunciationGuideSuppressionIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.PronunciationGuideSuppression> lclS = getPronunciationGuideSuppressionSet();
+		return lclS.toArray(new com.scobolsolo.application.PronunciationGuideSuppression[lclS.size()]);
 	}
 
-	public int getQuestionCount();
-	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator();
+	public java.util.Set<com.scobolsolo.application.Question> getQuestionSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion();
-
-	public com.scobolsolo.application.Category addQuestion(com.scobolsolo.application.Question argQuestion);
-	public com.scobolsolo.application.Category removeQuestion(com.scobolsolo.application.Question argQuestion);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireQuestion(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion() {
+		return getQuestionSet().stream();
 	}
 
 	default public com.scobolsolo.application.Question[] createQuestionArray() {
-		int lclLength = getQuestionCount();
-		com.scobolsolo.application.Question[] lclA = new com.scobolsolo.application.Question[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Question> lclS = getQuestionSet();
+		return lclS.toArray(new com.scobolsolo.application.Question[lclS.size()]);
 	}
 
-	public int getDiffCount();
-	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator();
+	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff();
-
-	public com.scobolsolo.application.Category addDiff(com.scobolsolo.application.Diff argDiff);
-	public com.scobolsolo.application.Category removeDiff(com.scobolsolo.application.Diff argDiff);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {
+		return getDiffSet().stream();
 	}
 
 	default public com.scobolsolo.application.Diff[] createDiffArray() {
-		int lclLength = getDiffCount();
-		com.scobolsolo.application.Diff[] lclA = new com.scobolsolo.application.Diff[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Diff> lclS = getDiffSet();
+		return lclS.toArray(new com.scobolsolo.application.Diff[lclS.size()]);
 	}
 
-	public int getCategoryUseCount();
-	public java.util.Iterator<com.scobolsolo.application.CategoryUse> createCategoryUseIterator();
+	public java.util.Set<com.scobolsolo.application.CategoryUse> getCategoryUseSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse();
-
-	public com.scobolsolo.application.Category addCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	public com.scobolsolo.application.Category removeCategoryUse(com.scobolsolo.application.CategoryUse argCategoryUse);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.CategoryUse>> T acquireCategoryUse(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse() {
+		return getCategoryUseSet().stream();
 	}
 
 	default public com.scobolsolo.application.CategoryUse[] createCategoryUseArray() {
-		int lclLength = getCategoryUseCount();
-		com.scobolsolo.application.CategoryUse[] lclA = new com.scobolsolo.application.CategoryUse[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.CategoryUse> lclI = createCategoryUseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.CategoryUse> lclS = getCategoryUseSet();
+		return lclS.toArray(new com.scobolsolo.application.CategoryUse[lclS.size()]);
 	}
 
-	public int getPlacementCount();
-	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator();
+	public java.util.Set<com.scobolsolo.application.Placement> getPlacementSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement();
-
-	public com.scobolsolo.application.Category addPlacement(com.scobolsolo.application.Placement argPlacement);
-	public com.scobolsolo.application.Category removePlacement(com.scobolsolo.application.Placement argPlacement);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement() {
+		return getPlacementSet().stream();
 	}
 
 	default public com.scobolsolo.application.Placement[] createPlacementArray() {
-		int lclLength = getPlacementCount();
-		com.scobolsolo.application.Placement[] lclA = new com.scobolsolo.application.Placement[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Placement> lclS = getPlacementSet();
+		return lclS.toArray(new com.scobolsolo.application.Placement[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Category copy();

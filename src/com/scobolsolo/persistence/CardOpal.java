@@ -20,8 +20,16 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 
 		/* Initialize the back Collections to empty sets. */
 
-		myNewLosingMatchOpalHashSet = new java.util.HashSet<>();
-		myNewWinningMatchOpalHashSet = new java.util.HashSet<>();
+		myLosingMatchSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourLosingMatchOpalLoader,
+				true
+				);
+		myWinningMatchSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourWinningMatchOpalLoader,
+				true
+				);
 
 		return;
 	}
@@ -218,10 +226,6 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewInitialPlayerOpal = myOldInitialPlayerOpal;
 		myNewPhaseOpal = myOldPhaseOpal;
-		myNewLosingMatchOpalHashSet = null; /* Necessary if it has been rolled back */
-		myLosingMatchOpalCachedOperations = null; /* Ditto */
-		myNewWinningMatchOpalHashSet = null; /* Necessary if it has been rolled back */
-		myWinningMatchOpalCachedOperations = null; /* Ditto */
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -231,55 +235,18 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		myOldInitialPlayerOpal = myNewInitialPlayerOpal;
 		myOldPhaseOpal = myNewPhaseOpal;
 
-		if (needsToClearOldCollections()) {
-			myOldLosingMatchOpalHashSet = null;
-			myOldWinningMatchOpalHashSet = null;
-		} else {
-			if (myNewLosingMatchOpalHashSet != null) {
-				if (myNewLosingMatchOpalHashSet.size() > 0) {
-					myOldLosingMatchOpalHashSet = myNewLosingMatchOpalHashSet;
-				} else {
-					myOldLosingMatchOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewLosingMatchOpalHashSet = null;
-			} else {
-				myLosingMatchOpalCachedOperations = null;
-			}
-			if (myNewWinningMatchOpalHashSet != null) {
-				if (myNewWinningMatchOpalHashSet.size() > 0) {
-					myOldWinningMatchOpalHashSet = myNewWinningMatchOpalHashSet;
-				} else {
-					myOldWinningMatchOpalHashSet = java.util.Collections.emptySet();
-				}
-				myNewWinningMatchOpalHashSet = null;
-			} else {
-				myWinningMatchOpalCachedOperations = null;
-			}
-		}
-		setClearOldCollections(false);
 		return;
 	}
 
 	@Override
 	protected void unlinkInternal() {
-		java.util.Iterator<?> lclI;
-		if (myNewLosingMatchOpalHashSet != null || myLosingMatchOpalCachedOperations != null) {
-			lclI = createLosingMatchOpalIterator();
-			while (lclI.hasNext()) {
-				((MatchOpal) lclI.next()).setLosingCardOpalInternal(null);
-			}
-		}
-		if (myNewWinningMatchOpalHashSet != null || myWinningMatchOpalCachedOperations != null) {
-			lclI = createWinningMatchOpalIterator();
-			while (lclI.hasNext()) {
-				((MatchOpal) lclI.next()).setWinningCardOpalInternal(null);
-			}
-		}
-		if (getPhaseOpal() != null) {
-			getPhaseOpal().removeCardOpalInternal(this);
-		}
+		getLosingMatchOpalSet().clear();
+		getWinningMatchOpalSet().clear();
 		if (getInitialPlayerOpal() != null) {
 			getInitialPlayerOpal().setInitialCardOpalInternal(null);
+		}
+		if (getPhaseOpal() != null) {
+			getPhaseOpal().getCardOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -339,14 +306,14 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		if ((lclUO = myOldInitialPlayerOpal) == PlayerOpal.NOT_YET_LOADED) {
 			lclUO = myOldInitialPlayerOpal = retrieveInitialPlayerOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldPhaseOpal) == PhaseOpal.NOT_YET_LOADED) {
 			lclUO = myOldPhaseOpal = retrievePhaseOpal(getOldValues());
 		}
-		if (lclUO != null && lclUO.isDeleted()) {
+		if (lclUO != null && (lclUO.exists() == false)) {
 			if (lclTAs == null) {
 				lclTAs = new com.siliconage.util.Fast3Set<>();
 			}
@@ -464,11 +431,11 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		PhaseOpal lclPhaseOpal = getPhaseOpal();
 		if (lclPhaseOpal == argPhaseOpal) { return this; }
 		if (lclPhaseOpal != null) {
-			lclPhaseOpal.removeCardOpalInternal(this);
+			lclPhaseOpal.getCardOpalSet().removeInternal(this);
 		}
 		myNewPhaseOpal = argPhaseOpal;
 		if (argPhaseOpal != null) {
-			argPhaseOpal.addCardOpalInternal(this);
+			argPhaseOpal.getCardOpalSet().addInternal(this);
 		}
 		return this;
 	}
@@ -478,176 +445,54 @@ public final class CardOpal extends com.opal.UpdatableOpal<Card> {
 		myNewPhaseOpal = argPhaseOpal;
 	}
 
-	private java.util.Set<MatchOpal> myOldLosingMatchOpalHashSet = null;
-	private java.util.Set<MatchOpal> myNewLosingMatchOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myLosingMatchOpalCachedOperations = null;
+	private com.opal.types.OpalBackCollectionSet<MatchOpal, CardOpal> myLosingMatchSet = null;
 
-	/* package */ java.util.Set<MatchOpal> getLosingMatchOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewLosingMatchOpalHashSet == null) {
-				if (myOldLosingMatchOpalHashSet == null) {
-					if (isNew()) {
-						myOldLosingMatchOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<MatchOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
-						myOldLosingMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
-				if (myLosingMatchOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myLosingMatchOpalCachedOperations, myNewLosingMatchOpalHashSet);
-					myLosingMatchOpalCachedOperations = null;
-				}
-			}
-			return myNewLosingMatchOpalHashSet;
-		} else {
-			if (myOldLosingMatchOpalHashSet == null) {
-				java.util.Set<MatchOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forLosingCardIdCollection(getIdAsObject());
-				myOldLosingMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldLosingMatchOpalHashSet;
+	private static final com.opal.types.OpalBackCollectionLoader<MatchOpal, CardOpal> ourLosingMatchOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getMatchOpalFactory()::forLosingCardOpalCollection,
+					OpalFactoryFactory.getInstance().getMatchOpalFactory()::forLosingCardOpalCount,
+					MatchOpal::setLosingCardOpal,
+					MatchOpal::setLosingCardOpalInternal,
+					MatchOpal::getLosingCardOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<MatchOpal, CardOpal> getLosingMatchOpalSet() {
+		if (myLosingMatchSet == null) {
+			myLosingMatchSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourLosingMatchOpalLoader,
+					isNew()
+					);
 		}
+		return myLosingMatchSet;
 	}
 
-	public synchronized void addLosingMatchOpal(MatchOpal argMatchOpal) {
-		tryMutate();
-		argMatchOpal.setLosingCardOpal(this);
-		return;
-	}
+	private com.opal.types.OpalBackCollectionSet<MatchOpal, CardOpal> myWinningMatchSet = null;
 
-	protected synchronized void addLosingMatchOpalInternal(MatchOpal argMatchOpal) {
-		tryMutate();
-		if (myNewLosingMatchOpalHashSet == null) {
-			if (myOldLosingMatchOpalHashSet == null) {
-				if (myLosingMatchOpalCachedOperations == null) { myLosingMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myLosingMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMatchOpal));
-			} else {
-				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
-				myNewLosingMatchOpalHashSet.add(argMatchOpal);
-			}
-		} else {
-			myNewLosingMatchOpalHashSet.add(argMatchOpal);
+	private static final com.opal.types.OpalBackCollectionLoader<MatchOpal, CardOpal> ourWinningMatchOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getMatchOpalFactory()::forWinningCardOpalCollection,
+					OpalFactoryFactory.getInstance().getMatchOpalFactory()::forWinningCardOpalCount,
+					MatchOpal::setWinningCardOpal,
+					MatchOpal::setWinningCardOpalInternal,
+					MatchOpal::getWinningCardOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					true
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<MatchOpal, CardOpal> getWinningMatchOpalSet() {
+		if (myWinningMatchSet == null) {
+			myWinningMatchSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourWinningMatchOpalLoader,
+					isNew()
+					);
 		}
-		return;
-	}
-
-	public synchronized void removeLosingMatchOpal(MatchOpal argMatchOpal) {
-		tryMutate();
-		argMatchOpal.setLosingCardOpal(null);
-	}
-
-	protected synchronized void removeLosingMatchOpalInternal(MatchOpal argMatchOpal) {
-		tryMutate();
-		if (myNewLosingMatchOpalHashSet == null) {
-			if (myOldLosingMatchOpalHashSet == null) {
-				if (myLosingMatchOpalCachedOperations == null) { myLosingMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myLosingMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMatchOpal));
-			} else {
-				myNewLosingMatchOpalHashSet = new java.util.HashSet<>(myOldLosingMatchOpalHashSet);
-				myNewLosingMatchOpalHashSet.remove(argMatchOpal);
-			}
-		} else {
-			myNewLosingMatchOpalHashSet.remove(argMatchOpal);
-		}
-		return;
-	}
-
-	public synchronized int getLosingMatchOpalCount() { return getLosingMatchOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<MatchOpal> createLosingMatchOpalIterator() {
-		return getLosingMatchOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<MatchOpal> streamLosingMatchOpal() {
-		return getLosingMatchOpalHashSet().stream();
-	}
-
-	private java.util.Set<MatchOpal> myOldWinningMatchOpalHashSet = null;
-	private java.util.Set<MatchOpal> myNewWinningMatchOpalHashSet = null;
-	private java.util.ArrayList<com.opal.CachedOperation<MatchOpal>> myWinningMatchOpalCachedOperations = null;
-
-	/* package */ java.util.Set<MatchOpal> getWinningMatchOpalHashSet() {
-		if (tryAccess()) {
-			if (myNewWinningMatchOpalHashSet == null) {
-				if (myOldWinningMatchOpalHashSet == null) {
-					if (isNew()) {
-						myOldWinningMatchOpalHashSet = java.util.Collections.emptySet();
-					} else {
-						java.util.Set<MatchOpal> lclS;
-						lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
-						myOldWinningMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-					}
-				}
-				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
-				if (myWinningMatchOpalCachedOperations != null) {
-					com.opal.OpalUtility.handleCachedOperations(myWinningMatchOpalCachedOperations, myNewWinningMatchOpalHashSet);
-					myWinningMatchOpalCachedOperations = null;
-				}
-			}
-			return myNewWinningMatchOpalHashSet;
-		} else {
-			if (myOldWinningMatchOpalHashSet == null) {
-				java.util.Set<MatchOpal> lclS;
-				lclS = OpalFactoryFactory.getInstance().getMatchOpalFactory().forWinningCardIdCollection(getIdAsObject());
-				myOldWinningMatchOpalHashSet = lclS.size() > 0 ? lclS : java.util.Collections.emptySet();
-			}
-			return myOldWinningMatchOpalHashSet;
-		}
-	}
-
-	public synchronized void addWinningMatchOpal(MatchOpal argMatchOpal) {
-		tryMutate();
-		argMatchOpal.setWinningCardOpal(this);
-		return;
-	}
-
-	protected synchronized void addWinningMatchOpalInternal(MatchOpal argMatchOpal) {
-		tryMutate();
-		if (myNewWinningMatchOpalHashSet == null) {
-			if (myOldWinningMatchOpalHashSet == null) {
-				if (myWinningMatchOpalCachedOperations == null) { myWinningMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWinningMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.ADD, argMatchOpal));
-			} else {
-				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
-				myNewWinningMatchOpalHashSet.add(argMatchOpal);
-			}
-		} else {
-			myNewWinningMatchOpalHashSet.add(argMatchOpal);
-		}
-		return;
-	}
-
-	public synchronized void removeWinningMatchOpal(MatchOpal argMatchOpal) {
-		tryMutate();
-		argMatchOpal.setWinningCardOpal(null);
-	}
-
-	protected synchronized void removeWinningMatchOpalInternal(MatchOpal argMatchOpal) {
-		tryMutate();
-		if (myNewWinningMatchOpalHashSet == null) {
-			if (myOldWinningMatchOpalHashSet == null) {
-				if (myWinningMatchOpalCachedOperations == null) { myWinningMatchOpalCachedOperations = new java.util.ArrayList<>(); }
-				myWinningMatchOpalCachedOperations.add(new com.opal.CachedOperation<>(com.opal.CachedOperation.REMOVE, argMatchOpal));
-			} else {
-				myNewWinningMatchOpalHashSet = new java.util.HashSet<>(myOldWinningMatchOpalHashSet);
-				myNewWinningMatchOpalHashSet.remove(argMatchOpal);
-			}
-		} else {
-			myNewWinningMatchOpalHashSet.remove(argMatchOpal);
-		}
-		return;
-	}
-
-	public synchronized int getWinningMatchOpalCount() { return getWinningMatchOpalHashSet().size(); }
-
-	public synchronized java.util.Iterator<MatchOpal> createWinningMatchOpalIterator() {
-		return getWinningMatchOpalHashSet().iterator();
-	}
-
-	public synchronized java.util.stream.Stream<MatchOpal> streamWinningMatchOpal() {
-		return getWinningMatchOpalHashSet().stream();
+		return myWinningMatchSet;
 	}
 
 	@Override

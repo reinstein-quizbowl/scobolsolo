@@ -46,6 +46,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryGroup setCode(java.lang.String argCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryGroup setName(java.lang.String argName);
 
 	/**
@@ -104,6 +106,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryGroup setShortName(java.lang.String argShortName);
 
 	/**
@@ -144,6 +147,7 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryGroup setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -152,33 +156,18 @@ public interface CategoryGroupUserFacing extends com.opal.IdentityUserFacing, Co
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.CategoryGroup setSequence(int argSequence);
 
-	public int getCategoryCount();
-	public java.util.Iterator<com.scobolsolo.application.Category> createCategoryIterator();
+	public java.util.Set<com.scobolsolo.application.Category> getCategorySet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Category> streamCategory();
-
-	public com.scobolsolo.application.CategoryGroup addCategory(com.scobolsolo.application.Category argCategory);
-	public com.scobolsolo.application.CategoryGroup removeCategory(com.scobolsolo.application.Category argCategory);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Category>> T acquireCategory(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Category> lclI = createCategoryIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Category> streamCategory() {
+		return getCategorySet().stream();
 	}
 
 	default public com.scobolsolo.application.Category[] createCategoryArray() {
-		int lclLength = getCategoryCount();
-		com.scobolsolo.application.Category[] lclA = new com.scobolsolo.application.Category[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Category> lclI = createCategoryIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Category> lclS = getCategorySet();
+		return lclS.toArray(new com.scobolsolo.application.Category[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.CategoryGroup copy();

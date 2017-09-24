@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PlayerMatchVImpl extends com.opal.AbstractImpl<com.scobolsolo.application.PlayerMatchV, com.scobolsolo.persistence.PlayerMatchVOpal> implements com.scobolsolo.application.PlayerMatchV {
 
 	private final com.scobolsolo.persistence.PlayerMatchVOpal myPlayerMatchVOpal;
@@ -15,12 +14,12 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<com.scobolsolo.appli
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlayerMatchV> getOpal() {
+	public com.scobolsolo.persistence.PlayerMatchVOpal getOpal() {
 		return getPlayerMatchVOpal();
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlayerMatchV> getBottomOpal() {
+	public com.scobolsolo.persistence.PlayerMatchVOpal getBottomOpal() {
 		return getPlayerMatchVOpal();
 	}
 

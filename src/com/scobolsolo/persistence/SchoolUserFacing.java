@@ -57,6 +57,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setId(int argId);
 
 	/**
@@ -94,6 +96,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setName(java.lang.String argName);
 
 	/**
@@ -123,6 +126,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setShortName(java.lang.String argShortName);
 
 	/**
@@ -152,6 +156,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 12L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setVeryShortName(java.lang.String argVeryShortName);
 
 	/**
@@ -194,6 +199,7 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setLocation(java.lang.String argLocation);
 
 	/**
@@ -236,33 +242,18 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setNote(java.lang.String argNote);
 
-	public int getSchoolRegistrationCount();
-	public java.util.Iterator<com.scobolsolo.application.SchoolRegistration> createSchoolRegistrationIterator();
+	public java.util.Set<com.scobolsolo.application.SchoolRegistration> getSchoolRegistrationSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration();
-
-	public com.scobolsolo.application.School addSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	public com.scobolsolo.application.School removeSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.SchoolRegistration>> T acquireSchoolRegistration(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createSchoolRegistrationIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration() {
+		return getSchoolRegistrationSet().stream();
 	}
 
 	default public com.scobolsolo.application.SchoolRegistration[] createSchoolRegistrationArray() {
-		int lclLength = getSchoolRegistrationCount();
-		com.scobolsolo.application.SchoolRegistration[] lclA = new com.scobolsolo.application.SchoolRegistration[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.SchoolRegistration> lclI = createSchoolRegistrationIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.SchoolRegistration> lclS = getSchoolRegistrationSet();
+		return lclS.toArray(new com.scobolsolo.application.SchoolRegistration[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.School copy();

@@ -71,7 +71,7 @@ public class UnifyContacts extends Standalone {
 		Validate.notNull(argBad);
 		Validate.isTrue(TransactionContext.hasActive());
 		
-		new Unifier<>(argGood, argBad)
+		new Unifier<>(ContactFactory.getInstance(), argGood, argBad)
 			.firstNonNull("SortBy", "EmailAddress", "AdvancePhone", "DayOfPhone", "Address")
 			.concatenate("Note", "\n\n")
 			.or("Active")

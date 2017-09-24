@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PronunciationGuideSuppressionImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.PronunciationGuideSuppression, com.scobolsolo.persistence.PronunciationGuideSuppressionOpal> implements com.scobolsolo.application.PronunciationGuideSuppression {
 
 	private final com.scobolsolo.persistence.PronunciationGuideSuppressionOpal myPronunciationGuideSuppressionOpal;
@@ -15,12 +14,12 @@ public class PronunciationGuideSuppressionImpl extends com.opal.AbstractIdentity
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.PronunciationGuideSuppression> getOpal() {
+	public com.scobolsolo.persistence.PronunciationGuideSuppressionOpal getOpal() {
 		return getPronunciationGuideSuppressionOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.PronunciationGuideSuppression> getBottomOpal() {
+	public com.scobolsolo.persistence.PronunciationGuideSuppressionOpal getBottomOpal() {
 		return getPronunciationGuideSuppressionOpal();
 	}
 
@@ -96,8 +95,9 @@ public class PronunciationGuideSuppressionImpl extends com.opal.AbstractIdentity
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.PronunciationGuideSuppression setAccount(com.scobolsolo.application.Account argAccount) {
-		getPronunciationGuideSuppressionOpal().setAccountOpal(argAccount == null ? null : ((AccountImpl) argAccount).getAccountOpal());
+		getPronunciationGuideSuppressionOpal().setAccountOpal(argAccount == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Account, com.scobolsolo.persistence.AccountOpal>) argAccount).getOpal());
 		return this;
 	}
 
@@ -111,8 +111,9 @@ public class PronunciationGuideSuppressionImpl extends com.opal.AbstractIdentity
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.PronunciationGuideSuppression setCategory(com.scobolsolo.application.Category argCategory) {
-		getPronunciationGuideSuppressionOpal().setCategoryOpal(argCategory == null ? null : ((CategoryImpl) argCategory).getCategoryOpal());
+		getPronunciationGuideSuppressionOpal().setCategoryOpal(argCategory == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Category, com.scobolsolo.persistence.CategoryOpal>) argCategory).getOpal());
 		return this;
 	}
 

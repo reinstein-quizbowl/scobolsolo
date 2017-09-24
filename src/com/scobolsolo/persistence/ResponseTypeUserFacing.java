@@ -46,6 +46,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setCode(java.lang.String argCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setName(java.lang.String argName);
 
 	/**
@@ -104,6 +106,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setShortName(java.lang.String argShortName);
 
 	/**
@@ -144,6 +147,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -152,6 +156,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setSequence(int argSequence);
 
 	/**
@@ -192,6 +197,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setPoints(java.lang.Integer argPoints);
 
 	/**
@@ -200,6 +206,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argPoints the new value of {@code Points}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setPoints(int argPoints);
 
 	/**
@@ -242,6 +249,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setDefault(java.lang.Boolean argDefault);
 
 	/**
@@ -250,6 +258,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argDefault the new value of {@code Default}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setDefault(boolean argDefault);
 
 	/**
@@ -292,6 +301,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setMultipleAllowedForSamePlacement(java.lang.Boolean argMultipleAllowedForSamePlacement);
 
 	/**
@@ -300,6 +310,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argMultipleAllowedForSamePlacement the new value of {@code MultipleAllowedForSamePlacement}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setMultipleAllowedForSamePlacement(boolean argMultipleAllowedForSamePlacement);
 
 	/**
@@ -342,6 +353,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setAttempt(java.lang.Boolean argAttempt);
 
 	/**
@@ -350,6 +362,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argAttempt the new value of {@code Attempt}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setAttempt(boolean argAttempt);
 
 	/**
@@ -392,6 +405,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setFurtherAttemptsToSameQuestionInMatch(java.lang.Boolean argFurtherAttemptsToSameQuestionInMatch);
 
 	/**
@@ -400,6 +414,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argFurtherAttemptsToSameQuestionInMatch the new value of {@code FurtherAttemptsToSameQuestionInMatch}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setFurtherAttemptsToSameQuestionInMatch(boolean argFurtherAttemptsToSameQuestionInMatch);
 
 	/**
@@ -442,6 +457,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setShowForNonExhibitionPlayers(java.lang.Boolean argShowForNonExhibitionPlayers);
 
 	/**
@@ -450,6 +466,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argShowForNonExhibitionPlayers the new value of {@code ShowForNonExhibitionPlayers}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setShowForNonExhibitionPlayers(boolean argShowForNonExhibitionPlayers);
 
 	/**
@@ -492,6 +509,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setShowForExhibitionPlayers(java.lang.Boolean argShowForExhibitionPlayers);
 
 	/**
@@ -500,6 +518,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argShowForExhibitionPlayers the new value of {@code ShowForExhibitionPlayers}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setShowForExhibitionPlayers(boolean argShowForExhibitionPlayers);
 
 	/**
@@ -542,6 +561,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setShowInReports(java.lang.Boolean argShowInReports);
 
 	/**
@@ -550,6 +570,7 @@ public interface ResponseTypeUserFacing extends com.opal.IdentityUserFacing, Com
 	 * @param argShowInReports the new value of {@code ShowInReports}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.ResponseType setShowInReports(boolean argShowInReports);
 
 	public com.scobolsolo.application.ResponseType copy();

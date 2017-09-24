@@ -57,6 +57,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setId(int argId);
 
 	/**
@@ -134,6 +136,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setQuestionId(java.lang.Integer argQuestionId);
 
 	/**
@@ -142,6 +145,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argQuestionId the new value of {@code QuestionId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setQuestionId(int argQuestionId);
 
 	/**
@@ -182,6 +186,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setPacketId(java.lang.Integer argPacketId);
 
 	/**
@@ -190,6 +195,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argPacketId the new value of {@code PacketId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setPacketId(int argPacketId);
 
 	/**
@@ -230,6 +236,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setNumber(java.lang.Integer argNumber);
 
 	/**
@@ -238,6 +245,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argNumber the new value of {@code Number}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setNumber(int argNumber);
 
 	/**
@@ -289,6 +297,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setTiebreaker(java.lang.Boolean argTiebreaker);
 
 	/**
@@ -297,6 +306,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argTiebreaker the new value of {@code Tiebreaker}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setTiebreaker(boolean argTiebreaker);
 
 	/**
@@ -339,6 +349,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setScorecheckAfter(java.lang.Boolean argScorecheckAfter);
 
 	/**
@@ -347,6 +358,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argScorecheckAfter the new value of {@code ScorecheckAfter}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setScorecheckAfter(boolean argScorecheckAfter);
 
 	/**
@@ -376,6 +388,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setCategoryCode(java.lang.String argCategoryCode);
 
 	/**
@@ -385,6 +398,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Category getCategory();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setCategory(com.scobolsolo.application.Category argCategory);
 
 	/**
@@ -394,6 +408,7 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Packet getPacket();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setPacket(com.scobolsolo.application.Packet argPacket);
 
 	/**
@@ -403,60 +418,29 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Question getQuestion();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Placement setQuestion(com.scobolsolo.application.Question argQuestion);
 
-	public int getBaseResponseCount();
-	public java.util.Iterator<com.scobolsolo.application.Response> createBaseResponseIterator();
+	public java.util.Set<com.scobolsolo.application.Response> getBaseResponseSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamBaseResponse();
-
-	public com.scobolsolo.application.Placement addBaseResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Placement removeBaseResponse(com.scobolsolo.application.Response argResponse);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireBaseResponse(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createBaseResponseIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Response> streamBaseResponse() {
+		return getBaseResponseSet().stream();
 	}
 
 	default public com.scobolsolo.application.Response[] createBaseResponseArray() {
-		int lclLength = getBaseResponseCount();
-		com.scobolsolo.application.Response[] lclA = new com.scobolsolo.application.Response[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createBaseResponseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Response> lclS = getBaseResponseSet();
+		return lclS.toArray(new com.scobolsolo.application.Response[lclS.size()]);
 	}
 
-	public int getReplacementResponseCount();
-	public java.util.Iterator<com.scobolsolo.application.Response> createReplacementResponseIterator();
+	public java.util.Set<com.scobolsolo.application.Response> getReplacementResponseSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Response> streamReplacementResponse();
-
-	public com.scobolsolo.application.Placement addReplacementResponse(com.scobolsolo.application.Response argResponse);
-	public com.scobolsolo.application.Placement removeReplacementResponse(com.scobolsolo.application.Response argResponse);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Response>> T acquireReplacementResponse(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementResponseIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Response> streamReplacementResponse() {
+		return getReplacementResponseSet().stream();
 	}
 
 	default public com.scobolsolo.application.Response[] createReplacementResponseArray() {
-		int lclLength = getReplacementResponseCount();
-		com.scobolsolo.application.Response[] lclA = new com.scobolsolo.application.Response[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Response> lclI = createReplacementResponseIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Response> lclS = getReplacementResponseSet();
+		return lclS.toArray(new com.scobolsolo.application.Response[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Placement copy();

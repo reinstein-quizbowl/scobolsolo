@@ -57,6 +57,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setId(int argId);
 
 	/**
@@ -94,6 +96,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setName(java.lang.String argName);
 
 	/**
@@ -123,6 +126,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setShortName(java.lang.String argShortName);
 
 	/**
@@ -192,6 +196,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setRoundId(java.lang.Integer argRoundId);
 
 	/**
@@ -200,6 +205,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argRoundId the new value of {@code RoundId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setRoundId(int argRoundId);
 
 	/**
@@ -242,6 +248,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setNote(java.lang.String argNote);
 
 	/**
@@ -271,6 +278,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
@@ -313,6 +321,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "0")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -321,6 +330,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setSequence(int argSequence);
 
 	/**
@@ -390,6 +400,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setReplacementPacketId(java.lang.Integer argReplacementPacketId);
 
 	/**
@@ -398,6 +409,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argReplacementPacketId the new value of {@code ReplacementPacketId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setReplacementPacketId(int argReplacementPacketId);
 
 	/**
@@ -440,6 +452,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setQuestionsPublic(java.lang.Boolean argQuestionsPublic);
 
 	/**
@@ -448,6 +461,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argQuestionsPublic the new value of {@code QuestionsPublic}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setQuestionsPublic(boolean argQuestionsPublic);
 
 	/**
@@ -457,6 +471,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Packet getReplacementPacket();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setReplacementPacket(com.scobolsolo.application.Packet argReplacementPacket);
 
 	/**
@@ -466,6 +481,7 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Round getRound();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setRound(com.scobolsolo.application.Round argRound);
 
 	/**
@@ -475,60 +491,29 @@ public interface PacketUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Packet setTournament(com.scobolsolo.application.Tournament argTournament);
 
-	public int getReplacementPacketCount();
-	public java.util.Iterator<com.scobolsolo.application.Packet> createReplacementPacketIterator();
+	public java.util.Set<com.scobolsolo.application.Packet> getReplacementPacketSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Packet> streamReplacementPacket();
-
-	public com.scobolsolo.application.Packet addReplacementPacket(com.scobolsolo.application.Packet argPacket);
-	public com.scobolsolo.application.Packet removeReplacementPacket(com.scobolsolo.application.Packet argPacket);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Packet>> T acquireReplacementPacket(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createReplacementPacketIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Packet> streamReplacementPacket() {
+		return getReplacementPacketSet().stream();
 	}
 
 	default public com.scobolsolo.application.Packet[] createReplacementPacketArray() {
-		int lclLength = getReplacementPacketCount();
-		com.scobolsolo.application.Packet[] lclA = new com.scobolsolo.application.Packet[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Packet> lclI = createReplacementPacketIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Packet> lclS = getReplacementPacketSet();
+		return lclS.toArray(new com.scobolsolo.application.Packet[lclS.size()]);
 	}
 
-	public int getPlacementCount();
-	public java.util.Iterator<com.scobolsolo.application.Placement> createPlacementIterator();
+	public java.util.Set<com.scobolsolo.application.Placement> getPlacementSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement();
-
-	public com.scobolsolo.application.Packet addPlacement(com.scobolsolo.application.Placement argPlacement);
-	public com.scobolsolo.application.Packet removePlacement(com.scobolsolo.application.Placement argPlacement);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Placement>> T acquirePlacement(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Placement> streamPlacement() {
+		return getPlacementSet().stream();
 	}
 
 	default public com.scobolsolo.application.Placement[] createPlacementArray() {
-		int lclLength = getPlacementCount();
-		com.scobolsolo.application.Placement[] lclA = new com.scobolsolo.application.Placement[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Placement> lclI = createPlacementIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Placement> lclS = getPlacementSet();
+		return lclS.toArray(new com.scobolsolo.application.Placement[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Packet copy();

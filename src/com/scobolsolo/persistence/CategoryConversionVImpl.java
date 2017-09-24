@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class CategoryConversionVImpl extends com.opal.AbstractImpl<com.scobolsolo.application.CategoryConversionV, com.scobolsolo.persistence.CategoryConversionVOpal> implements com.scobolsolo.application.CategoryConversionV {
 
 	private final com.scobolsolo.persistence.CategoryConversionVOpal myCategoryConversionVOpal;
@@ -15,12 +14,12 @@ public class CategoryConversionVImpl extends com.opal.AbstractImpl<com.scobolsol
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.CategoryConversionV> getOpal() {
+	public com.scobolsolo.persistence.CategoryConversionVOpal getOpal() {
 		return getCategoryConversionVOpal();
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.CategoryConversionV> getBottomOpal() {
+	public com.scobolsolo.persistence.CategoryConversionVOpal getBottomOpal() {
 		return getCategoryConversionVOpal();
 	}
 

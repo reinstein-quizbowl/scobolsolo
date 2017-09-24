@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.StaffAssignment, com.scobolsolo.persistence.StaffAssignmentOpal> implements com.scobolsolo.application.StaffAssignment {
 
 	private final com.scobolsolo.persistence.StaffAssignmentOpal myStaffAssignmentOpal;
@@ -15,12 +14,12 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.StaffAssignment> getOpal() {
+	public com.scobolsolo.persistence.StaffAssignmentOpal getOpal() {
 		return getStaffAssignmentOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.StaffAssignment> getBottomOpal() {
+	public com.scobolsolo.persistence.StaffAssignmentOpal getBottomOpal() {
 		return getStaffAssignmentOpal();
 	}
 
@@ -155,8 +154,9 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.StaffAssignment setPhase(com.scobolsolo.application.Phase argPhase) {
-		getStaffAssignmentOpal().setPhaseOpal(argPhase == null ? null : ((PhaseImpl) argPhase).getPhaseOpal());
+		getStaffAssignmentOpal().setPhaseOpal(argPhase == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Phase, com.scobolsolo.persistence.PhaseOpal>) argPhase).getOpal());
 		return this;
 	}
 
@@ -170,8 +170,9 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.StaffAssignment setStaff(com.scobolsolo.application.Staff argStaff) {
-		getStaffAssignmentOpal().setStaffOpal(argStaff == null ? null : ((StaffImpl) argStaff).getStaffOpal());
+		getStaffAssignmentOpal().setStaffOpal(argStaff == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Staff, com.scobolsolo.persistence.StaffOpal>) argStaff).getOpal());
 		return this;
 	}
 
@@ -185,8 +186,9 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.StaffAssignment setRole(com.scobolsolo.application.StaffRole argStaffRole) {
-		getStaffAssignmentOpal().setRoleOpal(argStaffRole == null ? null : ((StaffRoleImpl) argStaffRole).getStaffRoleOpal());
+		getStaffAssignmentOpal().setRoleOpal(argStaffRole == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.StaffRole, com.scobolsolo.persistence.StaffRoleOpal>) argStaffRole).getOpal());
 		return this;
 	}
 
@@ -200,8 +202,9 @@ public class StaffAssignmentImpl extends com.opal.AbstractIdentityImpl<com.scobo
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.StaffAssignment setRoom(com.scobolsolo.application.Room argRoom) {
-		getStaffAssignmentOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
+		getStaffAssignmentOpal().setRoomOpal(argRoom == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Room, com.scobolsolo.persistence.RoomOpal>) argRoom).getOpal());
 		return this;
 	}
 

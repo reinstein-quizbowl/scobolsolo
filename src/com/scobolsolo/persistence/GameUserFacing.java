@@ -57,6 +57,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setId(int argId);
 
 	/**
@@ -134,6 +136,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setTossupsHeard(java.lang.Integer argTossupsHeard);
 
 	/**
@@ -142,6 +145,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argTossupsHeard the new value of {@code TossupsHeard}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setTossupsHeard(int argTossupsHeard);
 
 	/**
@@ -211,6 +215,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setIncomingWinningCardPlayerId(java.lang.Integer argIncomingWinningCardPlayerId);
 
 	/**
@@ -219,6 +224,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argIncomingWinningCardPlayerId the new value of {@code IncomingWinningCardPlayerId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setIncomingWinningCardPlayerId(int argIncomingWinningCardPlayerId);
 
 	/**
@@ -288,6 +294,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setIncomingLosingCardPlayerId(java.lang.Integer argIncomingLosingCardPlayerId);
 
 	/**
@@ -296,6 +303,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argIncomingLosingCardPlayerId the new value of {@code IncomingLosingCardPlayerId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setIncomingLosingCardPlayerId(int argIncomingLosingCardPlayerId);
 
 	/**
@@ -365,6 +373,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayerId(java.lang.Integer argOutgoingWinningCardPlayerId);
 
 	/**
@@ -373,6 +382,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argOutgoingWinningCardPlayerId the new value of {@code OutgoingWinningCardPlayerId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayerId(int argOutgoingWinningCardPlayerId);
 
 	/**
@@ -442,6 +452,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setOutgoingLosingCardPlayerId(java.lang.Integer argOutgoingLosingCardPlayerId);
 
 	/**
@@ -450,6 +461,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argOutgoingLosingCardPlayerId the new value of {@code OutgoingLosingCardPlayerId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setOutgoingLosingCardPlayerId(int argOutgoingLosingCardPlayerId);
 
 	/**
@@ -519,6 +531,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setModeratorStaffId(java.lang.Integer argModeratorStaffId);
 
 	/**
@@ -527,6 +540,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argModeratorStaffId the new value of {@code ModeratorStaffId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setModeratorStaffId(int argModeratorStaffId);
 
 	/**
@@ -596,6 +610,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setScorekeeperStaffId(java.lang.Integer argScorekeeperStaffId);
 
 	/**
@@ -604,6 +619,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argScorekeeperStaffId the new value of {@code ScorekeeperStaffId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setScorekeeperStaffId(int argScorekeeperStaffId);
 
 	/**
@@ -613,6 +629,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Match getMatch();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setMatch(com.scobolsolo.application.Match argMatch);
 
 	/**
@@ -622,6 +639,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getIncomingLosingCardPlayer();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setIncomingLosingCardPlayer(com.scobolsolo.application.Player argIncomingLosingCardPlayer);
 
 	/**
@@ -631,6 +649,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getIncomingWinningCardPlayer();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setIncomingWinningCardPlayer(com.scobolsolo.application.Player argIncomingWinningCardPlayer);
 
 	/**
@@ -640,6 +659,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Staff getModeratorStaff();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setModeratorStaff(com.scobolsolo.application.Staff argModeratorStaff);
 
 	/**
@@ -649,6 +669,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getOutgoingLosingCardPlayer();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setOutgoingLosingCardPlayer(com.scobolsolo.application.Player argOutgoingLosingCardPlayer);
 
 	/**
@@ -658,6 +679,7 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Player getOutgoingWinningCardPlayer();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setOutgoingWinningCardPlayer(com.scobolsolo.application.Player argOutgoingWinningCardPlayer);
 
 	/**
@@ -667,33 +689,18 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Staff getScorekeeperStaff();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Game setScorekeeperStaff(com.scobolsolo.application.Staff argScorekeeperStaff);
 
-	public int getPerformanceCount();
-	public java.util.Iterator<com.scobolsolo.application.Performance> createPerformanceIterator();
+	public java.util.Set<com.scobolsolo.application.Performance> getPerformanceSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance();
-
-	public com.scobolsolo.application.Game addPerformance(com.scobolsolo.application.Performance argPerformance);
-	public com.scobolsolo.application.Game removePerformance(com.scobolsolo.application.Performance argPerformance);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Performance>> T acquirePerformance(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Performance> streamPerformance() {
+		return getPerformanceSet().stream();
 	}
 
 	default public com.scobolsolo.application.Performance[] createPerformanceArray() {
-		int lclLength = getPerformanceCount();
-		com.scobolsolo.application.Performance[] lclA = new com.scobolsolo.application.Performance[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Performance> lclI = createPerformanceIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Performance> lclS = getPerformanceSet();
+		return lclS.toArray(new com.scobolsolo.application.Performance[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Game copy();

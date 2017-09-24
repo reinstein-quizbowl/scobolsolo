@@ -46,6 +46,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.QuestionStatus setCode(java.lang.String argCode);
 
 	/**
@@ -75,6 +76,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.QuestionStatus setName(java.lang.String argName);
 
 	/**
@@ -104,6 +106,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.QuestionStatus setShortName(java.lang.String argShortName);
 
 	/**
@@ -144,6 +147,7 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.QuestionStatus setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -152,60 +156,29 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.QuestionStatus setSequence(int argSequence);
 
-	public int getQuestionCount();
-	public java.util.Iterator<com.scobolsolo.application.Question> createQuestionIterator();
+	public java.util.Set<com.scobolsolo.application.Question> getQuestionSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion();
-
-	public com.scobolsolo.application.QuestionStatus addQuestion(com.scobolsolo.application.Question argQuestion);
-	public com.scobolsolo.application.QuestionStatus removeQuestion(com.scobolsolo.application.Question argQuestion);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Question>> T acquireQuestion(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion() {
+		return getQuestionSet().stream();
 	}
 
 	default public com.scobolsolo.application.Question[] createQuestionArray() {
-		int lclLength = getQuestionCount();
-		com.scobolsolo.application.Question[] lclA = new com.scobolsolo.application.Question[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Question> lclI = createQuestionIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Question> lclS = getQuestionSet();
+		return lclS.toArray(new com.scobolsolo.application.Question[lclS.size()]);
 	}
 
-	public int getDiffCount();
-	public java.util.Iterator<com.scobolsolo.application.Diff> createDiffIterator();
+	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff();
-
-	public com.scobolsolo.application.QuestionStatus addDiff(com.scobolsolo.application.Diff argDiff);
-	public com.scobolsolo.application.QuestionStatus removeDiff(com.scobolsolo.application.Diff argDiff);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Diff>> T acquireDiff(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {
+		return getDiffSet().stream();
 	}
 
 	default public com.scobolsolo.application.Diff[] createDiffArray() {
-		int lclLength = getDiffCount();
-		com.scobolsolo.application.Diff[] lclA = new com.scobolsolo.application.Diff[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Diff> lclI = createDiffIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Diff> lclS = getDiffSet();
+		return lclS.toArray(new com.scobolsolo.application.Diff[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.QuestionStatus copy();

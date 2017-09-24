@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class PlacementConversionVImpl extends com.opal.AbstractImpl<com.scobolsolo.application.PlacementConversionV, com.scobolsolo.persistence.PlacementConversionVOpal> implements com.scobolsolo.application.PlacementConversionV {
 
 	private final com.scobolsolo.persistence.PlacementConversionVOpal myPlacementConversionVOpal;
@@ -15,12 +14,12 @@ public class PlacementConversionVImpl extends com.opal.AbstractImpl<com.scobolso
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlacementConversionV> getOpal() {
+	public com.scobolsolo.persistence.PlacementConversionVOpal getOpal() {
 		return getPlacementConversionVOpal();
 	}
 
 	@Override
-	protected com.opal.EphemeralOpal<? extends com.scobolsolo.application.PlacementConversionV> getBottomOpal() {
+	public com.scobolsolo.persistence.PlacementConversionVOpal getBottomOpal() {
 		return getPlacementConversionVOpal();
 	}
 

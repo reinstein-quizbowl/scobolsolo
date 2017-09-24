@@ -79,12 +79,12 @@ public interface Question extends QuestionUserFacing {
 	
 	public static final Comparator<Question> CATEGORY_COMPARATOR = Comparator.comparing(Question::getCategory);
 	
-	default boolean isUsed() {
-		return getPlacementCount() > 0;
+	default boolean isUnused() {
+		return getPlacementSet().isEmpty();
 	}
 	
-	default boolean isUnused() {
-		return getPlacementCount() == 0;
+	default boolean isUsed() {
+		return isUnused() == false;
 	}
 	
 	default Placement findPlacement(Tournament argT) {
@@ -94,7 +94,7 @@ public interface Question extends QuestionUserFacing {
 	}
 	
 	default SortedSet<Diff> getDiffs() {
-		return acquireDiff(new TreeSet<>());
+		return new TreeSet<>(getDiffSet());
 	}
 	
 	default Diff getCurrentDiff() {

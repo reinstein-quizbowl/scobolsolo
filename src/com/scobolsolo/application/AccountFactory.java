@@ -25,6 +25,7 @@ public class AccountFactory extends com.opal.AbstractIdentityFactory<Account, Ac
 		return Account.class;
 	}
 
+	@com.opal.annotation.RequiresActiveTransaction
 	@Override
 	public Account create() {
 		return getAccountOpalFactory().create().getUserFacing();
@@ -56,7 +57,7 @@ public class AccountFactory extends com.opal.AbstractIdentityFactory<Account, Ac
 		if (org.apache.commons.lang3.StringUtils.isBlank(lclIdString)) {
 			return null;
 		}
-		java.lang.Integer lclId = java.lang.Integer.valueOf(lclIdString);
+		java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclIdString));
 		return forId(lclId);
 	}
 
@@ -73,7 +74,7 @@ public class AccountFactory extends com.opal.AbstractIdentityFactory<Account, Ac
 			if (lclValue == null) {
 				continue;
 			}
-			java.lang.Integer lclId = java.lang.Integer.valueOf(lclValue);
+			java.lang.Integer lclId = java.lang.Integer.valueOf(org.apache.commons.lang3.StringUtils.trimToNull(lclValue));
 			Account lclResult = forId(lclId);
 			org.apache.commons.lang3.Validate.notNull(lclResult, "'" + lclValue + "' is not a valid Id for any Account");
 			argCollection.add(lclResult);

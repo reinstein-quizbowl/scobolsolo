@@ -57,6 +57,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setId(int argId);
 
 	/**
@@ -94,6 +96,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setName(java.lang.String argName);
 
 	/**
@@ -123,6 +126,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setShortName(java.lang.String argShortName);
 
 	/**
@@ -165,6 +169,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setNote(java.lang.String argNote);
 
 	/**
@@ -194,6 +199,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
@@ -234,6 +240,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setSequence(java.lang.Integer argSequence);
 
 	/**
@@ -242,6 +249,7 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 * @param argSequence the new value of {@code Sequence}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setSequence(int argSequence);
 
 	/**
@@ -251,114 +259,51 @@ public interface RoomUserFacing extends com.opal.IdentityUserFacing, Comparable<
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Room setTournament(com.scobolsolo.application.Tournament argTournament);
 
-	public int getControlRoomTournamentCount();
-	public java.util.Iterator<com.scobolsolo.application.Tournament> createControlRoomTournamentIterator();
+	public java.util.Set<com.scobolsolo.application.Tournament> getControlRoomTournamentSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Tournament> streamControlRoomTournament();
-
-	public com.scobolsolo.application.Room addControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
-	public com.scobolsolo.application.Room removeControlRoomTournament(com.scobolsolo.application.Tournament argTournament);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Tournament>> T acquireControlRoomTournament(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Tournament> lclI = createControlRoomTournamentIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Tournament> streamControlRoomTournament() {
+		return getControlRoomTournamentSet().stream();
 	}
 
 	default public com.scobolsolo.application.Tournament[] createControlRoomTournamentArray() {
-		int lclLength = getControlRoomTournamentCount();
-		com.scobolsolo.application.Tournament[] lclA = new com.scobolsolo.application.Tournament[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Tournament> lclI = createControlRoomTournamentIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Tournament> lclS = getControlRoomTournamentSet();
+		return lclS.toArray(new com.scobolsolo.application.Tournament[lclS.size()]);
 	}
 
-	public int getStaffAssignmentCount();
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator();
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
-
-	public com.scobolsolo.application.Room addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public com.scobolsolo.application.Room removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
+		return getStaffAssignmentSet().stream();
 	}
 
 	default public com.scobolsolo.application.StaffAssignment[] createStaffAssignmentArray() {
-		int lclLength = getStaffAssignmentCount();
-		com.scobolsolo.application.StaffAssignment[] lclA = new com.scobolsolo.application.StaffAssignment[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.StaffAssignment> lclS = getStaffAssignmentSet();
+		return lclS.toArray(new com.scobolsolo.application.StaffAssignment[lclS.size()]);
 	}
 
-	public int getBuzzerCount();
-	public java.util.Iterator<com.scobolsolo.application.Buzzer> createBuzzerIterator();
+	public java.util.Set<com.scobolsolo.application.Buzzer> getBuzzerSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer();
-
-	public com.scobolsolo.application.Room addBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	public com.scobolsolo.application.Room removeBuzzer(com.scobolsolo.application.Buzzer argBuzzer);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Buzzer>> T acquireBuzzer(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Buzzer> lclI = createBuzzerIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Buzzer> streamBuzzer() {
+		return getBuzzerSet().stream();
 	}
 
 	default public com.scobolsolo.application.Buzzer[] createBuzzerArray() {
-		int lclLength = getBuzzerCount();
-		com.scobolsolo.application.Buzzer[] lclA = new com.scobolsolo.application.Buzzer[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Buzzer> lclI = createBuzzerIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Buzzer> lclS = getBuzzerSet();
+		return lclS.toArray(new com.scobolsolo.application.Buzzer[lclS.size()]);
 	}
 
-	public int getMatchCount();
-	public java.util.Iterator<com.scobolsolo.application.Match> createMatchIterator();
+	public java.util.Set<com.scobolsolo.application.Match> getMatchSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch();
-
-	public com.scobolsolo.application.Room addMatch(com.scobolsolo.application.Match argMatch);
-	public com.scobolsolo.application.Room removeMatch(com.scobolsolo.application.Match argMatch);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Match>> T acquireMatch(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Match> streamMatch() {
+		return getMatchSet().stream();
 	}
 
 	default public com.scobolsolo.application.Match[] createMatchArray() {
-		int lclLength = getMatchCount();
-		com.scobolsolo.application.Match[] lclA = new com.scobolsolo.application.Match[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Match> lclI = createMatchIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Match> lclS = getMatchSet();
+		return lclS.toArray(new com.scobolsolo.application.Match[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Room copy();

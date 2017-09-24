@@ -1,6 +1,5 @@
 package com.scobolsolo.persistence;
 
-
 public class BuzzerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.application.Buzzer, com.scobolsolo.persistence.BuzzerOpal> implements com.scobolsolo.application.Buzzer {
 
 	private final com.scobolsolo.persistence.BuzzerOpal myBuzzerOpal;
@@ -15,12 +14,12 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Buzzer> getOpal() {
+	public com.scobolsolo.persistence.BuzzerOpal getOpal() {
 		return getBuzzerOpal();
 	}
 
 	@Override
-	protected com.opal.IdentityOpal<? extends com.scobolsolo.application.Buzzer> getBottomOpal() {
+	public com.scobolsolo.persistence.BuzzerOpal getBottomOpal() {
 		return getBuzzerOpal();
 	}
 
@@ -117,8 +116,9 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Buzzer setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
-		getBuzzerOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((SchoolRegistrationImpl) argSchoolRegistration).getSchoolRegistrationOpal());
+		getBuzzerOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.SchoolRegistration, com.scobolsolo.persistence.SchoolRegistrationOpal>) argSchoolRegistration).getOpal());
 		return this;
 	}
 
@@ -132,8 +132,9 @@ public class BuzzerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Buzzer setRoom(com.scobolsolo.application.Room argRoom) {
-		getBuzzerOpal().setRoomOpal(argRoom == null ? null : ((RoomImpl) argRoom).getRoomOpal());
+		getBuzzerOpal().setRoomOpal(argRoom == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Room, com.scobolsolo.persistence.RoomOpal>) argRoom).getOpal());
 		return this;
 	}
 

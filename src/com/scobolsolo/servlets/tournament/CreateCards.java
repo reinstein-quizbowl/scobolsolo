@@ -30,9 +30,7 @@ public class CreateCards extends ScobolSoloControllerServlet {
 		Validate.isTrue(lclSmallestCardNumber <= lclLargestCardNumber, "The smallest card number must be less than or equal to the largest card number.");
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
-			for (final Card lclExisting : lclPhase.createCardArray()) {
-				lclExisting.unlink();
-			}
+			lclPhase.getCardSet().clear();
 			
 			for (int lclI = lclSmallestCardNumber; lclI <= lclLargestCardNumber; ++lclI) {
 				final Card lclC = CardFactory.getInstance().create();

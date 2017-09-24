@@ -27,13 +27,11 @@ public class RoomUpdater extends OpalFormUpdater<Room> {
 	protected void beforeDelete() {
 		final Room lclR = Validate.notNull(getUserFacing());
 		
-		if (lclR.getMatchCount() > 0) {
+		if (lclR.getMatchSet().isEmpty()) {
+			lclR.getBuzzerSet().clear();
+		} else {
 			addError("Cannot delete " + lclR.getName() + " because it has matches assigned to it.");
-			return;
 		}
 		
-		for (final Buzzer lclB : lclR.createBuzzerArray()) {
-			lclB.setRoom(null);
-		}
 	}
 }

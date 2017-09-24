@@ -57,6 +57,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setId(java.lang.Integer argId);
 
 	/**
@@ -65,6 +66,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argId the new value of {@code Id}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setId(int argId);
 
 	/**
@@ -105,6 +107,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setContactId(java.lang.Integer argContactId);
 
 	/**
@@ -113,6 +116,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argContactId the new value of {@code ContactId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setContactId(int argContactId);
 
 	/**
@@ -142,6 +146,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setTournamentCode(java.lang.String argTournamentCode);
 
 	/**
@@ -211,6 +216,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setSchoolRegistrationId(java.lang.Integer argSchoolRegistrationId);
 
 	/**
@@ -219,6 +225,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 * @param argSchoolRegistrationId the new value of {@code SchoolRegistrationId}
 	 * @return itself, so that mutators may be chained fluently
 	 */
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setSchoolRegistrationId(int argSchoolRegistrationId);
 
 	/**
@@ -261,6 +268,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setNote(java.lang.String argNote);
 
 	/**
@@ -292,6 +300,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 32L)
 	@com.opal.annotation.Default(value = "TBD")
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setTechnologyChoiceCode(java.lang.String argTechnologyChoiceCode);
 
 	/**
@@ -301,6 +310,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Contact getContact();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setContact(com.scobolsolo.application.Contact argContact);
 
 	/**
@@ -310,6 +320,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
 
 	/**
@@ -319,6 +330,7 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.TechnologyChoice getTechnologyChoice();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice);
 
 	/**
@@ -328,87 +340,40 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = false)
 	public com.scobolsolo.application.Tournament getTournament();
+	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setTournament(com.scobolsolo.application.Tournament argTournament);
 
-	public int getModeratorGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createModeratorGameIterator();
+	public java.util.Set<com.scobolsolo.application.Game> getModeratorGameSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamModeratorGame();
-
-	public com.scobolsolo.application.Staff addModeratorGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Staff removeModeratorGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireModeratorGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createModeratorGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Game> streamModeratorGame() {
+		return getModeratorGameSet().stream();
 	}
 
 	default public com.scobolsolo.application.Game[] createModeratorGameArray() {
-		int lclLength = getModeratorGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createModeratorGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Game> lclS = getModeratorGameSet();
+		return lclS.toArray(new com.scobolsolo.application.Game[lclS.size()]);
 	}
 
-	public int getScorekeeperGameCount();
-	public java.util.Iterator<com.scobolsolo.application.Game> createScorekeeperGameIterator();
+	public java.util.Set<com.scobolsolo.application.Game> getScorekeeperGameSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.Game> streamScorekeeperGame();
-
-	public com.scobolsolo.application.Staff addScorekeeperGame(com.scobolsolo.application.Game argGame);
-	public com.scobolsolo.application.Staff removeScorekeeperGame(com.scobolsolo.application.Game argGame);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.Game>> T acquireScorekeeperGame(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createScorekeeperGameIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.Game> streamScorekeeperGame() {
+		return getScorekeeperGameSet().stream();
 	}
 
 	default public com.scobolsolo.application.Game[] createScorekeeperGameArray() {
-		int lclLength = getScorekeeperGameCount();
-		com.scobolsolo.application.Game[] lclA = new com.scobolsolo.application.Game[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.Game> lclI = createScorekeeperGameIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.Game> lclS = getScorekeeperGameSet();
+		return lclS.toArray(new com.scobolsolo.application.Game[lclS.size()]);
 	}
 
-	public int getStaffAssignmentCount();
-	public java.util.Iterator<com.scobolsolo.application.StaffAssignment> createStaffAssignmentIterator();
+	public java.util.Set<com.scobolsolo.application.StaffAssignment> getStaffAssignmentSet();
 
-	public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment();
-
-	public com.scobolsolo.application.Staff addStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	public com.scobolsolo.application.Staff removeStaffAssignment(com.scobolsolo.application.StaffAssignment argStaffAssignment);
-	default public <T extends java.util.Collection<? super com.scobolsolo.application.StaffAssignment>> T acquireStaffAssignment(T argC) {
-		org.apache.commons.lang3.Validate.notNull(argC, "Target Collection is null");
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			argC.add(lclI.next());
-		}
-		return argC;
+	default public java.util.stream.Stream<com.scobolsolo.application.StaffAssignment> streamStaffAssignment() {
+		return getStaffAssignmentSet().stream();
 	}
 
 	default public com.scobolsolo.application.StaffAssignment[] createStaffAssignmentArray() {
-		int lclLength = getStaffAssignmentCount();
-		com.scobolsolo.application.StaffAssignment[] lclA = new com.scobolsolo.application.StaffAssignment[lclLength];
-		int lclIndex = 0;
-		java.util.Iterator<com.scobolsolo.application.StaffAssignment> lclI = createStaffAssignmentIterator();
-		while (lclI.hasNext()) {
-			lclA[lclIndex++] = lclI.next();
-		}
-		return lclA;
+		java.util.Set<com.scobolsolo.application.StaffAssignment> lclS = getStaffAssignmentSet();
+		return lclS.toArray(new com.scobolsolo.application.StaffAssignment[lclS.size()]);
 	}
 
 	public com.scobolsolo.application.Staff copy();
