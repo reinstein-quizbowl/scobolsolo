@@ -8,7 +8,7 @@ $(document).ready(
 			'mousedown taphold',
 			'.buzzable',
 			function(argEvent) {
-				if (lclData['left']['buzzed'] && lclData['right']['buzzed']) {
+				if (lclData.left.buzzed && lclData.right.buzzed) {
 					// No buzzing options to show.
 					return;
 				} else if (alreadyAnsweredCorrectly()) {
@@ -35,17 +35,17 @@ $(document).ready(
 						'<table class="buzz-choices unsortable">' +
 							'<thead>' +
 								'<tr>' +
-									(lclData['left']['buzzed'] ? '' : '<th>' + lclData['left']['name'] + '</th>') +
-									(lclData['right']['buzzed'] ? '' : '<th>' + lclData['right']['name'] + '</th>') +
+									(lclData.left.buzzed ? '' : '<th>' + lclData.left.name + '</th>') +
+									(lclData.right.buzzed ? '' : '<th>' + lclData.right.name + '</th>') +
 							'</thead>' +
 							'<tbody>' +
 								'<tr>' +
-									(lclData['left']['buzzed'] ? '' : '<td><a class="success button expanded" onclick="buzz(\'left\', \'' + lclId + '\', true)">Correct</a></td>') +
-									(lclData['right']['buzzed'] ? '' : '<td><a class="success button expanded" onclick="buzz(\'right\', \'' + lclId + '\', true)">Correct</a></td>') +
+									(lclData.left.buzzed ? '' : '<td><a class="success button expanded" onclick="buzz(\'left\', \'' + lclId + '\', true)">Correct</a></td>') +
+									(lclData.right.buzzed ? '' : '<td><a class="success button expanded" onclick="buzz(\'right\', \'' + lclId + '\', true)">Correct</a></td>') +
 								'</tr>' +
 								'<tr>' +
-									(lclData['left']['buzzed'] ? '' : '<td><a class="warning button expanded" onclick="buzz(\'left\', \'' + lclId + '\', false)">Incorrect</a></td>') +
-									(lclData['right']['buzzed'] ? '' : '<td><a class="warning button expanded" onclick="buzz(\'right\', \'' + lclId + '\', false)">Incorrect</a></td>') +
+									(lclData.left.buzzed ? '' : '<td><a class="warning button expanded" onclick="buzz(\'left\', \'' + lclId + '\', false)">Incorrect</a></td>') +
+									(lclData.right.buzzed ? '' : '<td><a class="warning button expanded" onclick="buzz(\'right\', \'' + lclId + '\', false)">Incorrect</a></td>') +
 								'</tr>' +
 							'</tbody>' +
 						'</table>'
@@ -83,12 +83,12 @@ $(document).ready(
 function buzz(argSide, argBuzzPointId, argCorrect) { 
 	var lclBuzzPoint = $('#' + argBuzzPointId);
 	
-	lclData[argSide]['buzzed'] = true;
-	lclData[argSide]['buzz_index'] = lclBuzzPoint.data('buzzIndex');
-	lclData[argSide]['correct'] = argCorrect;
+	lclData[argSide].buzzed = true;
+	lclData[argSide].buzz_index = lclBuzzPoint.data('buzzIndex');
+	lclData[argSide].correct = argCorrect;
 	
 	var lclMarker = $('<div></div>')
-		.html(lclData[argSide]['name'] + ': ' + (argCorrect ? 'correct' : 'incorrect'))
+		.html(lclData[argSide].name + ': ' + (argCorrect ? 'correct' : 'incorrect'))
 		.css('position', 'absolute')
 		.offset(
 			{
@@ -106,15 +106,15 @@ function buzz(argSide, argBuzzPointId, argCorrect) {
 function getLatestIndexOfBuzz() {
 	var lclLatest = -1;
 	
-	if (lclData['left']['buzzed']) {
-		var lclLeftBuzzIndex = lclData['left']['buzz_index'];
+	if (lclData.left.buzzed) {
+		var lclLeftBuzzIndex = lclData.left.buzz_index;
 		if (lclLeftBuzzIndex && lclLeftBuzzIndex > lclLatest) {
 			lclLatest = lclLeftBuzzIndex;
 		}
 	}
 	
-	if (lclData['right']['buzzed']) {
-		var lclRightBuzzIndex = lclData['right']['buzz_index'];
+	if (lclData.right.buzzed) {
+		var lclRightBuzzIndex = lclData.right.buzz_index;
 		if (lclRightBuzzIndex && lclRightBuzzIndex > lclLatest) {
 			lclLatest = lclRightBuzzIndex;
 		}
@@ -124,7 +124,7 @@ function getLatestIndexOfBuzz() {
 }
 
 function alreadyAnsweredCorrectly() {
-	return (lclData['left']['buzzed'] && lclData['left']['correct']) || (lclData['right']['buzzed'] && lclData['right']['correct']);
+	return (lclData.left.buzzed && lclData.left.correct) || (lclData.right.buzzed && lclData.right.correct);
 }
 
 function goOn() {
