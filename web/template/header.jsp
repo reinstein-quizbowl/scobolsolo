@@ -60,23 +60,23 @@ if (lclUser == null || ControllerServlet.getBooleanParameter(request, "suppressM
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, target-densitydpi=device-dpi">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	
 	<title><%= argTitle %></title>
 	<meta name="author" content="Jonah Greenthal">
 	<meta name="description" content="<%= StringEscapeUtils.escapeHtml4(argDescription) %>">
 	
 	<!-- jQuery -->
-	<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 	
 	<!-- jQuery UI -->
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<!-- Tablesorter -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.2/js/jquery.tablesorter.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/js/jquery.tablesorter.min.js"></script>
 	
 	<!-- Automatic smart quotes -->
 	<script src="/template/js/smartquotes.min.js"></script>
@@ -89,13 +89,9 @@ if (lclUser == null || ControllerServlet.getBooleanParameter(request, "suppressM
 	<link rel="stylesheet" href="/template/foundation/datepicker/foundation-datepicker.css">
 	<script src="/template/foundation/datepicker/foundation-datepicker.js"></script>
 	
-	<!-- Responsive Tables -->
-	<link rel="stylesheet" href="/template/foundation/responsive-tables/responsive-tables.css">
-	<script src="/template/foundation/responsive-tables/responsive-tables.js"></script>
-	
 	<!-- MathJax -->
 	<script type="text/x-mathjax-config" src="/template/js/mathjax-config.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 
 <body>
