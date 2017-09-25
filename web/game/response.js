@@ -1,13 +1,17 @@
+var lclActivatedWord;
+
 $(document).ready(
 	function() {
 		$('.originally-buzzable').addClass('buzzable');
+		var lclMousedownFired = false;
 		
-		var lclActivatedWord;
-		
-		$(document).on(
-			'mousedown taphold',
+		$(document).off()
+		.on(
+			'touchstart mousedown',
 			'.buzzable',
 			function(argEvent) {
+				lclMousedownFired = true;
+				console.log('mousedown');
 				if (lclData.left.buzzed && lclData.right.buzzed) {
 					// No buzzing options to show.
 					return;
@@ -35,8 +39,8 @@ $(document).ready(
 						'<table class="buzz-choices unsortable">' +
 							'<thead>' +
 								'<tr>' +
-									(lclData.left.buzzed ? '' : '<th>' + lclData.left.name + '</th>') +
-									(lclData.right.buzzed ? '' : '<th>' + lclData.right.name + '</th>') +
+									(lclData.left.buzzed ? '' : '<th class="text-center" style="width: 50%;">' + lclData.left.name + '</th>') +
+									(lclData.right.buzzed ? '' : '<th class="text-center" style="width: 50%;">' + lclData.right.name + '</th>') +
 							'</thead>' +
 							'<tbody>' +
 								'<tr>' +
@@ -62,23 +66,33 @@ $(document).ready(
 						}
 					);
 				}
+				
+				argEvent.stopImmediatePropagation();
+				argEvent.preventDefault();
 			}
-		);
-		
-		// Close the menu if clicked outside
-		$(document).on(
+		).on( // Close the menu if clicked outside
 			'click',
 			':not(.buzzable):not(.buzz-menu-container)',
 			function(argEvent) {
-				$('#buzzMenuContainer').html('').removeClass('buzz-menu-container');
-				
-				if (lclActivatedWord) {
-					lclActivatedWord.removeClass('active');
+				if (lclMousedownFired) {
+					lclMousedownFired = false;
+				} else {
+					hideBuzzMenu();
 				}
+				
+				argEvent.stopImmediatePropagation();
 			}
 		);
 	}
 );
+
+function hideBuzzMenu() {
+	$('#buzzMenuContainer').html('').removeClass('buzz-menu-container');
+	
+	if (lclActivatedWord) {
+		lclActivatedWord.removeClass('active');
+	}
+}
 
 function buzz(argSide, argBuzzPointId, argCorrect) { 
 	var lclBuzzPoint = $('#' + argBuzzPointId);
@@ -101,6 +115,8 @@ function buzz(argSide, argBuzzPointId, argCorrect) {
 		.appendTo(document.body);
 	
 	lclBuzzPoint.addClass(argCorrect ? 'buzzed-correct' : 'buzzed-incorrect');
+	
+	hideBuzzMenu();
 }
 
 function getLatestIndexOfBuzz() {
