@@ -87,6 +87,10 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 			addError("Answer", "You must input the answer line.");
 		} else {
 			validateSyntax("Answer", lclQ.getAnswer());
+			
+			if (lclQ.getAnswer().contains("_") == false) {
+				addError("Answer", "The answer must have at least one required portion.");
+			}
 		}
 	}
 	
@@ -187,7 +191,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		lclError = lclError || lclStack.isEmpty() == false;
 		
 		if (lclError) {
-			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, and curly braces must be balanced correctly.");
+			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, and underscores must be balanced correctly.");
 		}
 	}
 	
@@ -195,6 +199,8 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		return
 			argOpener == '(' && argCloser == ')' ||
 			argOpener == '[' && argCloser == ']' ||
-			argOpener == '{' && argCloser == '}';
+			argOpener == '{' && argCloser == '}' ||
+			argOpener == '"' && argCloser == '"' ||
+			argOpener == '_' && argCloser == '_';
 	}
 }
