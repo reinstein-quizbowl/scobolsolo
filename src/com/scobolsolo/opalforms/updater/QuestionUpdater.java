@@ -2,6 +2,7 @@ package com.scobolsolo.opalforms.updater;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Stack;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.ObjectUtils;
@@ -77,11 +78,15 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		} else {
 			if (lclQ.getText() == null) {
 				addError("Text", "You must input question text.");
+			} else {
+				validateSyntax("Text", lclQ.getText());
 			}
 		}
 		
 		if (lclQ.getAnswer() == null) {
 			addError("Answer", "You must input the answer line.");
+		} else {
+			validateSyntax("Answer", lclQ.getAnswer());
 		}
 	}
 	
@@ -146,5 +151,50 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 	
 	private Account getUser() {
 		return Validate.notNull(AccountFactory.getInstance().forUsername(getUsername()));
+	}
+	
+	protected void validateSyntax(final String argFieldName, final String argTextToValidate) {
+		Validate.notBlank(argFieldName);
+		Validate.notBlank(argTextToValidate);
+		
+		validateBalance(argFieldName, argTextToValidate);
+	}
+	
+	protected void validateBalance(final String argFieldName, final String argTextToValidate) {
+		Validate.notBlank(argFieldName);
+		Validate.notBlank(argTextToValidate);
+		
+		Stack<Character> lclStack = new Stack<>();
+		boolean lclError = false;
+		
+		for (char lclC : argTextToValidate.toCharArray()) {
+			if (lclC == '(' || lclC == '[' || lclC == '{') {
+				lclStack.push(lclC);
+			} else if (lclC == ')' || lclC == ']' || lclC == '}') {
+				if (lclStack.isEmpty()) {
+					lclError = true;
+					break;
+				} else {
+					char lclOpener = lclStack.pop().charValue();
+					if (match(lclOpener, lclC) == false) {
+						lclError = true;
+						break;
+					}
+				}
+			}
+		}
+		
+		lclError = lclError || lclStack.isEmpty() == false;
+		
+		if (lclError) {
+			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, and curly braces must be balanced correctly.");
+		}
+	}
+	
+	protected boolean match(char argOpener, char argCloser) {
+		return
+			argOpener == '(' && argCloser == ')' ||
+			argOpener == '[' && argCloser == ']' ||
+			argOpener == '{' && argCloser == '}';
 	}
 }
