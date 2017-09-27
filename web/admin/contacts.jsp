@@ -39,7 +39,7 @@
 				</tr><%
 				List<Contact> lclCs = ContactFactory.getInstance().acquireForQuery(
 					new ArrayList<>(),
-					new ImplicitTableDatabaseQuery("active = 1")
+					new ImplicitTableDatabaseQuery("active = true")
 				);
 				for (Contact lclC : lclCs) {
 					%><tr>
