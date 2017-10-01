@@ -201,6 +201,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 			argOpener == '[' && argCloser == ']' ||
 			argOpener == '{' && argCloser == '}' ||
 			argOpener == '"' && argCloser == '"' ||
-			argOpener == '_' && argCloser == '_';
+			argOpener == '_' && argCloser == '_' ||
+			argOpener == '$' && argCloser == '$';
 	}
 }
