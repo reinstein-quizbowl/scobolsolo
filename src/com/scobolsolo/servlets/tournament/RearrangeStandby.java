@@ -29,7 +29,7 @@ public class RearrangeStandby extends ScobolSoloControllerServlet {
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			for (final StandbyEntry lclSE : lclSEs) {
-				lclSE.setSequence(getRequiredIntParameter(argRequest, "sequence-" + lclSE.getId()));
+				lclSE.setSequence(getRequiredIntParameter(argRequest, "position-" + lclSE.getId()));
 			}
 			
 			lclTC.complete();

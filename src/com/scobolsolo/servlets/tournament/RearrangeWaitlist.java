@@ -29,7 +29,7 @@ public class RearrangeWaitlist extends ScobolSoloControllerServlet {
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			for (final WaitlistEntry lclWE : lclWEs) {
-				lclWE.setSequence(getRequiredIntParameter(argRequest, "sequence-" + lclWE.getId()));
+				lclWE.setSequence(getRequiredIntParameter(argRequest, "position-" + lclWE.getId()));
 			}
 			
 			lclTC.complete();
