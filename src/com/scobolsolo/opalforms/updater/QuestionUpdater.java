@@ -9,6 +9,8 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
+import com.google.common.collect.ImmutableBiMap;
+
 import com.opal.LocalDateCache;
 import com.opal.cma.OpalFormUpdater;
 import com.opal.cma.Validator;
@@ -164,6 +166,20 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		validateBalance(argFieldName, argTextToValidate);
 	}
 	
+	// When updating this, be sure to update the description in the (potential) error message at the end of validateBalance()
+	public static final ImmutableBiMap<Character, Character> BALANCED_CHARACTER_PAIRS = ImmutableBiMap.<Character, Character>builder()
+		.put('(', ')')
+		.put('[', ']')
+		.put('{', '}')
+		.put('"', '"')
+		.put('_', '_')
+		.put('$', '$')
+		.build();
+	
+	protected boolean match(char argOpener, char argCloser) {
+		return BALANCED_CHARACTER_PAIRS.containsKey(argOpener) && BALANCED_CHARACTER_PAIRS.get(argOpener).charValue() == argCloser;
+	}
+	
 	protected void validateBalance(final String argFieldName, final String argTextToValidate) {
 		Validate.notBlank(argFieldName);
 		Validate.notBlank(argTextToValidate);
@@ -172,9 +188,9 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		boolean lclError = false;
 		
 		for (char lclC : argTextToValidate.toCharArray()) {
-			if (lclC == '(' || lclC == '[' || lclC == '{') {
+			if (BALANCED_CHARACTER_PAIRS.containsKey(lclC) && (lclStack.isEmpty() || lclStack.peek().charValue() != lclC)) {
 				lclStack.push(lclC);
-			} else if (lclC == ')' || lclC == ']' || lclC == '}') {
+			} else if (BALANCED_CHARACTER_PAIRS.inverse().containsKey(lclC)) {
 				if (lclStack.isEmpty()) {
 					lclError = true;
 					break;
@@ -191,17 +207,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		lclError = lclError || lclStack.isEmpty() == false;
 		
 		if (lclError) {
-			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, and underscores must be balanced correctly.");
+			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, underscores, and dollar signs must be balanced correctly: " + lclStack);
 		}
-	}
-	
-	protected boolean match(char argOpener, char argCloser) {
-		return
-			argOpener == '(' && argCloser == ')' ||
-			argOpener == '[' && argCloser == ']' ||
-			argOpener == '{' && argCloser == '}' ||
-			argOpener == '"' && argCloser == '"' ||
-			argOpener == '_' && argCloser == '_' ||
-			argOpener == '$' && argCloser == '$';
 	}
 }

@@ -48,12 +48,12 @@ if (lclOF.alreadyExists()) {
 <%= lclOF.open() %><%
 
 if (lclOF.hasErrors()) {
-	%><div class="row">
+	%><section class="row alert">
 		<div class="small-12 columns">
-			<p class="form-error-intro">Error:</p>
+			<h2 class="form-error-intro">Error:</h2>
 			<div class="form-errors"><%= lclOF.errors() %></div>
 		</div>
-	</div><%
+	</section><%
 }
 
 %><div class="row">
