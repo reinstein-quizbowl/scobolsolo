@@ -99,7 +99,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 columns">
 		<label>
 			<span title="This note sticks with the question.">Question Note</span>
-			<%= lclOF.textarea("Note", 80, 2) %>
+			<%= lclOF.textarea("Note", 80, 4) %>
 		</label>
 	</div>
 	<!-- <div class="small-12 columns">
