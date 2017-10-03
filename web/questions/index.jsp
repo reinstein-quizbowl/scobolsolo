@@ -25,6 +25,7 @@
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
+<%@ page import="com.scobolsolo.Utility" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Questions" />
@@ -69,10 +70,27 @@ if (lclSelectedTournaments.isEmpty()) {
 		</div>
 		</div>
 	</div><%
-	List<Question> lclQs = QuestionFactory.getInstance().getAll().stream()
-		.filter(argQ -> argQ.isUnused() ? lclShowUnused : argQ.streamPlacement().anyMatch(argPL -> lclSelectedTournaments.contains(argPL.getTournament())))
-		.sorted(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR))
-		.collect(Collectors.toList());
+	
+	StringBuilder lclSQL = new StringBuilder();
+	List<Object> lclParams = null;
+	if (lclShowUnused) {
+		lclSQL.append("id NOT IN (SELECT question_id FROM Placement)");
+	}
+	if (lclSelectedTournaments.isEmpty() == false) {
+		if (lclShowUnused) {
+			lclSQL.append(" OR ");
+		}
+		
+		lclSQL.append("id IN (SELECT question_id FROM Placement_v WHERE tournament_code IN (").append(Utility.nParameters(lclSelectedTournaments.size()) + "))");
+		lclParams = lclSelectedTournaments.stream().map(Tournament::getCode).collect(Collectors.toList());
+	}
+	
+	
+	List<Question> lclQs = QuestionFactory.getInstance().acquireForQuery(
+		new ArrayList<>(),
+		new ImplicitTableDatabaseQuery(lclSQL.toString(), lclParams)
+	);
+	lclQs.sort(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR));
 	
 	Map<Tournament, ListMultimap<Category, Question>> lclUsed = new HashMap<>(lclSelectedTournaments.size());
 	ListMultimap<Category, Question> lclUnused = ArrayListMultimap.create();
