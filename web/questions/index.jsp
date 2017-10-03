@@ -74,7 +74,7 @@ if (lclSelectedTournaments.isEmpty()) {
 	StringBuilder lclSQL = new StringBuilder();
 	List<Object> lclParams = null;
 	if (lclShowUnused) {
-		lclSQL.append("id NOT IN (SELECT question_id FROM Placement)");
+		lclSQL.append("id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL)");
 	}
 	if (lclSelectedTournaments.isEmpty() == false) {
 		if (lclShowUnused) {
