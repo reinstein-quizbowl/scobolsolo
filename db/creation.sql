@@ -314,8 +314,7 @@ CREATE TABLE Question (
 	text TEXT,
 	answer TEXT,
 	note TEXT,
-	question_status_code code_t DEFAULT 'DRAFTED' REFERENCES Question_Status ON UPDATE CASCADE ON DELETE RESTRICT,
-	UNIQUE(tournament_code, description)
+	question_status_code code_t DEFAULT 'DRAFTED' REFERENCES Question_Status ON UPDATE CASCADE ON DELETE RESTRICT
 );
 ALTER SEQUENCE question_id_seq RESTART WITH 1000;
 CREATE INDEX question_category_idx ON Question(category_code);
@@ -375,9 +374,9 @@ ALTER SEQUENCE packet_id_seq RESTART WITH 1000;
 CREATE TABLE Placement (
 	id SERIAL PRIMARY KEY,
 	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
-	question_id INTEGER REFERENCES Question ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament, if not NULL
-	packet_id INTEGER NOT NULL REFERENCES Packet ON UPDATE CASCADE ON DELETE RESTRICT, -- also implies the tournament; it would be nice to check against contradictions
-	sequence sequence_t,
+	question_id INTEGER REFERENCES Question ON UPDATE CASCADE ON DELETE RESTRICT,
+	packet_id INTEGER NOT NULL REFERENCES Packet ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament
+	number INTEGER,
 	tiebreaker BOOLEAN NOT NULL DEFAULT FALSE,
 	scorecheck_after BOOLEAN NOT NULL DEFAULT FALSE,
 	UNIQUE(question_id, packet_id)
@@ -386,6 +385,14 @@ ALTER SEQUENCE placement_id_seq RESTART WITH 1000;
 CREATE INDEX placement_question_idx ON Placement(question_id);
 CREATE INDEX placement_packet_idx ON Placement(packet_id);
 
+CREATE VIEW Placement_v AS
+SELECT
+	PL.id AS placement_id, PL.category_code, PL.question_id, PL.packet_id, PL.number, PL.tiebreaker, PL.scorecheck_after,
+	P.tournament_code, P.name AS packet_name, P.short_name AS packet_short_name, P.round_id, P.sequence AS packet_sequence, P.note AS packet_note, P.replacement_packet_id, P.questions_public
+FROM Placement PL
+	JOIN Packet P ON PL.packet_id = P.id;
+GRANT SELECT ON Placement_v TO scobolsolo;
+
 CREATE TABLE Response_Type (
 	code code_t PRIMARY KEY,
 	name name_t UNIQUE,
@@ -393,7 +400,8 @@ CREATE TABLE Response_Type (
 	sequence sequence_t,
 	points INTEGER NOT NULL,
 	is_default BOOLEAN NOT NULL DEFAULT FALSE,
-	multiple_allowed_for_same_placement BOOLEAN NOT NULL DEFAULT FALSE,
+	multiple_allowed_for_same_create table placement
+	BOOLEAN NOT NULL DEFAULT FALSE,
 	is_attempt BOOLEAN NOT NULL DEFAULT TRUE,
 	allows_further_attempts_to_same_question_in_match BOOLEAN NOT NULL DEFAULT FALSE,
 	show_for_non_exhibition_players BOOLEAN NOT NULL DEFAULT TRUE,
