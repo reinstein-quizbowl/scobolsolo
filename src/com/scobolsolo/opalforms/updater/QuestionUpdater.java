@@ -187,27 +187,33 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		Stack<Character> lclStack = new Stack<>();
 		boolean lclError = false;
 		
+		char lclPrevChar = ' ';
+		
 		for (char lclC : argTextToValidate.toCharArray()) {
-			if (BALANCED_CHARACTER_PAIRS.containsKey(lclC) && (lclStack.isEmpty() || lclStack.peek().charValue() != lclC)) {
-				lclStack.push(lclC);
-			} else if (BALANCED_CHARACTER_PAIRS.inverse().containsKey(lclC)) {
-				if (lclStack.isEmpty()) {
-					lclError = true;
-					break;
-				} else {
-					char lclOpener = lclStack.pop().charValue();
-					if (match(lclOpener, lclC) == false) {
+			if (lclPrevChar != '\\') {
+				if (BALANCED_CHARACTER_PAIRS.containsKey(lclC) && (lclStack.isEmpty() || lclStack.peek().charValue() != lclC)) {
+					lclStack.push(lclC);
+				} else if (BALANCED_CHARACTER_PAIRS.inverse().containsKey(lclC)) {
+					if (lclStack.isEmpty()) {
 						lclError = true;
 						break;
+					} else {
+						char lclOpener = lclStack.pop().charValue();
+						if (match(lclOpener, lclC) == false) {
+							lclError = true;
+							break;
+						}
 					}
 				}
 			}
+			
+			lclPrevChar = lclC;
 		}
 		
 		lclError = lclError || lclStack.isEmpty() == false;
 		
 		if (lclError) {
-			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, underscores, and dollar signs must be balanced correctly: " + lclStack);
+			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, underscores, and dollar signs must be balanced correctly.");
 		}
 	}
 }
