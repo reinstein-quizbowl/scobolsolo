@@ -15,9 +15,11 @@ import com.scobolsolo.persistence.RoundUserFacing;
  */
 
 public interface Round extends RoundUserFacing, Comparable<Round> {
+	static final Comparator<Round> NATURAL_COMPARATOR = Comparator.comparing(Round::getRoundGroup).thenComparingInt(Round::getSequence);
+	
 	@Override
 	default int compareTo(Round that) {
-		return Comparator.comparing(Round::getRoundGroup).thenComparingInt(Round::getSequence).compare(this, that);
+		return NATURAL_COMPARATOR.compare(this, that);
 	}
 	
 	default String getNameWithStartTime() {

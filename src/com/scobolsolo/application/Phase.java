@@ -15,9 +15,11 @@ import com.scobolsolo.persistence.PhaseUserFacing;
  */
 
 public interface Phase extends PhaseUserFacing, Comparable<Phase> {
+	static final Comparator<Phase> NATURAL_COMPARATOR = Comparator.comparing(Phase::getTournament).thenComparingInt(Phase::getSequence);
+	
 	@Override
 	default public int compareTo(Phase that) {
-		return Comparator.comparing(Phase::getTournament).thenComparingInt(Phase::getSequence).compare(this, that);
+		return NATURAL_COMPARATOR.compare(this, that);
 	}
 	
 	default List<Round> getRounds() {

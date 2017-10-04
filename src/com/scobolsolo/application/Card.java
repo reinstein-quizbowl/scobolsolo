@@ -17,9 +17,11 @@ import com.scobolsolo.persistence.CardUserFacing;
  */
 
 public interface Card extends CardUserFacing, Comparable<Card> {
+	static final Comparator<Card> NATURAL_COMPARATOR = Comparator.comparing(Card::getPhase).thenComparingInt(Card::getSequence);
+	
 	@Override
 	default int compareTo(final Card that) {
-		return Comparator.comparing(Card::getPhase).thenComparingInt(Card::getSequence).compare(this, that);
+		return NATURAL_COMPARATOR.compare(this, that);
 	}
 	
 	default Tournament getTournament() {

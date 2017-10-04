@@ -16,9 +16,11 @@ import com.scobolsolo.persistence.PlacementUserFacing;
  */
 
 public interface Placement extends PlacementUserFacing, Comparable<Placement> {
+	static final Comparator<Placement> NATURAL_COMPARATOR = Comparator.comparing(Placement::getPacket).thenComparingInt(Placement::getNumber);
+	
 	@Override
 	default int compareTo(Placement that) {
-		return Comparator.comparing(Placement::getPacket).thenComparingInt(Placement::getNumber).compare(this, that);
+		return NATURAL_COMPARATOR.compare(this, that);
 	}
 	
 	default boolean isReplaceable() {

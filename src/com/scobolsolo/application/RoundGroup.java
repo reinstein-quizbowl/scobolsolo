@@ -14,9 +14,11 @@ import com.scobolsolo.persistence.RoundGroupUserFacing;
  */
 
 public interface RoundGroup extends RoundGroupUserFacing, Comparable<RoundGroup> {
+	static final Comparator<RoundGroup> NATURAL_COMPARATOR = Comparator.comparing(RoundGroup::getPhase).thenComparingInt(RoundGroup::getSequence);
+	
 	@Override
 	default int compareTo(RoundGroup that) {
-		return Comparator.comparing(RoundGroup::getPhase).thenComparingInt(RoundGroup::getSequence).compare(this, that);
+		return NATURAL_COMPARATOR.compare(this, that);
 	}
 	
 	// FIXME: This is a ridiculous way to do this.

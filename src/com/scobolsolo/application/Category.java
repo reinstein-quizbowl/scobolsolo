@@ -13,9 +13,11 @@ import com.scobolsolo.persistence.CategoryUserFacing;
  */
 
 public interface Category extends CategoryUserFacing, Comparable<Category> {
+	static final Comparator<Category> NATURAL_COMPARATOR = Comparator.comparing(Category::getCategoryGroup).thenComparing(Category::getSequence);
+	
 	@Override
 	default int compareTo(Category that) {
-		return Comparator.comparing(Category::getCategoryGroup).thenComparing(Category::getSequence).compare(this, that);
+		return NATURAL_COMPARATOR.compare(this, that);
 	}
 	
 	default boolean isUsedAt(Tournament argT) {

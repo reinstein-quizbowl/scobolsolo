@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.Validate;
+
 import com.opal.LocalDateCache;
 
 import com.scobolsolo.persistence.TournamentUserFacing;
@@ -21,15 +23,6 @@ import com.scobolsolo.persistence.TournamentUserFacing;
  */
 
 public interface Tournament extends TournamentUserFacing {
-	public static Tournament findNext() {
-		LocalDate lclToday = LocalDateCache.today();
-		
-		return TournamentFactory.getInstance().getAll().stream()
-			.filter(argT -> argT.getDate().isBefore(lclToday) == false)
-			.sorted()
-			.findFirst().orElse(null);
-	}
-	
 	default List<Player> getPlayers() {
 		return streamSchoolRegistration().flatMap(SchoolRegistration::streamPlayer).collect(Collectors.toList());
 	}
@@ -130,5 +123,14 @@ public interface Tournament extends TournamentUserFacing {
 	
 	default Phase findFirstPhase() {
 		return streamPhase().min(Comparator.naturalOrder()).orElse(null);
+	}
+	
+	public static Tournament findNext() {
+		LocalDate lclToday = LocalDateCache.today();
+		
+		return TournamentFactory.getInstance().getAll().stream()
+			.filter(argT -> argT.getDate().isBefore(lclToday) == false)
+			.sorted()
+			.findFirst().orElse(null);
 	}
 }
