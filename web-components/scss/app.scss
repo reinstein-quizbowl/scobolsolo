@@ -24,19 +24,22 @@ td div.switch {
 abbr, acronym {
 	text-transform: none !important;
 	font-size: 100% !important;
+	
+	&[title] {
+		text-decoration: none;
+	}
 }
 
-.has-tip:not(.stealth-tooltip), [title]:not(.stealth-tooltip), .tooltipped {
-	text-decoration-line: underline;
-	text-decoration-style: dotted;
-	text-decoration-color: $dark-gray;
+a.has-tip {
+	color: $primary-color;
 }
+
 
 [title].stealth-tooltip {
 	border-bottom: none;
 	font-weight: 400;
 	
-	:hover {
+	&:hover {
 		border-bottom: none;
 	}
 }
@@ -147,10 +150,6 @@ table:not(.unsortable) thead tr .tablesorter-headerDesc {
 	table.even-spacing {
 		table-layout: fixed;
 	}
-}
-
-a.has-tip {
-	color: $primary-color;
 }
 
 h1#mainHeader {
