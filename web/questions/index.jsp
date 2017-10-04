@@ -10,15 +10,18 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.stream.Collectors" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="org.apache.commons.lang3.tuple.Pair" %>
+<%@ page import="com.google.common.collect.Multimaps" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
-<%@ page import="com.google.common.collect.ArrayListMultimap" %>
 <%@ page import="com.siliconage.util.WebDataFilter" %>
+<%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.scobolsolo.application.Category" %>
 <%@ page import="com.scobolsolo.application.Diff" %>
 <%@ page import="com.scobolsolo.application.Placement" %>
+<%@ page import="com.scobolsolo.application.PlacementFactory" %>
 <%@ page import="com.scobolsolo.application.Question" %>
 <%@ page import="com.scobolsolo.application.QuestionFactory" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
@@ -71,66 +74,45 @@ if (lclSelectedTournaments.isEmpty()) {
 		</div>
 	</div><%
 	
-	StringBuilder lclSQL = new StringBuilder();
-	List<Object> lclParams = null;
 	if (lclShowUnused) {
-		lclSQL.append("id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL)");
-	}
-	if (lclSelectedTournaments.isEmpty() == false) {
-		if (lclShowUnused) {
-			lclSQL.append(" OR ");
-		}
+		List<Question> lclUnused = QuestionFactory.getInstance().acquireForQuery(
+			new ArrayList<>(),
+			new ImplicitTableDatabaseQuery("id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL)")
+		);
+		lclUnused.sort(Question.CATEGORY_COMPARATOR);
 		
-		lclSQL.append("id IN (SELECT question_id FROM Placement_v WHERE tournament_code IN (").append(Utility.nParameters(lclSelectedTournaments.size()) + "))");
-		lclParams = lclSelectedTournaments.stream().map(Tournament::getCode).collect(Collectors.toList());
-	}
-	
-	
-	List<Question> lclQs = QuestionFactory.getInstance().acquireForQuery(
-		new ArrayList<>(),
-		new ImplicitTableDatabaseQuery(lclSQL.toString(), lclParams)
-	);
-	lclQs.sort(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR));
-	
-	Map<Tournament, ListMultimap<Category, Question>> lclUsed = new HashMap<>(lclSelectedTournaments.size());
-	ListMultimap<Category, Question> lclUnused = ArrayListMultimap.create();
-	for (Question lclQ : lclQs) {
-		if (lclQ.isUsed()) {
-			for (Placement lclPL : lclQ.getPlacementSet()) {
-				if (!lclUsed.containsKey(lclPL.getTournament())) {
-					lclUsed.put(lclPL.getTournament(), ArrayListMultimap.create());
-				}
-				lclUsed.get(lclPL.getTournament()).put(lclQ.getCategory(), lclQ);
-			}
-		} else {
-			lclUnused.put(lclQ.getCategory(), lclQ);
-		}
-	}
-	
-	if (lclShowUnused) {
 		%><div class="row">
 			<div class="small-12 columns">
 				<h2>
 					<a onclick="$('#unused').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
 					Unused (<%= lclUnused.size() %>)
 				</h2>
-				<div id="unused"><%= outputTables(null, lclUnused) %></div>
+				<div id="unused"><%= outputUnusedQuestionTables(Multimaps.index(lclUnused, Question::getCategory)) %></div>
 			</div>
 		</div><%
 	}
 	
 	for (Tournament lclT : lclSelectedTournaments) {
-		if (lclUsed.containsKey(lclT)) {
-			%><div class="row">
-				<div class="small-12 columns">
-					<h2>
+		// In principle, this will run n queries for n selected tournaments (plus the one query for unused questions, if applicable).  This is inefficient and not really necessary, but it makes the code cleaner and it's pretty unusual to use this page with multiple selected tournaments.
+		List<Placement> lclPLs = PlacementFactory.getInstance().acquireForQuery(
+			new ArrayList<>(),
+			new DatabaseQuery("SELECT PL.* FROM Placement PL JOIN Packet P ON PL.packet_id = P.id WHERE PL.question_id IS NOT NULL AND P.tournament_code = ?", lclT.getCode())
+		);
+		lclPLs.sort(null);
+		
+		%><div class="row">
+			<div class="small-12 columns"><%
+				if (lclPLs.isEmpty()) {
+					%><h2><%= lclT.getName() %>: No Questions</h2><%
+				} else {
+					%><h2>
 						<a onclick="$('#<%= lclT.getCode() %>').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
-						<%= lclT.getName() %> (<%= lclUsed.get(lclT).size() %>)
+						<%= lclT.getName() %> (<%= lclPLs.size() %>)
 					</h2>
-					<div id="<%= lclT.getCode() %>"><%= outputTables(lclT, lclUsed.get(lclT)) %></div>
-				</div>
-			</div><%
-		}
+					<div id="<%= lclT.getCode() %>"><%= outputTournamentCategoryTables(lclT, Multimaps.index(lclPLs, Placement::getCategory)) %></div><%
+				}
+			%></div>
+		</div><%
 	}
 %></form>
 
@@ -146,99 +128,153 @@ if (lclSelectedTournaments.isEmpty()) {
 
 <jsp:include page="/template/footer.jsp" />
 <%!
-String outputTables(Tournament argT, ListMultimap<Category, Question> argCategorizedQuestions) {
+String outputUnusedQuestionTables(ListMultimap<Category, Question> argMM) {
 	// argT may be null; this indicates unused questions
-	Validate.notNull(argCategorizedQuestions);
+	Validate.notNull(argMM);
 	
-	if (argCategorizedQuestions.isEmpty()) {
+	if (argMM.isEmpty()) {
 		return "<p>[no questions]</p>";
 	} else {
 		StringBuilder lclSB = new StringBuilder();
-		List<Category> lclCategories = new ArrayList<>(argCategorizedQuestions.keySet());
+		List<Category> lclCategories = new ArrayList<>(argMM.keySet());
 		lclCategories.sort(null);
 		
 		for (Category lclC : lclCategories) {
-			String lclTableId = argT == null ? "unused_" + lclC.getCode() : argT.getCode() + '_' + lclC.getCode();
-			String lclCollapseToggleLinkId = "collapse_toggle_" + lclTableId;
-			
-			lclSB.append("<h3><a onclick=\"$('#" + lclTableId + "').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> " + lclC.getName() + " (" + argCategorizedQuestions.get(lclC).size() + ")</h3>")
-			.append("<table id=\"" + lclTableId + "\" class=\"responsive full-width\">")
-				.append("<thead>")
-					.append("<tr>")
-						.append("<th>ID</th>")
-						.append("<th><span title=\"Typically the answer to the question. Could be something longer, like 'France from opera clues'.\">Description</span></th>")
-						.append("<th>Status</th>")
-						.append("<th>Preview</th>")
-						.append("<th>Last Updated</th>")
-						.append("<th>Packet</th>")
-					.append("</tr>")
-				.append("</thead>")
-				.append("<tbody>");
-				
-				List<Question> lclQs = argCategorizedQuestions.get(lclC);
-				if (argT != null) {
-					lclQs = lclQs.stream()
-						.map(argQ -> argQ.findPlacement(argT))
-						.sorted()
-						.map(Placement::getQuestion)
-						.collect(Collectors.toList()); // This is pretty inelegant. The goal is to get the questions into the order they're actually used at the tournament (if any), but is there a better way?
-				}
-				
-				for (Question lclQ : lclQs) {
-					lclSB.append("<tr>")
-							.append("<td><a href=\"question-edit.jsp?question_id=" + lclQ.getId() + "\">" + lclQ.getId() + "</a></td>")
-							.append("<td>" + lclQ.getDescription() + "</td>")
-							.append("<td>" + lclQ.getStatus().getName() + "</td>");
-							
-							List<Pair<String, String>> lclPreviews = new ArrayList<>(3);
-							if (lclQ.getText() != null) {
-								lclPreviews.add(Pair.of("Text", lclQ.getText()));
-							}
-							if (lclQ.getAnswer() != null) {
-								lclPreviews.add(Pair.of("Answer", lclQ.getAnswer()));
-							}
-							if (lclQ.getNote() != null) {
-								lclPreviews.add(Pair.of("Note", lclQ.getNote()));
-							}
-							
-							if (lclPreviews.isEmpty()) {
-								lclSB.append("<td>&nbsp;</td>");
-							} else {
-								lclSB.append("<td>");
-								Iterator<Pair<String, String>> lclPreviewI = lclPreviews.iterator();
-								while (lclPreviewI.hasNext()) {
-									Pair<String, String> lclPair = lclPreviewI.next();
-									String lclLabel = lclPair.getLeft();
-									String lclFull = lclPair.getRight();
-									lclSB.append("<span title=\"" + WebDataFilter.scrub(lclFull) + "\">" + lclLabel + "</span>");
-									
-									if (lclPreviewI.hasNext()) {
-										lclSB.append("&nbsp;/&nbsp;");
-									}
-								}
-								lclSB.append("</td>");
-							}
-							
-							Diff lclLastChange = lclQ.getCurrentDiff();
-							if (lclLastChange == null) {
-								lclSB.append("<td>&nbsp;</td>");
-							} else {
-								lclSB.append("<td>" + DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(lclLastChange.getTimestamp()) + " by " + lclLastChange.getEditor().getName() + "</td>");
-							}
-							
-							if (argT == null) {
-								lclSB.append("<td>&nbsp;</td>");
-							} else {
-								Placement lclPL = Validate.notNull(lclQ.findPlacement(argT));
-								lclSB.append("<td>" + lclPL.getString() + "</td>");
-							}
-					lclSB.append("</tr>");
-				}
-				lclSB.append("</tbody>")
-			.append("</table>");
+			appendBeginning(lclSB, null, lclC, argMM.get(lclC).size());
+			appendUnusedQuestionRows(lclSB, argMM.get(lclC));
+			lclSB.append("</tbody></table>");
 		}
 		
 		return lclSB.toString();
+	}
+}
+
+String outputTournamentCategoryTables(Tournament argT, ListMultimap<Category, Placement> argMM) {
+	Validate.notNull(argT);
+	Validate.notNull(argMM);
+	
+	if (argMM.isEmpty()) {
+		return "<p>[no questions]</p>";
+	} else {
+		StringBuilder lclSB = new StringBuilder();
+		List<Category> lclCategories = new ArrayList<>(argMM.keySet());
+		lclCategories.sort(null);
+		
+		for (Category lclC : lclCategories) {
+			appendBeginning(lclSB, argT, lclC, argMM.get(lclC).size());
+			appendPlacedQuestionRows(lclSB, argMM.get(lclC));
+			lclSB.append("</tbody></table>");
+		}
+		
+		return lclSB.toString();
+	}
+}
+
+void appendBeginning(StringBuilder argSB, Tournament argT, Category argCat, int argCount) {
+	Validate.notNull(argSB);
+	// argT may be null, which indicates unused questions
+	Validate.notNull(argCat);
+	
+	String lclTableId = argT == null ? "unused_" + argCat.getCode() : argT.getCode() + '_' + argCat.getCode();
+	String lclCollapseToggleLinkId = "collapse_toggle_" + lclTableId;
+	
+	argSB.append("<h3><a onclick=\"$('#" + lclTableId + "').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> " + argCat.getName() + " (" + argCount + ")</h3>")
+	.append("<table id=\"" + lclTableId + "\" class=\"responsive full-width\">")
+		.append("<thead>")
+			.append("<tr>")
+				.append("<th>ID</th>")
+				.append("<th><span title=\"Typically the answer to the question. Could be something longer, like 'France from opera clues'.\">Description</span></th>")
+				.append("<th>Status</th>")
+				.append("<th>Preview</th>")
+				.append("<th>Last Updated</th>")
+				.append(argT == null ? "" : "<th>Packet</th>")
+			.append("</tr>")
+		.append("</thead>")
+		.append("<tbody>");
+}
+
+void appendUnusedQuestionRows(StringBuilder argSB, List<Question> argQs) {
+	Validate.notNull(argSB);
+	Validate.notEmpty(argQs);
+	
+	for (Question lclQ : argQs) {
+		appendRow(argSB, lclQ);
+	}
+}
+
+void appendPlacedQuestionRows(StringBuilder argSB, List<Placement> argPLs) {
+	Validate.notNull(argSB);
+	Validate.notEmpty(argPLs);
+	
+	for (Placement lclPL : argPLs) {
+		appendRow(argSB, lclPL);
+	}
+}
+
+void appendRow(StringBuilder argSB, Question argQ) {
+	Validate.notNull(argSB);
+	Validate.notNull(argQ);
+	
+	argSB.append("<tr>");
+	appendQuestionData(argSB, argQ);
+	argSB.append("</tr>");
+}
+
+void appendRow(StringBuilder argSB, Placement argPL) {
+	Validate.notNull(argSB);
+	Validate.notNull(argPL);
+	Validate.isTrue(argPL.isFilled());
+	
+	Question lclQ = argPL.getQuestion();
+	
+	argSB.append("<tr>");
+	appendQuestionData(argSB, lclQ);
+	argSB.append("<td>" + argPL.getString() + "</td>");
+	argSB.append("</tr>");
+}
+
+void appendQuestionData(StringBuilder argSB, Question argQ) {
+	Validate.notNull(argSB);
+	Validate.notNull(argQ);
+	
+	argSB.append("<td><a href=\"question-edit.jsp?question_id=" + argQ.getId() + "\">" + argQ.getId() + "</a></td>")
+	.append("<td>" + argQ.getDescription() + "</td>")
+	.append("<td>" + argQ.getStatus().getName() + "</td>");
+	
+	List<Pair<String, String>> lclPreviews = new ArrayList<>(3);
+	if (StringUtils.isNotBlank(argQ.getText())) {
+		lclPreviews.add(Pair.of("Text", argQ.getText()));
+	}
+	if (StringUtils.isNotBlank(argQ.getAnswer())) {
+		lclPreviews.add(Pair.of("Answer", argQ.getAnswer()));
+	}
+	if (StringUtils.isNotBlank(argQ.getNote())) {
+		lclPreviews.add(Pair.of("Note", argQ.getNote()));
+	}
+	
+	if (lclPreviews.isEmpty()) {
+		argSB.append("<td>&nbsp;</td>");
+	} else {
+		argSB.append("<td>");
+		Iterator<Pair<String, String>> lclPreviewI = lclPreviews.iterator();
+		while (lclPreviewI.hasNext()) {
+			Pair<String, String> lclPair = lclPreviewI.next();
+			String lclLabel = lclPair.getLeft();
+			String lclFull = lclPair.getRight();
+			argSB.append("<span title=\"" + WebDataFilter.scrub(lclFull) + "\">" + lclLabel + "</span>");
+			
+			if (lclPreviewI.hasNext()) {
+				argSB.append("&nbsp;/&nbsp;");
+			}
+		}
+		argSB.append("</td>");
+	}
+	
+	Diff lclLastChange = argQ.getCurrentDiff();
+	if (lclLastChange == null) {
+		argSB.append("<td>&nbsp;</td>");
+	} else {
+		argSB.append("<td>" + DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(lclLastChange.getTimestamp()) + " by " + lclLastChange.getEditor().getName() + "</td>");
 	}
 }
 %>

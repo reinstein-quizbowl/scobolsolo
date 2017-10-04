@@ -13,13 +13,15 @@
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="org.apache.commons.lang3.exception.ExceptionUtils" %>
 <%@ page import="org.apache.commons.lang3.tuple.Pair" %>
+<%@ page import="com.google.common.collect.Multimaps" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
-<%@ page import="com.google.common.collect.ArrayListMultimap" %>
 <%@ page import="com.siliconage.util.WebDataFilter" %>
+<%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.scobolsolo.application.Category" %>
 <%@ page import="com.scobolsolo.application.Diff" %>
 <%@ page import="com.scobolsolo.application.Placement" %>
+<%@ page import="com.scobolsolo.application.PlacementFactory" %>
 <%@ page import="com.scobolsolo.application.Question" %>
 <%@ page import="com.scobolsolo.application.QuestionFactory" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
@@ -41,7 +43,7 @@ if (lclSelectedTournaments.isEmpty()) {
 	TournamentFactory.getInstance().acquireForQuery(lclSelectedTournaments, new ImplicitTableDatabaseQuery("date > NOW()"));
 }
 
-%><form action="index.jsp" method="get">
+%><form action="render-all.jsp" method="get">
 	<div class="row">
 		<div class="small-12 medium-4 large-2 columns">
 			<label>Show&nbsp;questions&hellip;</label>
@@ -71,47 +73,39 @@ if (lclSelectedTournaments.isEmpty()) {
 	</div>
 </div><%
 
-
-List<Question> lclQs = QuestionFactory.getInstance().getAll().stream()
-	.filter(argQ -> argQ.isUnused() ? lclShowUnused : argQ.streamPlacement().anyMatch(argPL -> lclSelectedTournaments.contains(argPL.getTournament())))
-	.sorted(Comparator.<Question>comparingInt(argQ -> argQ.isUsed() ? 1 : 0).thenComparing(Question.CATEGORY_COMPARATOR))
-	.collect(Collectors.toList());
-
-Map<Tournament, ListMultimap<Category, Question>> lclUsed = new HashMap<>(lclSelectedTournaments.size());
-ListMultimap<Category, Question> lclUnused = ArrayListMultimap.create();
-for (Question lclQ : lclQs) {
-	if (lclQ.isUsed()) {
-		for (Placement lclPL : lclQ.getPlacementSet()) {
-			if (!lclUsed.containsKey(lclPL.getTournament())) {
-				lclUsed.put(lclPL.getTournament(), ArrayListMultimap.create());
-			}
-			lclUsed.get(lclPL.getTournament()).put(lclQ.getCategory(), lclQ);
-		}
-	} else {
-		lclUnused.put(lclQ.getCategory(), lclQ);
-	}
-}
-
 if (lclShowUnused) {
+	List<Question> lclUnused = QuestionFactory.getInstance().acquireForQuery(
+		new ArrayList<>(),
+		new ImplicitTableDatabaseQuery("id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL)")
+	);
+	lclUnused.sort(Question.CATEGORY_COMPARATOR);
+	
 	%><div class="row">
 		<div class="small-12 columns">
 			<h2>
 				<a onclick="$('#unused').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
 				Unused (<%= lclUnused.size() %>)
 			</h2>
-			<div id="unused"><%= renderAll(null, lclUnused) %></div>
+			<div id="unused"><%= renderUnused(Multimaps.index(lclUnused, Question::getCategory)) %></div>
 		</div>
 	</div><%
 }
 
 for (Tournament lclT : lclSelectedTournaments) {
+	// In principle, this will run n queries for n selected tournaments (plus the one query for unused questions, if applicable).  This is inefficient and not really necessary, but it makes the code cleaner and it's pretty unusual to use this page with multiple selected tournaments.
+	List<Placement> lclPLs = PlacementFactory.getInstance().acquireForQuery(
+		new ArrayList<>(),
+		new DatabaseQuery("SELECT PL.* FROM Placement PL JOIN Packet P ON PL.packet_id = P.id WHERE PL.question_id IS NOT NULL AND P.tournament_code = ?", lclT.getCode())
+	);
+	lclPLs.sort(null);
+	
 	%><div class="row">
 		<div class="small-12 columns">
 			<h2>
 				<a onclick="$('#<%= lclT.getCode() %>').toggle('slow'); flipIcon(this)" class="fa fa-compress"></a>
-				<%= lclT.getName() %> (<%= lclUsed.get(lclT).size() %>)
+				<%= lclT.getName() %> (<%= lclPLs.size() %>)
 			</h2>
-			<div id="<%= lclT.getCode() %>"><%= renderAll(lclT, lclUsed.get(lclT)) %></div>
+			<div id="<%= lclT.getCode() %>"><%= renderUsed(lclT, Multimaps.index(lclPLs, Placement::getCategory)) %></div>
 		</div>
 	</div><%
 }
@@ -129,58 +123,27 @@ for (Tournament lclT : lclSelectedTournaments) {
 
 <jsp:include page="/template/footer.jsp" />
 <%!
-String renderAll(Tournament argT, ListMultimap<Category, Question> argCategorizedQuestions) {
-	// argT may be null; this indicates unused questions
-	Validate.notNull(argCategorizedQuestions);
+
+// TODO: The following few methods could probably be DRYed up a bit more
+
+String renderUnused(ListMultimap<Category, Question> argMM) {
+	Validate.notNull(argMM);
 	
-	if (argCategorizedQuestions.isEmpty()) {
+	if (argMM.isEmpty()) {
 		return "<p>[no questions]</p>";
 	} else {
 		StringBuilder lclSB = new StringBuilder();
-		List<Category> lclCategories = new ArrayList<>(argCategorizedQuestions.keySet());
+		List<Category> lclCategories = new ArrayList<>(argMM.keySet());
 		lclCategories.sort(null);
 		
 		for (Category lclC : lclCategories) {
-			String lclSectionId = argT == null ? "unused_" + lclC.getCode() : argT.getCode() + '_' + lclC.getCode();
+			String lclSectionId = "unused_" + lclC.getCode();
 			String lclCollapseToggleLinkId = "collapse_toggle_" + lclSectionId;
 			
-			lclSB.append("<h3><a onclick=\"$('#" + lclSectionId + "').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> " + lclC.getName() + " (" + argCategorizedQuestions.get(lclC).size() + ")</h3>")
+			lclSB.append("<h3><a onclick=\"$('#" + lclSectionId + "').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> " + lclC.getName() + " (" + argMM.get(lclC).size() + ")</h3>")
 				.append("<section id=\"").append(lclSectionId).append("\">");
 			
-			List<Question> lclQs = argCategorizedQuestions.get(lclC);
-			if (argT != null) {
-				lclQs = lclQs.stream()
-					.map(argQ -> argQ.findPlacement(argT))
-					.sorted()
-					.map(Placement::getQuestion)
-					.collect(Collectors.toList()); // This is pretty inelegant. The goal is to get the questions into the order they're actually used at the tournament (if any), but is there a better way?
-			}
-			
-			for (Question lclQ : lclQs) {
-				String lclPlacementString;
-				if (argT == null) {
-					lclPlacementString = "";
-				} else {
-					Placement lclPL = Validate.notNull(lclQ.findPlacement(argT));
-					lclPlacementString = ": " + lclPL.getString();
-				}
-				
-				try {
-					lclSB.append("<h4>")
-						.append("<a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">").append(lclQ.getDescription()).append("</a>")
-						.append(lclPlacementString)
-						.append("</h4>")
-						.append("<p class=\"question-text small\">").append(Question.outputTextHTML(lclQ.getCurrentDiff(), Question.SHOW_PRONUNCIATION_GUIDES)).append("</p>")
-						.append("<p class=\"question-answer small\">").append(Question.outputAnswerHTML(lclQ.getCurrentDiff(), true)).append("</p>");
-					if (lclQ.getNote() != null) {
-						lclSB.append("<p class=\"question-note small\">").append(WebDataFilter.scrubForHTMLDisplay(lclQ.getNote())).append("</p>");
-					}
-				} catch (Exception lclE) {
-					lclSB.append("<h4 class=\"error\">Couldn't output <a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">#").append(lclQ.getId()).append("</a></h4>")
-						.append("<p>").append(WebDataFilter.scrubForHTMLDisplay(lclE.getClass().getName())).append(": ").append(WebDataFilter.scrubForHTMLDisplay(lclE.getMessage())).append("</p>")
-						.append("<pre>").append(ExceptionUtils.getStackTrace(lclE)).append("</pre>");
-				}
-			}
+			appendQuestions(lclSB, argMM.get(lclC));
 			
 			lclSB.append("</section>");
 		}
@@ -188,4 +151,78 @@ String renderAll(Tournament argT, ListMultimap<Category, Question> argCategorize
 		return lclSB.toString();
 	}
 }
+
+String renderUsed(Tournament argT, ListMultimap<Category, Placement> argMM) {
+	Validate.notNull(argT);
+	Validate.notNull(argMM);
+	
+	if (argMM.isEmpty()) {
+		return "<p>[no questions]</p>";
+	} else {
+		StringBuilder lclSB = new StringBuilder();
+		List<Category> lclCategories = new ArrayList<>(argMM.keySet());
+		lclCategories.sort(null);
+		
+		for (Category lclC : lclCategories) {
+			String lclSectionId = "unused_" + lclC.getCode();
+			String lclCollapseToggleLinkId = "collapse_toggle_" + lclSectionId;
+			
+			lclSB.append("<h3><a onclick=\"$('#" + lclSectionId + "').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> " + lclC.getName() + " (" + argMM.get(lclC).size() + ")</h3>")
+				.append("<section id=\"").append(lclSectionId).append("\">");
+			
+			appendPlacements(lclSB, argMM.get(lclC));
+			
+			lclSB.append("</section>");
+		}
+		
+		return lclSB.toString();
+	}
+}
+
+void appendQuestions(StringBuilder argSB, List<Question> argQs) {
+	Validate.notEmpty(argSB);
+	Validate.notEmpty(argQs);
+	
+	for (Question lclQ : argQs) {
+		argSB.append("<h4>")
+			.append("<a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">").append(lclQ.getDescription()).append("</a>")
+			.append("</h4>");
+		
+		appendQuestion(argSB, lclQ);
+	}
+}
+
+void appendPlacements(StringBuilder argSB, List<Placement> argPLs) {
+	Validate.notEmpty(argSB);
+	Validate.notEmpty(argPLs);
+	
+	for (Placement lclPL : argPLs) {
+		Validate.isTrue(lclPL.isFilled());
+		Question lclQ = lclPL.getQuestion();
+		
+		argSB.append("<h4>")
+			.append("<a href=\"question-edit.jsp?question_id=").append(lclQ.getId()).append("\">").append(lclQ.getDescription()).append("</a>: ").append(lclPL.getString())
+			.append("</h4>");
+		
+		appendQuestion(argSB, lclQ);
+	}
+}
+
+void appendQuestion(StringBuilder argSB, Question argQ) {
+	Validate.notNull(argSB);
+	Validate.notNull(argQ);
+		
+	try {
+		argSB.append("<p class=\"question-text small\">").append(Question.outputTextHTML(argQ.getCurrentDiff(), Question.SHOW_PRONUNCIATION_GUIDES)).append("</p>")
+			.append("<p class=\"question-answer small\">").append(Question.outputAnswerHTML(argQ.getCurrentDiff(), true)).append("</p>");
+		if (argQ.getNote() != null) {
+			argSB.append("<p class=\"question-note small\">").append(argQ.getNote()).append("</p>");
+		}
+	} catch (Exception lclE) {
+		argSB.append("<h4 class=\"error\">Couldn't output <a href=\"question-edit.jsp?question_id=").append(argQ.getId()).append("\">#").append(argQ.getId()).append("</a></h4>")
+			.append("<p>").append(WebDataFilter.scrubForHTMLDisplay(lclE.getClass().getName())).append(": ").append(WebDataFilter.scrubForHTMLDisplay(lclE.getMessage())).append("</p>")
+			.append("<pre>").append(ExceptionUtils.getStackTrace(lclE)).append("</pre>");
+	}
+}
+
 %>
