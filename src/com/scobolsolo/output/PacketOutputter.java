@@ -231,6 +231,14 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 					lclSB.append("{\\syl}");
 					break;
 				
+				case '>':
+					if (lclInMath) {
+						lclSB.append('>');
+					} else {
+						lclSB.append('~');
+					}
+					break;
+				
 				default:
 					lclSB.append(lclC);
 			}

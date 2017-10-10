@@ -518,6 +518,14 @@ public interface Question extends QuestionUserFacing {
 							lclSB.append("&amp;");
 							break;
 						
+						case '>':
+							if (lclInMath) {
+								lclSB.append('>');
+							} else {
+								lclSB.append("&nbsp;");
+							}
+							break;
+						
 						default:
 							lclSB.append(lclC);
 					}
