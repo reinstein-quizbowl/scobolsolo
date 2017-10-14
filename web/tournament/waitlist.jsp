@@ -142,16 +142,20 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 		}
 	}
 	
-	$(document).ready(function() {
-		$("#sortable").sortable({
-			axis: 'y',
-			containment: 'parent',
-			cursor: 'grabbing',
-			change: function (event, ui) {update();}
-		});
-		
-		update();
-	});
+	$(document).ready(
+		function() {
+			$("#sortable").sortable(
+				{
+					axis: 'y',
+					containment: 'parent',
+					cursor: 'grabbing',
+					change: function(event, ui) {update();}
+				}
+			);
+			
+			update();
+		}
+	);
 </script>
 
 <jsp:include page="/template/footer.jsp" />
