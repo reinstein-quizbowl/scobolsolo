@@ -64,19 +64,19 @@ if (lclIncompleteTournaments.isEmpty()) {
 		</div>
 	</div><%
 	
-	List<Question> lclUnusedQuestions = QuestionFactory.getInstance().acquireForQuery(
+	List<Diff> lclUnusedQuestionDiffs = DiffFactory.getInstance().acquireForQuery(
 		new ArrayList<>(),
 		new DatabaseQuery(
-			"SELECT Q.* FROM Question Q WHERE " +
+			"SELECT CD.* FROM Current_Diff CD WHERE " +
 			"( " +
-				"id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL) OR " +
-				"id IN (SELECT question_id FROM Placement PL JOIN Packet P ON PL.packet_id = P.id JOIN Tournament T ON P.tournament_code = T.code WHERE PL.question_id IS NOT NULL AND T.questions_complete = false) " + 
+				"question_id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL) OR " +
+				"question_id IN (SELECT question_id FROM Placement PL JOIN Packet P ON PL.packet_id = P.id JOIN Tournament T ON P.tournament_code = T.code WHERE PL.question_id IS NOT NULL AND T.questions_complete = false) " + 
 			") AND question_status_code IN (" + Utility.nParameters(lclChosenStatuses.size()) + ")",
 			lclChosenStatuses.stream().map(QuestionStatus::getCode).collect(Collectors.toList())
 		)
 	);
 	
-	Tally<Category> lclWritten = Tally.of(lclUnusedQuestions, Question::getCategory);
+	Tally<Category> lclWritten = Tally.of(lclUnusedQuestionDiffs, Diff::getCategory);
 	
 	Tally<Category> lclNeeded = new Tally<>();
 	for (Tournament lclT : lclIncompleteTournaments) {
