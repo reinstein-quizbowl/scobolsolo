@@ -138,7 +138,7 @@ if (lclOF.hasErrors()) {
 								
 								QuestionFactory.getInstance().acquireForQuery(
 									lclCandidates,
-									new ImplicitTableDatabaseQuery("id IN (SELECT question_id FROM Current_Diff WHERE category_code = ?) AND id NOT IN (SELECT question_id FROM Placement)", lclPL.getCategory().getCode())
+									new ImplicitTableDatabaseQuery("id IN (SELECT question_id FROM Current_Diff WHERE category_code = ?) AND id NOT IN (SELECT question_id FROM Placement WHERE question_id IS NOT NULL)", lclPL.getCategory().getCode())
 								);
 								%><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).choices(lclCandidates).namer(Question::getDescriptionSafe) %><%
 							}
