@@ -261,7 +261,7 @@ void appendQuestionData(StringBuilder argSB, Question argQ) {
 			Pair<String, String> lclPair = lclPreviewI.next();
 			String lclLabel = lclPair.getLeft();
 			String lclFull = lclPair.getRight();
-			argSB.append("<span title=\"" + WebDataFilter.scrub(lclFull) + "\">" + lclLabel + "</span>");
+			argSB.append("<span title=\"").append(WebDataFilter.scrub(lclFull)).append("\">").append(lclLabel).append("</span>");
 			
 			if (lclPreviewI.hasNext()) {
 				argSB.append("&nbsp;/&nbsp;");
