@@ -179,15 +179,6 @@ public class PostgresDiffOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	}
 
 	@Override
-	public java.util.HashSet<DiffOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) /* throws PersistenceException */ {
-		final Object[] lclParameters = new Object[] { argCategoryCode };
-		final String[] lclFieldNames = new String[] { "category_code" };
-		java.util.HashSet<DiffOpal> lclCollection = new java.util.HashSet<>();
-		load(getFullyQualifiedTableName(), lclFieldNames, lclParameters, null, lclCollection);
-		return lclCollection;
-	}
-
-	@Override
 	public java.util.HashSet<DiffOpal> forEditorAccountIdCollection(java.lang.Integer argEditorAccountId) /* throws PersistenceException */ {
 		final Object[] lclParameters = new Object[] { argEditorAccountId };
 		final String[] lclFieldNames = new String[] { "editor_account_id" };

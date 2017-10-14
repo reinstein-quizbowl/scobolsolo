@@ -105,7 +105,7 @@
 				<Column Name="description" Comparator="True" />
 			</Mapping>
 			
-			<Mapping Table="Question_Status">
+			<Mapping Table="Question_Status" BackCollection="False">
 				<Column Name="sequence" Ordering="True" />
 			</Mapping>
 			
@@ -247,6 +247,13 @@
 				<Column Name="average_buzz_depth" Type="java.lang.Double" />
 			</Mapping>
 		</Mappings>
+		
+		
+		<!-- Foreign keys for which not to build back collections -->
+		<Reference>
+			<Source Type="Diff" />
+			<Target Type="Category" CollectionClass="None" />
+		</Reference>
 		
 		
 		<!-- One-to-one relationships -->

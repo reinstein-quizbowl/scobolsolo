@@ -262,17 +262,6 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 		return lclS.toArray(new com.scobolsolo.application.PronunciationGuideSuppression[lclS.size()]);
 	}
 
-	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet();
-
-	default public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {
-		return getDiffSet().stream();
-	}
-
-	default public com.scobolsolo.application.Diff[] createDiffArray() {
-		java.util.Set<com.scobolsolo.application.Diff> lclS = getDiffSet();
-		return lclS.toArray(new com.scobolsolo.application.Diff[lclS.size()]);
-	}
-
 	public java.util.Set<com.scobolsolo.application.CategoryUse> getCategoryUseSet();
 
 	default public java.util.stream.Stream<com.scobolsolo.application.CategoryUse> streamCategoryUse() {

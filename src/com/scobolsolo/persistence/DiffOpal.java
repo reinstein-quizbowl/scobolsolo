@@ -335,9 +335,6 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	@Override
 	protected void unlinkInternal() {
 		getResponseOpalSet().clear();
-		if (getCategoryOpal() != null) {
-			getCategoryOpal().getDiffOpalSet().removeInternal(this);
-		}
 		if (getEditorOpal() != null) {
 			getEditorOpal().getEditorDiffOpalSet().removeInternal(this);
 		}
@@ -540,21 +537,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 
 	public synchronized DiffOpal setCategoryOpal(CategoryOpal argCategoryOpal) {
 		tryMutate();
-		CategoryOpal lclCategoryOpal = getCategoryOpal();
-		if (lclCategoryOpal == argCategoryOpal) { return this; }
-		if (lclCategoryOpal != null) {
-			lclCategoryOpal.getDiffOpalSet().removeInternal(this);
-		}
 		myNewCategoryOpal = argCategoryOpal;
-		if (argCategoryOpal != null) {
-			argCategoryOpal.getDiffOpalSet().addInternal(this);
-		}
 		return this;
-	}
-
-	protected synchronized void setCategoryOpalInternal(CategoryOpal argCategoryOpal) {
-		tryMutate();
-		myNewCategoryOpal = argCategoryOpal;
 	}
 
 	private AccountOpal myOldEditorOpal;

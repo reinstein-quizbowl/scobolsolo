@@ -4,24 +4,6 @@ import com.opal.PersistenceException;
 
 public interface DiffOpalFactory extends com.opal.IdentityOpalFactory<Diff, DiffOpal>, com.opal.OpalFactoryCreator<Diff, DiffOpal> {
 
-	public java.util.HashSet<DiffOpal> forCategoryCodeCollection(java.lang.String argCategoryCode) throws com.opal.PersistenceException;
-
-	default public java.util.HashSet<DiffOpal> forCategoryOpalCollection(CategoryOpal argParent) throws com.opal.PersistenceException {
-		if (argParent == null) {
-			throw new IllegalStateException("argParent is null.");
-		}
-		java.lang.String lclCode = argParent.getCode();
-		if (lclCode == null) { throw new IllegalStateException("Key value is null."); }
-		return forCategoryCodeCollection(lclCode);
-	}
-
-	default public int forCategoryOpalCount(CategoryOpal argParent) throws com.opal.PersistenceException {
-		if (argParent == null) {
-			throw new IllegalStateException("argParent is null.");
-		}
-		throw new com.siliconage.util.UnimplementedOperationException();
-	}
-
 	public java.util.HashSet<DiffOpal> forEditorAccountIdCollection(java.lang.Integer argEditorAccountId) throws com.opal.PersistenceException;
 
 	default public java.util.HashSet<DiffOpal> forEditorOpalCollection(AccountOpal argParent) throws com.opal.PersistenceException {
