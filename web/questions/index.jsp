@@ -178,8 +178,8 @@ void appendBeginning(StringBuilder argSB, Tournament argT, Category argCat, int 
 	String lclTableId = argT == null ? "unused_" + argCat.getCode() : argT.getCode() + '_' + argCat.getCode();
 	String lclCollapseToggleLinkId = "collapse_toggle_" + lclTableId;
 	
-	argSB.append("<h3><a onclick=\"$('#" + lclTableId + "').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> " + argCat.getName() + " (" + argCount + ")</h3>")
-	.append("<table id=\"" + lclTableId + "\" class=\"responsive full-width\">")
+	argSB.append("<h3><a onclick=\"$('#").append(lclTableId).append("').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> ").append(argCat.getName()).append(" (").append(argCount).append(")</h3>")
+	.append("<table id=\"").append(lclTableId).append("\" class=\"responsive full-width\">")
 		.append("<thead>")
 			.append("<tr>")
 				.append("<th>ID</th>")
@@ -229,7 +229,7 @@ void appendRow(StringBuilder argSB, Placement argPL) {
 	
 	argSB.append("<tr>");
 	appendQuestionData(argSB, lclQ);
-	argSB.append("<td>" + argPL.getString() + "</td>");
+	argSB.append("<td>").append(argPL.getString()).append("</td>");
 	argSB.append("</tr>");
 }
 
@@ -237,9 +237,9 @@ void appendQuestionData(StringBuilder argSB, Question argQ) {
 	Validate.notNull(argSB);
 	Validate.notNull(argQ);
 	
-	argSB.append("<td><a href=\"question-edit.jsp?question_id=" + argQ.getId() + "\">" + argQ.getId() + "</a></td>")
-	.append("<td>" + argQ.getDescription() + "</td>")
-	.append("<td>" + argQ.getStatus().getName() + "</td>");
+	argSB.append("<td><a href=\"question-edit.jsp?question_id=").append(argQ.getId()).append("\">").append(argQ.getId()).append("</a></td>")
+	.append("<td>").append(argQ.getDescription()).append("</td>")
+	.append("<td>").append(argQ.getStatus().getName()).append("</td>");
 	
 	List<Pair<String, String>> lclPreviews = new ArrayList<>(3);
 	if (StringUtils.isNotBlank(argQ.getText())) {
@@ -274,7 +274,7 @@ void appendQuestionData(StringBuilder argSB, Question argQ) {
 	if (lclLastChange == null) {
 		argSB.append("<td>&nbsp;</td>");
 	} else {
-		argSB.append("<td>" + DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(lclLastChange.getTimestamp()) + " by " + lclLastChange.getEditor().getName() + "</td>");
+		argSB.append("<td>").append(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(lclLastChange.getTimestamp())).append(" by ").append(lclLastChange.getEditor().getName()).append("</td>");
 	}
 }
 %>
