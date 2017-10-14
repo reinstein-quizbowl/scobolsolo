@@ -25,6 +25,8 @@ import com.scobolsolo.application.QuestionStatus;
 import com.scobolsolo.application.QuestionStatusFactory;
 
 public class QuestionUpdater extends OpalFormUpdater<Question> {
+	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(QuestionUpdater.class);
+	
 	private Category myInitialCategory = null;
 	private QuestionStatus myInitialStatus = null;
 	private String myInitialText = null;
@@ -174,6 +176,7 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		.put('"', '"')
 		.put('_', '_')
 		.put('$', '$')
+		.put('~', '~')
 		.build();
 	
 	protected boolean match(char argOpener, char argCloser) {
@@ -189,16 +192,52 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 		
 		char lclPrevChar = ' ';
 		
+		int lclI = 0;
 		for (char lclC : argTextToValidate.toCharArray()) {
-			if (lclPrevChar != '\\') {
-				if (BALANCED_CHARACTER_PAIRS.containsKey(lclC) && (lclStack.isEmpty() || lclStack.peek().charValue() != lclC)) {
-					lclStack.push(lclC);
-				} else if (BALANCED_CHARACTER_PAIRS.inverse().containsKey(lclC)) {
+			if (lclPrevChar == '\\') {
+			} else {
+				if (BALANCED_CHARACTER_PAIRS.containsKey(lclC)) {
 					if (lclStack.isEmpty()) {
+						// It's definitely an opener.
+						// ourLogger.debug(lclC + " at " + lclI + " must be an opener");
+						lclStack.push(lclC);
+					} else if (BALANCED_CHARACTER_PAIRS.get(lclC).charValue() == lclC) {
+						// It's a character that could be either an opener or a closer
+						if (lclStack.peek().charValue() == lclC) {
+							// We've already used it as an opener, so this must be a closer
+							// ourLogger.debug("Treating " + lclC + " at " + lclI + " as a closer");
+							char lclOpener = lclStack.pop().charValue();
+							if (match(lclOpener, lclC) == false) {
+								lclError = true;
+								break;
+							}
+						} else {
+							// It must be an opener.
+							// ourLogger.debug("Treating " + lclC + " at " + lclI + " as an opener");
+							lclStack.push(lclC);
+						}
+					} else {
+						// Something is open.
+						if (match(lclStack.peek().charValue(), lclC)) {
+							// This closes it.
+							// ourLogger.debug(lclC + " at " + lclI + " closes the top of the current stack, which is " + lclStack);
+							lclStack.pop();
+						} else {
+							// This opens something new.
+							// ourLogger.debug(lclC + " at " + lclI + " opens a new layer of nesting; the current stack is " + lclStack);
+							lclStack.push(lclC);
+						}
+						
+					}
+				} else if (BALANCED_CHARACTER_PAIRS.inverse().containsKey(lclC)) {
+					// It must be a closer
+					if (lclStack.isEmpty()) {
+						// ourLogger.debug(lclC + " at " + lclI + " seems to be an opener, but nothing is open; the stack is empty");
 						lclError = true;
 						break;
 					} else {
 						char lclOpener = lclStack.pop().charValue();
+						// ourLogger.debug(lclC + " at " + lclI + " seems to be a closer, but the present opener is " + lclOpener + " and the remaining stack is " + lclStack);
 						if (match(lclOpener, lclC) == false) {
 							lclError = true;
 							break;
@@ -208,12 +247,13 @@ public class QuestionUpdater extends OpalFormUpdater<Question> {
 			}
 			
 			lclPrevChar = lclC;
+			++lclI;
 		}
 		
 		lclError = lclError || lclStack.isEmpty() == false;
 		
 		if (lclError) {
-			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, underscores, and dollar signs must be balanced correctly.");
+			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, underscores, dollar signs, and italicization tildes must be balanced correctly: " + lclStack + ".");
 		}
 	}
 }
