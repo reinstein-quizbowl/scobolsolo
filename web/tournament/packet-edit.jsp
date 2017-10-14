@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
-<%@ page import="com.opal.DatabaseQuery" %>
+<%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.Account" %>
@@ -138,7 +138,7 @@ if (lclOF.hasErrors()) {
 								
 								QuestionFactory.getInstance().acquireForQuery(
 									lclCandidates,
-									new DatabaseQuery("SELECT Q.* FROM Question Q WHERE NOT EXISTS (SELECT * FROM Placement PL WHERE PL.question_id = Q.id) AND Q.category_code = ?", lclPL.getCategory().getCode())
+									new ImplicitTableDatabaseQuery("id IN (SELECT question_id FROM Current_Diff WHERE category_code = ?) AND id NOT IN (SELECT question_id FROM Placement)", lclPL.getCategory().getCode())
 								);
 								%><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).choices(lclCandidates).namer(Question::getDescriptionSafe) %><%
 							}
