@@ -28,11 +28,6 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 				ourPronunciationGuideSuppressionOpalLoader,
 				true
 				);
-		myQuestionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
-				this,
-				ourQuestionOpalLoader,
-				true
-				);
 		myDiffSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
 				this,
 				ourDiffOpalLoader,
@@ -241,7 +236,6 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 	@Override
 	protected void unlinkInternal() {
 		getPronunciationGuideSuppressionOpalSet().clear();
-		getQuestionOpalSet().clear();
 		getDiffOpalSet().clear();
 		getCategoryUseOpalSet().clear();
 		getPlacementOpalSet().clear();
@@ -403,31 +397,6 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 					);
 		}
 		return myPronunciationGuideSuppressionSet;
-	}
-
-	private com.opal.types.OpalBackCollectionSet<QuestionOpal, CategoryOpal> myQuestionSet = null;
-
-	private static final com.opal.types.OpalBackCollectionLoader<QuestionOpal, CategoryOpal> ourQuestionOpalLoader = 
-			new com.opal.types.OpalBackCollectionLoader<>(
-					OpalFactoryFactory.getInstance().getQuestionOpalFactory()::forCategoryOpalCollection,
-					OpalFactoryFactory.getInstance().getQuestionOpalFactory()::forCategoryOpalCount,
-					QuestionOpal::setCategoryOpal,
-					QuestionOpal::setCategoryOpalInternal,
-					QuestionOpal::getCategoryOpal,
-					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
-					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
-					false
-					);
-
-	/* package */ synchronized com.opal.types.OpalBackCollectionSet<QuestionOpal, CategoryOpal> getQuestionOpalSet() {
-		if (myQuestionSet == null) {
-			myQuestionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
-					this,
-					ourQuestionOpalLoader,
-					isNew()
-					);
-		}
-		return myQuestionSet;
 	}
 
 	private com.opal.types.OpalBackCollectionSet<DiffOpal, CategoryOpal> myDiffSet = null;

@@ -375,8 +375,8 @@ CREATE TABLE Diff (
 	editor_account_id INTEGER NOT NULL REFERENCES Account ON UPDATE CASCADE ON DELETE RESTRICT,
 	question_status_code code_t REFERENCES Question_Status ON UPDATE CASCADE ON DELETE RESTRICT,
 	category_code code_t REFERENCES Category ON UPDATE CASCADE ON DELETE RESTRICT,
-	text TEXT NOT NULL,
-	answer TEXT NOT NULL,
+	text TEXT,
+	answer TEXT,
 	note TEXT, -- Question.note
 	remark TEXT, -- a remark specific to this editing
 	edit_distance INTEGER NOT NULL CHECK(edit_distance >= 0),
@@ -389,6 +389,12 @@ CREATE INDEX diff_question_idx ON Diff(question_id);
 CREATE INDEX diff_editoraccount_idx ON Diff(editor_account_id);
 CREATE INDEX diff_questionstatus_idx ON Diff(question_status_code);
 CREATE INDEX diff_category_idx ON Diff(category_code);
+
+CREATE VIEW Current_Diff AS
+SELECT D.*
+FROM Diff D
+JOIN (SELECT question_id, MAX(revision_number) AS current_revision_number FROM Diff D GROUP BY question_id) A ON D.question_id = A.question_id AND D.revision_number = A.current_revision_number;
+GRANT SELECT ON Current_Diff TO scobolsolo;
 
 CREATE TABLE Packet (
 	id SERIAL PRIMARY KEY,

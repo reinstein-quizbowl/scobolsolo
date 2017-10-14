@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -45,7 +46,7 @@ public interface Question extends QuestionUserFacing {
 		.build(
 			new CacheLoader<Pair<Diff, Integer>, String>() {
 				@Override
-				public String load(Pair<Diff, Integer> argPair) {
+				public String load(final Pair<Diff, Integer> argPair) {
 					Diff lclD = Validate.notNull(argPair.getLeft());
 					int lclBitField = argPair.getRight().intValue();
 					
@@ -63,7 +64,7 @@ public interface Question extends QuestionUserFacing {
 		.build(
 			new CacheLoader<Pair<Diff, Boolean>, String>() {
 				@Override
-				public String load(Pair<Diff, Boolean> argPair) {
+				public String load(final Pair<Diff, Boolean> argPair) {
 					Diff lclD = Validate.notNull(argPair.getLeft());
 					boolean lclShowPGs = argPair.getRight().booleanValue();
 					
@@ -87,22 +88,46 @@ public interface Question extends QuestionUserFacing {
 		return isUnused() == false;
 	}
 	
-	default Placement findPlacement(Tournament argT) {
+	default Placement findPlacement(final Tournament argT) {
 		return streamPlacement()
 			.filter(argPL -> argPL.getTournament() == argT)
 			.findFirst().orElse(null);
 	}
+	
+	default Diff getRevisionNumber(final int argRevisionNumber) {
+		return this.streamDiff()
+			.filter(argD -> argD.getRevisionNumber() == argRevisionNumber)
+			.findAny().orElse(null);
+	}
+	
 	
 	default SortedSet<Diff> getDiffs() {
 		return new TreeSet<>(getDiffSet());
 	}
 	
 	default Diff getCurrentDiff() {
-		return streamDiff().max(Comparator.naturalOrder()).orElse(null);
+		return this.streamDiff()
+			.max(Comparator.naturalOrder()).orElse(null);
 	}
 	
-	default int getNextRevisionNumber() {
-		return 1 + streamDiff().mapToInt(Diff::getRevisionNumber).max().orElse(0);
+	default String getText() {
+		return getCurrentDiff().getText();
+	}
+	
+	default String getAnswer() {
+		return getCurrentDiff().getAnswer();
+	}
+	
+	default String getNote() {
+		return getCurrentDiff().getNote();
+	}
+	
+	default QuestionStatus getStatus() {
+		return getCurrentDiff().getStatus();
+	}
+	
+	default Category getCategory() {
+		return getCurrentDiff().getCategory();
 	}
 	
 	default String getDescriptionSafe() {

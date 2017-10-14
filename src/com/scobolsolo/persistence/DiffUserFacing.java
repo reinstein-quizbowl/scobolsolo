@@ -124,27 +124,40 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * <p>The {@code Text} field is a direct mapping of the {@code text} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getText();
 
 	/**
+	 * object accessor for the {@code Text} with substitution for a null value
+	 *
+	 * <p>The {@code Text} field is a direct mapping of the {@code text} database column in the table {@code diff}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code Text} is {@code null}.
+	 * @return an object value of {@code Text} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getText(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getText();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
 	 * sets the {@code Text} to the value of {@code argText}
 	 *
-	 * @param argText the new value of {@code Text}.  May not be <code>null</code>.
+	 * @param argText the new value of {@code Text}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code text} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws com.opal.IllegalNullArgumentException if argText is null
 	 * @throws com.opal.ArgumentTooLongException if {@code argText} is longer than 2147483647 characters
 	 * <p>The database column {@code text} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Diff setText(java.lang.String argText);
@@ -154,27 +167,40 @@ public interface DiffUserFacing extends com.opal.IdentityUserFacing {
 	 *
 	 * <p>The {@code Answer} field is a direct mapping of the {@code answer} field in {@code diff}.</p>
 	 *
-	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	public java.lang.String getAnswer();
 
 	/**
+	 * object accessor for the {@code Answer} with substitution for a null value
+	 *
+	 * <p>The {@code Answer} field is a direct mapping of the {@code answer} database column in the table {@code diff}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code Answer} is {@code null}.
+	 * @return an object value of {@code Answer} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getAnswer(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getAnswer();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
 	 * sets the {@code Answer} to the value of {@code argAnswer}
 	 *
-	 * @param argAnswer the new value of {@code Answer}.  May not be <code>null</code>.
+	 * @param argAnswer the new value of {@code Answer}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code answer} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws com.opal.IllegalNullArgumentException if argAnswer is null
 	 * @throws com.opal.ArgumentTooLongException if {@code argAnswer} is longer than 2147483647 characters
 	 * <p>The database column {@code answer} is limited to 2147483647 characters.</p>
 	 *
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Diff setAnswer(java.lang.String argAnswer);

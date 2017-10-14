@@ -66,7 +66,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getText() {
@@ -74,7 +74,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public com.scobolsolo.persistence.DiffImpl setText(java.lang.String argText) {
@@ -83,7 +83,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public java.lang.String getAnswer() {
@@ -91,7 +91,7 @@ public class DiffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.Length(maximum = 2147483647L)
 	@Override
 	public com.scobolsolo.persistence.DiffImpl setAnswer(java.lang.String argAnswer) {

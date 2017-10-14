@@ -42,7 +42,8 @@ FROM Response_v R
 	JOIN Response_Type RT ON R.response_type_code = RT.code
 	JOIN Placement PL ON R.actual_placement_id = PL.id
 	JOIN Question Q on PL.question_id = Q.id
-	JOIN Category C ON Q.category_code = C.code
+	JOIN Current_Diff CD ON CD.question_id = Q.id
+	JOIN Category C ON CD.category_code = C.code
 	LEFT OUTER JOIN Diff D ON R.diff_id = D.id
 WHERE
 	PL.tiebreaker = FALSE AND
@@ -77,7 +78,7 @@ GRANT SELECT ON Placement_Conversion_v TO scobolsolo;
 CREATE OR REPLACE VIEW Category_Conversion_v AS
 SELECT
 	PH.tournament_code,
-	Q.category_code,
+	D.category_code,
 	R.response_type_code,
 	COUNT(*) AS response_type_count,
 	AVG(1.0 * R.location / D.text_length) AS average_buzz_depth
@@ -93,7 +94,7 @@ FROM Placement PL
 	JOIN Question Q ON PL.question_id = Q.id
 	LEFT OUTER JOIN Diff D ON R.diff_id = D.id
 WHERE PY.exhibition = FALSE
-GROUP BY PH.tournament_code, Q.category_code, R.response_type_code;
+GROUP BY PH.tournament_code, D.category_code, R.response_type_code;
 GRANT SELECT ON Category_Conversion_v TO scobolsolo;
 
 CREATE OR REPLACE VIEW Player_Match_v AS

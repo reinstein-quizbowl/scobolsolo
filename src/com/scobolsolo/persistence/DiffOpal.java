@@ -76,8 +76,8 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
 		false,
 		false,
-		false,
-		false,
+		true,
+		true,
 		true,
 		true,
 		false,
@@ -207,9 +207,6 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 
 	public synchronized DiffOpal setText(final java.lang.String argText) {
 		tryMutate();
-		if (argText == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myText on " + this + " to null.");
-		}
 		getNewValues()[2] = argText;
 		getNewValues()[12] = getUserFacing().getText().length();
 		return this;
@@ -217,9 +214,6 @@ public final class DiffOpal extends com.opal.UpdatableOpal<Diff> {
 
 	public synchronized DiffOpal setAnswer(final java.lang.String argAnswer) {
 		tryMutate();
-		if (argAnswer == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myAnswer on " + this + " to null.");
-		}
 		getNewValues()[3] = argAnswer;
 		return this;
 	}

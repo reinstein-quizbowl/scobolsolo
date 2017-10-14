@@ -1,11 +1,14 @@
 ﻿<%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="com.opal.DatabaseQuery" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.*" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.opalforms.DiffOpalForm" %>
+<%@ page import="com.scobolsolo.opalforms.updater.DiffUpdater" %>
 <%@ page import="com.scobolsolo.opalforms.updater.QuestionUpdater" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
 
@@ -47,6 +50,11 @@ if (lclOF.alreadyExists()) {
 
 <%= lclOF.open() %><%
 
+OpalForm<Diff> lclDOF = DiffOpalForm.create(lclOF);
+lclDOF.setUpdaterClass(DiffUpdater.class);
+
+%><%= lclDOF.open() %><%
+
 if (lclOF.hasErrors()) {
 	%><section class="row alert">
 		<div class="small-12 columns">
@@ -60,25 +68,27 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Description
-			<%= lclOF.text("Description", 30) %>
+			<%= lclOF.text("Description", 30).required() %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Category
-			<%= lclOF.<Category>dropdown("Category") %>
+			<%= lclDOF.<Category>dropdown("Category").required() %>
 		</label>
-	</div>
-	<div class="small-12 medium-6 large-3 columns">
-		<label>
-			Writer
-			<%= lclOF.dropdown("Writer", Account.NameComparator.getInstance()).filter(Account::isWriter) %>
-		</label>
-	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	</div><%
+	if (lclUser.isAdministrator()) {
+		%><div class="small-12 medium-6 large-3 columns">
+			<label>
+				Writer
+				<%= lclOF.dropdown("Writer", Account.NameComparator.getInstance()).filter(Account::isWriter) %>
+			</label>
+		</div><%
+	}
+	%><div class="small-12 medium-6 large-3 columns end">
 		<label>
 			Status
-			<%= lclOF.<QuestionStatus>dropdown("Status").filter(new Question.StatusFilter(lclUser, lclQ)) %>
+			<%= lclDOF.<QuestionStatus>dropdown("Status").filter(new Question.StatusFilter(lclUser, lclQ)).required() %>
 		</label>
 	</div>
 </div>
@@ -87,25 +97,25 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 columns">
 		<label>
 			Text
-			<%= lclOF.textarea("Text", 80, 5) %>
+			<%= lclDOF.textarea("Text", 80, 5) %>
 		</label>
 	</div>
 	<div class="small-12 columns">
 		<label>
 			Answer
-			<%= lclOF.textarea("Answer", 80, 2) %>
+			<%= lclDOF.textarea("Answer", 80, 2) %>
 		</label>
 	</div>
 	<div class="small-12 columns">
 		<label>
 			<span title="This note sticks with the question.">Question Note</span>
-			<%= lclOF.textarea("Note", 80, 4) %>
+			<%= lclDOF.textarea("Note", 80, 4) %>
 		</label>
 	</div>
 	<!-- <div class="small-12 columns">
 		<label>
 			<span title="This note is associated with the particular revision to the question you are making.">Edit Remark</span>
-			<%= false ? lclOF.getPriorInput().text("/DiffRemark", 60) : "" %>
+			<%= lclDOF.text("Remark", 80) %>
 		</label>
 	</div> -->
 </div>
@@ -116,6 +126,7 @@ if (lclOF.hasErrors()) {
 	</div>
 </div>
 
+<%= lclDOF.close() %>
 <%= lclOF.close() %><%
 
 if (lclOF.alreadyExists()) {
@@ -146,7 +157,7 @@ if (lclOF.alreadyExists()) {
 	</div><%
 }
 
-if (lclOF.alreadyExists() && lclQ.getText() != null && lclQ.getAnswer() != null) {
+if (lclOF.alreadyExists() && StringUtils.isNotBlank(lclQ.getText()) && StringUtils.isNotBlank(lclQ.getAnswer())) {
 	%><div class="row">
 		<div class="small-12 columns">
 			<h2>Rendered</h2>

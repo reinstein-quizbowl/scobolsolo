@@ -19,11 +19,6 @@ public final class QuestionStatusOpal extends com.opal.UpdatableOpal<QuestionSta
 
 		/* Initialize the back Collections to empty sets. */
 
-		myQuestionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
-				this,
-				ourQuestionOpalLoader,
-				true
-				);
 		myDiffSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
 				this,
 				ourDiffOpalLoader,
@@ -171,7 +166,6 @@ public final class QuestionStatusOpal extends com.opal.UpdatableOpal<QuestionSta
 
 	@Override
 	protected void unlinkInternal() {
-		getQuestionOpalSet().clear();
 		getDiffOpalSet().clear();
 		return;
 	}
@@ -230,31 +224,6 @@ public final class QuestionStatusOpal extends com.opal.UpdatableOpal<QuestionSta
 		argOutput.println("Name = " + getName());
 		argOutput.println("ShortName = " + getShortName());
 		argOutput.println("Sequence = " + getSequenceAsObject());
-	}
-
-	private com.opal.types.OpalBackCollectionSet<QuestionOpal, QuestionStatusOpal> myQuestionSet = null;
-
-	private static final com.opal.types.OpalBackCollectionLoader<QuestionOpal, QuestionStatusOpal> ourQuestionOpalLoader = 
-			new com.opal.types.OpalBackCollectionLoader<>(
-					OpalFactoryFactory.getInstance().getQuestionOpalFactory()::forStatusOpalCollection,
-					OpalFactoryFactory.getInstance().getQuestionOpalFactory()::forStatusOpalCount,
-					QuestionOpal::setStatusOpal,
-					QuestionOpal::setStatusOpalInternal,
-					QuestionOpal::getStatusOpal,
-					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
-					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
-					false
-					);
-
-	/* package */ synchronized com.opal.types.OpalBackCollectionSet<QuestionOpal, QuestionStatusOpal> getQuestionOpalSet() {
-		if (myQuestionSet == null) {
-			myQuestionSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
-					this,
-					ourQuestionOpalLoader,
-					isNew()
-					);
-		}
-		return myQuestionSet;
 	}
 
 	private com.opal.types.OpalBackCollectionSet<DiffOpal, QuestionStatusOpal> myDiffSet = null;

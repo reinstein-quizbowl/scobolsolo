@@ -280,13 +280,6 @@
 		</Reference>
 		
 		<Reference Field="Status">
-			<Source Type="Question">
-				<Column>question_status_code</Column>
-			</Source>
-			<Target Type="QuestionStatus" />
-		</Reference>
-		
-		<Reference Field="Status">
 			<Source Type="Diff">
 				<Column>question_status_code</Column>
 			</Source>

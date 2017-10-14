@@ -163,11 +163,6 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	}
 
 	@Override
-	public java.util.Set<com.scobolsolo.application.Question> getQuestionSet() {
-		return new com.opal.UserFacingBackCollectionSet<>(getCategoryOpal().getQuestionOpalSet());
-	}
-
-	@Override
 	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet() {
 		return new com.opal.UserFacingBackCollectionSet<>(getCategoryOpal().getDiffOpalSet());
 	}

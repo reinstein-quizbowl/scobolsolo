@@ -107,11 +107,6 @@ public class QuestionStatusImpl extends com.opal.AbstractIdentityImpl<com.scobol
 	to this object. */
 
 	@Override
-	public java.util.Set<com.scobolsolo.application.Question> getQuestionSet() {
-		return new com.opal.UserFacingBackCollectionSet<>(getQuestionStatusOpal().getQuestionOpalSet());
-	}
-
-	@Override
 	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet() {
 		return new com.opal.UserFacingBackCollectionSet<>(getQuestionStatusOpal().getDiffOpalSet());
 	}

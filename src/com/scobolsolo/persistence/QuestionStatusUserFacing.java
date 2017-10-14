@@ -159,17 +159,6 @@ public interface QuestionStatusUserFacing extends com.opal.IdentityUserFacing, C
 	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.QuestionStatus setSequence(int argSequence);
 
-	public java.util.Set<com.scobolsolo.application.Question> getQuestionSet();
-
-	default public java.util.stream.Stream<com.scobolsolo.application.Question> streamQuestion() {
-		return getQuestionSet().stream();
-	}
-
-	default public com.scobolsolo.application.Question[] createQuestionArray() {
-		java.util.Set<com.scobolsolo.application.Question> lclS = getQuestionSet();
-		return lclS.toArray(new com.scobolsolo.application.Question[lclS.size()]);
-	}
-
 	public java.util.Set<com.scobolsolo.application.Diff> getDiffSet();
 
 	default public java.util.stream.Stream<com.scobolsolo.application.Diff> streamDiff() {

@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import java.util.Objects;
+
 import org.apache.commons.lang3.Validate;
 
 import com.scobolsolo.persistence.DiffUserFacing;
@@ -14,13 +16,33 @@ import com.scobolsolo.persistence.DiffUserFacing;
 
 public interface Diff extends DiffUserFacing, Comparable<Diff> {
 	@Override
-	default public int compareTo(Diff argD) {
-		Validate.notNull(argD);
+	default public int compareTo(final Diff that) {
+		Validate.notNull(that);
 		
-		if (argD.getQuestion() == getQuestion()) {
-			return getTimestamp().compareTo(argD.getTimestamp());
+		if (this.getQuestion() == that.getQuestion()) {
+			return this.getRevisionNumber() - that.getRevisionNumber();
 		} else {
 			return 0;
 		}
+	}
+	
+	default public boolean sameContentAs(final Diff that) {
+		Validate.notNull(that);
+		
+		return this.getQuestion() == that.getQuestion()
+			&& Objects.equals(this.getText(), that.getText())
+			&& Objects.equals(this.getAnswer(), that.getAnswer())
+			&& Objects.equals(this.getNote(), that.getNote())
+			&& Objects.equals(this.getRemark(), that.getRemark())
+			&& Objects.equals(this.getStatus(), that.getStatus())
+			&& Objects.equals(this.getCategory(), that.getCategory());
+	}
+	
+	default public Diff getPrevious() {
+		return getQuestion().getRevisionNumber(this.getRevisionNumber() - 1);
+	}
+	
+	default public Diff getNext() {
+		return getQuestion().getRevisionNumber(this.getRevisionNumber() + 1);
 	}
 }
