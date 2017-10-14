@@ -67,7 +67,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 		<div class="small-6 medium-3 columns">
 			<label>
 				Sequence
-				<%= lclPOF.text("Sequence", 3) %>
+				<%= lclPOF.number("Sequence") %>
 			</label>
 		</div>
 		<div class="small-3 medium-2 columns">
@@ -132,7 +132,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 			<div class="small-5 medium-3 columns">
 				<label>
 					Sequence
-					<%= lclRGOF.text("Sequence", 3) %>
+					<%= lclRGOF.number("Sequence") %>
 				</label>
 			</div>
 			<div class="small-5 medium-2 columns"><%
@@ -176,7 +176,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 								<td><%= lclROF.text("ShortName", 10) %></td>
 								<td><%= lclROF.text("StartTime", 10) %></td>
 								<td><%= lclROF.datetime("EarliestEntryAllowed").placeholder("yyyy-mm-dd hh:mm") %></td>
-								<td><%= lclROF.text("Sequence", 3) %></td>
+								<td><%= lclROF.number("Sequence") %></td>
 								<td><%= HTMLUtility.switchWidget(lclROF, "LunchAfter") %></td>
 								<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
 								<%= lclROF.close() %>

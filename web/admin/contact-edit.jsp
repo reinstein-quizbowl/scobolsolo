@@ -73,7 +73,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 columns">
 		<label>
 			Email address
-			<%= lclOF.text("EmailAddress", 30) %>
+			<%= lclOF.email("EmailAddress") %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 columns">
@@ -88,13 +88,13 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 columns">
 		<label>
 			Advance phone number
-			<%= lclOF.text("AdvancePhone", 10) %>
+			<%= lclOF.phone("AdvancePhone") %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 columns">
 		<label>
 			Day-of phone number
-			<%= lclOF.text("DayOfPhone", 10) %>
+			<%= lclOF.phone("DayOfPhone") %>
 		</label>
 	</div>
 </div>

@@ -49,7 +49,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 							<%= lclWEOF.open() %>
 							<td class="generated-position">&nbsp;</td>
 							<td data-tablesorter="<%= lclWE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclWE.getSchoolRegistration().getId() %>"><%= lclWE.getSchoolRegistration().getSchool().getName() %></a></td>
-							<td><%= lclWEOF.text("PlayerCount", 2) %></td>
+							<td><%= lclWEOF.number("PlayerCount").min(1) %></td>
 							<td><%= lclWEOF.text("Note", 40) %></td>
 							<td class="saved-position"><%= lclWE.getSequence() %></td>
 							<td><%= lclWEOF.submit("Save").style("tiny") %>&nbsp;<%= lclWEOF.delete("Cancel").style("tiny") %></td>

@@ -103,7 +103,7 @@ Tournament lclT = lclOF.getUserFacing();
 							}
 						%></td>
 						<td data-tablesorter="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.<Contact>dropdown("MainContact").filter(Contact::isActive) %></td>
-						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getSpotsReserved() %>"><%= lclSROF.text("SpotsReserved", 2) %></td>
+						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getSpotsReserved() %>"><%= lclSROF.number("SpotsReserved").min(0) %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getPlayerSet().size() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#players\">" + lclSR.getPlayerSet().size() + "</a>" %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getStaffSet().size() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#staff\">" + lclSR.getStaffSet().size() + "</a>" %></td>
 						<td data-tablesorter="<%= lclSR == null ? "0" : lclSR.getBuzzerSet().size() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#buzzers\">" + lclSR.getBuzzerSet().size() + "</a>" %></td>

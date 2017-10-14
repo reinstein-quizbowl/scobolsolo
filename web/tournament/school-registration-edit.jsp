@@ -88,7 +88,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 	%><div class="small-12 medium-4 large-2 columns">
 		<label>
 			Spots reserved
-			<%= lclOF.text("SpotsReserved", 3) %>
+			<%= lclOF.number("SpotsReserved").min(0) %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-2 columns">
@@ -149,8 +149,8 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 						%></td>
 						<td><%= lclPOF.<Contact>dropdown("Contact").filter(argC -> argC.isActive() && !argC.isPlayerAt(lclT)) %></td>
 						<td><%= lclPOF.<SchoolYear>dropdown("SchoolYear") %></td>
-						<td><%= lclPOF.text("RankWithinSchool", 3) %></td>
-						<td><%= lclPOF.text("Seed", 3) %></td>
+						<td><%= lclPOF.number("RankWithinSchool").range(1, lclSR.getPlayerSet().size()) %></td>
+						<td><%= lclPOF.number("Seed").min(1) %></td>
 						<td><%= lclPOF.text("Note", 60) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclPOF) %></td>
 						<%= lclPOF.close() %>
@@ -193,8 +193,8 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					WaitlistEntry lclWE = lclWEOF.getUserFacing();
 					%><tr>
 						<%= lclWEOF.open() %>
-						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getPlayerCount() %>"><%= lclWEOF.text("PlayerCount", 2) %></td>
-						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getSequence() %>"><%= lclWEOF.text("Sequence", 2) %></td>
+						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getPlayerCount() %>"><%= lclWEOF.number("PlayerCount").min(1) %></td>
+						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getSequence() %>"><%= lclWEOF.number("Sequence") %></td>
 						<td><%= lclWEOF.textarea("Note", 60, 3) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclWEOF) %></td>
 					</tr><%
@@ -231,8 +231,8 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					StandbyEntry lclSE = lclSEOF.getUserFacing();
 					%><tr>
 						<%= lclSEOF.open() %>
-						<td data-tablesorter="<%= lclSE == null ? "0" : lclSE.getPlayerCount() %>"><%= lclSEOF.text("PlayerCount", 2) %></td>
-						<td data-tablesorter="<%= lclSE == null ? "0" : lclSE.getSequence() %>"><%= lclSEOF.text("Sequence", 2) %></td>
+						<td data-tablesorter="<%= lclSE == null ? "0" : lclSE.getPlayerCount() %>"><%= lclSEOF.number("PlayerCount").min(1) %></td>
+						<td data-tablesorter="<%= lclSE == null ? "0" : lclSE.getSequence() %>"><%= lclSEOF.number("Sequence") %></td>
 						<td><%= lclSEOF.textarea("Note", 60, 3) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSEOF) %></td>
 						<%= lclSEOF.close() %>

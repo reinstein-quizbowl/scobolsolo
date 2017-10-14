@@ -85,7 +85,7 @@ if (lclOF.hasErrors()) {
 						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
 						<td data-tablesorter="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclPOF, "QuestionsPublic") %></td>
 						<td><%= lclPOF.textarea("Note", 60, 1) %></td>
-						<td data-tablesorter="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.text("Sequence", 2) %></td>
+						<td data-tablesorter="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.number("Sequence") %></td>
 						<td><%= lclP == null ? "&nbsp;" : "<a href=\"packet-edit.jsp?packet_id=" + lclP.getId() + "\">Edit</a>" %></td>
 						<td><%= HTMLUtility.deleteWidget(lclPOF) %></td>
 						<%= lclPOF.close() %>

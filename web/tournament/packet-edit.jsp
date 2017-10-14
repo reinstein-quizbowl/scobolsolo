@@ -143,7 +143,7 @@ if (lclOF.hasErrors()) {
 								%><%= lclPLOF.dropdown("Question", Question.DescriptionComparator.getInstance()).choices(lclCandidates).namer(Question::getDescriptionSafe) %><%
 							}
 						%></td>
-						<td><%= lclPLOF.text("Number", 3) %></td>
+						<td><%= lclPLOF.number("Number").min(1) %></td>
 						<td><%= lclPLOF.<Category>dropdown("Category").filter(argC -> argC.isUsedAt(lclT)) %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "ScorecheckAfter") %></td>

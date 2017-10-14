@@ -64,7 +64,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 columns">
 		<label>
 			Sequence
-			<%= lclOF.text("Sequence", 5) %>
+			<%= lclOF.number("Sequence") %>
 		</label>
 	</div>
 </div>
