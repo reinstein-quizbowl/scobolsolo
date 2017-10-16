@@ -149,7 +149,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 						%></td>
 						<td><%= lclPOF.<Contact>dropdown("Contact").filter(argC -> argC.isActive() && !argC.isPlayerAt(lclT)) %></td>
 						<td><%= lclPOF.<SchoolYear>dropdown("SchoolYear") %></td>
-						<td><%= lclPOF.number("RankWithinSchool").range(1, lclSR.getPlayerSet().size()) %></td>
+						<td><%= lclPOF.number("RankWithinSchool").range(1, lclSR.getPlayerSet().isEmpty() ? 1 : lclSR.getPlayerSet().size()) %></td>
 						<td><%= lclPOF.number("Seed").min(1) %></td>
 						<td><%= lclPOF.text("Note", 60) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclPOF) %></td>
