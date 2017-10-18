@@ -105,7 +105,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 			%><h2 id="<%= lclC.getCode() %>" data-magellan-target="<%= lclC.getCode() %>"><%= lclC.getName() %></h2><%
 			
 			List<PlayerCategoryPointV> lclPCPVs = lclMultimap.get(lclC);
-			if (lclPCPVs == null || lclPCPVs.size() == 0) {
+			if (lclPCPVs == null || lclPCPVs.isEmpty()) {
 				%><p>No results available</p><%
 			} else {
 				lclPCPVs.sort(PlayerCategoryPointV.PPTUH_COMPARATOR);
@@ -144,14 +144,14 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		}
 	%></div>
 	
-	<div class="show-for-large large-3 columns">
-		<ul class="magellan side-nav no-bullet" data-magellan>
+	<nav class="show-for-large large-3 columns" data-magellan data-active-class="active">
+		<ul class="magellan side-nav no-bullet">
 			<li><a href="#overall">Overall</a></li><%
 			for (Category lclC : lclCategories) {
 				%><li><a href="#<%= lclC.getCode() %>"><%= lclC.getName() %></a></li><%
 			}
 		%></ul>
-	</div>
+	</nav>
 </div>
 
 <jsp:include page="/template/footer.jsp" />

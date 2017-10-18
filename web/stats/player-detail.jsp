@@ -114,13 +114,13 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		}
 	%></div>
 	
-	<div class="show-for-large large-3 columns">
-		<ul class="magellan side-nav no-bullet" data-magellan><%
+	<nav class="show-for-large large-3 columns" data-magellan data-active-class="active">
+		<ul class="magellan side-nav no-bullet"><%
 			for (School lclS : lclSchoolToPlayers.keySet()) {
 				%><li><a href="#school_<%= lclS.getId() %>"><%= lclS.getName() %></a></li><%
 			}
 		%></ul>
-	</div>
+	</nav>
 </div>
 
 <jsp:include page="/template/footer.jsp" />
