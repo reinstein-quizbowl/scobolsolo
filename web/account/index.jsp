@@ -18,7 +18,7 @@
 		Account lclUser = Account.demand(request);
 		%><p>You are logged in as <%= lclUser.getContact().getName() %> (<code><%= lclUser.getUsername() %></code>).</p>
 		
-		<p>You may <a href="change-password.jsp">change your password</a>.</p>
+		<p>You may <a href="change-password.jsp">change your password</a> or <a href="question-demo.jsp">access a demo of how moderating works with this system</a>.</p>
 	</div>
 </div>
 
