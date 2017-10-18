@@ -27,18 +27,17 @@ public class TopLevelMenu extends Menu {
 	@Override
 	protected String outputInitial(final Account argUser, final String argCurrentPageName) {
 		return
-			"<div data-sticky-container>\n" +
-			"	<div class=\"top-bar\" data-topbar data-sticky data-options=\"marginTop:0;\" style=\"width:100%\">\n" +
-			"		<div class=\"top-bar-title\">\n" +
-			"			<span data-responsive-toggle=\"responsive-menu\" data-hide-for=\"medium\">\n" +
-			"				<button class=\"menu-icon dark\" type=\"button\" data-toggle></button>\n" +
-			"			</span>\n" +
-			// "			<strong class=\"menu-text\">" + getTitle() + "</strong>\n" +
-			"		</div>\n" +
-			"		<div id=\"responsive-menu\">\n" +
-			"			<div class=\"top-bar-left\">\n" +
-			"				<ul class=\"dropdown menu\" data-dropdown-menu>\n" +
-			"					<li class=\"menu-text\"><strong>" + getTitle() + "</strong></li>\n";
+			"<div class=\"top-bar\" data-topbar data-options=\"marginTop:0;\" style=\"width:100%\">\n" +
+			"	<div class=\"top-bar-title\">\n" +
+			"		<span data-responsive-toggle=\"responsive-menu\" data-hide-for=\"medium\">\n" +
+			"			<button class=\"menu-icon dark\" type=\"button\" data-toggle></button>\n" +
+			"		</span>\n" +
+			// "		<strong class=\"menu-text\">" + getTitle() + "</strong>\n" +
+			"	</div>\n" +
+			"	<div id=\"responsive-menu\">\n" +
+			"		<div class=\"top-bar-left\">\n" +
+			"			<ul class=\"dropdown menu\" data-dropdown-menu>\n" +
+			"				<li class=\"menu-text\"><strong>" + getTitle() + "</strong></li>\n";
 	}
 	
 	
@@ -51,8 +50,7 @@ public class TopLevelMenu extends Menu {
 			"			</div>\n" + // top-bar-left
 			outputAccountSection(argUser) +
 			"		</div>\n" + // responsive-menu
-			"	</div>\n" + // top-bar
-			"</div>"; // data-sticky-container
+			"	</div>"; // top-bar
 	}
 	
 	protected String outputAccountSection(final Account argUser) {
