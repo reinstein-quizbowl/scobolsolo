@@ -11,7 +11,6 @@ $(document).ready(
 			'.buzzable',
 			function(argEvent) {
 				lclMousedownFired = true;
-				console.log('mousedown');
 				if (lclData.left.buzzed && lclData.right.buzzed) {
 					// No buzzing options to show.
 					return;
