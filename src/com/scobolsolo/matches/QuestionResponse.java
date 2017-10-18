@@ -93,7 +93,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		final Player lclLeftPlayer = extractPlayer(lclLeftPlayerObj);
 		final boolean lclLeftBuzzed = extractBuzzed(lclLeftPlayerObj);
 		final boolean lclLeftCorrect = extractCorrect(lclLeftPlayerObj);
-		final int lclLeftBuzzIndex = extractBuzzIndex(lclLeftPlayerObj);
+		final int lclLeftBuzzIndex = correctBuzzIndex(extractBuzzIndex(lclLeftPlayerObj), lclDiff);
 		
 		final JsonElement lclRightPlayerElt = Validate.notNull(lclJson.get("right"), "Missing right player");
 		Validate.isTrue(lclRightPlayerElt.isJsonObject(), "right is not a JsonObject");
@@ -102,7 +102,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		final Player lclRightPlayer = extractPlayer(lclRightPlayerObj);
 		final boolean lclRightBuzzed = extractBuzzed(lclRightPlayerObj);
 		final boolean lclRightCorrect = extractCorrect(lclRightPlayerObj);
-		final int lclRightBuzzIndex = extractBuzzIndex(lclRightPlayerObj);
+		final int lclRightBuzzIndex = correctBuzzIndex(extractBuzzIndex(lclRightPlayerObj), lclDiff);
 		
 		final ResponseType lclLeftRT = determineResponseType(lclActualPL, lclLeftPlayer, lclLeftBuzzed, lclLeftCorrect, lclLeftBuzzIndex);
 		final ResponseType lclRightRT = determineResponseType(lclActualPL, lclRightPlayer, lclRightBuzzed, lclRightCorrect, lclRightBuzzIndex);
@@ -291,15 +291,41 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	}
 	
 	protected static boolean extractBuzzed(final JsonObject argO) {
+		Validate.notNull(argO);
+		
 		return extractBoolean(argO, "buzzed", false);
 	}
 	
 	protected static boolean extractCorrect(final JsonObject argO) {
+		Validate.notNull(argO);
+		
 		return extractBoolean(argO, "correct", false);
 	}
 	
 	protected static int extractBuzzIndex(final JsonObject argO) {
+		Validate.notNull(argO);
+		
 		return extractInt(argO, "buzz_index", -1);
+	}
+	
+	public static int correctBuzzIndex(final int argRawIndex, final Diff argD) {
+		Validate.isTrue(argRawIndex >= 0);
+		Validate.notNull(argD);
+		
+		// The raw index is the index of the first character in the word the player buzzed on.
+		// We want to correct it to the index of the *last* character in that word, so that buzzpoints show that the entire word has been read.
+		// Theoretically this should be done in the method on Question that puts the indexes in, but the structure of that code makes that inordinately difficult.
+		int lclCorrectedIndex;
+		
+		final String lclText = argD.getText();
+		for (lclCorrectedIndex = argRawIndex + 1; lclCorrectedIndex < lclText.length(); ++lclCorrectedIndex) {
+			char lclC = lclText.charAt(lclCorrectedIndex);
+			if (Question.isWordBreakingCharacter(lclC)) {
+				break;
+			}
+		}
+		
+		return lclCorrectedIndex;
 	}
 	
 	protected static ResponseType determineResponseType(final Placement argPL, final Player argPlayer, final boolean argBuzzed, final boolean argCorrect, final int argBuzzIndex) {

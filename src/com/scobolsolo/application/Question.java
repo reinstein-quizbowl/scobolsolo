@@ -720,15 +720,15 @@ public interface Question extends QuestionUserFacing {
 		}
 	}
 	
-	static boolean showPGs(int argBitField) {
+	static boolean showPGs(final int argBitField) {
 		return (argBitField & SHOW_PRONUNCIATION_GUIDES) != 0;
 	}
 	
-	static boolean showBuzzLinks(int argBitField) {
+	static boolean showBuzzLinks(final int argBitField) {
 		return (argBitField & SHOW_BUZZ_LINKS) != 0;
 	}
 	
-	static boolean isWordBreakingCharacter(char argC) {
+	public static boolean isWordBreakingCharacter(final char argC) {
 		for (char lclWBC : WORD_BREAKING_CHARACTERS) {
 			if (lclWBC == argC) {
 				return true;
