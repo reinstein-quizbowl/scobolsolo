@@ -28,7 +28,7 @@ public class UnifyContacts extends Standalone {
 	}
 	
 	public static void run(final String[] args) throws Exception {
-		Validate.isTrue(args.length >= 2);
+		Validate.isTrue(args.length >= 2, "At least two arguments required. The first should be the ID of the Contact to keep; the other(s) should be the ID(s) of the Contacts to merge in.");
 		
 		Contact lclGood = null;
 		List<Contact> lclBads = new ArrayList<>(args.length - 1);
@@ -75,10 +75,10 @@ public class UnifyContacts extends Standalone {
 			.firstNonNull("SortBy", "EmailAddress", "AdvancePhone", "DayOfPhone", "Address")
 			.concatenate("Note", "\n\n")
 			.or("Active")
-			.mergeChildren("MainSchoolRegistration", SchoolRegistration.class)
-			.mergeChildren("Player", Player.class)
-			.mergeChildren("Staff", Staff.class)
-			.mergeChildren("TournamentDirectorTournament", Tournament.class)
+			.mergeChildren("Main", SchoolRegistration.class)
+			.mergeChildren(Player.class)
+			.mergeChildren(Staff.class)
+			.mergeChildren("TournamentDirector", Tournament.class)
 			.complete();
 	}
 }
