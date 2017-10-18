@@ -38,8 +38,14 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 			.sorted()
 			.collect(Collectors.toList());
 		lclRTs.sort(null);
-
-		List<Category> lclCategories = new ArrayList<>(CategoryFactory.getInstance().getAll());
+		
+		List<Category> lclCategories = CategoryFactory.getInstance().acquireForQuery(
+			new ArrayList<>(),
+			new ImplicitTableDatabaseQuery(
+				"code IN (SELECT category_code FROM Category_Use WHERE tournament_code = ?)", 
+				lclT.getCode()
+			)
+		);
 		lclCategories.sort(null);
 
 		%><table class="reponsive">
@@ -48,9 +54,9 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 					<th>Group</th>
 					<th>Category</th><%
 					for (ResponseType lclRT : lclRTs) {
-						%><th><%= lclRT.getShortName() %></th><%
+						%><th class="number"><%= lclRT.getShortName() %></th><%
 					}
-					%><th><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
+					%><th class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
 				</tr>
 			</thead>
 			<tbody><%
@@ -84,9 +90,9 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 									lclRTTally.tally(lclRT);
 								}
 							}
-							%><td><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
+							%><td class="number"><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
 						}
-						%><td><%
+						%><td class="number"><%
 							if (lclHeard > 0) {
 								%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
 							} else {
@@ -106,9 +112,9 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 							lclPoints += lclCount * lclRT.getPoints();
 							lclHeard += lclCount;
 						}
-						%><td><%= lclCount %></td><%
+						%><td class="number"><%= lclCount %></td><%
 					}
-					%><td><%
+					%><td class="number"><%
 						if (lclHeard > 0) {
 							%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
 						} else {

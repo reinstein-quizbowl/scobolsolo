@@ -9,8 +9,13 @@
 
 $info-color: map-get($foundation-palette, info);
 
-td { // Deliberately not th
-	vertical-align: top;
+td, th { // Deliberately not th
+	text-align: left;
+	vertical-align: baseline;
+	
+	&.number {
+		text-align: right;
+	}
 }
 
 .switch {

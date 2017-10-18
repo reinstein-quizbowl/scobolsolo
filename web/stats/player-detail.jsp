@@ -60,13 +60,13 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 					%><table class="responsive">
 						<thead>
 							<tr>
-								<th>Round</th>
-								<th>Opponent</th>
-								<th>Score</th>
-								<th>Opp.&nbsp;Score</th>
-								<th><abbr title="tossups heard">TUH</abbr></th>
-								<th><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
-								<th>Record After</th>
+								<th style="width: 10%;">Round</th>
+								<th style="width: 40%;">Opponent</th>
+								<th style="width: 10%;" class="number">Score</th>
+								<th style="width: 10%;" class="number">Opp.&nbsp;Score</th>
+								<th style="width: 5%;" class="number"><abbr title="tossups heard">TUH</abbr></th>
+								<th style="width: 10%;" class="number"><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
+								<th style="width: 15%;" class="number"><abbr title="record after">Rec. After</abbr></th>
 							</tr>
 						</thead>
 						<tbody><%
@@ -95,13 +95,13 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 								
 								Player lclOpponentPlayer = Validate.notNull(lclWon ? lclGV.getLoserPlayer() : lclGV.getWinnerPlayer());
 								%><tr>
-									<td data-tablesorter="<%= lclM.getRound().getSequence() %>"><%= lclM.getRound().getShortName() %></td>
-									<td data-tablesorter="<%= lclOpponentPlayer.getContact().getSortBy() %>"><a href="#player_<%= lclOpponentPlayer.getId() %>"><%= lclOpponentPlayer.getNameWithSchoolShortName() %></a></td>
-									<td><%= lclWon ? lclGV.getWinnerScore(0) : lclGV.getLoserScore(0) %></td>
-									<td><%= lclWon ? lclGV.getLoserScore(0) : lclGV.getWinnerScore(0) %></td>
-									<td><%= lclGV.getTossupsHeard(0) %></td>
-									<td><%= lclCDepth == null ? "n/a" : lclPF.format(lclCDepth.doubleValue()) %></td>
-									<td><%= lclWins %>&ndash;<%= lclLosses %></td>
+									<th data-tablesorter="<%= lclM.getRound().getSequence() %>"><%= lclM.getRound().getShortName() %></th>
+									<th data-tablesorter="<%= lclOpponentPlayer.getContact().getSortBy() %>"><a href="#player_<%= lclOpponentPlayer.getId() %>"><%= lclOpponentPlayer.getNameWithSchoolShortName() %></a></th>
+									<td class="number"><%= lclWon ? lclGV.getWinnerScore(0) : lclGV.getLoserScore(0) %></td>
+									<td class="number"><%= lclWon ? lclGV.getLoserScore(0) : lclGV.getWinnerScore(0) %></td>
+									<td class="number"><%= lclGV.getTossupsHeard(0) %></td>
+									<td class="number"><%= lclCDepth == null ? "n/a" : lclPF.format(lclCDepth.doubleValue()) %></td>
+									<td class="number"><%= lclWins %>&ndash;<%= lclLosses %></td>
 								</tr><%
 							}
 						%></tbody>

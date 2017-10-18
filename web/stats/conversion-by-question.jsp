@@ -39,7 +39,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 </style>
 
 <div class="row">
-	<div class="small-12 large-9 columns"><%
+	<div class="small-12 large-10 columns"><%
 		List<ResponseType> lclRTs = ResponseTypeFactory.getInstance().getAll().stream()
 			.filter(ResponseType::isShowInReports)
 			.sorted()
@@ -55,14 +55,14 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 				%><table class="responsive">
 					<thead>
 						<tr>
-							<th>#</th>
-							<th>Question</th>
-							<th>Category</th><%
+							<th style="width: 5%;">#</th>
+							<th style="width: 20%;">Question</th>
+							<th style="width: 30%;">Category</th><%
 							for (ResponseType lclRT : lclRTs) {
-								%><th><%= lclRT.getShortName() %></th><%
+								%><th style="width: <%= (1.0d * 35 / lclRTs.size()) %>%;" class="number"><%= lclRT.getShortName() %></th><%
 							}
 							%>
-							<th><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
+							<th style="width: 10%;" class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
 						</tr>
 					</thead>
 					<tbody><%
@@ -97,9 +97,9 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 											lclRTTally.tally(lclRT);
 										}
 									}
-									%><td><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
+									%><td class="number"><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
 								}
-								%><td><%
+								%><td class="number"><%
 									if (lclHeard > 0) {
 										%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
 									} else {
@@ -119,9 +119,9 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 									lclPoints += lclCount * lclRT.getPoints();
 									lclHeard += lclCount;
 								}
-								%><td><%= lclCount %></td><%
+								%><td class="number"><%= lclCount %></td><%
 							}
-							%><td><%
+							%><td class="number"><%
 								if (lclHeard > 0) {
 									%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
 								} else {
@@ -138,7 +138,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 		}
 	%></div>
 	
-	<nav class="show-for-large large-3 columns" data-magellan data-active-class="active">
+	<nav class="show-for-large large-2 columns" data-magellan data-active-class="active">
 		<ul class="magellan side-nav no-bullet"><%
 			for (Round lclR : lclT.getRounds()) {
 				Packet lclP = lclR.getPacket();

@@ -44,6 +44,10 @@ public interface Player extends PlayerUserFacing, Comparable<Player> {
 		return getSchoolRegistration().getTournament();
 	}
 	
+	default School getSchool() {
+		return getSchoolRegistration().getSchool();
+	}
+	
 	default List<ResponseType> determineResponseTypesToOffer() {
 		return ResponseTypeFactory.getInstance().getAll().stream()
 			.filter(isExhibition() ? ResponseType::isShowForExhibitionPlayers : ResponseType::isShowForNonExhibitionPlayers)

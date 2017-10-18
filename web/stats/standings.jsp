@@ -46,11 +46,11 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 					<tr>
 						<th>Player</th>
 						<th>School</th>
-						<th>Record</th>
-						<th>Points</th>
-						<th>Tossups Heard</th>
-						<th><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
-						<th><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th>
+						<th class="number">Record</th>
+						<th class="number">Points</th>
+						<th class="number">Tossups Heard</th>
+						<th class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
+						<th class="number"><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th>
 					</tr>
 				</thead>
 				<tbody><%
@@ -59,13 +59,13 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 					
 					for (PlayerRecordV lclPRV : lclPRVs) {
 						%><tr>
-							<td data-tablesorter="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></td>
-							<td><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
-							<td data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
-							<td><%= lclPRV.getPoints(0) %></td>
-							<td><%= lclPRV.getTossupsHeard(0) %></td>
-							<td><%= lclDF.format(20.0d * lclPRV.getPPTUH()) %></td>
-							<td><%
+							<th data-tablesorter="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></th>
+							<th><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></th>
+							<td class="number" data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
+							<td class="number"><%= lclPRV.getPoints(0) %></td>
+							<td class="number"><%= lclPRV.getTossupsHeard(0) %></td>
+							<td class="number"><%= lclDF.format(20.0d * lclPRV.getPPTUH()) %></td>
+							<td class="number"><%
 								OptionalDouble lclACBD = lclPRV.getAverageCorrectBuzzDepth();
 								if (lclACBD.isPresent()) {
 									%><%= lclPF.format(lclACBD.getAsDouble()) %><%

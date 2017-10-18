@@ -14,6 +14,7 @@
 <%@ page import="com.scobolsolo.application.PlayerCategoryPointVFactory" %>
 <%@ page import="com.scobolsolo.application.PlayerRecordV" %>
 <%@ page import="com.scobolsolo.application.PlayerRecordVFactory" %>
+<%@ page import="com.scobolsolo.application.School" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
@@ -38,13 +39,13 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		<table class="responsive">
 			<thead>
 				<tr>
-					<th>Points</th>
+					<th class="number"><abbr title="points">Pts</abbr></th>
 					<th>Player</th>
 					<th>School</th>
 					<th>Record</th>
-					<th><abbr title="tossups heard">TUH</abbr></th>
-					<th><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
-					<th><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th>
+					<th class="number"><abbr title="tossups heard">TUH</abbr></th>
+					<th class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
+					<th class="number"><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th>
 				</tr>
 			</thead>
 			<tbody><%
@@ -53,17 +54,20 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 					lclPRVs, 
 					new ImplicitTableDatabaseQuery("tournament_code = ?", lclT.getCode())
 				);
-				lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
+				lclPRVs.sort(PlayerRecordV.PPTUH_COMPARATOR);
 				
 				for (PlayerRecordV lclPRV : lclPRVs) {
+					Player lclPlayer = lclPRV.getPlayer();
+					School lclSchool = lclPlayer.getSchool();
+					
 					%><tr>
-						<td><%= lclPRV.getPoints(0) %></td>
-						<td data-tablesorter="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></td>
-						<td data-tablesorter="<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
+						<th class="number"><%= lclPRV.getPoints(0) %></th>
+						<th data-tablesorter="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
+						<td data-tablesorter="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
 						<td data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&#8211;<%= lclPRV.getLossCount(0) %></td>
-						<td><%= lclPRV.getTossupsHeard(0) %></td>
-						<td><%= lclDF.format(20.0f * lclPRV.getPPTUH()) %></td>
-						<td><%
+						<td class="number"><%= lclPRV.getTossupsHeard(0) %></td>
+						<td class="number"><%= lclDF.format(20.0f * lclPRV.getPPTUH()) %></td>
+						<td class="number"><%
 							OptionalDouble lclACBD = lclPRV.getAverageCorrectBuzzDepth();
 							if (lclACBD.isPresent()) {
 								%><%= lclPF.format(lclACBD.getAsDouble()) %><%
@@ -78,9 +82,8 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		
 		<p>Tiebreakers are excluded from the category-specific point totals.</p><%
 		
-		List<Category> lclCategories = new ArrayList<>();
-		CategoryFactory.getInstance().acquireForQuery(
-			lclCategories, 
+		List<Category> lclCategories = CategoryFactory.getInstance().acquireForQuery(
+			new ArrayList<>(),
 			new ImplicitTableDatabaseQuery(
 				"code IN (SELECT category_code FROM Category_Use WHERE tournament_code = ?)", 
 				lclT.getCode()
@@ -112,23 +115,26 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 				%><table class="responsive">
 					<thead>
 						<tr>
-							<th>Points</th>
+							<th class="number"><abbr title="points">Pts</abbr></th>
 							<th>Player</th>
 							<th>School</th>
-							<th><abbr title="tossups heard">TUH</abbr></th>
-							<th><abbr title="points per tossup heard">PPTUH</abbr></th>
-							<th><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
+							<th class="number"><abbr title="tossups heard">TUH</abbr></th>
+							<th class="number"><abbr title="points per tossup heard">PPTUH</abbr></th>
+							<th class="number"><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
 						</tr>
 					</thead>
 					<tbody><%
 						for (PlayerCategoryPointV lclPCPV : lclPCPVs) {
+							Player lclPlayer = lclPCPV.getPlayer();
+							School lclSchool = lclPlayer.getSchool();
+							
 							%><tr>
-								<td><%= lclPCPV.getPoints(0) %></td>
-								<td data-tablesorter="<%= lclPCPV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPCPV.getPlayer().getId() %>"><%= lclPCPV.getPlayer().getContact().getName() %></a></td>
-								<td><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPCPV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></td>
-								<td><%= lclPCPV.getTossupsHeard(0) %></td>
-								<td><%= lclDF.format(lclPCPV.getPPTUH()) %></td>
-								<td><%
+								<th class="number"><%= lclPCPV.getPoints(0) %></th>
+								<th data-tablesorter="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
+								<td data-tablesorter="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
+								<td class="number"><%= lclPCPV.getTossupsHeard(0) %></td>
+								<td class="number"><%= lclDF.format(lclPCPV.getPPTUH()) %></td>
+								<td class="number"><%
 									Double lclACBD = lclPCPV.getAverageCorrectBuzzDepthAsObject();
 									if (lclACBD == null) {
 										%>n/a<%
