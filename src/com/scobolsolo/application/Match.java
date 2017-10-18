@@ -75,10 +75,11 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 	
 	default Staff determineLikelyModerator() {
 		List<StaffAssignment> lclModerators = getRoom().streamStaffAssignment()
+			.filter(argSA -> argSA.getPhase() == this.getPhase())
 			.filter(argSA -> argSA.getRole() == StaffRoleFactory.MODERATOR())
 			.collect(Collectors.toList());
 		if (lclModerators.size() == 1) {
-			return lclModerators.iterator().next().getStaff();
+			return lclModerators.get(0).getStaff();
 		} else {
 			return null;
 		}
@@ -86,12 +87,13 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 	
 	default Staff determineLikelyScorekeeper() {
 		List<StaffAssignment> lclScorekeepers = getRoom().streamStaffAssignment()
+			.filter(argSA -> argSA.getPhase() == this.getPhase())
 			.filter(argSA -> argSA.getRole() == StaffRoleFactory.SCOREKEEPER())
 			.collect(Collectors.toList());
 		if (lclScorekeepers.size() == 1) {
-			return lclScorekeepers.iterator().next().getStaff();
+			return lclScorekeepers.get(0).getStaff();
 		} else {
-			return null;
+			return determineLikelyModerator(); // ???
 		}
 	}
 	
