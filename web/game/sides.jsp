@@ -30,8 +30,8 @@ Tournament lclT = lclMatch.getTournament();
 boolean lclTD = lclUser.mayActAsTournamentDirector(lclT) && ControllerServlet.getBooleanParameter(request, "admin");
 
 Staff lclS = lclUser.getContact().findStaff(lclT);
-Staff lclSelectedModeratorStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS) : lclGame.getModeratorStaff();
-Staff lclSelectedScorekeeperStaff = lclGame == null ? ObjectUtils.firstNonNull(lclMatch.determineLikelyScorekeeper(), lclS) : lclGame.getScorekeeperStaff();
+Staff lclSelectedModeratorStaff = ObjectUtils.firstNonNull(lclMatch.determineLikelyModerator(), lclS, lclGame == null ? null : lclGame.getModeratorStaff());
+Staff lclSelectedScorekeeperStaff = ObjectUtils.firstNonNull(lclMatch.determineLikelyScorekeeper(), lclS, lclGame == null ? null : lclGame.getScorekeeperStaff());
 
 List<Staff> lclStaffChoices = lclT.getStaff();
 
