@@ -66,32 +66,14 @@ if (lclUser == null || ControllerServlet.getBooleanParameter(request, "suppressM
 	<meta name="author" content="Jonah Greenthal">
 	<meta name="description" content="<%= StringEscapeUtils.escapeHtml4(argDescription) %>">
 	
-	<!-- jQuery -->
-	<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-	
-	<!-- jQuery UI -->
-	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-	
-	<!-- Font Awesome -->
+	<% /* Font Awesome */ %>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<!-- Tablesorter -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/js/jquery.tablesorter.min.js"></script>
-	
-	<!-- Automatic smart quotes -->
-	<script src="/template/js/smartquotes.min.js"></script>
-	
-	<!-- Foundation -->
+	<% /* Foundation */ %>
 	<link rel="stylesheet" href="/template/style.css">
-	<script src="/template/foundation/js/foundation.min.js"></script>
 	
-	<!-- Foundation Datepicker -->
+	<% /* Foundation Datepicker */ %>
 	<link rel="stylesheet" href="/template/foundation/datepicker/foundation-datepicker.css">
-	<script src="/template/foundation/datepicker/foundation-datepicker.js"></script>
-	
-	<!-- MathJax -->
-	<script type="text/x-mathjax-config" src="/template/js/mathjax-config.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 
 <body>
