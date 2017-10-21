@@ -18,10 +18,12 @@ import org.apache.commons.exec.ExecuteStreamHandler;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.exec.LogOutputStream;
 
+import com.scobolsolo.ScobolSoloConfiguration;
+
 public class LaTeXCompiler {
 	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(LaTeXCompiler.class);
 	
-	public static final String LATEX_PATH = "/usr/local/texlive/2014/bin/x86_64-linux/pdflatex";
+	public static final String LATEX_PATH = ScobolSoloConfiguration.getInstance().getString("LATEX_PATH");
 	public static final String TEX_MIME_TYPE = "application/x-tex";
 	public static final String PDF_MIME_TYPE = "application/pdf";
 	
