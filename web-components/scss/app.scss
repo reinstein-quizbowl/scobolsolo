@@ -16,6 +16,15 @@ td, th { // Deliberately not th
 	&.number {
 		text-align: right;
 	}
+	
+	> input, > select, > textarea { // What about type=number and other text-like things?
+		display: inline-block !important; // Without this, Firefox renders such cells with incorrect vertical alignment.	Chrome is fine either way.	As Firefox progresses we should periodically re-check whether this is necessary.
+		height: inherit;
+		
+		&:only-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .switch {
