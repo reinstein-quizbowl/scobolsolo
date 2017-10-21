@@ -211,6 +211,16 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 					}
 					break;
 				
+				case '\u201C':
+					lclSB.append("``");
+					lclInDoubleQuotes = true;
+					break;
+				
+				case '\u201D':
+					lclSB.append("''");
+					lclInDoubleQuotes = false;
+					break;
+				
 				case '_':
 					if (!lclInMath) {
 						if (lclUnderlining) {
