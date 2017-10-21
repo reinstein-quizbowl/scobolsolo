@@ -53,7 +53,7 @@ if (lclOF.hasErrors()) {
 </div>
 <div class="row">
 	<div class="small-12 columns">
-		<table class="responsive">
+		<table class="responsive data-freeze-1">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -79,13 +79,13 @@ if (lclOF.hasErrors()) {
 					
 					%><tr>
 						<%= lclPOF.open() %>
-						<td data-tablesorter="<%= lclP == null ? "" : lclP.getName() %>"><%= lclPOF.text("Name", 20) %></td>
-						<td data-tablesorter="<%= lclP == null ? "" : lclP.getShortName() %>"><%= lclPOF.text("ShortName", 10) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
-						<td data-tablesorter="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
-						<td data-tablesorter="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclPOF, "QuestionsPublic") %></td>
+						<td data-order="<%= lclP == null ? "" : lclP.getName() %>"><%= lclPOF.text("Name", 20) %></td>
+						<td data-order="<%= lclP == null ? "" : lclP.getShortName() %>"><%= lclPOF.text("ShortName", 10) %></td>
+						<td data-order="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
+						<td data-order="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
+						<td data-order="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclPOF, "QuestionsPublic") %></td>
 						<td><%= lclPOF.textarea("Note", 60, 1) %></td>
-						<td data-tablesorter="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.number("Sequence") %></td>
+						<td data-order="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.number("Sequence") %></td>
 						<td><%= lclP == null ? "&nbsp;" : "<a href=\"packet-edit.jsp?packet_id=" + lclP.getId() + "\">Edit</a>" %></td>
 						<td><%= HTMLUtility.deleteWidget(lclPOF) %></td>
 						<%= lclPOF.close() %>
@@ -116,7 +116,7 @@ if (lclUser.isAdministrator() && lclT.getPacketSet().isEmpty() == false) {
 			<form id="output" action="OutputPackets" method="get">
 				<input form="output" type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" />
 			</form>
-			<table class="responsive">
+			<table class="responsive data-freeze-1">
 				<thead>
 					<tr>
 						<th>Packet</th>

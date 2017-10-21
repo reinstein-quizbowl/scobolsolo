@@ -23,7 +23,7 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 		<form action="RearrangeSeeds" method="post" onsubmit="javascript:populateSeeds()">
 		<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>">
 		
-		<table class="responsive">
+		<table class="responsive data-freeze-2">
 			<thead>
 				<tr>
 					<th>New&nbsp;seed</th>
@@ -42,9 +42,9 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 				for (Player lclP : lclPlayers) {
 					%><tr class="ui-state-default">
 						<td><input type="number" readonly="readonly" class="number-widget" id="player_<%= lclP.getId() %>_seed" name="player_<%= lclP.getId() %>_seed" value="<%= lclP.getSeed("?") %>" /></td>
-						<td data-tablesorter="<%= lclP.getContact().getSortBy() %>"><a href="player-edit.jsp?player_id=<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></td>
-						<td data-tablesorter="<%= lclP.getSchoolRegistration().getSchool().getShortName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclP.getSchoolRegistration().getId() %>"><%= lclP.getSchoolRegistration().getSchool().getShortName() %></a></td>
-						<td data-tablesorter="<%= lclP.getSchoolYear() == null ? 0 : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "?" : lclP.getSchoolYear().getShortName() %></td>
+						<td data-order="<%= lclP.getContact().getSortBy() %>"><a href="player-edit.jsp?player_id=<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></td>
+						<td data-order="<%= lclP.getSchoolRegistration().getSchool().getShortName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclP.getSchoolRegistration().getId() %>"><%= lclP.getSchoolRegistration().getSchool().getShortName() %></a></td>
+						<td data-order="<%= lclP.getSchoolYear() == null ? 0 : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "?" : lclP.getSchoolYear().getShortName() %></td>
 						<td><%= lclP.getRankWithinSchool("?") %></td>
 						<td class="saved-seed"><%= lclP.getSeed("?") %></td><%
 						if (lclCardsAssigned) {

@@ -115,7 +115,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="players">Players (<%= lclSR.getPlayerSet().size() %>)</h2>
-		<table class="full-width responsive">
+		<table class="full-width responsive data-freeze-2">
 			<thead>
 				<tr>
 					<th>&nbsp;</th>
@@ -169,7 +169,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="waitlist-entries">Waitlist Entries</h2>
-		<table class="full-width responsive">
+		<table class="full-width responsive data-freeze-2">
 			<thead>
 				<tr>
 					<th>Count</th>
@@ -193,8 +193,8 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					WaitlistEntry lclWE = lclWEOF.getUserFacing();
 					%><tr>
 						<%= lclWEOF.open() %>
-						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getPlayerCount() %>"><%= lclWEOF.number("PlayerCount").min(1) %></td>
-						<td data-tablesorter="<%= lclWE == null ? "0" : lclWE.getSequence() %>"><%= lclWEOF.number("Sequence") %></td>
+						<td data-order="<%= lclWE == null ? "0" : lclWE.getPlayerCount() %>"><%= lclWEOF.number("PlayerCount").min(1) %></td>
+						<td data-order="<%= lclWE == null ? "0" : lclWE.getSequence() %>"><%= lclWEOF.number("Sequence") %></td>
 						<td><%= lclWEOF.textarea("Note", 60, 3) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclWEOF) %></td>
 					</tr><%
@@ -207,7 +207,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="standby-entries">Standby List Entries</h2>
-		<table class="full-width responsive">
+		<table class="full-width responsive data-freeze-2">
 			<thead>
 				<tr>
 					<th>Count</th>
@@ -231,8 +231,8 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					StandbyEntry lclSE = lclSEOF.getUserFacing();
 					%><tr>
 						<%= lclSEOF.open() %>
-						<td data-tablesorter="<%= lclSE == null ? "0" : lclSE.getPlayerCount() %>"><%= lclSEOF.number("PlayerCount").min(1) %></td>
-						<td data-tablesorter="<%= lclSE == null ? "0" : lclSE.getSequence() %>"><%= lclSEOF.number("Sequence") %></td>
+						<td data-order="<%= lclSE == null ? "0" : lclSE.getPlayerCount() %>"><%= lclSEOF.number("PlayerCount").min(1) %></td>
+						<td data-order="<%= lclSE == null ? "0" : lclSE.getSequence() %>"><%= lclSEOF.number("Sequence") %></td>
 						<td><%= lclSEOF.textarea("Note", 60, 3) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclSEOF) %></td>
 						<%= lclSEOF.close() %>
@@ -246,7 +246,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="staff">Staff (<%= lclSR.getStaffSet().size() %>)</h2>
-		<table class="full-width responsive">
+		<table class="full-width responsive data-freeze-1">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -287,7 +287,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="buzzers">Buzzers (<%= lclSR.getBuzzerSet().size() %>)</h2>
-		<table class="full-width responsive">
+		<table class="full-width responsive data-freeze-1">
 			<thead>
 				<tr>
 					<th>Name</th>

@@ -18,10 +18,11 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 
 <div class="row">
 	<div class="small-12 columns">
-		<table class="responsive">
+		<table class="responsive data-freeze-1">
 			<thead>
 				<tr>
 					<th>School</th>
+					<th>Location</th>
 					<th>Players</th>
 					<th>Waitlist Players</th>
 					<th>Standby Players</th>
@@ -49,7 +50,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					lclBuzzers += lclSR.getBuzzerSet().size();
 					
 					%><tr>
-						<td><a href="/stats/field.jsp?object=<%= lclT.getUniqueString() %>#<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></td>
+						<th><a href="/stats/field.jsp?object=<%= lclT.getUniqueString() %>#<%= lclSR.getId() %>"><%= lclSR.getSchool().getName() %></a></th>
+						<td><%= lclSR.getSchool().getLocation("&nbsp;") %></td>
 						<td><%= lclSR.getFullPlayerCount() %></td>
 						<td><%= lclWaitlistPlayers %></td>
 						<td><%= lclStandbyPlayers %></td>
@@ -62,14 +64,14 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 			%></tbody>
 			<tfoot>
 				<tr>
-					<th>Total</th>
-					<th><%= lclPlayers %></th>
-					<th><%= lclWaitlist %></th>
-					<th><%= lclStandby %></th>
-					<th><%= lclT.getStaffSet().size() %></th>
-					<th><%= lclBuzzers %></th>
-					<th>&nbsp;</th>
-					<th>&nbsp;</th>
+					<th colspan="2">Total</th>
+					<td><%= lclPlayers %></td>
+					<td><%= lclWaitlist %></td>
+					<td><%= lclStandby %></td>
+					<td><%= lclT.getStaffSet().size() %></td>
+					<td><%= lclBuzzers %></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>

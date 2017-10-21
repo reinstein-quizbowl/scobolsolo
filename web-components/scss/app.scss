@@ -9,6 +9,28 @@
 
 $info-color: map-get($foundation-palette, info);
 
+.dataTables_wrapper {
+	margin-bottom: 1rem;
+}
+.dt-floating-wrapper {
+	position: fixed;
+	overflow: hidden;
+	
+	table.dataTable {
+		margin: 0 !important;
+		position: relative;
+	}
+}
+
+.dataTables_scrollBody table.dataTable thead tr {
+	height: 0 !important;
+	line-height: 0 !important;
+	
+	th, td {
+		background: none;
+	}
+}
+
 td, th { // Deliberately not th
 	text-align: left;
 	vertical-align: baseline;
@@ -137,24 +159,6 @@ label {
 label.my-inline {
 	display: inline;
 }
-
-
-table:not(.unsortable) thead th, table:not(.unsortable) thead td {
-	padding-right: 20px !important;
-	cursor: pointer;
-	background-image: url(/template/tablesorter/bg.gif);
-	background-repeat: no-repeat;
-	background-position: center right;
-}
-
-table:not(.unsortable) thead tr .tablesorter-headerAsc {
-	background-image: url(/template/tablesorter/asc.gif);
-}
-
-table:not(.unsortable) thead tr .tablesorter-headerDesc {
-	background-image: url(/template/tablesorter/desc.gif);
-}
-
 
 .full-width {
 	width: 100%;

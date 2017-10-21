@@ -34,7 +34,7 @@ Tournament lclT = lclOF.getUserFacing();
 			%><div class="form-errors"><%= lclOF.errors() %></div><%
 		}
 
-		%><table class="responsive">
+		%><table class="responsive data-freeze-1">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -60,9 +60,9 @@ Tournament lclT = lclOF.getUserFacing();
 					
 					%><tr>
 						<%= lclSOF.open() %>
-						<td data-tablesorter="<%= lclSOF.isNew() ? "" : lclStaff.getContact().getSortBy() %>"><%= lclSOF.<Contact>dropdown("Contact").filter(Contact::isActive) %></td>
-						<td data-tablesorter="<%= lclSOF.isNew() ? "?" : lclStaff.getTechnologyChoice().getSequence() %>"><%= lclSOF.<TechnologyChoice>dropdown("TechnologyChoice").namer(TechnologyChoice::getVeryShortName) %></td>
-						<td data-tablesorter="<%= lclSOF.isNew() ? "" : (lclStaff.getSchoolRegistration() == null ? "" : lclStaff.getSchoolRegistration().getSchool().getName()) %>"><%= lclSOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %></td>
+						<td data-order="<%= lclSOF.isNew() ? "" : lclStaff.getContact().getSortBy() %>"><%= lclSOF.<Contact>dropdown("Contact").filter(Contact::isActive) %></td>
+						<td data-order="<%= lclSOF.isNew() ? "?" : lclStaff.getTechnologyChoice().getSequence() %>"><%= lclSOF.<TechnologyChoice>dropdown("TechnologyChoice").namer(TechnologyChoice::getVeryShortName) %></td>
+						<td data-order="<%= lclSOF.isNew() ? "" : (lclStaff.getSchoolRegistration() == null ? "" : lclStaff.getSchoolRegistration().getSchool().getName()) %>"><%= lclSOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %></td>
 						<td><%= lclSOF.text("Note", 30) %></td>
 						<td><%
 							for (OpalForm<StaffAssignment> lclSAOF : lclSOF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.ROOM_COMPARATOR)) {

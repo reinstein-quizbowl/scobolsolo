@@ -26,7 +26,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 				%><p>Drag the rows to rearrange standby entries. Your changes will not be saved until you hit the "Save" button <em>at the bottom of this section</em> (not the one for any individual row).</p><%
 			}
 			
-			%><table class="responsive">
+			%><table class="responsive data-freeze-1">
 				<thead>
 					<tr>
 						<th>New&nbsp;position</th>
@@ -48,7 +48,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 							<input type="hidden" form="rearrange" class="generated-position-target" name="position-<%= lclSE.getId() %>" id="position-<%= lclSE.getId() %>" />
 							<%= lclSEOF.open() %>
 							<td class="generated-position">&nbsp;</td>
-							<td data-tablesorter="<%= lclSE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclSE.getSchoolRegistration().getId() %>"><%= lclSE.getSchoolRegistration().getSchool().getName() %></a></td>
+							<td data-order="<%= lclSE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclSE.getSchoolRegistration().getId() %>"><%= lclSE.getSchoolRegistration().getSchool().getName() %></a></td>
 							<td><%= lclSEOF.number("PlayerCount").min(1) %></td>
 							<td><%= lclSEOF.text("Note", 40) %></td>
 							<td class="saved-position"><%= lclSE.getSequence() %></td>

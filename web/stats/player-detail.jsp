@@ -57,7 +57,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 			for (Player lclP : lclSchoolToPlayers.get(lclS)) {
 				%><h3 id="player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></h3><%
 				if (lclPlayerToPMVs.containsKey(lclP) && !lclPlayerToPMVs.get(lclP).isEmpty()) {
-					%><table class="responsive">
+					%><table class="responsive data-freeze-2">
 						<thead>
 							<tr>
 								<th style="width: 10%;">Round</th>
@@ -95,8 +95,8 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 								
 								Player lclOpponentPlayer = Validate.notNull(lclWon ? lclGV.getLoserPlayer() : lclGV.getWinnerPlayer());
 								%><tr>
-									<th data-tablesorter="<%= lclM.getRound().getSequence() %>"><%= lclM.getRound().getShortName() %></th>
-									<th data-tablesorter="<%= lclOpponentPlayer.getContact().getSortBy() %>"><a href="#player_<%= lclOpponentPlayer.getId() %>"><%= lclOpponentPlayer.getNameWithSchoolShortName() %></a></th>
+									<th data-order="<%= lclM.getRound().getSequence() %>"><%= lclM.getRound().getShortName() %></th>
+									<th data-order="<%= lclOpponentPlayer.getContact().getSortBy() %>"><a href="#player_<%= lclOpponentPlayer.getId() %>"><%= lclOpponentPlayer.getNameWithSchoolShortName() %></a></th>
 									<td class="number"><%= lclWon ? lclGV.getWinnerScore(0) : lclGV.getLoserScore(0) %></td>
 									<td class="number"><%= lclWon ? lclGV.getLoserScore(0) : lclGV.getWinnerScore(0) %></td>
 									<td class="number"><%= lclGV.getTossupsHeard(0) %></td>

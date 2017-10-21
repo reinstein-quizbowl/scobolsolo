@@ -148,7 +148,7 @@ if (lclOF.hasErrors()) {
 						<%= lclPOF.<Player>dropdown("Player").filter(argP -> argP.getTournament() == lclT).namer(Player::getNameWithSchoolShortName) %>
 					</label>
 				</div>
-				<table class="responsive">
+				<table class="responsive data-freeze-1">
 					<thead>
 						<tr>
 							<th>Question</th>

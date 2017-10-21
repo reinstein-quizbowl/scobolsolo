@@ -41,7 +41,7 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				%><p>This tournament hasn't started yet.</p><%
 			}
 		} else {
-			%><table class="responsive">
+			%><table class="responsive data-freeze-1">
 				<thead>
 					<tr>
 						<th>Player</th>
@@ -59,9 +59,9 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 					
 					for (PlayerRecordV lclPRV : lclPRVs) {
 						%><tr>
-							<th data-tablesorter="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></th>
+							<th data-order="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></th>
 							<th><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></th>
-							<td class="number" data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
+							<td class="number" data-order="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
 							<td class="number"><%= lclPRV.getPoints(0) %></td>
 							<td class="number"><%= lclPRV.getTossupsHeard(0) %></td>
 							<td class="number"><%= lclDF.format(20.0d * lclPRV.getPPTUH()) %></td>

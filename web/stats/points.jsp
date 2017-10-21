@@ -36,7 +36,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 <div class="row">
 	<div class="small-12 large-9 columns">
 		<h2 id="overall" data-magellan-target="overall">Overall</h2>
-		<table class="responsive">
+		<table class="responsive  data-freeze-2">
 			<thead>
 				<tr>
 					<th class="number"><abbr title="points">Pts</abbr></th>
@@ -62,9 +62,9 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 					
 					%><tr>
 						<th class="number"><%= lclPRV.getPoints(0) %></th>
-						<th data-tablesorter="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
-						<td data-tablesorter="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
-						<td data-tablesorter="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&#8211;<%= lclPRV.getLossCount(0) %></td>
+						<th data-order="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
+						<td data-order="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
+						<td data-order="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&#8211;<%= lclPRV.getLossCount(0) %></td>
 						<td class="number"><%= lclPRV.getTossupsHeard(0) %></td>
 						<td class="number"><%= lclDF.format(20.0f * lclPRV.getPPTUH()) %></td>
 						<td class="number"><%
@@ -112,7 +112,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 				%><p>No results available</p><%
 			} else {
 				lclPCPVs.sort(PlayerCategoryPointV.PPTUH_COMPARATOR);
-				%><table class="responsive">
+				%><table class="responsive data-freeze-2">
 					<thead>
 						<tr>
 							<th class="number"><abbr title="points">Pts</abbr></th>
@@ -130,8 +130,8 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 							
 							%><tr>
 								<th class="number"><%= lclPCPV.getPoints(0) %></th>
-								<th data-tablesorter="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
-								<td data-tablesorter="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
+								<th data-order="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
+								<td data-order="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
 								<td class="number"><%= lclPCPV.getTossupsHeard(0) %></td>
 								<td class="number"><%= lclDF.format(lclPCPV.getPPTUH()) %></td>
 								<td class="number"><%

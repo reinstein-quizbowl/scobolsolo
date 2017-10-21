@@ -20,7 +20,7 @@ boolean lclShowNotes = lclSs.stream().anyMatch(argS -> StringUtils.isNotBlank(ar
 
 %><div class="row">
 	<div class="small-12 columns">
-		<table class="responsive">
+		<table class="responsive data-freeze-1">
 			<thead>
 				<tr>
 					<th>Name</th>

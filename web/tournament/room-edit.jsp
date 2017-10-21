@@ -84,7 +84,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 	<div class="row">
 		<div class="small-12 columns">
 			<h2>Matches in <%= lclPhase.getName() %> (<%= lclR.countMatchesIn(lclPhase) %>)</h2>
-			<table class="responsive">
+			<table class="responsive data-freeze-1">
 				<thead>
 					<tr>
 						<th>Round</th>
@@ -130,7 +130,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 	</div>
 	
 	<div class="small-12 columns">
-		<table class="responsive">
+		<table class="responsive data-freeze-2">
 			<thead>
 				<tr>
 					<th>Phase</th>
@@ -170,7 +170,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 	</div>
 	
 	<div class="small-12 columns">
-		<table class="responsive">
+		<table class="responsive data-freeze-0">
 			<thead>
 				<tr>
 					<th>System</th>

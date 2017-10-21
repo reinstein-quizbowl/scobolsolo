@@ -34,7 +34,7 @@ Account lclUser = Account.demand(request);
 			.sorted(Match.ENTERING_PRIORITY_COMPARATOR)
 			.collect(Collectors.toList());
 		
-		%><table class="responsive">
+		%><table class="responsive data-freeze-2">
 			<thead>
 				<tr>
 					<th>Status</th>

@@ -26,7 +26,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 				%><p>Drag the rows to rearrange waitlist entries. Your changes will not be saved until you hit the "Save" button <em>at the bottom of this section</em> (not the one for any individual row).</p><%
 			}
 			
-			%><table class="responsive">
+			%><table class="responsive data-freeze-1">
 				<thead>
 					<tr>
 						<th>New&nbsp;position</th>
@@ -48,7 +48,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 							<input type="hidden" form="rearrange" class="generated-position-target" name="position-<%= lclWE.getId() %>" id="position-<%= lclWE.getId() %>" />
 							<%= lclWEOF.open() %>
 							<td class="generated-position">&nbsp;</td>
-							<td data-tablesorter="<%= lclWE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclWE.getSchoolRegistration().getId() %>"><%= lclWE.getSchoolRegistration().getSchool().getName() %></a></td>
+							<td data-order="<%= lclWE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclWE.getSchoolRegistration().getId() %>"><%= lclWE.getSchoolRegistration().getSchool().getName() %></a></td>
 							<td><%= lclWEOF.number("PlayerCount").min(1) %></td>
 							<td><%= lclWEOF.text("Note", 40) %></td>
 							<td class="saved-position"><%= lclWE.getSequence() %></td>

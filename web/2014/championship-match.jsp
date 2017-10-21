@@ -28,7 +28,7 @@
 		
 		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
 		
-		<table class="full-width responsive even-spacing unsortable championship-scoresheet">
+		<table class="full-width responsive even-spacing unsortable championship-scoresheet data-freeze-1">
 			<thead>
 				<tr class="player-names">
 					<th>&nbsp;</th>

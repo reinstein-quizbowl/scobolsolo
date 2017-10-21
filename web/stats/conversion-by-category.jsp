@@ -48,7 +48,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 		);
 		lclCategories.sort(null);
 
-		%><table class="reponsive">
+		%><table class="reponsive data-freeze-2">
 			<thead>
 				<tr>
 					<th>Group</th>

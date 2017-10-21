@@ -12,7 +12,7 @@
 	<div class="small-12 columns">
 		<p>Scobol Solo 2015 was held on Saturday, October 31, and included 128 players from 26 schools.</p>
 		
-		<table class="tournament-final-standings">
+		<table class="tournament-final-standings data-freeze-0">
 			<caption style="caption-side: top;">The nine players who made the Championship Match finished as follows:</p>
 			<tbody>
 				<tr>
