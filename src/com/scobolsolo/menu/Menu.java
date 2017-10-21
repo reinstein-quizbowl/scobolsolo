@@ -79,9 +79,9 @@ public class Menu extends MenuItem {
 	@Override
 	protected String outputInitial(final Account argUser, final String argCurrentPageName) {
 		return
-			"					<li>\n" +
+			"					<li class=\"has-submenu\">\n" +
 			"						<a href=\"#\">" + getTitle() + "</a>\n" +
-			"							<ul class=\"menu vertical\">\n";
+			"							<ul class=\"submenu menu vertical\">\n";
 	}
 	
 	@Override

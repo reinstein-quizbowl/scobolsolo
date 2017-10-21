@@ -27,6 +27,22 @@ public class TopLevelMenu extends Menu {
 	@Override
 	protected String outputInitial(final Account argUser, final String argCurrentPageName) {
 		return
+			"<div class=\"row\">\n" +
+			"	<div class=\"small-12 columns\">\n" +
+			"		<div class=\"top-bar\">\n" +
+			"			<div class=\"top-bar-title\">\n" +
+			"				<ul class=\"menu\">" +
+								"<li class=\"menu-text\">" + getTitle() + "</strong>\n" +
+			"				</ul>\n" +
+			// "				<strong class=\"menu-text\">" + getTitle() + "</strong>\n" +
+			"				<span class=\"menu-hamburger\" data-responsive-toggle=\"responsive-menu\" data-hide-for=\"medium\"><span class=\"menu-text\" data-toggle>Menu</span><span class=\"menu-icon\" data-toggle></span></span>\n" +
+			"			</div>\n" +
+			"			<div id=\"responsive-menu\">\n" +
+			"				<div class=\"top-bar-left\">\n " +
+			"					<ul class=\"menu\" data-responsive-menu=\"drilldown medium-dropdown\">";
+		
+		
+		/* return
 			"<div class=\"top-bar\" data-topbar data-options=\"marginTop:0;\" style=\"width:100%\">\n" +
 			"	<div class=\"top-bar-title\">\n" +
 			"		<span data-responsive-toggle=\"responsive-menu\" data-hide-for=\"medium\">\n" +
@@ -37,7 +53,7 @@ public class TopLevelMenu extends Menu {
 			"	<div id=\"responsive-menu\">\n" +
 			"		<div class=\"top-bar-left\">\n" +
 			"			<ul class=\"dropdown menu\" data-dropdown-menu>\n" +
-			"				<li class=\"menu-text\"><strong>" + getTitle() + "</strong></li>\n";
+			"				<li class=\"menu-text\"><strong>" + getTitle() + "</strong></li>\n"; */
 	}
 	
 	
@@ -46,11 +62,21 @@ public class TopLevelMenu extends Menu {
 	@Override
 	protected String outputFinal(final Account argUser, final String argCurrentPageName) {
 		return
+			"					</ul>\n" +
+			"				</div>\n" + // top-bar-left
+							outputAccountSection(argUser) +
+			"			</div>" + // responsive-menu
+			"		</div>" + // top-bar
+			"	</div>" + // small-12 columns
+			"</div>"; // row
+		
+		
+		/* return
 			"				</ul>\n" + // dropdown menu
 			"			</div>\n" + // top-bar-left
 			outputAccountSection(argUser) +
 			"		</div>\n" + // responsive-menu
-			"	</div>"; // top-bar
+			"	</div>"; // top-bar */
 	}
 	
 	protected String outputAccountSection(final Account argUser) {
