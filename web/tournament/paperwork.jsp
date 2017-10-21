@@ -45,7 +45,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					%></ul><%
 				}
 				
-			%><label><input type="checkbox" name="include_tex_files" value="true" class="no-bootstrap-switch" />&nbsp;Include <code>.tex</code> files</label>
+			%><label><input type="checkbox" name="include_tex_files" value="true" />&nbsp;Include <code>.tex</code> files</label>
 			
 			<input type="submit" value="Generate" />
 		</div>
