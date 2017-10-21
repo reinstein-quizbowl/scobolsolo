@@ -13,7 +13,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 	<jsp:param name="h1" value="Paperwork" />
 </jsp:include>
 
-<form action="GeneratePaperwork" method="post">
+<form action="GeneratePaperwork" method="get">
 	<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" />
 	
 	<div class="row">
