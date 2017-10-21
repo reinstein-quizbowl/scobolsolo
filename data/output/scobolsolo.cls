@@ -18,7 +18,6 @@
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
-\RequirePackage{fixltx2e}
 \RequirePackage{longtable}
 \RequirePackage{makecell}
 \RequirePackage{multicol}
