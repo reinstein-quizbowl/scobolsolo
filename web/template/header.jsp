@@ -73,7 +73,7 @@ if (lclUser == null || ControllerServlet.getBooleanParameter(request, "suppressM
 	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<!-- Tablesorter -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/js/jquery.tablesorter.min.js"></script>
