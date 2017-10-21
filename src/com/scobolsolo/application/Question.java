@@ -432,6 +432,26 @@ public interface Question extends QuestionUserFacing {
 											lclSB.append("&ETH;");
 											lclI += 3;
 											break;
+										case "\\AE": // capital AE ligature
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&AElig;");
+											lclI += 3;
+											break;
+										case "\\ae": // lowercase ae ligature
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&aelig;");
+											lclI += 3;
+											break;
+										case "\\OE": // capital OE ligature
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&OElig;");
+											lclI += 3;
+											break;
+										case "\\oe": // lowercase oe ligature
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&oelig;");
+											lclI += 3;
+											break;
 										case "\\ldots": // ellipsis
 											Validate.isTrue(lclArgs.isEmpty());
 											lclSB.append("&hellip;");
