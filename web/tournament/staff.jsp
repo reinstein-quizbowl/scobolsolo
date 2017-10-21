@@ -68,7 +68,7 @@ Tournament lclT = lclOF.getUserFacing();
 							for (OpalForm<StaffAssignment> lclSAOF : lclSOF.children("StaffAssignment", StaffAssignmentFactory.getInstance(), StaffAssignment.ROOM_COMPARATOR)) {
 								Room lclR = lclSAOF.getUserFacing().getRoom();
 								%><%= lclSAOF.open() %>
-									<a href="room-edit.jsp?staff_id=<%= lclR.getId() %>"><%= lclR.getShortName() %></a> <label class="my-inline">(Unassign?&nbsp;<%= lclSAOF.delete() %>)</label><br />
+									<a href="room-edit.jsp?room_id=<%= lclR.getId() %>"><%= lclR.getShortName() %></a> <label class="my-inline">(Unassign?&nbsp;<%= lclSAOF.delete() %>)</label><br />
 								<%= lclSAOF.close() %><%
 							}
 							
