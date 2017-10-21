@@ -322,7 +322,12 @@
 		<mime-type>application/msexcel</mime-type>
 	</mime-mapping>
 	
-	-<security-constraint>
+	<mime-mapping>
+		<extension>ico</extension>
+		<mime-type>image/x-icon</mime-type>
+	</mime-mapping>
+	
+	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Valid User Pages</web-resource-name>
 			<url-pattern>/account/*</url-pattern>
