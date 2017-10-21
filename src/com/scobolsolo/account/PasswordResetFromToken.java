@@ -1,4 +1,4 @@
-package com.scobolsolo.security;
+package com.scobolsolo.account;
 
 import java.time.LocalDateTime;
 

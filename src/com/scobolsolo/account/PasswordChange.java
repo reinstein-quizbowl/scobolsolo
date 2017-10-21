@@ -1,4 +1,4 @@
-package com.scobolsolo.security;
+package com.scobolsolo.account;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +10,7 @@ import com.opal.TransactionContext;
 import com.scobolsolo.application.Account;
 import com.scobolsolo.application.AccountFactory;
 import com.scobolsolo.servlets.ScobolSoloControllerServlet;
+import com.scobolsolo.security.BCrypt;
 import com.scobolsolo.ScobolSoloConfiguration;
 
 public class PasswordChange extends ScobolSoloControllerServlet {

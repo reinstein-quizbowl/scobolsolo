@@ -41,7 +41,7 @@
 	
 	<servlet>
 		<servlet-name>UpdatePronunciationGuidePreferences</servlet-name>
-		<servlet-class>com.scobolsolo.servlets.UpdatePronunciationGuidePreferences</servlet-class>
+		<servlet-class>com.scobolsolo.account.UpdatePronunciationGuidePreferences</servlet-class>
 	</servlet>
 	
 	<servlet>
@@ -146,22 +146,22 @@
 	
 	<servlet>
 		<servlet-name>PasswordResetGenerateToken</servlet-name>
-		<servlet-class>com.scobolsolo.security.PasswordResetGenerateToken</servlet-class>
+		<servlet-class>com.scobolsolo.account.PasswordResetGenerateToken</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>PasswordChange</servlet-name>
-		<servlet-class>com.scobolsolo.security.PasswordChange</servlet-class>
+		<servlet-class>com.scobolsolo.account.PasswordChange</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>PasswordResetFromToken</servlet-name>
-		<servlet-class>com.scobolsolo.security.PasswordResetFromToken</servlet-class>
+		<servlet-class>com.scobolsolo.account.PasswordResetFromToken</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>PasswordResetByAdmin</servlet-name>
-		<servlet-class>com.scobolsolo.security.PasswordResetByAdmin</servlet-class>
+		<servlet-class>com.scobolsolo.account.PasswordResetByAdmin</servlet-class>
 	</servlet>
 	
 	

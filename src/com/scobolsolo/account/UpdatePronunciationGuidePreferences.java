@@ -1,4 +1,4 @@
-package com.scobolsolo.servlets;
+package com.scobolsolo.account;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,6 +18,7 @@ import com.scobolsolo.application.Category;
 import com.scobolsolo.application.CategoryFactory;
 import com.scobolsolo.application.PronunciationGuideSuppression;
 import com.scobolsolo.application.PronunciationGuideSuppressionFactory;
+import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 
 public class UpdatePronunciationGuidePreferences extends ScobolSoloControllerServlet {
 	private static final long serialVersionUID = 1L;
