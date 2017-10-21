@@ -22,6 +22,12 @@ public interface Buzzer extends BuzzerUserFacing {
 			return false;
 		} else if (getName().matches(getSchoolRegistration().getSchool().getVeryShortName() + " \\d+")) {
 			return false;
+		} else if (getName().matches(getSchoolRegistration().getSchool().getName() + " [A-Z]")) {
+			return false;
+		} else if (getName().matches(getSchoolRegistration().getSchool().getShortName() + " [A-Z]")) {
+			return false;
+		} else if (getName().matches(getSchoolRegistration().getSchool().getVeryShortName() + " [A-Z]")) {
+			return false;
 		} else {
 			return true;
 		}
