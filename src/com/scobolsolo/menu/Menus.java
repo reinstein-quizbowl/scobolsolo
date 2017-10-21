@@ -145,6 +145,7 @@ public final class Menus {
 			
 			if (lclFuture) {
 				lclItems.add(new MenuPage("registrations", "Registrations", "/stats/registrations.jsp?object=" + argT.getUniqueString()));
+				lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argT.getUniqueString()));
 			}
 			
 			if (lclPast || lclToday) {
