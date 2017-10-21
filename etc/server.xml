@@ -123,7 +123,8 @@
 						driverClassName="org.postgresql.Driver"
 						url="jdbc:postgresql://127.0.0.1:5432/scobolsolo"
 						username="@DATABASE_USERNAME@" password="@DATABASE_PASSWORD@"
-						removeAbandoned="true"
+						removeAbandonedOnBorrow="true"
+						removeAbandonedOnMaintenance="true"
 						logAbandoned="true"
 						validationQuery="select 1"
 					/>
