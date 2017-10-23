@@ -222,7 +222,9 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 					break;
 				
 				case '_':
-					if (!lclInMath) {
+					if (lclInMath) {
+						lclSB.append('_');
+					} else {
 						if (lclUnderlining) {
 							lclSB.append('}');
 							lclUnderlining = false;
