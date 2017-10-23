@@ -44,11 +44,8 @@ if (lclOF.hasErrors()) {
 }
 
 %><div class="row">
-	<div class="small-12">
-		<label>
-			Are questions complete?
-			<%= HTMLUtility.switchWidget(lclOF, "QuestionsComplete") %>
-		</label>
+	<div class="small-12 columns">
+		<label><%= lclOF.checkbox("QuestionsComplete") %>&nbsp;Questions are complete</label>
 	</div>
 </div>
 <div class="row">
@@ -60,11 +57,10 @@ if (lclOF.hasErrors()) {
 					<th>Short name</th>
 					<th>Round</th>
 					<th>Replacements from</th>
-					<th><span title="May question-specific details be shown publicly?">Released?</span></th>
-					<th>Note</th>
+					<th><span title="May question-specific details be shown publicly?">Pub?</span></th>
 					<th><abbr title="Sequence">Seq</abbr></th>
 					<th>Edit</th>
-					<th>Delete?</th>
+					<th><span title="Delete?">Del?</span></th>
 				</tr>
 			</thead>
 			<tbody><%
@@ -83,11 +79,10 @@ if (lclOF.hasErrors()) {
 						<td data-order="<%= lclP == null ? "" : lclP.getShortName() %>"><%= lclPOF.text("ShortName", 10) %></td>
 						<td data-order="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
 						<td data-order="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>
-						<td data-order="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= HTMLUtility.switchWidget(lclPOF, "QuestionsPublic") %></td>
-						<td><%= lclPOF.textarea("Note", 60, 1) %></td>
+						<td data-order="<%= lclP == null ? 0 : (lclP.isQuestionsPublic() ? 1 : 0) %>"><%= lclPOF.checkbox("QuestionsPublic") %></td>
 						<td data-order="<%= lclP == null ? "" : lclP.getSequence() %>"><%= lclPOF.number("Sequence") %></td>
 						<td><%= lclP == null ? "&nbsp;" : "<a href=\"packet-edit.jsp?packet_id=" + lclP.getId() + "\">Edit</a>" %></td>
-						<td><%= HTMLUtility.deleteWidget(lclPOF) %></td>
+						<td><%= lclPOF.delete() %></td>
 						<%= lclPOF.close() %>
 					</tr><%
 				}

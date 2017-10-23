@@ -9,25 +9,21 @@
 
 $info-color: map-get($foundation-palette, info);
 
-.dataTables_wrapper {
-	margin-bottom: 1rem;
-}
-.dt-floating-wrapper {
-	position: fixed;
-	overflow: hidden;
-	
-	table.dataTable {
-		margin: 0 !important;
-		position: relative;
-	}
-}
-
-.dataTables_scrollBody table.dataTable thead tr {
-	height: 0 !important;
-	line-height: 0 !important;
-	
+table:not(.unsortable) thead {
 	th, td {
-		background: none;
+		padding-right: 20px !important;
+		cursor: pointer;
+		background-image: url(/template/tablesorter/bg.gif);
+		background-repeat: no-repeat;
+		background-position: center right;
+		
+		&.tablesorter-headerAsc {
+			background-image: url(/template/tablesorter/asc.gif);
+		}
+		
+		&.tablesorter-headerDesc {
+			background-image: url(/template/tablesorter/desc.gif);
+		}
 	}
 }
 
@@ -46,6 +42,10 @@ td, th {
 		&:only-child {
 			margin-bottom: 0;
 		}
+	}
+	
+	> select {
+		width: inherit;
 	}
 }
 

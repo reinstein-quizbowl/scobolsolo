@@ -14,30 +14,20 @@
 			lclModalsToOpenOnLoad.foundation('open');
 		}
 		
-		// Make data-freeze-* attributes work
-		for (var columns = 0; columns < 10; columns++) {
-			var options = {
-				scrollX: true,
-				fixedHeader: true,
-				fixedColumns: { leftColumns: columns },
-				order: [],
-				paging: false,
-				searching: false,
-				info: false,
-			};
-			if (Foundation.MediaQuery.atLeast('medium')) {
-				delete options.fixedColumns;
-			} else {
-				delete options.fixedHeader;
-			}
-			var $table = $('table.data-freeze-' + columns);
-			$table.attr('width', '100%');
-			if (typeof $table.DataTable === 'function') {
-				$table.DataTable(options);
-			}
-		}
+		$('table:not(.unsortable)').tablesorter({textExtraction: myTextExtractor});
 	}
 );
+
+var myTextExtractor = function(argNode) {
+	var lclCustom = argNode.getAttribute('data-order');
+	if (lclCustom) {
+		console.log(lclCustom);
+		return lclCustom;
+	} else {
+		console.log(argNode.innerHTML.toUpperCase());
+		return argNode.innerHTML.toUpperCase();
+	}
+}
 
 function acknowledgeMessage(argMessageId) {
 	try {

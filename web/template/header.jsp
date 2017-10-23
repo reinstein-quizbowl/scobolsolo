@@ -74,9 +74,6 @@ if (lclUser == null || ControllerServlet.getBooleanParameter(request, "suppressM
 	
 	<% /* Foundation Datepicker */ %>
 	<link rel="stylesheet" href="/template/foundation/datepicker/foundation-datepicker.css">
-	
-	<% /* Datatables */ %>
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/v/zf/dt-1.10.16/fc-3.2.3/fh-3.1.3/datatables.min.css" />
 </head>
 
 <body>
