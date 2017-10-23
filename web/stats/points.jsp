@@ -36,7 +36,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 <div class="row">
 	<div class="small-12 large-9 columns">
 		<h2 id="overall" data-magellan-target="overall">Overall</h2>
-		<table class="responsive  data-freeze-2">
+		<table class="responsive" data-fixed-columns="2">
 			<thead>
 				<tr>
 					<th class="number"><abbr title="points">Pts</abbr></th>
@@ -112,7 +112,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 				%><p>No results available</p><%
 			} else {
 				lclPCPVs.sort(PlayerCategoryPointV.PPTUH_COMPARATOR);
-				%><table class="responsive data-freeze-2">
+				%><table class="responsive" data-fixed-columns="2">
 					<thead>
 						<tr>
 							<th class="number"><abbr title="points">Pts</abbr></th>

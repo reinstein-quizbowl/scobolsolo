@@ -50,7 +50,7 @@ if (lclOF.hasErrors()) {
 </div>
 <div class="row">
 	<div class="small-12 columns">
-		<table class="responsive data-freeze-1">
+		<table class="responsive" data-fixed-columns="1">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -111,7 +111,7 @@ if (lclUser.isAdministrator() && lclT.getPacketSet().isEmpty() == false) {
 			<form id="output" action="OutputPackets" method="get">
 				<input form="output" type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" />
 			</form>
-			<table class="responsive data-freeze-1">
+			<table class="responsive" data-fixed-columns="1">
 				<thead>
 					<tr>
 						<th>Packet</th>

@@ -148,7 +148,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 		<div class="row">
 			<div class="small-10 columns small-offset-2">
 				<h3>Rounds in <%= lclRGOF.isNew() ? "new group" : "group " + lclRGOF.getUserFacing().getShortName() %></h3>
-				<table class="responsive data-freeze-1">
+				<table class="responsive" data-fixed-columns="1">
 					<thead>
 						<tr>
 							<th>Name</th>

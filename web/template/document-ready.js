@@ -14,17 +14,28 @@
 			lclModalsToOpenOnLoad.foundation('open');
 		}
 		
-		$('table:not(.unsortable)').tablesorter({textExtraction: myTextExtractor});
+		for (var columns = 1; columns < 10; columns++) {
+			var options = {
+				textExtraction: myTextExtractor,
+				widgets: ['scroller'],
+				widgetOptions: {
+					scroller_fixedColumns: columns,
+					scroller_height: 1000000
+				}
+			};
+			
+			$('table[data-fixed-columns=' + columns + ']:not(.unsortable)').tablesorter(options);
+		}
+		
+		$('table:not([data-fixed-columns]):not(.unsortable)').tablesorter({textExtraction: myTextExtractor});
 	}
 );
 
 var myTextExtractor = function(argNode) {
 	var lclCustom = argNode.getAttribute('data-order');
 	if (lclCustom) {
-		console.log(lclCustom);
 		return lclCustom;
 	} else {
-		console.log(argNode.innerHTML.toUpperCase());
 		return argNode.innerHTML.toUpperCase();
 	}
 }

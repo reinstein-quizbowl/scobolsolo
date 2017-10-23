@@ -9,52 +9,58 @@
 
 $info-color: map-get($foundation-palette, info);
 
-table:not(.unsortable) thead {
-	th, td {
-		padding-right: 20px !important;
-		cursor: pointer;
-		background-image: url(/template/tablesorter/bg.gif);
-		background-repeat: no-repeat;
-		background-position: center right;
+table {
+	width: 100%;
+	
+	td, th {
+		text-align: left;
+		vertical-align: baseline;
 		
-		&.tablesorter-headerAsc {
-			background-image: url(/template/tablesorter/asc.gif);
+		&.number {
+			text-align: right;
 		}
 		
-		&.tablesorter-headerDesc {
-			background-image: url(/template/tablesorter/desc.gif);
+		td div.switch {
+			padding: 0 !important;
 		}
-	}
-}
-
-td, th {
-	text-align: left;
-	vertical-align: baseline;
-	
-	&.number {
-		text-align: right;
-	}
-	
-	> input, > select, > textarea {
-		display: inline-block !important; // Without this, Firefox renders such cells with incorrect vertical alignment. Chrome is fine either way. As Firefox progresses we should periodically re-check whether this is necessary.
-		height: inherit;
 		
-		&:only-child {
-			margin-bottom: 0;
+		> input, > select, > textarea {
+			display: inline-block !important; // Without this, Firefox renders such cells with incorrect vertical alignment. Chrome is fine either way. As Firefox progresses we should periodically re-check whether this is necessary.
+			height: inherit;
+			
+			&:only-child {
+				margin-bottom: 0;
+			}
+		}
+		
+		> select {
+			width: inherit;
 		}
 	}
 	
-	> select {
-		width: inherit;
+	&:not(.unsortable) {
+		thead {
+			th, td {
+				padding-right: 20px !important;
+				cursor: pointer;
+				background-image: url(//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/images/black-unsorted.gif);
+				background-repeat: no-repeat;
+				background-position: center right;
+				
+				&.tablesorter-headerAsc {
+					background-image: url(//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/images/black-asc.gif);
+				}
+				
+				&.tablesorter-headerDesc {
+					background-image: url(//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/images/black-desc.gif);
+				}
+			}
+		}
 	}
 }
 
 .switch {
 	padding: $form-spacing / 2 + rem-calc($input-border-width) 0 !important;
-}
-
-td div.switch {
-	padding: 0 !important;
 }
 
 abbr, acronym {

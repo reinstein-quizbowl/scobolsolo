@@ -17,7 +17,7 @@ lclTs.sort(Tournament.DateComparator.getInstance().reversed());
 
 %><div class="row">
 	<div class="small-12 columns">
-		<table class="responsive data-freeze-0">
+		<table class="responsive">
 			<thead>
 				<tr>
 					<th>Name</th>

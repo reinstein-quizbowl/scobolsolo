@@ -23,7 +23,8 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	
 	<% /* Tablesorter */ %>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/js/jquery.tablesorter.min.js"></script> 
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/jquery.tablesorter.min.js"></script> 
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/widgets/widget-scroller.min.js"></script> 
 	
 	<% /* Our stuff */ %>
 	<script src="/template/document-ready.js"></script>

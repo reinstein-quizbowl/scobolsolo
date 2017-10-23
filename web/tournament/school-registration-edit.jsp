@@ -115,7 +115,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="players">Players (<%= lclSR.getPlayerSet().size() %>)</h2>
-		<table class="full-width responsive data-freeze-2">
+		<table class="full-width responsive" data-fixed-columns="2">
 			<thead>
 				<tr>
 					<th>&nbsp;</th>
@@ -169,7 +169,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="waitlist-entries">Waitlist Entries</h2>
-		<table class="full-width responsive data-freeze-2">
+		<table class="full-width responsive" data-fixed-columns="2">
 			<thead>
 				<tr>
 					<th>Count</th>
@@ -207,7 +207,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="standby-entries">Standby List Entries</h2>
-		<table class="full-width responsive data-freeze-2">
+		<table class="full-width responsive" data-fixed-columns="2">
 			<thead>
 				<tr>
 					<th>Count</th>
@@ -246,7 +246,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="staff">Staff (<%= lclSR.getStaffSet().size() %>)</h2>
-		<table class="full-width responsive data-freeze-1">
+		<table class="full-width responsive" data-fixed-columns="1">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -287,7 +287,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="buzzers">Buzzers (<%= lclSR.getBuzzerSet().size() %>)</h2>
-		<table class="full-width responsive data-freeze-1">
+		<table class="full-width responsive" data-fixed-columns="1">
 			<thead>
 				<tr>
 					<th>Name</th>

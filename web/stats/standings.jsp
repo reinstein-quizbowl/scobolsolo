@@ -41,7 +41,7 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				%><p>This tournament hasn't started yet.</p><%
 			}
 		} else {
-			%><table class="responsive data-freeze-1">
+			%><table class="responsive" data-fixed-columns="1">
 				<thead>
 					<tr>
 						<th>Player</th>

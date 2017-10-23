@@ -23,7 +23,7 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 		<form action="RearrangeSeeds" method="post" onsubmit="javascript:populateSeeds()">
 		<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>">
 		
-		<table class="responsive data-freeze-2">
+		<table class="responsive" data-fixed-columns="2">
 			<thead>
 				<tr>
 					<th>New&nbsp;seed</th>

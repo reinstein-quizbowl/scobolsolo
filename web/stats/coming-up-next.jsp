@@ -24,7 +24,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 
 <div class="row">
 	<div class="small-12 columns">
-		<table class="reponsive data-freeze-1">
+		<table class="reponsive" data-fixed-columns="1">
 			<thead>
 				<tr>
 					<th>Round</th>

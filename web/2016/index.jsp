@@ -12,7 +12,7 @@
 	<div class="small-12 columns">
 		<p>Scobol Solo 2016 was held on Saturday, October 29, and included 128 players from 29 schools.</p>
 		
-		<table class="tournament-final-standings data-freeze-0">
+		<table class="tournament-final-standings">
 			<caption style="caption-side: top;">The nine players who made the Championship Match finished as follows:</p>
 			<tbody>
 				<tr>
