@@ -57,7 +57,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 			for (Player lclP : lclSchoolToPlayers.get(lclS)) {
 				%><h3 id="player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></h3><%
 				if (lclPlayerToPMVs.containsKey(lclP) && !lclPlayerToPMVs.get(lclP).isEmpty()) {
-					%><table class="responsive" data-fixed-columns="2">
+					%><table data-fixed-columns="2">
 						<thead>
 							<tr>
 								<th style="width: 10%;">Round</th>

@@ -111,7 +111,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 			
 			for (CategoryGroup lclCG : lclCategoryGroups) {
 				%><h2><%= lclCG.getName() %></h2>
-				<table class="responsive full-width" data-fixed-columns="1">
+				<table data-fixed-columns="1">
 					<thead>
 						<tr>
 							<th style="width: 20%">Category</th>
@@ -178,7 +178,7 @@ if (lclIncompleteTournaments.isEmpty()) {
 				double lclCompletion = lclNeededTotal == 0 ? 0.0d : 1.0d * lclCappedWrittenTotal / lclNeededTotal;
 				
 				%><h2>Total</h2>
-				<table class="responsive full-width" data-fixed-columns="1">
+				<table data-fixed-columns="1">
 					<thead>
 						<tr>
 							<th style="width: 20%">&nbsp;</th>

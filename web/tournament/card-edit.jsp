@@ -73,7 +73,7 @@ if (lclOF.hasErrors()) {
 <div class="row">
 	<div class="small-12 columns">
 		<h2>Matches (<%= (lclC.getWinningMatchSet().size() + lclC.getLosingMatchSet().size()) %>)</h2>
-		<table class="responsive" data-fixed-columns="1">
+		<table data-fixed-columns="1">
 			<thead>
 				<tr>
 					<th>Round</th>

@@ -48,7 +48,7 @@ Tournament lclT = lclOF.getUserFacing();
 		BigDecimal lclOwed = BigDecimal.ZERO;
 		BigDecimal lclPaid = BigDecimal.ZERO;
 		
-		%><table class="responsive" data-fixed-columns="1">
+		%><table data-fixed-columns="1">
 			<thead>
 				<tr>
 					<th>Name</th>

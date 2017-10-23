@@ -179,7 +179,7 @@ void appendBeginning(StringBuilder argSB, Tournament argT, Category argCat, int 
 	String lclCollapseToggleLinkId = "collapse_toggle_" + lclTableId;
 	
 	argSB.append("<h3><a onclick=\"$('#").append(lclTableId).append("').toggle('slow'); flipIcon(this)\" class=\"fa fa-compress\"></a> ").append(argCat.getName()).append(" (").append(argCount).append(")</h3>")
-	.append("<table id=\"").append(lclTableId).append("\" class=\"responsive full-width\" data-fixed-columns=\"2\">")
+	.append("<table id=\"").append(lclTableId).append("\" data-fixed-columns=\"2\">")
 		.append("<thead>")
 			.append("<tr>")
 				.append("<th>ID</th>")

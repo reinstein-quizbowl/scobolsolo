@@ -52,7 +52,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 			Packet lclP = lclR.getPacket();
 			
 			if (lclP.isQuestionsPublic()) {
-				%><table class="responsive" data-fixed-columns="2">
+				%><table data-fixed-columns="2">
 					<thead>
 						<tr>
 							<th style="width: 5%;">#</th>
