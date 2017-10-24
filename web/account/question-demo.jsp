@@ -82,7 +82,6 @@
 	var lclData = cloneData(lclOriginalData);
 </script>
 
-<script src="/game/response.js"></script>
-
-
-<jsp:include page="/template/footer.jsp" />
+<jsp:include page="/template/footer.jsp">
+	<jsp:param name="loadScript" value="/game/response.js" />
+</jsp:include>

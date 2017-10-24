@@ -27,8 +27,15 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/widgets/widget-scroller.min.js"></script> 
 	
 	<% /* Our stuff */ %>
-	<script src="/template/document-ready.js"></script>
-	<br />
+	<script src="/template/document-ready.js"></script><%
+	
+	String[] lclLoadScripts = request.getParameterValues("loadScript");
+	if (lclLoadScripts != null) {
+		for (String lclScriptPath : lclLoadScripts) {
+			%><script src="<%= lclScriptPath %>"></script><%
+		}
+	}
+	%><br />
 	<br />
 </body>
 </html>

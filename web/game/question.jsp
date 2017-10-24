@@ -196,6 +196,6 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 	var lclData = cloneData(lclOriginalData);
 </script>
 
-<script src="response.js"></script>
-
-<jsp:include page="/template/footer.jsp" />
+<jsp:include page="/template/footer.jsp">
+	<jsp:param name="loadScript" value="/game/response.js" />
+</jsp:include>
