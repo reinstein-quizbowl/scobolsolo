@@ -206,7 +206,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 			<div class="small-12 medium-6 columns">
 				<label>
 					From address
-					<input type="text" name="from" id="from" value="<%= lclT.getTournamentDirectorContact().getEmailAddress("") %>" />
+					<input type="text" name="from" id="from" value="<%= lclT.getTournamentDirectorContact().getEmailAddress("") %>" required />
 				</label>
 			</div>
 			<div class="small-12 medium-6 columns">
@@ -221,7 +221,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 			<div class="small-12 columns">
 				<label>
 					Subject
-					<input type="text" name="subject" id="subject" />
+					<input type="text" name="subject" id="subject" required />
 				</label>
 			</div>
 		</div>
@@ -230,7 +230,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 			<div class="small-12 columns">
 				<label>
 					Body
-					<textarea rows="8" name="body" id="body"></textarea>
+					<textarea rows="8" name="body" id="body" required></textarea>
 				</label>
 			</div>
 		</div>
