@@ -87,19 +87,21 @@ if (lclP != null && lclP.isCardSystem()) {
 				</form><%
 			}
 		%></div>
-	</div>
-	
-	<div class="row">
-		<div class="small-12 columns">
-			<h2 id="assign-cards">Unassign Initial Cards</h2>
-			<form action="UnassignCards" method="post">
-				<input type="hidden" name="phase_id" value="<%= lclP.getId() %>">
-				<div class="submit btn-group btn-group-1">
-					<input type="submit" name="Submit" value="Assign" />
-				</div>
-			</form>
-		</div>
 	</div><%
+	
+	if (lclCardsAssigned) {
+		%><div class="row">
+			<div class="small-12 columns">
+				<h2 id="assign-cards">Unassign Initial Cards</h2>
+				<form action="UnassignCards" method="post">
+					<input type="hidden" name="phase_id" value="<%= lclP.getId() %>">
+					<div class="submit btn-group btn-group-1">
+						<input type="submit" name="Submit" value="Unassign" />
+					</div>
+				</form>
+			</div>
+		</div><%
+	}
 }
 
 %><style type="text/css">
