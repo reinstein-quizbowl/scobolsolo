@@ -133,29 +133,6 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 	}
 </style>
 
-<script>
-	function update() {
-		var lclPositionTargets = document.getElementsByClassName('generated-position-target');
-		
-		for (var lclPosition = 1; lclPosition <= lclPositionTargets.length; ++lclPosition) {
-			lclPositionTargets[lclPosition-1].value = lclPosition;
-		}
-	}
-	
-	$(document).ready(
-		function() {
-			$("#sortable").sortable(
-				{
-					axis: 'y',
-					containment: 'parent',
-					cursor: 'grabbing',
-					change: function(event, ui) {update();}
-				}
-			);
-			
-			update();
-		}
-	);
-</script>
-
-<jsp:include page="/template/footer.jsp" />
+<jsp:include page="/template/footer.jsp">
+	<jsp:param name="loadScript" value="reordering.js" />
+</jsp:include>

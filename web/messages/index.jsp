@@ -100,6 +100,6 @@ for (Account lclRecipient : lclNewThreadRecipients) {
 	var lclCurrentTimeString = '<%= DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(LocalDateCache.now()) %>';
 </script>
 
-<script src="messages.js"></script>
-
-<jsp:include page="/template/footer.jsp" />
+<jsp:include page="/template/footer.jsp">
+	<jsp:param name="loadScript" value="messages.js" />
+</jsp:include>

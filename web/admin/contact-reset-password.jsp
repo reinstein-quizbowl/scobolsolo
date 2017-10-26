@@ -68,7 +68,7 @@
 	</form>
 </div>
 
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
 	function getRandomString(argLength, argChars) {
 		var lclRandomString = '';
 		for (var lclI = 0; lclI < argLength; ++lclI) {
