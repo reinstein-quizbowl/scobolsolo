@@ -85,7 +85,7 @@
 \newcommand{\NoMatchForRoom}[1]{\textit{no match}}
 \newcommand{\CardLunchLine}[1]{\multicolumn{2}{c}{\textbf{Lunch}} & \multicolumn{2}{c}{\textit{go to the cafeteria}} \tabularnewline}
 \newcommand{\RoomLunchLine}[1]{\multicolumn{2}{c}{\textbf{Lunch}} & \multicolumn{2}{c}{\textit{go to the cafeteria}} \tabularnewline}
-\newcommand{\CardFinalMessage}[1]{\textbf{\fontsize{16pt}{20pt}\selectfont #1}}
+\newcommand{\CardFinalMessage}[1]{\fontsize{16pt}{20pt}\selectfont\textbf{#1}}
 
 \pagestyle{empty}
 
