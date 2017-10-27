@@ -182,20 +182,9 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 			%>buzz('right', findWordId(<%= lclRightResponse.getLocation(-1) %>), <%= lclRightResponse.getType().isCorrect() %>);<%
 		}
 	%>}
-	
-	$(document).ready(
-		function() {
-			usePersisted();
-		}
-	);
-	
-	function cloneData(argData) {
-		return JSON.parse(JSON.stringify(argData));
-	}
-	
-	var lclData = cloneData(lclOriginalData);
 </script>
 
 <jsp:include page="/template/footer.jsp">
 	<jsp:param name="loadScript" value="/game/response.js" />
+	<jsp:param name="loadScript" value="/game/question.js" />
 </jsp:include>
