@@ -6,7 +6,7 @@
 <%
 Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "object");
 
-boolean lclCardsAssigned = lclT.hasCardsAssigned();
+boolean lclAnyCardsAssigned = lclT.hasAnyCardsAssigned();
 %>
 
 <jsp:include page="/template/header.jsp">
@@ -23,7 +23,7 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 		<form action="RearrangeSeeds" method="post" onsubmit="javascript:populateSeeds()">
 		<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>">
 		
-		<table data-fixed-columns="2">
+		<table>
 			<thead>
 				<tr>
 					<th>New&nbsp;seed</th>
@@ -32,7 +32,7 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 					<th>Grade</th>
 					<th>Rank&nbsp;within&nbsp;school</th>
 					<th>Saved&nbsp;seed</th>
-					<%= lclCardsAssigned ? "<th>Initial&nbsp;card</th>" : "" %>
+					<%= lclAnyCardsAssigned ? "<th>Initial&nbsp;card</th>" : "" %>
 				</tr>
 			</thead>
 			<tbody class="reorderable"><%
@@ -47,8 +47,14 @@ boolean lclCardsAssigned = lclT.hasCardsAssigned();
 						<td data-order="<%= lclP.getSchoolYear() == null ? 0 : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "?" : lclP.getSchoolYear().getShortName() %></td>
 						<td><%= lclP.getRankWithinSchool("?") %></td>
 						<td class="saved-seed"><%= lclP.getSeed("?") %></td><%
-						if (lclCardsAssigned) {
-							%><td><a href="card-edit.jsp?card_id=<%= lclP.getInitialCard().getId() %>"><%= lclP.getInitialCard().getShortName() %></a></td><%
+						if (lclAnyCardsAssigned) {
+							%><td><%
+								if (lclP.getInitialCard() == null) {
+									%>none<%
+								} else {
+									%><a href="card-edit.jsp?card_id=<%= lclP.getInitialCard().getId() %>"><%= lclP.getInitialCard().getShortName() %></a><%
+								}
+							%></td><%
 						}
 					%></tr><%
 				}
@@ -77,8 +83,8 @@ if (lclP != null && lclP.isCardSystem()) {
 				<input type="hidden" name="phase_id" value="<%= lclP.getId() %>">
 				
 				<p>Cards will be randomized so that seeds are hidden (but the correct matchups are preserved).</p><%
-				if (lclCardsAssigned) {
-					%><p>The existing card assignments will be deleted and new ones created.<%
+				if (lclAnyCardsAssigned) {
+					%><p>The existing card assignments will be deleted and new ones created.</p><%
 				}
 				
 				%><div class="submit btn-group btn-group-1">
@@ -89,7 +95,7 @@ if (lclP != null && lclP.isCardSystem()) {
 		%></div>
 	</div><%
 	
-	if (lclCardsAssigned) {
+	if (lclAnyCardsAssigned) {
 		%><div class="row">
 			<div class="small-12 columns">
 				<h2 id="assign-cards">Unassign Initial Cards</h2>

@@ -68,17 +68,15 @@ public interface Tournament extends TournamentUserFacing {
 		}
 	}
 	
-	default boolean hasCardsAssigned() {
-		final int lclAssigned = (int) findFirstPhase().streamCard().filter(argC -> argC.getInitialPlayer() != null).count();
+	default boolean hasAnyCardsAssigned() {
+		return findFirstPhase().streamCard().anyMatch(Card::isAssigned);
+	}
+	
+	default boolean hasAllCardsAssigned() {
+		final int lclAssigned = (int) findFirstPhase().streamCard().filter(Card::isAssigned).count();
 		final int lclPlayers = getPlayers().size();
 		
-		if (lclAssigned == lclPlayers) {
-			return true;
-		} else if (lclAssigned == 0) {
-			return false;
-		} else {
-			throw new IllegalStateException("Partially assigned cards: " + lclAssigned + " of " + lclPlayers);
-		}
+		return lclAssigned == lclPlayers;
 	}
 	
 	default List<StandbyEntry> getStandbyEntries() {

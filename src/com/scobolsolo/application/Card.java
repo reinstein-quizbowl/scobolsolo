@@ -40,6 +40,10 @@ public interface Card extends CardUserFacing, Comparable<Card> {
 			.findAny().orElse(null);
 	}
 	
+	default boolean isAssigned() {
+		return getInitialPlayer() != null;
+	}
+	
 	public static final class InitialPlayerSchoolNameComparator extends NullSafeComparator<Card> {
 		private static final InitialPlayerSchoolNameComparator ourInstance = new InitialPlayerSchoolNameComparator();
 		
