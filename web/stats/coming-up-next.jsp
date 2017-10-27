@@ -6,6 +6,7 @@
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.Match" %>
 <%@ page import="com.scobolsolo.application.MatchFactory" %>
+<%@ page import="com.scobolsolo.application.Staff" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.matches.*" %>
@@ -56,17 +57,29 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 						<td><%= lclM.getRound().getShortName() %></td>
 						<td><%= lclM.getRoom().getShortName() %></td>
 						<td><%
-							if (lclG != null) {
-								if (lclG.getModeratorStaff() == null) {
-									%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
-								} else {
-									%><%= lclG.getModeratorStaff().getContact().getName() %><%
-									if (lclG.getScorekeeperStaff() != null && lclG.getScorekeeperStaff() != lclG.getModeratorStaff()) {
-										%><br />Scorekeeper: <%= lclG.getScorekeeperStaff().getContact().getName() %><%
-									}
-								}
+							boolean lclCertain;
+							Staff lclModerator = null;
+							
+							if (lclG == null) {
+								lclCertain = false;
+								lclModerator = lclM.determineLikelyModerator(); // may be null
 							} else {
+								lclModerator = lclG.getModeratorStaff();
+								if (lclModerator == null) {
+									lclCertain = false;
+									lclModerator = lclM.determineLikelyModerator(); // may still be null
+								} else {
+									lclCertain = true;
+								}
+							}
+							
+							if (lclModerator == null) {
 								%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
+							} else {
+								%><%= lclModerator.getContact().getName() %><%
+								if (lclCertain == false) {
+									%> (probably)<%
+								}
 							}
 						%></td>
 						<td><%
