@@ -8,6 +8,7 @@
 <%@ page import="com.scobolsolo.application.Phase" %>
 <%@ page import="com.scobolsolo.application.Round" %>
 <%@ page import="com.scobolsolo.application.RoundGroup" %>
+<%@ page import="com.scobolsolo.application.Staff" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.matches.MatchStatus" %>
@@ -67,17 +68,40 @@ Account lclUser = Account.demand(request);
 						<td><%= lclM.getRound().getShortName() %></td>
 						<td><%= lclM.getRoom().getShortName() %></td>
 						<td><%
-							if (lclG != null) {
-								if (lclG.getModeratorStaff() == null) {
-									%>?<%
-								} else {
-									%><%= lclG.getModeratorStaff().getContact().getName() %><%
-									if (lclG.getScorekeeperStaff() != null && lclG.getScorekeeperStaff() != lclG.getModeratorStaff()) {
-										%><br />Scorekeeper: <%= lclG.getScorekeeperStaff().getContact().getName() %><%
-									}
-								}
+							boolean lclCertain;
+							Staff lclModerator = null;
+							Staff lclScorekeeper = null;
+							
+							if (lclG == null) {
+								lclCertain = false;
+								lclModerator = lclM.determineLikelyModerator(); // may be null
+								lclScorekeeper = lclM.determineLikelyScorekeeper(); // may be null
 							} else {
-								%>&nbsp;<%
+								lclModerator = lclG.getModeratorStaff();
+								if (lclModerator == null) {
+									lclCertain = false;
+									lclModerator = lclM.determineLikelyModerator(); // may still be null
+								} else {
+									lclCertain = true;
+								}
+								
+								lclScorekeeper = lclG.getScorekeeperStaff();
+								if (lclScorekeeper == null) {
+									lclModerator = lclM.determineLikelyScorekeeper(); // may still be null
+								} else {
+								}
+							}
+							
+							if (lclModerator == null) {
+								%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
+							} else {
+								%><%= lclModerator.getContact().getName() %><%
+								if (lclScorekeeper != null && lclScorekeeper != lclModerator) {
+									%><br />Scorekeeper: <%= lclScorekeeper.getContact().getName() %><%
+								}
+								if (lclCertain == false) {
+									%> (probably)<%
+								}
 							}
 						%></td>
 						<td><%
