@@ -64,6 +64,10 @@ Account lclUser = Account.demand(request);
 							if (lclShowLink) {
 								%></a><%
 							}
+							
+							if (lclUser.isAdministrator() && lclG != null) {
+								%> (<a href="/admin/game-edit.jsp?game_id=<%= lclG.getId() %>">admin</a>)<%
+							}
 						%></td>
 						<td><%= lclM.getRound().getShortName() %></td>
 						<td><%= lclM.getRoom().getShortName() %></td>
