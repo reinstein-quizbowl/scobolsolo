@@ -34,7 +34,7 @@ import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 
 public class QuestionResponse extends ScobolSoloControllerServlet {
 	private static final long serialVersionUID = 1L;
-	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(QuestionResponse.class.getName());
+	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(QuestionResponse.class.getName());
 	
 	private static final String CONTINUE_URL_BASE = "/game/question.jsp";
 	private static final String TIE_URL_BASE = "/game/tie.jsp";
@@ -309,7 +309,9 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	}
 	
 	public static int correctBuzzIndex(final int argRawIndex, final Diff argD) {
-		Validate.isTrue(argRawIndex >= 0);
+		if (argRawIndex < 0) {
+			ourLogger.warn("Invalid raw index " + argRawIndex + " for " + argD);
+		}
 		Validate.notNull(argD);
 		
 		// The raw index is the index of the first character in the word the player buzzed on.
