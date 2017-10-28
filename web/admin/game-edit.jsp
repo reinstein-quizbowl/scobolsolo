@@ -153,6 +153,7 @@ if (lclOF.hasErrors()) {
 						<tr>
 							<th>Question</th>
 							<th>Response</th>
+							<th>Location</th>
 							<th>Replaced With</th>
 							<th>Del?</th>
 						</tr>
@@ -164,6 +165,7 @@ if (lclOF.hasErrors()) {
 								<tr>
 									<td><%= lclROF.<Placement>dropdown("BasePlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
 									<td><%= lclROF.<ResponseType>dropdown("ResponseType").choices(lclPOF.isNew() ? new ArrayList<>(ResponseTypeFactory.getInstance().getAll()) : lclPlayer.determineResponseTypesToOffer()).namer(ResponseType::getShortName) %></td>
+									<td><%= lclROF.number("Location").min(0) %></td>
 									<td><%= lclROF.<Placement>dropdown("ReplacementPlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket().getReplacementPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
 									<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
 								</tr>
