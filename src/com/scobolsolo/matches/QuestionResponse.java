@@ -124,15 +124,19 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				}
 			}
 			
-			lclLeftPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
-				.setResponseType(lclLeftRT)
-				.setDiff(lclDiff)
-				.setLocation(lclLeftBuzzIndex >= 0 ? lclLeftBuzzIndex : null);
+			if (lclLeftRT != null) {
+				lclLeftPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
+					.setResponseType(lclLeftRT)
+					.setDiff(lclDiff)
+					.setLocation(lclLeftBuzzIndex >= 0 ? lclLeftBuzzIndex : null);
+			}
 			
-			lclRightPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
-				.setResponseType(lclRightRT)
-				.setDiff(lclDiff)
-				.setLocation(lclRightBuzzIndex >= 0 ? lclRightBuzzIndex : null);
+			if (lclRightRT != null) {
+				lclRightPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
+					.setResponseType(lclRightRT)
+					.setDiff(lclDiff)
+					.setLocation(lclRightBuzzIndex >= 0 ? lclRightBuzzIndex : null);
+			}
 			
 			lclTC.complete();
 			
@@ -309,7 +313,9 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 	}
 	
 	public static int correctBuzzIndex(final int argRawIndex, final Diff argD) {
-		if (argRawIndex < 0) {
+		if (argRawIndex == -1) {
+			return -1;
+		} else if (argRawIndex < 0) {
 			ourLogger.warn("Invalid raw index " + argRawIndex + " for " + argD);
 		}
 		Validate.notNull(argD);
