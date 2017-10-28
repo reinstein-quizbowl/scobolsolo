@@ -141,7 +141,12 @@ public interface Game extends GameUserFacing {
 		final Integer lclTieScore = getTieScore();
 		if (lclTieScore == null) { // i.e., not tied
 			Performance lclW = determineWinner();
-			return lclW.getScore() + "&ndash;" + determineLoser().getScore() + " in favor of " + argPlayerExtractor.apply(lclW.getPlayer());
+			Performance lclL = determineLoser();
+			if (lclW != null && lclL != null) {
+				return lclW.getScore() + "&ndash;" + lclL.getScore() + " in favor of " + argPlayerExtractor.apply(lclW.getPlayer());
+			} else {
+				return "?";
+			}
 		} else {
 			return "tied at " + lclTieScore.intValue();
 		}
