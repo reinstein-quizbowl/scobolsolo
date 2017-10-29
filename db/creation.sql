@@ -446,8 +446,6 @@ CREATE TABLE Response_Type (
 	BOOLEAN NOT NULL DEFAULT FALSE,
 	is_attempt BOOLEAN NOT NULL DEFAULT TRUE,
 	allows_further_attempts_to_same_question_in_match BOOLEAN NOT NULL DEFAULT FALSE,
-	show_for_non_exhibition_players BOOLEAN NOT NULL DEFAULT TRUE,
-	show_for_exhibition_players BOOLEAN NOT NULL DEFAULT FALSE,
 	show_in_reports BOOLEAN NOT NULL DEFAULT TRUE
 );
 INSERT INTO Response_Type (code, name, short_name, sequence, points) VALUES
