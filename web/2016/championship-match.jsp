@@ -52,7 +52,7 @@
 					<th class="player-school">Auburn (Rockford)</th><!-- Cole -->
 					<th class="player-school">Barrington</th><!-- John W. -->
 					<th class="player-school">Homewood-Flossmoor</th><!-- Lily -->
-					<th class="player-school">Carl Sandburg</th><!-- Aristotle -->
+					<th class="player-school">Sandburg (Orland Park)</th><!-- Aristotle -->
 					<th class="player-school">Naperville North</th><!-- Jakob -->
 				</tr>
 			</thead>
@@ -344,7 +344,7 @@
 				</tr>
 				<tr class="note">
 					<td>&nbsp;</td>
-					<td colspan="9" class="note">Mathew Lehmann, as morning champion, entered the game with a score equal to that of the then-leader, John Waldron: 7.</td>
+					<td colspan="9" class="note">Matthew Lehmann, as morning champion, entered the game with a score equal to that of the then-leader, John Waldron: 7.</td>
 				</tr>
 				<tr>
 					<td class="question-number">21</td>
