@@ -172,15 +172,16 @@ public interface Game extends GameUserFacing {
 	}
 	
 	default int calculateTossupsHeard() {
-		List<Integer> lclDistinctResponseCounts = streamPerformance()
-			.map(argP -> argP.getResponseSet().size())
+		int[] lclDistinctResponseCounts = streamPerformance()
+			.filter(argPerf -> argPerf.getPlayer().isExhibition() == false)
+			.mapToInt(argPerf -> argPerf.getResponseSet().size())
 			.distinct()
-			.collect(Collectors.toList());
+			.toArray();
 		
-		if (lclDistinctResponseCounts.isEmpty()) {
+		if (lclDistinctResponseCounts.length == 0) {
 			throw new IllegalStateException("No responses");
-		} else if (lclDistinctResponseCounts.size() == 1) {
-			return lclDistinctResponseCounts.iterator().next().intValue();
+		} else if (lclDistinctResponseCounts.length == 1) {
+			return lclDistinctResponseCounts[0];
 		} else {
 			throw new IllegalStateException("Multiple response counts: " + lclDistinctResponseCounts);
 		}
