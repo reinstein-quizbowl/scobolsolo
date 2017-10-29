@@ -124,8 +124,7 @@ SELECT
 	M.round_id,
 	M.room_id,
 	M.winning_card_id, M.losing_card_id,
-	G.moderator_staff_id,
-	G.scorekeeper_staff_id,
+	G.moderator_staff_id, G.scorekeeper_staff_id,
 	G.tossups_heard,
 	G.incoming_winning_card_player_id, G.incoming_losing_card_player_id,
 	G.outgoing_winning_card_player_id AS winner_player_id, G.outgoing_losing_card_player_id AS loser_player_id,
@@ -140,23 +139,20 @@ FROM Match M
 	JOIN Phase PH ON RG.phase_id = PH.id
 	JOIN Performance Pwin ON Pwin.game_id = G.id AND Pwin.player_id = G.outgoing_winning_card_player_id
 	JOIN Performance Plose ON Plose.game_id = G.id AND Plose.player_id = G.outgoing_losing_card_player_id
-	JOIN Response_v Rwin ON Pwin.id = Rwin.performance_id
-	JOIN Response_Type RTwin ON Rwin.response_type_code = RTwin.code
+	LEFT OUTER JOIN Response_v Rwin ON Pwin.id = Rwin.performance_id
+	LEFT OUTER JOIN Response_Type RTwin ON Rwin.response_type_code = RTwin.code
 	LEFT OUTER JOIN Diff Dwin ON Rwin.diff_id = Dwin.id
-	JOIN Response_v Rlose ON Plose.id = Rlose.performance_id
-	JOIN Response_Type RTlose ON Rlose.response_type_code = RTlose.code
+	LEFT OUTER JOIN Response_v Rlose ON Plose.id = Rlose.performance_id
+	LEFT OUTER JOIN Response_Type RTlose ON Rlose.response_type_code = RTlose.code
 	LEFT OUTER JOIN Diff Dlose ON Rlose.diff_id = Dlose.id
 WHERE
-	Rwin.actual_placement_id = Rlose.actual_placement_id AND -- Why?
-	(
-		(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL)
-		OR
-		PH.card_system = FALSE
-	)
+	(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL)
+	OR
+	PH.card_system = FALSE
 GROUP BY PH.tournament_code, G.id, M.round_id, M.room_id, M.winning_card_id, M.losing_card_id, G.moderator_staff_id, G.scorekeeper_staff_id, G.tossups_heard, G.incoming_winning_card_player_id, G.incoming_losing_card_player_id, G.outgoing_winning_card_player_id, G.outgoing_losing_card_player_id, Pwin.id, Plose.id;
 GRANT SELECT ON Game_v TO scobolsolo;
 
-CREATE OR REPLACE VIEW Player_Record_v AS -- 10 seconds to select * from one year
+CREATE OR REPLACE VIEW Player_Record_v AS
 SELECT
 	SR.tournament_code,
 	P.id AS player_id,
