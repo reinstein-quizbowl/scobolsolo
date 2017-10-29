@@ -49,7 +49,16 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 		
 		for (Player lclP : lclByPlayer.keySet()) {
 			%><section id="player_<%= lclP.getId() %>">
-				<h3><%= lclP.getContact().getName() %></h3>
+				<h2>
+					<%= lclP.getContact().getName() %><%
+					if (lclP.getSchoolYear() != null) {
+						if (lclP.isExhibition()) {
+							%> (<%= lclP.getSchoolYear().getName() %>; exhibition)<%
+						} else {
+							%> (<%= lclP.getSchoolYear().getName() %>)<%
+						}
+					}
+				%></h2>
 				
 				<table data-fixed-columns="2">
 					<thead>

@@ -7,8 +7,10 @@
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.LocalDateCache" %>
+<%@ page import="com.scobolsolo.application.Player" %>
 <%@ page import="com.scobolsolo.application.PlayerRecordV" %>
 <%@ page import="com.scobolsolo.application.PlayerRecordVFactory" %>
+<%@ page import="com.scobolsolo.application.SchoolRegistration" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
@@ -45,6 +47,7 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				<thead>
 					<tr>
 						<th>Player</th>
+						<th>Year</th>
 						<th>School</th>
 						<th class="number">Record</th>
 						<th class="number">Points</th>
@@ -58,9 +61,13 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 					DecimalFormat lclPF = new DecimalFormat("0.0%");
 					
 					for (PlayerRecordV lclPRV : lclPRVs) {
+						Player lclP = lclPRV.getPlayer();
+						SchoolRegistration lclSR = lclP.getSchoolRegistration();
+						
 						%><tr>
-							<th data-order="<%= lclPRV.getPlayer().getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclPRV.getPlayer().getSchoolRegistration().getId() %>#player_<%= lclPRV.getPlayer().getId() %>"><%= lclPRV.getPlayer().getContact().getName() %></a></th>
-							<th data-order="<%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getName() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclPRV.getPlayer().getSchoolRegistration().getId() %>"><%= lclPRV.getPlayer().getSchoolRegistration().getSchool().getExplainedName() %></a></th>
+							<th data-order="<%= lclP.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></th>
+							<td data-order="<%= lclP.getSchoolYear() == null ? Integer.MAX_VALUE : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "&nbsp;" : lclP.getSchoolYear().getShortName() %></td>
+							<td data-order="<%= lclSR.getSchool().getName() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></td>
 							<td class="number" data-order="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
 							<td class="number"><%= lclPRV.getPoints(0) %></td>
 							<td class="number"><%= lclPRV.getTossupsHeard(0) %></td>
