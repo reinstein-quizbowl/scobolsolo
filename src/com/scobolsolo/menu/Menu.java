@@ -10,25 +10,25 @@ import com.scobolsolo.application.Account;
 
 public class Menu extends MenuItem {
 	private final String myUrl;
-	private final List<MenuItem> myItems;
+	private final List<? extends MenuItem> myItems;
 	private TopLevelMenu myTopLevelInstance = null; // will be lazily initialized
 	
-	public Menu(final String argName, final String argUrl, final String argTitle, final List<MenuItem> argItems, final DisplayDeterminer argDD) {
+	public Menu(final String argName, final String argUrl, final String argTitle, final List<? extends MenuItem> argItems, final DisplayDeterminer argDD) {
 		super(argName, argTitle, argDD);
 		
 		myUrl = argUrl; // may be null
 		myItems = Validate.notEmpty(argItems);
 	}
 	
-	public Menu(final String argName, final String argTitle, final List<MenuItem> argItems, final DisplayDeterminer argDD) {
+	public Menu(final String argName, final String argTitle, final List<? extends MenuItem> argItems, final DisplayDeterminer argDD) {
 		this(argName, null, argTitle, argItems, argDD);
 	}
 	
-	public Menu(final String argName, final String argUrl, final String argTitle, final List<MenuItem> argItems) {
+	public Menu(final String argName, final String argUrl, final String argTitle, final List<? extends MenuItem> argItems) {
 		this(argName, argUrl, argTitle, argItems, DisplayDeterminer.Always);
 	}
 	
-	public Menu(final String argName, final String argTitle, final List<MenuItem> argItems) {
+	public Menu(final String argName, final String argTitle, final List<? extends MenuItem> argItems) {
 		this(argName, argTitle, argItems, DisplayDeterminer.Always);
 	}
 	

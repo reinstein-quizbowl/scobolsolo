@@ -15,7 +15,9 @@ import com.google.common.collect.ImmutableList;
 
 import com.opal.LocalDateCache;
 
+import com.scobolsolo.application.CategoryUse;
 import com.scobolsolo.application.Match;
+import com.scobolsolo.application.SchoolRegistration;
 import com.scobolsolo.application.Staff;
 import com.scobolsolo.application.Tournament;
 import com.scobolsolo.application.TournamentFactory;
@@ -158,9 +160,25 @@ public final class Menus {
 				if (lclPast || lclToday) {
 					lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argT.getUniqueString()));
 					lclItems.add(new MenuPage("standings", "Standings", "/stats/standings.jsp?object=" + argT.getUniqueString()));
-					lclItems.add(new MenuPage("points", "Points", "/stats/points.jsp?object=" + argT.getUniqueString()));
-					lclItems.add(new MenuPage("player-detail", "Player Detail", "/stats/player-detail.jsp?object=" + argT.getUniqueString()));
-					lclItems.add(new MenuPage("conversion-by-category", "Conversion by Category", "/stats/conversion-by-category.jsp?object=" + argT.getUniqueString()));
+					
+					List<MenuPage> lclPointsByCategory = new ArrayList<>(argT.getCategoryUseSet().size() + 1);
+					CategoryUse[] lclCUs = argT.createCategoryUseArray();
+					Arrays.sort(lclCUs, CategoryUse.CATEGORY_COMPARATOR);
+					for (CategoryUse lclCU : lclCUs) {
+						lclPointsByCategory.add(new MenuPage("points-" + lclCU.getCategory().getCode(), lclCU.getCategory().getName(), "/stats/category.jsp?object=" + argT.getUniqueString() + "&category_code=" + lclCU.getCategory().getCode()));
+					}
+					lclItems.add(new Menu(argT.getUniqueString() + "-points-by-category", "Points by Category", lclPointsByCategory));
+					
+					
+					List<MenuPage> lclPlayerDetailsBySchool = new ArrayList<>(argT.getSchoolRegistrationSet().size());
+					SchoolRegistration[] lclSRs = argT.createSchoolRegistrationArray();
+					Arrays.sort(lclSRs, SchoolRegistration.SchoolShortNameComparator.getInstance());
+					for (SchoolRegistration lclSR : lclSRs) {
+						lclPlayerDetailsBySchool.add(new MenuPage("player-detail-" + lclSR.getId(), lclSR.getSchool().getShortName(), "/stats/player-detail.jsp?school_registration_id=" + lclSR.getId()));
+					}
+					lclItems.add(new Menu(argT.getUniqueString() + "-player-detail", "Player Details", lclPlayerDetailsBySchool));
+					
+					lclItems.add(new MenuPage("conversion-by-category", "Conversion", "/stats/conversion-by-category.jsp?object=" + argT.getUniqueString()));
 					
 					if (argT.hasPublicQuestions()) {
 						lclItems.add(new MenuPage("conversion-by-question", "Conversion by Question", "/stats/conversion-by-question.jsp?object=" + argT.getUniqueString()));

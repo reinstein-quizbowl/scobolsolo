@@ -101,12 +101,14 @@ CREATE OR REPLACE VIEW Player_Match_v AS
 SELECT
 	PH.tournament_code,
 	Pthis.player_id AS player_id,
+	P.school_registration_id AS school_registration_id,
 	Pthis.id AS performance_id,
 	Popp.player_id AS opponent_player_id,
 	Popp.id AS opponent_performance_id,
 	M.id AS match_id,
 	G.id AS game_id
 FROM Performance Pthis
+	JOIN Player P ON Pthis.player_id = P.id
 	JOIN Match M ON Pthis.game_id = M.id
 	JOIN Game G ON M.id = G.id
 	JOIN Performance Popp ON Popp.game_id = Pthis.game_id AND Popp.id <> Pthis.id
@@ -145,7 +147,7 @@ FROM Match M
 	JOIN Response_Type RTlose ON Rlose.response_type_code = RTlose.code
 	LEFT OUTER JOIN Diff Dlose ON Rlose.diff_id = Dlose.id
 WHERE
-	Rwin.actual_placement_id = Rlose.actual_placement_id AND
+	Rwin.actual_placement_id = Rlose.actual_placement_id AND -- Why?
 	(
 		(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL)
 		OR

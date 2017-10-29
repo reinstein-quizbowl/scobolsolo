@@ -59,6 +59,10 @@ table {
 	}
 }
 
+div.tablesorter-scroller-fixed {
+	z-index: 0 !important;
+}
+
 .switch {
 	padding: $form-spacing / 2 + rem-calc($input-border-width) 0 !important;
 }
