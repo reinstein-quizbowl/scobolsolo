@@ -122,19 +122,6 @@ public interface Account extends AccountUserFacing {
 		}
 	}
 	
-	// TODO: How is this used? Make it more specific.
-	// default boolean mayUpdate(final Tournament argT) {
-		// if (argT == null) {
-			// return false;
-		// }
-		
-		// if (isAdministrator()) {
-			// return true;
-		// }
-		
-		// return getContact().findStaff(argT) != null;
-	// }
-	
 	default Staff findStaff(final Tournament argT) {
 		return getContact().findStaff(argT);
 	}
