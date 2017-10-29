@@ -91,6 +91,65 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	}
 
 	/**
+	 * object accessor for the {@code SchoolRegistrationId}
+	 *
+	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} field in {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSchoolRegistrationId() method.</p>
+	 *
+	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = false)
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getSchoolRegistrationIdAsObject();
+
+	/**
+	 * object accessor for the {@code SchoolRegistrationId} with substitution for a null value
+	 *
+	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} database column in the table {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code SchoolRegistrationId} is {@code null}.
+	 * @return an object value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getSchoolRegistrationIdAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getSchoolRegistrationIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code SchoolRegistrationId}
+	 *
+	 * <p>The {@code SchoolRegistrationId} field is a direct mapping of the {@code school_registration_id} database column in the table {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSchoolRegistrationIdAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code SchoolRegistrationId} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getSchoolRegistrationId() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getSchoolRegistrationIdAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getSchoolRegistrationId(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getSchoolRegistrationIdAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getSchoolRegistrationId(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getSchoolRegistrationIdAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
 	 * object accessor for the {@code PerformanceId}
 	 *
 	 * <p>The {@code PerformanceId} field is a direct mapping of the {@code performance_id} field in {@code player_match_v}.</p>
@@ -420,6 +479,13 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	 */
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Match getMatch();
+	/**
+	 * @return the {@code com.scobolsolo.application.SchoolRegistration}
+	 * The returned {@code com.scobolsolo.application.SchoolRegistration} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school_registration} that is referenced by {@code UNNAMED_INFERRED_KEY}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = true)
+	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
 	/**
 	 * @return the {@code com.scobolsolo.application.Performance}
 	 * The returned {@code com.scobolsolo.application.Performance} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code performance} that is referenced by {@code UNNAMED_INFERRED_KEY}.

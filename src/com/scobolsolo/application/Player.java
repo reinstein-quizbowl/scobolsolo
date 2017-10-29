@@ -48,21 +48,6 @@ public interface Player extends PlayerUserFacing, Comparable<Player> {
 		return getSchoolRegistration().getSchool();
 	}
 	
-	default List<ResponseType> determineResponseTypesToOffer() {
-		return ResponseTypeFactory.getInstance().getAll().stream()
-			.filter(isExhibition() ? ResponseType::isShowForExhibitionPlayers : ResponseType::isShowForNonExhibitionPlayers)
-			.sorted()
-			.collect(Collectors.toList());
-	}
-	
-	default ResponseType determineDefaultResponseType() {
-		if (isExhibition()) {
-			return null;
-		} else {
-			return ResponseTypeFactory.NO_ATTEMPT();
-		}
-	}
-	
 	@Override
 	default public int compareTo(Player that) {
 		return NameComparator.getInstance().compare(this, that);

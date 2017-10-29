@@ -340,6 +340,11 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		Validate.notNull(argPL);
 		Validate.notNull(argPlayer);
 		
+		// Exhibition players (phantoms) never have their buzzes recorded.
+		if (argPlayer.isExhibition()) {
+			return null;
+		}
+		
 		if (argBuzzed) {
 			if (argCorrect) {
 				return ResponseTypeFactory.CORRECT();
@@ -363,7 +368,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				}
 			}
 		} else {
-			return argPlayer.determineDefaultResponseType();
+			return ResponseTypeFactory.NO_ATTEMPT();
 		}
 	}
 }

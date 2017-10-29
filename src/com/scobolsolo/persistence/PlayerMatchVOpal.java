@@ -21,6 +21,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		myOldPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldOpponentPlayerOpal = PlayerOpal.NOT_YET_LOADED;
 		myOldMatchOpal = MatchOpal.NOT_YET_LOADED;
+		myOldSchoolRegistrationOpal = SchoolRegistrationOpal.NOT_YET_LOADED;
 		myOldPerformanceOpal = PerformanceOpal.NOT_YET_LOADED;
 		myOldOpponentPerformanceOpal = PerformanceOpal.NOT_YET_LOADED;
 		return;
@@ -29,6 +30,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 	/* package */ static final String[] ourFieldNames = new String[] {
 		"TournamentCode",
 		"PlayerId",
+		"SchoolRegistrationId",
 		"PerformanceId",
 		"OpponentPlayerId",
 		"OpponentPerformanceId",
@@ -38,6 +40,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
 		java.lang.String.class,
+		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
@@ -54,9 +57,11 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		true,
 		true,
 		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -94,24 +99,28 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		return (java.lang.Integer) getValues()[1];
 	}
 
-	public java.lang.Integer getPerformanceIdAsObject() {
+	public java.lang.Integer getSchoolRegistrationIdAsObject() {
 		return (java.lang.Integer) getValues()[2];
 	}
 
-	public java.lang.Integer getOpponentPlayerIdAsObject() {
+	public java.lang.Integer getPerformanceIdAsObject() {
 		return (java.lang.Integer) getValues()[3];
 	}
 
-	public java.lang.Integer getOpponentPerformanceIdAsObject() {
+	public java.lang.Integer getOpponentPlayerIdAsObject() {
 		return (java.lang.Integer) getValues()[4];
 	}
 
-	public java.lang.Integer getMatchIdAsObject() {
+	public java.lang.Integer getOpponentPerformanceIdAsObject() {
 		return (java.lang.Integer) getValues()[5];
 	}
 
-	public java.lang.Integer getGameIdAsObject() {
+	public java.lang.Integer getMatchIdAsObject() {
 		return (java.lang.Integer) getValues()[6];
+	}
+
+	public java.lang.Integer getGameIdAsObject() {
+		return (java.lang.Integer) getValues()[7];
 	}
 
 	@Override
@@ -121,6 +130,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		myNewPlayerOpal = myOldPlayerOpal;
 		myNewOpponentPlayerOpal = myOldOpponentPlayerOpal;
 		myNewMatchOpal = myOldMatchOpal;
+		myNewSchoolRegistrationOpal = myOldSchoolRegistrationOpal;
 		myNewPerformanceOpal = myOldPerformanceOpal;
 		myNewOpponentPerformanceOpal = myOldOpponentPerformanceOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
@@ -134,6 +144,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		myOldPlayerOpal = myNewPlayerOpal;
 		myOldOpponentPlayerOpal = myNewOpponentPlayerOpal;
 		myOldMatchOpal = myNewMatchOpal;
+		myOldSchoolRegistrationOpal = myNewSchoolRegistrationOpal;
 		myOldPerformanceOpal = myNewPerformanceOpal;
 		myOldOpponentPerformanceOpal = myNewOpponentPerformanceOpal;
 
@@ -157,6 +168,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 	public synchronized void output(final java.io.PrintStream argOutput) {
 		argOutput.println("TournamentCode = " + getTournamentCode());
 		argOutput.println("PlayerId = " + getPlayerIdAsObject());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
 		argOutput.println("PerformanceId = " + getPerformanceIdAsObject());
 		argOutput.println("OpponentPlayerId = " + getOpponentPlayerIdAsObject());
 		argOutput.println("OpponentPerformanceId = " + getOpponentPerformanceIdAsObject());
@@ -168,6 +180,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 	public synchronized void output(final java.io.PrintWriter argOutput) {
 		argOutput.println("TournamentCode = " + getTournamentCode());
 		argOutput.println("PlayerId = " + getPlayerIdAsObject());
+		argOutput.println("SchoolRegistrationId = " + getSchoolRegistrationIdAsObject());
 		argOutput.println("PerformanceId = " + getPerformanceIdAsObject());
 		argOutput.println("OpponentPlayerId = " + getOpponentPlayerIdAsObject());
 		argOutput.println("OpponentPerformanceId = " + getOpponentPerformanceIdAsObject());
@@ -180,7 +193,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 
 	protected GameOpal retrieveGameOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[6] == null)) {
+		if ((argValueSet[7] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getGameOpalFactory().forId(getGameIdAsObject());
@@ -258,7 +271,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 
 	protected PlayerOpal retrieveOpponentPlayerOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[3] == null)) {
+		if ((argValueSet[4] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPlayerOpalFactory().forId(getOpponentPlayerIdAsObject());
@@ -284,7 +297,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 
 	protected MatchOpal retrieveMatchOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[5] == null)) {
+		if ((argValueSet[6] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getMatchOpalFactory().forId(getMatchIdAsObject());
@@ -305,12 +318,38 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		return lclMatchOpal;
 	}
 
+	private SchoolRegistrationOpal myOldSchoolRegistrationOpal;
+	private SchoolRegistrationOpal myNewSchoolRegistrationOpal;
+
+	protected SchoolRegistrationOpal retrieveSchoolRegistrationOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[2] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getSchoolRegistrationOpalFactory().forId(getSchoolRegistrationIdAsObject());
+	}
+
+	public synchronized SchoolRegistrationOpal getSchoolRegistrationOpal() {
+		SchoolRegistrationOpal lclSchoolRegistrationOpal;
+		boolean lclAccess = tryAccess();
+		lclSchoolRegistrationOpal = lclAccess ? myNewSchoolRegistrationOpal : myOldSchoolRegistrationOpal;
+		if (lclSchoolRegistrationOpal == SchoolRegistrationOpal.NOT_YET_LOADED) {
+			lclSchoolRegistrationOpal = retrieveSchoolRegistrationOpal(getValues());
+			if (lclAccess) {
+				myNewSchoolRegistrationOpal = lclSchoolRegistrationOpal;
+			} else {
+				myOldSchoolRegistrationOpal = lclSchoolRegistrationOpal;
+			}
+		}
+		return lclSchoolRegistrationOpal;
+	}
+
 	private PerformanceOpal myOldPerformanceOpal;
 	private PerformanceOpal myNewPerformanceOpal;
 
 	protected PerformanceOpal retrievePerformanceOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[2] == null)) {
+		if ((argValueSet[3] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forId(getPerformanceIdAsObject());
@@ -336,7 +375,7 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 
 	protected PerformanceOpal retrieveOpponentPerformanceOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[4] == null)) {
+		if ((argValueSet[5] == null)) {
 			return null;
 		}
 		return OpalFactoryFactory.getInstance().getPerformanceOpalFactory().forId(getOpponentPerformanceIdAsObject());

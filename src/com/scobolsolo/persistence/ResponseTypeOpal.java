@@ -8,8 +8,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 	public static final java.lang.Boolean ourDefaultMultipleAllowedForSamePlacement = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultAttempt = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultFurtherAttemptsToSameQuestionInMatch = java.lang.Boolean.FALSE;
-	public static final java.lang.Boolean ourDefaultShowForNonExhibitionPlayers = java.lang.Boolean.TRUE;
-	public static final java.lang.Boolean ourDefaultShowForExhibitionPlayers = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultShowInReports = java.lang.Boolean.TRUE;
 
 	private ResponseTypeOpal() {
@@ -28,9 +26,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		getNewValues()[6] = ourDefaultMultipleAllowedForSamePlacement;
 		getNewValues()[7] = ourDefaultAttempt;
 		getNewValues()[8] = ourDefaultFurtherAttemptsToSameQuestionInMatch;
-		getNewValues()[9] = ourDefaultShowForNonExhibitionPlayers;
-		getNewValues()[10] = ourDefaultShowForExhibitionPlayers;
-		getNewValues()[11] = ourDefaultShowInReports;
+		getNewValues()[9] = ourDefaultShowInReports;
 
 		return;
 	}
@@ -45,8 +41,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		"MultipleAllowedForSamePlacement",
 		"Attempt",
 		"FurtherAttemptsToSameQuestionInMatch",
-		"ShowForNonExhibitionPlayers",
-		"ShowForExhibitionPlayers",
 		"ShowInReports",
 	};
 
@@ -56,8 +50,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		java.lang.String.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
-		java.lang.Boolean.class,
-		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 		java.lang.Boolean.class,
@@ -76,13 +68,9 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		false,
 		false,
 		false,
-		false,
-		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
-		null,
-		null,
 		null,
 		null,
 		null,
@@ -151,16 +139,8 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		return (java.lang.Boolean) getReadValueSet()[8];
 	}
 
-	public synchronized java.lang.Boolean isShowForNonExhibitionPlayersAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[9];
-	}
-
-	public synchronized java.lang.Boolean isShowForExhibitionPlayersAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[10];
-	}
-
 	public synchronized java.lang.Boolean isShowInReportsAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[11];
+		return (java.lang.Boolean) getReadValueSet()[9];
 	}
 
 	public synchronized ResponseTypeOpal setCode(final java.lang.String argCode) {
@@ -283,40 +263,12 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		return this;
 	}
 
-	public synchronized ResponseTypeOpal setShowForNonExhibitionPlayers(final java.lang.Boolean argShowForNonExhibitionPlayers) {
-		tryMutate();
-		if (argShowForNonExhibitionPlayers == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myShowForNonExhibitionPlayers on " + this + " to null.");
-		}
-		getNewValues()[9] = argShowForNonExhibitionPlayers;
-		return this;
-	}
-
-	public ResponseTypeOpal setShowForNonExhibitionPlayers(final boolean argShowForNonExhibitionPlayers) {
-		setShowForNonExhibitionPlayers(argShowForNonExhibitionPlayers ? Boolean.TRUE : Boolean.FALSE);
-		return this;
-	}
-
-	public synchronized ResponseTypeOpal setShowForExhibitionPlayers(final java.lang.Boolean argShowForExhibitionPlayers) {
-		tryMutate();
-		if (argShowForExhibitionPlayers == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myShowForExhibitionPlayers on " + this + " to null.");
-		}
-		getNewValues()[10] = argShowForExhibitionPlayers;
-		return this;
-	}
-
-	public ResponseTypeOpal setShowForExhibitionPlayers(final boolean argShowForExhibitionPlayers) {
-		setShowForExhibitionPlayers(argShowForExhibitionPlayers ? Boolean.TRUE : Boolean.FALSE);
-		return this;
-	}
-
 	public synchronized ResponseTypeOpal setShowInReports(final java.lang.Boolean argShowInReports) {
 		tryMutate();
 		if (argShowInReports == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myShowInReports on " + this + " to null.");
 		}
-		getNewValues()[11] = argShowInReports;
+		getNewValues()[9] = argShowInReports;
 		return this;
 	}
 
@@ -355,9 +307,7 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		lclTargetNewValues[6] = lclValues[6]; /* MultipleAllowedForSamePlacement (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* Attempt (immutable) */
 		lclTargetNewValues[8] = lclValues[8]; /* FurtherAttemptsToSameQuestionInMatch (immutable) */
-		lclTargetNewValues[9] = lclValues[9]; /* ShowForNonExhibitionPlayers (immutable) */
-		lclTargetNewValues[10] = lclValues[10]; /* ShowForExhibitionPlayers (immutable) */
-		lclTargetNewValues[11] = lclValues[11]; /* ShowInReports (immutable) */
+		lclTargetNewValues[9] = lclValues[9]; /* ShowInReports (immutable) */
 
 		return;
 	}
@@ -401,8 +351,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argOutput.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argOutput.println("Attempt = " + isAttemptAsObject());
 		argOutput.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
-		argOutput.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
-		argOutput.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
 		argOutput.println("ShowInReports = " + isShowInReportsAsObject());
 	}
 
@@ -417,8 +365,6 @@ public final class ResponseTypeOpal extends com.opal.UpdatableOpal<ResponseType>
 		argOutput.println("MultipleAllowedForSamePlacement = " + isMultipleAllowedForSamePlacementAsObject());
 		argOutput.println("Attempt = " + isAttemptAsObject());
 		argOutput.println("FurtherAttemptsToSameQuestionInMatch = " + allowsFurtherAttemptsToSameQuestionInMatchAsObject());
-		argOutput.println("ShowForNonExhibitionPlayers = " + isShowForNonExhibitionPlayersAsObject());
-		argOutput.println("ShowForExhibitionPlayers = " + isShowForExhibitionPlayersAsObject());
 		argOutput.println("ShowInReports = " + isShowInReportsAsObject());
 	}
 

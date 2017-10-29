@@ -18,6 +18,7 @@ public class PostgresPlayerMatchVOpalFactory extends com.opal.AbstractDatabaseEp
 	private static final String[] ourColumnNames = new String[] {
 		"tournament_code", 
 		"player_id", 
+		"school_registration_id", 
 		"performance_id", 
 		"opponent_player_id", 
 		"opponent_performance_id", 

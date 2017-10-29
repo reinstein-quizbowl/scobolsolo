@@ -41,6 +41,13 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<com.scobolsolo.appli
 	@com.opal.annotation.Updatability(updatable = false)
 	@com.opal.annotation.Nullability(nullable = true)
 	@Override
+	public java.lang.Integer getSchoolRegistrationIdAsObject() {
+		return getPlayerMatchVOpal().getSchoolRegistrationIdAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = false)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
 	public java.lang.Integer getPerformanceIdAsObject() {
 		return getPlayerMatchVOpal().getPerformanceIdAsObject();
 	}
@@ -119,6 +126,15 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<com.scobolsolo.appli
 	public com.scobolsolo.application.Match getMatch() {
 		MatchOpal lclMatchOpal = getPlayerMatchVOpal().getMatchOpal();
 		return lclMatchOpal == null ? null : lclMatchOpal.getUserFacing();
+	}
+
+	/** @return the SchoolRegistration object created from player_match_v through reference UNNAMED_INFERRED_KEY */
+
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration() {
+		SchoolRegistrationOpal lclSchoolRegistrationOpal = getPlayerMatchVOpal().getSchoolRegistrationOpal();
+		return lclSchoolRegistrationOpal == null ? null : lclSchoolRegistrationOpal.getUserFacing();
 	}
 
 	/** @return the Performance object created from player_match_v through reference UNNAMED_INFERRED_KEY */

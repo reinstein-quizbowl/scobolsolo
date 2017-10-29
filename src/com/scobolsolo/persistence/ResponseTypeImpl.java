@@ -217,52 +217,6 @@ public class ResponseTypeImpl extends com.opal.AbstractIdentityImpl<com.scobolso
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	@Override
-	public java.lang.Boolean isShowForNonExhibitionPlayersAsObject() {
-		return getResponseTypeOpal().isShowForNonExhibitionPlayersAsObject();
-	}
-
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Default(value = "true")
-	@Override
-	public com.scobolsolo.persistence.ResponseTypeImpl setShowForNonExhibitionPlayers(java.lang.Boolean argShowForNonExhibitionPlayers) {
-		getResponseTypeOpal().setShowForNonExhibitionPlayers(argShowForNonExhibitionPlayers);
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.persistence.ResponseTypeImpl setShowForNonExhibitionPlayers(boolean argShowForNonExhibitionPlayers) {
-		getResponseTypeOpal().setShowForNonExhibitionPlayers(argShowForNonExhibitionPlayers);
-		return this;
-	}
-
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Default(value = "true")
-	@Override
-	public java.lang.Boolean isShowForExhibitionPlayersAsObject() {
-		return getResponseTypeOpal().isShowForExhibitionPlayersAsObject();
-	}
-
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Default(value = "true")
-	@Override
-	public com.scobolsolo.persistence.ResponseTypeImpl setShowForExhibitionPlayers(java.lang.Boolean argShowForExhibitionPlayers) {
-		getResponseTypeOpal().setShowForExhibitionPlayers(argShowForExhibitionPlayers);
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.persistence.ResponseTypeImpl setShowForExhibitionPlayers(boolean argShowForExhibitionPlayers) {
-		getResponseTypeOpal().setShowForExhibitionPlayers(argShowForExhibitionPlayers);
-		return this;
-	}
-
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Default(value = "true")
-	@Override
 	public java.lang.Boolean isShowInReportsAsObject() {
 		return getResponseTypeOpal().isShowInReportsAsObject();
 	}

@@ -32,8 +32,6 @@ public class PostgresResponseTypeOpalFactory extends com.opal.AbstractDatabaseId
 		"multiple_allowed_for_same_placement", 
 		"is_attempt", 
 		"allows_further_attempts_to_same_question_in_match", 
-		"show_for_non_exhibition_players", 
-		"show_for_exhibition_players", 
 		"show_in_reports", 
 	};
 
@@ -107,7 +105,7 @@ public class PostgresResponseTypeOpalFactory extends com.opal.AbstractDatabaseId
 
 	protected void registerOpal(ResponseTypeOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 12) { throw new IllegalStateException(); }
+		if (argValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<ResponseTypeOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new NameOpalKey((java.lang.String) argValues[1]), argOpal, true);
@@ -120,7 +118,7 @@ public class PostgresResponseTypeOpalFactory extends com.opal.AbstractDatabaseId
 	protected void unregisterOpal(ResponseTypeOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 12) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<ResponseTypeOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new NameOpalKey((java.lang.String) lclOldValues[1]));
@@ -134,10 +132,10 @@ public class PostgresResponseTypeOpalFactory extends com.opal.AbstractDatabaseId
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 12) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 12) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<ResponseTypeOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<ResponseTypeOpal> lclOldKey = null;
