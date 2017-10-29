@@ -170,12 +170,11 @@ public final class Menus {
 					lclItems.add(new Menu(argT.getUniqueString() + "-points-by-category", "Points by Category", lclPointsByCategory));
 					
 					
-					List<MenuPage> lclPlayerDetailsBySchool = new ArrayList<>(argT.getSchoolRegistrationSet().size());
-					SchoolRegistration[] lclSRs = argT.createSchoolRegistrationArray();
-					Arrays.sort(lclSRs, SchoolRegistration.SchoolShortNameComparator.getInstance());
-					for (SchoolRegistration lclSR : lclSRs) {
-						lclPlayerDetailsBySchool.add(new MenuPage("player-detail-" + lclSR.getId(), lclSR.getSchool().getShortName(), "/stats/player-detail.jsp?school_registration_id=" + lclSR.getId()));
-					}
+					List<MenuPage> lclPlayerDetailsBySchool = argT.streamSchoolRegistration()
+						.filter(argSR -> argSR.streamPlayer().anyMatch(argP -> argP.isExhibition() == false))
+						.sorted(SchoolRegistration.SchoolShortNameComparator.getInstance())
+						.map(argSR -> new MenuPage("player-detail-" + argSR.getId(), argSR.getSchool().getShortName(), "/stats/player-detail.jsp?school_registration_id=" + argSR.getId()))
+						.collect(Collectors.toList());
 					lclItems.add(new Menu(argT.getUniqueString() + "-player-detail", "Player Details", lclPlayerDetailsBySchool));
 					
 					lclItems.add(new MenuPage("conversion-by-category", "Conversion", "/stats/conversion-by-category.jsp?object=" + argT.getUniqueString()));
