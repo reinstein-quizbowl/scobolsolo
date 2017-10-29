@@ -3,6 +3,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.DatabaseQuery" %>
+<%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.Match" %>
 <%@ page import="com.scobolsolo.application.MatchFactory" %>
@@ -14,6 +15,7 @@
 
 <%
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
+Account lclUser = Account.determineCurrent(request);
 %>
 
 <jsp:include page="/template/header.jsp">
@@ -21,9 +23,17 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 	<jsp:param name="pageTitle" value="Coming Up Next" />
 	<jsp:param name="topMenu" value="<%= Menus.stats(lclT).asTopLevel().output(request, \"coming-up-next\") %>" />
 	<jsp:param name="h1" value="Coming Up Next" />
-</jsp:include>
+</jsp:include><%
 
-<div class="row">
+if (lclUser != null && lclUser.findStaff(lclT) != null) {
+	%><div class="row">
+		<div class="small-12 columns">
+			<p><strong>This page is a public statistics page. If you are trying to read a match to players, use <a href="/game/">this internal page</a>.</strong></p>
+		</div>
+	</div><%
+}
+
+%><div class="row">
 	<div class="small-12 columns">
 		<table data-fixed-columns="1">
 			<thead>
