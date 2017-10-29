@@ -20,6 +20,7 @@
 <%@ page import="com.scobolsolo.application.ResponseTypeFactory" %>
 <%@ page import="com.scobolsolo.application.Room" %>
 <%@ page import="com.scobolsolo.application.Round" %>
+<%@ page import="com.scobolsolo.application.Staff" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
@@ -99,6 +100,26 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 columns">
 		<h2>Game Data</h2>
 	</div>
+	
+	<div class="small-12 medium-5 columns">
+		<label>
+			Moderator
+			<%= lclOF.<Staff>dropdown("ModeratorStaff").query("tournament_code = ?", lclT.getCode()) %>
+		</label>
+	</div>
+	<div class="small-12 medium-5 columns">
+		<label>
+			Scorekeeper
+			<%= lclOF.<Staff>dropdown("ScorekeeperStaff").query("tournament_code = ?", lclT.getCode()) %>
+		</label>
+	</div>
+	<div class="small-12 medium-2 columns">
+		<label>
+			Tossups Heard
+			<%= lclOF.number("TossupsHeard").min(0) %>
+		</label>
+	</div>
+	
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Incoming Player with Winning Card
@@ -148,7 +169,7 @@ if (lclOF.hasErrors()) {
 						<%= lclPOF.<Player>dropdown("Player").filter(argP -> argP.getTournament() == lclT).namer(Player::getNameWithSchoolShortName) %>
 					</label>
 				</div>
-				<table data-fixed-columns="1">
+				<table>
 					<thead>
 						<tr>
 							<th>Question</th>
