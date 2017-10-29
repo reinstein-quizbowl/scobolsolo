@@ -66,8 +66,8 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 						
 						%><tr>
 							<th class="number"><%= lclPCPV.getPoints(0) %></th>
-							<th data-order="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
-							<td data-order="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
+							<th data-order="<%= lclPlayer.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclPlayer.getSchoolRegistration().getId() %>#player_<%= lclPlayer.getId() %>"><%= lclPlayer.getContact().getName() %></a></th>
+							<td data-order="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclPlayer.getSchoolRegistration().getId() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
 							<td class="number"><%= lclPCPV.getTossupsHeard(0) %></td>
 							<td class="number"><%= lclDF.format(lclPCPV.getPPTUH()) %></td>
 							<td class="number"><%

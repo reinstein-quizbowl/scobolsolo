@@ -89,13 +89,13 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					continue;
 				}
 				
-				%><h2 id="<%= lclSR.getId() %>"><a class="no-highlight" href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#school_<%= lclSR.getSchool().getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></h2>
+				%><h2 id="<%= lclSR.getId() %>"><a class="no-highlight" href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></h2>
 				<ul><%
 					Player[] lclPlayers = lclSR.createPlayerArray();
 					Arrays.sort(lclPlayers, Player.NameComparator.getInstance());
 					for (Player lclP : lclPlayers) {
 						%><li>
-							<a class="no-highlight" href="/stats/player-detail.jsp?object=<%= lclT.getUniqueString() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a><%
+							<a class="no-highlight" href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a><%
 							if (lclP.getSchoolYear() != null) {
 								if (lclP.isExhibition()) {
 									%> (<%= lclP.getSchoolYear().getName() %>; exhibition)<%
