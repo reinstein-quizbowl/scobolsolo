@@ -1,11 +1,16 @@
+<%@ page import="java.util.Objects" %>
+<%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.stream.Collectors" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.Match" %>
+<%@ page import="com.scobolsolo.application.Performance" %>
+<%@ page import="com.scobolsolo.application.Placement" %>
 <%@ page import="com.scobolsolo.application.Player" %>
 <%@ page import="com.scobolsolo.application.Phase" %>
+<%@ page import="com.scobolsolo.application.Response" %>
 <%@ page import="com.scobolsolo.application.Round" %>
 <%@ page import="com.scobolsolo.application.RoundGroup" %>
 <%@ page import="com.scobolsolo.application.Staff" %>
@@ -63,6 +68,17 @@ Account lclUser = Account.demand(request);
 							}
 							if (lclShowLink) {
 								%></a><%
+							}
+							
+							if (lclS == MatchStatus.IN_PROGRESS && lclG != null) {
+								Placement lclThrough = lclG.streamPerformance()
+									.flatMap(Performance::streamResponse)
+									.map(Response::getBasePlacement)
+									.filter(Objects::nonNull)
+									.max(Comparator.naturalOrder()).orElse(null);
+								if (lclThrough != null) {
+									%> (through&nbsp;<%= lclThrough.getNumberString() %>)<%
+								}
 							}
 							
 							if (lclUser.isAdministrator() && lclG != null) {
