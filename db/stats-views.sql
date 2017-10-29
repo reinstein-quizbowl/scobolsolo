@@ -146,9 +146,11 @@ FROM Match M
 	LEFT OUTER JOIN Response_Type RTlose ON Rlose.response_type_code = RTlose.code
 	LEFT OUTER JOIN Diff Dlose ON Rlose.diff_id = Dlose.id
 WHERE
-	(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL)
-	OR
-	PH.card_system = FALSE
+	(Rlose.actual_placement_id IS NULL OR Rwin.actual_placement_id = Rlose.actual_placement_id) AND ( -- This is to avoid dealing with the full cross-product of (winner responses x loser responses), which would result in each score being multiplied by TUH.  The former condition is to account for phantoms not getting responses recorded.
+		(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL)
+		OR
+		PH.card_system = FALSE
+	)
 GROUP BY PH.tournament_code, G.id, M.round_id, M.room_id, M.winning_card_id, M.losing_card_id, G.moderator_staff_id, G.scorekeeper_staff_id, G.tossups_heard, G.incoming_winning_card_player_id, G.incoming_losing_card_player_id, G.outgoing_winning_card_player_id, G.outgoing_losing_card_player_id, Pwin.id, Plose.id;
 GRANT SELECT ON Game_v TO scobolsolo;
 
