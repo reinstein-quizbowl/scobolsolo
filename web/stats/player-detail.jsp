@@ -96,7 +96,7 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 								Player lclOpponentPlayer = Validate.notNull(lclWon ? lclGV.getLoserPlayer() : lclGV.getWinnerPlayer());
 								%><tr>
 									<th data-order="<%= lclM.getRound().getSequence() %>"><%= lclM.getRound().getShortName() %></th>
-									<th data-order="<%= lclOpponentPlayer.getContact().getSortBy() %>"><a href="#player_<%= lclOpponentPlayer.getId() %>"><%= lclOpponentPlayer.getNameWithSchoolShortName() %></a></th>
+									<th data-order="<%= lclOpponentPlayer.getContact().getSortBy() %>"><a href="player-detail.jsp?school_registration_id=<%= lclOpponentPlayer.getSchoolRegistration().getId() %>#player_<%= lclOpponentPlayer.getId() %>"><%= lclOpponentPlayer.getNameWithSchoolShortName() %></a></th>
 									<td class="number"><%= lclWon ? lclGV.getWinnerScore(0) : lclGV.getLoserScore(0) %></td>
 									<td class="number"><%= lclWon ? lclGV.getLoserScore(0) : lclGV.getWinnerScore(0) %></td>
 									<td class="number"><%= lclGV.getTossupsHeard(0) %></td>
