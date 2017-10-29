@@ -10,9 +10,9 @@
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">
-	<jsp:param name="tournamentCode" value="2016" />
+	<jsp:param name="tournamentCode" value="2017" />
 	<jsp:param name="pageTitle" value="Championship Match" />
-	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2016()).asTopLevel().output(request, \"championship-match\") %>" />
+	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2017()).asTopLevel().output(request, \"championship-match\") %>" />
 	<jsp:param name="h1" value="Championship Match" />
 </jsp:include>
 
