@@ -18,45 +18,45 @@
 				<tr>
 					<th>1.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2016#player_1417">John Waldron</a> (Barrington)
+						<a href="/stats/player-detail.jsp?school_registration_id=1091#player_1417">John Waldron</a> (Barrington)
 					</td>
 				</tr>
 				<tr>
 					<th>2.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2016#player_1416">Matthew Lehmann</a> (Barrington; also the morning champion)
+						<a href="/stats/player-detail.jsp?school_registration_id=1091#player_1416">Matthew Lehmann</a> (Barrington; also the morning champion)
 					</td>
 				</tr>
 				<tr>
 					<th>3.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2016#player_1491">Ali Saeed</a> (Adlai E. Stevenson)
+						<a href="/stats/player-detail.jsp?school_registration_id=1090#player_1491">Ali Saeed</a> (Stevenson)
 					</th>
 				</tr>
 				<tr>
 					<th>4.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2016#player_1454">Jakob Myers</a> (Naperville North)
+						<a href="/stats/player-detail.jsp?school_registration_id=1107#player_1454">Jakob Myers</a> (Naperville North)
 					</td>
 				</tr>
 				<tr>
 					<th>5T.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2016#player_1436">Jack Mayer</a> (Loyola Academy)<br />
-						<a href="/stats/player-detail.jsp?object=2016#player_1524">Ethan Strombeck</a> (Auburn)<br />
-						<a href="/stats/player-detail.jsp?object=2016#player_1512">Aristotle Vainikos</a> (Carl Sandburg)
+						<a href="/stats/player-detail.jsp?school_registration_id=1096#player_1436">Jack Mayer</a> (Loyola Academy)<br />
+						<a href="/stats/player-detail.jsp?school_registration_id=1089#player_1524">Ethan Strombeck</a> (Auburn)<br />
+						<a href="/stats/player-detail.jsp?school_registration_id=1112#player_1512">Aristotle Vainikos</a> (Sandburg)
 					</td>
 				</tr>
 				<tr>
 					<th>8.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2016#player_1418">John Banta</a> (Lake Forest)
+						<a href="/stats/player-detail.jsp?school_registration_id=1110">John Banta</a> (Lake Forest)
 					</td>
 				</tr>
 				<tr>
 					<th>9.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2016#player_1470">Lily Hamer</a> (Homewood-Flossmoor)
+						<a href="/stats/player-detail.jsp?school_registration_id=1092#player_1470">Lily Hamer</a> (Homewood-Flossmoor)
 					</td>
 				</tr>
 			</tbody>

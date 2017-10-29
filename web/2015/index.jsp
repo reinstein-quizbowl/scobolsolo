@@ -18,45 +18,45 @@
 				<tr>
 					<th>1.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2015#player_1323">Ali Saeed</a> (Adlai E. Stevenson, also the morning champion)
+						<a href="/stats/player-detail.jsp?school_registration_id=1064#player_1323">Ali Saeed</a> (Stevenson, also the morning champion)
 					</td>
 				</tr>
 				<tr>
 					<th>2.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2015#player_1331">Cole Timmerwilke</a> (Auburn)
+						<a href="/stats/player-detail.jsp?school_registration_id=1067#player_1331">Cole Timmerwilke</a> (Auburn)
 					</td>
 				</tr>
 				<tr>
 					<th>3.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2015#player_1272">Matthew Lehmann</a> (Barrington)
+						<a href="/stats/player-detail.jsp?school_registration_id=1077#player_1272">Matthew Lehmann</a> (Barrington)
 					</th>
 				</tr>
 				<tr>
 					<th>4.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2015#player_1274">Jakob Myers</a> (Naperville North)
+						<a href="/stats/player-detail.jsp?school_registration_id=1061">Jakob Myers</a> (Naperville North)
 					</td>
 				</tr>
 				<tr>
 					<th>5T.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2015#player_1333">Ethan Strombeck</a> (Auburn)<br />
-						<a href="/stats/player-detail.jsp?object=2015#player_1273">John Waldron</a> (Barrington)
+						<a href="/stats/player-detail.jsp?school_registration_id=1067#player_1333">Ethan Strombeck</a> (Auburn)<br />
+						<a href="/stats/player-detail.jsp?school_registration_id=1077#player_1273">John Waldron</a> (Barrington)
 					</td>
 				</tr>
 				<tr>
 					<th>7.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2015#player_1308">Jonathan Suh</a> (Wheaton Warrenville South)
+						<a href="/stats/player-detail.jsp?school_registration_id=1065#player_1308">Jonathan Suh</a> (Wheaton Warrenville South)
 					</td>
 				</tr>
 				<tr>
 					<th>8T.</th>
 					<td>
-						<a href="/stats/player-detail.jsp?object=2015#player_1352">Ankush Bajaj</a> (Hinsdale Central)<br />
-						<a href="/stats/player-detail.jsp?object=2015#player_1289">Michael Gislason</a> (Homewood-Flossmoor)
+						<a href="/stats/player-detail.jsp?school_registration_id=1079#player_1352">Ankush Bajaj</a> (Hinsdale Central)<br />
+						<a href="/stats/player-detail.jsp?school_registration_id=1062#player_1289">Michael Gislason</a> (Homewood-Flossmoor)
 					</td>
 				</tr>
 			</tbody>
