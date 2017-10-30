@@ -66,7 +66,7 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 						
 						%><tr>
 							<th data-order="<%= lclP.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></th>
-							<td data-order="<%= lclP.getSchoolYear() == null ? Integer.MAX_VALUE : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "&nbsp;" : lclP.getSchoolYear().getShortName() %></td>
+							<td><%= lclP.getSchoolYear() == null ? "&nbsp;" : lclP.getSchoolYear().getVeryShortName() %></td>
 							<td data-order="<%= lclSR.getSchool().getName() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></td>
 							<td class="number" data-order="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
 							<td class="number"><%= lclPRV.getPoints(0) %></td>
