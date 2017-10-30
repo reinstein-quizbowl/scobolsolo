@@ -40,6 +40,8 @@
 \RequirePackage[normalem]{ulem}
 	\setlength\ULdepth{2pt}
 
+\RequirePackage[top=.5in, bottom=.5in, left=.5in, right=.5in]{geometry}
+
 \RequirePackage{titlesec}
 	\titlespacing\section{0pt}{0pt}{-8pt}
 	\titlespacing\subsection{0pt}{0pt}{-8pt}

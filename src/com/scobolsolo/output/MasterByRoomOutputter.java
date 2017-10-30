@@ -21,8 +21,8 @@ public class MasterByRoomOutputter extends PhaseSpecificLaTeXOutputter {
 	
 	@Override
 	public void outputInternal() {
-		getWriter().println("\\documentclass[10pt]{scobolsolo}");
-		getWriter().println("\\usepackage[landscape, top=.5in, bottom=.3in, left=.4in, right=.4in]{geometry}");
+		getWriter().println("\\documentclass[10pt,landscape]{scobolsolo}");
+		getWriter().println("\\newgeometry{top=.5in, bottom=.3in, left=.4in, right=.4in}");
 		getWriter().println("\\setlength\\RegularSize{9pt}");
 		getWriter().println("\\setlength\\RegularLH{12pt}");
 		getWriter().println("\\setlength\\tabcolsep{1pt}");

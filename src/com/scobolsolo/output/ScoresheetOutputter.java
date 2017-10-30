@@ -31,7 +31,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 	@Override
 	public void outputInternal() {
 		getWriter().println("\\documentclass[11pt]{scobolsolo}");
-		getWriter().println("\\usepackage[top=.4in, bottom=.4in, left=.4in, right=.4in]{geometry}");
+		getWriter().println("\\newgeometry{top=.4in, bottom=.4in, left=.4in, right=.4in}");
 		getWriter().println("\\newcommand{\\vstrut}{\\rule{0pt}{0.23in}}");
 		getWriter().println("\\setlength{\\tabcolsep}{1pt}");
 		getWriter().println();

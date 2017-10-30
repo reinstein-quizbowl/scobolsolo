@@ -22,7 +22,6 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 	@Override
 	public void outputInternal() {
 		getWriter().println("\\documentclass[11pt]{scobolsolo}");
-		getWriter().println("\\usepackage[top=.5in, bottom=.5in, left=.5in, right=.5in]{geometry}");
 		getWriter().println();
 		getWriter().println("\\begin{document}");
 		
