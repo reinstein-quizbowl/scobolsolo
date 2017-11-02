@@ -197,6 +197,11 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	@com.opal.annotation.Default(value = "true")
 	public java.lang.Boolean isActiveAsObject();
 
+	default public java.lang.Boolean isInactiveAsObject() {
+		Boolean lclB = isActiveAsObject();
+		return lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE;
+	}
+
 	/**
 	 * primitive accessor for the {@code Active}
 	 *
@@ -209,6 +214,10 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	default public boolean isActive() {
 		java.lang.Boolean lclO = isActiveAsObject();
 		return lclO.booleanValue();
+	}
+
+	default public java.lang.Boolean isInactive() {
+		return !isActive();
 	}
 
 	/**

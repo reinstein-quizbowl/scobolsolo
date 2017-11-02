@@ -26,6 +26,7 @@
 		
 		<Mappings HttpRequestFactories="True" FluentMutators="True">
 			<Mapping Table="Account">
+				<Column Name="active" Inverse="True" InverseAccessor="isInactive" />
 				<Comparator Name="NameComparator">
 					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>

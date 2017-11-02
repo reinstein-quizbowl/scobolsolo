@@ -20,6 +20,7 @@ import com.scobolsolo.application.Account;
 import com.scobolsolo.application.AccountFactory;
 import com.scobolsolo.servlets.ScobolSoloControllerServlet;
 import com.scobolsolo.Mail;
+import com.scobolsolo.Utility;
 
 public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 	private static final String FROM_ADDRESS = "jonah@jonahgreenthal.com";
@@ -52,6 +53,9 @@ public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
 		
 		if (lclA == null) {
 			argSession.setAttribute("PASSWORD_RESET_ERROR", "No account could be found from the information provided. You may <a href=\"" + START_URL + "\">try again</a> if you wish.");
+			return ERROR_URL;
+		} else if (lclA.isInactive()) {
+			argSession.setAttribute("PASSWORD_RESET_ERROR", "Your account is currently inactive. If you believe this is incorrect, contact " + Utility.getAdminContact() + '.');
 			return ERROR_URL;
 		}
 		
