@@ -10,7 +10,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2002 was held on Saturday, November&nbsp;23. The full results have been lost to memory, but here are the final standings:</p>
+		<p>Scobol Solo 2002 was held on Saturday, November&nbsp;23. There were 96 players. The full results have been lost to memory, but here are the final standings:</p>
 		
 		<table class="tournament-final-standings">
 			<tbody>
