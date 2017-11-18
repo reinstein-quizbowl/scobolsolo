@@ -26,7 +26,7 @@ import com.scobolsolo.application.TournamentFactory;
 
 public final class Menus {
 	private static final Menus ourInstance = new Menus();
-	private static final int TOURNAMENTS_TO_DISPLAY_UNCOLLAPSED = 3;
+	private static final int TOURNAMENTS_TO_DISPLAY_UNCOLLAPSED = 5;
 	
 	private final Menu myTournamentsPublicMenu;
 	private final Menu myTournamentsInternalMenu;
