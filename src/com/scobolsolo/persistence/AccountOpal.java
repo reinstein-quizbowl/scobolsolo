@@ -76,6 +76,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		"PasswordResetToken",
 		"PasswordResetTokenExpiration",
 		"CanReceiveUnsolicitedMessages",
+		"MessageEmailNotifications",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -88,6 +89,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		java.lang.String.class,
 		java.time.LocalDateTime.class,
 		java.lang.Boolean.class,
+		java.lang.String.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -100,9 +102,11 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		true,
 		true,
 		false,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -168,6 +172,10 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 
 	public synchronized java.lang.Boolean isCanReceiveUnsolicitedMessagesAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[8];
+	}
+
+	public synchronized java.lang.String getMessageEmailNotifications() {
+		return (java.lang.String) getReadValueSet()[9];
 	}
 
 	public synchronized AccountOpal setId(final java.lang.Integer argId) {
@@ -279,6 +287,15 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		return this;
 	}
 
+	public synchronized AccountOpal setMessageEmailNotifications(final java.lang.String argMessageEmailNotifications) {
+		tryMutate();
+		if ((argMessageEmailNotifications != null) && (argMessageEmailNotifications.length() > 256)) {
+			throw new com.opal.ArgumentTooLongException("Cannot set myMessageEmailNotifications on " + this + " to \"" + argMessageEmailNotifications + "\" because that field's maximum length is 256.", argMessageEmailNotifications.length(), 256);
+		}
+		getNewValues()[9] = argMessageEmailNotifications;
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -329,6 +346,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		lclTargetNewValues[6] = lclValues[6]; /* PasswordResetToken (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* PasswordResetTokenExpiration (immutable) */
 		lclTargetNewValues[8] = lclValues[8]; /* CanReceiveUnsolicitedMessages (immutable) */
+		lclTargetNewValues[9] = lclValues[9]; /* MessageEmailNotifications (immutable) */
 
 		return;
 	}
@@ -394,6 +412,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argOutput.println("PasswordResetToken = " + getPasswordResetToken());
 		argOutput.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
 		argOutput.println("CanReceiveUnsolicitedMessages = " + isCanReceiveUnsolicitedMessagesAsObject());
+		argOutput.println("MessageEmailNotifications = " + getMessageEmailNotifications());
 	}
 
 	@Override
@@ -407,6 +426,7 @@ public final class AccountOpal extends com.opal.UpdatableOpal<Account> {
 		argOutput.println("PasswordResetToken = " + getPasswordResetToken());
 		argOutput.println("PasswordResetTokenExpiration = " + getPasswordResetTokenExpiration());
 		argOutput.println("CanReceiveUnsolicitedMessages = " + isCanReceiveUnsolicitedMessagesAsObject());
+		argOutput.println("MessageEmailNotifications = " + getMessageEmailNotifications());
 	}
 
 	private ContactOpal myOldContactOpal;

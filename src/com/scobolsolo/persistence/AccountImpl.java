@@ -204,6 +204,23 @@ public class AccountImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
+	@Override
+	public java.lang.String getMessageEmailNotifications() {
+		return getAccountOpal().getMessageEmailNotifications();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
+	@Override
+	public com.scobolsolo.persistence.AccountImpl setMessageEmailNotifications(java.lang.String argMessageEmailNotifications) {
+		getAccountOpal().setMessageEmailNotifications(argMessageEmailNotifications);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

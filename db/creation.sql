@@ -52,7 +52,8 @@ CREATE TABLE Account (
 	administrator BOOLEAN NOT NULL DEFAULT FALSE,
 	writer BOOLEAN NOT NULL DEFAULT FALSE,
 	active BOOLEAN NOT NULL DEFAULT TRUE,
-	can_receive_unsolicited_messages BOOLEAN NOT NULL DEFAULT FALSE
+	can_receive_unsolicited_messages BOOLEAN NOT NULL DEFAULT FALSE,
+	message_email_notifications email_t
 );
 CREATE INDEX account_contact_idx ON Account(id);
 

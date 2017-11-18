@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
+import org.apache.commons.mail.EmailException;
 
 import com.opal.ImplicitTableDatabaseQuery;
 import com.opal.TransactionContext;
@@ -19,8 +20,10 @@ import com.scobolsolo.application.AccountFactory;
 import com.scobolsolo.application.Message;
 import com.scobolsolo.application.MessageFactory;
 import com.scobolsolo.servlets.ScobolSoloControllerServlet;
+import com.scobolsolo.Mail;
 
 public class SendMessage extends ScobolSoloControllerServlet {
+	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(SendMessage.class);
 	private static final long serialVersionUID = 1L;
 	
 	private static final String RETURN_URL = "/messages/";
@@ -52,6 +55,19 @@ public class SendMessage extends ScobolSoloControllerServlet {
 				.setFromAccount(argUser)
 				.setToAccount(lclRecipient)
 				.setText(lclText);
+			
+			if (StringUtils.isNotBlank(lclRecipient.getMessageEmailNotifications())) {
+				try {
+					Mail.createEmail()
+						.addTo(lclRecipient.getMessageEmailNotifications())
+						.setFrom("noreply@scobolsolo.com", argUser.getContact().getName())
+						.setSubject("Scobol Solo message")
+						.setMsg(lclText)
+						.send();
+				} catch (EmailException lclE) {
+					ourLogger.warn(lclE);
+				}
+			}
 			
 			// Mark previous messages from the recipient to the sender as acknowledged
 			for (Message lclOld : lclPreviousFromRecipientToSender) {

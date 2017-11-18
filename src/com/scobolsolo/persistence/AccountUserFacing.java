@@ -430,6 +430,49 @@ public interface AccountUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Account setCanReceiveUnsolicitedMessages(boolean argCanReceiveUnsolicitedMessages);
 
 	/**
+	 * object accessor for the {@code MessageEmailNotifications}
+	 *
+	 * <p>The {@code MessageEmailNotifications} field is a direct mapping of the {@code message_email_notifications} field in {@code account}.</p>
+	 *
+	 * @return an object value of {@code MessageEmailNotifications} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
+	public java.lang.String getMessageEmailNotifications();
+
+	/**
+	 * object accessor for the {@code MessageEmailNotifications} with substitution for a null value
+	 *
+	 * <p>The {@code MessageEmailNotifications} field is a direct mapping of the {@code message_email_notifications} database column in the table {@code account}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code MessageEmailNotifications} is {@code null}.
+	 * @return an object value of {@code MessageEmailNotifications} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getMessageEmailNotifications(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getMessageEmailNotifications();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code MessageEmailNotifications} to the value of {@code argMessageEmailNotifications}
+	 *
+	 * @param argMessageEmailNotifications the new value of {@code MessageEmailNotifications}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * @throws com.opal.ArgumentTooLongException if {@code argMessageEmailNotifications} is longer than 256 characters
+	 * <p>The database column {@code message_email_notifications} is limited to 256 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 256L)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Account setMessageEmailNotifications(java.lang.String argMessageEmailNotifications);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
 	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code account_id_fkey}.
 	 *

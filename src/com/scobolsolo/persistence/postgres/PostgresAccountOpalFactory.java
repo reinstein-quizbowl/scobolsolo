@@ -32,6 +32,7 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 		"password_reset_token", 
 		"password_reset_token_expiration", 
 		"can_receive_unsolicited_messages", 
+		"message_email_notifications", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -104,7 +105,7 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 
 	protected void registerOpal(AccountOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 9) { throw new IllegalStateException(); }
+		if (argValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<AccountOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -116,7 +117,7 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 	protected void unregisterOpal(AccountOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<AccountOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -129,10 +130,10 @@ public class PostgresAccountOpalFactory extends com.opal.AbstractDatabaseIdentit
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 9) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<AccountOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<AccountOpal> lclOldKey = null;
