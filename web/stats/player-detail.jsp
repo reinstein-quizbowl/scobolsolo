@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -106,8 +107,16 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 							}
 						}
 					%></tbody>
-				</table>
-			</section>
+				</table><%
+				
+				List<Player> lclOthers = lclP.getContact().streamPlayer()
+					.filter(argP -> argP != lclP)
+					.sorted(Comparator.comparing(Player::getTournament))
+					.collect(Collectors.toList());
+				if (lclOthers.isEmpty() == false) {
+					%><p><%= lclP.getContact().getName() %> also played in <%= Utility.makeList(lclOthers, argP -> "<a href=\"/stats/player-detail.jsp?school_registration_id=" + argP.getSchoolRegistration().getId() + "#player_" + argP.getId() + "\">" + argP.getTournament().getShortName() + "</a>") %>.</p><%
+				}
+			%></section>
 			<br /><%
 		}
 	%></div>
