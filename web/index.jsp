@@ -11,7 +11,7 @@
 	<div class="small-12 columns">
 		<p>Welcome to Scobol Solo!</p>
 		
-		<p>Results are available using the menu. We're working on adding older results.</p>
+		<p>Results are available using the menu. We're working on adding results from 2008&ndash;2013.</p>
 		
 		<p>The 2018 edition of Scobol Solo has not yet been scheduled.</p>
 	</div>
