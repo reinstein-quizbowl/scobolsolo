@@ -403,16 +403,6 @@
 	</filter-mapping>
 	
 	<filter>
-		<filter-name>XFrameOptionsDenyFilter</filter-name>
-		<filter-class>com.scobolsolo.web.XFrameOptionsDenyFilter</filter-class>
-	</filter>
-	
-	<filter-mapping>
-		<filter-name>XFrameOptionsDenyFilter</filter-name>
-		<url-pattern>*</url-pattern>
-	</filter-mapping>
-	
-	<filter>
 		<filter-name>VaryFilter</filter-name>
 		<filter-class>com.scobolsolo.web.VaryFilter</filter-class>
 	</filter>
