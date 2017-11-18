@@ -28,7 +28,7 @@
 				</tr>
 				<tr>
 					<th class="rank">3.</th>
-					<th class="player">Andrwe Uzzell</th>
+					<th class="player">Andrew Uzzell</th>
 					<td class="school">Evanston</td>
 					<td class="year">Senior</td>
 				</tr>
