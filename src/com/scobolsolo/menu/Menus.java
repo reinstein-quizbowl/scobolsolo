@@ -2,6 +2,7 @@ package com.scobolsolo.menu;
 
 import java.time.LocalDate;
 import java.util.Comparator;
+import java.util.Collections;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
 import com.google.common.collect.ImmutableList;
@@ -24,6 +26,7 @@ import com.scobolsolo.application.TournamentFactory;
 
 public final class Menus {
 	private static final Menus ourInstance = new Menus();
+	private static final int TOURNAMENTS_TO_DISPLAY_UNCOLLAPSED = 3;
 	
 	private final Menu myTournamentsPublicMenu;
 	private final Menu myTournamentsInternalMenu;
@@ -37,19 +40,37 @@ public final class Menus {
 	private Menus() {
 		super();
 		
-		final ImmutableList<Tournament> lclTournaments = ImmutableList.of(
-			TournamentFactory._2017(),
-			TournamentFactory._2016(),
-			TournamentFactory._2015(),
-			TournamentFactory._2014()
-		);
+		final List<Tournament> lclTournaments = new ArrayList<>(TournamentFactory.getInstance().getAll());
+		lclTournaments.removeIf(argT -> StringUtils.isBlank(argT.getUrl()));
+		lclTournaments.sort(Comparator.<Tournament>naturalOrder().reversed());
+		
+		final List<Tournament> lclMainTournaments = new ArrayList<>(lclTournaments.subList(0, TOURNAMENTS_TO_DISPLAY_UNCOLLAPSED));
+		List<Tournament> lclCollapsedTournaments = new ArrayList<>(lclTournaments.subList(TOURNAMENTS_TO_DISPLAY_UNCOLLAPSED, lclTournaments.size()));
+		if (lclCollapsedTournaments.size() <= 1) {
+			lclMainTournaments.addAll(lclCollapsedTournaments);
+			lclCollapsedTournaments = Collections.emptyList();
+		}
+		
+		final List<MenuItem> lclTournamentMenuItems = new ArrayList<>(lclMainTournaments.size() + 1);
+		for (Tournament lclT : lclMainTournaments) {
+			lclTournamentMenuItems.add(new MenuPage(lclT.getUniqueString() + "-public", lclT.getShortName(), lclT.getUrl()));
+		}
+		if (lclCollapsedTournaments.isEmpty() == false) {
+			lclTournamentMenuItems.add(
+				new Menu(
+					"older",
+					"Older",
+					lclCollapsedTournaments.stream()
+						.map(argT -> new MenuPage(argT.getUniqueString() + "-public", argT.getShortName(), argT.getUrl()))
+						.collect(Collectors.toList())
+				)
+			);
+		}
 		
 		myTournamentsPublicMenu = new Menu(
 			"tournaments",
 			"Scobol Solo",
-			lclTournaments.stream()
-				.map(argT -> new MenuPage(argT.getUniqueString() + "-public", argT.getShortName(), argT.getUrl()))
-				.collect(Collectors.toList())
+			lclTournamentMenuItems
 		);
 		
 		myTournamentsInternalMenu = new Menu(
@@ -138,66 +159,90 @@ public final class Menus {
 		return ourInstance.myQuestionsMenu;
 	}
 	
-	public static Menu stats(final Tournament argTourn) {
-		Validate.notNull(argTourn);
+	public static Menu stats(final Tournament argT) {
+		Validate.notNull(argT);
 		
-		return ourInstance.myStatsMenus.computeIfAbsent(argTourn,
-			argT -> {
+		return ourInstance.myStatsMenus.computeIfAbsent(argT,
+			argTourn -> {
 				final List<MenuItem> lclItems = new ArrayList<>(7);
 				
 				final LocalDate lclTodayDate = LocalDateCache.today();
-				final LocalDate lclTournamentDate = argT.getDate();
+				final LocalDate lclTournamentDate = argTourn.getDate();
 				final boolean lclFuture = lclTournamentDate.isAfter(lclTodayDate);
 				final boolean lclSoon = lclFuture && lclTournamentDate.minusDays(6).isBefore(lclTodayDate);
 				final boolean lclToday = lclTournamentDate.equals(lclTodayDate);
 				final boolean lclPast = lclTournamentDate.isBefore(lclTodayDate);
 				
 				if (lclFuture) {
-					lclItems.add(new MenuPage("registrations", "Registrations", "/stats/registrations.jsp?object=" + argT.getUniqueString()));
-					lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argT.getUniqueString()));
+					lclItems.add(new MenuPage("registrations", "Registrations", "/stats/registrations.jsp?object=" + argTourn.getUniqueString()));
+					lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argTourn.getUniqueString()));
 				}
 				
 				if (lclPast || lclToday) {
-					lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argT.getUniqueString()));
-					lclItems.add(new MenuPage("standings", "Standings", "/stats/standings.jsp?object=" + argT.getUniqueString()));
-					
-					List<MenuPage> lclPointsByCategory = new ArrayList<>(argT.getCategoryUseSet().size() + 1);
-					CategoryUse[] lclCUs = argT.createCategoryUseArray();
-					Arrays.sort(lclCUs, CategoryUse.CATEGORY_COMPARATOR);
-					for (CategoryUse lclCU : lclCUs) {
-						lclPointsByCategory.add(new MenuPage("points-" + lclCU.getCategory().getCode(), lclCU.getCategory().getName(), "/stats/category.jsp?object=" + argT.getUniqueString() + "&category_code=" + lclCU.getCategory().getCode()));
-					}
-					lclItems.add(new Menu(argT.getUniqueString() + "-points-by-category", "Points by Category", lclPointsByCategory));
-					
-					
-					List<MenuPage> lclPlayerDetailsBySchool = argT.streamSchoolRegistration()
-						.filter(argSR -> argSR.streamPlayer().anyMatch(argP -> argP.isExhibition() == false))
-						.sorted(SchoolRegistration.SchoolShortNameComparator.getInstance())
-						.map(argSR -> new MenuPage("player-detail-" + argSR.getId(), argSR.getSchool().getShortName(), "/stats/player-detail.jsp?school_registration_id=" + argSR.getId()))
-						.collect(Collectors.toList());
-					lclItems.add(new Menu(argT.getUniqueString() + "-player-detail", "Player Details", lclPlayerDetailsBySchool));
-					
-					lclItems.add(new MenuPage("conversion-by-category", "Conversion", "/stats/conversion-by-category.jsp?object=" + argT.getUniqueString()));
-					
-					if (argT.hasPublicQuestions()) {
-						lclItems.add(new MenuPage("conversion-by-question", "Conversion by Question", "/stats/conversion-by-question.jsp?object=" + argT.getUniqueString()));
-						if (argT.getQuestionDownloadUrl() != null) {
-							lclItems.add(new MenuPage("download-questions", "Download Questions", argT.getQuestionDownloadUrl()));
+					if (argTourn.isOnlineStats()) {
+						if (lclToday) {
+							lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argTourn.getUniqueString()));
+						}
+						
+						lclItems.add(new MenuPage("standings", "Standings", "/stats/standings.jsp?object=" + argTourn.getUniqueString()));
+						
+						List<MenuPage> lclPointsByCategory = new ArrayList<>(argTourn.getCategoryUseSet().size() + 1);
+						CategoryUse[] lclCUs = argTourn.createCategoryUseArray();
+						Arrays.sort(lclCUs, CategoryUse.CATEGORY_COMPARATOR);
+						for (CategoryUse lclCU : lclCUs) {
+							lclPointsByCategory.add(new MenuPage("points-" + lclCU.getCategory().getCode(), lclCU.getCategory().getName(), "/stats/category.jsp?object=" + argTourn.getUniqueString() + "&category_code=" + lclCU.getCategory().getCode()));
+						}
+						lclItems.add(new Menu(argTourn.getUniqueString() + "-points-by-category", "Categories", lclPointsByCategory));
+						
+						
+						List<MenuPage> lclPlayerDetailsBySchool = argTourn.streamSchoolRegistration()
+							.filter(argSR -> argSR.streamPlayer().anyMatch(argP -> argP.isExhibition() == false))
+							.sorted(SchoolRegistration.SchoolShortNameComparator.getInstance())
+							.map(argSR -> new MenuPage("player-detail-" + argSR.getId(), argSR.getSchool().getShortName(), "/stats/player-detail.jsp?school_registration_id=" + argSR.getId()))
+							.collect(Collectors.toList());
+						lclItems.add(new Menu(argTourn.getUniqueString() + "-player-detail", "Players", lclPlayerDetailsBySchool));
+						
+						lclItems.add(new MenuPage("conversion-by-category", "Conversion", "/stats/conversion-by-category.jsp?object=" + argTourn.getUniqueString()));
+						
+						if (argTourn.hasPublicQuestions()) {
+							lclItems.add(new MenuPage("conversion-by-question", "Question Conversion", "/stats/conversion-by-question.jsp?object=" + argTourn.getUniqueString()));
+							if (StringUtils.isNotBlank(argTourn.getQuestionDownloadUrl())) {
+								lclItems.add(new MenuPage("download-questions", "Download Set", argTourn.getQuestionDownloadUrl()));
+							}
+						}
+					} else {
+						lclItems.add(new MenuPage("results", "Results", argTourn.getUrl()));
+						
+						if (StringUtils.isNotBlank(argTourn.getQuestionDownloadUrl())) {
+							lclItems.add(new MenuPage("download-questions", "Download Questions", argTourn.getQuestionDownloadUrl()));
 						}
 					}
 				}
 				
 				if (lclSoon || lclToday) {
-					lclItems.add(new MenuPage("coming-up-next", "Coming Up Next", "/stats/coming-up-next.jsp?object=" + argT.getUniqueString()));
+					lclItems.add(new MenuPage("coming-up-next", "Coming Up Next", "/stats/coming-up-next.jsp?object=" + argTourn.getUniqueString()));
 				}
 				
 				if (lclPast || lclToday) {
-					if (argT.getChampionshipMatchUrl() != null) {
-						lclItems.add(new MenuPage("championship-match", "Championship", argT.getChampionshipMatchUrl()));
+					if (StringUtils.isNotBlank(argTourn.getChampionshipMatchUrl())) {
+						lclItems.add(new MenuPage("championship-match", "Championship", argTourn.getChampionshipMatchUrl()));
 					}
 				}
 				
-				return new Menu(argT.getUniqueString() + "-stats", argT.getName(), lclItems);
+				lclItems.add(
+					new Menu(
+						"others",
+						"Others",
+						TournamentFactory.getInstance().getAll().stream()
+							.filter(argT2 -> argT2 != argTourn)
+							.filter(argT2 -> StringUtils.isNotBlank(argT2.getUrl()))
+							.sorted(Comparator.<Tournament>naturalOrder().reversed())
+							.map(argT2 -> new MenuPage(argT2.getUniqueString() + "-public", argT2.getShortName(), argT2.getUrl()))
+							.collect(Collectors.toList())
+					)
+				);
+				
+				return new Menu(argTourn.getUniqueString() + "-stats", argTourn.getName(), lclItems);
 			}
 		);
 	}

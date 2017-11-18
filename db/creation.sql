@@ -25,6 +25,7 @@ CREATE TABLE Tournament (
 	date DATE NOT NULL,
 	name name_t UNIQUE,
 	short_name short_name_t UNIQUE,
+	online_stats BOOLEAN NOT NULL DEFAULT TRUE,
 	web_xml_role_code code_t UNIQUE,
 	tiebreaker_sudden_death BOOLEAN NOT NULL DEFAULT TRUE,
 	url TEXT,

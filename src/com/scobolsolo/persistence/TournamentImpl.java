@@ -335,6 +335,29 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public java.lang.Boolean isOnlineStatsAsObject() {
+		return getTournamentOpal().isOnlineStatsAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public com.scobolsolo.persistence.TournamentImpl setOnlineStats(java.lang.Boolean argOnlineStats) {
+		getTournamentOpal().setOnlineStats(argOnlineStats);
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.persistence.TournamentImpl setOnlineStats(boolean argOnlineStats) {
+		getTournamentOpal().setOnlineStats(argOnlineStats);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

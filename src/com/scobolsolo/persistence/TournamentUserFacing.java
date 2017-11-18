@@ -742,6 +742,58 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	public com.scobolsolo.application.Tournament setQuestionDownloadUrl(java.lang.String argQuestionDownloadUrl);
 
 	/**
+	 * object accessor for the {@code OnlineStats}
+	 *
+	 * <p>The {@code OnlineStats} field is a direct mapping of the {@code online_stats} field in {@code tournament}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isOnlineStats() method.</p>
+	 *
+	 * @return an object value of {@code OnlineStats} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	public java.lang.Boolean isOnlineStatsAsObject();
+
+	/**
+	 * primitive accessor for the {@code OnlineStats}
+	 *
+	 * <p>The {@code OnlineStats} field is a direct mapping of the {@code online_stats} database column in the table {@code tournament}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isOnlineStatsAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code OnlineStats} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isOnlineStats() {
+		java.lang.Boolean lclO = isOnlineStatsAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code OnlineStats} to the value of {@code argOnlineStats}
+	 *
+	 * @param argOnlineStats the new value of {@code OnlineStats}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code online_stats} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argOnlineStats is null
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Tournament setOnlineStats(java.lang.Boolean argOnlineStats);
+
+	/**
+	 * sets the {@code OnlineStats} to the value of {@code argOnlineStats}
+	 *
+	 * @param argOnlineStats the new value of {@code OnlineStats}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Tournament setOnlineStats(boolean argOnlineStats);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Room}
 	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code tournament_control_room_room_id_fkey}.
 	 *

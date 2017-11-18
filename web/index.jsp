@@ -1,6 +1,4 @@
-﻿<meta http-equiv="refresh" content="0; url=/2017/">
-
-<%@ page import="com.scobolsolo.menu.Menus" %>
+﻿<%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Home" />
@@ -11,7 +9,11 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Welcome to the home page for Scobol Solo!</p>
+		<p>Welcome to Scobol Solo!</p>
+		
+		<p>Results are available using the menu. We're working on adding older results.</p>
+		
+		<p>The 2018 edition of Scobol Solo has not yet been scheduled.</p>
 	</div>
 </div>
 

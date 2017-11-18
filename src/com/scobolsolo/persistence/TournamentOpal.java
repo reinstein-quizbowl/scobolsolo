@@ -6,6 +6,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	public static final java.lang.Boolean ourDefaultTiebreakerSuddenDeath = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultQuestionsComplete = java.lang.Boolean.FALSE;
+	public static final java.lang.Boolean ourDefaultOnlineStats = java.lang.Boolean.TRUE;
 
 	private TournamentOpal() {
 		super();
@@ -21,6 +22,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		/* Initialize fields with their default values. */
 		getNewValues()[5] = ourDefaultTiebreakerSuddenDeath;
 		getNewValues()[15] = ourDefaultQuestionsComplete;
+		getNewValues()[17] = ourDefaultOnlineStats;
 
 
 		/* Initialize the back Collections to empty sets. */
@@ -84,6 +86,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		"ChampionshipMatchUrl",
 		"QuestionsComplete",
 		"QuestionDownloadUrl",
+		"OnlineStats",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -104,6 +107,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		java.lang.String.class,
 		java.lang.Boolean.class,
 		java.lang.String.class,
+		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -124,9 +128,11 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		true,
 		false,
 		true,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -232,6 +238,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	public synchronized java.lang.String getQuestionDownloadUrl() {
 		return (java.lang.String) getReadValueSet()[16];
+	}
+
+	public synchronized java.lang.Boolean isOnlineStatsAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[17];
 	}
 
 	public synchronized TournamentOpal setDate(final java.time.LocalDate argDate) {
@@ -395,6 +405,20 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return this;
 	}
 
+	public synchronized TournamentOpal setOnlineStats(final java.lang.Boolean argOnlineStats) {
+		tryMutate();
+		if (argOnlineStats == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myOnlineStats on " + this + " to null.");
+		}
+		getNewValues()[17] = argOnlineStats;
+		return this;
+	}
+
+	public TournamentOpal setOnlineStats(final boolean argOnlineStats) {
+		setOnlineStats(argOnlineStats ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -459,6 +483,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		lclTargetNewValues[14] = lclValues[14]; /* ChampionshipMatchUrl (immutable) */
 		lclTargetNewValues[15] = lclValues[15]; /* QuestionsComplete (immutable) */
 		lclTargetNewValues[16] = lclValues[16]; /* QuestionDownloadUrl (immutable) */
+		lclTargetNewValues[17] = lclValues[17]; /* OnlineStats (immutable) */
 
 		return;
 	}
@@ -551,6 +576,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("ChampionshipMatchUrl = " + getChampionshipMatchUrl());
 		argOutput.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
 		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
+		argOutput.println("OnlineStats = " + isOnlineStatsAsObject());
 	}
 
 	@Override
@@ -572,6 +598,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("ChampionshipMatchUrl = " + getChampionshipMatchUrl());
 		argOutput.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
 		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
+		argOutput.println("OnlineStats = " + isOnlineStatsAsObject());
 	}
 
 	private RoomOpal myOldControlRoomOpal;

@@ -10,54 +10,64 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2015 was held on Saturday, October 31, and included 128 players from 26 schools.</p>
+		<p>Scobol Solo 2015 was held on Saturday, October&nbsp;31. There were 128 players from 26 schools.</p>
 		
 		<table class="tournament-final-standings">
 			<caption style="caption-side: top;">The nine players who made the Championship Match finished as follows:</p>
 			<tbody>
 				<tr>
-					<th>1.</th>
-					<td>
-						<a href="/stats/player-detail.jsp?school_registration_id=1064#player_1323">Ali Saeed</a> (Stevenson, also the morning champion)
-					</td>
+					<th class="rank">1.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1064#player_1323">Ali Saeed</a></th>
+					<td class="school">Stevenson (Lincolnshire)</td>
+					<td class="note">Morning champion</td>
 				</tr>
 				<tr>
-					<th>2.</th>
-					<td>
-						<a href="/stats/player-detail.jsp?school_registration_id=1067#player_1331">Cole Timmerwilke</a> (Auburn)
-					</td>
+					<th class="rank">2.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1067#player_1331">Cole Timmerwilke</a></th>
+					<td class="school">Auburn (Rockford)</td>
+					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
-					<th>3.</th>
-					<td>
-						<a href="/stats/player-detail.jsp?school_registration_id=1077#player_1272">Matthew Lehmann</a> (Barrington)
-					</th>
+					<th class="rank">3.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1077#player_1272">Matthew Lehmann</a></th>
+					<td class="school">Barrington</td>
+					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
-					<th>4.</th>
-					<td>
-						<a href="/stats/player-detail.jsp?school_registration_id=1061">Jakob Myers</a> (Naperville North)
-					</td>
+					<th class="rank">4.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1061">Jakob Myers</a></th>
+					<td class="school">Naperville North</td>
+					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
-					<th>5T.</th>
-					<td>
-						<a href="/stats/player-detail.jsp?school_registration_id=1067#player_1333">Ethan Strombeck</a> (Auburn)<br />
-						<a href="/stats/player-detail.jsp?school_registration_id=1077#player_1273">John Waldron</a> (Barrington)
-					</td>
+					<th class="rank">5T.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1067#player_1333">Ethan Strombeck</a></th>
+					<td class="school">Auburn</td>
+					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
-					<th>7.</th>
-					<td>
-						<a href="/stats/player-detail.jsp?school_registration_id=1065#player_1308">Jonathan Suh</a> (Wheaton Warrenville South)
-					</td>
+					<th class="rank">&nbsp;</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1077#player_1273">John Waldron</a></th>
+					<td class="school">Barrington</td>
+					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
-					<th>8T.</th>
-					<td>
-						<a href="/stats/player-detail.jsp?school_registration_id=1079#player_1352">Ankush Bajaj</a> (Hinsdale Central)<br />
-						<a href="/stats/player-detail.jsp?school_registration_id=1062#player_1289">Michael Gislason</a> (Homewood-Flossmoor)
-					</td>
+					<th class="rank">7.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1065#player_1308">Jonathan Suh</a></th>
+					<td class="school">Wheaton Warrenville South</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">8T.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1079#player_1352">Ankush Bajaj</a></th>
+					<td class="school">Hinsdale Central</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">&nbsp;</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1062#player_1289">Michael Gislason</a></th>
+					<td class="school">Homewood-Flossmoor</td>
+					<td class="">&nbsp;</td>
 				</tr>
 			</tbody>
 		</table>

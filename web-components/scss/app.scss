@@ -477,3 +477,13 @@ table.buzz-choices {
 	font-weight: bold;
 	font-style: italic;
 }
+
+dl {
+	dt {
+		margin-bottom: 0;
+	}
+	
+	dd {
+		margin-left: 1rem;
+	}
+}
