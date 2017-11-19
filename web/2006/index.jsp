@@ -10,7 +10,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2006 was held on Saturday, November&nbsp;11. There were 112 players. The full results have been lost to memory, but here are the final standings:</p>
+		<p>Scobol Solo 2006 was held on Saturday, November&nbsp;11. Due to a pertussis outbreak at New Trier, it was moved at the last minute to Stevenson High School in Lincolnshire. There were 112 players. The full results have been lost to memory, but here are the final standings:</p>
 		
 		<table class="tournament-final-standings">
 			<tbody>
