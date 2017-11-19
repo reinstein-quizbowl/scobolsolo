@@ -12,7 +12,6 @@
 <%@ page import="com.scobolsolo.application.Phase" %>
 <%@ page import="com.scobolsolo.application.Response" %>
 <%@ page import="com.scobolsolo.application.Round" %>
-<%@ page import="com.scobolsolo.application.RoundGroup" %>
 <%@ page import="com.scobolsolo.application.Staff" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
@@ -34,8 +33,7 @@ Account lclUser = Account.demand(request);
 <div class="row">
 	<div class="small-12 columns"><%
 		List<Match> lclMatches = lclT.streamPhase()
-			.flatMap(Phase::streamRoundGroup)
-			.flatMap(RoundGroup::streamRound)
+			.flatMap(Phase::streamRound)
 			.flatMap(Round::streamMatch)
 			.sorted(Match.ENTERING_PRIORITY_COMPARATOR)
 			.collect(Collectors.toList());
@@ -125,7 +123,7 @@ Account lclUser = Account.demand(request);
 							}
 						%></td>
 						<td><%
-							if (lclM.getRound().getRoundGroup().getPhase().isCardSystem()) {
+							if (lclM.getRound().getPhase().isCardSystem()) {
 								%><%= lclM.getWinningCard().getShortName() %> v. <%= lclM.getLosingCard().getShortName() %><%
 							} else {
 								%>non-card-system<%

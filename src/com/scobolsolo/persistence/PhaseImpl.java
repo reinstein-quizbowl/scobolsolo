@@ -182,8 +182,8 @@ public class PhaseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@Override
-	public java.util.Set<com.scobolsolo.application.RoundGroup> getRoundGroupSet() {
-		return new com.opal.UserFacingBackCollectionSet<>(getPhaseOpal().getRoundGroupOpalSet());
+	public java.util.Set<com.scobolsolo.application.Round> getRoundSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getPhaseOpal().getRoundOpalSet());
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import com.scobolsolo.persistence.RoundUserFacing;
  */
 
 public interface Round extends RoundUserFacing, Comparable<Round> {
-	static final Comparator<Round> NATURAL_COMPARATOR = Comparator.comparing(Round::getRoundGroup).thenComparingInt(Round::getSequence);
+	static final Comparator<Round> NATURAL_COMPARATOR = Comparator.comparing(Round::getPhase).thenComparingInt(Round::getSequence);
 	
 	@Override
 	default int compareTo(Round that) {
@@ -46,16 +46,12 @@ public interface Round extends RoundUserFacing, Comparable<Round> {
 		return this.compareTo(that) > 0;
 	}
 	
-	default boolean usesCardSystem() {
-		return getRoundGroup().getPhase().isCardSystem();
-	}
-	
-	default Phase getPhase() {
-		return getRoundGroup().getPhase();
+	default boolean isCardSystem() {
+		return getPhase().isCardSystem();
 	}
 	
 	default Tournament getTournament() {
-		return getRoundGroup().getPhase().getTournament();
+		return getPhase().getTournament();
 	}
 	
 	default List<Match> findMatches(Room argR) {

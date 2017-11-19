@@ -1,6 +1,8 @@
 package com.scobolsolo.application;
 
 import java.util.Comparator;
+import java.util.List;
+import java.util.ArrayList;
 
 import com.siliconage.util.NullSafeComparator;
 
@@ -28,11 +30,19 @@ public interface Card extends CardUserFacing, Comparable<Card> {
 		return getPhase().getTournament();
 	}
 	
+	default Match getFirstMatch() {
+		List<Match> lclMatches = new ArrayList<>();
+		lclMatches.addAll(this.getWinningMatchSet());
+		lclMatches.addAll(this.getLosingMatchSet());
+		lclMatches.sort(null);
+		return lclMatches.isEmpty() ? null : lclMatches.get(0);
+	}
+	
 	// Only looks within the current phase
 	default Match getNextMatch(final Round argAfterWhen) {
 		Validate.notNull(argAfterWhen);
 		
-		return getPhase().getRounds() // returns the Roudns in order; this is important here
+		return getPhase().getRounds() // returns the Rounds in order; this is important here
 			.stream()
 			.filter(argOtherRound -> argOtherRound.isAfter(argAfterWhen))
 			.flatMap(Round::streamMatch)

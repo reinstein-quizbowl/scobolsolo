@@ -22,6 +22,8 @@ import com.scobolsolo.persistence.MatchUserFacing;
  */
 
 public interface Match extends MatchUserFacing, Comparable<Match> {
+	static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Match.class);
+	
 	public static final Comparator<Match> ENTERING_PRIORITY_COMPARATOR = Comparator.comparing(Match::determineStatus).thenComparing(Match::getRound);
 	
 	@Override
@@ -65,14 +67,6 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 		}
 	}
 	
-	default boolean isDual() {
-		if (getRound().getRoundGroup().getPhase().isCardSystem()) {
-			return true;
-		} else {
-			return getGame() != null && getGame().getPerformanceSet().size() == 2;
-		}
-	}
-	
 	default Staff determineLikelyModerator() {
 		List<StaffAssignment> lclModerators = getRoom().streamStaffAssignment()
 			.filter(argSA -> argSA.getPhase() == this.getPhase())
@@ -97,16 +91,45 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 		}
 	}
 	
-	default RoundGroup getRoundGroup() {
-		return getRound().getRoundGroup();
+	default Phase getPhase() {
+		return getRound().getPhase();
 	}
 	
-	default Phase getPhase() {
-		return getRoundGroup().getPhase();
+	default boolean isCardSystem() {
+		return getRound().isCardSystem();
 	}
 	
 	default Tournament getTournament() {
 		return getPhase().getTournament();
+	}
+	
+	default boolean isDual() {
+		if (getRound().getPhase().isCardSystem()) {
+			return true;
+		} else {
+			return getGame() != null && getGame().getPerformanceSet().size() == 2;
+		}
+	}
+	
+	default boolean isFirstForCards() {
+		if (isCardSystem()) {
+			boolean lclFirstForWinning = this == getWinningCard().getFirstMatch();
+			boolean lclFirstForLosing = this == getLosingCard().getFirstMatch();
+			
+			if (lclFirstForWinning == true && lclFirstForLosing == true) {
+				return true;
+			} else {
+				if (lclFirstForWinning == true && lclFirstForLosing == false) {
+					ourLogger.warn(this + " is the first match for its winning card, " + getWinningCard() + ", but not for its losing card, " + getLosingCard());
+				} else if (lclFirstForWinning == false && lclFirstForLosing == true) {
+					ourLogger.warn(this + " is not the first match for its winning card, " + getWinningCard() + ", but is the first match for its losing card, " + getLosingCard());
+				}
+				
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 	
 	default boolean requiresIdentificationOfWinningAndLosingCardPlayers() {

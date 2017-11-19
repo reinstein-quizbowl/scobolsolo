@@ -22,7 +22,7 @@ public interface Room extends RoomUserFacing {
 	default int countMatchesIn(Phase argP) {
 		Validate.notNull(argP);
 		
-		return (int) streamMatch().filter(argM -> argM.getRound().getRoundGroup().getPhase() == argP).count();
+		return (int) streamMatch().filter(argM -> argM.getPhase() == argP).count();
 	}
 	
 	default boolean hasAnyAssignedStaffWithComputer(Phase argP) {

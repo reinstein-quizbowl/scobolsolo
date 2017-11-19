@@ -9,8 +9,7 @@ FROM Response R
 	JOIN Game G ON PF.game_id = G.id
 	JOIN Match M ON G.id = M.id
 	JOIN Round RD ON M.round_id = RD.id
-	JOIN Round_Group RG ON RD.round_group_id = RG.id
-	JOIN Phase PH ON RG.phase_id = PH.id
+	JOIN Phase PH ON RD.phase_id = PH.id
 	JOIN Response_Type RT ON R.response_type_code = RT.code
 WHERE PY.exhibition = FALSE
 GROUP BY PH.tournament_code, PF.player_id;
@@ -25,7 +24,7 @@ GRANT SELECT ON Response_v TO scobolsolo;
 
 CREATE OR REPLACE VIEW Player_Category_Point_v AS
 SELECT
-	Ph.tournament_code,
+	PH.tournament_code,
 	PY.id AS player_id,
 	C.code AS category_code,
 	COUNT(R.*) AS tossups_heard,
@@ -37,8 +36,7 @@ FROM Response_v R
 	JOIN Game G ON PF.game_id = G.id
 	JOIN Match M ON G.id = M.id
 	JOIN Round RD ON M.round_id = RD.id
-	JOIN Round_Group RG ON RD.round_group_id = RG.id
-	JOIN Phase Ph ON RG.phase_id = Ph.id
+	JOIN Phase PH ON RD.phase_id = PH.id
 	JOIN Response_Type RT ON R.response_type_code = RT.code
 	JOIN Placement PL ON R.actual_placement_id = PL.id
 	JOIN Question Q on PL.question_id = Q.id
@@ -48,7 +46,7 @@ FROM Response_v R
 WHERE
 	PL.tiebreaker = FALSE AND
 	PY.exhibition = FALSE
-GROUP BY Ph.tournament_code, PY.id, C.code;
+GROUP BY PH.tournament_code, PY.id, C.code;
 GRANT SELECT ON Player_Category_Point_v TO scobolsolo;
 
 
@@ -67,8 +65,7 @@ FROM Placement PL
 	JOIN Game G ON P.game_id = G.id
 	JOIN Match M ON G.id = M.id
 	JOIN Round RD ON M.round_id = RD.id
-	JOIN Round_Group RG ON RD.round_group_id = RG.id
-	JOIN Phase PH ON RG.phase_id = PH.id
+	JOIN Phase PH ON RD.phase_id = PH.id
 	LEFT OUTER JOIN Diff D ON R.diff_id = D.id
 WHERE PY.exhibition = FALSE
 GROUP BY PH.tournament_code, PL.id, PL.question_id, R.response_type_code;
@@ -89,8 +86,7 @@ FROM Placement PL
 	JOIN Game G ON P.game_id = G.id
 	JOIN Match M ON G.id = M.id
 	JOIN Round RD ON M.round_id = RD.id
-	JOIN Round_Group RG ON RD.round_group_id = RG.id
-	JOIN Phase PH ON RG.phase_id = PH.id
+	JOIN Phase PH ON RD.phase_id = PH.id
 	JOIN Question Q ON PL.question_id = Q.id
 	LEFT OUTER JOIN Diff D ON R.diff_id = D.id
 WHERE PY.exhibition = FALSE
@@ -113,8 +109,7 @@ FROM Performance Pthis
 	JOIN Game G ON M.id = G.id
 	JOIN Performance Popp ON Popp.game_id = Pthis.game_id AND Popp.id <> Pthis.id
 	JOIN Round RD ON M.round_id = RD.id
-	JOIN Round_Group RG ON RD.round_group_id = RG.id
-	JOIN Phase PH ON RG.phase_id = PH.id;
+	JOIN Phase PH ON RD.phase_id = PH.id;
 GRANT SELECT ON Player_Match_v TO scobolsolo;
 
 CREATE OR REPLACE VIEW Game_v AS
@@ -135,8 +130,7 @@ SELECT
 FROM Match M
 	JOIN Game G ON M.id = G.id
 	JOIN Round RD ON M.round_id = RD.id
-	JOIN Round_Group RG ON RD.round_group_id = RG.id
-	JOIN Phase PH ON RG.phase_id = PH.id
+	JOIN Phase PH ON RD.phase_id = PH.id
 	JOIN Performance Pwin ON Pwin.game_id = G.id AND Pwin.player_id = G.outgoing_winning_card_player_id
 	JOIN Performance Plose ON Plose.game_id = G.id AND Plose.player_id = G.outgoing_losing_card_player_id
 	LEFT OUTER JOIN Response_v Rwin ON Pwin.id = Rwin.performance_id

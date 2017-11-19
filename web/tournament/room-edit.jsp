@@ -98,7 +98,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						"Match",
 						MatchFactory.getInstance(),
 						1, // row for a new match
-						argM -> argM.getRound().getRoundGroup().getPhase() == lclPhase,
+						argM -> argM.getPhase() == lclPhase,
 						Comparator.naturalOrder()
 					);
 					

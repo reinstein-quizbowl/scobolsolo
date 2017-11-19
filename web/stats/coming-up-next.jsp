@@ -93,7 +93,7 @@ if (lclUser != null && lclUser.findStaff(lclT) != null) {
 							}
 						%></td>
 						<td><%
-							if (lclM.getRound().getRoundGroup().getPhase().isCardSystem()) {
+							if (lclM.getPhase().isCardSystem()) {
 								%><%= lclM.getWinningCard().getShortName() %>&nbsp;v.&nbsp;<%= lclM.getLosingCard().getShortName() %><%
 							} else {
 								%><span class="stealth-tooltip" title="This match does not use the card system">n/a</span><%

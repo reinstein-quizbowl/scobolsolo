@@ -40,7 +40,7 @@ public class DownloadSpreadsheetForCardSystem extends DownloadServlet {
 		
 		int lclColumn = 1;
 		final List<Round> lclRounds = lclPhase.getRounds();
-		lclRounds.removeIf(argR -> !argR.usesCardSystem());
+		lclRounds.removeIf(argR -> !argR.isCardSystem());
 		
 		for (final Round lclR : lclRounds) {
 			final Cell lclRoundHeaderCell = lclHeaderRow.createCell(lclColumn);

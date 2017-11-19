@@ -323,15 +323,15 @@ public interface PhaseUserFacing extends com.opal.IdentityUserFacing {
 		return lclS.toArray(new com.scobolsolo.application.StaffAssignment[lclS.size()]);
 	}
 
-	public java.util.Set<com.scobolsolo.application.RoundGroup> getRoundGroupSet();
+	public java.util.Set<com.scobolsolo.application.Round> getRoundSet();
 
-	default public java.util.stream.Stream<com.scobolsolo.application.RoundGroup> streamRoundGroup() {
-		return getRoundGroupSet().stream();
+	default public java.util.stream.Stream<com.scobolsolo.application.Round> streamRound() {
+		return getRoundSet().stream();
 	}
 
-	default public com.scobolsolo.application.RoundGroup[] createRoundGroupArray() {
-		java.util.Set<com.scobolsolo.application.RoundGroup> lclS = getRoundGroupSet();
-		return lclS.toArray(new com.scobolsolo.application.RoundGroup[lclS.size()]);
+	default public com.scobolsolo.application.Round[] createRoundArray() {
+		java.util.Set<com.scobolsolo.application.Round> lclS = getRoundSet();
+		return lclS.toArray(new com.scobolsolo.application.Round[lclS.size()]);
 	}
 
 	public java.util.Set<com.scobolsolo.application.Card> getCardSet();

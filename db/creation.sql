@@ -188,7 +188,7 @@ CREATE TABLE Player (
 	rank_within_school INTEGER CHECK (rank_within_school IS NULL OR rank_within_school > 0),
 	seed INTEGER CHECK (seed IS NULL OR seed > 0),
 	note note_t,
-	initial_card_id card_id_t REFERENCES Card,
+	initial_card_id INTEGER REFERENCES Card ON UPDATE CASCADE ON DELETE RESTRICT,
 	exhibition BOOLEAN NOT NULL DEFAULT FALSE
 );
 ALTER SEQUENCE player_id_seq RESTART WITH 1000;
@@ -234,21 +234,9 @@ CREATE TABLE Phase (
 ALTER SEQUENCE phase_id_seq RESTART WITH 1000;
 CREATE INDEX phase_tournament_idx ON Phase(tournament_code);
 
-CREATE TABLE Round_Group (
-	id SERIAL PRIMARY KEY,
-	phase_id INTEGER NOT NULL REFERENCES Phase ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament
-	name name_t,
-	short_name short_name_t,
-	sequence sequence_t, -- within Phase
-	UNIQUE(tournament_code, name),
-	UNIQUE(tournament_code, short_name)
-);
-ALTER SEQUENCE round_group_id_seq RESTART WITH 1000;
-CREATE INDEX roundgroup_phase_idx ON Round_Group(phase_id);
-
 CREATE TABLE Round (
 	id SERIAL PRIMARY KEY,
-	round_group_id INTEGER REFERENCES Round_Group ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the tournament
+	phase_id INTEGER NOT NULL REFERENCES Phase ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the Tournament
 	name name_t,
 	short_name short_name_t,
 	sequence sequence_t, -- within RoundGroup

@@ -31,12 +31,8 @@ public interface Tournament extends TournamentUserFacing {
 		return streamPhase().sorted().collect(Collectors.toList());
 	}
 	
-	default List<RoundGroup> getRoundGroups() {
-		return streamPhase().flatMap(Phase::streamRoundGroup).sorted().collect(Collectors.toList());
-	}
-	
 	default List<Round> getRounds() {
-		return streamPhase().flatMap(Phase::streamRoundGroup).flatMap(RoundGroup::streamRound).sorted().collect(Collectors.toList());
+		return streamPhase().flatMap(Phase::streamRound).sorted().collect(Collectors.toList());
 	}
 	
 	default List<Staff> getStaff() {

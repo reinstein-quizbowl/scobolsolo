@@ -64,7 +64,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 					lclSubheadChunks.add("Moderator: " + escape(lclLikelyModerator.getName()));
 				}
 				
-				if (lclRound.getRoundGroup().getPhase().isCardSystem()) {
+				if (lclRound.isCardSystem()) {
 					lclSubheadChunks.add("Cards: " + escape(lclM.getWinningCard().getShortName()) + " \\textit{\\&} " + escape(lclM.getLosingCard().getShortName()));
 				}
 				

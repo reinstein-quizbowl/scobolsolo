@@ -23,7 +23,7 @@ public interface Phase extends PhaseUserFacing, Comparable<Phase> {
 	}
 	
 	default List<Round> getRounds() {
-		return streamRoundGroup().flatMap(RoundGroup::streamRound).sorted().collect(Collectors.toList());
+		return streamRound().sorted().collect(Collectors.toList());
 	}
 	
 	default List<Card> getCards() {
@@ -31,8 +31,7 @@ public interface Phase extends PhaseUserFacing, Comparable<Phase> {
 	}
 	
 	default List<Room> getGameRooms() {
-		return streamRoundGroup()
-			.flatMap(RoundGroup::streamRound)
+		return streamRound()
 			.flatMap(Round::streamMatch)
 			.map(Match::getRoom)
 			.distinct()

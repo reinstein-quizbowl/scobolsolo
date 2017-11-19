@@ -144,25 +144,26 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 						}
 						
 						
-						final Match lclM = MatchFactory.getInstance().create();
-						
-						lclM.setRound(lclRound);
-						lclM.setRoom(lclRoom);
-						
-						lclM.setWinningCard(lclWinningCard);
-						lclM.setLosingCard(lclLosingCard);
-						
-						// If it's in the first round group, we populate the Game record with the players based on initial card assignments
-						final RoundGroup lclFirstRoundGroup = lclRounds.get(0).getRoundGroup();
-						if (lclRound.getRoundGroup() == lclFirstRoundGroup) {
-							final Game lclG = GameFactory.getInstance().create();
-							lclG.setMatch(lclM);
-							lclG.setIncomingWinningCardPlayer(lclWinningCard.getInitialPlayer());
-							lclG.setIncomingLosingCardPlayer(lclLosingCard.getInitialPlayer());
-						}
+						final Match lclM = MatchFactory.getInstance().create()
+							.setRound(lclRound)
+							.setRoom(lclRoom)
+							.setWinningCard(lclWinningCard)
+							.setLosingCard(lclLosingCard);
 						
 						lclWinningCard = null;
 						lclLosingCard = null;
+					}
+				}
+			}
+			
+			for (Round lclR : lclRounds) {
+				for (Match lclM : lclR.getMatchSet()) {
+					// If it's the first match for the cards, we populate the Game record with the players based on initial card assignments.
+					if (lclM.isFirstForCards()) {
+						GameFactory.getInstance().create()
+							.setMatch(lclM)
+							.setIncomingWinningCardPlayer(lclM.getWinningCard().getInitialPlayer())
+							.setIncomingLosingCardPlayer(lclM.getLosingCard().getInitialPlayer());
 					}
 				}
 			}
@@ -180,17 +181,17 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 		
 		final int lclCellType = argC.getCellType();
 		
-		switch(lclCellType) {
-			case Cell.CELL_TYPE_BLANK: return "";
-			
-			case Cell.CELL_TYPE_BOOLEAN: return String.valueOf(argC.getBooleanCellValue());
-			
-			case Cell.CELL_TYPE_ERROR: return String.valueOf(argC.getErrorCellValue());
-			
-			case Cell.CELL_TYPE_FORMULA: return argC.getCellFormula();
-			
-			case Cell.CELL_TYPE_STRING: return argC.getStringCellValue();
-			
+		switch (lclCellType) {
+			case Cell.CELL_TYPE_BLANK:
+				return "";
+			case Cell.CELL_TYPE_BOOLEAN:
+				return String.valueOf(argC.getBooleanCellValue());
+			case Cell.CELL_TYPE_ERROR:
+				return String.valueOf(argC.getErrorCellValue());
+			case Cell.CELL_TYPE_FORMULA:
+				return argC.getCellFormula();
+			case Cell.CELL_TYPE_STRING:
+				return argC.getStringCellValue();
 			case Cell.CELL_TYPE_NUMERIC:
 				final double lclDoubleValue = argC.getNumericCellValue();
 				if (Double.compare(lclDoubleValue, Math.floor(lclDoubleValue)) == 0 && !Double.isInfinite(lclDoubleValue)) {
@@ -198,8 +199,8 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 				} else {
 					return String.valueOf(lclDoubleValue);
 				}
-			
-			default: throw new IllegalArgumentException("Unknown CellType for cell in row " + argC.getRowIndex() + ", column " + argC.getColumnIndex());
+			default:
+				throw new IllegalArgumentException("Unknown CellType for cell in row " + argC.getRowIndex() + ", column " + argC.getColumnIndex());
 		}
 	}
 	

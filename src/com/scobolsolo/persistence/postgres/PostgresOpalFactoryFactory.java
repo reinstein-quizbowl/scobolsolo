@@ -36,7 +36,6 @@ import com.scobolsolo.persistence.QuestionStatusOpalFactory;
 import com.scobolsolo.persistence.ResponseOpalFactory;
 import com.scobolsolo.persistence.ResponseTypeOpalFactory;
 import com.scobolsolo.persistence.RoomOpalFactory;
-import com.scobolsolo.persistence.RoundGroupOpalFactory;
 import com.scobolsolo.persistence.RoundOpalFactory;
 import com.scobolsolo.persistence.SchoolOpalFactory;
 import com.scobolsolo.persistence.SchoolRegistrationOpalFactory;
@@ -181,11 +180,6 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	@Override
 	public DiffOpalFactory getDiffOpalFactory() {
 		return PostgresDiffOpalFactory.getInstance();
-	}
-
-	@Override
-	public RoundGroupOpalFactory getRoundGroupOpalFactory() {
-		return PostgresRoundGroupOpalFactory.getInstance();
 	}
 
 	@Override

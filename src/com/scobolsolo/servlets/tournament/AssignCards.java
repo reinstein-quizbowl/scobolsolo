@@ -75,26 +75,25 @@ public class AssignCards extends ScobolSoloControllerServlet {
 			}
 			
 			// Copy them over into the Games, creating Games if necessary
-			final RoundGroup[] lclRGs = Validate.notEmpty(lclPhase.createRoundGroupArray());
-			Arrays.sort(lclRGs);
-			final RoundGroup lclFirst = Validate.notNull(lclRGs[0]);
-			for (final Round lclR : lclFirst.getRoundSet()) {
-				for (final Match lclM : lclR.getMatchSet()) {
-					final Card lclW = Validate.notNull(lclM.getWinningCard());
-					final Card lclL = Validate.notNull(lclM.getLosingCard());
-					
-					final Player lclWP = Validate.notNull(lclW.getInitialPlayer());
-					final Player lclLP = Validate.notNull(lclL.getInitialPlayer());
-					
-					Game lclG = lclM.getGame();
-					
-					if (lclG == null) {
-						lclG = GameFactory.getInstance().create();
-						lclM.setGame(lclG);
+			for (Round lclR : lclPhase.getRoundSet()) {
+				for (Match lclM : lclR.getMatchSet()) {
+					if (lclM.isFirstForCards()) {
+						final Card lclW = Validate.notNull(lclM.getWinningCard());
+						final Card lclL = Validate.notNull(lclM.getLosingCard());
+						
+						final Player lclWP = Validate.notNull(lclW.getInitialPlayer());
+						final Player lclLP = Validate.notNull(lclL.getInitialPlayer());
+						
+						Game lclG = lclM.getGame();
+						
+						if (lclG == null) {
+							lclG = GameFactory.getInstance().create();
+							lclM.setGame(lclG);
+						}
+						
+						lclG.setIncomingWinningCardPlayer(lclWP);
+						lclG.setIncomingLosingCardPlayer(lclLP);
 					}
-					
-					lclG.setIncomingWinningCardPlayer(lclWP);
-					lclG.setIncomingLosingCardPlayer(lclLP);
 				}
 			}
 			

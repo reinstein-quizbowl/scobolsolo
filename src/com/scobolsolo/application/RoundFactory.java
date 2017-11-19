@@ -36,16 +36,6 @@ public class RoundFactory extends com.opal.AbstractIdentityFactory<Round, RoundO
 		return (lclRoundOpal == null) ? null : lclRoundOpal.getUserFacing();
 	}
 
-	public Round forRoundGroupIdName(java.lang.Integer argRoundGroupId, java.lang.String argName) {
-		RoundOpal lclRoundOpal = getRoundOpalFactory().forRoundGroupIdName(argRoundGroupId, argName);
-		return (lclRoundOpal == null) ? null : lclRoundOpal.getUserFacing();
-	}
-
-	public Round forRoundGroupIdShortName(java.lang.Integer argRoundGroupId, java.lang.String argShortName) {
-		RoundOpal lclRoundOpal = getRoundOpalFactory().forRoundGroupIdShortName(argRoundGroupId, argShortName);
-		return (lclRoundOpal == null) ? null : lclRoundOpal.getUserFacing();
-	}
-
 	@Override
 	public Round[] createArray(int argSize) {
 		return new Round[argSize];

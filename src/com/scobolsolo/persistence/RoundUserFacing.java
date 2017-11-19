@@ -70,85 +70,6 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Round setId(int argId);
 
 	/**
-	 * object accessor for the {@code RoundGroupId}
-	 *
-	 * <p>The {@code RoundGroupId} field is a direct mapping of the {@code round_group_id} field in {@code round}.</p>
-	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getRoundGroupId() method.</p>
-	 *
-	 * @return an object value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
-	 */
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = true)
-	public java.lang.Integer getRoundGroupIdAsObject();
-
-	/**
-	 * object accessor for the {@code RoundGroupId} with substitution for a null value
-	 *
-	 * <p>The {@code RoundGroupId} field is a direct mapping of the {@code round_group_id} database column in the table {@code round}.</p>
-	 *
-	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
-	 *
-	 * @param argStringToSubstituteIfNull the value to return if the {@code RoundGroupId} is {@code null}.
-	 * @return an object value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
-	 */
-	default public java.lang.String getRoundGroupIdAsObject(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getRoundGroupIdAsObject();
-		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
-	}
-
-
-	/**
-	 * primitive accessor for the {@code RoundGroupId}
-	 *
-	 * <p>The {@code RoundGroupId} field is a direct mapping of the {@code round_group_id} database column in the table {@code round}.</p>
-	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getRoundGroupIdAsObject() method.</p>
-	 *
-	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
-	 *
-	 * @return the primitive value of {@code RoundGroupId} (of the current {@link com.opal.TransactionContext})
-	 * @throws com.opal.NullValueException when the internal value is null
-	 */
-	default public int getRoundGroupId() throws com.opal.NullValueException {
-		java.lang.Integer lclO = getRoundGroupIdAsObject();
-		if (lclO == null) {
-			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
-		}
-		return lclO.intValue();
-	}
-
-	default public int getRoundGroupId(int argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getRoundGroupIdAsObject();
-		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
-	}
-
-	default public java.lang.String getRoundGroupId(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getRoundGroupIdAsObject();
-		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
-	}
-
-	/**
-	 * sets the {@code RoundGroupId} to the value of {@code argRoundGroupId}
-	 *
-	 * @param argRoundGroupId the new value of {@code RoundGroupId}.  May be <code>null</code>.
-	 * @return itself, so that mutator calls can be chained fluently
-	 */
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = true)
-	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Round setRoundGroupId(java.lang.Integer argRoundGroupId);
-
-	/**
-	 * sets the {@code RoundGroupId} to the value of {@code argRoundGroupId}
-	 *
-	 * @param argRoundGroupId the new value of {@code RoundGroupId}
-	 * @return itself, so that mutators may be chained fluently
-	 */
-	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Round setRoundGroupId(int argRoundGroupId);
-
-	/**
 	 * object accessor for the {@code Name}
 	 *
 	 * <p>The {@code Name} field is a direct mapping of the {@code name} field in {@code round}.</p>
@@ -392,14 +313,64 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Round setEarliestEntryAllowed(java.time.LocalDateTime argEarliestEntryAllowed);
 
 	/**
-	 * @return the {@code com.scobolsolo.application.RoundGroup}
-	 * The returned {@code com.scobolsolo.application.RoundGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code round_group} that is referenced by {@code round_round_group_id_fkey}.
+	 * object accessor for the {@code PhaseId}
+	 *
+	 * <p>The {@code PhaseId} field is a direct mapping of the {@code phase_id} field in {@code round}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getPhaseId() method.</p>
+	 *
+	 * @return an object value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	public java.lang.Integer getPhaseIdAsObject();
+
+	/**
+	 * primitive accessor for the {@code PhaseId}
+	 *
+	 * <p>The {@code PhaseId} field is a direct mapping of the {@code phase_id} database column in the table {@code round}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getPhaseIdAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code PhaseId} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public int getPhaseId() {
+		java.lang.Integer lclO = getPhaseIdAsObject();
+		return lclO.intValue();
+	}
+
+	/**
+	 * sets the {@code PhaseId} to the value of {@code argPhaseId}
+	 *
+	 * @param argPhaseId the new value of {@code PhaseId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code phase_id} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argPhaseId is null
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Round setPhaseId(java.lang.Integer argPhaseId);
+
+	/**
+	 * sets the {@code PhaseId} to the value of {@code argPhaseId}
+	 *
+	 * @param argPhaseId the new value of {@code PhaseId}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Round setPhaseId(int argPhaseId);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.Phase}
+	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code round_phase_id_fkey}.
 	 *
 	 */
-	@com.opal.annotation.Nullability(nullable = true)
-	public com.scobolsolo.application.RoundGroup getRoundGroup();
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.Phase getPhase();
 	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Round setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup);
+	public com.scobolsolo.application.Round setPhase(com.scobolsolo.application.Phase argPhase);
 
 	@com.opal.annotation.Nullability(nullable = true)
 	public com.scobolsolo.application.Packet getPacket();

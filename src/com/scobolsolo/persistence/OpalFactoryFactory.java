@@ -30,7 +30,6 @@ public abstract class OpalFactoryFactory extends AbstractOpalFactoryFactory {
 	public abstract MatchOpalFactory getMatchOpalFactory();
 	public abstract SchoolRegistrationOpalFactory getSchoolRegistrationOpalFactory();
 	public abstract DiffOpalFactory getDiffOpalFactory();
-	public abstract RoundGroupOpalFactory getRoundGroupOpalFactory();
 	public abstract StaffOpalFactory getStaffOpalFactory();
 	public abstract CategoryUseOpalFactory getCategoryUseOpalFactory();
 	public abstract PacketOpalFactory getPacketOpalFactory();

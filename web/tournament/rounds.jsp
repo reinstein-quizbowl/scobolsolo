@@ -89,107 +89,51 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 				</label><%
 			} // otherwise, nothing
 		%></div>
-	</div><%
-
-	List<OpalForm<RoundGroup>> lclRGOFs = lclPOF.children(
-		"RoundGroup",
-		RoundGroupFactory.getInstance(),
-		1 // row for a new round group
-	);
-
-	for (OpalForm<RoundGroup> lclRGOF : lclRGOFs) {
-		%><%= lclRGOF.open() %>
-		
-		<div class="row">
-			<div class="small-11 columns small-offset-1">
-				<h2><%
-					if (lclRGOF.isNew()) {
-						if (lclPOF.isNew()) {
-							%>Group in new phase<%
-						} else {
-							%>New group in <%= lclPOF.getUserFacing().getName() %><%
-						}
-					} else {
-						%>Group: <%= lclRGOF.getUserFacing().getName() %><%
-					}
-				%></h2>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="small-5 medium-3 columns small-offset-1">
-				<label>
-					Name
-					<%= lclRGOF.text("Name", 30) %>
-				</label>
-			</div>
-			<div class="small-5 medium-3 columns">
-				<label>
-					Short name
-					<%= lclRGOF.text("ShortName", 10) %>
-				</label>
-			</div>
-			<div class="small-5 medium-3 columns">
-				<label>
-					Sequence
-					<%= lclRGOF.number("Sequence") %>
-				</label>
-			</div>
-			<div class="small-5 medium-2 columns"><%
-				if (lclRGOF.alreadyExists()) {
-					%><label>
-						Delete?
-						<%= HTMLUtility.deleteWidget(lclRGOF) %>
-					</label><%
-				} // otherwise, nothing
-			%></div>
-		</div>
-		
-		<div class="row">
-			<div class="small-10 columns small-offset-2">
-				<h3>Rounds in <%= lclRGOF.isNew() ? "new group" : "group " + lclRGOF.getUserFacing().getShortName() %></h3>
-				<table data-fixed-columns="1">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Short&nbsp;name</th>
-							<th>Start&nbsp;time</th>
-							<th>Earliest&nbsp;entry&nbsp;allowed</th>
-							<th>Sequence</th>
-							<th>Lunch&nbsp;is&nbsp;after?</th>
-							<th><span title="delete">Del?</span></th>
-						</tr>
-					</thead>
-					<tbody><%
-						List<OpalForm<Round>> lclROFs = lclRGOF.children(
-							"Round",
-							RoundFactory.getInstance(),
-							1 // row for a new round
-						);
-						
-						for (OpalForm<Round> lclROF : lclROFs) {
-							Round lclR = lclROF.getUserFacing();
-							
-							%><tr>
-								<%= lclROF.open() %>
-								<td><%= lclROF.text("Name", 20) %></td>
-								<td><%= lclROF.text("ShortName", 10) %></td>
-								<td><%= lclROF.text("StartTime", 10) %></td>
-								<td><%= lclROF.datetime("EarliestEntryAllowed").placeholder("yyyy-mm-dd hh:mm") %></td>
-								<td><%= lclROF.number("Sequence") %></td>
-								<td><%= HTMLUtility.switchWidget(lclROF, "LunchAfter") %></td>
-								<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
-								<%= lclROF.close() %>
-							</tr><%
-						}
-					%></tbody>
-				</table>
-			</div>
-		</div>
-		<%= lclRGOF.close() %><%
-	}
+	</div>
 	
-	%><%= lclPOF.close() %><%
+	<div class="row">
+		<div class="small-10 columns small-offset-2">
+			<h3>Rounds in <%= lclPOF.isNew() ? "new phase" : lclPOF.getUserFacing().getShortName() %></h3>
+			<table data-fixed-columns="1">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Short&nbsp;name</th>
+						<th>Start&nbsp;time</th>
+						<th>Earliest&nbsp;entry&nbsp;allowed</th>
+						<th>Sequence</th>
+						<th>Lunch&nbsp;is&nbsp;after?</th>
+						<th><span title="delete">Del?</span></th>
+					</tr>
+				</thead>
+				<tbody><%
+					List<OpalForm<Round>> lclROFs = lclPOF.children(
+						"Round",
+						RoundFactory.getInstance(),
+						1 // row for a new round
+					);
+					
+					for (OpalForm<Round> lclROF : lclROFs) {
+						Round lclR = lclROF.getUserFacing();
+						
+						%><tr>
+							<%= lclROF.open() %>
+							<td><%= lclROF.text("Name", 20) %></td>
+							<td><%= lclROF.text("ShortName", 10) %></td>
+							<td><%= lclROF.text("StartTime", 10) %></td>
+							<td><%= lclROF.datetime("EarliestEntryAllowed").placeholder("yyyy-mm-dd hh:mm") %></td>
+							<td><%= lclROF.number("Sequence") %></td>
+							<td><%= HTMLUtility.switchWidget(lclROF, "LunchAfter") %></td>
+							<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
+							<%= lclROF.close() %>
+						</tr><%
+					}
+				%></tbody>
+			</table>
+		</div>
+	</div>
+	
+	<%= lclPOF.close() %><%
 }
 
 %><div class="row">

@@ -19,7 +19,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	@Override
 	protected void applyDefaults() {
 		/* Initialize fields with their default values. */
-		getNewValues()[6] = ourDefaultLunchAfter;
+		getNewValues()[5] = ourDefaultLunchAfter;
 
 
 		/* Initialize the back Collections to empty sets. */
@@ -35,24 +35,23 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	@Override
 	protected void initializeReferences() {
-		myOldRoundGroupOpal = RoundGroupOpal.NOT_YET_LOADED;
+		myOldPhaseOpal = PhaseOpal.NOT_YET_LOADED;
 		myOldPacketOpal = PacketOpal.NOT_YET_LOADED;
 		return;
 	}
 
 	/* package */ static final String[] ourFieldNames = new String[] {
 		"Id",
-		"RoundGroupId",
 		"Name",
 		"ShortName",
 		"Sequence",
 		"StartTime",
 		"LunchAfter",
 		"EarliestEntryAllowed",
+		"PhaseId",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
-		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.String.class,
 		java.lang.String.class,
@@ -60,17 +59,18 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		java.lang.String.class,
 		java.lang.Boolean.class,
 		java.time.LocalDateTime.class,
+		java.lang.Integer.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
 		false,
-		true,
 		false,
 		false,
 		false,
 		true,
 		false,
 		true,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
@@ -108,32 +108,32 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return (java.lang.Integer) getReadValueSet()[0];
 	}
 
-	public synchronized java.lang.Integer getRoundGroupIdAsObject() {
-		return (java.lang.Integer) getReadValueSet()[1];
-	}
-
 	public synchronized java.lang.String getName() {
-		return (java.lang.String) getReadValueSet()[2];
+		return (java.lang.String) getReadValueSet()[1];
 	}
 
 	public synchronized java.lang.String getShortName() {
-		return (java.lang.String) getReadValueSet()[3];
+		return (java.lang.String) getReadValueSet()[2];
 	}
 
 	public synchronized java.lang.Integer getSequenceAsObject() {
-		return (java.lang.Integer) getReadValueSet()[4];
+		return (java.lang.Integer) getReadValueSet()[3];
 	}
 
 	public synchronized java.lang.String getStartTime() {
-		return (java.lang.String) getReadValueSet()[5];
+		return (java.lang.String) getReadValueSet()[4];
 	}
 
 	public synchronized java.lang.Boolean isLunchAfterAsObject() {
-		return (java.lang.Boolean) getReadValueSet()[6];
+		return (java.lang.Boolean) getReadValueSet()[5];
 	}
 
 	public synchronized java.time.LocalDateTime getEarliestEntryAllowed() {
-		return (java.time.LocalDateTime) getReadValueSet()[7];
+		return (java.time.LocalDateTime) getReadValueSet()[6];
+	}
+
+	public synchronized java.lang.Integer getPhaseIdAsObject() {
+		return (java.lang.Integer) getReadValueSet()[7];
 	}
 
 	public synchronized RoundOpal setId(final java.lang.Integer argId) {
@@ -150,17 +150,6 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return this;
 	}
 
-	public synchronized RoundOpal setRoundGroupId(final java.lang.Integer argRoundGroupId) {
-		tryMutate();
-		getNewValues()[1] = argRoundGroupId;
-		return this;
-	}
-
-	public RoundOpal setRoundGroupId(final int argRoundGroupId) {
-		setRoundGroupId(java.lang.Integer.valueOf(argRoundGroupId));
-		return this;
-	}
-
 	public synchronized RoundOpal setName(final java.lang.String argName) {
 		tryMutate();
 		if (argName == null) {
@@ -169,7 +158,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (argName.length() > 256) {
 			throw new com.opal.ArgumentTooLongException("Cannot set myName on " + this + " to \"" + argName + "\" because that field's maximum length is 256.", argName.length(), 256);
 		}
-		getNewValues()[2] = argName;
+		getNewValues()[1] = argName;
 		return this;
 	}
 
@@ -181,7 +170,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (argShortName.length() > 32) {
 			throw new com.opal.ArgumentTooLongException("Cannot set myShortName on " + this + " to \"" + argShortName + "\" because that field's maximum length is 32.", argShortName.length(), 32);
 		}
-		getNewValues()[3] = argShortName;
+		getNewValues()[2] = argShortName;
 		return this;
 	}
 
@@ -190,7 +179,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (argSequence == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set mySequence on " + this + " to null.");
 		}
-		getNewValues()[4] = argSequence;
+		getNewValues()[3] = argSequence;
 		return this;
 	}
 
@@ -204,7 +193,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if ((argStartTime != null) && (argStartTime.length() > 16)) {
 			throw new com.opal.ArgumentTooLongException("Cannot set myStartTime on " + this + " to \"" + argStartTime + "\" because that field's maximum length is 16.", argStartTime.length(), 16);
 		}
-		getNewValues()[5] = argStartTime;
+		getNewValues()[4] = argStartTime;
 		return this;
 	}
 
@@ -213,7 +202,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (argLunchAfter == null) {
 			throw new com.opal.IllegalNullArgumentException("Cannot set myLunchAfter on " + this + " to null.");
 		}
-		getNewValues()[6] = argLunchAfter;
+		getNewValues()[5] = argLunchAfter;
 		return this;
 	}
 
@@ -224,7 +213,21 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	public synchronized RoundOpal setEarliestEntryAllowed(final java.time.LocalDateTime argEarliestEntryAllowed) {
 		tryMutate();
-		getNewValues()[7] = argEarliestEntryAllowed;
+		getNewValues()[6] = argEarliestEntryAllowed;
+		return this;
+	}
+
+	public synchronized RoundOpal setPhaseId(final java.lang.Integer argPhaseId) {
+		tryMutate();
+		if (argPhaseId == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myPhaseId on " + this + " to null.");
+		}
+		getNewValues()[7] = argPhaseId;
+		return this;
+	}
+
+	public RoundOpal setPhaseId(final int argPhaseId) {
+		setPhaseId(java.lang.Integer.valueOf(argPhaseId));
 		return this;
 	}
 
@@ -240,7 +243,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
-		myNewRoundGroupOpal = myOldRoundGroupOpal;
+		myNewPhaseOpal = myOldPhaseOpal;
 		myNewPacketOpal = myOldPacketOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
@@ -248,7 +251,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	@Override
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
-		myOldRoundGroupOpal = myNewRoundGroupOpal;
+		myOldPhaseOpal = myNewPhaseOpal;
 
 		myOldPacketOpal = myNewPacketOpal;
 		return;
@@ -260,8 +263,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		if (getPacketOpal() != null) {
 			getPacketOpal().setRoundOpalInternal(null);
 		}
-		if (getRoundGroupOpal() != null) {
-			getRoundGroupOpal().getRoundOpalSet().removeInternal(this);
+		if (getPhaseOpal() != null) {
+			getPhaseOpal().getRoundOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -271,21 +274,21 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		Object[] lclValues = getReadValueSet();
 		Object[] lclTargetNewValues = argTarget.getNewValues();
 		/* Field 0 (Id) is database generated. */
-		/* Field 1 (RoundGroupId) is part of a unique key. */
-		/* Field 2 (Name) is part of a unique key. */
-		/* Field 3 (ShortName) is part of a unique key. */
-		lclTargetNewValues[4] = lclValues[4]; /* Sequence (immutable) */
-		lclTargetNewValues[5] = lclValues[5]; /* StartTime (immutable) */
-		lclTargetNewValues[6] = lclValues[6]; /* LunchAfter (immutable) */
-		lclTargetNewValues[7] = lclValues[7]; /* EarliestEntryAllowed (immutable) */
+		lclTargetNewValues[1] = lclValues[1]; /* Name (immutable) */
+		lclTargetNewValues[2] = lclValues[2]; /* ShortName (immutable) */
+		lclTargetNewValues[3] = lclValues[3]; /* Sequence (immutable) */
+		lclTargetNewValues[4] = lclValues[4]; /* StartTime (immutable) */
+		lclTargetNewValues[5] = lclValues[5]; /* LunchAfter (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* EarliestEntryAllowed (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* PhaseId (immutable) */
 
 		return;
 	}
 
 	@Override
 	public synchronized void translateReferencesToFields() {
-		if (myNewRoundGroupOpal != RoundGroupOpal.NOT_YET_LOADED) {
-			setRoundGroupId(myNewRoundGroupOpal == null ? null : myNewRoundGroupOpal.getIdAsObject());
+		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
+			setPhaseId(myNewPhaseOpal == null ? null : myNewPhaseOpal.getIdAsObject());
 		}
 		return;
 	}
@@ -294,7 +297,7 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	public java.util.Set<com.opal.TransactionAware> getRequiredPriorCommits() {
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		com.opal.UpdatableOpal<?> lclUO;
-		lclUO = myNewRoundGroupOpal;
+		lclUO = myNewPhaseOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
 			lclTAs.add(lclUO);
@@ -309,8 +312,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		}
 		java.util.Set<com.opal.TransactionAware> lclTAs = null;
 		com.opal.UpdatableOpal<?> lclUO;
-		if ((lclUO = myOldRoundGroupOpal) == RoundGroupOpal.NOT_YET_LOADED) {
-			lclUO = myOldRoundGroupOpal = retrieveRoundGroupOpal(getOldValues());
+		if ((lclUO = myOldPhaseOpal) == PhaseOpal.NOT_YET_LOADED) {
+			lclUO = myOldPhaseOpal = retrievePhaseOpal(getOldValues());
 		}
 		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
@@ -335,70 +338,70 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 	@Override
 	public synchronized void output(final java.io.PrintStream argOutput) {
 		argOutput.println("Id = " + getIdAsObject());
-		argOutput.println("RoundGroupId = " + getRoundGroupIdAsObject());
 		argOutput.println("Name = " + getName());
 		argOutput.println("ShortName = " + getShortName());
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("StartTime = " + getStartTime());
 		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
 		argOutput.println("EarliestEntryAllowed = " + getEarliestEntryAllowed());
+		argOutput.println("PhaseId = " + getPhaseIdAsObject());
 	}
 
 	@Override
 	public synchronized void output(final java.io.PrintWriter argOutput) {
 		argOutput.println("Id = " + getIdAsObject());
-		argOutput.println("RoundGroupId = " + getRoundGroupIdAsObject());
 		argOutput.println("Name = " + getName());
 		argOutput.println("ShortName = " + getShortName());
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("StartTime = " + getStartTime());
 		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
 		argOutput.println("EarliestEntryAllowed = " + getEarliestEntryAllowed());
+		argOutput.println("PhaseId = " + getPhaseIdAsObject());
 	}
 
-	private RoundGroupOpal myOldRoundGroupOpal;
-	private RoundGroupOpal myNewRoundGroupOpal;
+	private PhaseOpal myOldPhaseOpal;
+	private PhaseOpal myNewPhaseOpal;
 
-	protected RoundGroupOpal retrieveRoundGroupOpal(Object[] argValueSet) {
+	protected PhaseOpal retrievePhaseOpal(Object[] argValueSet) {
 		assert argValueSet != null;
-		if ((argValueSet[1] == null)) {
+		if ((argValueSet[7] == null)) {
 			return null;
 		}
-		return OpalFactoryFactory.getInstance().getRoundGroupOpalFactory().forId(getRoundGroupIdAsObject());
+		return OpalFactoryFactory.getInstance().getPhaseOpalFactory().forId(getPhaseIdAsObject());
 	}
 
-	public synchronized RoundGroupOpal getRoundGroupOpal() {
-		RoundGroupOpal lclRoundGroupOpal;
+	public synchronized PhaseOpal getPhaseOpal() {
+		PhaseOpal lclPhaseOpal;
 		boolean lclAccess = tryAccess();
-		lclRoundGroupOpal = lclAccess ? myNewRoundGroupOpal : myOldRoundGroupOpal;
-		if (lclRoundGroupOpal == RoundGroupOpal.NOT_YET_LOADED) {
-			lclRoundGroupOpal = retrieveRoundGroupOpal(getReadValueSet());
+		lclPhaseOpal = lclAccess ? myNewPhaseOpal : myOldPhaseOpal;
+		if (lclPhaseOpal == PhaseOpal.NOT_YET_LOADED) {
+			lclPhaseOpal = retrievePhaseOpal(getReadValueSet());
 			if (lclAccess) {
-				myNewRoundGroupOpal = lclRoundGroupOpal;
+				myNewPhaseOpal = lclPhaseOpal;
 			} else {
-				myOldRoundGroupOpal = lclRoundGroupOpal;
+				myOldPhaseOpal = lclPhaseOpal;
 			}
 		}
-		return lclRoundGroupOpal;
+		return lclPhaseOpal;
 	}
 
-	public synchronized RoundOpal setRoundGroupOpal(RoundGroupOpal argRoundGroupOpal) {
+	public synchronized RoundOpal setPhaseOpal(PhaseOpal argPhaseOpal) {
 		tryMutate();
-		RoundGroupOpal lclRoundGroupOpal = getRoundGroupOpal();
-		if (lclRoundGroupOpal == argRoundGroupOpal) { return this; }
-		if (lclRoundGroupOpal != null) {
-			lclRoundGroupOpal.getRoundOpalSet().removeInternal(this);
+		PhaseOpal lclPhaseOpal = getPhaseOpal();
+		if (lclPhaseOpal == argPhaseOpal) { return this; }
+		if (lclPhaseOpal != null) {
+			lclPhaseOpal.getRoundOpalSet().removeInternal(this);
 		}
-		myNewRoundGroupOpal = argRoundGroupOpal;
-		if (argRoundGroupOpal != null) {
-			argRoundGroupOpal.getRoundOpalSet().addInternal(this);
+		myNewPhaseOpal = argPhaseOpal;
+		if (argPhaseOpal != null) {
+			argPhaseOpal.getRoundOpalSet().addInternal(this);
 		}
 		return this;
 	}
 
-	protected synchronized void setRoundGroupOpalInternal(RoundGroupOpal argRoundGroupOpal) {
+	protected synchronized void setPhaseOpalInternal(PhaseOpal argPhaseOpal) {
 		tryMutate();
-		myNewRoundGroupOpal = argRoundGroupOpal;
+		myNewPhaseOpal = argPhaseOpal;
 	}
 
 	private PacketOpal myOldPacketOpal;
@@ -478,8 +481,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	@Override
 	protected void updateReferencesAfterReload() {
-		if (myNewRoundGroupOpal != RoundGroupOpal.NOT_YET_LOADED) {
-			setRoundGroupOpal(retrieveRoundGroupOpal(getNewValues()));
+		if (myNewPhaseOpal != PhaseOpal.NOT_YET_LOADED) {
+			setPhaseOpal(retrievePhaseOpal(getNewValues()));
 		}
 	}
 

@@ -25,9 +25,9 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 				ourStaffAssignmentOpalLoader,
 				true
 				);
-		myRoundGroupSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+		myRoundSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
 				this,
-				ourRoundGroupOpalLoader,
+				ourRoundOpalLoader,
 				true
 				);
 		myCardSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
@@ -244,7 +244,7 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 	@Override
 	protected void unlinkInternal() {
 		getStaffAssignmentOpalSet().clear();
-		getRoundGroupOpalSet().clear();
+		getRoundOpalSet().clear();
 		getCardOpalSet().clear();
 		if (getTournamentOpal() != null) {
 			getTournamentOpal().getPhaseOpalSet().removeInternal(this);
@@ -409,29 +409,29 @@ public final class PhaseOpal extends com.opal.UpdatableOpal<Phase> {
 		return myStaffAssignmentSet;
 	}
 
-	private com.opal.types.OpalBackCollectionSet<RoundGroupOpal, PhaseOpal> myRoundGroupSet = null;
+	private com.opal.types.OpalBackCollectionSet<RoundOpal, PhaseOpal> myRoundSet = null;
 
-	private static final com.opal.types.OpalBackCollectionLoader<RoundGroupOpal, PhaseOpal> ourRoundGroupOpalLoader = 
+	private static final com.opal.types.OpalBackCollectionLoader<RoundOpal, PhaseOpal> ourRoundOpalLoader = 
 			new com.opal.types.OpalBackCollectionLoader<>(
-					OpalFactoryFactory.getInstance().getRoundGroupOpalFactory()::forPhaseOpalCollection,
-					OpalFactoryFactory.getInstance().getRoundGroupOpalFactory()::forPhaseOpalCount,
-					RoundGroupOpal::setPhaseOpal,
-					RoundGroupOpal::setPhaseOpalInternal,
-					RoundGroupOpal::getPhaseOpal,
+					OpalFactoryFactory.getInstance().getRoundOpalFactory()::forPhaseOpalCollection,
+					OpalFactoryFactory.getInstance().getRoundOpalFactory()::forPhaseOpalCount,
+					RoundOpal::setPhaseOpal,
+					RoundOpal::setPhaseOpalInternal,
+					RoundOpal::getPhaseOpal,
 					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
 					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
 					false
 					);
 
-	/* package */ synchronized com.opal.types.OpalBackCollectionSet<RoundGroupOpal, PhaseOpal> getRoundGroupOpalSet() {
-		if (myRoundGroupSet == null) {
-			myRoundGroupSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<RoundOpal, PhaseOpal> getRoundOpalSet() {
+		if (myRoundSet == null) {
+			myRoundSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
 					this,
-					ourRoundGroupOpalLoader,
+					ourRoundOpalLoader,
 					isNew()
 					);
 		}
-		return myRoundGroupSet;
+		return myRoundSet;
 	}
 
 	private com.opal.types.OpalBackCollectionSet<CardOpal, PhaseOpal> myCardSet = null;

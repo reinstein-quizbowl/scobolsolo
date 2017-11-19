@@ -77,7 +77,6 @@
 			</Mapping>
 			
 			<Mapping Table="Player">
-				<Column Name="initial_card_id" Mapped="False" />
 				<Comparator Name="NameComparator">
 					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>
@@ -156,8 +155,6 @@
 			</Mapping>
 			
 			<Mapping Table="Phase" />
-			
-			<Mapping Table="Round_Group" />
 			
 			<Mapping Table="Round" />
 			
@@ -266,10 +263,10 @@
 		</Reference>
 		
 		<Reference>
-			<Source Type="Player">
-				<Column>initial_card_id</Column>
+			<Source Type="Card">
+				<Column>initial_player_id</Column>
 			</Source>
-			<Target Type="Card" OneToOne="True" />
+			<Target Type="Player" OneToOne="True" />
 		</Reference>
 		
 		<!-- Renaming foreign keys -->

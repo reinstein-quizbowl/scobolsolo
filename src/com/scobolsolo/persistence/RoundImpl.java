@@ -45,27 +45,6 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = true)
-	@Override
-	public java.lang.Integer getRoundGroupIdAsObject() {
-		return getRoundOpal().getRoundGroupIdAsObject();
-	}
-
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = true)
-	@Override
-	public com.scobolsolo.persistence.RoundImpl setRoundGroupId(java.lang.Integer argRoundGroupId) {
-		getRoundOpal().setRoundGroupId(argRoundGroupId);
-		return this;
-	}
-
-	@Override
-	public com.scobolsolo.persistence.RoundImpl setRoundGroupId(int argRoundGroupId) {
-		getRoundOpal().setRoundGroupId(argRoundGroupId);
-		return this;
-	}
-
-	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Length(maximum = 256L)
 	@Override
@@ -175,22 +154,43 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public java.lang.Integer getPhaseIdAsObject() {
+		return getRoundOpal().getPhaseIdAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.persistence.RoundImpl setPhaseId(java.lang.Integer argPhaseId) {
+		getRoundOpal().setPhaseId(argPhaseId);
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.persistence.RoundImpl setPhaseId(int argPhaseId) {
+		getRoundOpal().setPhaseId(argPhaseId);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
-	/** @return the RoundGroup object created from round through reference round_round_group_id_fkey */
+	/** @return the Phase object created from round through reference round_phase_id_fkey */
 
-	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Nullability(nullable = false)
 	@Override
-	public com.scobolsolo.application.RoundGroup getRoundGroup() {
-		RoundGroupOpal lclRoundGroupOpal = getRoundOpal().getRoundGroupOpal();
-		return lclRoundGroupOpal == null ? null : lclRoundGroupOpal.getUserFacing();
+	public com.scobolsolo.application.Phase getPhase() {
+		PhaseOpal lclPhaseOpal = getRoundOpal().getPhaseOpal();
+		return lclPhaseOpal == null ? null : lclPhaseOpal.getUserFacing();
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public com.scobolsolo.application.Round setRoundGroup(com.scobolsolo.application.RoundGroup argRoundGroup) {
-		getRoundOpal().setRoundGroupOpal(argRoundGroup == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.RoundGroup, com.scobolsolo.persistence.RoundGroupOpal>) argRoundGroup).getOpal());
+	public com.scobolsolo.application.Round setPhase(com.scobolsolo.application.Phase argPhase) {
+		getRoundOpal().setPhaseOpal(argPhase == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Phase, com.scobolsolo.persistence.PhaseOpal>) argPhase).getOpal());
 		return this;
 	}
 
