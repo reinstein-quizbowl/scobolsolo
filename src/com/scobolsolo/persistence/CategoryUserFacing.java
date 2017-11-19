@@ -242,6 +242,58 @@ public interface CategoryUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Category setAllowPronunciationGuideSuppression(boolean argAllowPronunciationGuideSuppression);
 
 	/**
+	 * object accessor for the {@code Active}
+	 *
+	 * <p>The {@code Active} field is a direct mapping of the {@code active} field in {@code category}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isActive() method.</p>
+	 *
+	 * @return an object value of {@code Active} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	public java.lang.Boolean isActiveAsObject();
+
+	/**
+	 * primitive accessor for the {@code Active}
+	 *
+	 * <p>The {@code Active} field is a direct mapping of the {@code active} database column in the table {@code category}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isActiveAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code Active} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isActive() {
+		java.lang.Boolean lclO = isActiveAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code Active} to the value of {@code argActive}
+	 *
+	 * @param argActive the new value of {@code Active}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code active} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argActive is null
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Category setActive(java.lang.Boolean argActive);
+
+	/**
+	 * sets the {@code Active} to the value of {@code argActive}
+	 *
+	 * @param argActive the new value of {@code Active}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Category setActive(boolean argActive);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.CategoryGroup}
 	 * The returned {@code com.scobolsolo.application.CategoryGroup} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code category_group} that is referenced by {@code category_category_group_code_fkey}.
 	 *

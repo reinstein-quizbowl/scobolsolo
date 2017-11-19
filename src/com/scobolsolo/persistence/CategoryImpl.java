@@ -135,6 +135,29 @@ public class CategoryImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public java.lang.Boolean isActiveAsObject() {
+		return getCategoryOpal().isActiveAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "true")
+	@Override
+	public com.scobolsolo.persistence.CategoryImpl setActive(java.lang.Boolean argActive) {
+		getCategoryOpal().setActive(argActive);
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.persistence.CategoryImpl setActive(boolean argActive) {
+		getCategoryOpal().setActive(argActive);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

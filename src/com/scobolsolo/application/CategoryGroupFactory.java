@@ -30,6 +30,7 @@ public class CategoryGroupFactory extends com.opal.AbstractIdentityFactory<Categ
 		from the database.
 	*/
 
+	public static final CategoryGroup COMPUTATION() { return getInstance().forCode("COMPUTATION"); }
 	public static final CategoryGroup FINE_ARTS() { return getInstance().forCode("FINE_ARTS"); }
 	public static final CategoryGroup HISTORY() { return getInstance().forCode("HISTORY"); }
 	public static final CategoryGroup LITERATURE() { return getInstance().forCode("LITERATURE"); }

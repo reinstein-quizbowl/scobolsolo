@@ -5,6 +5,7 @@ import com.scobolsolo.application.Category;
 public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	public static final java.lang.Boolean ourDefaultAllowPronunciationGuideSuppression = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultActive = java.lang.Boolean.TRUE;
 
 	private CategoryOpal() {
 		super();
@@ -19,6 +20,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 	protected void applyDefaults() {
 		/* Initialize fields with their default values. */
 		getNewValues()[5] = ourDefaultAllowPronunciationGuideSuppression;
+		getNewValues()[6] = ourDefaultActive;
 
 
 		/* Initialize the back Collections to empty sets. */
@@ -55,6 +57,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		"Sequence",
 		"CategoryGroupCode",
 		"AllowPronunciationGuideSuppression",
+		"Active",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -63,6 +66,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		java.lang.String.class,
 		java.lang.Integer.class,
 		java.lang.String.class,
+		java.lang.Boolean.class,
 		java.lang.Boolean.class,
 	};
 
@@ -73,9 +77,11 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		false,
 		false,
 		false,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -126,6 +132,10 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 
 	public synchronized java.lang.Boolean isAllowPronunciationGuideSuppressionAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[5];
+	}
+
+	public synchronized java.lang.Boolean isActiveAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[6];
 	}
 
 	public synchronized CategoryOpal setCode(final java.lang.String argCode) {
@@ -204,6 +214,20 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		return this;
 	}
 
+	public synchronized CategoryOpal setActive(final java.lang.Boolean argActive) {
+		tryMutate();
+		if (argActive == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myActive on " + this + " to null.");
+		}
+		getNewValues()[6] = argActive;
+		return this;
+	}
+
+	public CategoryOpal setActive(final boolean argActive) {
+		setActive(argActive ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -249,6 +273,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		lclTargetNewValues[3] = lclValues[3]; /* Sequence (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* CategoryGroupCode (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* AllowPronunciationGuideSuppression (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* Active (immutable) */
 
 		return;
 	}
@@ -311,6 +336,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("CategoryGroupCode = " + getCategoryGroupCode());
 		argOutput.println("AllowPronunciationGuideSuppression = " + isAllowPronunciationGuideSuppressionAsObject());
+		argOutput.println("Active = " + isActiveAsObject());
 	}
 
 	@Override
@@ -321,6 +347,7 @@ public final class CategoryOpal extends com.opal.UpdatableOpal<Category> {
 		argOutput.println("Sequence = " + getSequenceAsObject());
 		argOutput.println("CategoryGroupCode = " + getCategoryGroupCode());
 		argOutput.println("AllowPronunciationGuideSuppression = " + isAllowPronunciationGuideSuppressionAsObject());
+		argOutput.println("Active = " + isActiveAsObject());
 	}
 
 	private CategoryGroupOpal myOldCategoryGroupOpal;
