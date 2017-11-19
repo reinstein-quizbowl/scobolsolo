@@ -187,7 +187,9 @@ CREATE TABLE Player (
 	school_year_code nullable_code_t REFERENCES School_Year ON UPDATE CASCADE ON DELETE RESTRICT,
 	rank_within_school INTEGER CHECK (rank_within_school IS NULL OR rank_within_school > 0),
 	seed INTEGER CHECK (seed IS NULL OR seed > 0),
-	note note_t
+	note note_t,
+	initial_card_id card_id_t REFERENCES Card,
+	exhibition BOOLEAN NOT NULL DEFAULT FALSE
 );
 ALTER SEQUENCE player_id_seq RESTART WITH 1000;
 CREATE INDEX player_contact_idx ON Player(contact_id);
@@ -330,7 +332,8 @@ CREATE TABLE Category (
 	short_name short_name_t UNIQUE,
 	sequence sequence_t,
 	category_group_code code_t REFERENCES Category_Group ON UPDATE CASCADE ON DELETE RESTRICT,
-	allow_pronunciation_guide_suppression BOOLEAN NOT NULL DEFAULT TRUE
+	allow_pronunciation_guide_suppression BOOLEAN NOT NULL DEFAULT TRUE,
+	active BOOLEAN NOT NULL DEFAULT TRUE
 );
 CREATE INDEX category_categorygroup_idx ON Category(category_group_code);
 
