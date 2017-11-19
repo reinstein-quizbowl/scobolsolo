@@ -1,4 +1,5 @@
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.Utility" %>
@@ -12,17 +13,28 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Your request produced an internal error. Please try again. If the error persists, please notify <%= Utility.getAdminContact() %>.</p><%
-		Account lclA = Account.determineCurrent(request);
-		boolean lclShouldSeeStackTrace = lclA != null;
+		<p>There was an internal problem. If you were doing something that clearly should have been possible, please notify <%= Utility.getAdminContact() %> with the details of what you were trying to do.</p><%
+		Account lclUser = Account.determineCurrent(request);
 		
 		Throwable lclT = (Throwable) request.getAttribute("javax.servlet.error.exception");
-		if (lclShouldSeeStackTrace && lclT != null) {
-			%><p>In your email, please include the following:</p>
+		if (lclT != null) {
+			final String lclReferer = request.getHeader("referer");
+			final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(ObjectUtils.firstNonNull(lclReferer, "Website exception"));
 			
-			<pre><%
-			lclT.printStackTrace(new PrintWriter(out));
-			%></pre><%
+			StringBuilder lclMessage = new StringBuilder("Exception when accessing ").append(lclReferer).append('\n')
+				.append("User: ").append(lclUser == null ? "[none]" : lclUser.getContact().getName() + " (" + lclUser.getUsername() + ")");
+				// TODO: We could add more information, like session data, query string, etc.
+			
+			ourLogger.error(lclMessage.toString(), lclT);
+			
+			boolean lclShouldSeeStackTrace = lclUser != null;
+			if (lclShouldSeeStackTrace) {
+				%><p>In your email, please include the following:</p>
+				
+				<pre><%
+				lclT.printStackTrace(new PrintWriter(out));
+				%></pre><%
+			}
 		}
 	%></div>
 </div>
