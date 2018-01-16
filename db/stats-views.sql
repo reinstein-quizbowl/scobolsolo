@@ -26,7 +26,7 @@ CREATE OR REPLACE VIEW Player_Category_Point_v AS
 SELECT
 	PH.tournament_code,
 	PY.id AS player_id,
-	C.code AS category_code,
+	PL.category_code,
 	COUNT(R.*) AS tossups_heard,
 	SUM(RT.points) AS points,
 	AVG(CASE WHEN R.response_type_code='CORRECT' THEN 1.0 * R.location / D.text_length ELSE NULL END) AS average_correct_buzz_depth
@@ -38,15 +38,12 @@ FROM Response_v R
 	JOIN Round RD ON M.round_id = RD.id
 	JOIN Phase PH ON RD.phase_id = PH.id
 	JOIN Response_Type RT ON R.response_type_code = RT.code
-	JOIN Placement PL ON R.actual_placement_id = PL.id
-	JOIN Question Q on PL.question_id = Q.id
-	JOIN Current_Diff CD ON CD.question_id = Q.id
-	JOIN Category C ON CD.category_code = C.code
+	LEFT OUTER JOIN Placement PL ON R.actual_placement_id = PL.id
 	LEFT OUTER JOIN Diff D ON R.diff_id = D.id
 WHERE
 	PL.tiebreaker = FALSE AND
 	PY.exhibition = FALSE
-GROUP BY PH.tournament_code, PY.id, C.code;
+GROUP BY PH.tournament_code, PY.id, PL.category_code;
 GRANT SELECT ON Player_Category_Point_v TO scobolsolo;
 
 
@@ -75,7 +72,7 @@ GRANT SELECT ON Placement_Conversion_v TO scobolsolo;
 CREATE OR REPLACE VIEW Category_Conversion_v AS
 SELECT
 	PH.tournament_code,
-	D.category_code,
+	PL.category_code,
 	R.response_type_code,
 	COUNT(*) AS response_type_count,
 	AVG(1.0 * R.location / D.text_length) AS average_buzz_depth
@@ -87,10 +84,10 @@ FROM Placement PL
 	JOIN Match M ON G.id = M.id
 	JOIN Round RD ON M.round_id = RD.id
 	JOIN Phase PH ON RD.phase_id = PH.id
-	JOIN Question Q ON PL.question_id = Q.id
+	LEFT OUTER JOIN Question Q ON PL.question_id = Q.id
 	LEFT OUTER JOIN Diff D ON R.diff_id = D.id
 WHERE PY.exhibition = FALSE
-GROUP BY PH.tournament_code, D.category_code, R.response_type_code;
+GROUP BY PH.tournament_code, PL.category_code, R.response_type_code;
 GRANT SELECT ON Category_Conversion_v TO scobolsolo;
 
 CREATE OR REPLACE VIEW Player_Match_v AS
@@ -102,14 +99,20 @@ SELECT
 	Popp.player_id AS opponent_player_id,
 	Popp.id AS opponent_performance_id,
 	M.id AS match_id,
-	G.id AS game_id
+	G.id AS game_id,
+	COALESCE(SUM(RT.points), 0) AS score,
+	AVG(CASE WHEN R.response_type_code='CORRECT' THEN 1.0 * R.location / LENGTH(D.text) ELSE NULL END) AS average_correct_buzz_depth
 FROM Performance Pthis
 	JOIN Player P ON Pthis.player_id = P.id
 	JOIN Match M ON Pthis.game_id = M.id
 	JOIN Game G ON M.id = G.id
 	JOIN Performance Popp ON Popp.game_id = Pthis.game_id AND Popp.id <> Pthis.id
 	JOIN Round RD ON M.round_id = RD.id
-	JOIN Phase PH ON RD.phase_id = PH.id;
+	JOIN Phase PH ON RD.phase_id = PH.id
+	LEFT OUTER JOIN Response R ON R.performance_id = Pthis.id
+	LEFT OUTER JOIN Response_Type RT ON R.response_type_code = RT.code
+	LEFT OUTER JOIN Diff D ON R.diff_id = D.id
+GROUP BY PH.tournament_code, Pthis.player_id, P.school_registration_id, Pthis.id, Popp.player_id, Popp.id, M.id, G.id;
 GRANT SELECT ON Player_Match_v TO scobolsolo;
 
 CREATE OR REPLACE VIEW Game_v AS
@@ -124,28 +127,19 @@ SELECT
 	G.incoming_winning_card_player_id, G.incoming_losing_card_player_id,
 	G.outgoing_winning_card_player_id AS winner_player_id, G.outgoing_losing_card_player_id AS loser_player_id,
 	Pwin.id AS winner_performance_id, Plose.id AS loser_performance_id,
-	SUM(RTwin.points) AS winner_score, SUM(RTlose.points) AS loser_score,
-	AVG(CASE WHEN Rwin.response_type_code='CORRECT' THEN 1.0 * Rwin.location / LENGTH(Dwin.text) ELSE NULL END) AS winner_average_correct_buzz_depth,
-	AVG(CASE WHEN Rlose.response_type_code='CORRECT' THEN 1.0 * Rlose.location / LENGTH(Dlose.text) ELSE NULL END) AS loser_average_correct_buzz_depth
+	PMVwin.score AS winner_score, PMVlose.score AS loser_score,
+	PMVwin.average_correct_buzz_depth AS winner_average_correct_buzz_depth, PMVlose.average_correct_buzz_depth AS loser_average_correct_buzz_depth
 FROM Match M
 	JOIN Game G ON M.id = G.id
 	JOIN Round RD ON M.round_id = RD.id
 	JOIN Phase PH ON RD.phase_id = PH.id
 	JOIN Performance Pwin ON Pwin.game_id = G.id AND Pwin.player_id = G.outgoing_winning_card_player_id
 	JOIN Performance Plose ON Plose.game_id = G.id AND Plose.player_id = G.outgoing_losing_card_player_id
-	LEFT OUTER JOIN Response_v Rwin ON Pwin.id = Rwin.performance_id
-	LEFT OUTER JOIN Response_Type RTwin ON Rwin.response_type_code = RTwin.code
-	LEFT OUTER JOIN Diff Dwin ON Rwin.diff_id = Dwin.id
-	LEFT OUTER JOIN Response_v Rlose ON Plose.id = Rlose.performance_id
-	LEFT OUTER JOIN Response_Type RTlose ON Rlose.response_type_code = RTlose.code
-	LEFT OUTER JOIN Diff Dlose ON Rlose.diff_id = Dlose.id
+	LEFT OUTER JOIN Player_Match_V PMVwin ON PMVwin.performance_id = Pwin.id
+	LEFT OUTER JOIN Player_Match_V PMVlose ON PMVlose.performance_id = Plose.id
 WHERE
-	(Rlose.actual_placement_id IS NULL OR Rwin.actual_placement_id = Rlose.actual_placement_id) AND ( -- This is to avoid dealing with the full cross-product of (winner responses x loser responses), which would result in each score being multiplied by TUH.  The former condition is to account for phantoms not getting responses recorded.
-		(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL)
-		OR
-		PH.card_system = FALSE
-	)
-GROUP BY PH.tournament_code, G.id, M.round_id, M.room_id, M.winning_card_id, M.losing_card_id, G.moderator_staff_id, G.scorekeeper_staff_id, G.tossups_heard, G.incoming_winning_card_player_id, G.incoming_losing_card_player_id, G.outgoing_winning_card_player_id, G.outgoing_losing_card_player_id, Pwin.id, Plose.id;
+	(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL) OR
+	PH.card_system = FALSE
 GRANT SELECT ON Game_v TO scobolsolo;
 
 CREATE OR REPLACE VIEW Player_Record_v AS

@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.stream.Collectors" %>
+<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.Table" %>
 <%@ page import="com.google.common.collect.ArrayTable" %>
@@ -68,7 +69,9 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 				
 				Table<Category, ResponseType, Integer> lclTable = ArrayTable.create(lclCategories, lclRTs);
 				for (CategoryConversionV lclCCV : lclCCVs) {
-					lclTable.put(lclCCV.getCategory(), lclCCV.getResponseType(), lclCCV.getResponseTypeCountAsObject());
+					if (lclTable.containsRow(lclCCV.getCategory())) {
+						lclTable.put(lclCCV.getCategory(), lclCCV.getResponseType(), lclCCV.getResponseTypeCountAsObject());
+					}
 				}
 				
 				Tally<ResponseType> lclRTTally = new Tally<>();
@@ -86,11 +89,9 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 									lclHeard += lclResponseCount.intValue();
 								}
 								
-								for (int lclI = 1; lclI <= lclResponseCount.intValue(); ++lclI) {
-									lclRTTally.tally(lclRT);
-								}
+								lclRTTally.tally(lclRT, lclResponseCount);
 							}
-							%><td class="number"><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
+							%><td class="number"><%= ObjectUtils.firstNonNull(lclResponseCount, "0") %></td><%
 						}
 						%><td class="number"><%
 							if (lclHeard > 0) {
@@ -104,7 +105,8 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 			%></tbody>
 			<tfoot>
 				<tr>
-					<th colspan="2">Total</th><%
+					<th>Total</th>
+					<th>&nbsp;</th><%
 					int lclPoints = 0, lclHeard = 0;
 					for (ResponseType lclRT : lclRTs) {
 						int lclCount = lclRTTally.get(lclRT);

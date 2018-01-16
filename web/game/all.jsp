@@ -19,7 +19,7 @@
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <%
-Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
+Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")), "Null tournament");
 Account lclUser = Account.demand(request);
 %>
 
@@ -61,7 +61,7 @@ Account lclUser = Account.demand(request);
 							MatchStatus lclS = lclM.determineStatus();
 							%><%= lclS %><%
 							if (lclS.hasResults() && lclM.isDual()) {
-								Validate.notNull(lclG); // should be implied by lclS.hasResults()
+								Validate.notNull(lclG, "Null game"); // should be implied by lclS.hasResults()
 								%> (<%= lclG.getScoreHTMLWithWinner(Player::getName) %>)<%
 							}
 							if (lclShowLink) {

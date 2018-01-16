@@ -30,6 +30,8 @@ public interface Game extends GameUserFacing {
 	default Tally<Performance> getScores() {
 		final Tally<Performance> lclTally = new Tally<>();
 		for (Performance lclPerf : getPerformanceSet()) {
+			lclTally.tally(lclPerf, 0); // Make sure there's an entry for every player, even if they didn't score any points
+			
 			for (Response lclR : lclPerf.getResponseSet()) {
 				lclTally.tally(lclPerf, lclR.getResponseType().getPoints());
 			}
@@ -103,9 +105,12 @@ public interface Game extends GameUserFacing {
 		
 		final Tally<Performance> lclScores = getScores();
 		Performance lclBest = null;
-		for (Performance lclPerf : lclScores.keyList()) {
-			if (lclBest == null || lclScores.get(lclPerf) > lclScores.get(lclBest)) {
+		int lclBestScore = Integer.MIN_VALUE;
+		for (Performance lclPerf : lclScores.keySet()) {
+			int lclScore = lclScores.get(lclPerf);
+			if (lclBest == null || lclScore > lclBestScore) {
 				lclBest = lclPerf;
+				lclBestScore = lclScore;
 			}
 		}
 		return lclBest; // may still be null, if there are no performances
@@ -118,9 +123,12 @@ public interface Game extends GameUserFacing {
 		
 		final Tally<Performance> lclScores = getScores();
 		Performance lclWorst = null;
-		for (Performance lclPerf : lclScores.keyList()) {
-			if (lclWorst == null || lclScores.get(lclPerf) < lclScores.get(lclWorst)) {
+		int lclWorstScore = Integer.MAX_VALUE;
+		for (Performance lclPerf : lclScores.keySet()) {
+			int lclScore = lclScores.get(lclPerf);
+			if (lclWorst == null || lclScore < lclWorstScore) {
 				lclWorst = lclPerf;
+				lclWorstScore = lclScore;
 			}
 		}
 		return lclWorst; // may still be null, if there are no performances

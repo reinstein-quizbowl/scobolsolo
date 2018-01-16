@@ -43,11 +43,15 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				%><p>This tournament hasn't started yet.</p><%
 			}
 		} else {
+			boolean lclShowYears = lclPRVs.stream()
+				.map(PlayerRecordV::getPlayer)
+				.anyMatch(argP -> argP.getSchoolYear() != null);
+			
 			%><table data-fixed-columns="1">
 				<thead>
 					<tr>
 						<th>Player</th>
-						<th>Year</th>
+						<%= lclShowYears ? "<th>Year</th>" : "" %>
 						<th>School</th>
 						<th class="number">Record</th>
 						<th class="number">Points</th>
@@ -65,9 +69,11 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 						SchoolRegistration lclSR = lclP.getSchoolRegistration();
 						
 						%><tr>
-							<th data-order="<%= lclP.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></th>
-							<td><%= lclP.getSchoolYear() == null ? "&nbsp;" : lclP.getSchoolYear().getVeryShortName() %></td>
-							<td data-order="<%= lclSR.getSchool().getName() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></td>
+							<th data-order="<%= lclP.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></th><%
+							if (lclShowYears) {
+								%><td><%= lclP.getSchoolYear() == null ? "&nbsp;" : lclP.getSchoolYear().getVeryShortName() %></td><%
+							}
+							%><td data-order="<%= lclSR.getSchool().getName() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></td>
 							<td class="number" data-order="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
 							<td class="number"><%= lclPRV.getPoints(0) %></td>
 							<td class="number"><%= lclPRV.getTossupsHeard(0) %></td>
