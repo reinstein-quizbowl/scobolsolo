@@ -776,12 +776,6 @@
 						The two remaining players with the lowest scores were to be eliminated. Ben Cohen was therefore eliminated. As Tony Cao and Joe Ahmad were tied, a tiebreaker was held to determine which would remain in the game. The first tiebreaker (Amy Lowell) went dead. Joe answered the second one (Laoco&ouml;n) correctly, so Ben was eliminated and Joe continued.
 					</td>
 				</tr>
-				<tr class="note">
-					<th>&nbsp;</th>
-					<td colspan="10" class="note">
-						The two players with the lowest scores were eliminated: Tony Cao and Ben Cohen.
-					</td>
-				</tr>
 				<tr>
 					<th class="question-number">51</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Calvin -->
