@@ -114,13 +114,9 @@ if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
 	
 	%><div class="row">
 		<h2 id="account">Account</h2>
-		<%= lclAOF.open() %><%
-		if (lclAOF.hasErrors()) {
-			%><p>Error:</p><%
-			%><%= lclAOF.errors() %><%
-		}
+		<%= lclAOF.open() %>
 		
-		%><div class="small-12 medium-4 columns">
+		<div class="small-12 medium-4 columns">
 			<label>
 				Username<%
 				if (lclAOF.isNew()) {
