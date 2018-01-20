@@ -34,7 +34,7 @@ Tournament lclT = lclOF.getUserFacing();
 			%><div class="form-errors"><%= lclOF.errors() %></div><%
 		}
 
-		%><table data-fixed-columns="1">
+		%><table>
 			<thead>
 				<tr>
 					<th>Name</th>
