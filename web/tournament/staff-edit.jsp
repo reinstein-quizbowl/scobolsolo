@@ -39,7 +39,7 @@ String lclTitle = lclC.getName() + " staffing " + lclT.getName();
 if (lclOF.hasErrors()) {
 	%><div class="row">
 		<p class="form-error-intro">Error:</p>
-		<div class="form-errors"><%= lclOF.errors() %></div>
+		<div class="form-errors"><%= lclOF.displayResultOrErrors() %></div>
 	</div><%
 }
 

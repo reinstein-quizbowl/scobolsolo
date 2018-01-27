@@ -31,7 +31,7 @@ Tournament lclT = lclOF.getUserFacing();
 		<%= lclOF.open() %><%
 		if (lclOF.hasErrors()) {
 			%><p class="form-error-intro">Error:</p><%
-			%><div class="form-errors"><%= lclOF.errors() %></div><%
+			%><div class="form-errors"><%= lclOF.displayResultOrErrors() %></div><%
 		}
 
 		%><table>

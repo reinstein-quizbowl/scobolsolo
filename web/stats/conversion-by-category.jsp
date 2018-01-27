@@ -91,7 +91,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 								
 								lclRTTally.tally(lclRT, lclResponseCount);
 							}
-							%><td class="number"><%= ObjectUtils.firstNonNull(lclResponseCount, "0") %></td><%
+							%><td class="number"><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
 						}
 						%><td class="number"><%
 							if (lclHeard > 0) {

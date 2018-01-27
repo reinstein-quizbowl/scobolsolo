@@ -41,7 +41,7 @@ if (lclOF.hasErrors()) {
 	%><div class="row">
 		<div class="small-12 columns">
 			<p class="form-error-intro">Error:</p>
-			<div class="form-errors"><%= lclOF.errors() %></div>
+			<div class="form-errors"><%= lclOF.displayResultOrErrors() %></div>
 		</div>
 	</div><%
 }
