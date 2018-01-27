@@ -56,6 +56,7 @@ public class CategoryFactory extends com.opal.AbstractIdentityFactory<Category, 
 	public static final Category RELIGION_MYTHOLOGY() { return getInstance().forCode("RELIGION_MYTHOLOGY"); }
 	public static final Category SOCIAL_SCIENCE_PHILOSOPHY() { return getInstance().forCode("SOCIAL_SCIENCE_PHILOSOPHY"); }
 	public static final Category TBD() { return getInstance().forCode("TBD"); }
+	public static final Category UNKNOWN() { return getInstance().forCode("UNKNOWN"); }
 	public static final Category US_HISTORY() { return getInstance().forCode("US_HISTORY"); }
 	public static final Category US_LITERATURE() { return getInstance().forCode("US_LITERATURE"); }
 	public static final Category VOCABULARY() { return getInstance().forCode("VOCABULARY"); }
