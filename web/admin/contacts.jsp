@@ -30,6 +30,7 @@
 					<th>Email&nbsp;address</th>
 					<th>Advance&nbsp;phone</th>
 					<th>Day&#8209;of&nbsp;phone</th>
+					<th>Active?</th>
 					<th>Roles</th>
 				</tr>
 			</thead>
@@ -37,10 +38,9 @@
 				<tr>
 					<td colspan="5"><a href="contact-edit.jsp">Create</a></td>
 				</tr><%
-				List<Contact> lclCs = ContactFactory.getInstance().acquireForQuery(
-					new ArrayList<>(),
-					new ImplicitTableDatabaseQuery("active = true")
-				);
+				List<Contact> lclCs = new ArrayList<>(ContactFactory.getInstance().getAll());
+				lclCs.sort(null);
+				
 				for (Contact lclC : lclCs) {
 					%><tr>
 						<td><a href="contact-edit.jsp?contact_id=<%= lclC.getId() %>"><%= lclC.getName() %></a></td>
@@ -53,6 +53,7 @@
 						%></td>
 						<td><%= lclC.getAdvancePhone("none") %></td>
 						<td><%= lclC.getDayOfPhone("none") %></td>
+						<td><%= lclC.isActive() ? "&#10003;" : "&nbsp;" %></td>
 						<td><%
 							Account lclA = lclC.getAccount();
 							if (lclA != null) {
