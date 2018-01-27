@@ -189,7 +189,8 @@ CREATE TABLE Player (
 	seed INTEGER CHECK (seed IS NULL OR seed > 0),
 	note note_t,
 	initial_card_id INTEGER REFERENCES Card ON UPDATE CASCADE ON DELETE RESTRICT,
-	exhibition BOOLEAN NOT NULL DEFAULT FALSE
+	exhibition BOOLEAN NOT NULL DEFAULT FALSE,
+	UNIQUE(contact_id, school_registration_id)
 );
 ALTER SEQUENCE player_id_seq RESTART WITH 1000;
 CREATE INDEX player_contact_idx ON Player(contact_id);
