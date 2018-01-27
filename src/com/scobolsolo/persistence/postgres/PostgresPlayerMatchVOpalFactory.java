@@ -24,6 +24,8 @@ public class PostgresPlayerMatchVOpalFactory extends com.opal.AbstractDatabaseEp
 		"opponent_performance_id", 
 		"match_id", 
 		"game_id", 
+		"score", 
+		"average_correct_buzz_depth", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }

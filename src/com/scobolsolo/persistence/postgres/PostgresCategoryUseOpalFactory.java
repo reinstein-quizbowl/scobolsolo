@@ -129,14 +129,10 @@ public class PostgresCategoryUseOpalFactory extends com.opal.AbstractDatabaseIde
 		synchronized (lclOC) {
 			OpalKey<CategoryUseOpal> lclOldKey = null;
 			OpalKey<CategoryUseOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]) && lclNewValues[1].equals(lclOldValues[1]))) {
 					lclNewKey = new CategoryCodeTournamentCodeOpalKey((java.lang.String) lclNewValues[0], (java.lang.String) lclNewValues[1]);
-					if (true) {
 						lclOldKey = new CategoryCodeTournamentCodeOpalKey((java.lang.String) lclOldValues[0], (java.lang.String) lclOldValues[1]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

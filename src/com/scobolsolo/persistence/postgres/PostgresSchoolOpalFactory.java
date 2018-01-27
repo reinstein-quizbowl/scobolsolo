@@ -152,44 +152,28 @@ public class PostgresSchoolOpalFactory extends com.opal.AbstractDatabaseIdentity
 		synchronized (lclOC) {
 			OpalKey<SchoolOpal> lclOldKey = null;
 			OpalKey<SchoolOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[1].equals(lclOldValues[1]))) {
 					lclNewKey = new NameOpalKey((java.lang.String) lclNewValues[1]);
-					if (true) {
 						lclOldKey = new NameOpalKey((java.lang.String) lclOldValues[1]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[2].equals(lclOldValues[2]))) {
 					lclNewKey = new ShortNameOpalKey((java.lang.String) lclNewValues[2]);
-					if (true) {
 						lclOldKey = new ShortNameOpalKey((java.lang.String) lclOldValues[2]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[3].equals(lclOldValues[3]))) {
 					lclNewKey = new VeryShortNameOpalKey((java.lang.String) lclNewValues[3]);
-					if (true) {
 						lclOldKey = new VeryShortNameOpalKey((java.lang.String) lclOldValues[3]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

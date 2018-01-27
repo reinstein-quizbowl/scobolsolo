@@ -148,14 +148,10 @@ public class PostgresRoundOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		synchronized (lclOC) {
 			OpalKey<RoundOpal> lclOldKey = null;
 			OpalKey<RoundOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

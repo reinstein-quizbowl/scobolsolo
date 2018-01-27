@@ -159,48 +159,28 @@ public class PostgresPacketOpalFactory extends com.opal.AbstractDatabaseIdentity
 		synchronized (lclOC) {
 			OpalKey<PacketOpal> lclOldKey = null;
 			OpalKey<PacketOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[5].equals(lclOldValues[5]) && lclNewValues[1].equals(lclOldValues[1]))) {
 					lclNewKey = new TournamentCodeNameOpalKey((java.lang.String) lclNewValues[5], (java.lang.String) lclNewValues[1]);
-					if (true) {
 						lclOldKey = new TournamentCodeNameOpalKey((java.lang.String) lclOldValues[5], (java.lang.String) lclOldValues[1]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true && lclNewValues[3] != null) {
-				if (!(lclNewValues[3].equals(lclOldValues[3]))) {
+				if (!(((lclNewValues[3] != null) ? (lclNewValues[3].equals(lclOldValues[3])) : (lclOldValues[3] == null)))) {
 					lclNewKey = new RoundIdOpalKey((java.lang.Integer) lclNewValues[3]);
-					if (true && lclOldValues[3] != null) {
 						lclOldKey = new RoundIdOpalKey((java.lang.Integer) lclOldValues[3]);
-					}
 				}
-			} else {
-				if (true && lclOldValues[3] != null) {
-					lclOldKey = new RoundIdOpalKey((java.lang.Integer) lclOldValues[3]);
-				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[5].equals(lclOldValues[5]) && lclNewValues[2].equals(lclOldValues[2]))) {
 					lclNewKey = new TournamentCodeShortNameOpalKey((java.lang.String) lclNewValues[5], (java.lang.String) lclNewValues[2]);
-					if (true) {
 						lclOldKey = new TournamentCodeShortNameOpalKey((java.lang.String) lclOldValues[5], (java.lang.String) lclOldValues[2]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

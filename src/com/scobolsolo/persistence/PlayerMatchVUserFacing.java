@@ -445,6 +445,124 @@ public interface PlayerMatchVUserFacing extends com.opal.UserFacing {
 	}
 
 	/**
+	 * object accessor for the {@code Score}
+	 *
+	 * <p>The {@code Score} field is a direct mapping of the {@code score} field in {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getScore() method.</p>
+	 *
+	 * @return an object value of {@code Score} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = false)
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Long getScoreAsObject();
+
+	/**
+	 * object accessor for the {@code Score} with substitution for a null value
+	 *
+	 * <p>The {@code Score} field is a direct mapping of the {@code score} database column in the table {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code Score} is {@code null}.
+	 * @return an object value of {@code Score} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getScoreAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Long lclO = getScoreAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code Score}
+	 *
+	 * <p>The {@code Score} field is a direct mapping of the {@code score} database column in the table {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getScoreAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code Score} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public long getScore() throws com.opal.NullValueException {
+		java.lang.Long lclO = getScoreAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.longValue();
+	}
+
+	default public long getScore(long argStringToSubstituteIfNull) {
+		java.lang.Long lclO = getScoreAsObject();
+		return lclO != null ? lclO.longValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getScore(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Long lclO = getScoreAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * object accessor for the {@code AverageCorrectBuzzDepth}
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepth} field is a direct mapping of the {@code average_correct_buzz_depth} field in {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getAverageCorrectBuzzDepth() method.</p>
+	 *
+	 * @return an object value of {@code AverageCorrectBuzzDepth} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = false)
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getAverageCorrectBuzzDepthAsObject();
+
+	/**
+	 * object accessor for the {@code AverageCorrectBuzzDepth} with substitution for a null value
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepth} field is a direct mapping of the {@code average_correct_buzz_depth} database column in the table {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code AverageCorrectBuzzDepth} is {@code null}.
+	 * @return an object value of {@code AverageCorrectBuzzDepth} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getAverageCorrectBuzzDepthAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getAverageCorrectBuzzDepthAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code AverageCorrectBuzzDepth}
+	 *
+	 * <p>The {@code AverageCorrectBuzzDepth} field is a direct mapping of the {@code average_correct_buzz_depth} database column in the table {@code player_match_v}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getAverageCorrectBuzzDepthAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code AverageCorrectBuzzDepth} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getAverageCorrectBuzzDepth() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getAverageCorrectBuzzDepthAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getAverageCorrectBuzzDepth(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getAverageCorrectBuzzDepthAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getAverageCorrectBuzzDepth(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getAverageCorrectBuzzDepthAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Game}
 	 * The returned {@code com.scobolsolo.application.Game} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code game} that is referenced by {@code UNNAMED_INFERRED_KEY}.
 	 *

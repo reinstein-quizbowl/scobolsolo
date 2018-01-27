@@ -80,6 +80,20 @@ public class PlayerMatchVImpl extends com.opal.AbstractImpl<com.scobolsolo.appli
 		return getPlayerMatchVOpal().getGameIdAsObject();
 	}
 
+	@com.opal.annotation.Updatability(updatable = false)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Long getScoreAsObject() {
+		return getPlayerMatchVOpal().getScoreAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = false)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Integer getAverageCorrectBuzzDepthAsObject() {
+		return getPlayerMatchVOpal().getAverageCorrectBuzzDepthAsObject();
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

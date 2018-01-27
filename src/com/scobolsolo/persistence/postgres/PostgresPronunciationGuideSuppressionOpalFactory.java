@@ -145,24 +145,16 @@ public class PostgresPronunciationGuideSuppressionOpalFactory extends com.opal.A
 		synchronized (lclOC) {
 			OpalKey<PronunciationGuideSuppressionOpal> lclOldKey = null;
 			OpalKey<PronunciationGuideSuppressionOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[2].equals(lclOldValues[2]))) {
 					lclNewKey = new AccountIdCategoryCodeOpalKey((java.lang.Integer) lclNewValues[1], (java.lang.String) lclNewValues[2]);
-					if (true) {
 						lclOldKey = new AccountIdCategoryCodeOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.String) lclOldValues[2]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

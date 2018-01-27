@@ -157,48 +157,28 @@ public class PostgresCardOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		synchronized (lclOC) {
 			OpalKey<CardOpal> lclOldKey = null;
 			OpalKey<CardOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[5].equals(lclOldValues[5]))) {
 					lclNewKey = new NamePhaseIdOpalKey((java.lang.String) lclNewValues[1], (java.lang.Integer) lclNewValues[5]);
-					if (true) {
 						lclOldKey = new NamePhaseIdOpalKey((java.lang.String) lclOldValues[1], (java.lang.Integer) lclOldValues[5]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[2].equals(lclOldValues[2]) && lclNewValues[5].equals(lclOldValues[5]))) {
 					lclNewKey = new ShortNamePhaseIdOpalKey((java.lang.String) lclNewValues[2], (java.lang.Integer) lclNewValues[5]);
-					if (true) {
 						lclOldKey = new ShortNamePhaseIdOpalKey((java.lang.String) lclOldValues[2], (java.lang.Integer) lclOldValues[5]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true && lclNewValues[6] != null) {
-				if (!(lclNewValues[6].equals(lclOldValues[6]))) {
+				if (!(((lclNewValues[6] != null) ? (lclNewValues[6].equals(lclOldValues[6])) : (lclOldValues[6] == null)))) {
 					lclNewKey = new InitialPlayerIdOpalKey((java.lang.Integer) lclNewValues[6]);
-					if (true && lclOldValues[6] != null) {
 						lclOldKey = new InitialPlayerIdOpalKey((java.lang.Integer) lclOldValues[6]);
-					}
 				}
-			} else {
-				if (true && lclOldValues[6] != null) {
-					lclOldKey = new InitialPlayerIdOpalKey((java.lang.Integer) lclOldValues[6]);
-				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

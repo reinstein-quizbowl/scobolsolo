@@ -36,6 +36,8 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		"OpponentPerformanceId",
 		"MatchId",
 		"GameId",
+		"Score",
+		"AverageCorrectBuzzDepth",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -46,6 +48,8 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.Integer.class,
+		java.lang.Long.class,
 		java.lang.Integer.class,
 	};
 
@@ -58,9 +62,13 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		true,
 		true,
 		true,
+		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -123,6 +131,14 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		return (java.lang.Integer) getValues()[7];
 	}
 
+	public java.lang.Long getScoreAsObject() {
+		return (java.lang.Long) getValues()[8];
+	}
+
+	public java.lang.Integer getAverageCorrectBuzzDepthAsObject() {
+		return (java.lang.Integer) getValues()[9];
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewGameOpal = myOldGameOpal;
@@ -174,6 +190,8 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		argOutput.println("OpponentPerformanceId = " + getOpponentPerformanceIdAsObject());
 		argOutput.println("MatchId = " + getMatchIdAsObject());
 		argOutput.println("GameId = " + getGameIdAsObject());
+		argOutput.println("Score = " + getScoreAsObject());
+		argOutput.println("AverageCorrectBuzzDepth = " + getAverageCorrectBuzzDepthAsObject());
 	}
 
 	@Override
@@ -186,6 +204,8 @@ public final class PlayerMatchVOpal extends com.opal.EphemeralOpal<PlayerMatchV>
 		argOutput.println("OpponentPerformanceId = " + getOpponentPerformanceIdAsObject());
 		argOutput.println("MatchId = " + getMatchIdAsObject());
 		argOutput.println("GameId = " + getGameIdAsObject());
+		argOutput.println("Score = " + getScoreAsObject());
+		argOutput.println("AverageCorrectBuzzDepth = " + getAverageCorrectBuzzDepthAsObject());
 	}
 
 	private GameOpal myOldGameOpal;

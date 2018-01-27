@@ -153,28 +153,16 @@ public class PostgresPlacementOpalFactory extends com.opal.AbstractDatabaseIdent
 		synchronized (lclOC) {
 			OpalKey<PlacementOpal> lclOldKey = null;
 			OpalKey<PlacementOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true && lclNewValues[1] != null) {
-				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[2].equals(lclOldValues[2]))) {
+				if (!(((lclNewValues[1] != null) ? (lclNewValues[1].equals(lclOldValues[1])) : (lclOldValues[1] == null)) && lclNewValues[2].equals(lclOldValues[2]))) {
 					lclNewKey = new QuestionIdPacketIdOpalKey((java.lang.Integer) lclNewValues[1], (java.lang.Integer) lclNewValues[2]);
-					if (true && lclOldValues[1] != null) {
 						lclOldKey = new QuestionIdPacketIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]);
-					}
 				}
-			} else {
-				if (true && lclOldValues[1] != null) {
-					lclOldKey = new QuestionIdPacketIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[2]);
-				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

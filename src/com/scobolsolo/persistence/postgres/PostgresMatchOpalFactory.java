@@ -157,42 +157,22 @@ public class PostgresMatchOpalFactory extends com.opal.AbstractDatabaseIdentityO
 		synchronized (lclOC) {
 			OpalKey<MatchOpal> lclOldKey = null;
 			OpalKey<MatchOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true && lclNewValues[4] != null) {
-				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[4].equals(lclOldValues[4]))) {
+				if (!(lclNewValues[1].equals(lclOldValues[1]) && ((lclNewValues[4] != null) ? (lclNewValues[4].equals(lclOldValues[4])) : (lclOldValues[4] == null)))) {
 					lclNewKey = new RoundIdLosingCardIdOpalKey((java.lang.Integer) lclNewValues[1], (java.lang.Integer) lclNewValues[4]);
-					if (true && lclOldValues[4] != null) {
 						lclOldKey = new RoundIdLosingCardIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[4]);
-					}
 				}
-			} else {
-				if (true && lclOldValues[4] != null) {
-					lclOldKey = new RoundIdLosingCardIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[4]);
-				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true && lclNewValues[3] != null) {
-				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[3].equals(lclOldValues[3]))) {
+				if (!(lclNewValues[1].equals(lclOldValues[1]) && ((lclNewValues[3] != null) ? (lclNewValues[3].equals(lclOldValues[3])) : (lclOldValues[3] == null)))) {
 					lclNewKey = new RoundIdWinningCardIdOpalKey((java.lang.Integer) lclNewValues[1], (java.lang.Integer) lclNewValues[3]);
-					if (true && lclOldValues[3] != null) {
 						lclOldKey = new RoundIdWinningCardIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[3]);
-					}
 				}
-			} else {
-				if (true && lclOldValues[3] != null) {
-					lclOldKey = new RoundIdWinningCardIdOpalKey((java.lang.Integer) lclOldValues[1], (java.lang.Integer) lclOldValues[3]);
-				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}

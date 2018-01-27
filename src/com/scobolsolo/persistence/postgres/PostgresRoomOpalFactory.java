@@ -150,34 +150,22 @@ public class PostgresRoomOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		synchronized (lclOC) {
 			OpalKey<RoomOpal> lclOldKey = null;
 			OpalKey<RoomOpal> lclNewKey = null;
-			if (true) {
 				if (!(lclNewValues[1].equals(lclOldValues[1]) && lclNewValues[4].equals(lclOldValues[4]))) {
 					lclNewKey = new NameTournamentCodeOpalKey((java.lang.String) lclNewValues[1], (java.lang.String) lclNewValues[4]);
-					if (true) {
 						lclOldKey = new NameTournamentCodeOpalKey((java.lang.String) lclOldValues[1], (java.lang.String) lclOldValues[4]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[2].equals(lclOldValues[2]) && lclNewValues[4].equals(lclOldValues[4]))) {
 					lclNewKey = new ShortNameTournamentCodeOpalKey((java.lang.String) lclNewValues[2], (java.lang.String) lclNewValues[4]);
-					if (true) {
 						lclOldKey = new ShortNameTournamentCodeOpalKey((java.lang.String) lclOldValues[2], (java.lang.String) lclOldValues[4]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
-			if (true) {
 				if (!(lclNewValues[0].equals(lclOldValues[0]))) {
 					lclNewKey = new IdOpalKey((java.lang.Integer) lclNewValues[0]);
-					if (true) {
 						lclOldKey = new IdOpalKey((java.lang.Integer) lclOldValues[0]);
-					}
 				}
-			}
 			if (lclOldKey != null) { lclOC.removeOpal(lclOldKey); lclOldKey = null; }
 			if (lclNewKey != null) { lclOC.addOpal(lclNewKey, argOpal, true); lclNewKey = null; } /* true = SoftReference */
 		}
