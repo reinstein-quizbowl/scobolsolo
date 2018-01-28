@@ -5,6 +5,7 @@
 <%@ page import="com.scobolsolo.application.CategoryGroup" %>
 <%@ page import="com.scobolsolo.application.CategoryGroupFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.HTMLUtility" %>
 
 <%
 OpalMainForm<Category> lclOF = OpalForm.create(
@@ -73,6 +74,18 @@ if (lclOF.hasErrors()) {
 		<label>
 			Sequence
 			<%= lclOF.number("Sequence") %>
+		</label>
+	</div>
+	<div class="small-6 medium-3 columns">
+		<label>
+			Active?
+			<%= HTMLUtility.switchWidget(lclOF, "Active") %>
+		</label>
+	</div>
+	<div class="small-6 medium-3 columns end">
+		<label>
+			Allow PG Suppression?
+			<%= HTMLUtility.switchWidget(lclOF, "AllowPronunciationGuideSuppression") %>
 		</label>
 	</div>
 </div>
