@@ -26,9 +26,11 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 	
 	public static final Comparator<Match> ENTERING_PRIORITY_COMPARATOR = Comparator.comparing(Match::determineStatus).thenComparing(Match::getRound);
 	
+	public static final Comparator<Match> NATURAL_COMPARATOR = Comparator.comparing(Match::getRound).thenComparingInt(Match::getId);
+	
 	@Override
 	default public int compareTo(final Match that) {
-		return this.getRound().compareTo(that.getRound());
+		return NATURAL_COMPARATOR.compare(this, that);
 	}
 	
 	default MatchStatus determineStatus() {
