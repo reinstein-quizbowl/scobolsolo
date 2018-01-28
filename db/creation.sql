@@ -455,9 +455,10 @@ CREATE TABLE Response (
 	replacement_placement_id INTEGER REFERENCES Placement ON UPDATE CASCADE ON DELETE RESTRICT -- also implies the tournament; it would be nice to check against contradictions,
 	diff_id INTEGER REFERENCES Diff ON UPDATE CASCADE ON DELETE RESTRICT, -- implies the question_id, which is also implied by whichever placement_id is in use
 	location INTEGER CHECK(location IS NULL OR location >= 0) -- the 0-based index of the first character of the "word" on which the player buzzed
-	UNIQUE(performance_id, placement_id)
+	UNIQUE(performance_id, base_placement_id)
 );
 ALTER SEQUENCE response_id_seq RESTART WITH 1000;
+
 CREATE INDEX response_diff_idx ON Response(diff_id);
 CREATE INDEX response_performance_idx ON Response(performance_id);
 CREATE INDEX response_responsetype_idx ON Response(response_type_code);
