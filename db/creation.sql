@@ -458,7 +458,6 @@ CREATE TABLE Response (
 	UNIQUE(performance_id, base_placement_id)
 );
 ALTER SEQUENCE response_id_seq RESTART WITH 1000;
-
 CREATE INDEX response_diff_idx ON Response(diff_id);
 CREATE INDEX response_performance_idx ON Response(performance_id);
 CREATE INDEX response_responsetype_idx ON Response(response_type_code);
