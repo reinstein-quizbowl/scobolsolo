@@ -274,7 +274,7 @@ void appendQuestionData(StringBuilder argSB, Question argQ) {
 	if (lclLastChange == null) {
 		argSB.append("<td>&nbsp;</td>");
 	} else {
-		argSB.append("<td>").append(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(lclLastChange.getTimestamp())).append(" by ").append(lclLastChange.getEditor().getName()).append("</td>");
+		argSB.append("<td>").append(lclLastChange.getTimestamp() == null ? "&nbsp;" : DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(lclLastChange.getTimestamp())).append(" by ").append(lclLastChange.getEditor().getName()).append("</td>");
 	}
 }
 %>
