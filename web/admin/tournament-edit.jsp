@@ -109,6 +109,18 @@ if (lclOF.hasErrors()) {
 			<%= HTMLUtility.switchWidget(lclOF, "TiebreakerSuddenDeath") %>
 		</label>
 	</div>
+	<div class="small-12 medium-6 large-4 columns">
+		<label>
+			Questions complete?
+			<%= HTMLUtility.switchWidget(lclOF, "QuestionsComplete") %>
+		</label>
+	</div>
+	<div class="small-12 medium-6 large-4 columns">
+		<label>
+			Online stats?
+			<%= HTMLUtility.switchWidget(lclOF, "OnlineStats") %>
+		</label>
+	</div>
 </div>
 
 <div class="row">
