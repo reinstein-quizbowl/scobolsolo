@@ -9,11 +9,13 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo is a <a href="http://www.pace-nsc.org/what-is-quizbowl-a-primer-and-faq-for-newcomers/">quizbowl</a> tournament for individual players rather than teams as usual. David Reinstein of New Trier High School (Winnetka, Illinois) has run it since 2001.</p>
+		<p>Scobol Solo is a <a href="http://www.pace-nsc.org/what-is-quizbowl-a-primer-and-faq-for-newcomers/">quizbowl</a> tournament for individual players rather than teams as usual. <a href="https://www.qbwiki.com/wiki/David_Reinstein">David Reinstein</a> of New Trier High School (Winnetka, Illinois) has run it every fall since 2001.</p>
 		
 		<p>Results are available using the menu. Results from 2013 and earlier are, to varying extents, not quite complete, but the original data have been lost and we posted as much as we could.</p>
 		
 		<p>Information on the background of Scobol Solo and some inter-year records are on the <a href="https://www.qbwiki.com/wiki/Scobol_Solo">QBWiki</a>.</p>
+		
+		<p>David Reinstein writes most or all of the questions for Scobol Solo. Since 2009 <a href="https://www.qbwiki.com/wiki/Jonah_Greenthal">Jonah Greenthal</a> has edited the set, and in other years some other people have helped write and/or edit.</p>
 		
 		<p>The 2018 edition of Scobol Solo has not yet been scheduled.</p>
 	</div>
