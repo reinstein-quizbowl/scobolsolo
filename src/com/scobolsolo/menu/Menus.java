@@ -184,6 +184,10 @@ public final class Menus {
 							lclItems.add(new MenuPage("field", "Field", "/stats/field.jsp?object=" + argTourn.getUniqueString()));
 						}
 						
+						if (StringUtils.isNotBlank(argTourn.getUrl())) {
+							lclItems.add(new MenuPage("results", "Final Results", argTourn.getUrl()));
+						}
+						
 						lclItems.add(new MenuPage("standings", "Standings", "/stats/standings.jsp?object=" + argTourn.getUniqueString()));
 						
 						List<MenuPage> lclPointsByCategory = new ArrayList<>(argTourn.getCategoryUseSet().size() + 1);
@@ -211,7 +215,9 @@ public final class Menus {
 							}
 						}
 					} else {
-						lclItems.add(new MenuPage("results", "Results", argTourn.getUrl()));
+						if (StringUtils.isNotBlank(argTourn.getUrl())) {
+							lclItems.add(new MenuPage("results", "Results", argTourn.getUrl()));
+						}
 						
 						if (StringUtils.isNotBlank(argTourn.getQuestionDownloadUrl())) {
 							lclItems.add(new MenuPage("download-questions", "Download Questions", argTourn.getQuestionDownloadUrl()));
