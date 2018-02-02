@@ -51,7 +51,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 			%><h2 id="round_<%= lclR.getId() %>" data-magellan-target="round_<%= lclR.getId() %>"><%= lclR.getName() %></h2><%
 			Packet lclP = lclR.getPacket();
 			
-			if (lclP.isQuestionsPublic()) {
+			if (lclP != null && lclP.isQuestionsPublic()) {
 				%><table data-fixed-columns="2">
 					<thead>
 						<tr>
@@ -79,34 +79,36 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 						
 						for (Map.Entry<Placement, Map<ResponseType, Integer>> lclEntry : lclTable.rowMap().entrySet()) {
 							Placement lclPL = lclEntry.getKey();
-							Map<ResponseType, Integer> lclRTMap = lclEntry.getValue();
-							%><tr>
-								<th><%= lclPL.getNumber() %></th>
-								<th><%= lclPL.getQuestion().getDescription() %></th>
-								<th><%= lclPL.getQuestion().getCategory().getName() %></th><%
-								int lclPoints = 0, lclHeard = 0;
-								for (ResponseType lclRT : lclRTs) {
-									Integer lclResponseCount = lclRTMap.get(lclRT);
-									if (lclResponseCount != null) {
-										if (lclRT.isAttempt()) {
-											lclPoints += lclResponseCount.intValue() * lclRT.getPoints();
-											lclHeard += lclResponseCount.intValue();
+							if (lclPL.getQuestion() != null) {
+								Map<ResponseType, Integer> lclRTMap = lclEntry.getValue();
+								%><tr>
+									<th><%= lclPL.getNumber() %></th>
+									<th><%= lclPL.getQuestion().getDescription() %></th>
+									<th><%= lclPL.getCategory().getName() %></th><%
+									int lclPoints = 0, lclHeard = 0;
+									for (ResponseType lclRT : lclRTs) {
+										Integer lclResponseCount = lclRTMap.get(lclRT);
+										if (lclResponseCount != null) {
+											if (lclRT.isAttempt()) {
+												lclPoints += lclResponseCount.intValue() * lclRT.getPoints();
+												lclHeard += lclResponseCount.intValue();
+											}
+											
+											for (int lclI = 1; lclI <= lclResponseCount.intValue(); ++lclI) {
+												lclRTTally.tally(lclRT);
+											}
 										}
-										
-										for (int lclI = 1; lclI <= lclResponseCount.intValue(); ++lclI) {
-											lclRTTally.tally(lclRT);
+										%><td class="number"><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
+									}
+									%><td class="number"><%
+										if (lclHeard > 0) {
+											%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
+										} else {
+											%>-<%
 										}
-									}
-									%><td class="number"><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
-								}
-								%><td class="number"><%
-									if (lclHeard > 0) {
-										%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
-									} else {
-										%>-<%
-									}
-								%></td>
-							</tr><%
+									%></td>
+								</tr><%
+							}
 						}
 					%></tbody>
 					<tfoot>

@@ -43,9 +43,17 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				%><p>This tournament hasn't started yet.</p><%
 			}
 		} else {
-			boolean lclShowYears = lclPRVs.stream()
-				.map(PlayerRecordV::getPlayer)
-				.anyMatch(argP -> argP.getSchoolYear() != null);
+			boolean lclShowYears = false;
+			boolean lclShowCategoryDepth = false;
+			for (PlayerRecordV lclPRV : lclPRVs) {
+				if (lclPRV.getPlayer().getSchoolYear() != null) {
+					lclShowYears = true;
+				}
+				
+				if (lclPRV.getAverageCorrectBuzzDepth().isPresent()) {
+					lclShowCategoryDepth = true;
+				}
+			}
 			
 			%><table data-fixed-columns="1">
 				<thead>
@@ -56,9 +64,11 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 						<th class="number">Record</th>
 						<th class="number">Points</th>
 						<th class="number">Tossups Heard</th>
-						<th class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
-						<th class="number"><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th>
-					</tr>
+						<th class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th><%
+						if (lclShowCategoryDepth) {
+							%><th class="number"><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th><%
+						}
+					%></tr>
 				</thead>
 				<tbody><%
 					DecimalFormat lclDF = new DecimalFormat("0.00");
@@ -77,16 +87,18 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 							<td class="number" data-order="<%= lclDF.format(lclPRV.getWinningPercentage()) %>"><%= lclPRV.getWinCount(0) %>&ndash;<%= lclPRV.getLossCount(0) %></td>
 							<td class="number"><%= lclPRV.getPoints(0) %></td>
 							<td class="number"><%= lclPRV.getTossupsHeard(0) %></td>
-							<td class="number"><%= lclDF.format(20.0d * lclPRV.getPPTUH()) %></td>
-							<td class="number"><%
-								OptionalDouble lclACBD = lclPRV.getAverageCorrectBuzzDepth();
-								if (lclACBD.isPresent()) {
-									%><%= lclPF.format(lclACBD.getAsDouble()) %><%
-								} else {
-									%>n/a<%
-								}
-							%></td>
-						</tr><%
+							<td class="number"><%= lclDF.format(20.0d * lclPRV.getPPTUH()) %></td><%
+							if (lclShowCategoryDepth) {
+								%><td class="number"><%
+									OptionalDouble lclACBD = lclPRV.getAverageCorrectBuzzDepth();
+									if (lclACBD.isPresent()) {
+										%><%= lclPF.format(lclACBD.getAsDouble()) %><%
+									} else {
+										%>n/a<%
+									}
+								%></td><%
+							}
+						%></tr><%
 					}
 				%></tbody>
 			</table><%

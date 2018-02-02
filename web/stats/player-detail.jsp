@@ -48,6 +48,8 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 		
 		Map<Game, GameV> lclGameToGV = Maps.uniqueIndex(lclGVs, GameV::getGame);
 		
+		boolean lclShowCategoryDepth = lclGameToGV.values().stream().anyMatch(argGV -> argGV.getWinnerAverageCorrectBuzzDepthAsObject() != null && argGV.getLoserAverageCorrectBuzzDepthAsObject() != null);
+		
 		for (Player lclP : lclByPlayer.keySet()) {
 			%><section id="player_<%= lclP.getId() %>">
 				<h2>
@@ -65,12 +67,15 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 					<thead>
 						<tr>
 							<th style="width: 10%;">Round</th>
-							<th style="width: 40%;">Opponent</th>
+							<th style="width: 30%;">Opponent</th>
+							<th style="width: 10%;">Result</th>
 							<th style="width: 10%;" class="number">Score</th>
 							<th style="width: 10%;" class="number">Opp.&nbsp;Score</th>
-							<th style="width: 5%;" class="number"><abbr title="tossups heard">TUH</abbr></th>
-							<th style="width: 10%;" class="number"><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
-							<th style="width: 15%;" class="number"><abbr title="record after">Rec. After</abbr></th>
+							<th style="width: 5%;" class="number"><abbr title="tossups heard">TUH</abbr></th><%
+							if (lclShowCategoryDepth) {
+								%><th style="width: 10%;" class="number"><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th><%
+							}
+							%><th style="width: 15%;" class="number"><abbr title="record after">Rec. After</abbr></th>
 						</tr>
 					</thead>
 					<tbody><%
@@ -98,11 +103,14 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 								%><tr>
 									<th data-order="<%= lclM.getRound().getSequence() %>"><%= lclM.getRound().getShortName() %></th>
 									<th data-order="<%= lclOpponentPlayer.getContact().getSortBy() %>"><a href="player-detail.jsp?school_registration_id=<%= lclOpponentPlayer.getSchoolRegistration().getId() %>#player_<%= lclOpponentPlayer.getId() %>"><%= lclOpponentPlayer.getNameWithSchoolShortName() %></a></th>
+									<td data-order="<%= lclWon ? 0 : 1 %>"><a href="game.jsp?game_id=<%= lclGV.getGame().getId() %>"><%= lclWon ? "Win" : "Loss" %></a></td>
 									<td class="number"><%= lclWon ? lclGV.getWinnerScore(0) : lclGV.getLoserScore(0) %></td>
 									<td class="number"><%= lclWon ? lclGV.getLoserScore(0) : lclGV.getWinnerScore(0) %></td>
-									<td class="number"><%= lclGV.getTossupsHeard(0) %></td>
-									<td class="number"><%= lclCDepth == null ? "n/a" : lclPF.format(lclCDepth.doubleValue()) %></td>
-									<td class="number"><%= lclWins %>&ndash;<%= lclLosses %></td>
+									<td class="number"><%= lclGV.getTossupsHeard(0) %></td><%
+									if (lclShowCategoryDepth) {
+										%><td class="number"><%= lclCDepth == null ? "n/a" : lclPF.format(lclCDepth.doubleValue()) %></td><%
+									}
+									%><td class="number"><%= lclWins %>&ndash;<%= lclLosses %></td>
 								</tr><%
 							}
 						}

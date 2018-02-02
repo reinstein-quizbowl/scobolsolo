@@ -48,6 +48,9 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 			%><p>No results available</p><%
 		} else {
 			lclResults.sort(PlayerCategoryPointV.PPTUH_COMPARATOR);
+			
+			boolean lclShowCategoryDepth = lclResults.stream().anyMatch(argR -> argR.getAverageCorrectBuzzDepthAsObject() != null);
+			
 			%><table data-fixed-columns="2">
 				<thead>
 					<tr>
@@ -56,9 +59,11 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 						<th>Year</th>
 						<th>School</th>
 						<th class="number"><abbr title="tossups heard">TUH</abbr></th>
-						<th class="number"><abbr title="points per tossup heard">PPTUH</abbr></th>
-						<th class="number"><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th>
-					</tr>
+						<th class="number"><abbr title="points per tossup heard">PPTUH</abbr></th><%
+						if (lclShowCategoryDepth) {
+							%><th class="number"><abbr title="average distance into questions of correct buzzes">CDepth</abbr></th><%
+						}
+					%></tr>
 				</thead>
 				<tbody><%
 					for (PlayerCategoryPointV lclPCPV : lclResults) {
@@ -71,16 +76,18 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 							<td><%= lclPlayer.getSchoolYear() == null ? "&nbsp;" : lclPlayer.getSchoolYear().getVeryShortName() %></td>
 							<td data-order="<%= lclSchool.getShortName() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclPlayer.getSchoolRegistration().getId() %>#school_<%= lclPlayer.getSchoolRegistration().getSchool().getId() %>" title="<%= lclSchool.getExplainedName() %>"><%= lclSchool.getShortName() %></a></td>
 							<td class="number"><%= lclPCPV.getTossupsHeard(0) %></td>
-							<td class="number"><%= lclDF.format(lclPCPV.getPPTUH()) %></td>
-							<td class="number"><%
-								Double lclACBD = lclPCPV.getAverageCorrectBuzzDepthAsObject();
-								if (lclACBD == null) {
-									%>n/a<%
-								} else {
-									%><%= lclPF.format(lclACBD.doubleValue()) %><%
-								}
-							%></td>
-						</tr><%
+							<td class="number"><%= lclDF.format(lclPCPV.getPPTUH()) %></td><%
+							if (lclShowCategoryDepth) {
+								%><td class="number"><%
+									Double lclACBD = lclPCPV.getAverageCorrectBuzzDepthAsObject();
+									if (lclACBD == null) {
+										%>n/a<%
+									} else {
+										%><%= lclPF.format(lclACBD.doubleValue()) %><%
+									}
+								%></td><%
+							}
+						%></tr><%
 					}
 				%></tbody>
 			</table><%
