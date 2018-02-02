@@ -111,23 +111,28 @@ public interface Question extends QuestionUserFacing {
 	}
 	
 	default String getText() {
-		return getCurrentDiff().getText();
+		Diff lclD = getCurrentDiff();
+		return lclD == null ? null : lclD.getText();
 	}
 	
 	default String getAnswer() {
-		return getCurrentDiff().getAnswer();
+		Diff lclD = getCurrentDiff();
+		return lclD == null ? null : lclD.getAnswer();
 	}
 	
 	default String getNote() {
-		return getCurrentDiff().getNote();
+		Diff lclD = getCurrentDiff();
+		return lclD == null ? null : lclD.getNote();
 	}
 	
 	default QuestionStatus getStatus() {
-		return getCurrentDiff().getStatus();
+		Diff lclD = getCurrentDiff();
+		return lclD == null ? null : lclD.getStatus();
 	}
 	
 	default Category getCategory() {
-		return getCurrentDiff().getCategory();
+		Diff lclD = getCurrentDiff();
+		return lclD == null ? null : lclD.getCategory();
 	}
 	
 	default String getDescriptionSafe() {
