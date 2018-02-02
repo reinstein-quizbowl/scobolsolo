@@ -17,43 +17,43 @@
 				<tr>
 					<th class="rank">1.</th>
 					<th class="player">Greg Gauthier</th>
-					<td class="school">Wheaton North</td>
+					<td class="school">Wheaton North High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player">Siva Sundaram</th>
-					<td class="school">Auburn (Rockford)</td>
-					<td class="note">Morning champion</td>
+					<td class="school">Auburn High School (Rockford)</td>
+					<td class="note">Morning Champion</td>
 				</tr>
 				<tr>
 					<th class="rank">3T.</th>
 					<th class="player">John Brown</th>
-					<td class="school">Auburn</td>
+					<td class="school">Auburn High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Tony Cao</th>
-					<td class="school">Carbondale</td>
+					<td class="school">Carbondale High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">5.</th>
 					<th class="player">Caitie Flynn</th>
-					<td class="school">Springfield</td>
+					<td class="school">Springfield High School</td>
 					<td class="note">Desperation Shot champion</td>
 				</tr>
 				<tr>
 					<th class="rank">6T.</th>
 					<th class="player">Jonathan Irving</th>
-					<td class="school">Wheaton North</td>
+					<td class="school">Wheaton North High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Robert Sido</th>
-					<td class="school">New Trier (Winnetka)</td>
+					<td class="school">New Trier High School (Winnetka)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
@@ -65,7 +65,7 @@
 				<tr>
 					<th class="rank">9.</th>
 					<th class="player">Michael Jiang</th>
-					<td class="school">Auburn</td>
+					<td class="school">Auburn High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 			</tbody>

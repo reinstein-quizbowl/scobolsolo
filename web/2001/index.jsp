@@ -22,37 +22,37 @@
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player">Parag Bhayani</th>
-					<td class="school">Homewood-Flossmoor</td>
+					<td class="school">Homewood-Flossmoor High School</td>
 				</tr>
 				<tr>
 					<th class="rank">3.</th>
 					<th class="player">Matt Keenan</th>
-					<td class="school">New Trier (Winnetka)</td>
+					<td class="school">New Trier High School (Winnetka)</td>
 				</tr>
 				<tr>
 					<th class="rank">4.</th>
 					<th class="player">Tony Wu</th>
-					<td class="school">Fremd (Palatine)</td>
+					<td class="school">William Fremd High School (Palatine)</td>
 				</tr>
 				<tr>
 					<th class="rank">5.</th>
 					<th class="player">Sameer Gopal</th>
-					<td class="school">Sterling</td>
+					<td class="school">Sterling High School</td>
 				</tr>
 				<tr>
 					<th class="rank">6T.</th>
 					<th class="player">Chris Marks</th>
-					<td class="school">Downers Grove North</td>
+					<td class="school">Downers Grove North High School</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Lori Sommars</th>
-					<td class="school">Wheaton North</td>
+					<td class="school">Wheaton North High School</td>
 				</tr>
 			</tbody>
 		</table>
 		
-		<p>These players won four of their last six matches:</p>
+		<p>These players won exactly four of their last six matches:</p>
 		<ul>
 			<li>Denny Abraham, Leyden (Franklin Park)</li>
 			<li>Paras Bhayani, Homewood-Flossmoor</li>
@@ -71,7 +71,7 @@
 			<li>David Vock, Wheaton North</li>
 		</ul>
 		
-		<p>These players won three (but not four) of their last six matches:</p>
+		<p>These players won exactly three of their last six matches:</p>
 		<ul>
 			<li>Greg Brown, Fremd (Palatine)</li>
 			<li>Vince Cima, Leyden (Franklin Park)</li>

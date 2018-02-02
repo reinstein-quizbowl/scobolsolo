@@ -18,7 +18,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the morning champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
+		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won exactly five of their preliminary matches.</p>
 		
 		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
 		
@@ -26,21 +26,21 @@
 		
 		<p>If any player reaches a score of 10 during the first 20&nbsp;tossups, he or she sits out until tossup&nbsp;21.</p>
 		
-		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
+		<p>The Morning Champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup&nbsp;40, the lowest-scoring players are removed until four remain; if necessary, tiebreaker tossups are used, but they do not count in the overall score of the championship match. After tossup&nbsp;50, the lowest-scoring remaining players are eliminated until two remain; the tiebreaker procedure is the same as before. At the conclusion of the match, tiebreaker tossups are read if and as necessary.</p>
 		
 		<table class="even-spacing unsortable championship-scoresheet" data-fixed-columns="1">
 			<thead>
 				<tr class="player-names">
 					<th>&nbsp;</th>
-					<th class="player-name">Matthew Lehmann</th>
-					<th class="player-name">John Banta</th>
-					<th class="player-name">Jack Mayer</th>
-					<th class="player-name">Ali Saeed</th>
-					<th class="player-name">Ethan Strombeck</th>
-					<th class="player-name">John Waldron</th>
-					<th class="player-name">Lily Hamer</th>
-					<th class="player-name">Aristotle Vainikos</th>
-					<th class="player-name">Jakob Myers</th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1091#player_1416">Matthew Lehmann</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1110#player_1418">John Banta</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1096#player_1436">Jack Mayer</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1090#player_1491">Ali Saeed</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1089#player_1524">Ethan Strombeck</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1091#player_1417">John Waldron</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1092#player_1470">Lily Hamer</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1112#player_1512">Aristotle Vainikos</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1107#player_1454">Jakob Myers</a></th>
 					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
@@ -344,7 +344,7 @@
 				</tr>
 				<tr class="note">
 					<td>&nbsp;</td>
-					<td colspan="10" class="note">Matthew Lehmann, as morning champion, entered the game with a score equal to that of the then-leader, John Waldron: 7.</td>
+					<td colspan="10" class="note">Matthew Lehmann, as Morning Champion, entered the game with a score equal to that of the then-leader, John Waldron: 7.</td>
 				</tr>
 				<tr>
 					<td class="question-number">21</td>

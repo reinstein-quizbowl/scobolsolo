@@ -18,7 +18,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the morning champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
+		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who won the Desperation Shot, a difficult written test taken by all the players who won exactly five of their preliminary matches.</p>
 		
 		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
 		
@@ -26,7 +26,7 @@
 		
 		<p>If any player reaches a score of 10 during the first 20&nbsp;tossups, he or she sits out until tossup&nbsp;21.</p>
 		
-		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
+		<p>The Morning Champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup&nbsp;40, the lowest-scoring players are removed until four remain; if necessary, tiebreaker tossups are used, but they do not count in the overall score of the championship match. After tossup&nbsp;50, the lowest-scoring remaining players are eliminated until two remain; the tiebreaker procedure is the same as before. At the conclusion of the match, tiebreaker tossups are read if and as necessary.</p>
 		
 		<p>Questions 1, 21, and 41 are handout questions. Each player can choose whether or not to count each handout. Players who choose to count the handout receive 1&nbsp;point for a completely correct handout, and &ndash;1 point for a handout that is not completely correct.</p>
 		
@@ -96,7 +96,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
-					<td class="answer">Stewart&#8217;s theorem</td>
+					<td class="answer">Stewart's theorem</td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -186,7 +186,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
-					<td class="answer">&#8220;nominal&#8221;</td>
+					<td class="answer">"nominal"</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -225,7 +225,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
-					<td class="answer">Computation: area of shape given vertices&#8217; coordinates</td>
+					<td class="answer">Computation: area of shape given vertices' coordinates</td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -346,7 +346,7 @@
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="10" class="note">Siva Sundaram, as morning champion, entered the game with a score equal to that of the then-leader, Tony Cao: 5.</td>
+					<td colspan="10" class="note">Siva Sundaram, as Morning Champion, entered the game with a score equal to that of the then-leader, Tony Cao: 5.</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>
@@ -729,7 +729,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-correct-response">1</td><!-- Siva -->
-					<td class="answer">Gauss&#8217;s law</td>
+					<td class="answer">Gauss's law</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -826,7 +826,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
-					<td class="answer">&#8220;Ode on Melancholy&#8221;</td>
+					<td class="answer">"Ode on Melancholy"</td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -839,7 +839,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Siva -->
-					<td class="answer">&#8220;epoch&#8221; (astronomy and geology)</td>
+					<td class="answer">"epoch" (astronomy and geology)</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -878,7 +878,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
-					<td class="answer">Hund&#8217;s rule</td>
+					<td class="answer">Hund's rule</td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>

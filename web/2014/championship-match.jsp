@@ -18,7 +18,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the morning champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
+		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won exactly five of their preliminary matches.</p>
 		
 		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
 		
@@ -26,21 +26,21 @@
 		
 		<p>If any player reaches a score of 10 during the first 20&nbsp;tossups, he or she sits out until tossup&nbsp;21.</p>
 		
-		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
+		<p>The Morning Champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup&nbsp;40, the lowest-scoring players are removed until four remain; if necessary, tiebreaker tossups are used, but they do not count in the overall score of the championship match. After tossup&nbsp;50, the lowest-scoring remaining players are eliminated until two remain; the tiebreaker procedure is the same as before. At the conclusion of the match, tiebreaker tossups are read if and as necessary.</p>
 		
 		<table class="even-spacing unsortable championship-scoresheet" data-fixed-columns="1">
 			<thead>
 				<tr class="player-names">
 					<th>&nbsp;</th>
-					<th class="player-name">Cole<br />Timmerwilke</th>
-					<th class="player-name">Nolan<br />Liu</th>
-					<th class="player-name">Evan<br />Pandya</th>
-					<th class="player-name">Alston<br />Boyd</th>
-					<th class="player-name">Mahir<br />Morshed</th>
-					<th class="player-name">Dan<br />Pechi</th>
-					<th class="player-name">Andrew<br />Salij</th>
-					<th class="player-name">Sunny<br />Chen</th>
-					<th class="player-name">James<br />Zhou</th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1028#player_1161">Cole Timmerwilke</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1042#player_1195">Nolan Liu</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1028#player_1160">Evan Pandya</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1030#player_1224">Alston Boyd</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1031#player_1170">Mahir Morshed</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1050#player_1220">Dan Pechi</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1050#player_1217">Andrew Salij</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1049#player_1247">Sunny Chen</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1049#player_1248">James Zhou</a></th>
 				</tr>
 				<tr class="player-schools">
 					<th>&nbsp;</th>
@@ -50,7 +50,7 @@
 					<th class="player-school">Bloomington</th><!-- Alston -->
 					<th class="player-school">Carbondale</th><!-- Mahir -->
 					<th class="player-school">IMSA (Aurora)</th><!-- Dan -->
-					<th class="player-school">IMSA (Aurora)</th><!-- Andrew -->
+					<th class="player-school">IMSA</th><!-- Andrew -->
 					<th class="player-school">Hinsdale Central</th><!-- Sunny -->
 					<th class="player-school">Hinsdale Central</th><!-- James -->
 					<th class="answer" rowspan="2">Answer</th>
@@ -345,7 +345,7 @@
 				</tr>
 				<tr class="note">
 					<td>&nbsp;</td>
-					<td colspan="10" class="note">Cole Timmerwilke, as morning champion, entered the game with a score equal to that of the then-leader, Alston Boyd: 10.</td>
+					<td colspan="10" class="note">Cole Timmerwilke, as Morning Champion, entered the game with a score equal to that of the then-leader, Alston Boyd: 10.</td>
 				</tr>
 				<tr>
 					<td class="question-number">21</td>
@@ -926,11 +926,11 @@
 		
 		<p>Cole Timmerwilke of Auburn High School in Rockford is the champion of the 2014 Scobol Solo.</p>
 		
-		<p>This is the first time since 2008 that the morning champion has also been the overall champion. (The player in 2008 was Siva Sundaram, also of Auburn.)</p>
+		<p>This is the first time since <a href="/2008/">2008</a> that the Morning Champion has also been the overall champion. (The player in 2008 was Siva Sundaram, also of Auburn.)</p>
 		
-		<p>Cole is the third Auburn player to win Scobol Solo; in addition to Siva, Lloyd Sy won in both 2009 and 2011.</p>
+		<p>Cole is the third Auburn player to win Scobol Solo; in addition to Siva, Lloyd Sy won in both <a href="/2009/">2009</a> and <a href="/2011/">2011</a>.</p>
 		
-		<p>Auburn is the only high school to have had three winning players or four wins. New Trier and Wheaton North have each fielded two winners (Matt Keenan, 2002, and Carlo Angiuli, 2007; and Paul Gauthier, 2003, and Greg Gauthier, 2007, respectively), and no other school has fielded more than one.</p>
+		<p>Auburn is the only high school to have had three winning players or four wins. New Trier (Winnetka) and Wheaton North have each fielded two winners (Matt Keenan, <a href="/2002/">2002</a>, and Carlo Angiuli, <a href="/2007/">2007</a>; and Paul Gauthier, <a href="/2003/">2003</a>, and Greg Gauthier, <a href="/2007/">2007</a>, respectively), and no other school has fielded more than one.</p>
 	</div>
 </div>
 

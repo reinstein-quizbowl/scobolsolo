@@ -17,56 +17,56 @@
 			<tbody>
 				<tr>
 					<th class="rank">1.</th>
-					<th class="player"><a href="">Cole Timmerwilke</a></th>
-					<td class="school">Auburn (Rockford)</td>
-					<td class="note">Morning champion</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1028#player_1161">Cole Timmerwilke</a></th>
+					<td class="school">Auburn High School (Rockford)</td>
+					<td class="note">Morning Champion</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
-					<th class="player"><a href="">Evan Pandya</a></th>
-					<td class="school">Auburn</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1028#player_1160">Evan Pandya</a></th>
+					<td class="school">Auburn High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">3.</th>
-					<th class="player"><a href="">Sunny Chen</a></th>
-					<td class="school">Hinsdale Central</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1049#player_1247">Sunny Chen</a></th>
+					<td class="school">Hinsdale Central High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">4.</th>
-					<th class="player"><a href="">Mahir Morshed</a></th>
-					<td class="school">Carbondale</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1031#player_1170">Mahir Morshed</a></th>
+					<td class="school">Carbondale Community High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">5T.</th>
-					<th class="player"><a href="">Alston Boyd</a></th>
-					<td class="school">Bloomington</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1030#player_1224">Alston Boyd</a></th>
+					<td class="school">Bloomington High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
-					<th class="player"><a href="">Nolan Liu</a></th>
-					<td class="school">St.&nbsp;Joseph (South Bend, Indiana)</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1042#player_1195">Nolan Liu</a></th>
+					<td class="school">St.&nbsp;Joseph High School (South Bend, Indiana)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
-					<th class="player"><a href="">Dan Pechi</a></th>
-					<td class="school">IMSA (Aurora)</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1050#player_1220">Dan Pechi</a></th>
+					<td class="school">Illinois Mathematics and Science Academy (Aurora)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
-					<th class="player"><a href="">Andrew Salij</a></th>
-					<td class="school">IMSA</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1050#player_1217">Andrew Salij</a></th>
+					<td class="school">Illinois Mathematics and Science Academy</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">9.</th>
-					<th class="player"><a href="">James Zhou</a></th>
-					<td class="school">Hinsdale Central</td>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1049#player_1248">James Zhou</a></th>
+					<td class="school">Hinsdale Central High School</td>
 					<td class="">&nbsp;</td>
 				</tr>
 			</tbody>

@@ -17,19 +17,19 @@
 				<tr>
 					<th class="rank">1.</th>
 					<th class="player">Robert Sale</th>
-					<td class="school">Brookwood (Georgia)</td>
-					<td class="note">Morning champion</td>
+					<td class="school">Brookwood High School (Georgia)</td>
+					<td class="note">Morning Champion</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player">Greg Gauthier</th>
-					<td class="school">Wheaton North</td>
+					<td class="school">Wheaton North High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">3T.</th>
 					<th class="player">Brad Fischer</th>
-					<td class="school">Winnebago</td>
+					<td class="school">Winnebago High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
@@ -41,25 +41,25 @@
 				<tr>
 					<th class="rank">5.</th>
 					<th class="player">Colleen Powers</th>
-					<td class="school">Auburn (Rockford)</td>
+					<td class="school">Auburn High School (Rockford)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">6T.</th>
 					<th class="player">Carlo Angiuli</th>
-					<td class="school">New Trier (Winnetka)</td>
+					<td class="school">New Trier High School (Winnetka)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">John Bracke</th>
-					<td class="school">Moline</td>
+					<td class="school">Moline High School</td>
 					<td class="note">Desperation shot champion</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Nick Matchen</th>
-					<td class="school">New Trier</td>
+					<td class="school">New Trier High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>

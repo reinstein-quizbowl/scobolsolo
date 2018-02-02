@@ -1,11 +1,3 @@
-<%@ page import="java.text.DecimalFormat" %>
-<%@ page import="java.util.Collections" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
-<%@ page import="com.scobolsolo.application.PlayerRecordV" %>
-<%@ page import="com.scobolsolo.application.PlayerRecordVFactory" %>
-<%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
@@ -18,7 +10,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the morning champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
+		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who won the Desperation Shot, a difficult written test taken by all the players who won exactly five of their preliminary matches.</p>
 		
 		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
 		
@@ -26,7 +18,7 @@
 		
 		<p>If any player reaches a score of 10 during the first 20&nbsp;tossups, he or she sits out until tossup&nbsp;21.</p>
 		
-		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
+		<p>The Morning Champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup&nbsp;40, the lowest-scoring players are removed until four remain; if necessary, tiebreaker tossups are used, but they do not count in the overall score of the championship match. After tossup&nbsp;50, the lowest-scoring remaining players are eliminated until two remain; the tiebreaker procedure is the same as before. At the conclusion of the match, tiebreaker tossups are read if and as necessary.</p>
 		
 		<table class="even-spacing unsortable championship-scoresheet" data-fixed-columns="1">
 			<thead>
@@ -275,7 +267,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Kevin -->
-					<td class="answer">&#8220;rank&#8221; (math common link)</td>
+					<td class="answer">"rank" (math common link)</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -344,7 +336,7 @@
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="10" class="note">Kevin Malis, as morning champion, entered the game with a score equal to that of the then-leader, Lloyd Sy: 10.</td>
+					<td colspan="10" class="note">Kevin Malis, as Morning Champion, entered the game with a score equal to that of the then-leader, Lloyd Sy: 10.</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>
@@ -565,7 +557,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="answer">&#8220;atman&#8221;</td>
+					<td class="answer">"atman"</td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -591,7 +583,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="answer"><i>Long Day&#8217;s Journey Into Night</i></td>
+					<td class="answer"><i>Long Day's Journey Into Night</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -798,7 +790,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Christian -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Kevin -->
-					<td class="answer">&#8220;hegemony&#8221;</td>
+					<td class="answer">"hegemony"</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
@@ -922,7 +914,7 @@
 			</tfoot>
 		</table>
 		
-		<p>Lloyd Sy of Auburn High School in Rockford, Illinois is the champion of the 2009 Scobol Solo. He is the second player from Auburn to win the tournament (Siva Sundaram, 2008).</p>
+		<p>Lloyd Sy of Auburn High School in Rockford, Illinois is the champion of the 2009 Scobol Solo. He is the second player from Auburn to win the tournament (Siva Sundaram, <a href="/2008/">2008</a>).</p>
 	</div>
 </div>
 

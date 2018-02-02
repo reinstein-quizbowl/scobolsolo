@@ -18,55 +18,55 @@
 				<tr>
 					<th class="rank">1.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1064#player_1323">Ali Saeed</a></th>
-					<td class="school">Stevenson (Lincolnshire)</td>
-					<td class="note">Morning champion</td>
+					<td class="school">Adlai E. Stevenson High School (Lincolnshire)</td>
+					<td class="note">Morning Champion</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1067#player_1331">Cole Timmerwilke</a></th>
-					<td class="school">Auburn (Rockford)</td>
+					<td class="school">Auburn High School (Rockford)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">3.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1077#player_1272">Matthew Lehmann</a></th>
-					<td class="school">Barrington</td>
+					<td class="school">Barrington High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">4.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1061">Jakob Myers</a></th>
-					<td class="school">Naperville North</td>
+					<td class="school">Naperville North High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">5T.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1067#player_1333">Ethan Strombeck</a></th>
-					<td class="school">Auburn</td>
+					<td class="school">Auburn High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1077#player_1273">John Waldron</a></th>
-					<td class="school">Barrington</td>
+					<td class="school">Barrington High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">7.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1065#player_1308">Jonathan Suh</a></th>
-					<td class="school">Wheaton Warrenville South</td>
+					<td class="school">Wheaton Warrenville South High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">8T.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1079#player_1352">Ankush Bajaj</a></th>
-					<td class="school">Hinsdale Central</td>
+					<td class="school">Hinsdale Central High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1062#player_1289">Michael Gislason</a></th>
-					<td class="school">Homewood-Flossmoor</td>
+					<td class="school">Homewood-Flossmoor High School</td>
 					<td class="">&nbsp;</td>
 				</tr>
 			</tbody>

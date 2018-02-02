@@ -18,7 +18,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the morning champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
+		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won exactly five of their preliminary matches.</p>
 		
 		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
 		
@@ -26,21 +26,21 @@
 		
 		<p>If any player reaches a score of 10 during the first 20&nbsp;tossups, he or she sits out until tossup&nbsp;21.</p>
 		
-		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
+		<p>The Morning Champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup&nbsp;40, the lowest-scoring players are removed until four remain; if necessary, tiebreaker tossups are used, but they do not count in the overall score of the championship match. After tossup&nbsp;50, the lowest-scoring remaining players are eliminated until two remain; the tiebreaker procedure is the same as before. At the conclusion of the match, tiebreaker tossups are read if and as necessary.</p>
 		
 		<table class="even-spacing unsortable championship-scoresheet" data-fixed-columns="1" id="championship-match">
 			<thead>
 				<tr class="player-names">
 					<th>&nbsp;</th>
-					<th class="player-name">Ali<br />Saeed</th>
-					<th class="player-name">Michael<br />Gislason</th>
-					<th class="player-name">John<br />Waldron</th>
-					<th class="player-name">Cole<br />Timmerwilke</th>
-					<th class="player-name">Jonathan<br />Suh</th>
-					<th class="player-name">Ankush<br />Bajaj</th>
-					<th class="player-name">Ethan<br />Strombeck</th>
-					<th class="player-name">Matthew<br />Lehmann</th>
-					<th class="player-name">Jakob<br />Myers</th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1064#player_1323">Ali Saeed</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1062#player_1289">Michael Gislason</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1077#player_1273">John Waldron</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1067#player_1331">Cole Timmerwilke</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1065#player_1308">Jonathan Suh</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1079#player_1352">Ankush Bajaj</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1067#player_1333">Ethan Strombeck</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1077#player_1272">Matthew Lehmann</a></th>
+					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1061#player_1274">Jakob Myers</a></th>
 					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
@@ -344,7 +344,7 @@
 				</tr>
 				<tr class="note">
 					<td>&nbsp;</td>
-					<td colspan="10" class="note">Ali Saeed, as morning champion, entered the game with a score equal to that of the then-leader, Matthew Lehmann: 7.</td>
+					<td colspan="10" class="note">Ali Saeed, as Morning Champion, entered the game with a score equal to that of the then-leader, Matthew Lehmann: 7.</td>
 				</tr>
 				<tr>
 					<td class="question-number">21</td>
@@ -924,9 +924,9 @@
 		
 		<p>Ali Saeed of Stevenson High School in Lincolnshire is the champion of the 2015 Scobol Solo.</p>
 		
-		<p>This is the second consecutive year in which the morning champion has also been the overall champion. (Last year: Cole Timmerwilke of Auburn.) Before that, this had not happened since 2008 (Siva Sundaram, also of Auburn.)</p>
+		<p>This is the second consecutive year in which the Morning Champion has also been the overall champion. (<a href="/2014/">2014</a>: Cole Timmerwilke of Auburn in Rockford.) Before that, this had not happened since <a href="/2008/">2008</a> (Siva Sundaram, also of Auburn.)</p>
 		
-		<p>Stevenson is the fourth school to have fielded at least two winners. Previously, Auburn has fielded Cole Timmerwilke (2014), Lloyd Sy (2009 and 2011), and Siva Sundaram (2008); New Trier has fielded Carlo Angiuli (2007) and Matt Keenan (2002); and Wheaton North has fielded Greg Gauthier (2007) and Paul Gauthier (2003).</p>
+		<p>Stevenson is the fourth school to have fielded at least two winners. Previously, Auburn (Rockford) has fielded Cole Timmerwilke (<a href="/2014/">2014</a>), Lloyd Sy (<a href="/2009/">2009</a> and <a href="/2011/">2011</a>), and Siva Sundaram (<a href="/2008/">2008</a>); New Trier (Winnetka) has fielded Carlo Angiuli (<a href="/2007/">2007</a>) and Matt Keenan (<a href="/2002/">2002</a>); and Wheaton North has fielded Greg Gauthier (<a href="/2007/">2007</a>) and Paul Gauthier (<a href="/2003/">2003</a>).</p>
 	</div>
 </div>
 

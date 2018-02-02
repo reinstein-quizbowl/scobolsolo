@@ -18,7 +18,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the morning champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
+		<p>The participants in the Championship Match are the one player who won all 7 preliminary matches (the Morning Champion), the seven players who won 6 of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won 5 of their preliminary matches.</p>
 		
 		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
 		
@@ -26,7 +26,7 @@
 		
 		<p>If any player reaches a score of 10 during the first 20&nbsp;tossups, he or she sits out until tossup&nbsp;21.</p>
 		
-		<p>The morning champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup 40, the five players with the lowest score are eliminated; to effect this, tiebreaker tossups are applied as necessary, but they do not count in the overall score of the championship match. Four players thus remain. After tossup 50, the two lowest-scoring remaining players are eliminated; the tiebreaker procedure is the same as before. Two players thus remain. At the conclusion of the match, tiebreaker tossups are read as necessary.</p>
+		<p>The Morning Champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup&nbsp;40, the lowest-scoring players are removed until four remain; if necessary, tiebreaker tossups are used, but they do not count in the overall score of the championship match. After tossup&nbsp;50, the lowest-scoring remaining players are eliminated until two remain; the tiebreaker procedure is the same as before. At the conclusion of the match, tiebreaker tossups are read if and as necessary.</p>
 		
 		<table class="even-spacing unsortable championship-scoresheet" data-fixed-columns="1">
 			<thead>
@@ -46,7 +46,7 @@
 				<tr class="player-schools">
 					<th>&nbsp;</th>
 					<th class="player-school">Auburn (Rockford)</th><!-- Ethan -->
-					<th class="player-school">IMSA</th><!-- Matthew -->
+					<th class="player-school">IMSA (Aurora)</th><!-- Matthew -->
 					<th class="player-school">Stevenson (Lincolnshire)</th><!-- Arjun -->
 					<th class="player-school">Sandburg (Orland Park)</th><!-- Aristotle -->
 					<th class="player-school">Barrington</th><!-- Wilder -->
@@ -344,7 +344,7 @@
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">Ethan Strombeck, as morning champion, entered the game with a score equal to that of the then-leader, Kevin Kodama: 9.</td>
+					<td colspan="9" class="note">Ethan Strombeck, as Morning Champion, entered the game with a score equal to that of the then-leader, Kevin Kodama: 9.</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>

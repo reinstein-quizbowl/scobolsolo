@@ -18,8 +18,8 @@
 				<tr>
 					<th class="rank">1.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1150#player_1692">Siva Sundaram</a></th>
-					<td class="school">Auburn (Rockford)</td>
-					<td class="note">Morning champion</td>
+					<td class="school">Auburn High School (Rockford)</td>
+					<td class="note">Morning Champion</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
@@ -30,43 +30,43 @@
 				<tr>
 					<th class="rank">3.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1152#player_1716">Tony Cao</a></th>
-					<td class="school">Carbondale</td>
+					<td class="school">Carbondale Community High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">4.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1149#player_1708">Ben Cohen</a></th>
-					<td class="school">New Trier (Winnetka)</td>
+					<td class="school">New Trier High School (Winnetka)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">5.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1160#player_1694">Krystle Leung</a></th>
-					<td class="school">Naperville Central</td>
+					<td class="school">Naperville Central High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">6T.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1164#player_1750">Alex Cash</a></th>
-					<td class="school">Wheaton Warrenville South</td></td>
+					<td class="school">Wheaton Warrenville South High School</td></td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1170#player_1718">Isa Domin</a></th>
-					<td class="school">Niles North (Skokie)</td>
+					<td class="school">Niles North High School (Skokie)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1150#player_1721">Michael Jiang</a></th>
-					<td class="school">Auburn</td>
+					<td class="school">Auburn High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">9.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1151#player_1711">Calvin Quilty</a></th>
-					<td class="school">Bloomington</td>
+					<td class="school">Bloomington High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 			</tbody>

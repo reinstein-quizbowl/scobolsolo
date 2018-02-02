@@ -17,55 +17,55 @@
 				<tr>
 					<th class="rank">1.</th>
 					<th class="player">Carlo Angiuli</th>
-					<td class="school">New Trier (Winnetka)</td>
+					<td class="school">New Trier High School (Winnetka)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player">Greg Gauthier</th>
-					<td class="school">Wheaton North</td>
-					<td class="note">Morning champion</td>
+					<td class="school">Wheaton North High School</td>
+					<td class="note">Morning Champion</td>
 				</tr>
 				<tr>
 					<th class="rank">3T.</th>
 					<th class="player">Greg Peterson</th>
-					<td class="school">Maine South (Park Ridge)</td>
+					<td class="school">Maine South High School (Park Ridge)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Kristina Warren</th>
-					<td class="school">Bloomington</td>
+					<td class="school">Bloomington High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">5.</th>
 					<th class="player">Jeff Wear</th>
-					<td class="school">Maine South</td>
+					<td class="school">Maine South High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">6T.</th>
 					<th class="player">John Brown</th>
-					<td class="school">Auburn (Rockford)</td>
+					<td class="school">Auburn High School (Rockford)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Katie Hibbeln</th>
-					<td class="school">Downers Grove North</td>
+					<td class="school">Downers Grove North High School</td>
 					<td class="note">Desperation Shot champion</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Justin Stoncius</th>
-					<td class="school">Carbondale</td>
+					<td class="school">Carbondale Community High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">9.</th>
 					<th class="player">Siva Sundaram</th>
-					<td class="school">Auburn</td>
+					<td class="school">Auburn High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 			</tbody>

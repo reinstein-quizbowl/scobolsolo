@@ -17,55 +17,55 @@
 				<tr>
 					<th class="rank">1.</th>
 					<th class="player">Matt Keenan</th>
-					<td class="school">New Trier (Winnetka)</td>
+					<td class="school">New Trier High School (Winnetka)</td>
 					<td class="year">Senior</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player">Ben Taylor</th>
-					<td class="school">Guilford (Rockford)</td>
+					<td class="school">Guilford High School (Rockford)</td>
 					<td class="year">Senior</td>
 				</tr>
 				<tr>
 					<th class="rank">3.</th>
 					<th class="player">Paul Gauthier</th>
-					<td class="school">Wheaton North</td>
+					<td class="school">Wheaton North High School</td>
 					<td class="year">Junior</td>
 				</tr>
 				<tr>
 					<th class="rank">4.</th>
 					<th class="player">Mark Hedden</th>
-					<td class="school">Downers Grove North</td>
+					<td class="school">Downers Grove North High School</td>
 					<td class="year">Junior</td>
 				</tr>
 				<tr>
 					<th class="rank">5.</th>
 					<th class="player">Kelly Tourdot</th>
-					<td class="school">Stillman Valley</td>
+					<td class="school">Stillman Valley High School</td>
 					<td class="year">Senior</td>
 				</tr>
 				<tr>
 					<th class="rank">6.</th>
 					<th class="player">Blair Nathan</th>
-					<td class="school">New Trier</td>
+					<td class="school">New Trier High School</td>
 					<td class="year">Sophomore</td>
 				</tr>
 				<tr>
 					<th class="rank">7.</th>
 					<th class="player">Josh Laufenberg</th>
-					<td class="school">Wheaton North</td>
+					<td class="school">Wheaton North High School</td>
 					<td class="year">Junior</td>
 				</tr>
 				<tr>
 					<th class="rank">8.</th>
 					<th class="player">David Vock</th>
-					<td class="school">Wheaton North</td>
+					<td class="school">Wheaton North High School</td>
 					<td class="year">Senior</td>
 				</tr>
 				<tr>
 					<th class="rank">9.</th>
 					<th class="player">Donald Taylor</th>
-					<td class="school">MacArthur (Decatur)</td>
+					<td class="school">Douglas MacArthur High School (Decatur)</td>
 					<td class="year">Sophomore</td>
 				</tr>
 			</tbody>

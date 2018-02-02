@@ -18,25 +18,25 @@
 				<tr>
 					<th class="rank">1.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1091#player_1417">John Waldron</a></th>
-					<td class="school">Barrington</td>
+					<td class="school">Barrington High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1091#player_1416">Matthew Lehmann</a></th>
-					<td class="school">Barrington</td>
-					<td class="note">Morning champion</td>
+					<td class="school">Barrington High School</td>
+					<td class="note">Morning Champion</td>
 				</tr>
 				<tr>
 					<th class="rank">3.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1090#player_1491">Ali Saeed</a></th>
-					<td class="school">Stevenson (Lincolnshire)</td>
+					<td class="school">Adlai E. Stevenson High School (Lincolnshire)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">4.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1107#player_1454">Jakob Myers</a></th>
-					<td class="school">Naperville North</td>
+					<td class="school">Naperville North High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
@@ -48,25 +48,25 @@
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1089#player_1524">Ethan Strombeck</a></th>
-					<td class="school">Auburn (Rockford)</td>
+					<td class="school">Auburn High School (Rockford)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1112#player_1512">Aristotle Vainikos</a></th>
-					<td class="school">Carl Sandburg (Orland Park)</td>
+					<td class="school">Carl Sandburg High School (Orland Park)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">8.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1110">John Banta</a></th>
-					<td class="school">Lake Forest</td>
+					<td class="school">Lake Forest High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="rank">9.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1092#player_1470">Lily Hamer</a></th>
-					<td class="school">Homewood-Flossmoor</td>
+					<td class="school">Homewood-Flossmoor High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 			</tbody>
