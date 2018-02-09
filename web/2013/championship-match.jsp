@@ -614,7 +614,7 @@
 				<tr class="note">
 					<td>&nbsp;</td>
 					<td colspan="10" class="note">
-						The five players with the lowest scores were to be eliminated. Alston Boyd, Greg Krzywicki, Prerak Trivedi, and James Zetterman were therefore eliminated. A tiebreaker was held between Jeeho Lee and Pranav Sivakumar to determine who would remain. The record of that tiebreaker has been lost and whoever won never buzzed again. The remainder of this scoresheet will show that they were both eliminated (even though that's not true).
+						The five players with the lowest scores were to be eliminated. Alston Boyd, Greg Krzywicki, Prerak Trivedi, and James Zetterman were therefore eliminated. A tiebreaker was held between Jeeho Lee and Pranav Sivakumar to determine who would remain. Pranav won, so Jeeho was eliminated.
 					</td>
 				</tr>
 				<tr>
@@ -625,7 +625,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer"><i>Rosencrantz and Guildenstern Are Dead</i></td>
@@ -638,7 +638,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-correct-response">1</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">Krishna</td>
@@ -651,7 +651,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">Mary, Queen of Scots</td>
@@ -664,7 +664,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-correct-response">1</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">telomeres</td>
@@ -677,7 +677,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">Jackson Pollock</td>
@@ -690,7 +690,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">node (wave)</td>
@@ -703,7 +703,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">Winter War</td>
@@ -716,7 +716,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-correct-response">1</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">Frederic Remington</td>
@@ -729,7 +729,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer">Greenpeace</td>
@@ -742,7 +742,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
 					<td class="player-correct-response">1</td><!-- Evan -->
-					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
+					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
 					<td class="answer"><i>The Jungle</i></td>
@@ -755,7 +755,7 @@
 					<td class="player-eliminated">eliminated</td><!-- Greg -->
 					<td class="player-eliminated">eliminated(?)</td><!-- Jeeho -->
 					<td class="player-score-check">15</td><!-- Evan -->
-					<td class="player-eliminated">eliminated(?)</td><!-- Pranav -->
+					<td class="player-score-check">6</td><!-- Pranav -->
 					<td class="player-eliminated">eliminated</td><!-- Prerak -->
 					<td class="player-eliminated">eliminated</td><!-- James -->
 					<td class="answer-blank">&nbsp;</td>
@@ -763,7 +763,7 @@
 				<tr class="note">
 					<td>&nbsp;</td>
 					<td colspan="10" class="note">
-						The two players with the lowest scores were to be eliminated. Whoever remained between Jeeho Lee and Pranav Sivakumar was therefore eliminated. A tiebreaker was held between Jason Asher and Evan Pandya; Evan won and therefore survived, while Jason was eliminated.
+						The two players with the lowest scores were to be eliminated. Pranav Sivakumar was therefore eliminated. A tiebreaker was held between Jason Asher and Evan Pandya; Evan won and therefore survived, while Jason was eliminated.
 					</td>
 				</tr>
 				<tr>
