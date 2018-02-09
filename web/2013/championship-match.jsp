@@ -753,7 +753,7 @@
 					<td class="player-eliminated">eliminated</td><!-- Alston -->
 					<td class="player-score-check">17</td><!-- Maia -->
 					<td class="player-eliminated">eliminated</td><!-- Greg -->
-					<td class="player-eliminated">eliminated(?)</td><!-- Jeeho -->
+					<td class="player-eliminated">eliminated</td><!-- Jeeho -->
 					<td class="player-score-check">15</td><!-- Evan -->
 					<td class="player-score-check">6</td><!-- Pranav -->
 					<td class="player-eliminated">eliminated</td><!-- Prerak -->
