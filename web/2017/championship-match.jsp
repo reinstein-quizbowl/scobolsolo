@@ -41,7 +41,7 @@
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1119#player_1550">Kevin Kodama</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1118#player_1549">Mitch McCullar</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1124#player_1635">Jaden Lucas</a></th>
-					<!-- <th class="answer" rowspan="2">Answer</th> --><!-- when restoring this, don't forget to change the colspans -->
+					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
 					<th>&nbsp;</th>
@@ -68,7 +68,7 @@
 					<td class="player-score-check">3</td><!-- Kevin -->
 					<td class="player-score-check">3</td><!-- Mitch -->
 					<td class="player-score-check">3</td><!-- Jaden -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="question-number">1</td>
@@ -81,7 +81,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">closed (math)</td>
 				</tr>
 				<tr>
 					<th class="question-number">2</td>
@@ -94,7 +94,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">trademarks</td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -107,7 +107,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Hiram Bingham</td>
 				</tr>
 				<tr>
 					<th class="question-number">4</td>
@@ -120,7 +120,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Mishima Yukio</td>
 				</tr>
 				<tr>
 					<th class="question-number">5</td>
@@ -133,7 +133,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Alonzo Church</td>
 				</tr>
 				<tr>
 					<th class="question-number">6</td>
@@ -146,7 +146,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">rondo</td>
 				</tr>
 				<tr>
 					<th class="question-number">7</td>
@@ -159,7 +159,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-correct-response">1</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Ruth (biblical)</td>
 				</tr>
 				<tr>
 					<th class="question-number">8</td>
@@ -172,7 +172,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Battle of Zama</td>
 				<tr>
 					<th class="question-number">9</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
@@ -184,7 +184,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-correct-response">1</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Los Angeles (as a literary setting)</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -197,7 +197,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-correct-response">1</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">elastic moduli</td>
 				</tr>
 				<tr>
 					<th class="question-number">11</td>
@@ -210,7 +210,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer"><i>Cos&igrave; fan tutte</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">12</td>
@@ -223,7 +223,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Nice, France</td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -236,7 +236,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-correct-response">1</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Samuel Richardson</td>
 				</tr>
 				<tr>
 					<th class="question-number">14</td>
@@ -249,7 +249,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Safavid dynasty</td>
 				</tr>
 				<tr>
 					<th class="question-number">15</td>
@@ -262,7 +262,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">hyphae</td>
 				</tr>
 				<tr>
 					<th class="question-number">16</td>
@@ -275,7 +275,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">UNESCO</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -288,7 +288,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer"><i>Wanderer Above the Sea of Fog</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">18</td>
@@ -301,7 +301,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Horace</td>
 				</tr>
 				<tr>
 					<th class="question-number">19</td>
@@ -314,7 +314,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">saccharin</td>
 				</tr>
 				<tr>
 					<th class="question-number">20</td>
@@ -327,7 +327,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Aachen</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 20</th>
@@ -340,11 +340,11 @@
 					<td class="player-score-check">9</td><!-- Kevin -->
 					<td class="player-score-check">6</td><!-- Mitch -->
 					<td class="player-score-check">4</td><!-- Jaden -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">Ethan Strombeck, as Morning Champion, entered the game with a score equal to that of the then-leader, Kevin Kodama: 9.</td>
+					<td colspan="10" class="note">Ethan Strombeck, as Morning Champion, entered the game with a score equal to that of the then-leader, Kevin Kodama: 9.</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>
@@ -357,7 +357,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Chihuahua (the state)</td>
 				</tr>
 				<tr>
 					<th class="question-number">22</td>
@@ -370,7 +370,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Permian period</td>
 				</tr>
 				<tr>
 					<th class="question-number">23</td>
@@ -383,7 +383,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer"><i>Piers Plowman</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">24</td>
@@ -396,7 +396,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Cnut the Great</td>
 				</tr>
 				<tr>
 					<th class="question-number">25</td>
@@ -409,7 +409,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">maize (American mythology)</td>
 				</tr>
 				<tr>
 					<th class="question-number">26</td>
@@ -422,7 +422,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">chelation</td>
 				</tr>
 				<tr>
 					<th class="question-number">27</td>
@@ -435,7 +435,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Charlotte Perkins Gilman</td>
 				</tr>
 				<tr>
 					<th class="question-number">28</td>
@@ -448,7 +448,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Adam Clayton Powell</td>
 				</tr>
 				<tr>
 					<th class="question-number">29</td>
@@ -461,7 +461,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Mont Sainte-Victoire</td>
 				</tr>
 				<tr>
 					<th class="question-number">30</td>
@@ -474,7 +474,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">gluons</td>
 				</tr>
 				<tr>
 					<th class="question-number">31</td>
@@ -487,7 +487,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer"><i>Notes from the Underground</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">32</td>
@@ -500,7 +500,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Kris Kobach</td>
 				</tr>
 				<tr>
 					<th class="question-number">33</td>
@@ -513,7 +513,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">string quartets</td>
 				</tr>
 				<tr>
 					<th class="question-number">34</td>
@@ -526,7 +526,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Great Northern War</td>
 				</tr>
 				<tr>
 					<th class="question-number">35</td>
@@ -539,7 +539,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">actin</td>
 				</tr>
 				<tr>
 					<th class="question-number">36</td>
@@ -552,7 +552,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Peter Shaffer</td>
 				</tr>
 				<tr>
 					<th class="question-number">37</td>
@@ -565,7 +565,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer"><i>The Dying Gaul</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -578,7 +578,7 @@
 					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Empress Dowager Cixi</td>
 				</tr>
 				<tr>
 					<th class="question-number">39</td>
@@ -591,7 +591,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">relative primality</td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -604,7 +604,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">pleasure principle</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 40</th>
@@ -617,11 +617,11 @@
 					<td class="player-score-check">12</td><!-- Kevin -->
 					<td class="player-score-check">5</td><!-- Mitch -->
 					<td class="player-score-check">4</td><!-- Jaden -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The five players with the lowest scores were eliminated: Matthew Lee, Arjun Nageswaran, Wilder Seitz, Ana Pranger, and Jaden Lucas.
 					</td>
 				</tr>
@@ -636,7 +636,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Carl Maria von Weber</td>
 				</tr>
 				<tr>
 					<th class="question-number">42</td>
@@ -649,7 +649,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">magnetic dipole moment</td>
 				</tr>
 				<tr>
 					<th class="question-number">43</td>
@@ -662,7 +662,7 @@
 					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Themistocles</td>
 				</tr>
 				<tr>
 					<th class="question-number">44</td>
@@ -675,7 +675,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Chuck Schumer</td>
 				</tr>
 				<tr>
 					<th class="question-number">45</td>
@@ -688,7 +688,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Alexander Pushkin</td>
 				</tr>
 				<tr>
 					<th class="question-number">46</td>
@@ -701,7 +701,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">convex (mathematics)</td>
 				</tr>
 				<tr>
 					<th class="question-number">47</td>
@@ -714,7 +714,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Thailand (history)</td>
 				</tr>
 				<tr>
 					<th class="question-number">48</td>
@@ -727,7 +727,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">John Dewey</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -740,7 +740,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-correct-response">1</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Mario Vargas Llosa</td>
 				</tr>
 				<tr>
 					<th class="question-number">50</td>
@@ -753,7 +753,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">peroxisome</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 50</th>
@@ -766,11 +766,11 @@
 					<td class="player-score-check">13</td><!-- Kevin -->
 					<td class="player-score-check">6</td><!-- Mitch -->
 					<td class="player-eliminated">eliminated</td><!-- Jaden -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The two players with the lowest scores were eliminated: Aristotle Vainikos and Mitch McCullar.
 					</td>
 				</tr>
@@ -785,7 +785,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Ella Fitzgerald</td>
 				</tr>
 				<tr>
 					<th class="question-number">52</td>
@@ -798,7 +798,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Paraguay (history)</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
@@ -811,7 +811,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer"><i>Northanger Abbey</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">54</td>
@@ -824,7 +824,7 @@
 					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">thermosphere</td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -837,7 +837,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Croatia (geography)</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -850,7 +850,7 @@
 					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">John Llewellyn Lewis</td>
 				</tr>
 				<tr>
 					<th class="question-number">57</td>
@@ -863,7 +863,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Sherman Alexie</td>
 				</tr>
 				<tr>
 					<th class="question-number">58</td>
@@ -876,7 +876,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">racemic mixtures</td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>
@@ -889,7 +889,7 @@
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Set (the god)</td>
 				</tr>
 				<tr>
 					<th class="question-number">60</td>
@@ -902,7 +902,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
-					<!-- <td class="answer"></td> -->
+					<td class="answer">Titian</td>
 				</tr>
 			</tbody>
 			<tfoot>
@@ -917,7 +917,7 @@
 					<td class="player-score-check">14</td><!-- Kevin -->
 					<td class="player-eliminated">eliminated</td><!-- Mitch -->
 					<td class="player-eliminated">eliminated</td><!-- Jaden -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>
