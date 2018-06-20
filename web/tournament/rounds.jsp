@@ -92,7 +92,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 	</div>
 	
 	<div class="row">
-		<div class="small-10 columns small-offset-2">
+		<div class="small-11 columns small-offset-1">
 			<h3>Rounds in <%= lclPOF.isNew() ? "new phase" : lclPOF.getUserFacing().getShortName() %></h3>
 			<table data-fixed-columns="1">
 				<thead>
