@@ -36,6 +36,7 @@ public class CategoryFactory extends com.opal.AbstractIdentityFactory<Category, 
 	public static final Category BRITISH_LITERATURE() { return getInstance().forCode("BRITISH_LITERATURE"); }
 	public static final Category CHEMISTRY() { return getInstance().forCode("CHEMISTRY"); }
 	public static final Category CURRENT_EVENTS() { return getInstance().forCode("CURRENT_EVENTS"); }
+	public static final Category CURRENT_EVENTS_GEOGRAPHY() { return getInstance().forCode("CURRENT_EVENTS_GEOGRAPHY"); }
 	public static final Category EUROPEAN_HISTORY() { return getInstance().forCode("EUROPEAN_HISTORY"); }
 	public static final Category EURO_WORLD_LITERATURE() { return getInstance().forCode("EURO_WORLD_LITERATURE"); }
 	public static final Category GEOG_EARTHSCI_ASTRO() { return getInstance().forCode("GEOG_EARTHSCI_ASTRO"); }
@@ -43,6 +44,8 @@ public class CategoryFactory extends com.opal.AbstractIdentityFactory<Category, 
 	public static final Category GEOMETRY_TRIG() { return getInstance().forCode("GEOMETRY_TRIG"); }
 	public static final Category INTERDISCIPLINARY() { return getInstance().forCode("INTERDISCIPLINARY"); }
 	public static final Category MATH() { return getInstance().forCode("MATH"); }
+	public static final Category MATH_CURRICULAR() { return getInstance().forCode("MATH_CURRICULAR"); }
+	public static final Category MATH_OTHER() { return getInstance().forCode("MATH_OTHER"); }
 	public static final Category MILITARY_HISTORY() { return getInstance().forCode("MILITARY_HISTORY"); }
 	public static final Category MISCELLANEOUS() { return getInstance().forCode("MISCELLANEOUS"); }
 	public static final Category MUSIC() { return getInstance().forCode("MUSIC"); }
