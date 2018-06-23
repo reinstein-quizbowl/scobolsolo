@@ -74,7 +74,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Category
-			<%= lclDOF.<Category>dropdown("Category").required() %>
+			<%= lclDOF.<Category>dropdown("Category").query("active = true").required() %>
 		</label>
 	</div><%
 	if (lclUser.isAdministrator()) {
