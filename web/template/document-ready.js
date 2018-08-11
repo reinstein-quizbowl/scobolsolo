@@ -9,6 +9,8 @@
 		
 		$(document).foundation();
 		
+		updateMessageIndicator();
+		
 		var lclModalsToOpenOnLoad = $('.modal-open-on-load');
 		if (lclModalsToOpenOnLoad.length > 0) {
 			lclModalsToOpenOnLoad.foundation('open');
@@ -40,6 +42,18 @@ var myTextExtractor = function(argNode) {
 	}
 }
 
+function updateMessageIndicator() {
+	var lclMessageIndicator = $('#message-indicator');
+	if (lclMessageIndicator) {
+		var lclUnread = lclMessageIndicator.data('unreadMessages');
+		if (lclUnread == 0) {
+			lclMessageIndicator.html('<a class="messages none-unread stealth-tooltip" title="Messages (none unread)" href="/messages/" target="_blank"><i class="fa fa-envelope-o"></i></a>');
+		} else {
+			lclMessageIndicator.html('<a class="messages unread stealth-tooltip" title="Messages (new!)" href="/messages/"><i class="fa fa-envelope"></i></a>');
+		}
+	}
+}
+
 function acknowledgeMessage(argMessageId) {
 	try {
 		$.ajax(
@@ -51,6 +65,9 @@ function acknowledgeMessage(argMessageId) {
 			}
 		).done(
 			function (argResponse) {
+				$('#message-indicator').data('unreadMessages', argResponse.unread_messages);
+				updateMessageIndicator();
+				
 				var lclMessagesModal = $('#messages-modal');
 				if (lclMessagesModal.length > 0) {
 					lclMessagesModal.foundation('close');

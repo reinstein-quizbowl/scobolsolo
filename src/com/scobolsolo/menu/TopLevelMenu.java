@@ -74,10 +74,9 @@ public class TopLevelMenu extends Menu {
 	protected String outputMessagesSection(final Account argUser) {
 		Validate.notNull(argUser);
 		
-		if (argUser.getUnreadMessages().isEmpty()) {
-			return "					<li><a class=\"messages none-unread stealth-tooltip\" title=\"Messages (none unread)\" href=\"/messages/\" target=\"_blank\"><i class=\"fa fa-envelope-o\"></i></a></li>\n";
-		} else {
-			return "					<li><a class=\"messages unread stealth-tooltip\" title=\"Messages (new!)\" href=\"/messages/\"><i class=\"fa fa-envelope\"></i></a></li>\n";
-		}
+		int lclUnreadMessages = argUser.getUnreadMessages().size();
+		
+		
+		return"					<li id=\"message-indicator\" data-unread-messages=\"" + lclUnreadMessages + "\"></li>";
 	}
 }

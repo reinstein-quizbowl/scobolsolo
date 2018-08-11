@@ -40,6 +40,10 @@ public class AcknowledgeMessage extends AjaxServlet {
 			}
 		}
 		
-		return null; // I guess we could say something vaguely meaningful, like just spitting back the Message IDs
+		final JsonObject lclO = new JsonObject();
+		
+		lclO.addProperty("unread_messages", argUser.getUnreadMessages().size());
+		
+		return lclO;
 	}
 }
