@@ -101,7 +101,7 @@ if (lclOF.hasErrors()) {
 <div class="row">
 	<div class="small-12 columns">
 		<h2>Questions (<%= lclP.getPlacementSet().size() %>)</h2>
-		<table data-fixed-columns="2">
+		<table>
 			<thead>
 				<tr>
 					<th>Question</th>
