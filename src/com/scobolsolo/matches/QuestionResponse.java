@@ -93,7 +93,8 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		final Player lclLeftPlayer = extractPlayer(lclLeftPlayerObj);
 		final boolean lclLeftBuzzed = extractBuzzed(lclLeftPlayerObj);
 		final boolean lclLeftCorrect = extractCorrect(lclLeftPlayerObj);
-		final int lclLeftBuzzIndex = correctBuzzIndex(extractBuzzIndex(lclLeftPlayerObj), lclDiff);
+		final int lclLeftBuzzWordStartIndex = extractBuzzIndex(lclLeftPlayerObj);
+		final int lclLeftBuzzWordEndIndex = startIndexToEndIndex(lclDiff, lclLeftBuzzWordStartIndex);
 		
 		final JsonElement lclRightPlayerElt = Validate.notNull(lclJson.get("right"), "Missing right player");
 		Validate.isTrue(lclRightPlayerElt.isJsonObject(), "right is not a JsonObject");
@@ -102,10 +103,11 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		final Player lclRightPlayer = extractPlayer(lclRightPlayerObj);
 		final boolean lclRightBuzzed = extractBuzzed(lclRightPlayerObj);
 		final boolean lclRightCorrect = extractCorrect(lclRightPlayerObj);
-		final int lclRightBuzzIndex = correctBuzzIndex(extractBuzzIndex(lclRightPlayerObj), lclDiff);
+		final int lclRightBuzzWordStartIndex = extractBuzzIndex(lclRightPlayerObj);
+		final int lclRightBuzzWordEndIndex = startIndexToEndIndex(lclDiff, lclRightBuzzWordStartIndex);
 		
-		final ResponseType lclLeftRT = determineResponseType(lclActualPL, lclLeftPlayer, lclLeftBuzzed, lclLeftCorrect, lclLeftBuzzIndex);
-		final ResponseType lclRightRT = determineResponseType(lclActualPL, lclRightPlayer, lclRightBuzzed, lclRightCorrect, lclRightBuzzIndex);
+		final ResponseType lclLeftRT = determineResponseType(lclActualPL, lclLeftPlayer, lclLeftBuzzed, lclLeftCorrect, lclLeftBuzzWordEndIndex);
+		final ResponseType lclRightRT = determineResponseType(lclActualPL, lclRightPlayer, lclRightBuzzed, lclRightCorrect, lclRightBuzzWordEndIndex);
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 			final Performance lclLeftPerf = lclGame.findOrCreatePerformance(lclLeftPlayer);
@@ -128,14 +130,16 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				lclLeftPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
 					.setResponseType(lclLeftRT)
 					.setDiff(lclDiff)
-					.setLocation(lclLeftBuzzIndex >= 0 ? lclLeftBuzzIndex : null);
+					.setWordStartIndex(lclLeftBuzzWordStartIndex >= 0 ? lclLeftBuzzWordStartIndex : null)
+					.setWordEndIndex(lclLeftBuzzWordEndIndex >= 0 ? lclLeftBuzzWordEndIndex : null);
 			}
 			
 			if (lclRightRT != null) {
 				lclRightPerf.findOrCreateResponse(lclBasePL, lclReplacementPL)
 					.setResponseType(lclRightRT)
 					.setDiff(lclDiff)
-					.setLocation(lclRightBuzzIndex >= 0 ? lclRightBuzzIndex : null);
+					.setWordStartIndex(lclRightBuzzWordStartIndex >= 0 ? lclRightBuzzWordStartIndex : null)
+					.setWordEndIndex(lclRightBuzzWordEndIndex >= 0 ? lclRightBuzzWordEndIndex : null);
 			}
 			
 			lclTC.complete();
@@ -312,7 +316,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		return extractInt(argO, "buzz_index", -1);
 	}
 	
-	public static int correctBuzzIndex(final int argRawIndex, final Diff argD) {
+	public static int startIndexToEndIndex(final Diff argD, final int argRawIndex) {
 		if (argRawIndex == -1) {
 			return -1;
 		} else if (argRawIndex < 0) {
@@ -336,7 +340,7 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		return lclCorrectedIndex;
 	}
 	
-	protected static ResponseType determineResponseType(final Placement argPL, final Player argPlayer, final boolean argBuzzed, final boolean argCorrect, final int argBuzzIndex) {
+	protected static ResponseType determineResponseType(final Placement argPL, final Player argPlayer, final boolean argBuzzed, final boolean argCorrect, final int argBuzzWordEndIndex) {
 		Validate.notNull(argPL);
 		Validate.notNull(argPlayer);
 		
@@ -352,11 +356,11 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 				Question lclQ = Validate.notNull(argPL.getQuestion());
 				String lclText = lclQ.getText();
 				
-				if (argBuzzIndex >= lclText.length()) {
+				if (argBuzzWordEndIndex >= lclText.length() - 1) {
 					return ResponseTypeFactory.INCORRECT_AT_END();
 				} else {
-					if (argBuzzIndex >= 0 && argBuzzIndex < lclQ.getText().length()) {
-						String lclAfterBuzzIndex = lclQ.getText().substring(argBuzzIndex);
+					if (argBuzzWordEndIndex >= 0 && argBuzzWordEndIndex < lclQ.getText().length()) {
+						String lclAfterBuzzIndex = lclQ.getText().substring(argBuzzWordEndIndex);
 						if (StringUtils.containsAny(lclAfterBuzzIndex, Question.WORD_BREAKING_CHARACTERS)) {
 							return ResponseTypeFactory.INTERRUPT();
 						} else {

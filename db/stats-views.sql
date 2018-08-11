@@ -29,7 +29,7 @@ SELECT
 	PL.category_code,
 	COUNT(R.*) AS tossups_heard,
 	SUM(RT.points) AS points,
-	AVG(CASE WHEN R.response_type_code='CORRECT' THEN 1.0 * R.location / D.text_length ELSE NULL END) AS average_correct_buzz_depth
+	AVG(CASE WHEN R.response_type_code='CORRECT' THEN 1.0 * R.word_end_index / D.text_length ELSE NULL END) AS average_correct_buzz_depth
 FROM Response_v R
 	JOIN Performance PF ON R.performance_id = PF.id
 	JOIN Player PY ON PF.player_id = PY.id
@@ -54,7 +54,7 @@ SELECT
 	PL.question_id,
 	R.response_type_code,
 	COUNT(*) AS response_type_count,
-	AVG(1.0 * R.location / D.text_length) AS average_buzz_depth
+	AVG(1.0 * R.word_end_index / D.text_length) AS average_buzz_depth
 FROM Placement PL
 	JOIN Response_v R ON R.actual_placement_id = PL.id
 	JOIN Performance P ON R.performance_id = P.id
@@ -75,7 +75,7 @@ SELECT
 	PL.category_code,
 	R.response_type_code,
 	COUNT(*) AS response_type_count,
-	AVG(1.0 * R.location / D.text_length) AS average_buzz_depth
+	AVG(1.0 * R.word_end_index / D.text_length) AS average_buzz_depth
 FROM Placement PL
 	JOIN Response_v R ON R.actual_placement_id = PL.id
 	JOIN Performance P ON R.performance_id = P.id
@@ -101,7 +101,7 @@ SELECT
 	M.id AS match_id,
 	G.id AS game_id,
 	COALESCE(SUM(RT.points), 0) AS score,
-	AVG(CASE WHEN R.response_type_code='CORRECT' THEN 1.0 * R.location / LENGTH(D.text) ELSE NULL END) AS average_correct_buzz_depth
+	AVG(CASE WHEN R.response_type_code='CORRECT' THEN 1.0 * R.word_end_index / LENGTH(D.text) ELSE NULL END) AS average_correct_buzz_depth
 FROM Performance Pthis
 	JOIN Player P ON Pthis.player_id = P.id
 	JOIN Match M ON Pthis.game_id = M.id
@@ -139,7 +139,7 @@ FROM Match M
 	LEFT OUTER JOIN Player_Match_V PMVlose ON PMVlose.performance_id = Plose.id
 WHERE
 	(G.outgoing_winning_card_player_id IS NOT NULL AND G.outgoing_losing_card_player_id IS NOT NULL) OR
-	PH.card_system = FALSE
+	PH.card_system = FALSE;
 GRANT SELECT ON Game_v TO scobolsolo;
 
 CREATE OR REPLACE VIEW Player_Record_v AS

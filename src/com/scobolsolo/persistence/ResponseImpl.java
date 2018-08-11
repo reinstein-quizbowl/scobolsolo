@@ -148,21 +148,42 @@ public class ResponseImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.a
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@Override
-	public java.lang.Integer getLocationAsObject() {
-		return getResponseOpal().getLocationAsObject();
+	public java.lang.Integer getWordStartIndexAsObject() {
+		return getResponseOpal().getWordStartIndexAsObject();
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@Override
-	public com.scobolsolo.persistence.ResponseImpl setLocation(java.lang.Integer argLocation) {
-		getResponseOpal().setLocation(argLocation);
+	public com.scobolsolo.persistence.ResponseImpl setWordStartIndex(java.lang.Integer argWordStartIndex) {
+		getResponseOpal().setWordStartIndex(argWordStartIndex);
 		return this;
 	}
 
 	@Override
-	public com.scobolsolo.persistence.ResponseImpl setLocation(int argLocation) {
-		getResponseOpal().setLocation(argLocation);
+	public com.scobolsolo.persistence.ResponseImpl setWordStartIndex(int argWordStartIndex) {
+		getResponseOpal().setWordStartIndex(argWordStartIndex);
+		return this;
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Integer getWordEndIndexAsObject() {
+		return getResponseOpal().getWordEndIndexAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.persistence.ResponseImpl setWordEndIndex(java.lang.Integer argWordEndIndex) {
+		getResponseOpal().setWordEndIndex(argWordEndIndex);
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.persistence.ResponseImpl setWordEndIndex(int argWordEndIndex) {
+		getResponseOpal().setWordEndIndex(argWordEndIndex);
 		return this;
 	}
 

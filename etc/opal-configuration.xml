@@ -136,7 +136,9 @@
 				<Column Name="sequence" Ordering="True" />
 			</Mapping>
 			
-			<Mapping Table="Response" />
+			<Mapping Table="Response">
+				<Column Name="location" Mapped="False" />
+			</Mapping>
 			
 			<Mapping Table="Response_Type" BackCollection="False">
 				<Column Name="sequence" Ordering="True" />

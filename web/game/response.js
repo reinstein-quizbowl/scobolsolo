@@ -182,16 +182,10 @@ function findWordId(argDesiredBuzzIndex) {
 		var lclBuzzableWordId = lclBuzzableWord.attr('id');
 		var lclThisWordBuzzIndex = lclBuzzableWord.data('buzzIndex');
 		
-		if (lclThisWordBuzzIndex == argDesiredBuzzIndex) {
+		if (Math.abs(lclThisWordBuzzIndex - argDesiredBuzzIndex) <= 1) { // One-character buffer
 			return lclBuzzableWordId;
-		} else {
-			var lclCloseness = Math.abs(lclThisWordBuzzIndex - argDesiredBuzzIndex);
-			if (lclCloseness < lclClosestWordCloseness) {
-				lclClosestWordId = lclBuzzableWordId;
-				lclClosestWordCloseness = lclCloseness;
-			}
 		}
 	}
 	
-	return lclClosestWordId;
+	return undefined;
 }

@@ -128,7 +128,7 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 									}
 								}
 								if (lclR.hasLocation()) {
-									%> at <%= lclR.getLocation() %><%
+									%> at <%= lclR.getWordStartIndex() %>/<%= lclR.getWordEndIndex() %><%
 								}
 							%></td>
 							<td><%= lclScores.get(lclPerf) %></td><%

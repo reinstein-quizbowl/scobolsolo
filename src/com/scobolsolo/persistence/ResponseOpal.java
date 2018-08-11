@@ -32,13 +32,15 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		"BasePlacementId",
 		"ReplacementPlacementId",
 		"DiffId",
-		"Location",
+		"WordStartIndex",
+		"WordEndIndex",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.String.class,
+		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
@@ -53,9 +55,11 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		true,
 		true,
 		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -109,8 +113,12 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return (java.lang.Integer) getReadValueSet()[5];
 	}
 
-	public synchronized java.lang.Integer getLocationAsObject() {
+	public synchronized java.lang.Integer getWordStartIndexAsObject() {
 		return (java.lang.Integer) getReadValueSet()[6];
+	}
+
+	public synchronized java.lang.Integer getWordEndIndexAsObject() {
+		return (java.lang.Integer) getReadValueSet()[7];
 	}
 
 	public synchronized ResponseOpal setId(final java.lang.Integer argId) {
@@ -189,14 +197,25 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		return this;
 	}
 
-	public synchronized ResponseOpal setLocation(final java.lang.Integer argLocation) {
+	public synchronized ResponseOpal setWordStartIndex(final java.lang.Integer argWordStartIndex) {
 		tryMutate();
-		getNewValues()[6] = argLocation;
+		getNewValues()[6] = argWordStartIndex;
 		return this;
 	}
 
-	public ResponseOpal setLocation(final int argLocation) {
-		setLocation(java.lang.Integer.valueOf(argLocation));
+	public ResponseOpal setWordStartIndex(final int argWordStartIndex) {
+		setWordStartIndex(java.lang.Integer.valueOf(argWordStartIndex));
+		return this;
+	}
+
+	public synchronized ResponseOpal setWordEndIndex(final java.lang.Integer argWordEndIndex) {
+		tryMutate();
+		getNewValues()[7] = argWordEndIndex;
+		return this;
+	}
+
+	public ResponseOpal setWordEndIndex(final int argWordEndIndex) {
+		setWordEndIndex(java.lang.Integer.valueOf(argWordEndIndex));
 		return this;
 	}
 
@@ -249,7 +268,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		lclTargetNewValues[3] = lclValues[3]; /* BasePlacementId (immutable) */
 		lclTargetNewValues[4] = lclValues[4]; /* ReplacementPlacementId (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* DiffId (immutable) */
-		lclTargetNewValues[6] = lclValues[6]; /* Location (immutable) */
+		lclTargetNewValues[6] = lclValues[6]; /* WordStartIndex (immutable) */
+		lclTargetNewValues[7] = lclValues[7]; /* WordEndIndex (immutable) */
 
 		return;
 	}
@@ -388,7 +408,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		argOutput.println("BasePlacementId = " + getBasePlacementIdAsObject());
 		argOutput.println("ReplacementPlacementId = " + getReplacementPlacementIdAsObject());
 		argOutput.println("DiffId = " + getDiffIdAsObject());
-		argOutput.println("Location = " + getLocationAsObject());
+		argOutput.println("WordStartIndex = " + getWordStartIndexAsObject());
+		argOutput.println("WordEndIndex = " + getWordEndIndexAsObject());
 	}
 
 	@Override
@@ -399,7 +420,8 @@ public final class ResponseOpal extends com.opal.UpdatableOpal<Response> {
 		argOutput.println("BasePlacementId = " + getBasePlacementIdAsObject());
 		argOutput.println("ReplacementPlacementId = " + getReplacementPlacementIdAsObject());
 		argOutput.println("DiffId = " + getDiffIdAsObject());
-		argOutput.println("Location = " + getLocationAsObject());
+		argOutput.println("WordStartIndex = " + getWordStartIndexAsObject());
+		argOutput.println("WordEndIndex = " + getWordEndIndexAsObject());
 	}
 
 	private PlacementOpal myOldBasePlacementOpal;

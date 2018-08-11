@@ -358,83 +358,162 @@ public interface ResponseUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Response setDiffId(int argDiffId);
 
 	/**
-	 * object accessor for the {@code Location}
+	 * object accessor for the {@code WordStartIndex}
 	 *
-	 * <p>The {@code Location} field is a direct mapping of the {@code location} field in {@code response}.</p>
+	 * <p>The {@code WordStartIndex} field is a direct mapping of the {@code word_start_index} field in {@code response}.</p>
 	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getLocation() method.</p>
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getWordStartIndex() method.</p>
 	 *
-	 * @return an object value of {@code Location} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 * @return an object value of {@code WordStartIndex} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
-	public java.lang.Integer getLocationAsObject();
+	public java.lang.Integer getWordStartIndexAsObject();
 
 	/**
-	 * object accessor for the {@code Location} with substitution for a null value
+	 * object accessor for the {@code WordStartIndex} with substitution for a null value
 	 *
-	 * <p>The {@code Location} field is a direct mapping of the {@code location} database column in the table {@code response}.</p>
+	 * <p>The {@code WordStartIndex} field is a direct mapping of the {@code word_start_index} database column in the table {@code response}.</p>
 	 *
 	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
 	 *
-	 * @param argStringToSubstituteIfNull the value to return if the {@code Location} is {@code null}.
-	 * @return an object value of {@code Location} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 * @param argStringToSubstituteIfNull the value to return if the {@code WordStartIndex} is {@code null}.
+	 * @return an object value of {@code WordStartIndex} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
 	 */
-	default public java.lang.String getLocationAsObject(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getLocationAsObject();
+	default public java.lang.String getWordStartIndexAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWordStartIndexAsObject();
 		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
 	}
 
 
 	/**
-	 * primitive accessor for the {@code Location}
+	 * primitive accessor for the {@code WordStartIndex}
 	 *
-	 * <p>The {@code Location} field is a direct mapping of the {@code location} database column in the table {@code response}.</p>
+	 * <p>The {@code WordStartIndex} field is a direct mapping of the {@code word_start_index} database column in the table {@code response}.</p>
 	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getLocationAsObject() method.</p>
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getWordStartIndexAsObject() method.</p>
 	 *
 	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
 	 *
-	 * @return the primitive value of {@code Location} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code WordStartIndex} (of the current {@link com.opal.TransactionContext})
 	 * @throws com.opal.NullValueException when the internal value is null
 	 */
-	default public int getLocation() throws com.opal.NullValueException {
-		java.lang.Integer lclO = getLocationAsObject();
+	default public int getWordStartIndex() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getWordStartIndexAsObject();
 		if (lclO == null) {
 			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
 		}
 		return lclO.intValue();
 	}
 
-	default public int getLocation(int argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getLocationAsObject();
+	default public int getWordStartIndex(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWordStartIndexAsObject();
 		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
 	}
 
-	default public java.lang.String getLocation(java.lang.String argStringToSubstituteIfNull) {
-		java.lang.Integer lclO = getLocationAsObject();
+	default public java.lang.String getWordStartIndex(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWordStartIndexAsObject();
 		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
 	}
 
 	/**
-	 * sets the {@code Location} to the value of {@code argLocation}
+	 * sets the {@code WordStartIndex} to the value of {@code argWordStartIndex}
 	 *
-	 * @param argLocation the new value of {@code Location}.  May be <code>null</code>.
+	 * @param argWordStartIndex the new value of {@code WordStartIndex}.  May be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = true)
 	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Response setLocation(java.lang.Integer argLocation);
+	public com.scobolsolo.application.Response setWordStartIndex(java.lang.Integer argWordStartIndex);
 
 	/**
-	 * sets the {@code Location} to the value of {@code argLocation}
+	 * sets the {@code WordStartIndex} to the value of {@code argWordStartIndex}
 	 *
-	 * @param argLocation the new value of {@code Location}
+	 * @param argWordStartIndex the new value of {@code WordStartIndex}
 	 * @return itself, so that mutators may be chained fluently
 	 */
 	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Response setLocation(int argLocation);
+	public com.scobolsolo.application.Response setWordStartIndex(int argWordStartIndex);
+
+	/**
+	 * object accessor for the {@code WordEndIndex}
+	 *
+	 * <p>The {@code WordEndIndex} field is a direct mapping of the {@code word_end_index} field in {@code response}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getWordEndIndex() method.</p>
+	 *
+	 * @return an object value of {@code WordEndIndex} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getWordEndIndexAsObject();
+
+	/**
+	 * object accessor for the {@code WordEndIndex} with substitution for a null value
+	 *
+	 * <p>The {@code WordEndIndex} field is a direct mapping of the {@code word_end_index} database column in the table {@code response}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code WordEndIndex} is {@code null}.
+	 * @return an object value of {@code WordEndIndex} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getWordEndIndexAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWordEndIndexAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code WordEndIndex}
+	 *
+	 * <p>The {@code WordEndIndex} field is a direct mapping of the {@code word_end_index} database column in the table {@code response}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getWordEndIndexAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code WordEndIndex} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getWordEndIndex() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getWordEndIndexAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getWordEndIndex(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWordEndIndexAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getWordEndIndex(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getWordEndIndexAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * sets the {@code WordEndIndex} to the value of {@code argWordEndIndex}
+	 *
+	 * @param argWordEndIndex the new value of {@code WordEndIndex}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Response setWordEndIndex(java.lang.Integer argWordEndIndex);
+
+	/**
+	 * sets the {@code WordEndIndex} to the value of {@code argWordEndIndex}
+	 *
+	 * @param argWordEndIndex the new value of {@code WordEndIndex}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Response setWordEndIndex(int argWordEndIndex);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Placement}

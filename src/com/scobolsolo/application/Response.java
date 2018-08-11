@@ -23,7 +23,7 @@ public interface Response extends ResponseUserFacing {
 	}
 	
 	default public boolean hasLocation() {
-		return getLocationAsObject() != null;
+		return getWordStartIndexAsObject() != null && getWordEndIndexAsObject() != null;
 	}
 	
 	default ResponseType getType() {

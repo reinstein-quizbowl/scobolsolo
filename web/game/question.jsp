@@ -175,11 +175,11 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 	
 	function recordPersistedBuzzes() {<%
 		if (lclLeftResponse != null && lclLeftResponse.hasLocation()) { // THINK: This won't show anything if there's no location. What should we do then?
-			%>buzz('left', findWordId(<%= lclLeftResponse.getLocation(-1) %>), <%= lclLeftResponse.getType().isCorrect() %>);<%
+			%>buzz('left', findWordId(<%= lclLeftResponse.getWordStartIndex(-1) %>), <%= lclLeftResponse.getType().isCorrect() %>);<%
 		}
 		
 		if (lclRightResponse != null && lclRightResponse.hasLocation()) { // THINK: This won't show anything if there's no location. What should we do then?
-			%>buzz('right', findWordId(<%= lclRightResponse.getLocation(-1) %>), <%= lclRightResponse.getType().isCorrect() %>);<%
+			%>buzz('right', findWordId(<%= lclRightResponse.getWordStartIndex(-1) %>), <%= lclRightResponse.getType().isCorrect() %>);<%
 		}
 	%>}
 </script>
