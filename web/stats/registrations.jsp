@@ -64,7 +64,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 			%></tbody>
 			<tfoot>
 				<tr>
-					<th colspan="2">Total</th>
+					<th>Total</th>
+					<td>&nbsp;</td>
 					<td><%= lclPlayers %></td>
 					<td><%= lclWaitlist %></td>
 					<td><%= lclStandby %></td>
