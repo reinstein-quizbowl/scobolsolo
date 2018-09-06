@@ -17,6 +17,14 @@ public interface Contact extends ContactUserFacing {
 		return streamPlayer().anyMatch(argP -> argP.getTournament() == argT);
 	}
 	
+	default boolean isStaffAt(final Tournament argT) {
+		return streamStaff().anyMatch(argS -> argS.getTournament() == argT);
+	}
+	
+	default boolean isOccupiedAt(final Tournament argT) {
+		return isPlayerAt(argT) || isStaffAt(argT);
+	}
+	
 	default Staff findStaff(final Tournament argT) {
 		Validate.notNull(argT);
 		
