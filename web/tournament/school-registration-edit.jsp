@@ -1,11 +1,13 @@
 ﻿<%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.cma.OpalForm" %>
 <%@ page import="com.opal.cma.OpalMainForm" %>
 <%@ page import="com.scobolsolo.application.Buzzer" %>
 <%@ page import="com.scobolsolo.application.BuzzerFactory" %>
 <%@ page import="com.scobolsolo.application.Contact" %>
+<%@ page import="com.scobolsolo.application.ContactFactory" %>
 <%@ page import="com.scobolsolo.application.Player" %>
 <%@ page import="com.scobolsolo.application.PlayerFactory" %>
 <%@ page import="com.scobolsolo.application.Room" %>
@@ -42,6 +44,13 @@ Contact lclC = lclSR.getMainContact();
 lclOF.setDeleteURI("/tournament/cancel-confirmation.jsp?object=" + lclT.getUniqueString() + "&class_name=school_registration");
 
 String lclTitle = lclS.getName() + " at " + lclT.getName();
+
+List<Contact> lclActiveContacts = ContactFactory.getInstance().acquireForQuery(
+	new ArrayList<>(),
+	new ImplicitTableDatabaseQuery("active = true")
+);
+lclActiveContacts.sort(null);
+lclActiveContacts.removeIf(argC -> argC.isOccupiedAt(lclT));
 %>
 
 <jsp:include page="/template/header.jsp">
@@ -115,13 +124,13 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="players">Players (<%= lclSR.getPlayerSet().size() %>)</h2>
-		<table data-fixed-columns="2">
+		<table>
 			<thead>
 				<tr>
 					<th>&nbsp;</th>
 					<th>Name</th>
 					<th>Year</th>
-					<th>Rank Among <%= lclS.getVeryShortName() %> Players</th>
+					<th>Rank&nbsp;w/in&nbsp;<%= lclS.getVeryShortName() %></th>
 					<th>Seed</th>
 					<th>Note</th>
 					<th>Cancel?</th>
@@ -147,11 +156,11 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 								%>&nbsp;<%
 							}
 						%></td>
-						<td><%= lclPOF.<Contact>dropdown("Contact").filter(argC -> argC.isActive() && !argC.isPlayerAt(lclT)) %></td>
-						<td><%= lclPOF.<SchoolYear>dropdown("SchoolYear") %></td>
-						<td><%= lclPOF.number("RankWithinSchool").range(1, lclSR.getPlayerSet().isEmpty() ? 1 : lclSR.getPlayerSet().size()) %></td>
+						<td><%= lclPOF.<Contact>dropdown("Contact").choices(lclActiveContacts) %></td>
+						<td><%= lclPOF.<SchoolYear>dropdown("SchoolYear").namer(SchoolYear::getVeryShortName) %></td>
+						<td><%= lclPOF.number("RankWithinSchool").range(1, lclSR.getPlayerSet().isEmpty() ? 1 : lclSR.getPlayerSet().size() + 1) %></td>
 						<td><%= lclPOF.number("Seed").min(1) %></td>
-						<td><%= lclPOF.text("Note", 60) %></td>
+						<td><%= lclPOF.text("Note", 40) %></td>
 						<td><%= HTMLUtility.deleteWidget(lclPOF) %></td>
 						<%= lclPOF.close() %>
 					</tr><%
@@ -169,7 +178,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="waitlist-entries">Waitlist Entries</h2>
-		<table data-fixed-columns="2">
+		<table>
 			<thead>
 				<tr>
 					<th>Count</th>
@@ -207,7 +216,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="standby-entries">Standby List Entries</h2>
-		<table data-fixed-columns="2">
+		<table>
 			<thead>
 				<tr>
 					<th>Count</th>
@@ -246,7 +255,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="staff">Staff (<%= lclSR.getStaffSet().size() %>)</h2>
-		<table data-fixed-columns="1">
+		<table>
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -269,7 +278,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 					%><tr>
 						<%= lclSOF.open() %><%
 						if (lclStaff == null) {
-							%><td><%= lclSOF.<Contact>dropdown("Contact") %></td><%
+							%><td><%= lclSOF.<Contact>dropdown("Contact").choices(lclActiveContacts) %></td><%
 						} else {
 							%><td><%= lclStaff.getContact().getName() %></td><%
 						}
@@ -287,7 +296,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 <div class="row">
 	<div class="small-12 columns">
 		<h2 id="buzzers">Buzzers (<%= lclSR.getBuzzerSet().size() %>)</h2>
-		<table data-fixed-columns="1">
+		<table>
 			<thead>
 				<tr>
 					<th>Name</th>
