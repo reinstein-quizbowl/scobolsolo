@@ -4,11 +4,13 @@
 <%@ page import="com.scobolsolo.application.AccountFactory" %>
 <%@ page import="com.scobolsolo.application.Contact" %>
 <%@ page import="com.scobolsolo.application.ContactFactory" %>
+<%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.opalforms.updater.ContactUpdater" %>
 <%@ page import="com.scobolsolo.opalforms.validator.AccountValidator" %>
 <%@ page import="com.scobolsolo.opalforms.validator.ContactValidator" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.HTMLUtility" %>
+<%@ page import="com.scobolsolo.Utility" %>
 
 <%
 OpalMainForm<Contact> lclOF = OpalForm.create(
@@ -108,66 +110,85 @@ if (lclOF.hasErrors()) {
 	</div>
 </div><%
 
-if (lclC != null && (lclCreateAccount || lclC.getAccount() != null)) {
-	OpalForm<Account> lclAOF = lclOF.targetForm("Account", AccountFactory.getInstance());
-	lclAOF.setValidatorClass(AccountValidator.class);
-	
+if (lclOF.alreadyExists()) {
 	%><div class="row">
-		<h2 id="account">Account</h2>
-		<%= lclAOF.open() %>
+		<h2 id="activity">Activity</h2>
 		
-		<div class="small-12 medium-4 columns">
-			<label>
-				Username<%
-				if (lclAOF.isNew()) {
-					%><%= lclAOF.text("Username", 30) %><%
-				} else {
-					%><%= lclAOF.text("Username", 30).style("annotated") %>
-					<div class="form-annotation alert-box warning">Don't change this unless you know what you're doing!</div><%
-				}
-			%></label>
+		<div class="small-12 columns">
+			<dl>
+				<dt>Player at&hellip;</dt>
+					<dd><%= lclC.getPlayerSet().isEmpty() ? "None" : Utility.makeList(lclC.getPlayerSet(), argP -> "<a href=\"/tournament/player-edit.jsp?player_id=" + argP.getId() + "\">" + argP.getTournament().getName() + " (for " + argP.getSchoolRegistration().getSchool().getName() + ")</a>") %></dd>
+				<dt>Primary contact for&hellip;</dt>
+					<dd><%= lclC.getMainSchoolRegistrationSet().isEmpty() ? "None" : Utility.makeList(lclC.getMainSchoolRegistrationSet(), argSR -> "<a href=\"/tournament/school-registration-edit.jsp?school_registration_id=" + argSR.getId() + "\">" + argSR.getSchool().getName() + " at " + argSR.getTournament().getName() + "</a>") %></dd>
+				<dt>Staff at&hellip;</dt>
+					<dd><%= lclC.getStaffSet().isEmpty() ? "None" : Utility.makeList(lclC.getStaffSet(), argS -> "<a href=\"/tournament/staff-edit.jsp?staff_id=" + argS.getId() + "\">" + argS.getTournament().getName() + "</a>") %></dd>
+				<dt>Tournament Director of&hellip;</dt>
+					<dd><%= lclC.getTournamentDirectorTournamentSet().isEmpty() ? "None" : Utility.makeList(lclC.getTournamentDirectorTournamentSet(), Tournament::getName) %></dd>
+			</dl>
 		</div>
-		<div class="small-3 medium-2 columns">
-			<label>
-				Active?
-				<%= HTMLUtility.switchWidget(lclAOF, "Active") %>
-			</label>
-		</div>
-		<div class="small-3 medium-2 columns">
-			<label>
-				<span class="hide-for-medium">Admin?</span>
-				<span class="show-for-medium">Administrator?</span>
-				<%= HTMLUtility.switchWidget(lclAOF, "Administrator") %>
-			</label>
-		</div>
-		<div class="small-3 medium-2 columns">
-			<label>
-				Writer?
-				<%= HTMLUtility.switchWidget(lclAOF, "Writer") %>
-			</label>
-		</div>
-		<div class="small-3 medium-2 columns">
-			<label>
-				<span class="hide-for-medium">Messageable?</span>
-				<span class="show-for-medium">Can Receive Unsolicited Messages?</span>
-				<%= HTMLUtility.switchWidget(lclAOF, "CanReceiveUnsolicitedMessages") %>
-			</label>
-		</div><%
-		if (lclAOF.alreadyExists()) {
-			%><div class="small-12 columns">
-				<a href="contact-reset-password.jsp?account_id=<%= lclAOF.getUserFacing().getId() %>">Reset password</a>
-			</div><%
-		}
-	%></div>
+	</div><%
 	
-	<%= lclAOF.close() %><%
-} else if (lclC != null && lclC.getAccount() == null) {
+	if (lclCreateAccount || lclC.getAccount() != null) {
+		OpalForm<Account> lclAOF = lclOF.targetForm("Account", AccountFactory.getInstance());
+		lclAOF.setValidatorClass(AccountValidator.class);
+		
+		%><div class="row">
+			<h2 id="account">Account</h2>
+			<%= lclAOF.open() %>
+			
+			<div class="small-12 medium-4 columns">
+				<label>
+					Username<%
+					if (lclAOF.isNew()) {
+						%><%= lclAOF.text("Username", 30) %><%
+					} else {
+						%><%= lclAOF.text("Username", 30).style("annotated") %>
+						<div class="form-annotation alert-box warning">Don't change this unless you know what you're doing!</div><%
+					}
+				%></label>
+			</div>
+			<div class="small-3 medium-2 columns">
+				<label>
+					Active?
+					<%= HTMLUtility.switchWidget(lclAOF, "Active") %>
+				</label>
+			</div>
+			<div class="small-3 medium-2 columns">
+				<label>
+					<span class="hide-for-medium">Admin?</span>
+					<span class="show-for-medium">Administrator?</span>
+					<%= HTMLUtility.switchWidget(lclAOF, "Administrator") %>
+				</label>
+			</div>
+			<div class="small-3 medium-2 columns">
+				<label>
+					Writer?
+					<%= HTMLUtility.switchWidget(lclAOF, "Writer") %>
+				</label>
+			</div>
+			<div class="small-3 medium-2 columns">
+				<label>
+					<span class="hide-for-medium">Messageable?</span>
+					<span class="show-for-medium">Can Receive Unsolicited Messages?</span>
+					<%= HTMLUtility.switchWidget(lclAOF, "CanReceiveUnsolicitedMessages") %>
+				</label>
+			</div><%
+			if (lclAOF.alreadyExists()) {
+				%><div class="small-12 columns">
+					<a href="contact-reset-password.jsp?account_id=<%= lclAOF.getUserFacing().getId() %>">Reset password</a>
+				</div><%
+			}
+		%></div>
+		
+		<%= lclAOF.close() %><%
+	} else {
 	%><div class="row">
 		<div class="small-12 columns">
 			<h2 id="account">Account</h2>
 			<p>This contact does not currently have an account. You may <a href="contact-edit.jsp?contact_id=<%= lclC.getId() %>&create_account=true">create one</a>.</p>
 		</div>
 	</div><%
+	}
 }
 
 %><div class="row">
