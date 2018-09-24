@@ -113,11 +113,20 @@ public class DiffUpdater extends OpalFormUpdater<Diff> {
 		boolean lclError = false;
 		
 		char lclPrevChar = ' ';
+		boolean lclInMath = false;
 		
 		int lclI = 0;
 		for (char lclC : argTextToValidate.toCharArray()) {
 			if (lclPrevChar == '\\') {
+				// The character is escaped, so we don't care about its balance; it's being used for something else
 			} else {
+				if (lclInMath && lclC == '_') {
+					// Underscore means something different in math mode, and it doesn't have to be balanced
+					// ourLogger.debug("In math mode; ignoring _");
+					++lclI;
+					continue;
+				}
+				
 				if (BALANCED_CHARACTER_PAIRS.containsKey(lclC)) {
 					if (lclStack.isEmpty()) {
 						// It's definitely an opener.
@@ -166,6 +175,10 @@ public class DiffUpdater extends OpalFormUpdater<Diff> {
 						}
 					}
 				}
+			}
+			
+			if (lclC == '$') {
+				lclInMath = !lclInMath;
 			}
 			
 			lclPrevChar = lclC;
