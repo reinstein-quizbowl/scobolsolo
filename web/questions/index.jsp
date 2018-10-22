@@ -241,10 +241,7 @@ void appendQuestionData(StringBuilder argSB, Question argQ) {
 	.append("<td>").append(argQ.getDescription()).append("</td>")
 	.append("<td>").append(argQ.getStatus().getName()).append("</td>");
 	
-	List<Pair<String, String>> lclPreviews = new ArrayList<>(3);
-	if (StringUtils.isNotBlank(argQ.getText())) {
-		lclPreviews.add(Pair.of("Text", argQ.getText()));
-	}
+	List<Pair<String, String>> lclPreviews = new ArrayList<>(2);
 	if (StringUtils.isNotBlank(argQ.getAnswer())) {
 		lclPreviews.add(Pair.of("Answer", argQ.getAnswer()));
 	}
