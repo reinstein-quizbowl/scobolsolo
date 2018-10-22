@@ -3,7 +3,7 @@
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Instructions" />
-	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2017()).asTopLevel().output(request, \"home\") %>" />
+	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2018()).asTopLevel().output(request, \"home\") %>" />
 	<jsp:param name="h1" value="Instructions" />
 </jsp:include>
 
@@ -16,7 +16,7 @@
 		<section id="before">
 			<h2>Before the tournament</h2>
 			
-			<p>You'll need to set up your account. If you staffed last year, your username and password are the same; if you've forgotten it, you can <a href="/password-reset/">reset it</a>. If you didn't, your username is in the form <code>john.smith</code>, and you should <a href="/password-reset/">set your password</a> before the tournament.</p>
+			<p>You'll need to set up your account. If you staffed in the last few years, your username and password are the same; if you've forgotten it, you can <a href="/password-reset/">reset it</a>. If you didn't, your username is in the form <code>john.smith</code>, and you should <a href="/password-reset/">set your password</a> before the tournament.</p>
 			
 			<p>Make sure you can log in: Go to <a href="/account/">your preferences page</a>, which will force you to log in. If you want, you can configure your pronunciation guide preferences (e.g. "don't show me pronunciation guides in physics questions"). <strong>Please make sure you set your password and log in before the tournament!</strong> If you have any problems, reply to this message.</p>
 			
