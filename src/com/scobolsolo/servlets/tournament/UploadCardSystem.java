@@ -3,6 +3,7 @@ package com.scobolsolo.servlets.tournament;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -137,10 +138,21 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 							lclWinningCard = lclTemp;
 						}
 						
-						// Delete any Match already assigned for that room and round
-						final Match lclOld = Match.forRoundRoom(lclRound, lclRoom);
-						if (lclOld != null) {
-							lclOld.unlink();
+						// Delete any Match already assigned for that room and round, or round and either card
+						final List<Match> lclMatchesToDelete = Arrays.asList(
+							Match.forRoundRoom(lclRound, lclRoom),
+							MatchFactory.getInstance().forRoundIdWinningCardId(lclRound.getIdAsObject(), lclWinningCard.getIdAsObject()),
+							MatchFactory.getInstance().forRoundIdLosingCardId(lclRound.getIdAsObject(), lclWinningCard.getIdAsObject())
+						);
+						for (final Match lclDelete : lclMatchesToDelete) {
+							if (lclDelete != null) {
+								final Game lclG = lclDelete.getGame();
+								if (lclG != null) {
+									lclG.unlink();
+								}
+								
+								lclDelete.unlink();
+							}
 						}
 						
 						
