@@ -26,7 +26,7 @@ public interface Match extends MatchUserFacing, Comparable<Match> {
 	
 	public static final Comparator<Match> ENTERING_PRIORITY_COMPARATOR = Comparator.comparing(Match::determineStatus).thenComparing(Match::getRound);
 	
-	public static final Comparator<Match> NATURAL_COMPARATOR = Comparator.comparing(Match::getRound).thenComparingInt(Match::getId);
+	public static final Comparator<Match> NATURAL_COMPARATOR = Comparator.comparing(Match::getRound).thenComparingInt(argM -> argM.isNew() ? 0 : argM.getId());
 	
 	@Override
 	default public int compareTo(final Match that) {
