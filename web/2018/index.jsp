@@ -10,7 +10,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2018 is <em>tentatively</em> scheduled for Saturday, October&nbsp;27. More details will be posted here when the date and other information are finalized.</p>
+		<p>Scobol Solo 2018 will be on Saturday, October&nbsp;27. Results will be available here as the tournament occurs.</p>
 	</div>
 </div>
 
