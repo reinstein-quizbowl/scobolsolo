@@ -33,7 +33,7 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 	<div class="small-12 columns"><%
 		List<PlayerMatchV> lclPMVs = PlayerMatchVFactory.getInstance().acquireForQuery(
 			new ArrayList<>(lclSR.getPlayerSet().size()),
-			new ImplicitTableDatabaseQuery("school_registration_id = ?", lclSR.getIdAsObject())
+			new ImplicitTableDatabaseQuery("school_registration_id = ? AND 0=1", lclSR.getIdAsObject())
 		);
 		
 		SortedSetMultimap<Player, PlayerMatchV> lclByPlayer = TreeMultimap.create(Player.NameComparator.getInstance(), PlayerMatchV.ROUND_COMPARATOR);
