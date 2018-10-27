@@ -1,6 +1,8 @@
 ﻿<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
+<meta http-equiv="refresh" content="0;url=/stats/standings.jsp?object=2018" />
+
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="tournamentCode" value="2018" />
 	<jsp:param name="pageTitle" value="Scobol Solo 2018" />
@@ -10,7 +12,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2018 will be on Saturday, October&nbsp;27. Results will be available here as the tournament occurs.</p>
+		<p>Scobol Solo 2018 is going on now! Use the links above to see stats live as they come in.</p>
 	</div>
 </div>
 
