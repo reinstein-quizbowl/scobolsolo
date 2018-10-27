@@ -248,7 +248,7 @@ CREATE TABLE Round (
 	UNIQUE(round_group_id, short_name)
 );
 ALTER SEQUENCE round_id_seq RESTART WITH 1000;
-CREATE INDEX round_roundgroup_idx ON Round(round_group_id);
+CREATE INDEX round_phase_idx ON Round(phase_id);
 
 CREATE TABLE Card (
 	id SERIAL PRIMARY KEY,
@@ -276,6 +276,8 @@ CREATE TABLE Match (
 ALTER SEQUENCE match_id_seq RESTART WITH 1000;
 CREATE INDEX match_round_idx ON Match(round_id);
 CREATE INDEX match_room_idx ON Match(room_id);
+CREATE INDEX match_winning_card_idx ON Match(winning_card_id);
+CREATE INDEX match_losing_card_idx ON Match(losing_card_id);
 
 CREATE TABLE Game (-- 1-1 with Match
 	id INTEGER PRIMARY KEY REFERENCES Match ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -291,7 +293,7 @@ CREATE TABLE Game (-- 1-1 with Match
 );
 CREATE INDEX game_id_idx ON Game(id);
 CREATE INDEX game_moderatorstaff_idx ON Game(moderator_staff_id);
-CREATE INDEX game_scorekeeperstaff_idx ON Game(moderator_staff_id);
+CREATE INDEX game_scorekeeperstaff_idx ON Game(scorekeeper_staff_id);
 CREATE INDEX game_incomingwinningcardplayer_idx ON Game(incoming_winning_card_player_id);
 CREATE INDEX game_incominglosingcardplayer_idx ON Game(incoming_losing_card_player_id);
 CREATE INDEX game_outgoingwinningcardplayer_idx ON Game(outgoing_winning_card_player_id);
