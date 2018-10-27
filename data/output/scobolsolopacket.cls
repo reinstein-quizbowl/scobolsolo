@@ -32,6 +32,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{xstring}                  % powermarking-related string manipulation
 \RequirePackage{stringstrings}            % powermarking-related string manipulation
+\RequirePackage{amsfonts}                 % \mathbb and similar
 \RequirePackage[bookmarks = false]{hyperref}
 \hypersetup{
 	colorlinks,
