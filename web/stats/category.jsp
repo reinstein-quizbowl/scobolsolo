@@ -45,7 +45,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		);
 		
 		if (lclResults.isEmpty()) {
-			%><p>No results available</p><%
+			%><p>No results are available for this category.</p><%
 		} else {
 			lclResults.sort(PlayerCategoryPointV.PPTUH_COMPARATOR);
 			
