@@ -21,7 +21,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 List<PlayerRecordV> lclPRVs = new ArrayList<>();
 PlayerRecordVFactory.getInstance().acquireForQuery(
 	lclPRVs,
-	new ImplicitTableDatabaseQuery("tournament_code = ? AND 0=1", lclT.getCode())
+	new ImplicitTableDatabaseQuery("tournament_code = ?", lclT.getCode())
 );
 lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 %>

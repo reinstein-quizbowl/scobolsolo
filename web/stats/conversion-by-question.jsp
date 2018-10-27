@@ -69,7 +69,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 						List<PlacementConversionV> lclPCVs = new ArrayList<>();
 						PlacementConversionVFactory.getInstance().acquireForQuery(
 							lclPCVs,
-							new ImplicitTableDatabaseQuery("tournament_code = ? AND placement_id IN (SELECT id FROM Placement WHERE packet_id = ?) AND 0=1", lclT.getCode(), lclP.getIdAsObject())
+							new ImplicitTableDatabaseQuery("tournament_code = ? AND placement_id IN (SELECT id FROM Placement WHERE packet_id = ?)", lclT.getCode(), lclP.getIdAsObject())
 						);
 						
 						RowSortedTable<Placement, ResponseType, Integer> lclTable = TreeBasedTable.create();

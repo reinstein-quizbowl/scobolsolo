@@ -43,7 +43,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 		List<Category> lclCategories = CategoryFactory.getInstance().acquireForQuery(
 			new ArrayList<>(),
 			new ImplicitTableDatabaseQuery(
-				"code IN (SELECT category_code FROM Category_Use WHERE tournament_code = ?) AND 0=1", 
+				"code IN (SELECT category_code FROM Category_Use WHERE tournament_code = ?)", 
 				lclT.getCode()
 			)
 		);
@@ -64,7 +64,7 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 				List<CategoryConversionV> lclCCVs = new ArrayList<>();
 				CategoryConversionVFactory.getInstance().acquireForQuery(
 					lclCCVs, 
-					new ImplicitTableDatabaseQuery("tournament_code = ? AND 0=1", lclT.getCode())
+					new ImplicitTableDatabaseQuery("tournament_code = ?", lclT.getCode())
 				);
 				
 				Table<Category, ResponseType, Integer> lclTable = ArrayTable.create(lclCategories, lclRTs);

@@ -41,7 +41,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 		
 		List<PlayerCategoryPointV> lclResults = PlayerCategoryPointVFactory.getInstance().acquireForQuery(
 			new ArrayList<>(lclT.getCategoryUseSet().size()),
-			new ImplicitTableDatabaseQuery("tournament_code = ? AND category_code = ? AND 0=1", lclT.getCode(), lclC.getCode())
+			new ImplicitTableDatabaseQuery("tournament_code = ? AND category_code = ?", lclT.getCode(), lclC.getCode())
 		);
 		
 		if (lclResults.isEmpty()) {
