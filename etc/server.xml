@@ -118,7 +118,7 @@
 						name="ScobolSoloDataSource"
 						auth="Container"
 						type="javax.sql.DataSource"
-						maxTotal="75" maxIdle="75"
+						maxTotal="25" maxIdle="25"
 						maxWaitMillis="10000"
 						driverClassName="org.postgresql.Driver"
 						url="jdbc:postgresql://127.0.0.1:5432/scobolsolo"
