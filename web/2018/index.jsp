@@ -72,7 +72,7 @@
 			</tbody>
 		</table>
 		
-		<p>The full <a href="/stats/standings.jsp?object=2018">preliminary results</a> are available. The <!-- <a href="championship-match.jsp"> -->championship match scoresheet<!-- </a> --> will be available soon.</p>
+		<p>The full <a href="/stats/standings.jsp?object=2018">preliminary results</a> are available, as is the <a href="championship-match.jsp">championship match scoresheet</a>.</p>
 	</div>
 </div>
 
