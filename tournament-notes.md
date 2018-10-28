@@ -1,6 +1,7 @@
 # Before the tournament
 * Make sure cards that end 5–2 or better have final messages about the championship match. Maybe we want to do this for all cards (e.g., to advertise the awards ceremony).
 * Restart the server early the morning of the tournament so that the cached menu updates for today.
+* Backup the database
 * Run the database maintenance "queries".
 
 
@@ -13,4 +14,5 @@
 
 # After the tournament
 * Restart the server the day after the tournament so that the cached menu updates.
+* Backup the database
 * Run the database maintenance "queries".
