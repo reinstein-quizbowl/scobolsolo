@@ -13,14 +13,18 @@ import com.scobolsolo.persistence.PlayerCategoryPointVUserFacing;
  */
 
 public interface PlayerCategoryPointV extends PlayerCategoryPointVUserFacing {
+	static final Comparator<PlayerCategoryPointV> POINTS_AND_NAME_COMPARATOR = Comparator
+		.<PlayerCategoryPointV>comparingInt(argPCPV -> -1 * argPCPV.getPoints(0)) // descending order of points
+		.thenComparing(PlayerCategoryPointV::getPlayer, Player.NameComparator.getInstance())
+		.thenComparing(PlayerCategoryPointV::getPlayer, Player.IdComparator.getInstance()); // no ties
+	
 	public static final Comparator<PlayerCategoryPointV> CATEGORY_COMPARATOR = Comparator
 		.comparing(PlayerCategoryPointV::getCategory)
-		.thenComparingInt(argPCPV -> -1 * argPCPV.getPoints(0)) // descending order of points
-		.thenComparing(PlayerCategoryPointV::getPlayer, Player.NameComparator.getInstance());
+		.thenComparing(POINTS_AND_NAME_COMPARATOR);
 	
 	public static final Comparator<PlayerCategoryPointV> PPTUH_COMPARATOR = Comparator
 		.comparingDouble(PlayerCategoryPointV::getPPTUH).reversed()
-		.thenComparingInt(argPCPV -> -1 * argPCPV.getPoints(0)); // descending order of points
+		.thenComparing(POINTS_AND_NAME_COMPARATOR);
 	
 	default double getPPTUH() {
 		if (getTossupsHeard(0) == 0) {
