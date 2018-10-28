@@ -38,7 +38,7 @@ Account lclUser = Account.demand(request);
 			.sorted(Match.ENTERING_PRIORITY_COMPARATOR)
 			.collect(Collectors.toList());
 		
-		%><table data-fixed-columns="2">
+		%><table>
 			<thead>
 				<tr>
 					<th>Status</th>
