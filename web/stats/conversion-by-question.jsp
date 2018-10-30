@@ -17,6 +17,7 @@
 
 <%
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
+Account lclUser = Account.determineCurrent(request); // may be null
 
 DecimalFormat lclDF = new DecimalFormat("0.00");
 %>
@@ -51,17 +52,26 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 			%><h2 id="round_<%= lclR.getId() %>" data-magellan-target="round_<%= lclR.getId() %>"><%= lclR.getName() %></h2><%
 			Packet lclP = lclR.getPacket();
 			
-			if (lclP != null && lclP.isQuestionsPublic()) {
+			boolean lclMayShow;
+			if (lclP == null) {
+				lclMayShow = false;
+			} else if (lclP.isQuestionsPublic()) {
+				lclMayShow = true;
+			} else {
+				lclMayShow = lclUser != null && lclUser.isAdministrator();
+			}
+			
+			if (lclMayShow) {
 				%><table>
 					<thead>
 						<tr>
 							<th style="width: 5%;">#</th>
 							<th style="width: 20%;">Question</th>
-							<th style="width: 30%;">Category</th><%
+							<th style="width: 20%;">Category</th><%
 							for (ResponseType lclRT : lclRTs) {
-								%><th style="width: <%= (1.0d * 35 / lclRTs.size()) %>%;" class="number"><%= lclRT.getShortName() %></th><%
+								%><th style="width: <%= (1.0d * 40 / lclRTs.size()) %>%;" class="number"><%= lclRT.getShortName() %></th><%
 							}
-							%>
+							%><th style="width: 5%;">Hearings</th>
 							<th style="width: 10%;" class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th>
 						</tr>
 					</thead>
@@ -89,18 +99,14 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 									for (ResponseType lclRT : lclRTs) {
 										Integer lclResponseCount = lclRTMap.get(lclRT);
 										if (lclResponseCount != null) {
-											if (lclRT.isAttempt()) {
-												lclPoints += lclResponseCount.intValue() * lclRT.getPoints();
-												lclHeard += lclResponseCount.intValue();
-											}
-											
-											for (int lclI = 1; lclI <= lclResponseCount.intValue(); ++lclI) {
-												lclRTTally.tally(lclRT);
-											}
+											lclPoints += lclResponseCount.intValue() * lclRT.getPoints();
+											lclHeard += lclResponseCount.intValue();
+											lclRTTally.tally(lclRT, lclResponseCount);
 										}
 										%><td class="number"><%= lclResponseCount == null ? "0" : lclResponseCount %></td><%
 									}
-									%><td class="number"><%
+									%><td class="number"><%= lclHeard %></td>
+									<td class="number"><%
 										if (lclHeard > 0) {
 											%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
 										} else {
@@ -123,7 +129,8 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 								}
 								%><td class="number"><%= lclCount %></td><%
 							}
-							%><td class="number"><%
+							%><td class="number"><%= lclHeard %></td>
+							<td class="number"><%
 								if (lclHeard > 0) {
 									%><%= lclDF.format(20.0d * lclPoints / lclHeard) %><%
 								} else {
