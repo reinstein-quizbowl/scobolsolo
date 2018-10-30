@@ -26,7 +26,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 				%><p>Drag the rows to rearrange waitlist entries. Your changes will not be saved until you hit the "Save" button <em>at the bottom of this section</em> (not the one for any individual row).</p><%
 			}
 			
-			%><table data-fixed-columns="1">
+			%><table>
 				<thead>
 					<tr>
 						<th>New&nbsp;position</th>

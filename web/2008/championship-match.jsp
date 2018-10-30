@@ -30,7 +30,7 @@
 		
 		<p>Questions 1, 21, and 41 are handout questions. Each player can choose whether or not to count each handout. Players who choose to count the handout receive 1&nbsp;point for a completely correct handout, and &ndash;1 point for a handout that is not completely correct.</p>
 		
-		<table class="even-spacing unsortable championship-scoresheet" data-fixed-columns="1">
+		<table class="even-spacing unsortable championship-scoresheet">
 			<thead>
 				<tr class="player-names">
 					<th>&nbsp;</th>

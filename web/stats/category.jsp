@@ -51,7 +51,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 			
 			boolean lclShowCategoryDepth = lclResults.stream().anyMatch(argR -> argR.getAverageCorrectBuzzDepthAsObject() != null);
 			
-			%><table data-fixed-columns="2">
+			%><table>
 				<thead>
 					<tr>
 						<th class="number"><abbr title="points">Pts</abbr></th>

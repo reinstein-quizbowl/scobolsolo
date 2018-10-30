@@ -111,7 +111,7 @@ if (lclUser.isAdministrator() && lclT.getPacketSet().isEmpty() == false) {
 			<form id="output" action="OutputPackets" method="get">
 				<input form="output" type="hidden" name="tournament_code" value="<%= lclT.getCode() %>" />
 			</form>
-			<table data-fixed-columns="1">
+			<table>
 				<thead>
 					<tr>
 						<th>Packet</th>

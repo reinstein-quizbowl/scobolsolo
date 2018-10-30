@@ -35,7 +35,7 @@ if (lclUser != null && lclUser.findStaff(lclT) != null) {
 
 %><div class="row">
 	<div class="small-12 columns">
-		<table data-fixed-columns="1">
+		<table>
 			<thead>
 				<tr>
 					<th>Round</th>

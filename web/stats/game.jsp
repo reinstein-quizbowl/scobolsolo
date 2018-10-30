@@ -75,7 +75,7 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 			}
 		%></dl>
 		
-		<table data-fixed-columns="1" class="unsortable">
+		<table class="unsortable">
 			<thead>
 				<tr>
 					<th>#</th><%

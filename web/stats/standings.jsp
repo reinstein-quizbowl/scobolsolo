@@ -55,7 +55,7 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 				}
 			}
 			
-			%><table data-fixed-columns="1">
+			%><table>
 				<thead>
 					<tr>
 						<th>Player</th>

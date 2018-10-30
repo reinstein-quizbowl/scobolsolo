@@ -16,7 +16,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<table data-fixed-columns="2">
+		<table>
 			<thead>
 				<tr>
 					<th>ID</th>

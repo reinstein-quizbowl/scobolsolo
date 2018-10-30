@@ -31,7 +31,7 @@ Map<Category, CategoryUse> lclUses = Maps.uniqueIndex(lclT.getCategoryUseSet(), 
 		<form action="UpdateCategoryUses" method="post">
 		<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>">
 		
-		<table data-fixed-columns="1">
+		<table>
 			<thead>
 				<tr>
 					<th>Category</th>

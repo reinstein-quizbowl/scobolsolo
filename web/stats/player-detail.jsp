@@ -66,7 +66,7 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 						}
 					%></h2>
 					
-					<table data-fixed-columns="2">
+					<table>
 						<thead>
 							<tr>
 								<th style="width: 10%;">Round</th>

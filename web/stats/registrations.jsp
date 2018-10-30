@@ -18,7 +18,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 
 <div class="row">
 	<div class="small-12 columns">
-		<table data-fixed-columns="1">
+		<table>
 			<thead>
 				<tr>
 					<th>School</th>
