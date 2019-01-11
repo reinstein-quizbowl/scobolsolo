@@ -16,7 +16,7 @@ import org.apache.commons.lang3.Validate;
  * Semi-copied from http://stackoverflow.com/questions/138948/how-to-get-utf-8-working-in-java-webapps
  */
 public class CharsetFilter implements Filter {
-	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(CharsetFilter.class.getName());
+	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(CharsetFilter.class.getName());
 	public static final String DEFAULT_ENCODING = "UTF-8";
 	
 	@Override
@@ -35,9 +35,7 @@ public class CharsetFilter implements Filter {
 			argRequest.setCharacterEncoding(DEFAULT_ENCODING);
 		}
 		
-		if (argResponse.getCharacterEncoding() == null) {
-			argResponse.setCharacterEncoding(DEFAULT_ENCODING);
-		}
+		argResponse.setCharacterEncoding(DEFAULT_ENCODING);
 		
 		argChain.doFilter(argRequest, argResponse);
 	}
