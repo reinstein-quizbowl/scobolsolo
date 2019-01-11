@@ -1,4 +1,4 @@
-<%@ page import="com.scobolsolo.application.Account" %>
+﻿<%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.Utility" %>
 
@@ -26,7 +26,7 @@
 			
 			<p>For further assistance, you may contact <%= Utility.getAdminContact() %>.</p><%
 		} else {
-			// The user is logged in, so it doesn't make sense to generate a password reset token for them. They can go through the "I know my password and want to change it" flow.
+			// The user is logged in, so it doesn’t make sense to generate a password reset token for them. They can go through the “I know my password and want to change it” flow.
 			%><jsp:forward page="/account/change-password.jsp" /><%
 		}
 	%></div>

@@ -1,4 +1,4 @@
-<%@ page import="java.text.DecimalFormat" %>
+﻿<%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -20,7 +20,7 @@
 	<div class="small-12 columns">
 		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who had the highest points per tossup heard among those who won exactly five of their preliminary matches.</p>
 		
-		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
+		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary “negs”.</p>
 		
 		<p>Each player starts with 3&nbsp;points. A player whose score reaches 0 is immediately removed from the match.</p>
 		
@@ -197,7 +197,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-correct-response">1</td><!-- Jakob -->
-					<td class="answer">"I Got Rhythm"</td>
+					<td class="answer">“I Got Rhythm”</td>
 				</tr>
 				<tr>
 					<td class="question-number">11</td>
@@ -798,7 +798,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Matthew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jakob -->
-					<td class="answer">St.&nbsp;Basil's Cathedral</td>
+					<td class="answer">St.&nbsp;Basil’s Cathedral</td>
 				</tr>
 				<tr>
 					<td class="question-number">53</td>

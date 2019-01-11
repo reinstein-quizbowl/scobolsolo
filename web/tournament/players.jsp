@@ -18,7 +18,7 @@ boolean lclAnyCardsAssigned = lclT.hasAnyCardsAssigned();
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Drag the rows to rearrange players' seeds. Your changes will not be saved until you hit &#8216;Save'.</p>
+		<p>Drag the rows to rearrange players’ seeds. Your changes will not be saved until you hit “Save”.</p>
 		
 		<form action="RearrangeSeeds" method="post" onsubmit="javascript:populateSeeds()">
 		<input type="hidden" name="tournament_code" value="<%= lclT.getCode() %>">
@@ -77,7 +77,7 @@ if (lclP != null && lclP.isCardSystem()) {
 			if (lclPlayers.size() != lclCardCount) {
 				%><p>This is not currently possible because <%= lclPlayers.size() == 1 ? "there is one player" : "there are " + lclPlayers.size() + " players" %> but <%= lclCardCount == 1 ? "one card" : String.valueOf(lclCardCount) + " cards" %>. Ensure that the number of players is equal to the number of cards.</p><%
 			} else if (lclT.hasValidSeeds() == false) {
-				%><p>This tournament's seeds are not valid. Ensure that there are <%= lclPlayers.size() %> distinct seeds, and every player has a seed.</p><%
+				%><p>This tournament’s seeds are not valid. Ensure that there are <%= lclPlayers.size() %> distinct seeds, and every player has a seed.</p><%
 			} else {
 				%><form action="AssignCards" method="post">
 				<input type="hidden" name="phase_id" value="<%= lclP.getId() %>">

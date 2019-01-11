@@ -82,7 +82,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 	</div><%
 	if (lclSplitMainContact) {
 		%><div class="small-12 medium-4 large-3 columns">
-			<br /><!-- spacer for the "Main contact" label --><%
+			<br /><!-- spacer for the “Main contact” label --><%
 			if (lclC.getEmailAddress() != null) {
 				%><a href="mailto:<%= lclC.getEmailAddress() %>"><%= lclC.getEmailAddress() %></a><br /><%
 			}

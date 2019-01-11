@@ -1,4 +1,4 @@
-<%@ page import="org.apache.commons.lang3.Validate" %>
+﻿<%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.AccountFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>

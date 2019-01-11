@@ -1,4 +1,4 @@
-<%@ page import="java.io.PrintWriter" %>
+﻿<%@ page import="java.io.PrintWriter" %>
 <%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>

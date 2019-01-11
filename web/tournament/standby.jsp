@@ -23,7 +23,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 			%><p>There are currently no standby entries.</p><%
 		} else {
 			if (lclSEs.size() > 1) {
-				%><p>Drag the rows to rearrange standby entries. Your changes will not be saved until you hit the "Save" button <em>at the bottom of this section</em> (not the one for any individual row).</p><%
+				%><p>Drag the rows to rearrange standby entries. Your changes will not be saved until you hit the “Save” button <em>at the bottom of this section</em> (not the one for any individual row).</p><%
 			}
 			
 			%><table>

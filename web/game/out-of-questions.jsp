@@ -1,4 +1,4 @@
-<%@ page import="java.util.Arrays" %>
+﻿<%@ page import="java.util.Arrays" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Game" %>

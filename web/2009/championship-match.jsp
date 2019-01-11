@@ -1,4 +1,4 @@
-<%@ page import="com.scobolsolo.application.TournamentFactory" %>
+﻿<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">
@@ -12,7 +12,7 @@
 	<div class="small-12 columns">
 		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who won the Desperation Shot, a difficult written test taken by all the players who won exactly five of their preliminary matches.</p>
 		
-		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
+		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary “negs”.</p>
 		
 		<p>Each player starts with 3&nbsp;points. A player whose score reaches 0 is immediately removed from the match.</p>
 		
@@ -267,7 +267,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Kevin -->
-					<td class="answer">"rank" (math common link)</td>
+					<td class="answer">“rank” (math common link)</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -557,7 +557,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="answer">"atman"</td>
+					<td class="answer">“atman”</td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -583,7 +583,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="answer"><i>Long Day's Journey Into Night</i></td>
+					<td class="answer"><i>Long Day’s Journey Into Night</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -790,7 +790,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Christian -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Kevin -->
-					<td class="answer">"hegemony"</td>
+					<td class="answer">“hegemony”</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>

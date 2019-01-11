@@ -1,4 +1,4 @@
-<%@ page import="java.util.Collections" %>
+﻿<%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.stream.Collectors" %>
@@ -95,7 +95,7 @@ Staff lclS = lclUser.getContact().findStaff(lclT);
 				if (lclNotReady.size() == 1) {
 					Match lclM = lclNotReady.iterator().next();
 					%><h2>Later</h2>
-					<p>Eventually you'll have <a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a>.</p><%
+					<p>Eventually you’ll have <a href="sides.jsp?match_id=<%= lclM.getId() %>">the <%= lclM.getRound().getName() %> game between <%= lclM.getWinningCard().getName() %> and <%= lclM.getLosingCard().getName() %></a>.</p><%
 				} else if (lclNotReady.size() > 1) {
 					%><h2>Later</h2>
 					<p>These matches are coming up in your <%= lclS.getStaffAssignmentSet().size() > 1 ? "rooms" : "room" %>:</p>
@@ -106,7 +106,7 @@ Staff lclS = lclUser.getContact().findStaff(lclT);
 					%></ul><%
 				}
 				
-				%><p>If you don't see the match you're looking to work on, you might try the <a href="all.jsp?object=<%= lclT.getUniqueString() %>">list of all matches</a>.</p><%
+				%><p>If you don’t see the match you’re looking to work on, you might try the <a href="all.jsp?object=<%= lclT.getUniqueString() %>">list of all matches</a>.</p><%
 			}
 		}
 	%></div>

@@ -34,7 +34,7 @@ if (lclOF.alreadyExists()) {
 	if (lclQ.getDescription() == null) {
 		lclTitle = "Question";
 	} else {
-		lclTitle = '"' + lclQ.getDescription() + "\" question";
+		lclTitle = "“" + lclQ.getDescription() + "” question";
 	}
 } else {
 	lclTitle = "New question";

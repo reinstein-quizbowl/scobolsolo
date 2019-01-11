@@ -1,4 +1,4 @@
-<%@ page import="com.scobolsolo.application.TournamentFactory" %>
+﻿<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">
@@ -86,7 +86,7 @@
 			<li>Craig McKenna, Prairie Ridge (Crystal Lake)</li>
 			<li>Keith McKenna, Prairie Ridge</li>
 			<li>Aaron Mertz, Fremd</li>
-			<li>Ryan O'Shea, Bloomington</li>
+			<li>Ryan O’Shea, Bloomington</li>
 			<li>Mark Pliska, Fremd</li>
 			<li>Phil Rasher, New Trier</li>
 			<li>Ryan Reyes, Leyden</li>
@@ -120,7 +120,7 @@
 			</dl>
 			
 			<h3>American Dramas, Poems, &amp; Short Stories</h3>
-			<p>The following numbers are guesses. The relative rankings are correct. It's possible that Mark actually answered seven, Jim and Kelly answered six, and Parag et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
+			<p>The following numbers are guesses. The relative rankings are correct. It’s possible that Mark actually answered seven, Jim and Kelly answered six, and Parag et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
 			<dl>
 				<dt>Six tossups</dt>
 					<dd>Mark Pliska, Fremd</dd>
@@ -204,12 +204,12 @@
 			</dl>
 			
 			<h3>Chemistry</h3>
-			<p>The following numbers are guesses. The relative rankings are correct. It's possible that Jim et&nbsp;al actually answered seven, Parag and Alex answered six, and Paras et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
+			<p>The following numbers are guesses. The relative rankings are correct. It’s possible that Jim et&nbsp;al actually answered seven, Parag and Alex answered six, and Paras et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
 			<dl>
 				<dt>Six tossups</dt>
 					<dd>Jim Davis, Latin</dd>
 					<dd>Todd Mayer, Richmond-Burton</dd>
-					<dd>Ryan O'Shea, Bloomington</dd>
+					<dd>Ryan O’Shea, Bloomington</dd>
 				<dt>Five tossups</dt>
 					<dd>Parag Bhayani, Homewood-Flossmoor</dd>
 					<dd>Alex Gordon, New Trier</dd>
@@ -278,7 +278,7 @@
 			</dl>
 			
 			<h3>Language Arts</h3>
-			<p>The following numbers are guesses. The relative rankings are correct. It's possible that John actually answered seven, Jim et&nbsp;al answered six, and Denny et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
+			<p>The following numbers are guesses. The relative rankings are correct. It’s possible that John actually answered seven, Jim et&nbsp;al answered six, and Denny et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
 			<dl>
 				<dt>Six tossups</dt>
 					<dd>John Keig, Moline</dd>
@@ -301,7 +301,7 @@
 			</dl>
 			
 			<h3>Music</h3>
-			<p>The following numbers are guesses. The relative rankings are correct. It's possible that Jim et&nbsp;al actually answered seven, Parag et&nbsp;al answered six, and Dena et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
+			<p>The following numbers are guesses. The relative rankings are correct. It’s possible that Jim et&nbsp;al actually answered seven, Parag et&nbsp;al answered six, and Dena et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
 			<dl>
 				<dt>Six tossups</dt>
 					<dd>Jim Davis, Latin</dd>
@@ -323,7 +323,7 @@
 			</dl>
 			
 			<h3>Nonfiction</h3>
-			<p>The following numbers are guesses. The relative rankings are correct. It's possible that Jim actually answered seven, Matt et&nbsp;al answered six, and Denny et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
+			<p>The following numbers are guesses. The relative rankings are correct. It’s possible that Jim actually answered seven, Matt et&nbsp;al answered six, and Denny et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
 			<dl>
 				<dt>Six tossups</dt>
 					<dd>Jim Davis, Latin</dd>
@@ -343,7 +343,7 @@
 			</dl>
 			
 			<h3>Physics</h3>
-			<p>Jim Davis, Latin School of Chicago and Parag Bhayani, Homewood-Flossmoor were the only players to answer at least four physics tossups correctly. We don't know how many they each answered, but Jim answered more than Parag.</p>
+			<p>Jim Davis, Latin School of Chicago and Parag Bhayani, Homewood-Flossmoor were the only players to answer at least four physics tossups correctly. We don’t know how many they each answered, but Jim answered more than Parag.</p>
 			
 			<h3>Popular Culture</h3>
 			<dl>
@@ -379,7 +379,7 @@
 			</dl>
 			
 			<h3>Religion &amp; Mythology</h3>
-			<p>The following numbers are guesses. The relative rankings are correct. It's possible that Matt et&nbsp;al actually answered seven, Denny et&nbsp;al answered six, and Paul et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
+			<p>The following numbers are guesses. The relative rankings are correct. It’s possible that Matt et&nbsp;al actually answered seven, Denny et&nbsp;al answered six, and Paul et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
 			<dl>
 				<dt>Six tossups</dt>
 					<dd>Matt Keenan, New Trier</dd>
@@ -435,7 +435,7 @@
 			</dl>
 			
 			<h3>U.S. History</h3>
-			<p>The following numbers are guesses. The relative rankings are correct. It's possible that Matt et&nbsp;al actually answered seven, Paras et&nbsp;al answered six, and Greg et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
+			<p>The following numbers are guesses. The relative rankings are correct. It’s possible that Matt et&nbsp;al actually answered seven, Paras et&nbsp;al answered six, and Greg et&nbsp;al answered five, or there was some other combination of point distributions between four and seven inclusive.</p>
 			<dl>
 				<dt>Six tossups</dt>
 					<dd>Matt Abbott, Fremd</dd>
@@ -457,7 +457,7 @@
 					<dd>Paul Gauthier, Wheaton North</dd>
 					<dd>John Keig, Moline</dd>
 					<dd>James Lee, Fremd</dd>
-					<dd>Ryan O'Shea, Bloomington</dd>
+					<dd>Ryan O’Shea, Bloomington</dd>
 					<dd>Jacob Straub, Fremd</dd>
 					<dd>Ben Taylor, Guilford</dd>
 					<dd>Eli Wald, Von Steuben</dd>

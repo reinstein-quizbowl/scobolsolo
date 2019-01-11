@@ -139,7 +139,7 @@ if (lclOF.alreadyExists()) {
 						%><%= lclAOF.text("Username", 30) %><%
 					} else {
 						%><%= lclAOF.text("Username", 30).style("annotated") %>
-						<div class="form-annotation alert-box warning">Don't change this unless you know what you're doing!</div><%
+						<div class="form-annotation alert-box warning">Don’t change this unless you know what you’re doing!</div><%
 					}
 				%></label>
 			</div>

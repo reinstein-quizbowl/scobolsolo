@@ -1,4 +1,4 @@
-<%@ page import="java.util.Arrays" %>
+﻿<%@ page import="java.util.Arrays" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.siliconage.util.Tally" %>
 <%@ page import="com.scobolsolo.application.Account" %>
@@ -54,7 +54,7 @@ int lclTieScore = Game.getTieScore(lclScoresAfterRegulation).intValue();
 			%> is tied at <%= lclTieScore == 1 ? "1 point" : lclTieScore + " points" %>.
 		</p>
 		
-		<p>Please check the score. If you verify that it is indeed tied, <a href="question.jsp<%= QuestionResponse.generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, 0, false, true) %>">begin overtime</a>. (If it's not actually tied, go back and correct the data.)</p>
+		<p>Please check the score. If you verify that it is indeed tied, <a href="question.jsp<%= QuestionResponse.generateQueryString(lclGame, lclLeftPlayer, lclRightPlayer, 0, false, true) %>">begin overtime</a>. (If itâ€™s not actually tied, go back and correct the data.)</p>
 	</div>
 </div>
 

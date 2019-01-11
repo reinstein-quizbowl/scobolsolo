@@ -1,4 +1,4 @@
-<%@ page import="java.text.DecimalFormat" %>
+﻿<%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -20,7 +20,7 @@
 	<div class="small-12 columns">
 		<p>The participants in the Championship Match are the one player who won all seven preliminary matches (the Morning Champion), the seven players who won exactly six of their preliminary matches, and the (one) player who won the Desperation Shot, a difficult written test taken by all the players who won exactly five of their preliminary matches.</p>
 		
-		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary "negs".</p>
+		<p>Unlike in the preliminary rounds, all incorrect answers result in a deduction of 1&nbsp;point. This is true regardless of whether the incorrect answer interrupted the question; it is thus different from ordinary “negs”.</p>
 		
 		<p>Each player starts with 3&nbsp;points. A player whose score reaches 0 is immediately removed from the match.</p>
 		
@@ -96,7 +96,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
-					<td class="answer">Stewart's theorem</td>
+					<td class="answer">Stewart’s theorem</td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -186,7 +186,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
-					<td class="answer">"nominal"</td>
+					<td class="answer">“nominal”</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -225,7 +225,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
-					<td class="answer">Computation: area of shape given vertices' coordinates</td>
+					<td class="answer">Computation: area of shape given vertices’ coordinates</td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -729,7 +729,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-correct-response">1</td><!-- Siva -->
-					<td class="answer">Gauss's law</td>
+					<td class="answer">Gauss’s law</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -826,7 +826,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
-					<td class="answer">"Ode on Melancholy"</td>
+					<td class="answer">“Ode on Melancholy”</td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -839,7 +839,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Siva -->
-					<td class="answer">"epoch" (astronomy and geology)</td>
+					<td class="answer">“epoch” (astronomy and geology)</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -878,7 +878,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
-					<td class="answer">Hund's rule</td>
+					<td class="answer">Hund’s rule</td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>

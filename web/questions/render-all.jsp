@@ -1,4 +1,4 @@
-<%@ page import="java.time.format.DateTimeFormatter" %>
+﻿<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.format.FormatStyle" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.Comparator" %>
@@ -92,7 +92,7 @@ if (lclShowUnused) {
 }
 
 for (Tournament lclT : lclSelectedTournaments) {
-	// In principle, this will run n queries for n selected tournaments (plus the one query for unused questions, if applicable).  This is inefficient and not really necessary, but it makes the code cleaner and it's pretty unusual to use this page with multiple selected tournaments.
+	// In principle, this will run n queries for n selected tournaments (plus the one query for unused questions, if applicable).  This is inefficient and not really necessary, but it makes the code cleaner and it’s pretty unusual to use this page with multiple selected tournaments.
 	List<Placement> lclPLs = PlacementFactory.getInstance().acquireForQuery(
 		new ArrayList<>(),
 		new DatabaseQuery("SELECT PL.* FROM Placement PL JOIN Packet P ON PL.packet_id = P.id WHERE PL.question_id IS NOT NULL AND P.tournament_code = ?", lclT.getCode())
@@ -219,7 +219,7 @@ void appendQuestion(StringBuilder argSB, Question argQ) {
 			argSB.append("<p class=\"question-note small\">").append(argQ.getNote()).append("</p>");
 		}
 	} catch (Exception lclE) {
-		argSB.append("<h4 class=\"error\">Couldn't output <a href=\"question-edit.jsp?question_id=").append(argQ.getId()).append("\">#").append(argQ.getId()).append("</a></h4>")
+		argSB.append("<h4 class=\"error\">Couldn’t output <a href=\"question-edit.jsp?question_id=").append(argQ.getId()).append("\">#").append(argQ.getId()).append("</a></h4>")
 			.append("<p>").append(WebDataFilter.scrubForHTMLDisplay(lclE.getClass().getName())).append(": ").append(WebDataFilter.scrubForHTMLDisplay(lclE.getMessage())).append("</p>")
 			.append("<pre>").append(ExceptionUtils.getStackTrace(lclE)).append("</pre>");
 	}

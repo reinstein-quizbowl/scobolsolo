@@ -1,4 +1,4 @@
-<%@ page import="java.util.Arrays" %>
+﻿<%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.Collection" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.LinkedList" %>
@@ -55,19 +55,19 @@ Match lclNextForLoser = lclMatch.getNextForLoser();
 			%><p>
 				<%= lclWinner.getContact().getName() %> is done for the <%= lclMatch.getPhase().getName() %>.<%
 				if (lclMatch.getWinningCard().getFinalMessage() != null) {
-					%> Please pass along the following message: "<%= lclMatch.getWinningCard().getFinalMessage() %>"<%
+					%> Please pass along the following message: “<%= lclMatch.getWinningCard().getFinalMessage() %>”<%
 				}
 			%></p><%
 		} else {
 			%><p>
-				<%= lclWinner.getContact().getName() %>'s next match is during <%= lclNextForWinner.getRound().getNameWithStartTime() %> in <%= lclNextForWinner.getRoom().getName() %><%
+				<%= lclWinner.getContact().getName() %>’s next match is during <%= lclNextForWinner.getRound().getNameWithStartTime() %> in <%= lclNextForWinner.getRoom().getName() %><%
 				if (lclNextForWinner.determineStatus().areAllPlayersKnown()) {
 					Game lclG = Validate.notNull(lclNextForWinner.getGame());
 					if (lclWinner == lclG.getIncomingWinningCardPlayer()) {
 						%> against <%= lclG.getIncomingLosingCardPlayer().getNameWithSchool() %><%
 					} else if (lclWinner == lclG.getIncomingLosingCardPlayer()) {
 						%> against <%= lclG.getIncomingWinningCardPlayer().getNameWithSchool() %><%
-					} // else, it's not on the card system, or something along those lines
+					} // else, it’s not on the card system, or something along those lines
 				}
 				%>.
 			</p><%
@@ -77,19 +77,19 @@ Match lclNextForLoser = lclMatch.getNextForLoser();
 			%><p>
 				<%= lclLoser.getContact().getName() %> is done for the <%= lclMatch.getPhase().getName() %>.<%
 				if (lclMatch.getLosingCard().getFinalMessage() != null) {
-					%> Please pass along the following message: "<%= lclMatch.getLosingCard().getFinalMessage() %>"<%
+					%> Please pass along the following message: “<%= lclMatch.getLosingCard().getFinalMessage() %>”<%
 				}
 			%></p><%
 		} else {
 			%><p>
-				<%= lclLoser.getContact().getName() %>'s next match is during <%= lclNextForLoser.getRound().getNameWithStartTime() %> in <%= lclNextForLoser.getRoom().getName() %><%
+				<%= lclLoser.getContact().getName() %>’s next match is during <%= lclNextForLoser.getRound().getNameWithStartTime() %> in <%= lclNextForLoser.getRoom().getName() %><%
 				if (lclNextForLoser.determineStatus().areAllPlayersKnown()) {
 					Game lclG = Validate.notNull(lclNextForLoser.getGame());
 					if (lclLoser == lclG.getIncomingWinningCardPlayer()) {
 						%> against <%= lclG.getIncomingLosingCardPlayer().getNameWithSchool() %><%
 					} else if (lclLoser == lclG.getIncomingLosingCardPlayer()) {
 						%> against <%= lclG.getIncomingWinningCardPlayer().getNameWithSchool() %><%
-					} // else, it's not on the card system, or something along those lines
+					} // else, it’s not on the card system, or something along those lines
 				}
 				%>.
 			</p><%

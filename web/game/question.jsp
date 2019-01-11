@@ -1,4 +1,4 @@
-<%@ page import="java.util.Arrays" %>
+﻿<%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
@@ -174,11 +174,11 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 	};
 	
 	function recordPersistedBuzzes() {<%
-		if (lclLeftResponse != null && lclLeftResponse.hasLocation()) { // THINK: This won't show anything if there's no location. What should we do then?
+		if (lclLeftResponse != null && lclLeftResponse.hasLocation()) { // THINK: This won’t show anything if there’s no location. What should we do then?
 			%>buzz('left', findWordId(<%= lclLeftResponse.getWordStartIndex(-1) %>), <%= lclLeftResponse.getType().isCorrect() %>);<%
 		}
 		
-		if (lclRightResponse != null && lclRightResponse.hasLocation()) { // THINK: This won't show anything if there's no location. What should we do then?
+		if (lclRightResponse != null && lclRightResponse.hasLocation()) { // THINK: This won’t show anything if there’s no location. What should we do then?
 			%>buzz('right', findWordId(<%= lclRightResponse.getWordStartIndex(-1) %>), <%= lclRightResponse.getType().isCorrect() %>);<%
 		}
 	%>}

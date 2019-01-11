@@ -40,7 +40,7 @@ lclPRVs.sort(PlayerRecordV.RECORD_THEN_PPTUH_COMPARATOR);
 			if (lclT.getDate().equals(lclToday) || lclT.getDate().isBefore(lclToday)) {
 				%><p>There are no results available yet. Keep checking back!</p><%
 			} else {
-				%><p>This tournament hasn't started yet.</p><%
+				%><p>This tournament hasn’t started yet.</p><%
 			}
 		} else {
 			boolean lclShowYears = false;

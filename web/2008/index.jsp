@@ -1,4 +1,4 @@
-<%@ page import="com.scobolsolo.application.TournamentFactory" %>
+﻿<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">

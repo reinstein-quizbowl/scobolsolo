@@ -1,4 +1,4 @@
-<%@ page import="com.scobolsolo.menu.Menus" %>
+﻿<%@ page import="com.scobolsolo.menu.Menus" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Change Password Confirmation" />

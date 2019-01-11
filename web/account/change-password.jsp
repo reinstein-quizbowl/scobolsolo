@@ -1,4 +1,4 @@
-<%@ page import="com.scobolsolo.application.Account" %>
+﻿<%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.ScobolSoloConfiguration" %>
 

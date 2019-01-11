@@ -1,4 +1,4 @@
-<%@ page import="java.time.format.DateTimeFormatter" %>
+﻿<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.format.FormatStyle" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.Comparator" %>
@@ -93,7 +93,7 @@ if (lclSelectedTournaments.isEmpty()) {
 	}
 	
 	for (Tournament lclT : lclSelectedTournaments) {
-		// In principle, this will run n queries for n selected tournaments (plus the one query for unused questions, if applicable).  This is inefficient and not really necessary, but it makes the code cleaner and it's pretty unusual to use this page with multiple selected tournaments.
+		// In principle, this will run n queries for n selected tournaments (plus the one query for unused questions, if applicable).  This is inefficient and not really necessary, but it makes the code cleaner and it’s pretty unusual to use this page with multiple selected tournaments.
 		List<Placement> lclPLs = PlacementFactory.getInstance().acquireForQuery(
 			new ArrayList<>(),
 			new DatabaseQuery("SELECT PL.* FROM Placement PL JOIN Packet P ON PL.packet_id = P.id WHERE PL.question_id IS NOT NULL AND P.tournament_code = ?", lclT.getCode())
@@ -183,7 +183,7 @@ void appendBeginning(StringBuilder argSB, Tournament argT, Category argCat, int 
 		.append("<thead>")
 			.append("<tr>")
 				.append("<th>ID</th>")
-				.append("<th><span title=\"Typically the answer to the question. Could be something longer, like 'France from opera clues'.\">Description</span></th>")
+				.append("<th><span title=\"Typically the answer to the question. Could be something longer, like “France from opera clues”.\">Description</span></th>")
 				.append("<th>Status</th>")
 				.append("<th>Preview</th>")
 				.append("<th>Last Updated</th>")

@@ -18,8 +18,8 @@
 	<section>
 		<h2>Pronunciation guides</h2>
 		
-		<p>Write pronunciation guides as follows: <code class="success">\pg{Jonah Greenthal}{JOH-nuh "GREEN"-thawl}</code>. That is: a backslash, the letters <code>pg</code>, the text for which a pronunciation guide is being provided enclosed in <code>{</code>curly braces<code>}</code>, and the actual pronunciation guide enclosed in <code>curly braces</code>. The pronunciation guide itself should be written according to NAQT's style; <a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a> if you have any questions about that.</p>
-		<p>If the need for a full-fledged pronunciation guide can be avoided by simply indicating the separation between syllables or other easy-to-understand sections (e.g. "ly&middot;ser&middot;gic acid di&middot;ethyl&middot;am&middot;ide"), produce those separations with <code class="success">*</code> (an asterisk).</p>
+		<p>Write pronunciation guides as follows: <code class="success">\pg{Jonah Greenthal}{JOH-nuh "GREEN"-thawl}</code>. That is: a backslash, the letters <code>pg</code>, the text for which a pronunciation guide is being provided enclosed in <code>{</code>curly braces<code>}</code>, and the actual pronunciation guide enclosed in <code>curly braces</code>. The pronunciation guide itself should be written according to NAQT’s style; <a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a> if you have any questions about that.</p>
+		<p>If the need for a full-fledged pronunciation guide can be avoided by simply indicating the separation between syllables or other easy-to-understand sections (e.g. “ly&middot;ser&middot;gic acid di&middot;ethyl&middot;am&middot;ide”), produce those separations with <code class="success">*</code> (an asterisk).</p>
 	</section>
 	
 	<section>
@@ -32,7 +32,7 @@
 	<section>
 		<h2>Math and chemical formulae</h2>
 		
-		<p>Use LaTeX coding and enclose the math/formula in dollar signs (<code>$</code>). You can read about how to write formulae in LaTeX <a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">here</a>, though it's probably easier to just <a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a>.</p>
+		<p>Use LaTeX coding and enclose the math/formula in dollar signs (<code>$</code>). You can read about how to write formulae in LaTeX <a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">here</a>, though it’s probably easier to just <a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a>.</p>
 	</section>
 	
 	<section>
@@ -44,13 +44,13 @@
 	<section>
 		<h2>Alternate answer directives</h2>
 		
-		<p>Enclose all alternate answer directives in <code class="success">[square brackets]</code>. Use "or", "accept", "prompt on", and "do not accept or prompt on" exactly as in NAQT style. In fact, everything about answer lines is the same as NAQT style (<a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a> if you have any questions) except that answer lines should not begin with <code class="warning">answer:</code>,  all directives are enclosed in <code class="success">[square brackets]</code> instead of <code class="warning">(parentheses)</code>, required parts of prompts are underlined (i.e., enclosed in <code class="success">_underscores_</code>) rather than enquoted, and titles are italicized (i.e., enclosed in <code class="success">~tildes~</code>) or enquoted as appropriate.</p>
+		<p>Enclose all alternate answer directives in <code class="success">[square brackets]</code>. Use “or”, “accept”, “prompt on”, and “do not accept or prompt on” exactly as in NAQT style. In fact, everything about answer lines is the same as NAQT style (<a href="mailto:jonah@jonahgreenthal.com">ask Jonah</a> if you have any questions) except that answer lines should not begin with <code class="warning">answer:</code>,  all directives are enclosed in <code class="success">[square brackets]</code> instead of <code class="warning">(parentheses)</code>, required parts of prompts are underlined (i.e., enclosed in <code class="success">_underscores_</code>) rather than enquoted, and titles are italicized (i.e., enclosed in <code class="success">~tildes~</code>) or enquoted as appropriate.</p>
 	</section>
 	
 	<section>
 		<h2>Quotation marks</h2>
 		
-		<p>For double quotes, use ordinary straight quotation marks (<code class="success">"</code>), not curly quotes (<code class="warning">&#8220;</code> and <code class="warning">&#8221;</code>). To produce an apostrophe or closing single quote (<code>&#8217;</code>), use <code class="success">'</code> (i.e., the "ordinary way"). In the unlikely event that you need an opening single quote (<code>&#8216;</code>), use <code class="success">`</code> (just to the left of the <kbd>1</kbd> key).</p>
+		<p>For double quotes, use ordinary straight quotation marks (<code class="success">"</code>), not curly quotes (<code class="warning">&#8220;</code> and <code class="warning">&#8221;</code>). To produce an apostrophe or closing single quote (<code>&#8217;</code>), use <code class="success">'</code> (i.e., the “ordinary way”). In the unlikely event that you need an opening single quote (<code>&#8216;</code>), use <code class="success">`</code> (just to the left of the <kbd>1</kbd> key).</p>
 	</section>
 	
 	<section>
@@ -68,7 +68,7 @@
 	<section>
 		<h2>Validation</h2>
 		
-		<p>Few or none of these rules are automatically checked, so you're responsible for following them or incurring Jonah's wrath if you fail.</p>
+		<p>Few or none of these rules are automatically checked, so you’re responsible for following them or incurring Jonah’s wrath if you fail.</p>
 	</section>
 	
 	<section>
