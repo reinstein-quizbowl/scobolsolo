@@ -9,9 +9,6 @@
 	<% /* jQuery UI */ %>
 	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	
-	<% /* Automatic smart quotes */ %>
-	<script src="/template/js/smartquotes.min.js"></script>
-	
 	<% /* Foundation */ %>
 	<script src="/template/foundation/js/foundation.min.js"></script>
 	
