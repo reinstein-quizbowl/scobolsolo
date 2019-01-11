@@ -47,7 +47,7 @@ if (lclSelectedTournaments.isEmpty()) {
 %><form action="index.jsp" method="get">
 	<div class="row">
 		<div class="small-12 medium-4 large-2 columns">
-			<label>Include&nbsp;questions&hellip;</label>
+			<label>Include&nbsp;questions…</label>
 		</div><%
 		List<Tournament> lclTs = TournamentFactory.getInstance().getAll().stream()
 			.filter(argT -> argT.getPacketSet().isEmpty() == false)

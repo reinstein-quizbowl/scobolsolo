@@ -107,7 +107,7 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 	
 	%><div class="row">
 		<div class="small-12 columns">
-			<input type="submit" value="Continue..." />
+			<input type="submit" value="Continue…" />
 		</div>
 	</div>
 </form>
