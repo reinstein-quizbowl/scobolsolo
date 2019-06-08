@@ -10,7 +10,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2019 is <em>tentatively</em> scheduled for Saturday, October&nbsp;19.</p>
+		<p>Scobol Solo 2019 is scheduled for Saturday, November &nbsp;16.</p>
 	</div>
 </div>
 

@@ -18,6 +18,8 @@
 		<p>David Reinstein writes most or all of the questions for Scobol Solo. Since 2009 <a href="https://www.qbwiki.com/wiki/Jonah_Greenthal">Jonah Greenthal</a> has edited the set, and in other years some other people have helped write and/or edit.</p>
 		
 		<p>The most recent edition of Scobol Solo was held on <a href="/2018/">October 27, 2018</a>.</p>
+		
+		<p>The <a href="/2019/">next edition of Scobol Solo</a> will be on November 16, 2019.</p>
 	</div>
 </div>
 
