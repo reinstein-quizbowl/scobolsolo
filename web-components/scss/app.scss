@@ -217,8 +217,15 @@ a.no-highlight {
 	border-bottom: none;
 }
 
-.has-pronunciation-guide, .pronunciation-guide {
+.has-pronunciation-guide {
 	font-family: 'STIXGeneral', $font-family-serif;
+	font-weight: 500;
+	color: #000;
+}
+
+.pronunciation-guide {
+	font-family: 'STIXGeneral', $font-family-serif;
+	font-weight: 500;
 	color: $dark-gray;
 }
 
@@ -236,7 +243,8 @@ img.math {
 
 .question-text, .question-answer, .question-note {
 	font-size: 1.25rem;
-	font-family: 'STIXGeneral', $font-family-serif
+	font-family: 'STIXGeneral', $font-family-serif;
+	color: mix(black, $dark-gray, 75%);
 }
 
 .question-text.small, .question-answer.small, .question-note.small {
