@@ -70,20 +70,16 @@ div.tablesorter-scroller-fixed {
 abbr, acronym {
 	text-transform: none !important;
 	font-size: 100% !important;
-	
-	&[title] {
-		text-decoration: none;
-	}
 }
 
 a.has-tip {
 	color: $primary-color;
 }
 
-
-[title].stealth-tooltip {
+[title]:not(.stealth-tooltip) {
+	text-decoration: underline dotted $dark-gray;
 	border-bottom: none;
-	font-weight: 400;
+	font-weight: inherit;
 	
 	&:hover {
 		border-bottom: none;
@@ -209,7 +205,7 @@ button.close-button, button.close-button:hover, button.close-button:active, butt
 
 a.subtle-highlight {
 	color: inherit;
-	border-bottom: 1px dotted $primary-color;
+	text-decoration: 1px dotted $primary-color;
 }
 
 a.no-highlight {
