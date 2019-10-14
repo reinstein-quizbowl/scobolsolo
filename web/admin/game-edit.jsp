@@ -144,65 +144,62 @@ if (lclOF.hasErrors()) {
 			<%= lclOF.<Player>dropdown("OutgoingLosingCardPlayer").filter(argP -> argP.getTournament() == lclT) %>
 		</label>
 	</div>
-</div>
+</div><%
 
-<div class="row"><%
-	List<OpalForm<Performance>> lclPOFs = lclOF.children("Performance", PerformanceFactory.getInstance(), 1, Performance.PlayerNameComparator.getInstance());
-	for (OpalForm<Performance> lclPOF : lclPOFs) {
-		Performance lclPerf = lclPOF.getUserFacing(); // may be null
-		Player lclPlayer = lclPOF.isNew() ? null : lclPerf.getPlayer();
-		%><div class="small-12 large-6 columns">
-			<%= lclPOF.open() %><%
-				if (lclPOF.isNew()) {
-					%><h2>Add Performance</h2><%
-				} else {
-					%><div class="small-9 medium-10 columns">
-						<h2><%= lclPlayer.getName() %></h2>
-					</div>
-					<div class="small-3 medium-2 columns">
-						Delete?&nbsp;<%= HTMLUtility.deleteWidget(lclPOF) %>
-					</div><%
-				}
-				%><div>
-					<label>
-						Player
-						<%= lclPOF.<Player>dropdown("Player").filter(argP -> argP.getTournament() == lclT).namer(Player::getNameWithSchoolShortName) %>
-					</label>
+List<OpalForm<Performance>> lclPOFs = lclOF.children("Performance", PerformanceFactory.getInstance(), 1, Performance.PlayerNameComparator.getInstance());
+for (OpalForm<Performance> lclPOF : lclPOFs) {
+	Performance lclPerf = lclPOF.getUserFacing(); // may be null
+	Player lclPlayer = lclPOF.isNew() ? null : lclPerf.getPlayer();
+	%><div class="row columns">
+		<%= lclPOF.open() %><%
+			if (lclPOF.isNew()) {
+				%><h2>Add Performance</h2><%
+			} else {
+				%><div class="small-9 medium-10 columns">
+					<h2><%= lclPlayer.getName() %></h2>
 				</div>
-				<table>
-					<thead>
-						<tr>
-							<th>Question</th>
-							<th>Response</th>
-							<th>Location</th>
-							<th>Replaced With</th>
-							<th>Del?</th>
-						</tr>
-					</thead>
-					<tbody><%
-						List<OpalForm<Response>> lclROFs = lclPOF.children("Response", ResponseFactory.getInstance(), 1, Response.BASE_PLACEMENT_COMPARATOR);
-						for (OpalForm<Response> lclROF : lclROFs) {
-							%><%= lclROF.open() %>
-								<tr>
-									<td><%= lclROF.<Placement>dropdown("BasePlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
-									<td><%= lclROF.<ResponseType>dropdown("ResponseType").namer(ResponseType::getShortName) %></td>
-									<td>
-										<%= lclROF.number("WordStartIndex").min(0) %>
-										<%= lclROF.number("WordEndIndex").min(0) %>
-									</td>
-									<td><%= lclROF.<Placement>dropdown("ReplacementPlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket().getReplacementPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
-									<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
-								</tr>
-							<%= lclROF.close() %><%
-						}
-					%></tbody>
-				</table>
-			<%= lclPOF.close() %>
-		</div><%
-	}
-%></div>
+				<div class="small-3 medium-2 columns">
+					Delete?&nbsp;<%= HTMLUtility.deleteWidget(lclPOF) %>
+				</div><%
+			}
+			%><div>
+				<label>
+					Player
+					<%= lclPOF.<Player>dropdown("Player").filter(argP -> argP.getTournament() == lclT).namer(Player::getNameWithSchoolShortName) %>
+				</label>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Question</th>
+						<th>Response</th>
+						<th>Start Index</th>
+						<th>End Index</th>
+						<th>Replaced With</th>
+						<th>Del?</th>
+					</tr>
+				</thead>
+				<tbody><%
+					List<OpalForm<Response>> lclROFs = lclPOF.children("Response", ResponseFactory.getInstance(), 1, Response.BASE_PLACEMENT_COMPARATOR);
+					for (OpalForm<Response> lclROF : lclROFs) {
+						%><%= lclROF.open() %>
+							<tr>
+								<td><%= lclROF.<Placement>dropdown("BasePlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
+								<td><%= lclROF.<ResponseType>dropdown("ResponseType").namer(ResponseType::getShortName) %></td>
+								<td><%= lclROF.number("WordStartIndex").min(0) %></td>
+								<td><%= lclROF.number("WordEndIndex").min(0) %></td>
+								<td><%= lclROF.<Placement>dropdown("ReplacementPlacement").filter(argPL -> argPL.getPacket() == lclRound.getPacket().getReplacementPacket()).namer(Placement::getNumberStringWithQuestionDescription) %></td>
+								<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
+							</tr>
+						<%= lclROF.close() %><%
+					}
+				%></tbody>
+			</table>
+		<%= lclPOF.close() %>
+	</div><%
+}
 
-<div class="row">
+%><div class="row">
 	<div class="small-12 columns">
 		<%= lclOF.submit() %> <%= lclOF.delete() %> <%= lclOF.cancel() %>
 	</div>
