@@ -25,7 +25,7 @@ public class ContactImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.ap
 
 	@Override
 	public int compareTo(com.scobolsolo.application.Contact argSecond) {
-		return this.getSortBy().compareTo(argSecond.getSortBy());
+		return this.getSortBy().compareToIgnoreCase(argSecond.getSortBy());
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)

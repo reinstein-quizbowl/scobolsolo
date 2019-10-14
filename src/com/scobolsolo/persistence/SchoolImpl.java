@@ -25,7 +25,7 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 
 	@Override
 	public int compareTo(com.scobolsolo.application.School argSecond) {
-		return this.getName().compareTo(argSecond.getName());
+		return this.getName().compareToIgnoreCase(argSecond.getName());
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
