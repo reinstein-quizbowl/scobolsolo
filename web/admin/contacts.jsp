@@ -23,7 +23,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<table>
+		<table class="unsortable"><!-- Datatables is just too slow -->
 			<thead>
 				<tr>
 					<th>Name</th>
