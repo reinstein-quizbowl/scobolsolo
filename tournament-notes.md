@@ -5,7 +5,7 @@
 # Before the tournament
 * Make sure cards that end 5–2 or better have final messages about the championship match. Maybe we want to do this for all cards (e.g., to advertise the awards ceremony).
 * Check "Online Stats?" on the tournament-edit page.
-* Backup the database
+* Back up the database.
 * Run the database maintenance "queries".
 * Restart the server early the morning of the tournament so that the cached menu updates for today.
 
@@ -19,5 +19,6 @@
 
 # After the tournament
 * Restart the server the day after the tournament so that the cached menu updates.
-* Backup the database
+* Archive messages so they won't still show up next year.
+* Back up the database.
 * Run the database maintenance "queries".
