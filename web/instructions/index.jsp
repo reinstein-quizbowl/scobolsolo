@@ -17,7 +17,7 @@
 		<section id="before">
 			<h2>Before the tournament</h2>
 			
-			<p>You’ll need to set up your account. If you have worked at Scobol Solo in the last few years, your username and password are the same; if you’ve forgotten it, you can <a href="/password-reset/">reset it</a>. If you didn’t, your username is in the form <code>pat.smith</code>, and you should <a href="/password-reset/">set your password</a> before the tournament.</p>
+			<p>You’ll need to set up your account. If you have worked at Scobol Solo in the last few years, your username and password are the same; if you’ve forgotten it, you can <a href="/password-reset/">reset it</a>. If you haven’t, your username is in the form <code>pat.smith</code>, and you should <a href="/password-reset/">set your password</a> before the tournament.</p>
 			
 			<p>Make sure you can log in: Go to <a href="/account/">your preferences page</a>, which will force you to log in. If you want, you can configure your pronunciation guide preferences (e.g. “don’t show me pronunciation guides in physics questions”). <strong>Please make sure you set your password and log in before the tournament!</strong> If you have any problems, <a href="#problems">contact Jonah Greenthal</a> with the details.</p>
 			
