@@ -522,7 +522,10 @@ public interface Question extends QuestionUserFacing {
 							lclInMath = true;
 							break;
 						case '`':
-							lclSB.append('\''); // and the website will convert it into &#8216;
+							lclSB.append("&#8216;");
+							break;
+						case '\'':
+							lclSB.append("&#8217;");
 							break;
 						case '-':
 							if (lclNext == '-') {
