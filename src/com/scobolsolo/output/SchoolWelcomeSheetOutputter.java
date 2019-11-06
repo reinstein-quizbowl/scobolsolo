@@ -40,7 +40,7 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 					// nothing
 				} else if (lclBuzzerCount == 1) {
 					final Buzzer lclB = lclSR.getBuzzerSet().iterator().next();
-					getWriter().println("We expect that you have brought one buzzer system. \\\\");
+					getWriter().println("We expect that you have brought one buzzer system.");
 					
 					if (lclB.isToBeSetUp()) {
 						getWriter().println("Please set it up for two players in " + escape(lclB.getRoom().getName()) + '.');
@@ -51,6 +51,7 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 							getWriter().println("Please bring it to, but do not set it up in, " + getTournament().getControlRoom().getName() + '.');
 						}
 					}
+					getWriter().println("If you didn't bring it, please notify the check-in desk immediately.");
 				} else {
 					getWriter().println("We expect that you have brought " + lclBuzzerCount + " buzzer systems. \\\\");
 					
@@ -87,6 +88,10 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 							getWriter().println();
 						}
 					}
+					
+					getWriter().println();
+					getWriter().println("If you brought fewer buzzer systems than we expect, please notify the check-in desk immediately.");
+					getWriter().println();
 				}
 				getWriter().println();
 				
