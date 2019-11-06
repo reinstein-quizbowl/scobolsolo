@@ -21,7 +21,11 @@ import com.google.common.collect.ImmutableSet;
  */
 public class CharsetFilter implements Filter {
 	public static final String DEFAULT_ENCODING = "UTF-8";
-	private static final Set<String> EXCLUDES = ImmutableSet.of("/tournament/GeneratePaperwork", "/tournament/OutputPackets");
+	private static final Set<String> EXCLUDES = ImmutableSet.of(
+		"/tournament/GeneratePaperwork",
+		"/tournament/OutputPackets",
+		"/tournament/DownloadSpreadsheetForCardSystem"
+	);
 	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(CharsetFilter.class.getName());
 	
 	@Override
