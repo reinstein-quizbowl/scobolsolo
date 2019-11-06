@@ -33,19 +33,21 @@
 		SortedSetMultimap<CategoryGroup, Category> lclGrouped = TreeMultimap.create();
 		for (CategoryGroup lclCG : CategoryGroupFactory.getInstance().getAll()) {
 			for (Category lclC : lclCG.getCategorySet()) {
-				if (lclC.isAllowPronunciationGuideSuppression()) {
-					lclGrouped.put(lclCG, lclC);
+				if (lclC.isActive()) {
+					if (lclC.isAllowPronunciationGuideSuppression()) {
+						lclGrouped.put(lclCG, lclC);
+					}
 				}
 			}
 		}
 		
 		for (CategoryGroup lclCG : lclGrouped.keySet()) {
-			%><div class="small-12 medium-6 large-4 columns">
+			%><div class="small-12 medium-6 columns">
 				<fieldset class="fieldset">
 					<legend><%= lclCG.getName() %></legend><%
 					for (Category lclC : lclGrouped.get(lclCG)) {
 						%><label>
-							<input type="checkbox" name="category_code" value="<%= lclC.getCode() %>" <%= lclUser.showPronunciationGuidesFor(lclC) ? "checked=\"checked\"" : "" %>>&nbsp;Show&nbsp;for&nbsp;<%= lclC.getName() %>
+							<input type="checkbox" name="category_code" value="<%= lclC.getCode() %>" <%= lclUser.showPronunciationGuidesFor(lclC) ? "checked=\"checked\"" : "" %>>&nbsp;Show pronunciation guides for <%= lclC.getName() %>
 						</label><%
 					}
 				%></fieldset>
