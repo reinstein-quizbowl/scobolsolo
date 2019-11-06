@@ -1,26 +1,27 @@
 ﻿<%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.Utility" %>
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Instructions" />
-	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2018()).asTopLevel().output(request, \"home\") %>" />
+	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2019()).asTopLevel().output(request, \"home\") %>" />
 	<jsp:param name="h1" value="Instructions" />
 </jsp:include>
 
 <div class="row">
 	<div class="small-12 columns">
 		<section id="intro">
-			<p>Thanks for staffing Scobol Solo!</p>
+			<p>Thanks for working at Scobol Solo!</p>
 		</section>
 		
 		<section id="before">
 			<h2>Before the tournament</h2>
 			
-			<p>You’ll need to set up your account. If you staffed in the last few years, your username and password are the same; if you’ve forgotten it, you can <a href="/password-reset/">reset it</a>. If you didn’t, your username is in the form <code>john.smith</code>, and you should <a href="/password-reset/">set your password</a> before the tournament.</p>
+			<p>You’ll need to set up your account. If you have worked at Scobol Solo in the last few years, your username and password are the same; if you’ve forgotten it, you can <a href="/password-reset/">reset it</a>. If you didn’t, your username is in the form <code>pat.smith</code>, and you should <a href="/password-reset/">set your password</a> before the tournament.</p>
 			
-			<p>Make sure you can log in: Go to <a href="/account/">your preferences page</a>, which will force you to log in. If you want, you can configure your pronunciation guide preferences (e.g. “don’t show me pronunciation guides in physics questions”). <strong>Please make sure you set your password and log in before the tournament!</strong> If you have any problems, reply to this message.</p>
+			<p>Make sure you can log in: Go to <a href="/account/">your preferences page</a>, which will force you to log in. If you want, you can configure your pronunciation guide preferences (e.g. “don’t show me pronunciation guides in physics questions”). <strong>Please make sure you set your password and log in before the tournament!</strong> If you have any problems, contact <a href="#problems">contact Jonah Greenthal</a> with the details.</p>
 			
-			<p>Especially if you’re using a tablet, before the tournament you should also go to <a href="/account/question-demo.jsp">the
+			<p>Especially if you’re using a tablet or haven’t worked at Scobol Solo in the last few years, before the tournament you should also go to <a href="/account/question-demo.jsp">the
 			question demo page</a> to make sure that the interface for reading questions and entering answers (described below) works correctly. If you have any problems, <a href="#problems">contact Jonah Greenthal</a> with the details.</p>
 		</section>
 		
@@ -28,7 +29,7 @@
 		
 		<section id="saturday-morning">
 		<h2>Saturday morning</h2>
-			<p>At the beginning of the day, connect to the wireless network <code>NTHS_Guest</code> and read and agree to New Trier’s internet use policies. (You might need to re-connect every few hours.)</p>
+			<p>At the beginning of the day, connect to the wireless network <code>NTHS_Guest</code> and read and agree to New Trier’s internet use policies. (You might need to re-connect every few hours. If you’re using a laptop provided by New Trier, you might not need to do this.)</p>
 			
 			<p>When you’re ready to start, go to <a href="/game/">scobolsolo.com/game</a> and log in. You will be shown the games you can enter, which in most cases is just one game: the next game assigned to your room.</p>
 			

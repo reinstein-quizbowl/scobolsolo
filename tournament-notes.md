@@ -1,8 +1,13 @@
+# Before emailing staff with instructions
+* Make sure they all have accounts
+* Update web/instructions/index.jsp if necessary (at least update the year in the menu)
+
 # Before the tournament
 * Make sure cards that end 5–2 or better have final messages about the championship match. Maybe we want to do this for all cards (e.g., to advertise the awards ceremony).
-* Restart the server early the morning of the tournament so that the cached menu updates for today.
+* Check "Online Stats?" on the tournament-edit page.
 * Backup the database
 * Run the database maintenance "queries".
+* Restart the server early the morning of the tournament so that the cached menu updates for today.
 
 
 # At the tournament
