@@ -221,6 +221,14 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 					lclInDoubleQuotes = false;
 					break;
 				
+				case '\u2013':
+					lclSB.append("--");
+					break;
+				
+				case '\u2014':
+					lclSB.append("---");
+					break;
+				
 				case '_':
 					if (lclInMath) {
 						lclSB.append('_');

@@ -525,7 +525,11 @@ public interface Question extends QuestionUserFacing {
 							lclSB.append("&#8216;");
 							break;
 						case '\'':
-							lclSB.append("&#8217;");
+							if (lclInMath) {
+								lclSB.append('\'');
+							} else {
+								lclSB.append("&#8217;");
+							}
 							break;
 						case '-':
 							if (lclNext == '-') {
