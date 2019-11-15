@@ -23,7 +23,7 @@ import com.scobolsolo.persistence.MessageUserFacing;
 
 public interface Message extends MessageUserFacing {
 	public static final String DATE_PATTERN = "EE MMMM d";
-	public static final String TIME_PATTERN = "h:mm:ss a";
+	public static final String TIME_PATTERN = "h:mm a";
 	public static final DateTimeFormatter TIMESTAMP_FORMATTER_WITH_DATE = DateTimeFormatter.ofPattern(DATE_PATTERN + ' ' + TIME_PATTERN);
 	public static final DateTimeFormatter TIMESTAMP_FORMATTER_WITHOUT_DATE = DateTimeFormatter.ofPattern(TIME_PATTERN);
 	

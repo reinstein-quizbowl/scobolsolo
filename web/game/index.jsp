@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.Collections" %>
+﻿<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.stream.Collectors" %>
@@ -6,9 +7,12 @@
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.Multimaps" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
+<%@ page import="com.opal.LocalDateCache" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.Match" %>
+<%@ page import="com.scobolsolo.application.Message" %>
+<%@ page import="com.scobolsolo.application.Round" %>
 <%@ page import="com.scobolsolo.application.Staff" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
@@ -42,9 +46,29 @@ Staff lclS = lclUser.getContact().findStaff(lclT);
 		} else {
 			ListMultimap<MatchStatus, Match> lclCandidatesByStatus = Multimaps.index(lclS.findMatches(), Match::determineStatus);
 			if (lclCandidatesByStatus.isEmpty()) {
-				%><p>Sorry, there are no obvious choices for what match you might want to enter now based on your assignments. Try the <a href="all.jsp?object=<%= lclT.getUniqueString() %>">list of all matches</a>.</p>
+				%><p>Sorry, there are no obvious choices for what match you might want to enter now based on your assignments and what rounds are available for entry yet.</p>
 				
 				<p>Note that matches are only listed beginning at the official start time of their round.</p><%
+				
+				
+				LocalDateTime lclNow = LocalDateCache.now();
+				List<Round> lclFuture = lclT.getRounds().stream() // comes in sorted
+					.filter(it -> it.getEarliestEntryAllowed() != null && it.getEarliestEntryAllowed().isAfter(lclNow))
+					.collect(Collectors.toList());
+				if (lclFuture.isEmpty() == false) {
+					if (lclFuture.size() == 1) {
+						Round lclR = lclFuture.get(0);
+						%><p><%= lclR.getName() %> will be available for entry starting at <%= Message.TIMESTAMP_FORMATTER_WITHOUT_DATE.format(lclR.getEarliestEntryAllowed()) %>.</p><%
+					} else {
+						%><ul><%
+							for (Round lclR : lclFuture) {
+								%><li><%= lclR.getName() %> will be available for entry starting at <%= Message.TIMESTAMP_FORMATTER_WITHOUT_DATE.format(lclR.getEarliestEntryAllowed()) %>.</li><%
+							}
+						%></ul><%
+					}
+				}
+				
+				%><p>You may view the <a href="all.jsp?object=<%= lclT.getUniqueString() %>">list of all matches</a>.</p><%
 			} else {
 				List<Match> lclUnentered = lclCandidatesByStatus.get(MatchStatus.READY);
 				if (lclUnentered.size() == 1) {
