@@ -558,9 +558,9 @@ public interface Question extends QuestionUserFacing {
 						
 						case '_':
 							if (lclInUnderlining) {
-								lclSB.append("</u>");
+								lclSB.append("</span>");
 							} else {
-								lclSB.append("<u>");
+								lclSB.append("<span class=\"required\">");
 							}
 							lclInUnderlining = !lclInUnderlining;
 							break;

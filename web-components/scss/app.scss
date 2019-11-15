@@ -241,6 +241,16 @@ img.math {
 	font-size: 1.25rem;
 	font-family: 'STIXGeneral', $font-family-serif;
 	color: mix(black, $dark-gray, 75%);
+	
+	.required {
+		text-decoration: underline;
+		
+		.latex {
+			// The underline doesn't display, so we fake it per https://florianbrinkmann.com/en/position-underlining-closer-to-the-text-css-3202/
+			background: transparent linear-gradient(90deg, $dark-gray, $dark-gray) no-repeat 0 80%;
+			background-size: 100% 1.75px;
+		}
+	}
 }
 
 .question-text.small, .question-answer.small, .question-note.small {
