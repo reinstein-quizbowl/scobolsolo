@@ -1,8 +1,14 @@
 ﻿<%@ page import="java.util.Objects" %>
 <%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.concurrent.atomic.AtomicInteger" %>
 <%@ page import="java.util.stream.Collectors" %>
+<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
+<%@ page import="com.google.common.collect.RowSortedTable" %>
+<%@ page import="com.google.common.collect.TreeBasedTable" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.Match" %>
@@ -37,110 +43,150 @@ Account lclUser = Account.demand(request);
 			.flatMap(Round::streamMatch)
 			.sorted(Match.ENTERING_PRIORITY_COMPARATOR)
 			.collect(Collectors.toList());
+			
+		Map<Match, MatchStatus> lclStatusByMatch = new HashMap<>(lclMatches.size());
+		RowSortedTable<Round, MatchStatus, AtomicInteger> lclSummary = TreeBasedTable.create();
+		for (Match lclM : lclMatches) {
+			MatchStatus lclS = lclM.determineStatus();
+			lclStatusByMatch.put(lclM, lclS);
+			
+			if (lclSummary.contains(lclM.getRound(), lclS) == false) {
+				lclSummary.put(lclM.getRound(), lclS, new AtomicInteger(0));
+			}
+			lclSummary.get(lclM.getRound(), lclS).getAndIncrement();
+		}
 		
-		%><table>
-			<thead>
-				<tr>
-					<th>Status</th>
-					<th>Round</th>
-					<th>Room</th>
-					<th>Moderator</th>
-					<th>Cards</th>
-					<th>Players</th>
-				</tr>
-			</thead>
-			<tbody><%
-				for (Match lclM : lclMatches) {
-					Game lclG = lclM.getGame();
-					%><tr>
-						<td><%
-							boolean lclShowLink = lclUser.mayEnter(lclM);
-							if (lclShowLink) {
-								%><a href="sides.jsp?match_id=<%= lclM.getId() %>"><%
+		%><section id="summary">
+			<h2>Summary</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Round</th><%
+						for (MatchStatus lclS : MatchStatus.values()) {
+							%><th><%= lclS %></th><%
+						}
+					%></tr>
+				</thead>
+				<tbody><%
+					for (Round lclR : lclSummary.rowKeySet()) {
+						%><tr>
+							<th><%= lclR.getName() %></th><%
+							for (MatchStatus lclS : MatchStatus.values()) {
+								%><td><%= ObjectUtils.firstNonNull(lclSummary.get(lclR, lclS), 0) %></td><%
 							}
-							MatchStatus lclS = lclM.determineStatus();
-							%><%= lclS %><%
-							if (lclS.hasResults() && lclM.isDual()) {
-								Validate.notNull(lclG, "Null game"); // should be implied by lclS.hasResults()
-								%> (<%= lclG.getScoreHTMLWithWinner(Player::getName) %>)<%
-							}
-							if (lclShowLink) {
-								%></a><%
-							}
-							
-							if (lclS == MatchStatus.IN_PROGRESS && lclG != null) {
-								Placement lclThrough = lclG.streamPerformance()
-									.flatMap(Performance::streamResponse)
-									.map(Response::getBasePlacement)
-									.filter(Objects::nonNull)
-									.max(Comparator.naturalOrder()).orElse(null);
-								if (lclThrough != null) {
-									%> (through&nbsp;<%= lclThrough.getNumberString() %>)<%
+						%></tr><%
+					}
+				%></tbody>
+			</table>
+		</section>
+		
+		<section id="detail">
+			<h2>Detail</h2>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Status</th>
+						<th>Round</th>
+						<th>Room</th>
+						<th>Moderator</th>
+						<th>Cards</th>
+						<th>Players</th>
+					</tr>
+				</thead>
+				<tbody><%
+					for (Match lclM : lclMatches) {
+						Game lclG = lclM.getGame();
+						%><tr>
+							<td><%
+								boolean lclShowLink = lclUser.mayEnter(lclM);
+								if (lclShowLink) {
+									%><a href="sides.jsp?match_id=<%= lclM.getId() %>"><%
 								}
-							}
-							
-							if (lclUser.isAdministrator() && lclG != null) {
-								%> (<a href="/admin/game-edit.jsp?game_id=<%= lclG.getId() %>">admin</a>)<%
-							}
-						%></td>
-						<td><%= lclM.getRound().getShortName() %></td>
-						<td><%= lclM.getRoom().getShortName() %></td>
-						<td><%
-							boolean lclCertain;
-							Staff lclModerator = null;
-							Staff lclScorekeeper = null;
-							
-							if (lclG == null) {
-								lclCertain = false;
-								lclModerator = lclM.determineLikelyModerator(); // may be null
-								lclScorekeeper = lclM.determineLikelyScorekeeper(); // may be null
-							} else {
-								lclModerator = lclG.getModeratorStaff();
-								if (lclModerator == null) {
-									lclCertain = false;
-									lclModerator = lclM.determineLikelyModerator(); // may still be null
-								} else {
-									lclCertain = true;
+								MatchStatus lclS = lclStatusByMatch.get(lclM);
+								%><%= lclS %><%
+								if (lclS.hasResults() && lclM.isDual()) {
+									Validate.notNull(lclG, "Null game"); // should be implied by lclS.hasResults()
+									%> (<%= lclG.getScoreHTMLWithWinner(Player::getName) %>)<%
+								}
+								if (lclShowLink) {
+									%></a><%
 								}
 								
-								lclScorekeeper = lclG.getScorekeeperStaff();
-								if (lclScorekeeper == null) {
-									lclModerator = lclM.determineLikelyScorekeeper(); // may still be null
+								if (lclS == MatchStatus.IN_PROGRESS && lclG != null) {
+									Placement lclThrough = lclG.streamPerformance()
+										.flatMap(Performance::streamResponse)
+										.map(Response::getBasePlacement)
+										.filter(Objects::nonNull)
+										.max(Comparator.naturalOrder()).orElse(null);
+									if (lclThrough != null) {
+										%> (through&nbsp;<%= lclThrough.getNumberString() %>)<%
+									}
+								}
+								
+								if (lclUser.isAdministrator() && lclG != null) {
+									%> (<a href="/admin/game-edit.jsp?game_id=<%= lclG.getId() %>">admin</a>)<%
+								}
+							%></td>
+							<td><%= lclM.getRound().getShortName() %></td>
+							<td><%= lclM.getRoom().getShortName() %></td>
+							<td><%
+								boolean lclCertain;
+								Staff lclModerator = null;
+								Staff lclScorekeeper = null;
+								
+								if (lclG == null) {
+									lclCertain = false;
+									lclModerator = lclM.determineLikelyModerator(); // may be null
+									lclScorekeeper = lclM.determineLikelyScorekeeper(); // may be null
 								} else {
+									lclModerator = lclG.getModeratorStaff();
+									if (lclModerator == null) {
+										lclCertain = false;
+										lclModerator = lclM.determineLikelyModerator(); // may still be null
+									} else {
+										lclCertain = true;
+									}
+									
+									lclScorekeeper = lclG.getScorekeeperStaff();
+									if (lclScorekeeper == null) {
+										lclModerator = lclM.determineLikelyScorekeeper(); // may still be null
+									} else {
+									}
 								}
-							}
-							
-							if (lclModerator == null) {
-								%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
-							} else {
-								%><%= lclModerator.getContact().getName() %><%
-								if (lclScorekeeper != null && lclScorekeeper != lclModerator) {
-									%><br />Scorekeeper: <%= lclScorekeeper.getContact().getName() %><%
+								
+								if (lclModerator == null) {
+									%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
+								} else {
+									%><%= lclModerator.getContact().getName() %><%
+									if (lclScorekeeper != null && lclScorekeeper != lclModerator) {
+										%><br />Scorekeeper: <%= lclScorekeeper.getContact().getName() %><%
+									}
+									if (lclCertain == false) {
+										%> (probably)<%
+									}
 								}
-								if (lclCertain == false) {
-									%> (probably)<%
+							%></td>
+							<td><%
+								if (lclM.getRound().getPhase().isCardSystem()) {
+									%><%= lclM.getWinningCard().getShortName() %> v. <%= lclM.getLosingCard().getShortName() %><%
+								} else {
+									%>non-card-system<%
 								}
-							}
-						%></td>
-						<td><%
-							if (lclM.getRound().getPhase().isCardSystem()) {
-								%><%= lclM.getWinningCard().getShortName() %> v. <%= lclM.getLosingCard().getShortName() %><%
-							} else {
-								%>non-card-system<%
-							}
-						%></td>
-						<td><%
-							if (lclG != null && (lclG.getIncomingWinningCardPlayer() != null || lclG.getIncomingLosingCardPlayer() != null)) {
-								%><%= lclG.getIncomingWinningCardPlayer() == null ? "" : lclG.getIncomingWinningCardPlayer().getNameWithSchoolShortName() + "<br />" %>
-								<%= lclG.getIncomingLosingCardPlayer() == null ? "" : lclG.getIncomingLosingCardPlayer().getNameWithSchoolShortName() %><%
-							} else {
-								%>&nbsp;<%
-							}
-						%></td>
-					</tr><%
-				}
-			%></tbody>
+							%></td>
+							<td><%
+								if (lclG != null && (lclG.getIncomingWinningCardPlayer() != null || lclG.getIncomingLosingCardPlayer() != null)) {
+									%><%= lclG.getIncomingWinningCardPlayer() == null ? "" : lclG.getIncomingWinningCardPlayer().getNameWithSchoolShortName() + "<br />" %>
+									<%= lclG.getIncomingLosingCardPlayer() == null ? "" : lclG.getIncomingLosingCardPlayer().getNameWithSchoolShortName() %><%
+								} else {
+									%>&nbsp;<%
+								}
+							%></td>
+						</tr><%
+					}
+				%></tbody>
 			</table>
+		</section>
 	</div>
 </div>
 
