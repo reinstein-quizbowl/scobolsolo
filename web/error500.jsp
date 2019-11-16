@@ -21,7 +21,9 @@
 			final String lclReferer = request.getHeader("referer");
 			final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(ObjectUtils.firstNonNull(lclReferer, "Website exception"));
 			
-			StringBuilder lclMessage = new StringBuilder("Exception when accessing ").append(lclReferer).append('\n')
+			StringBuilder lclMessage = new StringBuilder("Exception when accessing ").append(request.getRequestURI()).append('\n')
+				.append("Query string: ").append(request.getQueryString()).append('\n')
+				.append("Referer: ").append(lclReferer).append('\n')
 				.append("User: ").append(lclUser == null ? "[none]" : lclUser.getContact().getName() + " (" + lclUser.getUsername() + ")");
 				// TODO: We could add more information, like session data, query string, etc.
 			
