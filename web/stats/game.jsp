@@ -20,7 +20,6 @@
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%@ page import="com.scobolsolo.Utility" %>
-
 <%
 
 Game lclG = Validate.notNull(GameFactory.getInstance().fromHttpRequest(request));
@@ -107,7 +106,7 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 						<th><%= lclBasePL.getNumberString() %></th><%
 						if (lclPacket.isQuestionsPublic()) {
 							%><td><%
-								if (lclBasePL.getPacket().isQuestionsPublic()) {
+								if (lclBasePL.getQuestion() != null && lclBasePL.getPacket().isQuestionsPublic()) {
 									%><%= lclBasePL.getQuestion().getDescription() %><%
 								} else {
 									%>&nbsp;<%
