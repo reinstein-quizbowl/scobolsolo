@@ -12,6 +12,7 @@
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Game" %>
 <%@ page import="com.scobolsolo.application.Match" %>
+<%@ page import="com.scobolsolo.application.Message" %>
 <%@ page import="com.scobolsolo.application.Performance" %>
 <%@ page import="com.scobolsolo.application.Placement" %>
 <%@ page import="com.scobolsolo.application.Player" %>
@@ -70,7 +71,10 @@ Account lclUser = Account.demand(request);
 				<tbody><%
 					for (Round lclR : lclSummary.rowKeySet()) {
 						%><tr>
-							<th><%= lclR.getName() %></th><%
+							<th>
+								<%= lclR.getName() %>
+								<small>(entry allowed <%= Message.TIMESTAMP_FORMATTER_WITHOUT_DATE.format(lclR.getEarliestEntryAllowed()) %>, nominal start <%= lclR.getStartTime() %>)</small>
+							</th><%
 							for (MatchStatus lclS : MatchStatus.values()) {
 								%><td><%= ObjectUtils.firstNonNull(lclSummary.get(lclR, lclS), 0) %></td><%
 							}
