@@ -52,7 +52,16 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 							<td><%= lclSEOF.number("PlayerCount").min(1) %></td>
 							<td><%= lclSEOF.text("Note", 40) %></td>
 							<td class="saved-position"><%= lclSE.getSequence() %></td>
-							<td><%= lclSEOF.submit("Save").style("tiny") %>&nbsp;<%= lclSEOF.delete("Cancel").style("tiny") %></td>
+							<td>
+								<%= lclSEOF.submit("Save").style("tiny") %>&nbsp;<%= lclSEOF.delete("Cancel").style("tiny") %><%
+								
+								if (lclSEOF.hasErrors()) {
+									%><div>
+										<p class="form-error-intro">Error:</p>
+										<div class="form-errors"><%= lclSEOF.displayResultOrErrors() %></div>
+									</div><%
+								}
+							%></td>
 							<%= lclSEOF.close() %>
 						</tr><%
 					}
