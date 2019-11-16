@@ -62,7 +62,9 @@ Account lclUser = Account.demand(request);
 			<table>
 				<thead>
 					<tr>
-						<th>Round</th><%
+						<th>Round</th>
+						<th>Entry Allowed</th>
+						<th>Nominal Start</th><%
 						for (MatchStatus lclS : MatchStatus.values()) {
 							%><th><%= lclS %></th><%
 						}
@@ -71,10 +73,9 @@ Account lclUser = Account.demand(request);
 				<tbody><%
 					for (Round lclR : lclSummary.rowKeySet()) {
 						%><tr>
-							<th>
-								<%= lclR.getName() %>
-								<small>(entry allowed <%= Message.TIMESTAMP_FORMATTER_WITHOUT_DATE.format(lclR.getEarliestEntryAllowed()) %>, nominal start <%= lclR.getStartTime() %>)</small>
-							</th><%
+							<th><%= lclR.getName() %></th>
+							<th><%= Message.TIMESTAMP_FORMATTER_WITHOUT_DATE.format(lclR.getEarliestEntryAllowed()).toLowerCase() %></th>
+							<th><%= lclR.getStartTime() %></th><%
 							for (MatchStatus lclS : MatchStatus.values()) {
 								%><td><%= ObjectUtils.firstNonNull(lclSummary.get(lclR, lclS), 0) %></td><%
 							}
