@@ -334,7 +334,6 @@
 			<url-pattern>/messages/*</url-pattern>
 			<url-pattern>/game/*</url-pattern>
 			<url-pattern>/games/*</url-pattern>
-			<url-pattern>/stats/*</url-pattern>
 			<url-pattern>/tournament/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
