@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DB_BACKUP_DIRECTORY=~/scobolsolo-backups/db
-DB_BACKUP_FILENAME=$(date +%Y-%m-%d).sql
+DB_BACKUP_FILENAME=scobolsolo-$(date +%Y-%m-%d).sql
 DB_BACKUP_ZIPPED=$DB_BACKUP_FILENAME.gz
 
 pg_dump scobolsolo | gzip > $DB_BACKUP_DIRECTORY/$DB_BACKUP_ZIPPED
