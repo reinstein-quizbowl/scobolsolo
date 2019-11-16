@@ -9,6 +9,8 @@
 
 <div class="row">
 	<div class="small-12 columns">
+		<a class="large primary button" href="2019/">Live results from 2019 Scobol Solo</a>
+		
 		<p>Scobol Solo is a <a href="http://www.pace-nsc.org/what-is-quizbowl-a-primer-and-faq-for-newcomers/">quizbowl</a> tournament for individual players rather than teams as usual. <a href="https://www.qbwiki.com/wiki/David_Reinstein">David Reinstein</a> of New Trier High School (Winnetka, Illinois) has run it every fall since 2001.</p>
 		
 		<p>Results are available using the menu. Results from 2013 and earlier are, to varying extents, not quite complete, but the original data have been lost and we posted as much as we could.</p>
@@ -19,7 +21,7 @@
 		
 		<p>The most recent edition of Scobol Solo was held on <a href="/2018/">October 27, 2018</a>.</p>
 		
-		<p>The <a href="/2019/">next edition of Scobol Solo</a> will be on November 16, 2019.</p>
+		<!-- <p>The <a href="/2019/">next edition of Scobol Solo</a> will be on November 16, 2019.</p> -->
 	</div>
 </div>
 
