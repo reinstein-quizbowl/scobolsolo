@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.io.PrintWriter" %>
+<%@ page import="org.apache.commons.lang3.exception.ExceptionUtils" %>
 <%@ page import="org.apache.commons.lang3.ObjectUtils" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
@@ -24,10 +25,13 @@
 			StringBuilder lclMessage = new StringBuilder("Exception when accessing ").append(request.getRequestURI()).append('\n')
 				.append("Query string: ").append(request.getQueryString()).append('\n')
 				.append("Referer: ").append(lclReferer).append('\n')
-				.append("User: ").append(lclUser == null ? "[none]" : lclUser.getContact().getName() + " (" + lclUser.getUsername() + ")");
-				// TODO: We could add more information, like session data, query string, etc.
+				.append("User: ").append(lclUser == null ? "[none]" : lclUser.getContact().getName() + " (" + lclUser.getUsername() + ")").append('\n')
+				.append("Stack trace: ").append(ExceptionUtils.getStackTrace(lclT)).append('\n')
+				.append("Cause: ").append(lclT.getCause() == null ? "null" : ExceptionUtils.getStackTrace(lclT.getCause())).append('\n')
+				;
+				// TODO: We could add more information, like session data
 			
-			ourLogger.error(lclMessage.toString(), lclT);
+			ourLogger.error(lclMessage.toString());
 			
 			boolean lclShouldSeeStackTrace = lclUser != null;
 			if (lclShouldSeeStackTrace) {
