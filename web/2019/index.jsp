@@ -54,7 +54,7 @@
 				<tr>
 					<th class="rank">7T.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1338#player_2761">Thomas Mercurio</a></th>
-					<td class="school">Hinsdale Central High School ()</td>
+					<td class="school">Hinsdale Central High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
