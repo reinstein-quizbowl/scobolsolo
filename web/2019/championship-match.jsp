@@ -737,7 +737,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Thomas -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
-					<td class="player-no-response">&nbsp;</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<!-- <td class="answer">&nbsp;</td> -->
 				</tr>
 				<tr>
