@@ -124,7 +124,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Van Duyn -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Van Duyn -->
 					<td class="answer">Maat</td>
 				</tr>
 				<tr>
@@ -186,9 +186,9 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Webster -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Van Duyn -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Van Duyn -->
 					<td class="answer">chelation</td>
 				</tr>
 				<tr>
@@ -196,8 +196,8 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Dylan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Dylan -->
 					<td class="player-correct-response">1</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
@@ -222,12 +222,12 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Nolan -->
 					<td class="player-correct-response">1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Van Duyn -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Van Duyn -->
 					<td class="answer">John Dryden</td>
 				</tr>
 				<tr>
@@ -285,7 +285,7 @@
 				<tr>
 					<td class="question-number">18</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Nolan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lloyd -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
@@ -344,7 +344,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Dylan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
@@ -386,7 +386,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Alex -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
 					<td class="answer">convergent evolution</td>
 				</tr>
@@ -419,7 +419,7 @@
 				<tr>
 					<td class="question-number">27</td>
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lloyd -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
@@ -461,7 +461,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Dylan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
@@ -477,7 +477,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-correct-response">1</td><!-- Webster -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Alex -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
 					<td class="answer">incircle</td>
 				</tr>
@@ -499,12 +499,12 @@
 					<td class="player-correct-response">1</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Van Duyn -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Van Duyn -->
 					<td class="answer">Toyotomi Hideyoshi</td>
 				</tr>
 				<tr>
@@ -554,17 +554,17 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-correct-response">1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Webster -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Webster -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
 					<td class="answer">Oskar Matzerath</td>
 				</tr>
 				<tr>
 					<td class="question-number">38</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Nolan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Srinivas -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-correct-response">1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Webster -->
@@ -624,7 +624,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Srinivas -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Wang -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Webster -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Van Duyn -->
@@ -632,7 +632,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">42</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Nolan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Srinivas -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
@@ -671,7 +671,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">45</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Nolan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Srinivas -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
@@ -701,7 +701,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Srinivas -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Dylan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Webster -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex -->
@@ -785,7 +785,7 @@
 					<td class="player-correct-response">1</td><!-- Lloyd -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Srinivas -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Dylan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Webster -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex -->

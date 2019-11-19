@@ -76,7 +76,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-correct-response">1</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
@@ -90,7 +90,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
 					<td class="player-correct-response">1</td><!-- Wilder -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ana -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
@@ -128,7 +128,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
@@ -151,11 +151,11 @@
 				<tr>
 					<th class="question-number">7</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Matthew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ana -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-correct-response">1</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
@@ -202,10 +202,10 @@
 				<tr>
 					<th class="question-number">11</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Matthew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
@@ -270,7 +270,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
@@ -309,7 +309,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
@@ -394,7 +394,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Mitch -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
 					<td class="answer">Cnut the Great</td>
 				</tr>
@@ -441,7 +441,7 @@
 					<th class="question-number">28</td>
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Arjun -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
 					<td class="player-no-response">&nbsp;</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
@@ -455,7 +455,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Aristotle -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Aristotle -->
 					<td class="player-correct-response">1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
@@ -560,7 +560,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
@@ -573,9 +573,9 @@
 					<td class="player-correct-response">1</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-no-response">&nbsp;</td><!-- Jaden -->
 					<td class="answer">Empress Dowager Cixi</td>
@@ -585,7 +585,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Aristotle -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Aristotle -->
 					<td class="player-no-response">&nbsp;</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
@@ -599,7 +599,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Arjun -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Wilder -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Wilder -->
 					<td class="player-no-response">&nbsp;</td><!-- Ana -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
@@ -659,7 +659,7 @@
 					<td class="player-correct-response">1</td><!-- Aristotle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Wilder -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ana -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
 					<td class="answer">Themistocles</td>
@@ -708,7 +708,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Matthew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Arjun -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Aristotle -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Aristotle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Wilder -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ana -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
@@ -747,7 +747,7 @@
 					<td class="player-correct-response">1</td><!-- Ethan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Matthew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Arjun -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Aristotle -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Aristotle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Wilder -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ana -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
@@ -821,7 +821,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Aristotle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Wilder -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ana -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
 					<td class="answer">thermosphere</td>
@@ -847,7 +847,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Aristotle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Wilder -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ana -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Mitch -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jaden -->
 					<td class="answer">John Llewellyn Lewis</td>

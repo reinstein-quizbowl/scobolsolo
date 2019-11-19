@@ -28,7 +28,7 @@
 		
 		<p>The Morning Champion sits out for the first 20&nbsp;tossups, and enters at tossup&nbsp;21 with a score equal to that of the leader at that time. After tossup&nbsp;40, the lowest-scoring players are removed until four remain; if necessary, tiebreaker tossups are used, but they do not count in the overall score of the championship match. After tossup&nbsp;50, the lowest-scoring remaining players are eliminated until two remain; the tiebreaker procedure is the same as before. At the conclusion of the match, tiebreaker tossups are read if and as necessary.</p>
 		
-		<p>Questions 1, 21, and 41 are handout questions. Each player can choose whether or not to count each handout. Players who choose to count the handout receive 1&nbsp;point for a completely correct handout, and &ndash;1 point for a handout that is not completely correct.</p>
+		<p>Questions 1, 21, and 41 are handout questions. Each player can choose whether or not to count each handout. Players who choose to count the handout receive 1&nbsp;point for a completely correct handout, and &minus;1 point for a handout that is not completely correct.</p>
 		
 		<table class="even-spacing unsortable championship-scoresheet">
 			<thead>
@@ -80,7 +80,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Tony -->
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Krystle -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
 					<td class="answer">[Handout]</td>
@@ -127,7 +127,7 @@
 				<tr>
 					<th class="question-number">5</td>
 					<td class="player-no-response">&nbsp;</td><!-- Calvin -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Michael -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Tony -->
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
@@ -184,7 +184,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
 					<td class="answer">“nominal”</td>
 				</tr>
@@ -229,7 +229,7 @@
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Calvin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Calvin -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Tony -->
@@ -270,7 +270,7 @@
 					<th class="question-number">16</td>
 					<td class="player-no-response">&nbsp;</td><!-- Calvin -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Alex -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Tony -->
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
@@ -327,7 +327,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Siva -->
 					<td class="answer">Battle of Cr&eacute;cy</td>
 				</tr>
@@ -396,7 +396,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Siva -->
 					<td class="answer">Kirkuk</td>
 				</tr>
@@ -410,7 +410,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Siva -->
 					<td class="answer">apoptosis</td>
 				</tr>
 				<tr>
@@ -487,7 +487,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Siva -->
 					<td class="answer">George Bailey</td>
 				</tr>
@@ -540,7 +540,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Siva -->
 					<td class="answer">albedo</td>
 				</tr>
 				<tr>
@@ -558,7 +558,7 @@
 				</tr>
 				<tr>
 					<th class="question-number">37</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Calvin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Calvin -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Tony -->
@@ -602,7 +602,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Alex -->
 					<td class="player-no-response">&nbsp;</td><!-- Tony -->
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Isa -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Krystle -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Siva -->
@@ -649,7 +649,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Siva -->
 					<td class="answer">Computation: probabilities</td>
 				</tr>
@@ -688,7 +688,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Siva -->
 					<td class="answer">introns</td>
 				</tr>
@@ -710,7 +710,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Calvin -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Michael -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Tony -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Tony -->
 					<td class="player-no-response">&nbsp;</td><!-- Joe -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
@@ -799,7 +799,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Siva -->
 					<td class="answer">Computation: vector projection</td>
 				</tr>
 				<tr>
@@ -825,7 +825,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Siva -->
 					<td class="answer">“Ode on Melancholy”</td>
 				</tr>
 				<tr>
@@ -877,7 +877,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Siva -->
 					<td class="answer">Hund’s rule</td>
 				</tr>
 				<tr>
@@ -890,7 +890,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Krystle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Siva -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Siva -->
 					<td class="answer"><i>Daisy Miller</i></td>
 				</tr>
 				<tr>

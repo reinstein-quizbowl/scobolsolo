@@ -165,18 +165,18 @@
 					<td class="question-number">8</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- John -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- John -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ankush -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ankush -->
 					<td class="player-correct-response">1</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">carboxylic acids</td>
 				<tr>
 					<td class="question-number">9</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Ali -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Michael -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- John -->
 					<td class="player-no-response">&nbsp;</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
@@ -246,7 +246,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ankush -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">Fatimid dynasty</td>
@@ -300,7 +300,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Ralph Bunche</td>
 				</tr>
 				<tr>
@@ -377,7 +377,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- John -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ankush -->
@@ -416,10 +416,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- John -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ankush -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">Peter Debye</td>
@@ -465,7 +465,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">30</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ali -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- John -->
 					<td class="player-no-response">&nbsp;</td><!-- Cole -->
@@ -494,12 +494,12 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
 					<td class="player-no-response">&nbsp;</td><!-- John -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-correct-response">1</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Cardinal Wolsey</td>
 				</tr>
 				<tr>
@@ -512,7 +512,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-correct-response">1</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Hyderabad</td>
 				</tr>
 				<tr>
@@ -532,11 +532,11 @@
 					<td class="question-number">35</td>
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Michael -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- John -->
+					<td class="player-incorrect-response">&minus;1</td><!-- John -->
 					<td class="player-no-response">&nbsp;</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ankush -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">conjugated molecules</td>
@@ -575,7 +575,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ankush -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ankush -->
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer"><i>Far from the Madding Crowd</i></td>
@@ -805,7 +805,7 @@
 					<td class="player-correct-response">1</td><!-- Ali -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Michael -->
 					<td class="player-not-in-game">&nbsp;</td><!-- John -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ankush -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
@@ -883,7 +883,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Michael -->
 					<td class="player-not-in-game">&nbsp;</td><!-- John -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ankush -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
@@ -896,7 +896,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Michael -->
 					<td class="player-not-in-game">&nbsp;</td><!-- John -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ankush -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->

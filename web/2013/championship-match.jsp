@@ -149,7 +149,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jeeho -->
 					<td class="player-correct-response">1</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Prerak -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Prerak -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
 					<td class="answer">Zeeman effect</td>
 				</tr>
@@ -227,7 +227,7 @@
 					<td class="player-correct-response">1</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-no-response">&nbsp;</td><!-- Prerak -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- James -->
+					<td class="player-incorrect-response">&minus;1</td><!-- James -->
 					<td class="answer">Arnold Schoenberg</td>
 				</tr>
 				<tr>
@@ -311,13 +311,13 @@
 				<tr>
 					<td class="question-number">20</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Alston -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Alston -->
 					<td class="player-correct-response">1</td><!-- Maia -->
 					<td class="player-no-response">&nbsp;</td><!-- Greg -->
 					<td class="player-no-response">&nbsp;</td><!-- Jeeho -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Prerak -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Prerak -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
 					<td class="answer">Zhou Enlai</td>
 				</tr>
@@ -470,7 +470,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">31</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jason -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jason -->
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Maia -->
 					<td class="player-no-response">&nbsp;</td><!-- Greg -->
@@ -551,7 +551,7 @@
 					<td class="player-correct-response">1</td><!-- Jason -->
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Maia -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Greg -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Greg -->
 					<td class="player-no-response">&nbsp;</td><!-- Jeeho -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
@@ -619,12 +619,12 @@
 				</tr>
 				<tr>
 					<td class="question-number">41</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jason -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jason -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alston -->
 					<td class="player-correct-response">1</td><!-- Maia -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Evan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->
@@ -825,7 +825,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Maia -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeeho -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Evan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Evan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Pranav -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Prerak -->
 					<td class="player-not-in-game">&nbsp;</td><!-- James -->

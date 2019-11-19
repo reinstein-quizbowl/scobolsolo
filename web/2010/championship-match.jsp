@@ -67,7 +67,7 @@
 					<td class="player-correct-response">1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Deveau -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Deveau -->
 					<td class="player-no-response">&nbsp;</td><!-- Zach -->
 					<td class="player-no-response">&nbsp;</td><!-- Jacob -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
@@ -90,7 +90,7 @@
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lloyd -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Deveau -->
@@ -103,7 +103,7 @@
 				</tr>
 				<tr>
 					<th class="question-number">4</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lloyd -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Deveau -->
@@ -142,11 +142,11 @@
 				</tr>
 				<tr>
 					<th class="question-number">7</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lloyd -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Deveau -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Zach -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Zach -->
 					<td class="player-no-response">&nbsp;</td><!-- Jacob -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
 					<td class="player-correct-response">1</td><!-- Andrew Wang -->
@@ -168,7 +168,7 @@
 				<tr>
 					<th class="question-number">9</td>
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben Chametzky -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben Chametzky -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Deveau -->
 					<td class="player-no-response">&nbsp;</td><!-- Zach -->
@@ -271,7 +271,7 @@
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lloyd -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-correct-response">1</td><!-- Andrew Deveau -->
@@ -347,7 +347,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Zach -->
 					<td class="player-no-response">&nbsp;</td><!-- Jacob -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Wang -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Carbery -->
 					<td class="answer">thermite reaction</td>
 				</tr>
@@ -457,7 +457,7 @@
 				</tr>
 				<tr>
 					<th class="question-number">30</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lloyd -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lloyd -->
 					<td class="player-correct-response">1</td><!-- Ben Chametzky -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Deveau -->
@@ -499,7 +499,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-correct-response">1</td><!-- Ben Chametzky -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Deveau -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Deveau -->
 					<td class="player-no-response">&nbsp;</td><!-- Zach -->
 					<td class="player-no-response">&nbsp;</td><!-- Jacob -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
@@ -589,12 +589,12 @@
 					<th class="question-number">40</td>
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Deveau -->
 					<td class="player-no-response">&nbsp;</td><!-- Zach -->
 					<td class="player-no-response">&nbsp;</td><!-- Jacob -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Van Duyn -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Wang -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Carbery -->
 					<td class="answer">Inari Okami</td>
 				</tr>
@@ -646,14 +646,14 @@
 				<tr>
 					<th class="question-number">43</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Lloyd -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben Chametzky -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben Chametzky -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew Deveau -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Zach -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jacob -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Van Duyn -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Wang -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben Carbery -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben Carbery -->
 					<td class="answer">thalamus</td>
 				</tr>
 				<tr>
@@ -687,12 +687,12 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
 					<td class="player-correct-response">1</td><!-- Kevin -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Deveau -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Deveau -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Zach -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jacob -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Van Duyn -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Wang -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben Carbery -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben Carbery -->
 					<td class="answer">Bangladesh (current events)</td>
 				</tr>
 				<tr>
@@ -700,7 +700,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben Chametzky -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew Deveau -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew Deveau -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Zach -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jacob -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Van Duyn -->
@@ -828,7 +828,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jacob -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Van Duyn -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Andrew Wang -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben Carbery -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben Carbery -->
 					<td class="answer">ductility</td>
 				</tr>
 				<tr>

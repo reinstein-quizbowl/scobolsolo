@@ -151,12 +151,12 @@
 				<tr>
 					<td class="question-number">7</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Matthew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- John B. -->
+					<td class="player-incorrect-response">&minus;1</td><!-- John B. -->
 					<td class="player-no-response">&nbsp;</td><!-- Jack -->
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ethan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lily -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lily -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">Arcangelo Corelli</td>
@@ -248,7 +248,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
 					<td class="player-no-response">&nbsp;</td><!-- Lily -->
 					<td class="player-correct-response">1</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Song dynasty</td>
 				</tr>
 				<tr>
@@ -299,8 +299,8 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
 					<td class="player-no-response">&nbsp;</td><!-- Lily -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Aristotle -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Braxton Bragg</td>
 				</tr>
 				<tr>
@@ -308,7 +308,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- John B. -->
 					<td class="player-no-response">&nbsp;</td><!-- Jack -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ali -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
 					<td class="player-no-response">&nbsp;</td><!-- Lily -->
@@ -321,10 +321,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- John B. -->
 					<td class="player-no-response">&nbsp;</td><!-- Jack -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ali -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- John W. -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lily -->
+					<td class="player-incorrect-response">&minus;1</td><!-- John W. -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lily -->
 					<td class="player-correct-response">1</td><!-- Aristotle -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">proteins</td>
@@ -348,14 +348,14 @@
 				</tr>
 				<tr>
 					<td class="question-number">21</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Matthew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- John B. -->
 					<td class="player-no-response">&nbsp;</td><!-- Jack -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ali -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-correct-response">1</td><!-- John W. -->
 					<td class="player-no-response">&nbsp;</td><!-- Lily -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Aristotle -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Aristotle -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">Stern-Gerlach experiment</td>
 				</tr>
@@ -429,12 +429,12 @@
 					<td class="player-no-response">&nbsp;</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- John B. -->
 					<td class="player-no-response">&nbsp;</td><!-- Jack -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ali -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
 					<td class="player-no-response">&nbsp;</td><!-- Lily -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Arnulfo Arias Madrid</td>
 				</tr>
 				<tr>
@@ -445,7 +445,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
 					<td class="player-no-response">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Lily -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Lily -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
 					<td class="player-no-response">&nbsp;</td><!-- Jakob -->
 					<td class="answer">Paul Verlaine</td>
@@ -505,7 +505,7 @@
 					<td class="player-correct-response">1</td><!-- John W. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Lily -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Badlands National Park</td>
 				</tr>
 				<tr>
@@ -562,7 +562,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">37</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Matthew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Matthew -->
 					<td class="player-no-response">&nbsp;</td><!-- John B. -->
 					<td class="player-no-response">&nbsp;</td><!-- Jack -->
 					<td class="player-no-response">&nbsp;</td><!-- Ali -->
@@ -570,7 +570,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Lily -->
 					<td class="player-no-response">&nbsp;</td><!-- Aristotle -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Jakob -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Jakob -->
 					<td class="answer">Pope Clement VII</td>
 				</tr>
 				<tr>
@@ -649,7 +649,7 @@
 					<td class="player-correct-response">1</td><!-- Matthew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- John B. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jack -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ali -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ali -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Lily -->
@@ -701,7 +701,7 @@
 					<td class="player-correct-response">1</td><!-- Matthew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- John B. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jack -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ali -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ali -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
 					<td class="player-no-response">&nbsp;</td><!-- John W. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Lily -->
@@ -800,7 +800,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jack -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ali -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- John W. -->
+					<td class="player-incorrect-response">&minus;1</td><!-- John W. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Lily -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Aristotle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jakob -->
@@ -865,7 +865,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jack -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ali -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ethan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- John W. -->
+					<td class="player-incorrect-response">&minus;1</td><!-- John W. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Lily -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Aristotle -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jakob -->
@@ -931,7 +931,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">61</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Matthew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Matthew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- John B. -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jack -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ali -->

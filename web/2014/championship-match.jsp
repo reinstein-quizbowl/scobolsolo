@@ -152,7 +152,7 @@
 					<td class="question-number">7</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Evan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
@@ -168,7 +168,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Dan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
@@ -184,7 +184,7 @@
 					<td class="player-correct-response">1</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- James -->
+					<td class="player-incorrect-response">&minus;1</td><!-- James -->
 					<td class="answer">Malawi</td>
 				</tr>
 				<tr>
@@ -217,20 +217,20 @@
 					<td class="question-number">12</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Evan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Evan -->
 					<td class="player-correct-response">1</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- James -->
+					<td class="player-incorrect-response">&minus;1</td><!-- James -->
 					<td class="answer">sulfate ion</td>
 				</tr>
 				<tr>
 					<td class="question-number">13</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Evan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Evan -->
 					<td class="player-correct-response">1</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
@@ -286,7 +286,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
 					<td class="player-correct-response">1</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
 					<td class="answer">al-Aqsa</td>
@@ -349,10 +349,10 @@
 				</tr>
 				<tr>
 					<td class="question-number">21</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Evan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Alston -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Evan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
@@ -369,7 +369,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-correct-response">1</td><!-- Andrew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Sunny -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
 					<td class="answer">raid on Entebbe</td>
 				</tr>
@@ -388,10 +388,10 @@
 				</tr>
 				<tr>
 					<td class="question-number">24</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Alston -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
@@ -428,7 +428,7 @@
 				<tr>
 					<td class="question-number">27</td>
 					<td class="player-no-response">&nbsp;</td><!-- Cole -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Nolan -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
@@ -444,7 +444,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Mahir -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-correct-response">1</td><!-- Sunny -->
@@ -505,7 +505,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">33</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-no-response">&nbsp;</td><!-- Alston -->
@@ -518,14 +518,14 @@
 				</tr>
 				<tr>
 					<td class="question-number">34</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-no-response">&nbsp;</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Alston -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Alston -->
 					<td class="player-no-response">&nbsp;</td><!-- Mahir -->
 					<td class="player-no-response">&nbsp;</td><!-- Dan -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Sunny -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Sunny -->
 					<td class="player-no-response">&nbsp;</td><!-- James -->
 					<td class="answer">L&eacute;on Blum</td>
 				</tr>
@@ -680,7 +680,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">45</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alston -->
@@ -830,7 +830,7 @@
 				</tr>
 				<tr>
 					<td class="question-number">55</td>
-					<td class="player-incorrect-response">&ndash;1</td><!-- Cole -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Cole -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Nolan -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alston -->

@@ -133,7 +133,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Greg -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Steve -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Steve -->
 					<td class="player-correct-response">1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
@@ -238,7 +238,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Greg -->
 					<td class="player-no-response">&nbsp;</td><!-- Steve -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Ben -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
 					<td class="player-no-response">&nbsp;</td><!-- Christian -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Kevin -->
 					<td class="answer">Robert Bork</td>
@@ -313,7 +313,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jeremiah -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Greg -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Greg -->
 					<td class="player-no-response">&nbsp;</td><!-- Steve -->
 					<td class="player-correct-response">1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
@@ -537,12 +537,12 @@
 					<th class="question-number">36</td>
 					<td class="player-no-response">&nbsp;</td><!-- Jeremiah -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew -->
 					<td class="player-no-response">&nbsp;</td><!-- Greg -->
 					<td class="player-no-response">&nbsp;</td><!-- Steve -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Christian -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Christian -->
 					<td class="player-no-response">&nbsp;</td><!-- Kevin -->
 					<td class="answer">Computation: multiple problems leading to the same answer</td>
 				</tr>
@@ -577,7 +577,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jeremiah -->
 					<td class="player-no-response">&nbsp;</td><!-- Isa -->
 					<td class="player-no-response">&nbsp;</td><!-- Andrew -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Greg -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Greg -->
 					<td class="player-no-response">&nbsp;</td><!-- Steve -->
 					<td class="player-correct-response">1</td><!-- Lloyd -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
@@ -686,13 +686,13 @@
 					<th class="question-number">46</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeremiah -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Steve -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Steve -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Christian -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Kevin -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Kevin -->
 					<td class="answer">glycerine</td>
 				</tr>
 				<tr>
@@ -796,7 +796,7 @@
 					<th class="question-number">53</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeremiah -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Steve -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
@@ -887,7 +887,7 @@
 					<th class="question-number">60</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Jeremiah -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Isa -->
-					<td class="player-incorrect-response">&ndash;1</td><!-- Andrew -->
+					<td class="player-incorrect-response">&minus;1</td><!-- Andrew -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Greg -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Steve -->
 					<td class="player-no-response">&nbsp;</td><!-- Lloyd -->
