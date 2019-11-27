@@ -138,7 +138,7 @@ public interface Question extends QuestionUserFacing {
 	default String getDescriptionSafe() {
 		return ObjectUtils.firstNonNull(
 			getDescription(),
-			"TBD: " + getStatus().getName()
+			"TBD: " + (getStatus() == null ? "unknown status" : getStatus().getName())
 		);
 	}
 	

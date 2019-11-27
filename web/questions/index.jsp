@@ -71,7 +71,6 @@ if (lclSelectedTournaments.isEmpty()) {
 		<div class="small-6 medium-4 large-2 columns">
 			<input type="submit" class="tiny" value="Reload" />
 		</div>
-		</div>
 	</div><%
 	
 	if (lclShowUnused) {
@@ -238,8 +237,8 @@ void appendQuestionData(StringBuilder argSB, Question argQ) {
 	Validate.notNull(argQ);
 	
 	argSB.append("<td><a href=\"question-edit.jsp?question_id=").append(argQ.getId()).append("\">").append(argQ.getId()).append("</a></td>")
-	.append("<td>").append(argQ.getDescription()).append("</td>")
-	.append("<td>").append(argQ.getStatus().getName()).append("</td>");
+		.append("<td>").append(argQ.getDescription()).append("</td>")
+		.append("<td>").append(argQ.getStatus() == null ? "?" : argQ.getStatus().getName()).append("</td>");
 	
 	List<Pair<String, String>> lclPreviews = new ArrayList<>(2);
 	if (StringUtils.isNotBlank(argQ.getAnswer())) {
