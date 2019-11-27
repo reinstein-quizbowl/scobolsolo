@@ -422,6 +422,7 @@ ALTER SEQUENCE placement_id_seq RESTART WITH 1000;
 CREATE INDEX placement_question_idx ON Placement(question_id);
 CREATE INDEX placement_packet_idx ON Placement(packet_id);
 CREATE INDEX placement_category_idx ON Placement(category_code);
+CREATE UNIQUE INDEX placement_unique_packet_number ON Placement(packet_id, number);
 
 CREATE VIEW Placement_v AS
 SELECT
