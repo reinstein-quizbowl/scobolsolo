@@ -132,7 +132,7 @@ public interface Question extends QuestionUserFacing {
 	
 	default Category getCategory() {
 		Diff lclD = getCurrentDiff();
-		return lclD == null ? null : lclD.getCategory();
+		return lclD == null ? CategoryFactory.UNKNOWN() : lclD.getCategory();
 	}
 	
 	default String getDescriptionSafe() {
