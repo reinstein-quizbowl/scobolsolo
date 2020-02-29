@@ -16,7 +16,6 @@ import com.scobolsolo.persistence.CategoryUseOpalFactory;
 import com.scobolsolo.persistence.ContactOpalFactory;
 import com.scobolsolo.persistence.DiffOpalFactory;
 import com.scobolsolo.persistence.GameOpalFactory;
-import com.scobolsolo.persistence.GameVOpalFactory;
 import com.scobolsolo.persistence.MatchOpalFactory;
 import com.scobolsolo.persistence.MessageOpalFactory;
 import com.scobolsolo.persistence.OpalFactoryFactory;
@@ -25,11 +24,7 @@ import com.scobolsolo.persistence.PerformanceOpalFactory;
 import com.scobolsolo.persistence.PhaseOpalFactory;
 import com.scobolsolo.persistence.PlacementConversionVOpalFactory;
 import com.scobolsolo.persistence.PlacementOpalFactory;
-import com.scobolsolo.persistence.PlayerCategoryPointVOpalFactory;
-import com.scobolsolo.persistence.PlayerMatchVOpalFactory;
 import com.scobolsolo.persistence.PlayerOpalFactory;
-import com.scobolsolo.persistence.PlayerPointVOpalFactory;
-import com.scobolsolo.persistence.PlayerRecordVOpalFactory;
 import com.scobolsolo.persistence.PronunciationGuideSuppressionOpalFactory;
 import com.scobolsolo.persistence.QuestionOpalFactory;
 import com.scobolsolo.persistence.QuestionStatusOpalFactory;
@@ -58,11 +53,6 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	private DataSource myDataSource;
 
 	@Override
-	public PlayerCategoryPointVOpalFactory getPlayerCategoryPointVOpalFactory() {
-		return PostgresPlayerCategoryPointVOpalFactory.getInstance();
-	}
-
-	@Override
 	public GameOpalFactory getGameOpalFactory() {
 		return PostgresGameOpalFactory.getInstance();
 	}
@@ -70,11 +60,6 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	@Override
 	public PronunciationGuideSuppressionOpalFactory getPronunciationGuideSuppressionOpalFactory() {
 		return PostgresPronunciationGuideSuppressionOpalFactory.getInstance();
-	}
-
-	@Override
-	public PlayerMatchVOpalFactory getPlayerMatchVOpalFactory() {
-		return PostgresPlayerMatchVOpalFactory.getInstance();
 	}
 
 	@Override
@@ -158,11 +143,6 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	}
 
 	@Override
-	public GameVOpalFactory getGameVOpalFactory() {
-		return PostgresGameVOpalFactory.getInstance();
-	}
-
-	@Override
 	public CategoryConversionVOpalFactory getCategoryConversionVOpalFactory() {
 		return PostgresCategoryConversionVOpalFactory.getInstance();
 	}
@@ -208,11 +188,6 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	}
 
 	@Override
-	public PlayerPointVOpalFactory getPlayerPointVOpalFactory() {
-		return PostgresPlayerPointVOpalFactory.getInstance();
-	}
-
-	@Override
 	public PerformanceOpalFactory getPerformanceOpalFactory() {
 		return PostgresPerformanceOpalFactory.getInstance();
 	}
@@ -230,11 +205,6 @@ public class PostgresOpalFactoryFactory extends OpalFactoryFactory {
 	@Override
 	public StaffRoleOpalFactory getStaffRoleOpalFactory() {
 		return PostgresStaffRoleOpalFactory.getInstance();
-	}
-
-	@Override
-	public PlayerRecordVOpalFactory getPlayerRecordVOpalFactory() {
-		return PostgresPlayerRecordVOpalFactory.getInstance();
 	}
 
 	@Override

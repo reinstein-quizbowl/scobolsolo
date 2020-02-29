@@ -200,37 +200,6 @@
 			</Mapping>
 			
 			<!-- Stats views -->
-			<Mapping View="Player_Point_v">
-				<Column Name="points" Type="java.lang.Integer" />
-				<Comparator>
-					<Column Name="points" Inverted="True" />
-					<Child Name="Player" Comparator="NameComparator" />
-				</Comparator>
-			</Mapping>
-			
-			<Mapping View="Player_Category_Point_v">
-				<Column Name="tossups_heard" Type="java.lang.Integer" />
-				<Column Name="points" Type="java.lang.Integer" />
-				<Column Name="average_correct_buzz_depth" Type="java.lang.Double" />
-			</Mapping>
-			
-			<Mapping View="Game_v">
-				<Column Name="winner_score" Type="java.lang.Integer" />
-				<Column Name="loser_score" Type="java.lang.Integer" />
-				<Column Name="winner_average_correct_buzz_depth" Type="java.lang.Double" />
-				<Column Name="loser_average_correct_buzz_depth" Type="java.lang.Double" />
-			</Mapping>
-			
-			<Mapping View="Player_Match_v" />
-			
-			<Mapping View="Player_Record_v">
-				<Column Name="tossups_heard" Type="java.lang.Integer" />
-				<Column Name="average_correct_buzz_depth_in_wins" Type="java.lang.Double" />
-				<Column Name="average_correct_buzz_depth_in_losses" Type="java.lang.Double" />
-				<Comparator Name="PlayerComparator">
-					<Child Name="Player" Comparator="NameComparator" />
-				</Comparator>
-			</Mapping>
 			
 			<Mapping View="Category_Conversion_v">
 				<Column Name="response_type_count" Type="java.lang.Integer" />

@@ -5,10 +5,8 @@ import com.opal.AbstractOpalFactoryFactory;
 public abstract class OpalFactoryFactory extends AbstractOpalFactoryFactory {
 	public static OpalFactoryFactory getInstance() { return com.scobolsolo.persistence.postgres.PostgresOpalFactoryFactory.getSpecificInstance(); }
 
-	public abstract PlayerCategoryPointVOpalFactory getPlayerCategoryPointVOpalFactory();
 	public abstract GameOpalFactory getGameOpalFactory();
 	public abstract PronunciationGuideSuppressionOpalFactory getPronunciationGuideSuppressionOpalFactory();
-	public abstract PlayerMatchVOpalFactory getPlayerMatchVOpalFactory();
 	public abstract PlacementConversionVOpalFactory getPlacementConversionVOpalFactory();
 	public abstract ResponseTypeOpalFactory getResponseTypeOpalFactory();
 	public abstract QuestionStatusOpalFactory getQuestionStatusOpalFactory();
@@ -25,7 +23,6 @@ public abstract class OpalFactoryFactory extends AbstractOpalFactoryFactory {
 	public abstract BuzzerOpalFactory getBuzzerOpalFactory();
 	public abstract QuestionOpalFactory getQuestionOpalFactory();
 	public abstract WaitlistEntryOpalFactory getWaitlistEntryOpalFactory();
-	public abstract GameVOpalFactory getGameVOpalFactory();
 	public abstract CategoryConversionVOpalFactory getCategoryConversionVOpalFactory();
 	public abstract MatchOpalFactory getMatchOpalFactory();
 	public abstract SchoolRegistrationOpalFactory getSchoolRegistrationOpalFactory();
@@ -35,12 +32,10 @@ public abstract class OpalFactoryFactory extends AbstractOpalFactoryFactory {
 	public abstract PacketOpalFactory getPacketOpalFactory();
 	public abstract MessageOpalFactory getMessageOpalFactory();
 	public abstract RoomOpalFactory getRoomOpalFactory();
-	public abstract PlayerPointVOpalFactory getPlayerPointVOpalFactory();
 	public abstract PerformanceOpalFactory getPerformanceOpalFactory();
 	public abstract RoundOpalFactory getRoundOpalFactory();
 	public abstract ResponseOpalFactory getResponseOpalFactory();
 	public abstract StaffRoleOpalFactory getStaffRoleOpalFactory();
-	public abstract PlayerRecordVOpalFactory getPlayerRecordVOpalFactory();
 	public abstract PlacementOpalFactory getPlacementOpalFactory();
 	public abstract CategoryOpalFactory getCategoryOpalFactory();
 	public abstract AccountOpalFactory getAccountOpalFactory();
