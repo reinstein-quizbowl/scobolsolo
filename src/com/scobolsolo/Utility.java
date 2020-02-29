@@ -112,4 +112,24 @@ public final class Utility {
 	public static <T> String makeList(final T[] argInputs, final Function<T, ?> argStringExtractor) {
 		return makeList(argInputs, argStringExtractor, "and");
 	}
+	
+	public static String makeOrdinal(int argValue) {
+		int lclAbs = argValue >= 0 ? argValue : -1 * argValue;
+		int lclRemainder = lclAbs % 10;
+		
+		String lclSuffix;
+		if (lclAbs == 11 || lclAbs == 12 || lclAbs == 13) {
+			lclSuffix = "th";
+		} else if (lclRemainder == 1) {
+			lclSuffix = "st";
+		} else if (lclRemainder == 2) {
+			lclSuffix = "nd";
+		} else if (lclRemainder == 3) {
+			lclSuffix = "rd";
+		} else {
+			lclSuffix = "th";
+		}
+		
+		return argValue + lclSuffix;
+	}
 }

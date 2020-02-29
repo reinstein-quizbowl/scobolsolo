@@ -1,8 +1,11 @@
 package com.scobolsolo.application;
 
 import java.util.Comparator;
+import java.util.Collection;
+import java.util.OptionalDouble;
 
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.Validate;
 
 import com.scobolsolo.persistence.ResponseUserFacing;
 
@@ -28,5 +31,27 @@ public interface Response extends ResponseUserFacing {
 	
 	default ResponseType getType() {
 		return getResponseType();
+	}
+	
+	public static OptionalDouble calculateCDepth(Collection<Response> argResponses) {
+		Validate.notNull(argResponses);
+		
+		ResponseType CORRECT = ResponseTypeFactory.CORRECT();
+		
+		double[] lclCorrectAnswerDepths = argResponses.stream()
+			.filter(argR -> argR.getWordEndIndexAsObject() != null)
+			.filter(argR -> argR.getType() == CORRECT)
+			.mapToDouble(argR -> 1.0d * argR.getWordEndIndex(0) / argR.getDiff().getTextLength())
+			.toArray();
+		
+		if (lclCorrectAnswerDepths.length == 0) {
+			return OptionalDouble.empty();
+		} else {
+			double lclSum = 0.0d;
+			for (double lclValue : lclCorrectAnswerDepths) {
+				lclSum += lclValue;
+			}
+			return OptionalDouble.of(lclSum / lclCorrectAnswerDepths.length);
+		}
 	}
 }

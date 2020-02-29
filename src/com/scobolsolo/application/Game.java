@@ -1,6 +1,7 @@
 package com.scobolsolo.application;
 
 import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
@@ -187,12 +188,11 @@ public interface Game extends GameUserFacing {
 			.toArray();
 		
 		if (lclDistinctResponseCounts.length == 0) {
-			throw new IllegalStateException("No responses");
+			throw new IllegalStateException("No responses in game " + this);
 		} else if (lclDistinctResponseCounts.length == 1) {
 			return lclDistinctResponseCounts[0];
 		} else {
-			throw new IllegalStateException("Multiple response counts: " + lclDistinctResponseCounts);
+			throw new IllegalStateException("Multiple response counts in game " + this + ": " + Arrays.toString(lclDistinctResponseCounts));
 		}
-		
 	}
 }
