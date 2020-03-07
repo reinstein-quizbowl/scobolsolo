@@ -97,7 +97,7 @@ a.has-tip {
 
 
 .warning, .incorrect, .incorrect:active, .incorrect:focus {
-	background-color: $warning-color;
+	background-color: $warning-color !important;
 }
 
 .info {
