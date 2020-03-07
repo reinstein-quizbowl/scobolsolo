@@ -56,11 +56,30 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 			if (isOrdered(lclP)) {
 				continue;
 			} else {
+				Set<Integer> lclScorecheckAfter = lclP.streamPlacement()
+					.filter(Placement::isScorecheckAfter)
+					.map(Placement::getNumber)
+					.collect(Collectors.toSet());
+				
 				try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
 					while (!isOrdered(lclP)) {
 						order(lclP); // it may take multiple attempts
 					}
 					Validate.isTrue(isOrdered(lclP));
+					
+					lclTC.complete();
+				}
+				
+				// Above we used placeholder numbers that are larger than necessary, to avoid unique-key conflicts. Now we reorder with real numbers.
+				// This might work weirdly if there are non-regulation placements in the middle, but I don't know what that would even mean.
+				try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
+					int lclNumber = 1;
+					for (Placement lclPL : lclP.getRegulationPlacements()) {
+						lclPL.setNumber(lclNumber)
+							.setScorecheckAfter(lclScorecheckAfter.contains(lclNumber));
+						
+						++lclNumber;
+					}
 					
 					lclTC.complete();
 				}
@@ -148,10 +167,10 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		return true;
 	}
 	
-	public static void order(final Packet lclP) {
-		Validate.notNull(lclP);
+	public static void order(final Packet argP) {
+		Validate.notNull(argP);
 		
-		final List<Placement> lclRegulation = lclP.getRegulationPlacements();
+		final List<Placement> lclRegulation = argP.getRegulationPlacements();
 		if (lclRegulation.isEmpty()) {
 			return;
 		}
@@ -205,12 +224,17 @@ public class OrderPackets extends ScobolSoloControllerServlet {
 		Validate.isTrue(isHalfSplittingValid(lclFirstHalf, lclSecondHalf));
 		
 		
+		// We assign numbers using placeholder numbers larger than any of the old numbers to avoid unique key conflicts
+		int lclStartingNumber = argP.streamPlacement()
+			.mapToInt(Placement::getNumber)
+			.max().getAsInt() + 1;
+		
 		// Order halves
 		while (!areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS)) {
 			tryEnsuringNoCategoryGroupRepeatsWithinSpan(lclFirstHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
 			tryEnsuringNoCategoryGroupRepeatsWithinSpan(lclSecondHalf, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS);
-			assignNumbersBasedOnListOrder(lclFirstHalf, 1, 1);
-			assignNumbersBasedOnListOrder(lclSecondHalf, lclHalf+1, 1);
+			assignNumbersBasedOnListOrder(lclFirstHalf, lclStartingNumber, 1);
+			assignNumbersBasedOnListOrder(lclSecondHalf, lclStartingNumber + lclHalf + 1, 1);
 			lclRegulation.sort(null);
 		}
 		Validate.isTrue(areThereNoCategoryGroupRepeatsWithinSpan(lclRegulation, SPAN_FOR_NO_CATEGORY_GROUP_REPEATS));
