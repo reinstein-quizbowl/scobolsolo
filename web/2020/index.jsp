@@ -10,7 +10,8 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2020 will be held in the fall if conditions allow.</p>
+		<p>Scobol Solo 2020 will be held online, via Discord, on the afternoons of Saturday, December&nbsp;5 and Saturday, December&nbsp;12.</p>
+		<p>To register, email <a href="mailto:reinsteind@yahoo.com">David Reinstein (reinsteind@yahoo.com)</a>.</p>
 	</div>
 </div>
 
