@@ -223,6 +223,8 @@ a.no-highlight {
 	font-family: 'STIXGeneral', $font-family-serif;
 	font-weight: 500;
 	color: $dark-gray;
+	font-style: normal;
+	text-decoration: none;
 }
 
 .pronunciation-guide::before {
