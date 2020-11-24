@@ -1,5 +1,6 @@
 package com.scobolsolo.application;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +17,7 @@ import com.scobolsolo.persistence.RoundUserFacing;
 
 public interface Round extends RoundUserFacing, Comparable<Round> {
 	static final Comparator<Round> NATURAL_COMPARATOR = Comparator.comparing(Round::getPhase).thenComparingInt(Round::getSequence);
+	static final DateTimeFormatter DATE_ONLY_NO_YEAR = DateTimeFormatter.ofPattern("EEEE, MMMM d");
 	
 	@Override
 	default int compareTo(Round that) {
@@ -35,6 +37,18 @@ public interface Round extends RoundUserFacing, Comparable<Round> {
 			return getShortName();
 		} else {
 			return getShortName() + " (" + getStartTime() + ")";
+		}
+	}
+	
+	default String getStartTimeWithDateIfDifferent() {
+		if (getStartTime() == null) {
+			return null;
+		} else if (getEarliestEntryAllowed() == null) {
+			return getStartTime();
+		} else if (getEarliestEntryAllowed().toLocalDate().equals(getTournament().getDate())) {
+			return getStartTime();
+		} else {
+			return getEarliestEntryAllowed().format(DATE_ONLY_NO_YEAR) + " at " + getStartTime();
 		}
 	}
 	

@@ -60,7 +60,7 @@ Match lclNextForLoser = lclMatch.getNextForLoser();
 			%></p><%
 		} else {
 			%><p>
-				<%= lclWinner.getContact().getName() %>’s next match is during <%= lclNextForWinner.getRound().getNameWithStartTime() %> in <%= lclNextForWinner.getRoom().getName() %><%
+				<%= lclWinner.getContact().getName() %>’s next match is during <%= lclNextForWinner.getRound().getStartTimeWithDateIfDifferent() %> in <%= lclNextForWinner.getRoom().getName() %><%
 				if (lclNextForWinner.determineStatus().areAllPlayersKnown()) {
 					Game lclG = Validate.notNull(lclNextForWinner.getGame());
 					if (lclWinner == lclG.getIncomingWinningCardPlayer()) {
@@ -82,7 +82,7 @@ Match lclNextForLoser = lclMatch.getNextForLoser();
 			%></p><%
 		} else {
 			%><p>
-				<%= lclLoser.getContact().getName() %>’s next match is during <%= lclNextForLoser.getRound().getNameWithStartTime() %> in <%= lclNextForLoser.getRoom().getName() %><%
+				<%= lclLoser.getContact().getName() %>’s next match is during <%= lclNextForLoser.getRound().getStartTimeWithDateIfDifferent() %> in <%= lclNextForLoser.getRoom().getName() %><%
 				if (lclNextForLoser.determineStatus().areAllPlayersKnown()) {
 					Game lclG = Validate.notNull(lclNextForLoser.getGame());
 					if (lclLoser == lclG.getIncomingWinningCardPlayer()) {
