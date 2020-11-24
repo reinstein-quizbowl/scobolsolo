@@ -350,7 +350,7 @@
 				<dd>Jessica Booten, Bunker Hill</dd>
 				<dd>Brad Fischer, Winnebago</dd>
 				<dd>Jonathan Irving, Wheaton North</dd>
-				<dd>Jack Oâ€™Connell, Lockport</dd>
+				<dd>Jack O’Connell, Lockport</dd>
 				<dd>Todd Whitney, Homewood-Flossmoor</dd>
 			<dt>Four tossups</dt>
 				<dd>Sean Beausolei, Waukegan</dd>

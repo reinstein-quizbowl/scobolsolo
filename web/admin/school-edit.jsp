@@ -64,7 +64,7 @@ if (lclOF.hasErrors()) {
 		<label>
 			Location
 			<%= lclOF.text("Location", 30).style("annotated") %>
-			<div class="form-annotation alert-box info">Generally, this is the name of the city the school is in. If the schoolâ€™s name contains the city, leave this blank. If the school is in another state, append a comma, a space, and the name of the state.</div>
+			<div class="form-annotation alert-box info">Generally, this is the name of the city the school is in. If the school’s name contains the city, leave this blank. If the school is in another state, append a comma, a space, and the name of the state.</div>
 		</label>
 	</div>
 </div>
