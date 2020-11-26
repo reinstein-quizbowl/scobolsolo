@@ -3,7 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.LinkedList" %>
 <%@ page import="java.util.stream.Collectors" %>
-<%@ page import="org.apache.commons.lang3.ObjectUtils" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.siliconage.web.form.DropdownField" %>
 <%@ page import="com.siliconage.web.form.FunctionalNameCodeExtractor" %>
@@ -15,6 +15,7 @@
 <%@ page import="com.scobolsolo.application.Match" %>
 <%@ page import="com.scobolsolo.application.Performance" %>
 <%@ page import="com.scobolsolo.application.Player" %>
+<%@ page import="com.scobolsolo.application.Round" %>
 <%@ page import="com.scobolsolo.application.Staff" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.matches.MatchStatus" %>
@@ -26,6 +27,7 @@ Match lclMatch = lclGame.getMatch();
 Account lclUser = Account.demand(request);
 Validate.isTrue(lclUser.mayEnter(lclMatch), "Not authorized");
 
+Round lclR = lclMatch.getRound();
 Tournament lclT = lclMatch.getTournament();
 
 Performance lclWinnerPerf = Validate.notNull(lclGame.determineWinner());
@@ -43,9 +45,20 @@ Match lclNextForLoser = lclMatch.getNextForLoser();
     <jsp:param name="pageTitle" value="Game Over" />
 	<jsp:param name="topMenu" value="<%= Menus.staff(lclUser.findStaff(lclT)).asTopLevel().output(request, \"match-\" + lclMatch.getUniqueString()) %>" />
 	<jsp:param name="h1" value="<%= lclWinner.getNameWithSchoolShortName() + \" defeats \" + lclLoser.getNameWithSchoolShortName() %>" />
-</jsp:include>
+</jsp:include><%
 
-<div class="row">
+if (StringUtils.isNotBlank(lclR.getGameEndMessageHtml())) {
+	%><section id="game-end-message" class="row columns">
+		<div class="primary callout" data-closable>
+			<button class="large close-button" aria-label="Close" type="button" data-close>
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<%= lclR.getGameEndMessageHtml() %>
+		</div>
+	</section><%
+}
+
+%><div class="row">
 	<div class="small-12 columns">
 		<p>Congratulations to <%= lclWinner.getNameWithSchool() %> for defeating <%= lclLoser.getNameWithSchool() %>, <%= lclWinnerPerf.getScore() %>&ndash;<%= lclLoserPerf.getScore() %>.</p>
 		

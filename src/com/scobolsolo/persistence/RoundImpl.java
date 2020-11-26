@@ -175,6 +175,40 @@ public class RoundImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@Override
+	public java.lang.String getGameStartMessageHtml() {
+		return getRoundOpal().getGameStartMessageHtml();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@Override
+	public com.scobolsolo.persistence.RoundImpl setGameStartMessageHtml(java.lang.String argGameStartMessageHtml) {
+		getRoundOpal().setGameStartMessageHtml(argGameStartMessageHtml);
+		return this;
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@Override
+	public java.lang.String getGameEndMessageHtml() {
+		return getRoundOpal().getGameEndMessageHtml();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@Override
+	public com.scobolsolo.persistence.RoundImpl setGameEndMessageHtml(java.lang.String argGameEndMessageHtml) {
+		getRoundOpal().setGameEndMessageHtml(argGameEndMessageHtml);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

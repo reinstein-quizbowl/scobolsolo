@@ -49,6 +49,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		"LunchAfter",
 		"EarliestEntryAllowed",
 		"PhaseId",
+		"GameStartMessageHtml",
+		"GameEndMessageHtml",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -60,6 +62,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		java.lang.Boolean.class,
 		java.time.LocalDateTime.class,
 		java.lang.Integer.class,
+		java.lang.String.class,
+		java.lang.String.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -71,9 +75,13 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		false,
 		true,
 		false,
+		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -134,6 +142,14 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 
 	public synchronized java.lang.Integer getPhaseIdAsObject() {
 		return (java.lang.Integer) getReadValueSet()[7];
+	}
+
+	public synchronized java.lang.String getGameStartMessageHtml() {
+		return (java.lang.String) getReadValueSet()[8];
+	}
+
+	public synchronized java.lang.String getGameEndMessageHtml() {
+		return (java.lang.String) getReadValueSet()[9];
 	}
 
 	public synchronized RoundOpal setId(final java.lang.Integer argId) {
@@ -231,6 +247,18 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		return this;
 	}
 
+	public synchronized RoundOpal setGameStartMessageHtml(final java.lang.String argGameStartMessageHtml) {
+		tryMutate();
+		getNewValues()[8] = argGameStartMessageHtml;
+		return this;
+	}
+
+	public synchronized RoundOpal setGameEndMessageHtml(final java.lang.String argGameEndMessageHtml) {
+		tryMutate();
+		getNewValues()[9] = argGameEndMessageHtml;
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -281,6 +309,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		lclTargetNewValues[5] = lclValues[5]; /* LunchAfter (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* EarliestEntryAllowed (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* PhaseId (immutable) */
+		lclTargetNewValues[8] = lclValues[8]; /* GameStartMessageHtml (immutable) */
+		lclTargetNewValues[9] = lclValues[9]; /* GameEndMessageHtml (immutable) */
 
 		return;
 	}
@@ -345,6 +375,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
 		argOutput.println("EarliestEntryAllowed = " + getEarliestEntryAllowed());
 		argOutput.println("PhaseId = " + getPhaseIdAsObject());
+		argOutput.println("GameStartMessageHtml = " + getGameStartMessageHtml());
+		argOutput.println("GameEndMessageHtml = " + getGameEndMessageHtml());
 	}
 
 	@Override
@@ -357,6 +389,8 @@ public final class RoundOpal extends com.opal.UpdatableOpal<Round> {
 		argOutput.println("LunchAfter = " + isLunchAfterAsObject());
 		argOutput.println("EarliestEntryAllowed = " + getEarliestEntryAllowed());
 		argOutput.println("PhaseId = " + getPhaseIdAsObject());
+		argOutput.println("GameStartMessageHtml = " + getGameStartMessageHtml());
+		argOutput.println("GameEndMessageHtml = " + getGameEndMessageHtml());
 	}
 
 	private PhaseOpal myOldPhaseOpal;

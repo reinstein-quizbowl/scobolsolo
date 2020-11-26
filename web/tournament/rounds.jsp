@@ -103,6 +103,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						<th>Earliest&nbsp;entry&nbsp;allowed</th>
 						<th>Sequence</th>
 						<th>Lunch&nbsp;is&nbsp;after?</th>
+						<th>Edit</th>
 						<th><span title="delete">Del?</span></th>
 					</tr>
 				</thead>
@@ -124,6 +125,13 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 							<td><%= lclROF.datetime("EarliestEntryAllowed").placeholder("yyyy-mm-dd hh:mm") %></td>
 							<td><%= lclROF.number("Sequence") %></td>
 							<td><%= HTMLUtility.switchWidget(lclROF, "LunchAfter") %></td>
+							<td><%
+								if (lclROF.isNew()) {
+									%>&nbsp;<%
+								} else {
+									%><a href="round-edit.jsp?round_id=<%= lclR.getId() %>">Edit</a><%
+								}
+							%></td>
 							<td><%= HTMLUtility.deleteWidget(lclROF) %></td>
 							<%= lclROF.close() %>
 						</tr><%

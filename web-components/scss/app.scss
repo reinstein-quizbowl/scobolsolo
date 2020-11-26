@@ -187,8 +187,10 @@ h2 {
 
 button.menu-icon, button.menu-icon:hover, button.menu-icon:active, button.menu-icon:focus,
 button.close-button, button.close-button:hover, button.close-button:active, button.close-button:focus, {
-	color: $white;
+	color: $primary-color;
+	font-weight: bold;
 	background-color: inherit;
+	padding: 0;
 }
 
 .callout {

@@ -244,6 +244,8 @@ CREATE TABLE Round (
 	lunch_after BOOLEAN NOT NULL DEFAULT FALSE,
 	start_time VARCHAR(16), -- not proper, but more usable
 	earliest_entry_allowed TIMESTAMP, -- NULL means always allowed
+	game_start_message_html TEXT,
+	game_end_message_html TEXT,
 	UNIQUE(round_group_id, name),
 	UNIQUE(round_group_id, short_name)
 );

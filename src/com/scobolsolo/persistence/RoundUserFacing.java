@@ -363,6 +363,92 @@ public interface RoundUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Round setPhaseId(int argPhaseId);
 
 	/**
+	 * object accessor for the {@code GameStartMessageHtml}
+	 *
+	 * <p>The {@code GameStartMessageHtml} field is a direct mapping of the {@code game_start_message_html} field in {@code round}.</p>
+	 *
+	 * @return an object value of {@code GameStartMessageHtml} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	public java.lang.String getGameStartMessageHtml();
+
+	/**
+	 * object accessor for the {@code GameStartMessageHtml} with substitution for a null value
+	 *
+	 * <p>The {@code GameStartMessageHtml} field is a direct mapping of the {@code game_start_message_html} database column in the table {@code round}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code GameStartMessageHtml} is {@code null}.
+	 * @return an object value of {@code GameStartMessageHtml} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getGameStartMessageHtml(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getGameStartMessageHtml();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code GameStartMessageHtml} to the value of {@code argGameStartMessageHtml}
+	 *
+	 * @param argGameStartMessageHtml the new value of {@code GameStartMessageHtml}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * @throws com.opal.ArgumentTooLongException if {@code argGameStartMessageHtml} is longer than 2147483647 characters
+	 * <p>The database column {@code game_start_message_html} is limited to 2147483647 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Round setGameStartMessageHtml(java.lang.String argGameStartMessageHtml);
+
+	/**
+	 * object accessor for the {@code GameEndMessageHtml}
+	 *
+	 * <p>The {@code GameEndMessageHtml} field is a direct mapping of the {@code game_end_message_html} field in {@code round}.</p>
+	 *
+	 * @return an object value of {@code GameEndMessageHtml} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	public java.lang.String getGameEndMessageHtml();
+
+	/**
+	 * object accessor for the {@code GameEndMessageHtml} with substitution for a null value
+	 *
+	 * <p>The {@code GameEndMessageHtml} field is a direct mapping of the {@code game_end_message_html} database column in the table {@code round}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code GameEndMessageHtml} is {@code null}.
+	 * @return an object value of {@code GameEndMessageHtml} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getGameEndMessageHtml(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.String lclO = getGameEndMessageHtml();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code GameEndMessageHtml} to the value of {@code argGameEndMessageHtml}
+	 *
+	 * @param argGameEndMessageHtml the new value of {@code GameEndMessageHtml}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * @throws com.opal.ArgumentTooLongException if {@code argGameEndMessageHtml} is longer than 2147483647 characters
+	 * <p>The database column {@code game_end_message_html} is limited to 2147483647 characters.</p>
+	 *
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.Length(maximum = 2147483647L)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Round setGameEndMessageHtml(java.lang.String argGameEndMessageHtml);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Phase}
 	 * The returned {@code com.scobolsolo.application.Phase} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code phase} that is referenced by {@code round_phase_id_fkey}.
 	 *

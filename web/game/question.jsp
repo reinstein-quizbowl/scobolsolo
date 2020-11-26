@@ -1,6 +1,7 @@
 ﻿<%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.ObjectUtils" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.google.common.collect.ListMultimap" %>
@@ -105,9 +106,20 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		<p>You are reading <%= lclRound.getName() %>, question&nbsp;#<%= lclBasePL.getNumber() %>. On your left is <%= lclLeftPlayer.getNameWithSchool() %>; on your right is <%= lclRightPlayer.getNameWithSchool() %>. If any of this is incorrect, stop immediately and rectify the situation!</p>
 		<p>The score going into this question is <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclLeftPerf) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclRightPerf) %>.</p>
 	</div>
-</div>
+</div><%
 
-<div class="row">
+if (lclOvertime == false && lclPreviousPL == null && StringUtils.isNotBlank(lclRound.getGameStartMessageHtml())) {
+	%><section id="game-end-message" class="row columns">
+		<div class="primary callout" data-closable>
+			<button class="large close-button" aria-label="Close" type="button" data-close onclick="$(this).trigger('close.zf.trigger')">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<%= lclRound.getGameStartMessageHtml() %>
+		</div>
+	</section><%
+}
+
+%><div class="row">
 	<div class="small-12 columns">
 		<%= GameEntryQuestionMenu.outputFoundationMenu(
 			lclGame,
@@ -121,8 +133,8 @@ Tally<Performance> lclScores = lclGame.getScoresBefore(lclIndex, lclOvertime);
 		) %><%
 		
 		if (lclPreviousPL != null && lclPreviousPL.isScorecheckAfter()) {
-			%><div class="info callout" data-closable>
-				<button class="large close-button" aria-label="Close alert" type="button" data-close>
+			%><div class="primary callout" data-closable>
+				<button class="large close-button" aria-label="Close" type="button" data-close onclick="$(this).trigger('close.zf.trigger')">
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<p>Before continuing, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>.</p>
