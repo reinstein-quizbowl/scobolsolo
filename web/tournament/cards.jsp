@@ -140,7 +140,7 @@ if (lclOF.hasErrors()) {
 				<div class="small-12 columns">
 					<label>
 						File
-						<input id="file" type="file" name="file">
+						<input id="file" type="file" name="file" required="required">
 					</label>
 				</div>
 			</div>
