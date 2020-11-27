@@ -19,7 +19,7 @@
 		
 		<p>The most recent edition of Scobol Solo was held on <a href="/2019/">November 16, 2019</a>. <a href="/stats/player-detail.jsp?school_registration_id=1350#player_2790">Govind Prabhakar</a> (Adlai E. Stevenson High School, Lincolnshire, Illinois) won.</p>
 		
-		<p>The <!-- <a href="/2020/"> -->next edition of Scobol Solo<!-- </a> --> will be in fall 2020 (exact date TBD).</p>
+		<p>The <a href="/2020/">next edition of Scobol Solo</a> will take place on Decmeber&nbsp;5 and 12, 2020 via Discord.</p>
 	</div>
 </div>
 
