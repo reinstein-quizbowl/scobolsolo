@@ -1,1 +1,1 @@
-<jsp:forward page="instructions/championship-match.jsp" />
+<jsp:forward page="/instructions/championship-match.jsp" />
