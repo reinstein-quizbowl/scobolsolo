@@ -23,9 +23,10 @@
 		<section id="following-along">
 			<h2>Following Along</h2>
 			
-			<p><a href="https://www.twitch.tv/DavidReinstein">The match will be streamed live on Twitch.</a></p>
-			
-			<p>We will also make a live scoresheet available.</p>
+			<p>
+				<a class="large primary button" href="https://www.twitch.tv/DavidReinstein"><i class="fa fa-twitch"></i> Livestream on Twitch</a>
+				<a class="large primary button" href="https://docs.google.com/spreadsheets/d/1_C_u4FLa3KGJ7mu6RLiM4x0uJWIJBH_ONX8liJv_uFc"><i class="fa fa-list-ol"></i> Scoreboard</a>
+			</p>
 		</section>
 		
 		<section id="structure">
