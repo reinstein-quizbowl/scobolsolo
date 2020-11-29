@@ -86,8 +86,14 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 		lclNewWEOF.setUpdaterClass(WaitlistEntryDefaultToEndOfList.class);
 		lclNewWEOF.setContinueURI("/tournament/waitlist.jsp?object=" + lclT.getUniqueString());
 		lclNewWEOF.setSuccessURI("/tournament/waitlist.jsp?object=" + lclT.getUniqueString());
-		%><%= lclNewWEOF.open() %>
-			<div class="row">
+		%><%= lclNewWEOF.open() %><%
+			if (lclNewWEOF.hasErrors()) {
+				%><div class="row columns">
+					<p class="form-error-intro">Error:</p>
+					<div class="form-errors"><%= lclNewWEOF.displayResultOrErrors() %></div>
+				</div><%
+			}
+			%><div class="row">
 				<div class="small-12 medium-6 large-3 columns">
 					<label>
 						School

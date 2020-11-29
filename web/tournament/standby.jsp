@@ -87,8 +87,14 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 		lclNewSEOF.setUpdaterClass(StandbyEntryDefaultToEndOfList.class);
 		lclNewSEOF.setContinueURI("/tournament/standby.jsp?object=" + lclT.getUniqueString());
 		lclNewSEOF.setSuccessURI("/tournament/standby.jsp?object=" + lclT.getUniqueString());
-		%><%= lclNewSEOF.open() %>
-			<div class="row">
+		%><%= lclNewSEOF.open() %><%
+			if (lclNewSEOF.hasErrors()) {
+				%><div class="row columns">
+					<p class="form-error-intro">Error:</p>
+					<div class="form-errors"><%= lclNewSEOF.displayResultOrErrors() %></div>
+				</div><%
+			}
+			%><div class="row">
 				<div class="small-12 medium-6 large-3 columns">
 					<label>
 						School
