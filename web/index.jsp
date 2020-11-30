@@ -9,17 +9,29 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo is a <a href="http://www.pace-nsc.org/what-is-quizbowl-a-primer-and-faq-for-newcomers/">quizbowl</a> tournament for individual players rather than teams as usual. <a href="https://www.qbwiki.com/wiki/David_Reinstein">David Reinstein</a> of New Trier High School (Winnetka, Illinois) has run it every fall since 2001.</p>
+		<section id="next">
+			<h2>2020</h2>
+			
+			<p>The <a href="/2020/">next edition of Scobol Solo</a> will take place on December&nbsp;5 and 12, 2020 via Discord.</p>
+		</section>
 		
-		<p>Results are available using the menu. Results from 2013 and earlier are, to varying extents, not quite complete, but the original data have been lost and we posted as much as we could.</p>
+		<section id="about">
+			<h2>About Scobol Solo</h2>
+			
+			<p>Scobol Solo is a <a href="http://www.pace-nsc.org/what-is-quizbowl-a-primer-and-faq-for-newcomers/">quizbowl</a> tournament for individual players rather than teams as usual. <a href="https://www.qbwiki.com/wiki/David_Reinstein">David Reinstein</a> of New Trier High School (Winnetka, Illinois) has run it every fall since 2001.</p>
+			
+			<p>Results are available using the menu. Results from 2013 and earlier are, to varying extents, not quite complete, but the original data have been lost and we posted as much as we could.</p>
+			
+			<p>Information on the background of Scobol Solo and some inter-year records are on the <a href="https://www.qbwiki.com/wiki/Scobol_Solo">QBWiki</a>.</p>
+			
+			<p>David Reinstein writes most or all of the questions for Scobol Solo. Since 2009 <a href="https://www.qbwiki.com/wiki/Jonah_Greenthal">Jonah Greenthal</a> has edited the set, and in other years some other people have helped write and/or edit.</p>
+		</section>
 		
-		<p>Information on the background of Scobol Solo and some inter-year records are on the <a href="https://www.qbwiki.com/wiki/Scobol_Solo">QBWiki</a>.</p>
-		
-		<p>David Reinstein writes most or all of the questions for Scobol Solo. Since 2009 <a href="https://www.qbwiki.com/wiki/Jonah_Greenthal">Jonah Greenthal</a> has edited the set, and in other years some other people have helped write and/or edit.</p>
-		
-		<p>The most recent edition of Scobol Solo was held on <a href="/2019/">November 16, 2019</a>. <a href="/stats/player-detail.jsp?school_registration_id=1350#player_2790">Govind Prabhakar</a> (Adlai E. Stevenson High School, Lincolnshire, Illinois) won.</p>
-		
-		<p>The <a href="/2020/">next edition of Scobol Solo</a> will take place on December&nbsp;5 and 12, 2020 via Discord.</p>
+		<section id="recent">
+			<h2>Recent Editions</h2>
+			
+			<p>The most recent edition of Scobol Solo was held on <a href="/2019/">November 16, 2019</a>. <a href="/stats/player-detail.jsp?school_registration_id=1350#player_2790">Govind Prabhakar</a> (Adlai E. Stevenson High School, Lincolnshire, Illinois) won.</p>
+		</section>
 	</div>
 </div>
 
