@@ -95,13 +95,13 @@ Tournament lclT = lclOF.getUserFacing();
 					
 					%><tr>
 						<%= lclSROF.open() %>
-						<td><%
+						<th><%
 							if (lclSR == null) {
 								%><%= lclSROF.dropdown("School", School.ShortNameComparator.getInstance()).filter(argS -> !argS.attending(lclT)).namer(School::getShortName) %><%
 							} else {
 								%><a href="school-registration-edit.jsp?school_registration_id=<%= lclSR.getId() %>" class="stealth-tooltip" title="<%= lclSR.getSchool().getName() %>"><%= lclSR.getSchool().getShortName() %></a><%
 							}
-						%></td>
+						%></th>
 						<td data-order="<%= lclSR == null ? "" : lclSR.getMainContact().getSortBy() %>"><%= lclSROF.<Contact>dropdown("MainContact").filter(Contact::isActive) %></td>
 						<td data-order="<%= lclSR == null ? "0" : lclSR.getSpotsReserved() %>"><%= lclSROF.number("SpotsReserved").min(0) %></td>
 						<td data-order="<%= lclSR == null ? "0" : lclSR.getPlayerSet().size() %>"><%= lclSR == null ? "&nbsp;" : "<a href=\"school-registration-edit.jsp?school_registration_id=" + lclSR.getId() + "#players\">" + lclSR.getPlayerSet().size() + "</a>" %></td>

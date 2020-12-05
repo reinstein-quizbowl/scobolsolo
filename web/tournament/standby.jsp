@@ -48,7 +48,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 							<input type="hidden" form="rearrange" class="generated-position-target" name="position-<%= lclSE.getId() %>" id="position-<%= lclSE.getId() %>" />
 							<%= lclSEOF.open() %>
 							<td class="generated-position">&nbsp;</td>
-							<td data-order="<%= lclSE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclSE.getSchoolRegistration().getId() %>"><%= lclSE.getSchoolRegistration().getSchool().getName() %></a></td>
+							<th data-order="<%= lclSE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclSE.getSchoolRegistration().getId() %>"><%= lclSE.getSchoolRegistration().getSchool().getName() %></a></th>
 							<td><%= lclSEOF.number("PlayerCount").min(1) %></td>
 							<td><%= lclSEOF.text("Note", 40) %></td>
 							<td class="saved-position"><%= lclSE.getSequence() %></td>

@@ -75,7 +75,7 @@ if (lclOF.hasErrors()) {
 					
 					%><tr>
 						<%= lclPOF.open() %>
-						<td data-order="<%= lclP == null ? "" : lclP.getName() %>"><%= lclPOF.text("Name", 20) %></td>
+						<th data-order="<%= lclP == null ? "" : lclP.getName() %>"><%= lclPOF.text("Name", 20) %></th>
 						<td data-order="<%= lclP == null ? "" : lclP.getShortName() %>"><%= lclPOF.text("ShortName", 10) %></td>
 						<td data-order="<%= lclP == null || lclP.getRound() == null ? "" : lclP.getRound().getName() %>"><%= lclPOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT).namer(Round::getShortName) %></td>
 						<td data-order="<%= lclP == null || lclP.getReplacementPacket() == null ? "" : lclP.getReplacementPacket().getName() %>"><%= lclPOF.<Packet>dropdown("ReplacementPacket").filter(argP -> argP.getTournament() == lclT).namer(Packet::getShortName) %></td>

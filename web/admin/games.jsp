@@ -32,7 +32,7 @@
 				for (Game lclG : lclGames) {
 					Match lclM = lclG.getMatch();
 					%><tr>
-						<td><a href="game-edit.jsp?game_id=<%= lclG.getId() %>"><%= lclG.getId() %></td>
+						<th><a href="game-edit.jsp?game_id=<%= lclG.getId() %>"><%= lclG.getId() %></th>
 						<td><%= lclM.getTournament().getShortName() %></td>
 						<td><%= lclM.getRound().getShortName() %></td>
 						<td><%= lclM.getRoom().getShortName() %></td>

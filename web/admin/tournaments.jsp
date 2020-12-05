@@ -33,7 +33,7 @@ lclTs.sort(Tournament.DateComparator.getInstance().reversed());
 				
 				for (Tournament lclT : lclTs) {
 					%><tr>
-						<td><a href="tournament-edit.jsp?object=<%= lclT.getUniqueString() %>"><%= lclT.getName() %></a></td>
+						<th><a href="tournament-edit.jsp?object=<%= lclT.getUniqueString() %>"><%= lclT.getName() %></a></th>
 						<td><%= lclDF.format(lclT.getDate()) %></td>
 					</tr><%
 				}

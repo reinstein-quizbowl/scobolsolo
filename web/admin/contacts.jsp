@@ -43,7 +43,7 @@
 				
 				for (Contact lclC : lclCs) {
 					%><tr>
-						<td><a href="contact-edit.jsp?contact_id=<%= lclC.getId() %>"><%= lclC.getName() %></a></td>
+						<th><a href="contact-edit.jsp?contact_id=<%= lclC.getId() %>"><%= lclC.getName() %></a></th>
 						<td><%
 							if (lclC.getEmailAddress() != null) {
 								%><a href="mailto:<%= lclC.getEmailAddress() %>"><%= lclC.getEmailAddress() %></a><%

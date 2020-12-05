@@ -48,7 +48,7 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 							<input type="hidden" form="rearrange" class="generated-position-target" name="position-<%= lclWE.getId() %>" id="position-<%= lclWE.getId() %>" />
 							<%= lclWEOF.open() %>
 							<td class="generated-position">&nbsp;</td>
-							<td data-order="<%= lclWE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclWE.getSchoolRegistration().getId() %>"><%= lclWE.getSchoolRegistration().getSchool().getName() %></a></td>
+							<th data-order="<%= lclWE.getSchoolRegistration().getSchool().getName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclWE.getSchoolRegistration().getId() %>"><%= lclWE.getSchoolRegistration().getSchool().getName() %></a></th>
 							<td><%= lclWEOF.number("PlayerCount").min(1) %></td>
 							<td><%= lclWEOF.text("Note", 40) %></td>
 							<td class="saved-position"><%= lclWE.getSequence() %></td>

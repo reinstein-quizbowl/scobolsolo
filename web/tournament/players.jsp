@@ -42,7 +42,7 @@ boolean lclAnyCardsAssigned = lclT.hasAnyCardsAssigned();
 				for (Player lclP : lclPlayers) {
 					%><tr class="ui-state-default">
 						<td><input type="number" readonly="readonly" class="number-widget" id="player_<%= lclP.getId() %>_seed" name="player_<%= lclP.getId() %>_seed" value="<%= lclP.getSeed("?") %>" /></td>
-						<td data-order="<%= lclP.getContact().getSortBy() %>"><a href="player-edit.jsp?player_id=<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></td>
+						<th data-order="<%= lclP.getContact().getSortBy() %>"><a href="player-edit.jsp?player_id=<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></th>
 						<td data-order="<%= lclP.getSchoolRegistration().getSchool().getShortName() %>"><a href="school-registration-edit.jsp?school_registration_id=<%= lclP.getSchoolRegistration().getId() %>"><%= lclP.getSchoolRegistration().getSchool().getShortName() %></a></td>
 						<td data-order="<%= lclP.getSchoolYear() == null ? 0 : lclP.getSchoolYear().getSequence() %>"><%= lclP.getSchoolYear() == null ? "?" : lclP.getSchoolYear().getShortName() %></td>
 						<td><%= lclP.getRankWithinSchool("?") %></td>

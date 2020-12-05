@@ -64,7 +64,7 @@ if (lclOF.hasErrors()) {
 					
 					%><tr>
 						<%= lclROF.open() %>
-						<td><%= lclROF.text("Name", 20) %></td>
+						<th><%= lclROF.text("Name", 20) %></th>
 						<td><%= lclROF.text("ShortName", 10) %></td>
 						<td><%= lclROF.textarea("Note", 30, 1) %></td>
 						<td><%= lclR == null ? "-" : lclR.getBuzzerSet().size() %></td>

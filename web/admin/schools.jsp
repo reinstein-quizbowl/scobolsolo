@@ -35,7 +35,7 @@ boolean lclShowNotes = lclSs.stream().anyMatch(argS -> StringUtils.isNotBlank(ar
 				</tr><%
 				for (School lclS : lclSs) {
 					%><tr>
-						<td><a href="school-edit.jsp?school_id=<%= lclS.getId() %>"><%= lclS.getName() %></a></td>
+						<th><a href="school-edit.jsp?school_id=<%= lclS.getId() %>"><%= lclS.getName() %></a></th>
 						<td><%= lclS.getLocation("&nbsp;") %></td>
 						<%= lclShowNotes ? "<td>" + WebDataFilter.scrub(lclS.getNote()) + "</td>" : "" %>
 					</tr><%

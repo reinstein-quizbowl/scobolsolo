@@ -60,7 +60,7 @@ if (lclOF.hasErrors()) {
 					
 					%><tr>
 						<%= lclCOF.open() %>
-						<td><%= lclCOF.text("Name", 20) %></td>
+						<th><%= lclCOF.text("Name", 20) %></th>
 						<td><%= lclCOF.text("ShortName", 10) %></td>
 						<td><%= lclCOF.dropdown("InitialPlayer", Player.NameComparator.getInstance()).filter(argP -> argP.getTournament() == lclT).namer(argP -> argP.getContact().getName()) %></td>
 						<td><%= lclCOF.number("Sequence") %></td>

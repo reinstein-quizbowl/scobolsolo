@@ -34,7 +34,7 @@
 				lclCs.sort(null);
 				for (Category lclC : lclCs) {
 					%><tr>
-						<td><a href="category-edit.jsp?object=<%= lclC.getUniqueString() %>"><%= lclC.getName() %></a></td>
+						<th><a href="category-edit.jsp?object=<%= lclC.getUniqueString() %>"><%= lclC.getName() %></a></th>
 						<td><a href="category-group-edit.jsp?object=<%= lclC.getCategoryGroup().getUniqueString() %>"><%= lclC.getCategoryGroup().getName() %></a></td>
 						<td><%= lclC.streamCategoryUse().sorted(CategoryUse.TOURNAMENT_COMPARATOR).map(CategoryUse::getTournament).map(argT -> "<span class=\"stealth-tooltip\" title=\"" + argT.getName() + "\">" + argT.getShortName() + "</span>").collect(Collectors.joining(", ")) %></td></td>
 					</tr><%

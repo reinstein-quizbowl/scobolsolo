@@ -119,7 +119,7 @@ for (OpalForm<Phase> lclPOF : lclPOFs) {
 						
 						%><tr>
 							<%= lclROF.open() %>
-							<td><%= lclROF.text("Name", 20) %></td>
+							<th><%= lclROF.text("Name", 20) %></th>
 							<td><%= lclROF.text("ShortName", 10) %></td>
 							<td><%= lclROF.text("StartTime", 10) %></td>
 							<td><%= lclROF.datetime("EarliestEntryAllowed").placeholder("yyyy-mm-dd hh:mm") %></td>
