@@ -85,8 +85,13 @@ boolean lclExtantResponses = (lclLeftResponse != null && lclLeftResponse.hasLoca
 
 Diff lclDiff;
 if (lclExtantResponses) {
-	Validate.isTrue(lclLeftResponse.getDiff() == lclRightResponse.getDiff(), "Players responded to different versions of the question");
-	lclDiff = lclLeftResponse.getDiff();
+	if (lclLeftResponse.getDiff() != null && lclRightResponse.getDiff() != null) {
+		Validate.isTrue(lclLeftResponse.getDiff() == lclRightResponse.getDiff(), "Players responded to different versions of the question: " + lclLeftResponse.getDiff().getId() + " and " + lclRightResponse.getDiff().getId());
+		lclDiff = lclLeftResponse.getDiff();
+	} else {
+		// Should this be a warning or something?
+		lclDiff = lclActualPlacement.getQuestion().getCurrentDiff();
+	}
 } else {
 	lclDiff = lclActualPlacement.getQuestion().getCurrentDiff();
 }
