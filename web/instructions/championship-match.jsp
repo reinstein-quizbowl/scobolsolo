@@ -17,7 +17,19 @@
 			
 			<p>Each player starts with 3&nbsp;points. A player whose score reaches 0 will immediately be removed from the match.</p>
 			
-			<p>The match will be played by the player who finishes 7–0, the seven players who finish 6–1, and the player with the highest points per tossup heard among the players who finished 5–2.</p>
+			<p>The match will be played by nine players:</p>
+			<ul>
+				<li>The player who finishes the preliminary rounds 7–0</li>
+				<li>The seven players who finish the preliminary rounds 6–1</li>
+				<li>
+					The player with the highest points per tossup heard (PPTUH) among the players who finish the preliminary rounds 5–2. If there is a tie:
+					<ol>
+						<li>the player from that group who took their second loss later/latest will be chosen</li>
+						<li>if that still produces a tie, the remaining player who took their first loss later/latest will be chosen</li>
+						<li>if that still produces a tie, the remaining player whose opponents’ collective PPTUH is highest will be chosen</li>
+						<li>if that still produces a tie, additional tossups will be read to the remaining players; a player who gives a correct answer will advance to the Championship Match, while a player who gives an incorrect answer (at any time) will be eliminated</li>
+					</ol>
+				</li>
 		</section>
 		
 		<section id="following-along">
