@@ -74,55 +74,48 @@ if (lclOF.hasErrors()) {
 	</div>
 </div><%
 
-OpalForm<Tournament> lclTOF = lclOF.targetForm("Tournament", TournamentFactory.getInstance());
-%><%= lclTOF.open() %><%
-List<OpalForm<Phase>> lclPOFs = lclTOF.children("Phase", PhaseFactory.getInstance());
-
-for (OpalForm<Phase> lclPOF : lclPOFs) {
-	Phase lclPhase = Validate.notNull(lclPOF.getUserFacing());
-	%><%= lclPOF.open() %>
-	<div class="row">
-		<div class="small-12 columns">
-			<h2>Matches in <%= lclPhase.getName() %> (<%= lclR.countMatchesIn(lclPhase) %>)</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>Round</th>
-						<th>Winning Card</th>
-						<th>Losing Card</th>
-						<th>Status</th>
-					</tr>
-				</thead>
-				<tbody><%
-					List<OpalForm<Match>> lclMOFs = lclOF.children(
-						"Match",
-						MatchFactory.getInstance(),
-						1, // row for a new match
-						argM -> argM.getPhase() == lclPhase,
-						Comparator.naturalOrder()
-					);
-					
-					for (OpalForm<Match> lclMOF : lclMOFs) {
-						Match lclM = lclMOF.getUserFacing();
-						if (lclM != null) {
-							lclMOF.disableCompletely();
+if (lclOF.alreadyExists()) {
+	for (final Phase lclPhase : lclT.getPhases()) {
+		%><div class="row">
+			<div class="small-12 columns">
+				<h2>Matches in <%= lclPhase.getName() %> (<%= lclR.countMatchesIn(lclPhase) %>)</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Round</th>
+							<th>Winning Card</th>
+							<th>Losing Card</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody><%
+						for (final Round lclRound : lclPhase.getRounds()) {
+							final List<Match> lclMatches = lclR.findMatches(lclRound);
+							if (lclMatches.isEmpty()) {
+								%><tr>
+									<th><%= lclRound.getName() %></th>
+									<td>-</td>
+									<td>-</td>
+									<td>No match</td>
+								</tr><%
+							} else {
+								for (final Match lclM : lclMatches) {
+									%><tr>
+										<th><%= lclRound.getName() %></th>
+										<td><%= lclPhase.isCardSystem() ? lclM.getWinningCard().getName() : "n/a" %></td>
+										<td><%= lclPhase.isCardSystem() ? lclM.getLosingCard().getName() : "n/a" %></td>
+										<td><%= lclM.determineStatus() %></td>
+									</tr><%
+								}
+							}
 						}
-						%><tr>
-							<%= lclMOF.open() %>
-							<td><%= lclMOF.<Round>dropdown("Round").filter(argR -> argR.getTournament() == lclT) %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.<Card>dropdown("WinningCard").filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
-							<td><%= lclPhase.isCardSystem() ? lclMOF.<Card>dropdown("LosingCard").filter(argC -> argC.getPhase() == lclPhase) : "n/a" %></td>
-							<td><%= lclM == null ? "-" : lclM.determineStatus() %></td>
-							<%= lclMOF.close() %>
-						</tr><%
-					}
-				%></tbody>
-			</table>
-		</div>
-	</div>
-	<%= lclPOF.close() %><%
+					%></tbody>
+				</table>
+			</div>
+		</div><%
+	}
 }
-%><%= lclTOF.close() %>
+%>
 
 <div class="row">
 	<div class="small-12 columns">
