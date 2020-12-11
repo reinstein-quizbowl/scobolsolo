@@ -3,7 +3,6 @@
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="tournamentCode" value="2020" />
-	<jsp:param name="pageTitle" value="Scobol Solo 2020" />
 	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2020()).asTopLevel().output(request, \"day-of\") %>" />
 	<jsp:param name="h1" value="Scobol Solo 2020" />
 </jsp:include>
