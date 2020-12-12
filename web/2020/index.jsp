@@ -3,24 +3,75 @@
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="tournamentCode" value="2020" />
-	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2020()).asTopLevel().output(request, \"day-of\") %>" />
+	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2020()).asTopLevel().output(request, \"results\") %>" />
 	<jsp:param name="h1" value="Scobol Solo 2020" />
 </jsp:include>
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2020 is being held online, via Discord, on the afternoons of Saturday, December&nbsp;5 and Saturday, December&nbsp;12.</p>
+		<p>Scobol Solo 2020 was held on Discord on Saturdays, December&nbsp;5 and 12. There were 129 players from 39 schools.</p>
 		
-		<p>
-			<a class="large primary button" href="/stats/standings.jsp?object=2020">Live Results</a>
-		</p>
+		<table class="tournament-final-standings">
+			<caption style="caption-side: top;">The nine players who made the Championship Match finished as follows:</p>
+			<tbody>
+				<tr>
+					<th class="rank">1.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1378#player_2901">Jonathan Lau</a></th>
+					<td class="school">University Laboratory High School (Urbana)</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">2.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1381#player_2968">Arjun Nageswaran</a></th>
+					<td class="school">Adlai E. Stevenson High School (Lincolnshire)</td>
+					<td class="note">Morning Champion</td>
+				</tr>
+				<tr>
+					<th class="rank">3.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1369#player_2864">Charles Young</a></th>
+					<td class="school">Barrington High School</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">4.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1375#player_2885">Jared Dong</a></th>
+					<td class="school">Illinois Mathematics and Science Academy (Aurora)</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">5T.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1362#player_2856">Justin Abel</a></th>
+					<td class="school">Auburn High School (Rockford)</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">&nbsp;</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1371#player_2917">Tejas Vadali</a></th>
+					<td class="school">Latin School of Chicago</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">7T.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1362#player_2983">Alex Crowell</a></th>
+					<td class="school">Auburn High School</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">&nbsp;</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1359#player_2962">David Lingan</a></th>
+					<td class="school">Carl Sandburg High School (Orland Park)</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+				<tr>
+					<th class="rank">9.</th>
+					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1368">Jack Casey</a></th>
+					<td class="school">Springfield High School</td>
+					<td class="note">&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
 		
-		<p>The Championship Match will be streamed live on Twitch starting at approximately 4:00&nbsp;pm on Saturday, December&nbsp;12.</p>
-			<p>
-				<a class="large primary button" href="https://www.twitch.tv/DavidReinstein"><i class="fa fa-twitch"></i> Championship Match Livestream on Twitch</a>
-				<a class="large primary button" href="https://docs.google.com/spreadsheets/d/1_C_u4FLa3KGJ7mu6RLiM4x0uJWIJBH_ONX8liJv_uFc"><i class="fa fa-trophy"></i> Championship Match Scoreboard</a>
-				<a class="large secondary button" href="/instructions/championship-match.jsp"><i class="fa fa-list-ol"></i> Rules and Structure</a>
-			</p>
+		<p>The full <a href="/stats/standings.jsp?object=2020">preliminary results</a> are available, as is the <a href="https://docs.google.com/spreadsheets/d/1_C_u4FLa3KGJ7mu6RLiM4x0uJWIJBH_ONX8liJv_uFc/edit#gid=66046360">championship match scoresheet</a>.</p>
 	</div>
 </div>
 
