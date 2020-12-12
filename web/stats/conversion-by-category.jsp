@@ -106,7 +106,6 @@ DecimalFormat lclDF = new DecimalFormat("0.00");
 			<tfoot>
 				<tr>
 					<th>Total</th>
-					<th>&nbsp;</th>
 					<th>&nbsp;</th><%
 					int lclPoints = 0, lclHeard = 0;
 					for (ResponseType lclRT : lclRTs) {
