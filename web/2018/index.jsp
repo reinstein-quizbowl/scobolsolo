@@ -24,7 +24,7 @@
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1314#player_2689">Hanson Hao</a></th>
-					<td class="school">Illinois Mathematics and Science Academy</td>
+					<td class="school">Illinois Mathematics and Science Academy (Aurora)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
