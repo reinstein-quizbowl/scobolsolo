@@ -28,9 +28,9 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 	.filter(argP -> argP.isExhibition() == false)
 	.map(PlayerStanding::new)
 	.sorted(
-		Comparator.comparingDouble(PlayerStanding::getWinningPercentage)
-			.thenComparingDouble(PlayerStanding::getPPTUH)
-			.reversed()
+		Comparator.<PlayerStanding>comparingInt(argPS -> -1 * argPS.getWins())
+			.thenComparingInt(argPS -> argPS.getLosses())
+			.thenComparingDouble(argPS -> -1.0d * argPS.getPPTUH())
 			.thenComparing(PlayerStanding::getPlayer)
 	).collect(Collectors.toList());
 %>
