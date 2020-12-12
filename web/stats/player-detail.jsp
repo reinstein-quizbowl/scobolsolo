@@ -36,6 +36,7 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 <div class="row">
 	<div class="small-12 columns"><%
 		List<Player> lclPlayers = new ArrayList<>(lclSR.getPlayerSet());
+		lclPlayers.removeIf(Player::isExhibition);
 		lclPlayers.sort(null);
 		
 		if (lclPlayers.isEmpty()) {
@@ -46,11 +47,7 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 					<h2>
 						<%= lclPlayer.getContact().getName() %><%
 						if (lclPlayer.getSchoolYear() != null) {
-							if (lclPlayer.isExhibition()) {
-								%> (<%= lclPlayer.getSchoolYear().getName() %>; exhibition)<%
-							} else {
-								%> (<%= lclPlayer.getSchoolYear().getName() %>)<%
-							}
+							%> (<%= lclPlayer.getSchoolYear().getName() %>)<%
 						}
 					%></h2><%
 					
@@ -115,9 +112,13 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 											Iterator<Performance> lclOI = lclOpponents.iterator();
 											while (lclOI.hasNext()) {
 												Player lclOpponent = lclOI.next().getPlayer();
-												%><a href="player-detail.jsp?school_registration_id=<%= lclOpponent.getSchoolRegistration().getId() %>#player_<%= lclOpponent.getId() %>">
-													<%= lclOpponent.getNameWithSchoolShortName() %>
-												</a><%
+												if (lclOpponent.isExhibition()) {
+													%>Exhibition player<%
+												} else {
+													%><a href="player-detail.jsp?school_registration_id=<%= lclOpponent.getSchoolRegistration().getId() %>#player_<%= lclOpponent.getId() %>">
+														<%= lclOpponent.getNameWithSchoolShortName() %>
+													</a><%
+												}
 												if (lclOI.hasNext()) {
 													%><br /><%
 												}
