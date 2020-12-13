@@ -79,17 +79,23 @@ if (lclOF.hasErrors()) {
 		</label>
 	</div>
 	
-	<div class="small-6 large-3 columns">
+	<div class="small-4 large-2 columns">
 		<label>
 			<span class="hide-for-large" title="Rank within <%= lclS.getShortName() %>">Rank</span>
 			<span class="show-for-large">Rank within <%= lclS.getShortName() %></span>
 			<%= lclOF.number("RankWithinSchool").range(1, lclSR.getPlayerSet().isEmpty() ? 1 : lclSR.getPlayerSet().size()) %>
 		</label>
 	</div>
-	<div class="small-6 large-3 columns">
+	<div class="small-4 large-2 columns">
 		<label>
 			Seed
 			<%= lclOF.number("Seed").min(1) %>
+		</label>
+	</div>
+	<div class="small-4 large-2 columns">
+		<label>
+			Final Place
+			<%= lclOF.number("FinalPlace").min(1) %>
 		</label>
 	</div>
 </div>
