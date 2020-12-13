@@ -9,7 +9,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2020 was held on Discord on Saturdays, December&nbsp;5 and 12. There were 129 players from 39 schools.</p>
+		<p>Scobol Solo 2020 was held on Discord on Saturdays, December&nbsp;5 and 12. There were 130 players from 39 schools.</p>
 		
 		<table class="tournament-final-standings">
 			<caption style="caption-side: top;">The nine players who made the Championship Match finished as follows:</p>
