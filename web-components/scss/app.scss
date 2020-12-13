@@ -351,6 +351,10 @@ table.championship-scoresheet {
 	
 	.note {
 		font-style: italic;
+		
+		i, em {
+			font-style: normal;
+		}
 	}
 	
 	.answer {
