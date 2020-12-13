@@ -12,7 +12,7 @@
 		<section id="next">
 			<h2>2020</h2>
 			
-			<p>The <a href="/2020/">next edition of Scobol Solo</a> will take place on December&nbsp;5 and 12, 2020 via Discord.</p>
+			<p>The <a href="/2020/">most recent edition of Scobol Solo</a> took place on December&nbsp;5 and 12, 2020 via Discord. Jonathan Lau (University Laboratory High School, Urbana, Illinois) won.</p>
 		</section>
 		
 		<section id="about">
