@@ -51,8 +51,10 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 	<div class="small-12 columns"><%
 		if (lclStandings.isEmpty()) {
 			LocalDate lclToday = LocalDateCache.today();
-			if (lclT.getDate().equals(lclToday) || lclT.getDate().isBefore(lclToday)) {
+			if (lclT.getDate().equals(lclToday)) {
 				%><p>There are no results available yet. Keep checking back!</p><%
+			} else if (lclT.getDate().isBefore(lclToday)) {
+				%><p>We don’t have full results available for this tournament. Sorry! We do have a <a href="<%= lclT.getUrl() %>">summary</a> available.</p><%
 			} else {
 				%><p>This tournament hasn’t started yet.</p><%
 			}
