@@ -9,6 +9,7 @@
 <%@ page import="org.apache.commons.lang3.Validate" %>
 <%@ page import="com.opal.ImplicitTableDatabaseQuery" %>
 <%@ page import="com.opal.LocalDateCache" %>
+<%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.Performance" %>
 <%@ page import="com.scobolsolo.application.Player" %>
 <%@ page import="com.scobolsolo.application.PlayerFactory" %>
@@ -23,12 +24,16 @@
 <%
 Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueString(request.getParameter("object")));
 
+Account lclUser = Account.determineCurrent(request);
+boolean lclAdmin = lclUser != null && lclUser.mayActAsTournamentDirector(lclT);
+
 List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 	.flatMap(SchoolRegistration::streamPlayer)
 	.filter(argP -> argP.isExhibition() == false)
 	.map(PlayerStanding::new)
 	.sorted(
-		Comparator.<PlayerStanding>comparingInt(argPS -> -1 * argPS.getWins())
+		Comparator.<PlayerStanding>comparingInt(argPS -> argPS.getPlayer().getFinalPlace(Integer.MAX_VALUE))
+			.thenComparingInt(argPS -> -1 * argPS.getWins())
 			.thenComparingInt(argPS -> argPS.getLosses())
 			.thenComparingDouble(argPS -> -1.0d * argPS.getPPTUH())
 			.thenComparing(PlayerStanding::getPlayer)
@@ -58,12 +63,13 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 			%><table>
 				<thead>
 					<tr>
+						<th><abbr title="final place">#</abbr></th>
 						<th>Player</th>
 						<%= lclShowYears ? "<th>Year</th>" : "" %>
 						<th>School</th>
 						<th class="number">Record</th>
 						<th class="number">Points</th>
-						<th class="number">Tossups Heard</th>
+						<th class="number"><abbr title="tossups heard">TUH</abbr></th>
 						<th class="number"><abbr title="points per 20 tossups heard">PP20TUH</abbr></th><%
 						if (lclShowCategoryDepth) {
 							%><th class="number"><abbr title="average distance into questions of correct buzzes, weighted by game">CDepth</abbr></th><%
@@ -79,7 +85,13 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 						SchoolRegistration lclSR = lclP.getSchoolRegistration();
 						
 						%><tr>
-							<th data-order="<%= lclP.getContact().getSortBy() %>"><a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a></th><%
+							<th data-order="<%= lclP.getFinalPlace("?") %>"><%= lclP.getFinalPlace("&nbsp;") %></th>
+							<th data-order="<%= lclP.getContact().getSortBy() %>">
+								<a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a><%
+								if (lclAdmin) {
+									%> (<a href="/tournament/player-edit.jsp?player_id=<%= lclP.getId() %>">admin</a>)<%
+								}
+							%></th><%
 							if (lclShowYears) {
 								%><td><%= lclP.getSchoolYear() == null ? "&nbsp;" : lclP.getSchoolYear().getVeryShortName() %></td><%
 							}
