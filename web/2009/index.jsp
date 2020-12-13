@@ -48,7 +48,7 @@
 				<tr>
 					<th class="rank">6T.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1204#player_1850">Ben Carbery</a></th>
-					<td class="school">Oak Park-River Forest High School</td></td>
+					<td class="school">Oak Park and River Forest High School</td></td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>

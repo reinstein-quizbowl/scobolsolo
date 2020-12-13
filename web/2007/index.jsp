@@ -35,7 +35,7 @@
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player">Tony Cao</th>
-					<td class="school">Carbondale High School</td>
+					<td class="school">Carbondale Community High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>

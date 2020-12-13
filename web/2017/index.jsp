@@ -24,7 +24,7 @@
 				<tr>
 					<th class="rank">2.</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1119#player_1550">Kevin Kodama</a></th>
-					<td class="school">Oak Park-River Forest High School</td>
+					<td class="school">Oak Park and River Forest High School</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>

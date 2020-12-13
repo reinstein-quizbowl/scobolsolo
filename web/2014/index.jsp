@@ -48,7 +48,7 @@
 				<tr>
 					<th class="rank">&nbsp;</th>
 					<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1042#player_1195">Nolan Liu</a></th>
-					<td class="school">St.&nbsp;Joseph High School (South Bend, Indiana)</td>
+					<td class="school">Saint Joseph High School (South Bend, Indiana)</td>
 					<td class="note">&nbsp;</td>
 				</tr>
 				<tr>
