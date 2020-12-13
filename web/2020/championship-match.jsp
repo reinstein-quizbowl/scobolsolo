@@ -622,7 +622,7 @@
 				<tr class="note">
 					<th>&nbsp;</th>
 					<td colspan="10" class="note">
-						The players with the lowest scores were eliminated until four players remained. Therefore, Justin Abel, Jack Casey, Alex Crowell, David Lingam, and Tejas Vadali were eliminated. Jared Dong, Jonathan Lau, Arjun Nageswaran, and Charles Young remained.
+						The players with the lowest scores were eliminated until four players remained. Therefore, Justin Abel, Jack Casey, Alex Crowell, David Lingan, and Tejas Vadali were eliminated. Jared Dong, Jonathan Lau, Arjun Nageswaran, and Charles Young remained.
 					</td>
 				</tr>
 				<tr>
