@@ -73,7 +73,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">&#8220;The Idea of Order at Key West&#8221;</td>
+					<td class="answer">&#8220;The Idea of Order at Key West&#8221;</td>
 				</tr>
 				<tr>
 					<th class="question-number">2</td>
@@ -86,7 +86,7 @@
 					<td class="player-correct-response">1</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">First Battle of Bull Run</td>
+					<td class="answer">First Battle of Bull Run</td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -99,7 +99,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Bah&aacute;&#8217;i</td>
+					<td class="answer">Bah&aacute;&#8217;i</td>
 				</tr>
 				<tr>
 					<th class="question-number">4</td>
@@ -112,7 +112,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-correct-response">1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Reynolds number</td>
+					<td class="answer">Reynolds number</td>
 				</tr>
 				<tr>
 					<th class="question-number">5</td>
@@ -125,7 +125,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Sweeney Todd</td>
+					<td class="answer">Sweeney Todd</td>
 				</tr>
 				<tr>
 					<th class="question-number">6</td>
@@ -138,7 +138,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Margaret Chase Smith</td>
+					<td class="answer">Margaret Chase Smith</td>
 				</tr>
 				<tr>
 					<th class="question-number">7</td>
@@ -151,7 +151,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Rosalind</td>
+					<td class="answer">Rosalind</td>
 				</tr>
 				<tr>
 					<th class="question-number">8</td>
@@ -164,7 +164,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">triangular numbers</td>
+					<td class="answer">triangular numbers</td>
 				<tr>
 					<th class="question-number">9</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Kevin -->
@@ -176,7 +176,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Max Weber</td>
+					<td class="answer">Max Weber</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -189,7 +189,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">trumpet</td>
+					<td class="answer">trumpet</td>
 				</tr>
 				<tr>
 					<th class="question-number">11</td>
@@ -202,7 +202,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Pablo Escobar</td>
+					<td class="answer">Pablo Escobar</td>
 				</tr>
 				<tr>
 					<th class="question-number">12</td>
@@ -215,7 +215,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">molecular orbital theory</td>
+					<td class="answer">molecular orbital theory</td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -228,7 +228,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Uganda (in history)</td>
+					<td class="answer">Uganda (in history)</td>
 				</tr>
 				<tr>
 					<th class="question-number">14</td>
@@ -241,7 +241,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Istanbul (in literature)</td>
+					<td class="answer">Istanbul (in literature)</td>
 				</tr>
 				<tr>
 					<th class="question-number">15</td>
@@ -254,7 +254,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Armenian genocide</td>
+					<td class="answer">Armenian genocide</td>
 				</tr>
 				<tr>
 					<th class="question-number">16</td>
@@ -267,7 +267,7 @@
 					<td class="player-correct-response">1</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">sex determination</td>
+					<td class="answer">sex determination</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -280,7 +280,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-correct-response">1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Mary Cassatt</td>
+					<td class="answer">Mary Cassatt</td>
 				</tr>
 				<tr>
 					<th class="question-number">18</td>
@@ -293,7 +293,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Annie Proulx</td>
+					<td class="answer">Annie Proulx</td>
 				</tr>
 				<tr>
 					<th class="question-number">19</td>
@@ -306,7 +306,7 @@
 					<td class="player-correct-response">1</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Serengeti National Park</td>
+					<td class="answer">Serengeti National Park</td>
 				</tr>
 				<tr>
 					<th class="question-number">20</td>
@@ -319,7 +319,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Cambrian Period</td>
+					<td class="answer">Cambrian Period</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 20</th>
@@ -349,7 +349,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-correct-response">1</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Peter Debye</td>
+					<td class="answer">Peter Debye</td>
 				</tr>
 				<tr>
 					<th class="question-number">22</td>
@@ -362,7 +362,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Charles Bukowski</td>
+					<td class="answer">Charles Bukowski</td>
 				</tr>
 				<tr>
 					<th class="question-number">23</td>
@@ -375,7 +375,7 @@
 					<td class="player-correct-response">1</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Acadia National Park</td>
+					<td class="answer">Acadia National Park</td>
 				</tr>
 				<tr>
 					<th class="question-number">24</td>
@@ -388,7 +388,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">China (in painting)</td>
+					<td class="answer">China (in painting)</td>
 				</tr>
 				<tr>
 					<th class="question-number">25</td>
@@ -401,7 +401,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Cleon</td>
+					<td class="answer">Cleon</td>
 				</tr>
 				<tr>
 					<th class="question-number">26</td>
@@ -414,7 +414,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">hash table</td>
+					<td class="answer">hash table</td>
 				</tr>
 				<tr>
 					<th class="question-number">27</td>
@@ -427,7 +427,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">cows (in Celtic mythology)</td>
+					<td class="answer">cows (in Celtic mythology)</td>
 				</tr>
 				<tr>
 					<th class="question-number">28</td>
@@ -440,7 +440,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Menander</td>
+					<td class="answer">Menander</td>
 				</tr>
 				<tr>
 					<th class="question-number">29</td>
@@ -453,7 +453,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Great Zimbabwe</td>
+					<td class="answer">Great Zimbabwe</td>
 				</tr>
 				<tr>
 					<th class="question-number">30</td>
@@ -466,7 +466,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">restriction enzymes</td>
+					<td class="answer">restriction enzymes</td>
 				</tr>
 				<tr>
 					<th class="question-number">31</td>
@@ -479,7 +479,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">France (in film)</td>
+					<td class="answer">France (in film)</td>
 				</tr>
 				<tr>
 					<th class="question-number">32</td>
@@ -492,7 +492,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Jim Jordan</td>
+					<td class="answer">Jim Jordan</td>
 				</tr>
 				<tr>
 					<th class="question-number">33</td>
@@ -505,7 +505,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Robert Hayden</td>
+					<td class="answer">Robert Hayden</td>
 				</tr>
 				<tr>
 					<th class="question-number">34</td>
@@ -518,7 +518,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">cubing</td>
+					<td class="answer">cubing</td>
 				</tr>
 				<tr>
 					<th class="question-number">35</td>
@@ -531,7 +531,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Cleveland (in history)</td>
+					<td class="answer">Cleveland (in history)</td>
 				</tr>
 				<tr>
 					<th class="question-number">36</td>
@@ -544,7 +544,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Hannah Arendt</td>
+					<td class="answer">Hannah Arendt</td>
 				</tr>
 				<tr>
 					<th class="question-number">37</td>
@@ -557,7 +557,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank"><i>Orlando</i> (the Virginia Woolf novel)</td>
+					<td class="answer"><i>Orlando</i> (the Virginia Woolf novel)</td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -570,7 +570,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Finland (in music)</td>
+					<td class="answer">Finland (in music)</td>
 				</tr>
 				<tr>
 					<th class="question-number">39</td>
@@ -583,7 +583,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Solidarity</td>
+					<td class="answer">Solidarity</td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -596,7 +596,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-no-response">&nbsp;</td><!-- Dylan -->
 					<td class="player-no-response">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">esters</td>
+					<td class="answer">esters</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 40</th>
@@ -628,7 +628,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Henry&#8217;s law</td>
+					<td class="answer">Henry&#8217;s law</td>
 				</tr>
 				<tr>
 					<th class="question-number">42</td>
@@ -641,7 +641,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">&Eacute;mile Zola</td>
+					<td class="answer">&Eacute;mile Zola</td>
 				</tr>
 				<tr>
 					<th class="question-number">43</td>
@@ -654,7 +654,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">John Bolton</td>
+					<td class="answer">John Bolton</td>
 				</tr>
 				<tr>
 					<th class="question-number">44</td>
@@ -667,7 +667,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Mohammad Reza Shah Palavi</td>
+					<td class="answer">Mohammad Reza Shah Palavi</td>
 				</tr>
 				<tr>
 					<th class="question-number">45</td>
@@ -680,7 +680,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">magnetic permeability</td>
+					<td class="answer">magnetic permeability</td>
 				</tr>
 				<tr>
 					<th class="question-number">46</td>
@@ -693,7 +693,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Wilkie Collins</td>
+					<td class="answer">Wilkie Collins</td>
 				</tr>
 				<tr>
 					<th class="question-number">47</td>
@@ -706,7 +706,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Pyotr Ilyich Tchaikovsky</td>
+					<td class="answer">Pyotr Ilyich Tchaikovsky</td>
 				</tr>
 				<tr>
 					<th class="question-number">48</td>
@@ -719,7 +719,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Mahavira</td>
+					<td class="answer">Mahavira</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -732,7 +732,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Queen Anne</td>
+					<td class="answer">Queen Anne</td>
 				</tr>
 				<tr>
 					<th class="question-number">50</td>
@@ -745,7 +745,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">matrix inverse</td>
+					<td class="answer">matrix inverse</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 50</th>
@@ -777,7 +777,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Sandra Cisneros</td>
+					<td class="answer">Sandra Cisneros</td>
 				</tr>
 				<tr>
 					<th class="question-number">52</td>
@@ -790,7 +790,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Beethoven&#8217;s piano sonatas</td>
+					<td class="answer">Beethoven&#8217;s piano sonatas</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
@@ -803,7 +803,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">endosymbiosis</td>
+					<td class="answer">endosymbiosis</td>
 				</tr>
 				<tr>
 					<th class="question-number">54</td>
@@ -816,7 +816,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Boudicca</td>
+					<td class="answer">Boudicca</td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -829,7 +829,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Armenia (in geography)</td>
+					<td class="answer">Armenia (in geography)</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -842,7 +842,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">flowers (in literature)</td>
+					<td class="answer">flowers (in literature)</td>
 				</tr>
 				<tr>
 					<th class="question-number">57</td>
@@ -855,7 +855,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">William Herschel</td>
+					<td class="answer">William Herschel</td>
 				</tr>
 				<tr>
 					<th class="question-number">58</td>
@@ -868,7 +868,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Austria</td>
+					<td class="answer">Austria</td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>
@@ -881,7 +881,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Arabic (in philosophy)</td>
+					<td class="answer">Arabic (in philosophy)</td>
 				</tr>
 				<tr>
 					<th class="question-number">60</td>
@@ -894,7 +894,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Jonathan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Tomas -->
-					<td class="answer-blank">Slaughterhouse cases</td>
+					<td class="answer">Slaughterhouse cases</td>
 				</tr>
 			</tbody>
 			<tfoot>
