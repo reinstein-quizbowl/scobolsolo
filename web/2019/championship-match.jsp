@@ -33,7 +33,7 @@
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1341#player_2775">Roxanne Tang</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1339#player_2754">Ryan Tsau</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1331#player_2734">Ben Fry</a></th>
-					<!-- <th class="answer" rowspan="2">Answer</th> -->
+					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
 					<th>&nbsp;</th>
@@ -60,7 +60,7 @@
 					<td class="player-score-check">3</td><!-- Roxanne -->
 					<td class="player-score-check">3</td><!-- Ryan -->
 					<td class="player-score-check">3</td><!-- Ben -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="question-number">1</td>
@@ -73,7 +73,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Bragg’s law</td>
 				</tr>
 				<tr>
 					<th class="question-number">2</td>
@@ -86,7 +86,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>Hard Times</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -99,7 +99,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Ymir</td>
 				</tr>
 				<tr>
 					<th class="question-number">4</td>
@@ -112,7 +112,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Battle of Manzikert</td>
 				</tr>
 				<tr>
 					<th class="question-number">5</td>
@@ -125,7 +125,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">irises (flowers, based on appearances in paintings)</td>
 				</tr>
 				<tr>
 					<th class="question-number">6</td>
@@ -138,7 +138,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">symmetry (particle physics)</td>
 				</tr>
 				<tr>
 					<th class="question-number">7</td>
@@ -151,7 +151,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Sri Lanka (current events)</td>
 				</tr>
 				<tr>
 					<th class="question-number">8</td>
@@ -164,7 +164,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>Dream of the Red Chamber</i></td>
 				<tr>
 					<th class="question-number">9</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Dylan -->
@@ -176,7 +176,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Claudio Monteverdi</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -189,7 +189,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-correct-response">1</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Diocletian</td>
 				</tr>
 				<tr>
 					<th class="question-number">11</td>
@@ -202,7 +202,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">chromatin</td>
 				</tr>
 				<tr>
 					<th class="question-number">12</td>
@@ -215,7 +215,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Ludwig von&nbsp;Mises</td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -228,7 +228,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Rainer Maria Rilke</td>
 				</tr>
 				<tr>
 					<th class="question-number">14</td>
@@ -241,7 +241,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Phoenicia</td>
 				</tr>
 				<tr>
 					<th class="question-number">15</td>
@@ -254,7 +254,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-correct-response">1</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">compression (gases)</td>
 				</tr>
 				<tr>
 					<th class="question-number">16</td>
@@ -267,7 +267,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Aram Khachaturian</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -280,7 +280,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">James Agee</td>
 				</tr>
 				<tr>
 					<th class="question-number">18</td>
@@ -293,7 +293,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Botswana</td>
 				</tr>
 				<tr>
 					<th class="question-number">19</td>
@@ -306,7 +306,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">games (game theory)</td>
 				</tr>
 				<tr>
 					<th class="question-number">20</td>
@@ -319,7 +319,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Brook Farm</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 20</th>
@@ -332,11 +332,11 @@
 					<td class="player-score-check">1</td><!-- Roxanne -->
 					<td class="player-score-check">5</td><!-- Ryan -->
 					<td class="player-score-check">6</td><!-- Ben -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">Dylan Bowman, as Morning Champion, entered the game with a score equal to that of the then-leaders, Arjun Nageswaran and Ben Fry: 6.</td>
+					<td colspan="10" class="note">Dylan Bowman, as Morning Champion, entered the game with a score equal to that of the then-leaders, Arjun Nageswaran and Ben Fry: 6.</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>
@@ -349,7 +349,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">roses (the curve)</td>
 				</tr>
 				<tr>
 					<th class="question-number">22</td>
@@ -362,7 +362,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Upanishads</td>
 				</tr>
 				<tr>
 					<th class="question-number">23</td>
@@ -375,7 +375,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Alfredo Stroessner</td>
 				</tr>
 				<tr>
 					<th class="question-number">24</td>
@@ -388,7 +388,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Philip Sidney</td>
 				</tr>
 				<tr>
 					<th class="question-number">25</td>
@@ -401,7 +401,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Young’s modulus</td>
 				</tr>
 				<tr>
 					<th class="question-number">26</td>
@@ -414,7 +414,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Heinrich Schliemann</td>
 				</tr>
 				<tr>
 					<th class="question-number">27</td>
@@ -427,7 +427,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Tomaso Albinoni</td>
 				</tr>
 				<tr>
 					<th class="question-number">28</td>
@@ -440,7 +440,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Thaddeus Stevens</td>
 				</tr>
 				<tr>
 					<th class="question-number">29</td>
@@ -453,7 +453,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>Tender Is the Night</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">30</td>
@@ -466,11 +466,11 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">guyots</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						As Roxanne Tang&#8217;s score reached 0, she was eliminated.
 					</td>
 				</tr>
@@ -485,7 +485,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Ecuador (current events)</td>
 				</tr>
 				<tr>
 					<th class="question-number">32</td>
@@ -498,7 +498,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Pope Urban&nbsp;II</td>
 				</tr>
 				<tr>
 					<th class="question-number">33</td>
@@ -511,7 +511,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Coleman Hawkins</td>
 				</tr>
 				<tr>
 					<th class="question-number">34</td>
@@ -524,7 +524,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">“Rashomon”</td>
 				</tr>
 				<tr>
 					<th class="question-number">35</td>
@@ -537,7 +537,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">British Columbia</td>
 				</tr>
 				<tr>
 					<th class="question-number">36</td>
@@ -550,7 +550,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">fugacity</td>
 				</tr>
 				<tr>
 					<th class="question-number">37</td>
@@ -563,7 +563,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Giorgione</td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -576,7 +576,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Doris Lessing</td>
 				</tr>
 				<tr>
 					<th class="question-number">39</td>
@@ -589,7 +589,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Carl Mannerheim</td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -602,7 +602,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-no-response">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">acetyl-CoA</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 40</th>
@@ -615,11 +615,11 @@
 					<td class="player-score-check">0</td><!-- Roxanne -->
 					<td class="player-score-check">5</td><!-- Ryan -->
 					<td class="player-score-check">7</td><!-- Ben -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until four players remained. Therefore, Sophie Neztel, Jonathan Lau, Thomas Mercurio, and Ryan Tsau were eliminated (and Roxanne Tang had already been eliminated). Dylan Bowman, Govind Prabhakar, Arjun Nageswaran, and Ben Fry remained.
 					</td>
 				</tr>
@@ -634,7 +634,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">chitin</td>
 				</tr>
 				<tr>
 					<th class="question-number">42</td>
@@ -647,7 +647,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Djibouti</td>
 				</tr>
 				<tr>
 					<th class="question-number">43</td>
@@ -660,7 +660,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Battle of the Teutoberg Forest</td>
 				</tr>
 				<tr>
 					<th class="question-number">44</td>
@@ -673,7 +673,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Athol Fugard</td>
 				</tr>
 				<tr>
 					<th class="question-number">45</td>
@@ -686,7 +686,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">plasma</td>
 				</tr>
 				<tr>
 					<th class="question-number">46</td>
@@ -699,7 +699,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-correct-response">1</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Jacques Derrida</td>
 				</tr>
 				<tr>
 					<th class="question-number">47</td>
@@ -712,7 +712,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Ralph Vaughan Williams</td>
 				</tr>
 				<tr>
 					<th class="question-number">48</td>
@@ -725,7 +725,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">PATRIOT Act</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -738,7 +738,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>The Age of Innocence</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">50</td>
@@ -751,7 +751,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-no-response">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">acetone</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 50</th>
@@ -764,11 +764,11 @@
 					<td class="player-eliminated">eliminated</td><!-- Roxanne -->
 					<td class="player-eliminated">eliminated</td><!-- Ryan -->
 					<td class="player-score-check">8</td><!-- Ben -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until two players remained. Therefore, Arjun Nageswaran and Ben Fry were eliminated. Dylan Bowman and Govind Prabhakar remained.
 					</td>
 				</tr>
@@ -783,7 +783,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">SETI</td>
 				</tr>
 				<tr>
 					<th class="question-number">52</td>
@@ -796,7 +796,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">United Automobile Workers</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
@@ -809,7 +809,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Antoine Watteau</td>
 				</tr>
 				<tr>
 					<th class="question-number">54</td>
@@ -822,7 +822,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Alfred the Great</td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -835,7 +835,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Harold Pinter</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -848,7 +848,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">torus</td>
 				</tr>
 				<tr>
 					<th class="question-number">57</td>
@@ -861,7 +861,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Susanoo</td>
 				</tr>
 				<tr>
 					<th class="question-number">58</td>
@@ -874,7 +874,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Lisbon</td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>
@@ -887,7 +887,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Zhou dynasty</td>
 				</tr>
 				<tr>
 					<th class="question-number">60</td>
@@ -900,12 +900,12 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Roxanne -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ryan -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Ben -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">William Cullen Bryant</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
-						As both remaining players were tied at 14, a tiebreaker tossup was read. Govind Prabhakar answered it to win the game.
+					<td colspan="10" class="note">
+						As both remaining players were tied at 14, a tiebreaker tossup on the Carnatic Wars was read. Govind Prabhakar answered it to win the game.
 					</td>
 				</tr>
 			</tbody>
@@ -921,7 +921,7 @@
 					<td class="player-eliminated">eliminated</td><!-- Roxanne -->
 					<td class="player-eliminated">eliminated</td><!-- Ryan -->
 					<td class="player-eliminated">eliminated</td><!-- Ben -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>
