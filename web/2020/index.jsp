@@ -71,7 +71,7 @@
 			</tbody>
 		</table>
 		
-		<p>The full <a href="/stats/standings.jsp?object=2020">preliminary results</a> are available, as is the <a href="https://docs.google.com/spreadsheets/d/1_C_u4FLa3KGJ7mu6RLiM4x0uJWIJBH_ONX8liJv_uFc">championship match scoresheet</a>.</p>
+		<p>The full <a href="/stats/standings.jsp?object=2020">preliminary results</a> are available, as is the <a href="championship-match.jsp">championship match scoresheet</a>.</p>
 	</div>
 </div>
 
