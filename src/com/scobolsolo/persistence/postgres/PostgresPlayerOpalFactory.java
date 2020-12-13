@@ -31,6 +31,7 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 		"seed", 
 		"note", 
 		"exhibition", 
+		"final_place", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -117,7 +118,7 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 
 	protected void registerOpal(PlayerOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 8) { throw new IllegalStateException(); }
+		if (argValues.length != 9) { throw new IllegalStateException(); }
 		OpalCache<PlayerOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -128,7 +129,7 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 	protected void unregisterOpal(PlayerOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
 		OpalCache<PlayerOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -140,10 +141,10 @@ public class PostgresPlayerOpalFactory extends com.opal.AbstractDatabaseIdentity
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 9) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 8) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 9) { throw new IllegalStateException(); }
 		OpalCache<PlayerOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<PlayerOpal> lclOldKey = null;

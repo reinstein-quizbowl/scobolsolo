@@ -495,6 +495,85 @@ public interface PlayerUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Player setExhibition(boolean argExhibition);
 
 	/**
+	 * object accessor for the {@code FinalPlace}
+	 *
+	 * <p>The {@code FinalPlace} field is a direct mapping of the {@code final_place} field in {@code player}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getFinalPlace() method.</p>
+	 *
+	 * @return an object value of {@code FinalPlace} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.lang.Integer getFinalPlaceAsObject();
+
+	/**
+	 * object accessor for the {@code FinalPlace} with substitution for a null value
+	 *
+	 * <p>The {@code FinalPlace} field is a direct mapping of the {@code final_place} database column in the table {@code player}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code FinalPlace} is {@code null}.
+	 * @return an object value of {@code FinalPlace} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getFinalPlaceAsObject(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getFinalPlaceAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * primitive accessor for the {@code FinalPlace}
+	 *
+	 * <p>The {@code FinalPlace} field is a direct mapping of the {@code final_place} database column in the table {@code player}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getFinalPlaceAsObject() method.</p>
+	 *
+	 * <p>The underlying database table allows a {@code NULL} value for this column; calling this method when the value is null will result in an Exception.  To test for a null value, use the Object accessor mentioned above.</p>
+	 *
+	 * @return the primitive value of {@code FinalPlace} (of the current {@link com.opal.TransactionContext})
+	 * @throws com.opal.NullValueException when the internal value is null
+	 */
+	default public int getFinalPlace() throws com.opal.NullValueException {
+		java.lang.Integer lclO = getFinalPlaceAsObject();
+		if (lclO == null) {
+			throw new com.opal.NullValueException("The internal value is null and cannot be returned as a primitive.");
+		}
+		return lclO.intValue();
+	}
+
+	default public int getFinalPlace(int argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getFinalPlaceAsObject();
+		return lclO != null ? lclO.intValue() : argStringToSubstituteIfNull;
+	}
+
+	default public java.lang.String getFinalPlace(java.lang.String argStringToSubstituteIfNull) {
+		java.lang.Integer lclO = getFinalPlaceAsObject();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+	/**
+	 * sets the {@code FinalPlace} to the value of {@code argFinalPlace}
+	 *
+	 * @param argFinalPlace the new value of {@code FinalPlace}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Player setFinalPlace(java.lang.Integer argFinalPlace);
+
+	/**
+	 * sets the {@code FinalPlace} to the value of {@code argFinalPlace}
+	 *
+	 * @param argFinalPlace the new value of {@code FinalPlace}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Player setFinalPlace(int argFinalPlace);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
 	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code player_contact_id_fkey}.
 	 *

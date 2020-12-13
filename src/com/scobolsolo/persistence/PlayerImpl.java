@@ -185,6 +185,27 @@ public class PlayerImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.lang.Integer getFinalPlaceAsObject() {
+		return getPlayerOpal().getFinalPlaceAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.persistence.PlayerImpl setFinalPlace(java.lang.Integer argFinalPlace) {
+		getPlayerOpal().setFinalPlace(argFinalPlace);
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.persistence.PlayerImpl setFinalPlace(int argFinalPlace) {
+		getPlayerOpal().setFinalPlace(argFinalPlace);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

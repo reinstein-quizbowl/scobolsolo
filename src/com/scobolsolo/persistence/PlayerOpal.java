@@ -71,6 +71,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		"Seed",
 		"Note",
 		"Exhibition",
+		"FinalPlace",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -82,6 +83,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		java.lang.Integer.class,
 		java.lang.String.class,
 		java.lang.Boolean.class,
+		java.lang.Integer.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -93,9 +95,11 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		true,
 		true,
 		false,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -156,6 +160,10 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 
 	public synchronized java.lang.Boolean isExhibitionAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[7];
+	}
+
+	public synchronized java.lang.Integer getFinalPlaceAsObject() {
+		return (java.lang.Integer) getReadValueSet()[8];
 	}
 
 	public synchronized PlayerOpal setId(final java.lang.Integer argId) {
@@ -248,6 +256,17 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		return this;
 	}
 
+	public synchronized PlayerOpal setFinalPlace(final java.lang.Integer argFinalPlace) {
+		tryMutate();
+		getNewValues()[8] = argFinalPlace;
+		return this;
+	}
+
+	public PlayerOpal setFinalPlace(final int argFinalPlace) {
+		setFinalPlace(java.lang.Integer.valueOf(argFinalPlace));
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -309,6 +328,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		lclTargetNewValues[5] = lclValues[5]; /* Seed (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* Note (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* Exhibition (immutable) */
+		lclTargetNewValues[8] = lclValues[8]; /* FinalPlace (immutable) */
 
 		return;
 	}
@@ -411,6 +431,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		argOutput.println("Seed = " + getSeedAsObject());
 		argOutput.println("Note = " + getNote());
 		argOutput.println("Exhibition = " + isExhibitionAsObject());
+		argOutput.println("FinalPlace = " + getFinalPlaceAsObject());
 	}
 
 	@Override
@@ -423,6 +444,7 @@ public final class PlayerOpal extends com.opal.UpdatableOpal<Player> {
 		argOutput.println("Seed = " + getSeedAsObject());
 		argOutput.println("Note = " + getNote());
 		argOutput.println("Exhibition = " + isExhibitionAsObject());
+		argOutput.println("FinalPlace = " + getFinalPlaceAsObject());
 	}
 
 	private ContactOpal myOldContactOpal;

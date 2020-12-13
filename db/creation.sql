@@ -190,6 +190,7 @@ CREATE TABLE Player (
 	note note_t,
 	initial_card_id INTEGER REFERENCES Card ON UPDATE CASCADE ON DELETE RESTRICT,
 	exhibition BOOLEAN NOT NULL DEFAULT FALSE,
+	final_place INT NULL,
 	UNIQUE(contact_id, school_registration_id)
 );
 ALTER SEQUENCE player_id_seq RESTART WITH 1000;
