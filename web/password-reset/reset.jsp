@@ -19,7 +19,7 @@
 	int lclMinLength = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_LENGTH_MIN");
 	int lclMaxLength = ScobolSoloConfiguration.getInstance().getInt("PASSWORD_LENGTH_MAX");
 	
-	// It only makes sense to use this page if the user is not logged in; if he is, we can assume that he or she knows his password and won’t need it reset.
+	// It only makes sense to use this page if the user is not logged in; if they are, we can assume that they know their password and won’t need it reset.
 	if (lclUser == null) {
 		/* For which account do we want to reset the password? */
 		Account lclA = AccountFactory.getInstance().fromHttpRequest(request);
