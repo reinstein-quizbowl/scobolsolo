@@ -229,11 +229,15 @@ private String determineClass(double argCompletion) {
 NumberFormat lclIntPct = new DecimalFormat("#%");
 private String outputProgressBar(int argDone, int argNeeded) {
 	Validate.isTrue(argDone >= 0);
-	Validate.isTrue(argNeeded > 0);
+	Validate.isTrue(argNeeded >= 0);
 	
-	return "<div class=\"progress\" role=\"progressbar\" aria-valuenow=\"" + argDone + "\" aria-valuemin=\"0\" aria-valuemax=\"" + argNeeded + "\">\n" +
-	"	<div class=\"progress-meter\" style=\"width: " + lclIntPct.format(1.0d * argDone / argNeeded) + "\"></div>\n" +
-	"</div>";
+	if (argNeeded == 0) {
+		return "";
+	} else {
+		return "<div class=\"progress\" role=\"progressbar\" aria-valuenow=\"" + argDone + "\" aria-valuemin=\"0\" aria-valuemax=\"" + argNeeded + "\">\n" +
+		"	<div class=\"progress-meter\" style=\"width: " + lclIntPct.format(1.0d * argDone / argNeeded) + "\"></div>\n" +
+		"</div>";
+	}
 }
 
 %>
