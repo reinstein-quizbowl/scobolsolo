@@ -12,7 +12,7 @@
 		<section id="next">
 			<h2>2020</h2>
 			
-			<p>The <a href="/2020/">most recent edition of Scobol Solo</a> took place on December&nbsp;5 and 12, 2020 via Discord. Jonathan Lau (University Laboratory High School, Urbana, Illinois) won.</p>
+			<p>The <a href="/2020/">most recent edition of Scobol Solo</a> took place on December&nbsp;5 and 12, 2020 online via Discord. Jonathan Lau (University Laboratory High School, Urbana, Illinois) won.</p>
 		</section>
 		
 		<section id="about">
@@ -25,12 +25,6 @@
 			<p>Information on the background of Scobol Solo and some inter-year records are on the <a href="https://www.qbwiki.com/wiki/Scobol_Solo">QBWiki</a>.</p>
 			
 			<p>David Reinstein writes most or all of the questions for Scobol Solo. Since 2009 <a href="https://www.qbwiki.com/wiki/Jonah_Greenthal">Jonah Greenthal</a> has edited the set, and in other years some other people have helped write and/or edit.</p>
-		</section>
-		
-		<section id="recent">
-			<h2>Recent Editions</h2>
-			
-			<p>The most recent edition of Scobol Solo was held on <a href="/2019/">November 16, 2019</a>. <a href="/stats/player-detail.jsp?school_registration_id=1350#player_2790">Govind Prabhakar</a> (Adlai E. Stevenson High School, Lincolnshire, Illinois) won.</p>
 		</section>
 	</div>
 </div>
