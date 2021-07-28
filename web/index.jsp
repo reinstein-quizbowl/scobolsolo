@@ -10,6 +10,12 @@
 <div class="row">
 	<div class="small-12 columns">
 		<section id="next">
+			<h2>2021</h2>
+			
+			<p>The <a href="/2021/">2021 edition of Scobol Solo</a> will tentatively occur on Saturday, November&nbsp;13.</p>
+		</section>
+		
+		<section id="last">
 			<h2>2020</h2>
 			
 			<p>The <a href="/2020/">most recent edition of Scobol Solo</a> took place on December&nbsp;5 and 12, 2020 online via Discord. Jonathan Lau (University Laboratory High School, Urbana, Illinois) won.</p>
