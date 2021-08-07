@@ -33,6 +33,7 @@
 		<fileset dir="${tomcat.lib.dir}">
 			<include name="*.jar" />
 		</fileset>
+		<pathelement location="${lib.dir}/activation-1.1.1.jar" />
 		<!-- <pathelement location="${lib.dir}/commons-codec-1.10.jar" /> -->
 		<pathelement location="${lib.dir}/commons-collections4-4.1.jar" />
 		<pathelement location="${lib.dir}/commons-email-1.4.jar" />

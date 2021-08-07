@@ -8,6 +8,7 @@ import javax.mail.util.ByteArrayDataSource;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.SimpleEmail;
+import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
@@ -23,12 +24,17 @@ public final class Mail {
 	private static final String mySmtpServer = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_SERVER"));
 	private static final int mySmtpPort = ScobolSoloConfiguration.getInstance().getInt("SMTP_PORT");
 	private static final boolean mySmtpSsl = ScobolSoloConfiguration.getInstance().getBoolean("SMTP_SSL");
+	private static final boolean mySmtpTls = ScobolSoloConfiguration.getInstance().getBoolean("SMTP_TLS");
 	private static final String mySmtpUsername = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_USERNAME"));
 	private static final String mySmtpPassword = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_PASSWORD"));
 	private static final String myBounceAddress = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_BOUNCE_ADDRESS"));
 	
 	public static SimpleEmail createEmail() {
 		return setUpSending(new SimpleEmail());
+	}
+	
+	public static HtmlEmail createHtmlEmail() {
+		return setUpSending(new HtmlEmail());
 	}
 	
 	public static SimpleEmail createEmailTo(final Iterable<String> argTos) throws EmailException {
@@ -67,6 +73,7 @@ public final class Mail {
 		argEmail.setSmtpPort(mySmtpPort);
 		argEmail.setAuthenticator(new DefaultAuthenticator(mySmtpUsername, mySmtpPassword));
 		argEmail.setSSLOnConnect(mySmtpSsl);
+		argEmail.setStartTLSEnabled(mySmtpTls);
 		argEmail.setBounceAddress(myBounceAddress);
 		
 		return argEmail;
