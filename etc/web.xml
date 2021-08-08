@@ -40,6 +40,11 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>com.scobolsolo.servlets.tournament.Register</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>UpdatePronunciationGuidePreferences</servlet-name>
 		<servlet-class>com.scobolsolo.account.UpdatePronunciationGuidePreferences</servlet-class>
 	</servlet>
@@ -174,6 +179,11 @@
 		<servlet-name>OpalFormController</servlet-name>
 		<servlet-class>com.opal.cma.OpalFormController</servlet-class>
 	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/register/Register</url-pattern>
+	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>UpdatePronunciationGuidePreferences</servlet-name>

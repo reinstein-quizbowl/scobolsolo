@@ -12,6 +12,7 @@
 * Update web/instructions/index.jsp if necessary (at least update the year in the menu)
 
 # Before the tournament
+* Make sure registration is closed by removing the `REGISTRATION_OPEN_FOR` value in `application.properties`.
 * Make sure cards that end 5–2 or better have final messages about the championship match. Maybe we want to do this for all cards (e.g., to advertise the awards ceremony).
 * Check "Online Stats?" on the tournament-edit page.
 * Back up the database.

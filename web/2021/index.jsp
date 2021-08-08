@@ -11,7 +11,7 @@
 	<div class="small-12 columns">
 		<p>Scobol Solo 2021 will tentatively be held on Saturday, November&nbsp;13.</p>
 		
-		<p>To register, write to <a href="mailto:reinsteind@yahoo.com">reinsteind@yahoo.com</a>.</p>
+		<p><a class="medium button" href="/register/">Register</a></p>
 	</div>
 </div>
 

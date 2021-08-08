@@ -13,6 +13,8 @@
 			<h2>2021</h2>
 			
 			<p>The <a href="/2021/">2021 edition of Scobol Solo</a> will tentatively occur on Saturday, November&nbsp;13.</p>
+			
+			<p><a class="medium button" href="/register/">Register</a></p>
 		</section>
 		
 		<section id="last">
