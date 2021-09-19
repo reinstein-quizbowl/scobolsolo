@@ -245,6 +245,17 @@ public interface SchoolUserFacing extends com.opal.IdentityUserFacing, Comparabl
 	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.School setNote(java.lang.String argNote);
 
+	public java.util.Set<com.scobolsolo.application.Tournament> getSiteTournamentSet();
+
+	default public java.util.stream.Stream<com.scobolsolo.application.Tournament> streamSiteTournament() {
+		return getSiteTournamentSet().stream();
+	}
+
+	default public com.scobolsolo.application.Tournament[] createSiteTournamentArray() {
+		java.util.Set<com.scobolsolo.application.Tournament> lclS = getSiteTournamentSet();
+		return lclS.toArray(new com.scobolsolo.application.Tournament[lclS.size()]);
+	}
+
 	public java.util.Set<com.scobolsolo.application.SchoolRegistration> getSchoolRegistrationSet();
 
 	default public java.util.stream.Stream<com.scobolsolo.application.SchoolRegistration> streamSchoolRegistration() {

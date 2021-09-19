@@ -20,6 +20,11 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 		/* Initialize the back Collections to empty sets. */
 
+		mySiteTournamentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+				this,
+				ourSiteTournamentOpalLoader,
+				true
+				);
 		mySchoolRegistrationSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
 				this,
 				ourSchoolRegistrationOpalLoader,
@@ -198,6 +203,7 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 
 	@Override
 	protected void unlinkInternal() {
+		getSiteTournamentOpalSet().clear();
 		getSchoolRegistrationOpalSet().clear();
 		return;
 	}
@@ -262,6 +268,31 @@ public final class SchoolOpal extends com.opal.UpdatableOpal<School> {
 		argOutput.println("VeryShortName = " + getVeryShortName());
 		argOutput.println("Location = " + getLocation());
 		argOutput.println("Note = " + getNote());
+	}
+
+	private com.opal.types.OpalBackCollectionSet<TournamentOpal, SchoolOpal> mySiteTournamentSet = null;
+
+	private static final com.opal.types.OpalBackCollectionLoader<TournamentOpal, SchoolOpal> ourSiteTournamentOpalLoader = 
+			new com.opal.types.OpalBackCollectionLoader<>(
+					OpalFactoryFactory.getInstance().getTournamentOpalFactory()::forSiteSchoolOpalCollection,
+					OpalFactoryFactory.getInstance().getTournamentOpalFactory()::forSiteSchoolOpalCount,
+					TournamentOpal::setSiteSchoolOpal,
+					TournamentOpal::setSiteSchoolOpalInternal,
+					TournamentOpal::getSiteSchoolOpal,
+					com.scobolsolo.application.FactoryMap.getNoArgCtorSetCreator(),
+					com.scobolsolo.application.FactoryMap.getCollectionArgSetCreator(),
+					false
+					);
+
+	/* package */ synchronized com.opal.types.OpalBackCollectionSet<TournamentOpal, SchoolOpal> getSiteTournamentOpalSet() {
+		if (mySiteTournamentSet == null) {
+			mySiteTournamentSet = new com.opal.types.OpalBackCollectionDoubleSet<>(
+					this,
+					ourSiteTournamentOpalLoader,
+					isNew()
+					);
+		}
+		return mySiteTournamentSet;
 	}
 
 	private com.opal.types.OpalBackCollectionSet<SchoolRegistrationOpal, SchoolOpal> mySchoolRegistrationSet = null;

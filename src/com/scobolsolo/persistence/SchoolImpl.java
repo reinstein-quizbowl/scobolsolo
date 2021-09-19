@@ -141,6 +141,11 @@ public class SchoolImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.app
 	to this object. */
 
 	@Override
+	public java.util.Set<com.scobolsolo.application.Tournament> getSiteTournamentSet() {
+		return new com.opal.UserFacingBackCollectionSet<>(getSchoolOpal().getSiteTournamentOpalSet());
+	}
+
+	@Override
 	public java.util.Set<com.scobolsolo.application.SchoolRegistration> getSchoolRegistrationSet() {
 		return new com.opal.UserFacingBackCollectionSet<>(getSchoolOpal().getSchoolRegistrationOpalSet());
 	}

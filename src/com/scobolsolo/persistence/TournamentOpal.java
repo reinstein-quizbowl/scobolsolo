@@ -65,6 +65,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	protected void initializeReferences() {
 		myOldControlRoomOpal = RoomOpal.NOT_YET_LOADED;
 		myOldTournamentDirectorContactOpal = ContactOpal.NOT_YET_LOADED;
+		myOldSiteSchoolOpal = SchoolOpal.NOT_YET_LOADED;
 		return;
 	}
 
@@ -87,6 +88,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		"QuestionsComplete",
 		"QuestionDownloadUrl",
 		"OnlineStats",
+		"SiteSchoolId",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -108,6 +110,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		java.lang.Boolean.class,
 		java.lang.String.class,
 		java.lang.Boolean.class,
+		java.lang.Integer.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -129,9 +132,11 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		false,
 		true,
 		false,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -242,6 +247,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	public synchronized java.lang.Boolean isOnlineStatsAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[17];
+	}
+
+	public synchronized java.lang.Integer getSiteSchoolIdAsObject() {
+		return (java.lang.Integer) getReadValueSet()[18];
 	}
 
 	public synchronized TournamentOpal setDate(final java.time.LocalDate argDate) {
@@ -419,6 +428,20 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return this;
 	}
 
+	public synchronized TournamentOpal setSiteSchoolId(final java.lang.Integer argSiteSchoolId) {
+		tryMutate();
+		if (argSiteSchoolId == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set mySiteSchoolId on " + this + " to null.");
+		}
+		getNewValues()[18] = argSiteSchoolId;
+		return this;
+	}
+
+	public TournamentOpal setSiteSchoolId(final int argSiteSchoolId) {
+		setSiteSchoolId(java.lang.Integer.valueOf(argSiteSchoolId));
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -433,6 +456,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewControlRoomOpal = myOldControlRoomOpal;
 		myNewTournamentDirectorContactOpal = myOldTournamentDirectorContactOpal;
+		myNewSiteSchoolOpal = myOldSiteSchoolOpal;
 		/* We don't copy Collections of other Opals; they will be cloned as needed. */
 		return;
 	}
@@ -441,6 +465,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	protected /* synchronized */ void copyNewValuesToOldInternal() {
 		myOldControlRoomOpal = myNewControlRoomOpal;
 		myOldTournamentDirectorContactOpal = myNewTournamentDirectorContactOpal;
+		myOldSiteSchoolOpal = myNewSiteSchoolOpal;
 
 		return;
 	}
@@ -458,6 +483,9 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		}
 		if (getTournamentDirectorContactOpal() != null) {
 			getTournamentDirectorContactOpal().getTournamentDirectorTournamentOpalSet().removeInternal(this);
+		}
+		if (getSiteSchoolOpal() != null) {
+			getSiteSchoolOpal().getSiteTournamentOpalSet().removeInternal(this);
 		}
 		return;
 	}
@@ -484,6 +512,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		lclTargetNewValues[15] = lclValues[15]; /* QuestionsComplete (immutable) */
 		lclTargetNewValues[16] = lclValues[16]; /* QuestionDownloadUrl (immutable) */
 		lclTargetNewValues[17] = lclValues[17]; /* OnlineStats (immutable) */
+		lclTargetNewValues[18] = lclValues[18]; /* SiteSchoolId (immutable) */
 
 		return;
 	}
@@ -496,6 +525,9 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		if (myNewTournamentDirectorContactOpal != ContactOpal.NOT_YET_LOADED) {
 			setTournamentDirectorContactId(myNewTournamentDirectorContactOpal == null ? null : myNewTournamentDirectorContactOpal.getIdAsObject());
 		}
+		if (myNewSiteSchoolOpal != SchoolOpal.NOT_YET_LOADED) {
+			setSiteSchoolId(myNewSiteSchoolOpal == null ? null : myNewSiteSchoolOpal.getIdAsObject());
+		}
 		return;
 	}
 
@@ -506,6 +538,13 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		lclUO = myNewControlRoomOpal;
 		if ((lclUO != null) && lclUO.isNew()) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		lclUO = myNewSiteSchoolOpal;
+		if ((lclUO != null) && lclUO.isNew()) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		lclUO = myNewTournamentDirectorContactOpal;
@@ -530,6 +569,15 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		}
 		if (lclUO != null && (lclUO.exists() == false)) {
 			lclTAs = new com.siliconage.util.Fast3Set<>();
+			lclTAs.add(lclUO);
+		}
+		if ((lclUO = myOldSiteSchoolOpal) == SchoolOpal.NOT_YET_LOADED) {
+			lclUO = myOldSiteSchoolOpal = retrieveSiteSchoolOpal(getOldValues());
+		}
+		if (lclUO != null && (lclUO.exists() == false)) {
+			if (lclTAs == null) {
+				lclTAs = new com.siliconage.util.Fast3Set<>();
+			}
 			lclTAs.add(lclUO);
 		}
 		if ((lclUO = myOldTournamentDirectorContactOpal) == ContactOpal.NOT_YET_LOADED) {
@@ -577,6 +625,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
 		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
 		argOutput.println("OnlineStats = " + isOnlineStatsAsObject());
+		argOutput.println("SiteSchoolId = " + getSiteSchoolIdAsObject());
 	}
 
 	@Override
@@ -599,6 +648,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("QuestionsComplete = " + isQuestionsCompleteAsObject());
 		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
 		argOutput.println("OnlineStats = " + isOnlineStatsAsObject());
+		argOutput.println("SiteSchoolId = " + getSiteSchoolIdAsObject());
 	}
 
 	private RoomOpal myOldControlRoomOpal;
@@ -689,6 +739,51 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	protected synchronized void setTournamentDirectorContactOpalInternal(ContactOpal argContactOpal) {
 		tryMutate();
 		myNewTournamentDirectorContactOpal = argContactOpal;
+	}
+
+	private SchoolOpal myOldSiteSchoolOpal;
+	private SchoolOpal myNewSiteSchoolOpal;
+
+	protected SchoolOpal retrieveSiteSchoolOpal(Object[] argValueSet) {
+		assert argValueSet != null;
+		if ((argValueSet[18] == null)) {
+			return null;
+		}
+		return OpalFactoryFactory.getInstance().getSchoolOpalFactory().forId(getSiteSchoolIdAsObject());
+	}
+
+	public synchronized SchoolOpal getSiteSchoolOpal() {
+		SchoolOpal lclSchoolOpal;
+		boolean lclAccess = tryAccess();
+		lclSchoolOpal = lclAccess ? myNewSiteSchoolOpal : myOldSiteSchoolOpal;
+		if (lclSchoolOpal == SchoolOpal.NOT_YET_LOADED) {
+			lclSchoolOpal = retrieveSiteSchoolOpal(getReadValueSet());
+			if (lclAccess) {
+				myNewSiteSchoolOpal = lclSchoolOpal;
+			} else {
+				myOldSiteSchoolOpal = lclSchoolOpal;
+			}
+		}
+		return lclSchoolOpal;
+	}
+
+	public synchronized TournamentOpal setSiteSchoolOpal(SchoolOpal argSchoolOpal) {
+		tryMutate();
+		SchoolOpal lclSchoolOpal = getSiteSchoolOpal();
+		if (lclSchoolOpal == argSchoolOpal) { return this; }
+		if (lclSchoolOpal != null) {
+			lclSchoolOpal.getSiteTournamentOpalSet().removeInternal(this);
+		}
+		myNewSiteSchoolOpal = argSchoolOpal;
+		if (argSchoolOpal != null) {
+			argSchoolOpal.getSiteTournamentOpalSet().addInternal(this);
+		}
+		return this;
+	}
+
+	protected synchronized void setSiteSchoolOpalInternal(SchoolOpal argSchoolOpal) {
+		tryMutate();
+		myNewSiteSchoolOpal = argSchoolOpal;
 	}
 
 	private com.opal.types.OpalBackCollectionSet<PhaseOpal, TournamentOpal> myPhaseSet = null;
@@ -858,6 +953,9 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		}
 		if (myNewTournamentDirectorContactOpal != ContactOpal.NOT_YET_LOADED) {
 			setTournamentDirectorContactOpal(retrieveTournamentDirectorContactOpal(getNewValues()));
+		}
+		if (myNewSiteSchoolOpal != SchoolOpal.NOT_YET_LOADED) {
+			setSiteSchoolOpal(retrieveSiteSchoolOpal(getNewValues()));
 		}
 	}
 

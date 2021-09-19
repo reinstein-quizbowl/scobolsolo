@@ -358,6 +358,27 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public java.lang.Integer getSiteSchoolIdAsObject() {
+		return getTournamentOpal().getSiteSchoolIdAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.persistence.TournamentImpl setSiteSchoolId(java.lang.Integer argSiteSchoolId) {
+		getTournamentOpal().setSiteSchoolId(argSiteSchoolId);
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.persistence.TournamentImpl setSiteSchoolId(int argSiteSchoolId) {
+		getTournamentOpal().setSiteSchoolId(argSiteSchoolId);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -390,6 +411,22 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Tournament setTournamentDirectorContact(com.scobolsolo.application.Contact argContact) {
 		getTournamentOpal().setTournamentDirectorContactOpal(argContact == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.Contact, com.scobolsolo.persistence.ContactOpal>) argContact).getOpal());
+		return this;
+	}
+
+	/** @return the School object created from tournament through reference tournament_site_school_id_fkey */
+
+	@com.opal.annotation.Nullability(nullable = false)
+	@Override
+	public com.scobolsolo.application.School getSiteSchool() {
+		SchoolOpal lclSchoolOpal = getTournamentOpal().getSiteSchoolOpal();
+		return lclSchoolOpal == null ? null : lclSchoolOpal.getUserFacing();
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public com.scobolsolo.application.Tournament setSiteSchool(com.scobolsolo.application.School argSchool) {
+		getTournamentOpal().setSiteSchoolOpal(argSchool == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.School, com.scobolsolo.persistence.SchoolOpal>) argSchool).getOpal());
 		return this;
 	}
 

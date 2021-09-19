@@ -794,6 +794,56 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	public com.scobolsolo.application.Tournament setOnlineStats(boolean argOnlineStats);
 
 	/**
+	 * object accessor for the {@code SiteSchoolId}
+	 *
+	 * <p>The {@code SiteSchoolId} field is a direct mapping of the {@code site_school_id} field in {@code tournament}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the getSiteSchoolId() method.</p>
+	 *
+	 * @return an object value of {@code SiteSchoolId} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	public java.lang.Integer getSiteSchoolIdAsObject();
+
+	/**
+	 * primitive accessor for the {@code SiteSchoolId}
+	 *
+	 * <p>The {@code SiteSchoolId} field is a direct mapping of the {@code site_school_id} database column in the table {@code tournament}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the getSiteSchoolIdAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code SiteSchoolId} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public int getSiteSchoolId() {
+		java.lang.Integer lclO = getSiteSchoolIdAsObject();
+		return lclO.intValue();
+	}
+
+	/**
+	 * sets the {@code SiteSchoolId} to the value of {@code argSiteSchoolId}
+	 *
+	 * @param argSiteSchoolId the new value of {@code SiteSchoolId}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code site_school_id} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argSiteSchoolId is null
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Tournament setSiteSchoolId(java.lang.Integer argSiteSchoolId);
+
+	/**
+	 * sets the {@code SiteSchoolId} to the value of {@code argSiteSchoolId}
+	 *
+	 * @param argSiteSchoolId the new value of {@code SiteSchoolId}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Tournament setSiteSchoolId(int argSiteSchoolId);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Room}
 	 * The returned {@code com.scobolsolo.application.Room} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code room} that is referenced by {@code tournament_control_room_room_id_fkey}.
 	 *
@@ -812,6 +862,16 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	public com.scobolsolo.application.Contact getTournamentDirectorContact();
 	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Tournament setTournamentDirectorContact(com.scobolsolo.application.Contact argTournamentDirectorContact);
+
+	/**
+	 * @return the {@code com.scobolsolo.application.School}
+	 * The returned {@code com.scobolsolo.application.School} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code school} that is referenced by {@code tournament_site_school_id_fkey}.
+	 *
+	 */
+	@com.opal.annotation.Nullability(nullable = false)
+	public com.scobolsolo.application.School getSiteSchool();
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Tournament setSiteSchool(com.scobolsolo.application.School argSiteSchool);
 
 	public java.util.Set<com.scobolsolo.application.Phase> getPhaseSet();
 

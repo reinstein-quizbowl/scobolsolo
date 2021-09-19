@@ -40,6 +40,24 @@ public interface TournamentOpalFactory extends com.opal.IdentityOpalFactory<Tour
 		throw new com.siliconage.util.UnimplementedOperationException();
 	}
 
+	public java.util.HashSet<TournamentOpal> forSiteSchoolIdCollection(java.lang.Integer argSiteSchoolId) throws com.opal.PersistenceException;
+
+	default public java.util.HashSet<TournamentOpal> forSiteSchoolOpalCollection(SchoolOpal argParent) throws com.opal.PersistenceException {
+		if (argParent == null) {
+			throw new IllegalStateException("argParent is null.");
+		}
+		java.lang.Integer lclId = argParent.getIdAsObject();
+		if (lclId == null) { throw new IllegalStateException("Key value is null."); }
+		return forSiteSchoolIdCollection(lclId);
+	}
+
+	default public int forSiteSchoolOpalCount(SchoolOpal argParent) throws com.opal.PersistenceException {
+		if (argParent == null) {
+			throw new IllegalStateException("argParent is null.");
+		}
+		throw new com.siliconage.util.UnimplementedOperationException();
+	}
+
 	public TournamentOpal forCode(java.lang.String argCode) throws PersistenceException;
 	public TournamentOpal forName(java.lang.String argName) throws PersistenceException;
 	public TournamentOpal forShortName(java.lang.String argShortName) throws PersistenceException;
