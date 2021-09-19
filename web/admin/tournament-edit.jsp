@@ -3,7 +3,7 @@
 <%@ page import="com.scobolsolo.application.Contact" %>
 <%@ page import="com.scobolsolo.application.ContactFactory" %>
 <%@ page import="com.scobolsolo.application.Room" %>
-<%@ page import="com.scobolsolo.application.RoomFactory" %>
+<%@ page import="com.scobolsolo.application.School" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
@@ -78,6 +78,12 @@ if (lclOF.hasErrors()) {
 			<%= lclOF.dropdown("SiteSchool", School.NameComparator.getInstance()) %>
 		</label>
 	</div>
+	<div class="small-12 medium-6 large-4 columns">
+		<label>
+			Tournament director
+			<%= lclOF.dropdown("TournamentDirectorContact", Contact.NameComparator.getInstance()).filter(Contact::isActive) %>
+		</label>
+	</div>
 	
 	<div class="small-12 medium-6 large-4 columns">
 		<label>
@@ -98,25 +104,19 @@ if (lclOF.hasErrors()) {
 		</label>
 	</div>
 	
-	<div class="small-12 medium-6 large-3 columns">
-		<label>
-			Tournament director
-			<%= lclOF.dropdown("TournamentDirectorContact", Contact.NameComparator.getInstance()).filter(Contact::isActive) %>
-		</label>
-	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-6 large-4 columns">
 		<label>
 			Control room
 			<%= lclOF.<Room>dropdown("ControlRoom").filter(argR -> argR == null || argR.getTournament() == lclT) %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-2 columns">
+	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Is tiebreaker sudden death?
 			<%= HTMLUtility.switchWidget(lclOF, "TiebreakerSuddenDeath") %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-2 columns">
+	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Questions complete?
 			<%= HTMLUtility.switchWidget(lclOF, "QuestionsComplete") %>
