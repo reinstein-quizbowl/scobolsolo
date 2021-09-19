@@ -12,7 +12,7 @@
 		linktoc=none,
 		bookmarks=false,
 		bookmarksopen=false,
-		pdfauthor={New Trier Scobol Solo}
+		pdfauthor={Scobol Solo}
 	]{hyperref}
 	\def\UrlFont{\em}
 
