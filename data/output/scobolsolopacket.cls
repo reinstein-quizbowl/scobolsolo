@@ -62,15 +62,15 @@
 \newenvironment{tossups}{ % argument is the first tossup number
 	\thispagestyle{plain}
 	\hspace{0.43in} % Spacer to make the headings line up with the actual question text instead of the question numbers
-	\begin{minipage}[t]{6in}
+	\begin{minipage}[t]{7in}
 		\fontsize{24pt}{32pt}\selectfont
 		\textbf{\theTournament}\\
 		\thePacket
 	\end{minipage}
-	\begin{minipage}[t]{1in}
-		\vspace{-24pt}
-		\includegraphics[keepaspectratio=true,width=1in]{"nt-logo"}
-	\end{minipage}
+	% \begin{minipage}[t]{1in}
+		% \vspace{-24pt}
+		% \includegraphics[keepaspectratio=true,width=1in]{"nt-logo"}
+	% \end{minipage}
 }{
 }
 

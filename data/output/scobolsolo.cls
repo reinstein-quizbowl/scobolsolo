@@ -47,9 +47,9 @@
 	\titlespacing\subsection{0pt}{0pt}{-8pt}
 	\titlespacing\subsubsection{0pt}{0pt}{0pt}
 
-\RequirePackage{draftwatermark}
-	\SetWatermarkText{\includegraphics{nt-logo-background.pdf}}
-	\SetWatermarkAngle{0}
+% \RequirePackage{draftwatermark}
+	% \SetWatermarkText{\includegraphics{nt-logo-background.pdf}}
+	% \SetWatermarkAngle{0}
 
 \setlength\parindent{0pt}
 \setlength\parskip{7pt}
