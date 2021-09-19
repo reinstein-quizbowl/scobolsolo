@@ -12,7 +12,7 @@
 		linktoc=none,
 		bookmarks=false,
 		bookmarksopen=false,
-		pdfauthor={Scobol Solo}
+		pdfauthor={Reinstein QuizBowl}
 	]{hyperref}
 	\def\UrlFont{\em}
 
