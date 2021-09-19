@@ -74,6 +74,13 @@ if (lclOF.hasErrors()) {
 	</div>
 	<div class="small-12 medium-6 large-4 columns">
 		<label>
+			Site
+			<%= lclOF.dropdown("SiteSchool", School.NameComparator.getInstance()) %>
+		</label>
+	</div>
+	
+	<div class="small-12 medium-6 large-4 columns">
+		<label>
 			Home page
 			<%= lclOF.text("Url", 60) %>
 		</label>
@@ -91,31 +98,31 @@ if (lclOF.hasErrors()) {
 		</label>
 	</div>
 	
-	<div class="small-12 medium-6 large-4 columns">
+	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Tournament director
 			<%= lclOF.dropdown("TournamentDirectorContact", Contact.NameComparator.getInstance()).filter(Contact::isActive) %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-4 columns">
+	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Control room
 			<%= lclOF.<Room>dropdown("ControlRoom").filter(argR -> argR == null || argR.getTournament() == lclT) %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-4 columns">
+	<div class="small-12 medium-6 large-2 columns">
 		<label>
 			Is tiebreaker sudden death?
 			<%= HTMLUtility.switchWidget(lclOF, "TiebreakerSuddenDeath") %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-4 columns">
+	<div class="small-12 medium-6 large-2 columns">
 		<label>
 			Questions complete?
 			<%= HTMLUtility.switchWidget(lclOF, "QuestionsComplete") %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-4 columns">
+	<div class="small-12 medium-6 large-2 columns">
 		<label>
 			Online stats?
 			<%= HTMLUtility.switchWidget(lclOF, "OnlineStats") %>
