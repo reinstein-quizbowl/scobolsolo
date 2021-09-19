@@ -23,7 +23,7 @@ if (lclTourn == null) {
 </jsp:include>
 
 <div class="row columns">
-	<p><%= lclTourn.getName() %> will take place on <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at New Trier High School.</p>
+	<p><%= lclTourn.getName() %> will take place on <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getName() %>.</p>
 </div>
 
 <div class="row">
