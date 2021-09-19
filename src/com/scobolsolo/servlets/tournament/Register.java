@@ -114,6 +114,18 @@ public class Register extends ScobolSoloControllerServlet {
 			}
 		}
 		
+		int lclBuzzerSystemCount = 0;
+		final String lclBuzzerSystemCountString = getParedParameter(argRequest, "buzzer_system_count");
+		if (StringUtils.isNotBlank(lclBuzzerSystemCountString)) {
+			try {
+				lclBuzzerSystemCount = Integer.parseInt(lclBuzzerSystemCountString);
+			} catch (final NumberFormatException e) {
+				ourLogger.warn("Invalid buzzer system count: " + lclBuzzerSystemCountString);
+				// lclBuzzerSystemCount is still 0
+			}
+		}
+		lclConfirmation.append("<h2>Buzzer systems: " + lclBuzzerSystemCount + "</h2>");
+		
 		final int lclAmountOwed = Math.max(0, lclPlayers.size() * PRICE_PER_PLAYER - lclModeratorCount * DISCOUNT_PER_MODERATOR);
 		lclConfirmation.append("<h2>Amount owed: $" + lclAmountOwed + "</h2>")
 			.append("<p>Make checks payable to Reinstein QuizBowl and send them to&hellip;</p>")

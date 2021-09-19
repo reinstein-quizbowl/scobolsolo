@@ -146,7 +146,7 @@ if (lclTourn == null) {
 					<div class="small-12 columns">
 						<label>
 							How many moderators can you provide (perhaps including yourself)?
-							<input type="number" name="moderator_count" id="moderator_count" min="0" max="32" value="0" required="required"onchange="changeHandler()" />
+							<input type="number" name="moderator_count" id="moderator_count" min="0" max="32" value="0" required="required" onchange="changeHandler()" />
 						</label>
 					</div>
 				</div>
@@ -162,6 +162,15 @@ if (lclTourn == null) {
 			
 			<section id="end">
 				<h2>Finishing Up</h2>
+				
+				<div class="row">
+					<div class="small-12 columns">
+						<label>
+							How many buzzer systems can you provide?
+							<input type="number" name="buzzer_system_count" id="buzzer_system_count" min="0" max="32" value="0" required="required" onchange="changeHandler()" />
+						</label>
+					</div>
+				</div>
 				
 				<div class="row">
 					<div class="small-12 columns">
