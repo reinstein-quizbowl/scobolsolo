@@ -230,6 +230,7 @@ public interface Question extends QuestionUserFacing {
 								case '$':
 								case '{':
 								case '}':
+								case '*':
 									lclSB.append(lclNext);
 									++lclI;
 									break;
