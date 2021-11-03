@@ -9,7 +9,7 @@
 
 # Before emailing staff with instructions
 * Make sure they all have accounts
-* Update web/instructions/index.jsp if necessary (at least update the year in the menu)
+* Update `web/instructions/index.jsp` and `web/instructions/championship-match.jsp` if necessary (at least update the year in the menu)
 
 # Before the tournament
 * Make sure registration is closed by removing the `REGISTRATION_OPEN_FOR` value in `application.properties`.
