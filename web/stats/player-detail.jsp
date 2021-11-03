@@ -58,9 +58,14 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 					if (lclPerformances.isEmpty()) {
 						%><p>No results are available yet.</p><%
 					} else {
-						boolean lclShowCategoryDepth = lclPerformances.stream()
+						final boolean lclShowCategoryDepth = lclPerformances.stream()
 							.flatMap(Performance::streamResponse)
 							.anyMatch(Response::hasLocation);
+						
+						final boolean lclAnyMatchWithBothCardsGettingWin = lclPerformances.stream()
+							.map(Performance::getGame)
+							.map(Game::getMatch)
+							.anyMatch(Match::isBothCardsGetWin);
 						
 						%><table>
 							<thead>
@@ -130,6 +135,9 @@ String lclTitle = "Player Detail: " + lclS.getShortName();
 													if (lclRank == 1) {
 														++lclWins;
 														%>Win<%
+													} else if (lclM.isBothCardsGetWin()) {
+														++lclWins;
+														%><span title="Did not actually win, but is credited with a win for the purpose of final standings. The actual results still affect category awards, seeds, and potentially tiebreakers to get into the Championship Match.">Safety Win*</span><%
 													} else {
 														++lclLosses;
 														%>Loss<%

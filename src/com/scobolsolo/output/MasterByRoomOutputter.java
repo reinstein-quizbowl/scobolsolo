@@ -80,6 +80,8 @@ public class MasterByRoomOutputter extends PhaseSpecificLaTeXOutputter {
 		getWriter().println("\\hline");
 		getWriter().println("\\endfoot");
 		
+		boolean lclAnyMatchesWithBothCardsGettingWins = false;
+		
 		for (final Room lclRoom : lclTable.rowKeySet()) {
 			getWriter().print(lclRoom.getShortName() + " & ");
 			
@@ -91,7 +93,14 @@ public class MasterByRoomOutputter extends PhaseSpecificLaTeXOutputter {
 				if (lclM == null) {
 					getWriter().print(" - & - ");
 				} else {
-					getWriter().print(escape(lclM.getWinningCard().getShortName()) + " & " + escape(lclM.getLosingCard().getShortName()));
+					final String lclWinningCardDisplay = escape(lclM.getWinningCard().getShortName());
+					String lclLosingCardDisplay = escape(lclM.getLosingCard().getShortName());
+					if (lclM.isBothCardsGetWin()) {
+						lclAnyMatchesWithBothCardsGettingWins = true;
+						lclLosingCardDisplay = invisibleAsterisk() + lclLosingCardDisplay + asterisk();
+					}
+					
+					getWriter().print(lclWinningCardDisplay + " & " + lclLosingCardDisplay);
 				}
 				
 				if (lclRI.hasNext()) {
@@ -103,6 +112,13 @@ public class MasterByRoomOutputter extends PhaseSpecificLaTeXOutputter {
 		}
 		
 		getWriter().println("\\end{longtable}");
+		
+		if (lclAnyMatchesWithBothCardsGettingWins) {
+			getWriter().println();
+			getWriter().println(asterisk() + "Both cards are credited with wins regardless of the actual score of the game.");
+			getWriter().println();
+		}
+		
 		getWriter().println("\\end{center}");
 		getWriter().println("\\end{document}");
 	}

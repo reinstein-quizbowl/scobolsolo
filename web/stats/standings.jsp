@@ -62,8 +62,13 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 			boolean lclShowYears = lclStandings.stream().anyMatch(it -> it.getPlayer().getSchoolYear() != null);
 			boolean lclShowCategoryDepth = lclStandings.stream().anyMatch(it -> it.getAverageCorrectBuzzDepth().isPresent());
 			
-			%><table>
-				<thead>
+			%><table><%
+				if (lclStandings.stream().anyMatch(PlayerStanding::hasAnyMatchesWithBothCardsGettingWin)) {
+					%><caption>
+						In some matches, both players are credited with a win. The actual results still affect category awards, seeds, and potentially tiebreakers to get into the Championship Match.
+					</caption><%
+				}
+				%><thead>
 					<tr>
 						<th><abbr title="final place">#</abbr></th>
 						<th>Player</th>
@@ -130,6 +135,7 @@ static class PlayerStanding {
 	private final int myPoints;
 	private final int myTUH;
 	private final OptionalDouble myCDepth;
+	private final boolean myAnyMatchesWithBothCardsGettingWin;
 	
 	PlayerStanding(Player argP) {
 		super();
@@ -140,14 +146,19 @@ static class PlayerStanding {
 		int lclLosses = 0;
 		int lclPoints = 0;
 		int lclTUH = 0;
+		boolean lclAnyMatchesWithBothCardsGettingWin = false;
 		
 		List<Response> lclResponses = new ArrayList<>();
 		for (Performance lclP : argP.getPerformanceSet()) {
 			if (lclP.getGame().getMatch().determineStatus() == MatchStatus.COMPLETE) {
-				if (argP == lclP.getGame().getOutgoingWinningCardPlayer()) {
+				if (argP == lclP.getGame().getOutgoingWinningCardPlayer() || lclP.getGame().getMatch().isBothCardsGetWin()) {
 					++lclWins;
 				} else {
 					++lclLosses;
+				}
+				
+				if (lclP.getGame().getMatch().isBothCardsGetWin()) {
+					lclAnyMatchesWithBothCardsGettingWin = true;
 				}
 				
 				lclPoints += lclP.getScore();
@@ -162,6 +173,7 @@ static class PlayerStanding {
 		myPoints = lclPoints;
 		myTUH = lclTUH;
 		myCDepth = Response.calculateCDepth(lclResponses);
+		myAnyMatchesWithBothCardsGettingWin = lclAnyMatchesWithBothCardsGettingWin;
 	}
 	
 	Player getPlayer() {
@@ -202,6 +214,10 @@ static class PlayerStanding {
 		}
 		
 		return 1.0d * getPoints() / getTUH();
+	}
+	
+	boolean hasAnyMatchesWithBothCardsGettingWin() {
+		return myAnyMatchesWithBothCardsGettingWin;
 	}
 }
 %>

@@ -72,6 +72,8 @@ public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
 		getWriter().println("\\hline");
 		getWriter().println("\\endfoot");
 		
+		boolean lclAnyMatchesWithBothCardsGettingWins = false;
+		
 		for (final Card lclC : getPhase().getCards()) {
 			final Map<Round, Match> lclMatchMap = new HashMap<>(lclRounds.size());
 			for (final Match lclM : lclC.getWinningMatchSet()) {
@@ -92,7 +94,13 @@ public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
 					getWriter().print(" - & - ");
 				} else {
 					final Card lclOpponentCard = lclM.getWinningCard() == lclC ? lclM.getLosingCard() : lclM.getWinningCard();
-					getWriter().print("\\tiny" + escape(lclOpponentCard.getShortName()) + " & \\tiny " + escape(lclM.getRoom().getShortName()));
+					String lclOpponentCardNameWithBothWinIndicator = escape(lclOpponentCard.getShortName());
+					if (lclM.isBothCardsGetWin()) {
+						lclAnyMatchesWithBothCardsGettingWins = true;
+						lclOpponentCardNameWithBothWinIndicator = invisibleAsterisk() + lclOpponentCardNameWithBothWinIndicator + asterisk();
+					}
+					
+					getWriter().print("\\tiny" + lclOpponentCardNameWithBothWinIndicator + " & \\tiny " + escape(lclM.getRoom().getShortName()));
 				}
 				
 				if (lclRI.hasNext()) {
@@ -104,6 +112,13 @@ public class MasterByCardOutputter extends PhaseSpecificLaTeXOutputter {
 		}
 		
 		getWriter().println("\\end{longtable}");
+		
+		if (lclAnyMatchesWithBothCardsGettingWins) {
+			getWriter().println();
+			getWriter().println(asterisk() + "Both cards are credited with wins regardless of the actual score of the game.");
+			getWriter().println();
+		}
+		
 		getWriter().println("\\end{center}");
 		getWriter().println("\\end{document}");
 	}

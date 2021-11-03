@@ -72,6 +72,11 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 				%><dt>Tossups Heard</dt>
 					<dd><%= lclG.getTossupsHeard() %></dd><%
 			}
+			
+			if (lclM.isBothCardsGetWin()) {
+				%><dt>Safety Match</dt>
+					<dd>Regardless of the actual outcome of this game, both players are credited with a win. The actual results still affect category awards, seeds, and potentially tiebreakers to get into the Championship Match.</dd><%
+			}
 		%></dl>
 		
 		<table class="unsortable">

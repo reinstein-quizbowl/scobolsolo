@@ -81,16 +81,22 @@ if (lclOF.hasErrors()) {
 				<%= lclMOF.<Room>dropdown("Room").filter(argR -> argR.getTournament() == lclT) %>
 			</label>
 		</div>
-		<div class="small-12 medium-6 columns">
+		<div class="small-12 medium-5 columns">
 			<label>
 				Winning Card
 				<%= lclMOF.<Card>dropdown("WinningCard").filter(argC -> argC.getPhase() == lclPhase) %>
 			</label>
 		</div>
-		<div class="small-12 medium-6 columns">
+		<div class="small-12 medium-5 columns">
 			<label>
 				Losing Card
 				<%= lclMOF.<Card>dropdown("LosingCard").filter(argC -> argC.getPhase() == lclPhase) %>
+			</label>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<label>
+				Both cards get wins?
+				<%= HTMLUtility.switchWidget(lclMOF, "BothCardsGetWin") %>
 			</label>
 		</div>
 	<%= lclMOF.close() %>

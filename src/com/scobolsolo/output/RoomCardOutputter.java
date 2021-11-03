@@ -75,6 +75,8 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 			getWriter().println("\\begin{tabular}{C{3cm}C{3cm}C{3cm}C{3cm}}");
 			getWriter().println("\\rowcolor[gray]{0} \\ColumnHeader{Round} & \\ColumnHeader{Time} & \\ColumnHeader{Winning Card} & \\ColumnHeader{Losing Card} \\tabularnewline");
 			
+			boolean lclAnyMatchesWithBothCardsGettingWins = false;
+			
 			for (final Round lclRound : lclRounds) {
 				final List<Match> lclMatches = lclRoom.findMatches(lclRound);
 				
@@ -90,7 +92,13 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 						
 						if (lclM.isDual()) {
 							getWriter().print("\\OpponentCard{" + escape(lclM.getWinningCard().getShortName()) + "} & ");
-							getWriter().print("\\OpponentCard{" + escape(lclM.getLosingCard().getShortName()) + "}");
+							
+							String lclLosingCardNameWithBothWinIndicator = escape(lclM.getLosingCard().getShortName());
+							if (lclM.isBothCardsGetWin()) {
+								lclAnyMatchesWithBothCardsGettingWins = true;
+								lclLosingCardNameWithBothWinIndicator = invisibleAsterisk() + lclLosingCardNameWithBothWinIndicator + asterisk();
+							}
+							getWriter().print("\\OpponentCard{" + lclLosingCardNameWithBothWinIndicator + "}");
 						} else {
 							getWriter().print(" & ");
 						}
@@ -106,6 +114,12 @@ public class RoomCardOutputter extends PhaseSpecificLaTeXOutputter {
 			}
 			
 			getWriter().println("\\end{tabular}");
+			
+			if (lclAnyMatchesWithBothCardsGettingWins) {
+				getWriter().println();
+				getWriter().println(asterisk() + "Both players will be credited with a win regardless of the actual score of the game. \\\\ The score still affects category awards and potentially tiebreakers to get into the Championship Match.");
+				getWriter().println();
+			}
 			
 			getWriter().println("\\end{center}");
 			getWriter().println();

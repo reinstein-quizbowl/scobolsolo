@@ -128,6 +128,29 @@ public class MatchImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	@Override
+	public java.lang.Boolean isBothCardsGetWinAsObject() {
+		return getMatchOpal().isBothCardsGetWinAsObject();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	@Override
+	public com.scobolsolo.persistence.MatchImpl setBothCardsGetWin(java.lang.Boolean argBothCardsGetWin) {
+		getMatchOpal().setBothCardsGetWin(argBothCardsGetWin);
+		return this;
+	}
+
+	@Override
+	public com.scobolsolo.persistence.MatchImpl setBothCardsGetWin(boolean argBothCardsGetWin) {
+		getMatchOpal().setBothCardsGetWin(argBothCardsGetWin);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

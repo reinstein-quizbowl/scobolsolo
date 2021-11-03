@@ -58,6 +58,8 @@ public class PlayerCardOutputter extends PhaseSpecificLaTeXOutputter {
 			getWriter().println("\\begin{tabular}{C{3cm}C{3cm}C{3cm}C{3cm}}");
 			getWriter().println("\\rowcolor[gray]{0} \\ColumnHeader{Round} & \\ColumnHeader{Time} & \\ColumnHeader{Room} & \\ColumnHeader{Opponent} \\tabularnewline");
 			
+			boolean lclAnyMatchesWithBothCardsGettingWins = false;
+			
 			final Map<Round, Match> lclMatchMap = new HashMap<>(lclRounds.size());
 			for (final Match lclM : lclC.getWinningMatchSet()) {
 				lclMatchMap.put(lclM.getRound(), lclM);
@@ -79,7 +81,13 @@ public class PlayerCardOutputter extends PhaseSpecificLaTeXOutputter {
 					
 					if (lclM.isDual()) {
 						final Card lclOpponentCard = lclM.getWinningCard() == lclC ? lclM.getLosingCard() : lclM.getWinningCard();
-						getWriter().print("\\OpponentCard{" + escape(lclOpponentCard.getShortName()) + "}");
+						String lclOpponentCardNameWithBothWinIndicator = escape(lclOpponentCard.getShortName());
+						if (lclM.isBothCardsGetWin()) {
+							lclAnyMatchesWithBothCardsGettingWins = true;
+							lclOpponentCardNameWithBothWinIndicator = invisibleAsterisk() + lclOpponentCardNameWithBothWinIndicator + asterisk();
+						}
+						
+						getWriter().print("\\OpponentCard{" + lclOpponentCardNameWithBothWinIndicator + "}");
 					} // else, leave it blank
 				}
 				
@@ -91,6 +99,12 @@ public class PlayerCardOutputter extends PhaseSpecificLaTeXOutputter {
 			}
 			
 			getWriter().println("\\end{tabular}");
+			
+			if (lclAnyMatchesWithBothCardsGettingWins) {
+				getWriter().println();
+				getWriter().println(asterisk() + "Both players will be credited with a win regardless of the actual score of the game. \\\\ The score still affects category awards and potentially tiebreakers to get into the Championship Match.");
+				getWriter().println();
+			}
 			
 			if (lclC.getFinalMessage() != null) {
 				getWriter().println();

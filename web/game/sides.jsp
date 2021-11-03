@@ -105,6 +105,14 @@ MatchStatus lclStatus = lclMatch.determineStatus();
 		</div><%
 	}
 	
+	if (lclMatch.isBothCardsGetWin()) {
+		%><div class="row columns">
+			<div class="warning callout">
+				<p>Tell the players that regardless of the outcome of the game, both will be credited with a win in the standings. However, the actual results still affect category awards, seeds, and potentially tiebreakers to get into the Championship Match.</p>
+			</div>
+		</div><%
+	}
+	
 	%><div class="row">
 		<div class="small-12 columns">
 			<input type="submit" value="Continue…" />

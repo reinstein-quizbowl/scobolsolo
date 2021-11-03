@@ -328,6 +328,58 @@ public interface MatchUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Match setLosingCardId(int argLosingCardId);
 
 	/**
+	 * object accessor for the {@code BothCardsGetWin}
+	 *
+	 * <p>The {@code BothCardsGetWin} field is a direct mapping of the {@code both_cards_get_win} field in {@code match}.</p>
+	 *
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isBothCardsGetWin() method.</p>
+	 *
+	 * @return an object value of {@code BothCardsGetWin} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	public java.lang.Boolean isBothCardsGetWinAsObject();
+
+	/**
+	 * primitive accessor for the {@code BothCardsGetWin}
+	 *
+	 * <p>The {@code BothCardsGetWin} field is a direct mapping of the {@code both_cards_get_win} database column in the table {@code match}.</p>
+	 *
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isBothCardsGetWinAsObject() method.</p>
+	 *
+	 * @return the primitive value of {@code BothCardsGetWin} (of the current {@link com.opal.TransactionContext})
+	 */
+	default public boolean isBothCardsGetWin() {
+		java.lang.Boolean lclO = isBothCardsGetWinAsObject();
+		return lclO.booleanValue();
+	}
+
+	/**
+	 * sets the {@code BothCardsGetWin} to the value of {@code argBothCardsGetWin}
+	 *
+	 * @param argBothCardsGetWin the new value of {@code BothCardsGetWin}.  May not be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 * <p>The database column {@code both_cards_get_win} to which this field is mapped is {@code NOT NULL}.</p>
+	 *
+	 * @throws com.opal.IllegalNullArgumentException if argBothCardsGetWin is null
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = false)
+	@com.opal.annotation.Default(value = "false")
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Match setBothCardsGetWin(java.lang.Boolean argBothCardsGetWin);
+
+	/**
+	 * sets the {@code BothCardsGetWin} to the value of {@code argBothCardsGetWin}
+	 *
+	 * @param argBothCardsGetWin the new value of {@code BothCardsGetWin}
+	 * @return itself, so that mutators may be chained fluently
+	 */
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Match setBothCardsGetWin(boolean argBothCardsGetWin);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Card}
 	 * The returned {@code com.scobolsolo.application.Card} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code card} that is referenced by {@code match_losing_card_id_fkey}.
 	 *

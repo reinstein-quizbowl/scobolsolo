@@ -60,9 +60,17 @@ if (StringUtils.isNotBlank(lclR.getGameEndMessageHtml())) {
 
 %><div class="row">
 	<div class="small-12 columns">
-		<p>Congratulations to <%= lclWinner.getNameWithSchool() %> for defeating <%= lclLoser.getNameWithSchool() %>, <%= lclWinnerPerf.getScore() %>&ndash;<%= lclLoserPerf.getScore() %>.</p>
+		<p>Congratulations to <%= lclWinner.getNameWithSchool() %> for defeating <%= lclLoser.getNameWithSchool() %>, <%= lclWinnerPerf.getScore() %>&ndash;<%= lclLoserPerf.getScore() %>.</p><%
 		
-		<p>Give the winning card, <%= lclMatch.getWinningCard().getName() %>, to <%= lclWinner.getContact().getName() %>, and the losing card, <%= lclMatch.getLosingCard().getName() %>, to <%= lclLoser.getContact().getName() %>.</p><%
+		if (lclMatch.isBothCardsGetWin()) {
+			%><div class="row columns">
+				<div class="warning callout">
+					<p>Tell the players that despite the outcome of the game, both will be credited with a win in the standings. However, the actual results still affect category awards, seeds, and potentially tiebreakers to get into the Championship Match.</p>
+				</div>
+			</div><%
+		}
+		
+		%><p>Give the winning card, <%= lclMatch.getWinningCard().getName() %>, to <%= lclWinner.getContact().getName() %>, and the losing card, <%= lclMatch.getLosingCard().getName() %>, to <%= lclLoser.getContact().getName() %>.</p><%
 		
 		if (lclNextForWinner == null) {
 			%><p>

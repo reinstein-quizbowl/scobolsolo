@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -115,7 +116,10 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 					
 					final Round lclRound = Validate.notNull(lclRoundsByColumnIndex.get(lclCell.getColumnIndex()), "Unknown round for column index " + lclCell.getColumnIndex());
 					
-					final String lclCardShortName = getStringCellValue(lclCell);
+					final String lclCellValue = getStringCellValue(lclCell);
+					final String lclCardShortName = StringUtils.removeEnd(lclCellValue, "*");
+					final boolean lclBothCardsGetWin = lclCellValue.endsWith("*");
+					
 					final Card lclC = Validate.notNull(CardFactory.getInstance().forShortNamePhaseId(lclCardShortName, lclPhase.getIdAsObject()), "No card short-named '" + lclCardShortName + "' (row " + lclCell.getRowIndex() + ", column " + lclCell.getColumnIndex() + ')');
 					
 					if (lclWinningCard == null && lclLosingCard == null) {
@@ -160,7 +164,8 @@ public class UploadCardSystem extends ScobolSoloControllerServlet {
 							.setRound(lclRound)
 							.setRoom(lclRoom)
 							.setWinningCard(lclWinningCard)
-							.setLosingCard(lclLosingCard);
+							.setLosingCard(lclLosingCard)
+							.setBothCardsGetWin(lclBothCardsGetWin);
 						
 						lclWinningCard = null;
 						lclLosingCard = null;

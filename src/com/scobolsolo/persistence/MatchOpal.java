@@ -5,6 +5,7 @@ import com.scobolsolo.application.Match;
 @com.opal.StoreGeneratedPrimaryKey
 public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 
+	public static final java.lang.Boolean ourDefaultBothCardsGetWin = java.lang.Boolean.FALSE;
 
 	private MatchOpal() {
 		super();
@@ -13,6 +14,14 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 
 	public MatchOpal(com.opal.IdentityOpalFactory<Match, MatchOpal> argOpalFactory, Object[] argValues) {
 		super(argOpalFactory, argValues);
+	}
+
+	@Override
+	protected void applyDefaults() {
+		/* Initialize fields with their default values. */
+		getNewValues()[5] = ourDefaultBothCardsGetWin;
+
+		return;
 	}
 
 	@Override
@@ -31,6 +40,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		"RoomId",
 		"WinningCardId",
 		"LosingCardId",
+		"BothCardsGetWin",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -39,6 +49,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -47,9 +58,11 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		false,
 		true,
 		true,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -95,6 +108,10 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 
 	public synchronized java.lang.Integer getLosingCardIdAsObject() {
 		return (java.lang.Integer) getReadValueSet()[4];
+	}
+
+	public synchronized java.lang.Boolean isBothCardsGetWinAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[5];
 	}
 
 	public synchronized MatchOpal setId(final java.lang.Integer argId) {
@@ -161,6 +178,20 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		return this;
 	}
 
+	public synchronized MatchOpal setBothCardsGetWin(final java.lang.Boolean argBothCardsGetWin) {
+		tryMutate();
+		if (argBothCardsGetWin == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myBothCardsGetWin on " + this + " to null.");
+		}
+		getNewValues()[5] = argBothCardsGetWin;
+		return this;
+	}
+
+	public MatchOpal setBothCardsGetWin(final boolean argBothCardsGetWin) {
+		setBothCardsGetWin(argBothCardsGetWin ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	@Override
 	protected /* synchronized */ void copyOldValuesToNewInternal() {
 		myNewLosingCardOpal = myOldLosingCardOpal;
@@ -212,6 +243,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		lclTargetNewValues[2] = lclValues[2]; /* RoomId (immutable) */
 		/* Field 3 (WinningCardId) is part of a unique key. */
 		/* Field 4 (LosingCardId) is part of a unique key. */
+		lclTargetNewValues[5] = lclValues[5]; /* BothCardsGetWin (immutable) */
 
 		return;
 	}
@@ -330,6 +362,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		argOutput.println("RoomId = " + getRoomIdAsObject());
 		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
 		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
+		argOutput.println("BothCardsGetWin = " + isBothCardsGetWinAsObject());
 	}
 
 	@Override
@@ -339,6 +372,7 @@ public final class MatchOpal extends com.opal.UpdatableOpal<Match> {
 		argOutput.println("RoomId = " + getRoomIdAsObject());
 		argOutput.println("WinningCardId = " + getWinningCardIdAsObject());
 		argOutput.println("LosingCardId = " + getLosingCardIdAsObject());
+		argOutput.println("BothCardsGetWin = " + isBothCardsGetWinAsObject());
 	}
 
 	private CardOpal myOldLosingCardOpal;

@@ -107,4 +107,12 @@ public abstract class LaTeXOutputter {
 	public static String getFilenameSeparator() {
 		return System.getProperty("file.separator");
 	}
+	
+	protected static String asterisk() {
+		return "\\**";
+	}
+	
+	protected static String invisibleAsterisk() {
+		return "\\hphantom{" + asterisk() + "}";
+	}
 }
