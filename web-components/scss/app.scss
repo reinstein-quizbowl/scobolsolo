@@ -38,6 +38,12 @@ table {
 		}
 	}
 	
+	caption {
+		caption-side: bottom;
+		font-weight: normal;
+		text-align: left;
+	}
+	
 	&:not(.unsortable) {
 		thead {
 			th, td {
@@ -280,9 +286,8 @@ table.tournament-final-standings {
 	}
 	
 	caption {
+		caption-side: top;
 		padding: 0px;
-		font-weight: normal;
-		text-align: left;
 	}
 	
 	tbody {
