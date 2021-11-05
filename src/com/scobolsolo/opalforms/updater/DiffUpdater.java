@@ -99,6 +99,7 @@ public class DiffUpdater extends OpalFormUpdater<Diff> {
 		.put('_', '_')
 		.put('$', '$')
 		.put('~', '~')
+		.put('“', '”')
 		.build();
 	
 	protected boolean match(char argOpener, char argCloser) {
@@ -188,7 +189,11 @@ public class DiffUpdater extends OpalFormUpdater<Diff> {
 		lclError = lclError || lclStack.isEmpty() == false;
 		
 		if (lclError) {
-			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, underscores, dollar signs, and italicization tildes must be balanced correctly: " + lclStack + ".");
+			final String lclDescription = lclI == argTextToValidate.length() ?
+				"<code>" + StringUtils.join(lclStack, ' ') + "</code>" + (lclStack.size() == 1 ? "was" : "were") + " left open." :
+				"The error occurred around <code>" + StringUtils.substring(argTextToValidate, Math.max(0, lclI - 15), Math.min(argTextToValidate.length(), lclI + 15)) + "</code>";
+			
+			addError(argFieldName, "In the " + argFieldName.toLowerCase() + ", parentheses, square brackets, curly braces, double quotes, underscores, dollar signs, and italicization tildes must be balanced correctly. " + lclDescription);
 		}
 	}
 }
