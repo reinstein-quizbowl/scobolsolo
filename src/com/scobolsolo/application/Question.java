@@ -509,6 +509,14 @@ public interface Question extends QuestionUserFacing {
 							}
 							break;
 						
+						case ' ':
+							if (lclPrev == '}') {
+								// After a special command, we want to keep things on the same line. This is mainly meant for pronunciation guides, where keeping the post-PG word on the same line as the PG frequently helps flow.
+								lclSB.append("&nbsp;");
+							} else {
+								lclSB.append(' ');
+							}
+							break;
 						case '[':
 							++lclBracketNesting;
 							lclSB.append('[');
