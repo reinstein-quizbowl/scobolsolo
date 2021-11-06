@@ -1,11 +1,13 @@
 # Question futzing
 * Change straight double quotes to curly quotes, in both question text and answer lines. There will still be some straight double quotes because of umlauts.
-* Check question text and answer lines for these strings that are usually incorrect:
-** `--`
-** `,”`
-** `.”` (okay if the enquoted text is a complete sentence [or multiple sentences])
-** `, “` (okay if a comma would go there if the enquoted text were replaced by unenquoted text)
-* Use the "Render All" page to verify that everything renders with no explicit errors and no obvious problems.
+* Check question text _and answer lines_ for these strings that are usually incorrect:
+	* `--`
+	* `,”`
+	* `.”` (okay if the enquoted text is a complete sentence [or multiple sentences])
+	* `, “` (okay if a comma would go there if the enquoted text were replaced by unenquoted text)
+* Make sure the question descriptions are presentable, since they will eventually be shown publicly.
+* Use the "Render All" page to verify that everything renders with no explicit errors and no obvious problems. (Search the page for `Couldn’t convert`, and consider also scanning it visually.)
+* Skim the PDFs to make sure the questions render correctly that way too. Pay more attention to the Championship Match questions, since those will actually be read from PDFs in the normal course of events.
 
 # Before emailing staff with instructions
 * Make sure they all have accounts
