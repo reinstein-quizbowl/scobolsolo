@@ -22,60 +22,59 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 
 <div class="row">
 	<div class="small-12 columns"><%
-		DateTimeFormatter lclDTF = DateTimeFormatter.ofPattern("eeee, MMMM d, yyyy");
+		final DateTimeFormatter lclDateFormatter = DateTimeFormatter.ofPattern("eeee, MMMM d, yyyy");
 		
-		LocalDate lclDate = lclT.getDate();
-		LocalDate lclToday = LocalDateCache.today();
+		final LocalDate lclDate = lclT.getDate();
+		final LocalDate lclToday = LocalDateCache.today();
 		
-		String lclHoldingString, lclHaveYetEntered;
+		final String lclDateDescription, lclFieldDescription;
 		String lclHaveEnteredSingularSchoolSingularPlayer, lclHaveEnteredSingularSchoolPluralPlayer, lclHaveEnteredPluralSchoolPluralPlayer;
 		
+		final int lclSchoolCount = (int) lclT.streamSchoolRegistration()
+			.filter(it -> it.getFullPlayerCount() > 0)
+			.count();
+		final int lclPlayerCount = lclT.streamSchoolRegistration()
+			.mapToInt(SchoolRegistration::getFullPlayerCount)
+			.sum();
+		
 		if (lclDate.equals(lclToday)) {
-			lclHoldingString = "is being held today, " + lclDTF.format(lclDate);
-			lclHaveYetEntered = "entered players";
-			
-			lclHaveEnteredSingularSchoolSingularPlayer = "school has entered a player";
-			lclHaveEnteredSingularSchoolPluralPlayer = "school has entered players";
-			lclHaveEnteredPluralSchoolPluralPlayer = "schools have entered players";
+			lclDateDescription = "is being held today, " + lclDateFormatter.format(lclDate);
+			if (lclPlayerCount == 0) {
+				// This won't happen
+				lclFieldDescription = "No one has registered.";
+			} else if (lclPlayerCount == 1) {
+				// This won't happen
+				lclFieldDescription = "There is one player.";
+			} else {
+				lclFieldDescription = "There are " + lclPlayerCount + " players from " + (lclSchoolCount == 1 ? "one school" : lclSchoolCount + " schools") + ":";
+			}
 		} else if (lclDate.isBefore(lclToday)) {
-			lclHoldingString = "was held on " + lclDTF.format(lclDate);
-			lclHaveYetEntered = "entered players";
-			
-			lclHaveEnteredSingularSchoolSingularPlayer = "school entered a player";
-			lclHaveEnteredSingularSchoolPluralPlayer = "school entered players";
-			lclHaveEnteredPluralSchoolPluralPlayer = "schools entered players";
-		} else if (lclDate.isAfter(lclToday)) {
-			lclHoldingString = "will be held on " + lclDTF.format(lclDate);
-			lclHaveYetEntered = "have yet entered players";
-			
-			lclHaveEnteredSingularSchoolSingularPlayer = "school has entered a player";
-			lclHaveEnteredSingularSchoolPluralPlayer = "school has entered players";
-			lclHaveEnteredPluralSchoolPluralPlayer = "schools have entered players";
+			lclDateDescription = "was held on " + lclDateFormatter.format(lclDate);
+			if (lclPlayerCount == 0) {
+				// This won't happen
+				lclFieldDescription = "No one played.";
+			} else if (lclPlayerCount == 1) {
+				// This won't happen
+				lclFieldDescription = "There was one player.";
+			} else {
+				lclFieldDescription = "There were " + lclPlayerCount + " players from " + (lclSchoolCount == 1 ? "one school" : lclSchoolCount + " schools") + ":";
+			}
 		} else {
-			throw new IllegalStateException();
+			lclDateDescription = "will be held on " + lclDateFormatter.format(lclDate);
+			if (lclPlayerCount == 0) {
+				lclFieldDescription = "No one has registered yet.";
+			} else if (lclPlayerCount == 1) {
+				lclFieldDescription = "So far, one player has registered:";
+			} else {
+				lclFieldDescription = "So far, " + lclPlayerCount + " players from " + (lclSchoolCount == 1 ? "one school" : lclSchoolCount + " schools") + " have registered.";
+			}
 		}
 		
-		%><p><%= lclT.getName() %> <%= lclHoldingString %>.</p><%
+		%><p><%= lclT.getName() %> <%= lclDateDescription %>. <%= lclFieldDescription %></p><%
 		
-		if (lclT.getSchoolRegistrationSet().isEmpty()) {
-			%><p>No schools <%= lclHaveYetEntered %>.</p><%
-		} else {
+		if (lclT.getSchoolRegistrationSet().isEmpty() == false) {
 			List<WaitlistEntry> lclWEs = new ArrayList<>();
 			List<StandbyEntry> lclSEs = new ArrayList<>();
-			
-			if (lclT.getSchoolRegistrationSet().size() == 1) {
-				SchoolRegistration lclSR = Validate.notNull(lclT.getSchoolRegistrationSet().iterator().next());
-				
-				if (lclSR.getFullPlayerCount() == 0) {
-					// Nothing
-				} else if (lclSR.getFullPlayerCount() == 1) {
-					%><p>The following <%= lclHaveEnteredSingularSchoolSingularPlayer %>:</p><%
-				} else {
-					%><p>The following <%= lclHaveEnteredSingularSchoolPluralPlayer %>:</p><%
-				}
-			} else {
-				%><p>The following <%= lclHaveEnteredPluralSchoolPluralPlayer %>:</p><%
-			}
 			
 			SchoolRegistration[] lclSRs = lclT.createSchoolRegistrationArray();
 			Arrays.sort(lclSRs, SchoolRegistration.SchoolNameComparator.getInstance());
@@ -89,7 +88,11 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 					continue;
 				}
 				
-				%><h2 id="<%= lclSR.getId() %>"><a class="no-highlight" href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>"><%= lclSR.getSchool().getExplainedName() %></a></h2>
+				%><h2 id="<%= lclSR.getId() %>">
+					<a class="no-highlight" href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>">
+						<%= lclSR.getSchool().getExplainedName() %>
+					</a>
+				</h2>
 				<ul><%
 					Player[] lclPlayers = lclSR.createPlayerArray();
 					Arrays.sort(lclPlayers, Player.NameComparator.getInstance());
