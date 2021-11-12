@@ -105,6 +105,9 @@ if (lclUser != null && lclUser.findStaff(lclT) != null) {
 							} else {
 								%><abbr class="stealth-tooltip" title="to be determined">TBD</abbr><%
 							}
+							if (lclM.isBothCardsGetWin()) {
+								%><br />Regardless of the actual outcome of this game, both players are credited with a win. The actual results still affect category awards, seeds, and potentially tiebreakers to get into the Championship Match.<%
+							}
 						%></td>
 					</tr><%
 				}
