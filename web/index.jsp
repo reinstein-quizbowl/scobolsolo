@@ -12,7 +12,9 @@
 		<section id="next">
 			<h2>2021</h2>
 			
-			<p>The <a href="/2021/">2021 edition of Scobol Solo</a> will occur on Saturday, November&nbsp;13 at Carl Sandburg High School in Orland Park, Illinois.</p>
+			<p>The <a href="/2021/">2021 edition of Scobol Solo</a> is being held today, Saturday, November&nbsp;13, at Carl Sandburg High School in Orland Park, Illinois.</p>
+			
+			<p><a class="primary button" href="/stats/standings.jsp?object=2021">View Results</a></p>
 		</section>
 		
 		<section id="last">
