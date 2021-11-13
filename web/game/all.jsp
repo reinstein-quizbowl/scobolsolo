@@ -42,7 +42,10 @@ Account lclUser = Account.demand(request);
 		List<Match> lclMatches = lclT.streamPhase()
 			.flatMap(Phase::streamRound)
 			.flatMap(Round::streamMatch)
-			.sorted(Match.ENTERING_PRIORITY_COMPARATOR)
+			.sorted(
+				Comparator.<Match>comparingInt(it -> it.determineStatus() == MatchStatus.IN_PROGRESS ? 0 : 1)
+					.thenComparing(Match.ENTERING_PRIORITY_COMPARATOR)
+			)
 			.collect(Collectors.toList());
 			
 		Map<Match, MatchStatus> lclStatusByMatch = new HashMap<>(lclMatches.size());
