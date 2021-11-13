@@ -12,15 +12,11 @@
 		<section id="next">
 			<h2>2021</h2>
 			
-			<p>The <a href="/2021/">2021 edition of Scobol Solo</a> is being held today, Saturday, November&nbsp;13, at Carl Sandburg High School in Orland Park, Illinois.</p>
+			<p>The <a href="/2021/">2021 edition of Scobol Solo</a> took place on Saturday, November&nbsp;13, at Carl Sandburg High School in Orland Park, Illinois.</p>
 			
-			<p><a class="primary button" href="/stats/standings.jsp?object=2021">View Results</a></p>
-		</section>
-		
-		<section id="last">
-			<h2>2020</h2>
+			<p>The winner was Charles Young, a sophomore at Barrington High School.</p>
 			
-			<p>The <a href="/2020/">most recent edition of Scobol Solo</a> took place on December&nbsp;5 and 12, 2020 online via Discord. Jonathan Lau (University Laboratory High School, Urbana, Illinois) won.</p>
+			<p><a class="primary button" href="/2021/">View Results</a></p>
 		</section>
 		
 		<section id="about">
