@@ -19,9 +19,10 @@
 * Check "Online Stats?" on the tournament-edit page.
 * Back up the database.
 * Run the database maintenance "queries".
-* Restart the server early the morning of the tournament so that the cached menu updates for today.
-* Shut down as many other services running on the same server as possible (e.g., Masonic and maybe the development instance of the Solo app).
 
+# Early the morning of the tournament
+* Restart the server so that the cached menu updates.
+* Shut down as many other services running on the same server as possible (e.g., Masonic and maybe the development instance of the Solo app).
 
 # At the tournament
 * Make sure there are printed copies of all questions in the control room
@@ -29,8 +30,10 @@
 * Make sure there's a printed copy of the championship-match questions for buzzpoint tracking
 * Make sure notes are kept at the award ceremony on which category winners did not pick up their ribbon
 
-
 # After the tournament
+* Set player ranks
+* Post a wrap-up
+* Post the championship match scoresheet
 * Re-enable disabled sites on the same server
 * Restart the server the day after the tournament so that the cached menu updates.
 * Archive messages so they won't still show up next year.
