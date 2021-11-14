@@ -914,7 +914,7 @@
 			</tfoot>
 		</table>
 		
-		<p>Charles Young of Barrington High School is the champion of the 2021 Scobol Solo. He is the second player from Barrington to win the tournament (John Waldron, 2016) and the first player to win the tournament after playing on a <a href="https://www.naqt.com/stats/tournament/team.jsp?team_id=310647">national champion team</a>.</p>
+		<p>Charles Young of Barrington High School is the champion of the 2021 Scobol Solo. He is the second player from Barrington to win the tournament (John Waldron, <a href="/2016/">2016</a>) and the first player to win the tournament after playing on a <a href="https://www.naqt.com/stats/tournament/team.jsp?team_id=310647">national champion team</a>.</p>
 	</div>
 </div>
 
