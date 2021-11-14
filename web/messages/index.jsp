@@ -76,8 +76,12 @@ if (lclByCorrespondent.isEmpty()) {
 
 List<Account> lclNewThreadRecipients = AccountFactory.getInstance().acquireForQuery(
 	new ArrayList<>(),
-	new ImplicitTableDatabaseQuery("can_receive_unsolicited_messages = true")
+	new ImplicitTableDatabaseQuery("active = true")
 );
+if (lclUser.isAdministrator() == false) {
+	lclNewThreadRecipients.removeIf(it -> it.isCanReceiveUnsolicitedMessages() == false);
+}
+
 lclNewThreadRecipients.sort(Account.NameComparator.getInstance());
 lclNewThreadRecipients.removeAll(lclByCorrespondent.keySet());
 lclNewThreadRecipients.remove(lclUser);
