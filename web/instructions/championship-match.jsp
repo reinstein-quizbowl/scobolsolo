@@ -21,7 +21,7 @@
 			<ul>
 				<li>The player who finishes the preliminary rounds 7–0</li>
 				<li>The seven players who finish the preliminary rounds 6–1</li>
-				<li>
+				<li id="tiebreaker-criterion">
 					The player with the highest points per tossup heard (PPTUH) among the players who finish the preliminary rounds 5–2. If there is a tie:
 					<ol>
 						<li>The player from that group who took their second loss later/latest will be chosen.</li>
