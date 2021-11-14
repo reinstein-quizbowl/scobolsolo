@@ -10,7 +10,7 @@
 * Skim the PDFs to make sure the questions render correctly that way too. Pay more attention to the Championship Match questions, since those will actually be read from PDFs in the normal course of events.
 
 # Before emailing staff with instructions
-* Make sure they all have accounts
+* Make sure they all have _active_ accounts. This means activating the accounts of people who already had them and creating new accounts for people who didn't.
 * Update `web/instructions/index.jsp` and `web/instructions/championship-match.jsp` if necessary (at least update the year in the menu)
 
 # Before the tournament
@@ -39,5 +39,6 @@
 * Archive messages so they won't still show up next year.
 * Deactivate contacts who just finished their senior year
 * Deactivate other contacts who should, in your judgment, be deactivated (e.g., retiring coaches, former staff who haven't worked in a long time)
+* Deactivate all accounts except Reinstein and Jonah
 * Back up the database.
 * Run the database maintenance "queries".
