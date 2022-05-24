@@ -35,10 +35,11 @@
 * Post a wrap-up
 * Post the championship match scoresheet
 * Re-enable disabled sites on the same server
-* Restart the server the day after the tournament so that the cached menu updates.
-* Archive messages so they won't still show up next year.
+* Restart the server the day after the tournament so that the cached menu updates
+* Archive messages so they won't still show up next year
 * Deactivate contacts who just finished their senior year
 * Deactivate other contacts who should, in your judgment, be deactivated (e.g., retiring coaches, former staff who haven't worked in a long time)
 * Deactivate all accounts except Reinstein and Jonah
-* Back up the database.
-* Run the database maintenance "queries".
+* Back up the database
+* Run the database maintenance "queries"
+* Update the QBWiki, including the pain-in-the-neck records portion
