@@ -9,9 +9,9 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Scobol Solo 2022 will (almost certainly) be Saturday, October&nbsp;29 at Carl Sandburg High School in Orland Park, Illinois.</p>
+		<p>Scobol Solo 2022 will be Saturday, October&nbsp;29 at Carl Sandburg High School in Orland Park, Illinois.</p>
 		
-		<p>Registration will open in early fall 2022.</p>
+		<p><a class="primary button" href="/register/">Register</a></p>
 	</div>
 </div>
 
