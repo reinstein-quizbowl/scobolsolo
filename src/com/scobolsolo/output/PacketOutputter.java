@@ -183,6 +183,7 @@ public class PacketOutputter extends TournamentSpecificLaTeXOutputter {
 						lclSB.append(lclC);
 					}
 					break;
+				
 				case '~':
 					if (lclPrev == '\\') {
 						lclSB.append(lclC);

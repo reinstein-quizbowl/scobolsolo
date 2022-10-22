@@ -184,6 +184,7 @@ public interface Question extends QuestionUserFacing {
 			final boolean lclShowBuzzLinks = showBuzzLinks(argBitField);
 			
 			boolean lclInItalics = false;
+			boolean lclInDoubleQuotes = false;
 			boolean lclInUnderlining = false;
 			boolean lclInMath = false;
 			int lclBracketNesting = 0;
@@ -517,6 +518,7 @@ public interface Question extends QuestionUserFacing {
 								lclSB.append(' ');
 							}
 							break;
+						
 						case '[':
 							++lclBracketNesting;
 							lclSB.append('[');
@@ -525,21 +527,13 @@ public interface Question extends QuestionUserFacing {
 							--lclBracketNesting;
 							lclSB.append(']');
 							break;
+						
 						case '$':
 							Validate.isTrue(lclInMath == false);
 							lclSB.append("<span class=\"latex\">\\(");
 							lclInMath = true;
 							break;
-						case '`':
-							lclSB.append("&#8216;");
-							break;
-						case '\'':
-							if (lclInMath) {
-								lclSB.append('\'');
-							} else {
-								lclSB.append("&#8217;");
-							}
-							break;
+						
 						case '-':
 							if (lclNext == '-') {
 								if (lclTwoNext == '-') { // ---
@@ -563,6 +557,47 @@ public interface Question extends QuestionUserFacing {
 								lclSB.append("<i>");
 							}
 							lclInItalics = !lclInItalics;
+							break;
+						
+						case '`':
+							lclSB.append("&lsquo;");
+							break;
+						case '\'':
+							if (lclInMath) {
+								lclSB.append('\'');
+							} else {
+								lclSB.append("&rsquo;");
+							}
+							break;
+						case '"':
+							if (lclInDoubleQuotes) {
+								lclSB.append("&rdquo;");
+								lclInDoubleQuotes = false;
+							} else {
+								lclSB.append("&ldquo;");
+								lclInDoubleQuotes = true;
+							}
+							break;
+						case '\u201C':
+							lclSB.append("&ldquo;");
+							lclInDoubleQuotes = true;
+							break;
+						case '\u201D':
+							lclSB.append("&rdquo;");
+							lclInDoubleQuotes = false;
+							break;
+						case '\u2018':
+							lclSB.append("&lsquo;");
+							break;
+						case '\u2019':
+							lclSB.append("&rsquo;");
+							break;
+						
+						case '\u2013':
+							lclSB.append("&ndash;");
+							break;
+						case '\u2014':
+							lclSB.append("&mdash;");
 							break;
 						
 						case '_':
