@@ -1,10 +1,12 @@
 # Question futzing
 * Change straight double quotes to curly quotes, in both question text and answer lines. There will still be some straight double quotes because of umlauts.
 * Check question text _and answer lines_ for these strings that are usually incorrect:
-	* `--`
 	* `,”`
+	* `,"`
 	* `.”` (okay if the enquoted text is a complete sentence [or multiple sentences])
+	* `."` (okay if the enquoted text is a complete sentence [or multiple sentences])
 	* `, “` (okay if a comma would go there if the enquoted text were replaced by unenquoted text)
+	* `, "` (okay if a comma would go there if the enquoted text were replaced by unenquoted text)
 * Make sure the question descriptions are presentable, since they will eventually be shown publicly.
 * Use the "Render All" page to verify that everything renders with no explicit errors and no obvious problems. (Search the page for `Couldn’t convert`, and consider also scanning it visually.)
 * Skim the PDFs to make sure the questions render correctly that way too. Pay more attention to the Championship Match questions, since those will actually be read from PDFs in the normal course of events.
@@ -15,6 +17,7 @@
 
 # Before the tournament
 * Make sure registration is closed by removing the `REGISTRATION_OPEN_FOR` value in `application.properties`.
+* Make sure that the school, player, and staff messages are accurate (including wifi password, control room, etc.).
 * Make sure cards that end 5–2 or better have final messages about the championship match. Maybe we want to do this for all cards (e.g., to advertise the awards ceremony).
 * Check "Online Stats?" on the tournament-edit page.
 * Back up the database.
