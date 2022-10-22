@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.opal.DatabaseQuery;
 import com.opal.TransactionContext;
 
 import com.scobolsolo.application.Account;
@@ -163,11 +164,8 @@ public class Register extends ScobolSoloControllerServlet {
 	}
 	
 	public static Tournament getTournamentToRegisterFor() {
-		String lclCode = ScobolSoloConfiguration.getInstance().getString("REGISTRATION_OPEN_FOR");
-		if (StringUtils.isBlank(lclCode)) {
-			return null;
-		} else {
-			return TournamentFactory.getInstance().forCode(lclCode);
-		}
+		return TournamentFactory.getInstance().getForQuery(
+			new DatabaseQuery("SELECT * FROM Tournament WHERE registration_open = true AND date > now() ORDER BY date LIMIT 1")
+		);
 	}
 }

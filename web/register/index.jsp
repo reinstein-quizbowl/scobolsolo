@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Comparator" %>
+<%@ page import="com.opal.LocalDateCache" %>
 <%@ page import="com.scobolsolo.application.SchoolYear" %>
 <%@ page import="com.scobolsolo.application.SchoolYearFactory" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
@@ -24,9 +25,21 @@ if (lclTourn == null) {
 
 <div class="row columns">
 	<p><%= lclTourn.getName() %> will take place on <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
-</div>
+</div><%
 
-<div class="row">
+if (lclTourn.getPlayerCountIncludingUnnamedReservedSpots() >= lclTourn.getFieldCap()) {
+	%><div class="row columns">
+		<p class="warning">The tournament is full. Use this form to register for the waitlist.</p>
+	</div><%
+}
+
+if (LocalDateCache.today().isAfter(lclTourn.getDate().minusWeeks(1))) {
+	%><div class="row columns">
+		<p class="warning">The tournament is coming up very soon, so registrations at this point should be considered tentative and will be discussed by email.</p>
+	</div><%
+}
+
+%><div class="row">
 	<div class="small-12 medium-8 large-6 columns">
 		
 		<form method="post" action="Register" accept-charset="utf-8">

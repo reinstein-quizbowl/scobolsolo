@@ -31,6 +31,7 @@ CREATE TABLE Tournament (
 	url TEXT,
 	tournament_director_contact_id INTEGER NOT NULL REFERENCES Contact ON UPDATE CASCADE ON DELETE RESTRICT,
 	site_school_id INTEGER NOT NULL REFERENCES School ON UPDATE CASCADE ON DELETE RESTRICT,
+	registration_open BOOLEAN NOT NULL DEFAULT FALSE,
 	player_message TEXT,
 	staff_message TEXT,
 	school_message TEXT,

@@ -7,6 +7,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	public static final java.lang.Boolean ourDefaultTiebreakerSuddenDeath = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultQuestionsComplete = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultOnlineStats = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultRegistrationOpen = java.lang.Boolean.FALSE;
 
 	private TournamentOpal() {
 		super();
@@ -23,6 +24,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		getNewValues()[5] = ourDefaultTiebreakerSuddenDeath;
 		getNewValues()[15] = ourDefaultQuestionsComplete;
 		getNewValues()[17] = ourDefaultOnlineStats;
+		getNewValues()[19] = ourDefaultRegistrationOpen;
 
 
 		/* Initialize the back Collections to empty sets. */
@@ -89,6 +91,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		"QuestionDownloadUrl",
 		"OnlineStats",
 		"SiteSchoolId",
+		"RegistrationOpen",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -111,6 +114,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		java.lang.String.class,
 		java.lang.Boolean.class,
 		java.lang.Integer.class,
+		java.lang.Boolean.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -133,9 +137,11 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		true,
 		false,
 		false,
+		false,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
 		null,
 		null,
 		null,
@@ -251,6 +257,10 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
 	public synchronized java.lang.Integer getSiteSchoolIdAsObject() {
 		return (java.lang.Integer) getReadValueSet()[18];
+	}
+
+	public synchronized java.lang.Boolean isRegistrationOpenAsObject() {
+		return (java.lang.Boolean) getReadValueSet()[19];
 	}
 
 	public synchronized TournamentOpal setDate(final java.time.LocalDate argDate) {
@@ -442,6 +452,20 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return this;
 	}
 
+	public synchronized TournamentOpal setRegistrationOpen(final java.lang.Boolean argRegistrationOpen) {
+		tryMutate();
+		if (argRegistrationOpen == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myRegistrationOpen on " + this + " to null.");
+		}
+		getNewValues()[19] = argRegistrationOpen;
+		return this;
+	}
+
+	public TournamentOpal setRegistrationOpen(final boolean argRegistrationOpen) {
+		setRegistrationOpen(argRegistrationOpen ? Boolean.TRUE : Boolean.FALSE);
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -513,6 +537,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		lclTargetNewValues[16] = lclValues[16]; /* QuestionDownloadUrl (immutable) */
 		lclTargetNewValues[17] = lclValues[17]; /* OnlineStats (immutable) */
 		lclTargetNewValues[18] = lclValues[18]; /* SiteSchoolId (immutable) */
+		lclTargetNewValues[19] = lclValues[19]; /* RegistrationOpen (immutable) */
 
 		return;
 	}
@@ -626,6 +651,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
 		argOutput.println("OnlineStats = " + isOnlineStatsAsObject());
 		argOutput.println("SiteSchoolId = " + getSiteSchoolIdAsObject());
+		argOutput.println("RegistrationOpen = " + isRegistrationOpenAsObject());
 	}
 
 	@Override
@@ -649,6 +675,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("QuestionDownloadUrl = " + getQuestionDownloadUrl());
 		argOutput.println("OnlineStats = " + isOnlineStatsAsObject());
 		argOutput.println("SiteSchoolId = " + getSiteSchoolIdAsObject());
+		argOutput.println("RegistrationOpen = " + isRegistrationOpenAsObject());
 	}
 
 	private RoomOpal myOldControlRoomOpal;

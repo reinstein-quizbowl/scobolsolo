@@ -42,6 +42,7 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 		"question_download_url", 
 		"online_stats", 
 		"site_school_id", 
+		"registration_open", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -114,7 +115,7 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 
 	protected void registerOpal(TournamentOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 19) { throw new IllegalStateException(); }
+		if (argValues.length != 20) { throw new IllegalStateException(); }
 		OpalCache<TournamentOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new CodeOpalKey((java.lang.String) argValues[3]), argOpal, true);
@@ -128,7 +129,7 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 	protected void unregisterOpal(TournamentOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 19) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 20) { throw new IllegalStateException(); }
 		OpalCache<TournamentOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new CodeOpalKey((java.lang.String) lclOldValues[3]));
@@ -143,10 +144,10 @@ public class PostgresTournamentOpalFactory extends com.opal.AbstractDatabaseIden
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 19) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 20) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 19) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 20) { throw new IllegalStateException(); }
 		OpalCache<TournamentOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<TournamentOpal> lclOldKey = null;
