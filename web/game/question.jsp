@@ -142,8 +142,17 @@ if (lclOvertime == false && lclPreviousPL == null && StringUtils.isNotBlank(lclR
 				<button class="large close-button" aria-label="Close" type="button" data-close onclick="$(this).trigger('close.zf.trigger')">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<p>Before continuing, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>.</p>
+				<p>Before reading this question, please announce the score: <%= lclLeftPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclLeftPlayer)) %>, <%= lclRightPlayer.getContact().getName() %> <%= lclScores.get(lclGame.findPerformance(lclRightPlayer)) %>.</p>
 				<p>If either player believes the score is otherwise, please resolve the discrepancy.</p>
+			</div><%
+		}
+		
+		if (lclOvertime) {
+			%><div class="secondary callout" data-closable>
+				<button class="large close-button" aria-label="Close" type="button" data-close onclick="$(this).trigger('close.zf.trigger')">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<p>Before reading this question, tell the players the following: &#8220;Please remember that you are expected to attempt to answer each question if you think you know it. Deliberately missing questions is unsportsmanlike behavior and will be reported to your coach, your school administration, and other quizbowl organizations.&#8221;</p>
 			</div><%
 		}
 		
