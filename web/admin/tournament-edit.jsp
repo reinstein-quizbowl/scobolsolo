@@ -110,13 +110,19 @@ if (lclOF.hasErrors()) {
 			<%= lclOF.<Room>dropdown("ControlRoom").filter(argR -> argR == null || argR.getTournament() == lclT) %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-6 large-2 columns">
+		<label>
+			Registration open?
+			<%= HTMLUtility.switchWidget(lclOF, "RegistrationOpen") %>
+		</label>
+	</div>
+	<div class="small-12 medium-6 large-2 columns">
 		<label>
 			Is tiebreaker sudden death?
 			<%= HTMLUtility.switchWidget(lclOF, "TiebreakerSuddenDeath") %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-6 large-2 columns">
 		<label>
 			Questions complete?
 			<%= HTMLUtility.switchWidget(lclOF, "QuestionsComplete") %>
