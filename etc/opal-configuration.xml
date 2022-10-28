@@ -223,21 +223,6 @@
 		</Reference>
 		
 		
-		<!-- One-to-one relationships -->
-		<Reference>
-			<Source Type="Game">
-				<Column>id</Column>
-			</Source>
-			<Target Type="Match" OneToOne="True" />
-		</Reference>
-		
-		<Reference>
-			<Source Type="Card">
-				<Column>initial_player_id</Column>
-			</Source>
-			<Target Type="Player" OneToOne="True" />
-		</Reference>
-		
 		<!-- Renaming foreign keys -->
 		<Reference Field="Writer">
 			<Source Type="Question">
