@@ -147,7 +147,7 @@ if (lclOvertime == false && lclPreviousPL == null && StringUtils.isNotBlank(lclR
 			</div><%
 		}
 		
-		if (lclOvertime) {
+		if (lclOvertime && lclPacket != null && lclBasePL == lclPacket.getOvertimePlacements().get(0)) {
 			%><div class="secondary callout" data-closable>
 				<button class="large close-button" aria-label="Close" type="button" data-close onclick="$(this).trigger('close.zf.trigger')">
 					<span aria-hidden="true">&times;</span>
