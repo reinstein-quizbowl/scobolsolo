@@ -13,6 +13,7 @@
 <%@ page import="com.opal.LocalDateCache" %>
 <%@ page import="com.scobolsolo.application.Account" %>
 <%@ page import="com.scobolsolo.application.AccountFactory" %>
+<%@ page import="com.scobolsolo.application.Contact" %>
 <%@ page import="com.scobolsolo.application.Message" %>
 <%@ page import="com.scobolsolo.application.Room" %>
 <%@ page import="com.scobolsolo.application.Staff" %>
@@ -58,18 +59,7 @@ if (lclByCorrespondent.isEmpty()) {
 	for (final Account lclCorrespondent : lclMostRecentFirst) {
 		%><div class="correspondent row" id="<%= lclCorrespondent.getId() %>">
 			<div class="small-12 columns responses">
-				<h2>
-					With <%= lclCorrespondent.getContact().getName() %><%
-					
-					final String lclRelevantRoomNames = lclCorrespondent.getContact().getCurrentStaff().stream()
-						.flatMap(Staff::streamStaffAssignment)
-						.map(StaffAssignment::getRoom)
-						.map(Room::getName)
-						.collect(Collectors.joining(", "));
-					if (StringUtils.isNotBlank(lclRelevantRoomNames)) {
-						%> (<%= lclRelevantRoomNames %>)<%
-					}
-				%></h2><%
+				<h2>With <%= getNameWithRoomNumbers(lclCorrespondent.getContact()) %></h2><%
 				final Iterator<Message> lclMI = lclByCorrespondent.get(lclCorrespondent).iterator();
 				while (lclMI.hasNext()) {
 					final Message lclM = lclMI.next();
@@ -104,7 +94,7 @@ lclNewThreadRecipients.remove(lclUser);
 for (final Account lclRecipient : lclNewThreadRecipients) {
 	%><div class="correspondent row" id="<%= lclRecipient.getId() %>">
 		<div class="small-12 columns responses">
-			<h2>New Message to <%= lclRecipient.getContact().getName() %></h2>
+			<h2>New Message to <%= getNameWithRoomNumbers(lclRecipient.getContact()) %></h2>
 			<div class="response-container open-on-load"></div>
 		</div>
 	</div><%
@@ -123,3 +113,20 @@ for (final Account lclRecipient : lclNewThreadRecipients) {
 <jsp:include page="/template/footer.jsp">
 	<jsp:param name="loadScript" value="messages.js" />
 </jsp:include>
+<%!
+
+static String getNameWithRoomNumbers(Contact argC) {
+	String lclRelevantRoomNames = argC.getCurrentStaff().stream()
+		.flatMap(Staff::streamStaffAssignment)
+		.map(StaffAssignment::getRoom)
+		.map(Room::getName)
+		.collect(Collectors.joining(", "));
+	
+	if (StringUtils.isBlank(lclRelevantRoomNames)) {
+		return argC.getName();
+	} else {
+		return argC.getName() + " (" + lclRelevantRoomNames + ")";
+	}
+}
+
+%>
