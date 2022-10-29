@@ -20,7 +20,7 @@ Tournament lclTourn = TournamentFactory._2022();
 			
 			<p>Results are being posted live.</p>
 			
-			<p><a class="primary button" href="/stats/standings?object=<%= lclTourn.getUniqueString() %>">Standings</a></p><%
+			<p><a class="primary button" href="/stats/standings.jsp?object=<%= lclTourn.getUniqueString() %>">Standings</a></p><%
 		} else {
 			%><p>Scobol Solo 2022 was <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
 			
