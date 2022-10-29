@@ -85,7 +85,7 @@ boolean lclExtantResponses = (lclLeftResponse != null && lclLeftResponse.hasLoca
 
 Diff lclDiff;
 if (lclExtantResponses) {
-	if (lclLeftResponse.getDiff() != null && lclRightResponse.getDiff() != null) {
+	if (lclLeftResponse != null && lclLeftResponse.getDiff() != null && lclRightResponse != null && lclRightResponse.getDiff() != null) {
 		Validate.isTrue(lclLeftResponse.getDiff() == lclRightResponse.getDiff(), "Players responded to different versions of the question: " + lclLeftResponse.getDiff().getId() + " and " + lclRightResponse.getDiff().getId());
 		lclDiff = lclLeftResponse.getDiff();
 	} else {
