@@ -1,6 +1,7 @@
 package com.scobolsolo.application;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
@@ -130,6 +131,10 @@ public interface Tournament extends TournamentUserFacing {
 	
 	default Phase findFirstPhase() {
 		return streamPhase().min(Comparator.naturalOrder()).orElse(null);
+	}
+	
+	default long getDaysInFuture() { // or negative if in past
+		return ChronoUnit.DAYS.between(LocalDateCache.today(), getDate());
 	}
 	
 	public static Tournament findNext() {

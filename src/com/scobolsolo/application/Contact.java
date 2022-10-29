@@ -1,5 +1,8 @@
 package com.scobolsolo.application;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.apache.commons.lang3.Validate;
 
 import com.scobolsolo.persistence.ContactUserFacing;
@@ -29,5 +32,11 @@ public interface Contact extends ContactUserFacing {
 		Validate.notNull(argT);
 		
 		return streamStaff().filter(argS -> argS.getTournament() == argT).findAny().orElse(null);
+	}
+	
+	default List<Staff> getCurrentStaff() {
+		return this.streamStaff()
+			.filter(it -> Math.abs(it.getTournament().getDaysInFuture()) <= 7)
+			.collect(Collectors.toList());
 	}
 }
