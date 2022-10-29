@@ -59,6 +59,7 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 				%><p>This tournament hasn’t started yet.</p><%
 			}
 		} else {
+			boolean lclShowFinalPlaces = lclStandings.stream().anyMatch(it -> it.getPlayer().getFinalPlaceAsObject() != null);
 			boolean lclShowYears = lclStandings.stream().anyMatch(it -> it.getPlayer().getSchoolYear() != null);
 			boolean lclShowCategoryDepth = lclStandings.stream().anyMatch(it -> it.getAverageCorrectBuzzDepth().isPresent());
 			
@@ -70,7 +71,7 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 				}
 				%><thead>
 					<tr>
-						<th><abbr title="final place">#</abbr></th>
+						<%= lclShowFinalPlaces ? "<th><abbr title='final place'>#</abbr></th>" : "" %>
 						<th>Player</th>
 						<%= lclShowYears ? "<th>Year</th>" : "" %>
 						<th>School</th>
@@ -91,9 +92,11 @@ List<PlayerStanding> lclStandings = lclT.streamSchoolRegistration()
 						Player lclP = lclS.getPlayer();
 						SchoolRegistration lclSR = lclP.getSchoolRegistration();
 						
-						%><tr>
-							<th data-order="<%= lclP.getFinalPlace("?") %>"><%= lclP.getFinalPlace("&nbsp;") %></th>
-							<th data-order="<%= lclP.getContact().getSortBy() %>">
+						%><tr><%
+							if (lclShowFinalPlaces) {
+								%><th data-order="<%= lclP.getFinalPlace("?") %>"><%= lclP.getFinalPlace("&nbsp;") %></th><%
+							}
+							%><th data-order="<%= lclP.getContact().getSortBy() %>">
 								<a href="/stats/player-detail.jsp?school_registration_id=<%= lclSR.getId() %>#player_<%= lclP.getId() %>"><%= lclP.getContact().getName() %></a><%
 								if (lclAdmin) {
 									%> (<a href="/tournament/player-edit.jsp?player_id=<%= lclP.getId() %>">admin</a>)<%
