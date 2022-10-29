@@ -10,11 +10,7 @@
 <div class="row">
 	<div class="small-12 columns">
 		<section id="next">
-			<h2>2022</h2>
-			
-			<p>The <a href="/2022/">2022 edition of Scobol Solo</a> will be Saturday, October&nbsp;29 at Carl Sandburg High School in Orland Park, Illinois.</p>
-			
-			<p><a class="primary button" href="/register/">Register</a></p>
+			<jsp:include page="/2022/fragment.jsp" />
 		</section>
 		
 		<section id="last">

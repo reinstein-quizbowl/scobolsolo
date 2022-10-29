@@ -15,26 +15,6 @@ Tournament lclTourn = TournamentFactory._2022();
 	<jsp:param name="h1" value="Scobol Solo 2022" />
 </jsp:include>
 
-<div class="row">
-	<div class="small-12 columns"><%
-		if (lclTourn.getDate().isAfter(LocalDateCache.today())) {
-			%><p>Scobol Solo 2022 will be <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
-			
-			<p><a class="primary button" href="/register/">Register</a></p><%
-		} else if (lclTourn.getDate().equals(LocalDateCache.today())) {
-			%><p>Scobol Solo 2022 is today at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
-			
-			<p>Results are being be posted live.</p>
-			
-			<p><a class="primary button" href="/stats/standings?object=<%= lclTourn.getUniqueString() %>">Standings</a></p><%
-		} else {
-			%><p>Scobol Solo 2022 was <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
-			
-			<p>Full and final results will be posted soon.</p>
-			
-			<p><a class="primary button" href="/stats/standings?object=<%= lclTourn.getUniqueString() %>">Standings</a></p><%
-		}
-	%></div>
-</div>
+<jsp:include page="/2022/fragment.jsp" />
 
 <jsp:include page="/template/footer.jsp" />
