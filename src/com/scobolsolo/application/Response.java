@@ -41,7 +41,7 @@ public interface Response extends ResponseUserFacing {
 		double[] lclCorrectAnswerDepths = argResponses.stream()
 			.filter(argR -> argR.getWordEndIndexAsObject() != null)
 			.filter(argR -> argR.getType() == CORRECT)
-			.mapToDouble(argR -> 1.0d * argR.getWordEndIndex(0) / argR.getDiff().getTextLength())
+			.mapToDouble(argR -> Math.min(1.0d, 1.0d * argR.getWordEndIndex(0) / argR.getDiff().getTextLength()))
 			.toArray();
 		
 		if (lclCorrectAnswerDepths.length == 0) {
