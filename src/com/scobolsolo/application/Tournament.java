@@ -32,6 +32,21 @@ public interface Tournament extends TournamentUserFacing {
 		return streamSchoolRegistration().mapToInt(SchoolRegistration::getFullPlayerCount).sum();
 	}
 	
+	default int getRealPlayerCount() {
+		return (int) streamSchoolRegistration()
+			.flatMap(SchoolRegistration::streamPlayer)
+			.filter(it -> it.isExhibition() == false)
+			.count();
+	}
+	
+	default int getSchoolCount() {
+		return (int) streamSchoolRegistration()
+			.flatMap(SchoolRegistration::streamPlayer)
+			.filter(it -> it.isExhibition() == false)
+			.map(Player::getSchoolRegistration)
+			.distinct().count();
+	}
+	
 	default int getFieldCap() {
 		Phase lclFirstPhase = getPhases().get(0);
 		if (lclFirstPhase != null && lclFirstPhase.getCardSet().isEmpty() == false) {
