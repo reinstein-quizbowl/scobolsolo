@@ -336,7 +336,7 @@
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">Rohan Ganeshan, as Morning Champion, entered the game with a score equal to that of the then-leader, Alex Crowell: 8.</td>
+					<td colspan="10" class="note">Rohan Ganeshan, as Morning Champion, entered the game with a score equal to that of the then-leader, Alex Crowell: 8.</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>
@@ -613,7 +613,7 @@
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until four players remained. Therefore, Teigue Kelly, Michael Hunding, Thomas Lu, Megan Wang, and Gavin Markoff were eliminated. Rohan Ganeshan, Anmol Dash, Charles Young, and Alex Crowell remained.
 					</td>
 				</tr>
@@ -762,7 +762,7 @@
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until two players remained. Therefore, Anmol Dash and Alex Crowell were eliminated. Rohan Ganeshan and Charles Young remained.
 					</td>
 				</tr>
