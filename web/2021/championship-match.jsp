@@ -33,7 +33,7 @@
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1410#player_3031">Megan Wang</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1405#player_3007">Alex Crowell</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1422#player_3069">Gavin Markoff</a></th>
-					<!-- <th class="answer" rowspan="2">Answer</th> -->
+					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
 					<th>&nbsp;</th>
@@ -60,7 +60,7 @@
 					<td class="player-score-check">3</td><!-- Megan Wang -->
 					<td class="player-score-check">3</td><!-- Alex Crowell -->
 					<td class="player-score-check">3</td><!-- Gavin Markoff-->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="question-number">1</td>
@@ -73,7 +73,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">ketones</td>
 				</tr>
 				<tr>
 					<th class="question-number">2</td>
@@ -86,7 +86,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Kolkata</td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -99,7 +99,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>The Hungarian Dances</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">4</td>
@@ -112,7 +112,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">inferiority complex</td>
 				</tr>
 				<tr>
 					<th class="question-number">5</td>
@@ -125,7 +125,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">body size</td>
 				</tr>
 				<tr>
 					<th class="question-number">6</td>
@@ -138,7 +138,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Caliban</td>
 				</tr>
 				<tr>
 					<th class="question-number">7</td>
@@ -151,7 +151,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Battle of Gaugamela</td>
 				</tr>
 				<tr>
 					<th class="question-number">8</td>
@@ -164,7 +164,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">firing squads (in paintings)</td>
 				<tr>
 					<th class="question-number">9</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Rohan Ganeshan -->
@@ -176,7 +176,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Crater Lake</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -189,7 +189,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Pindar</td>
 				</tr>
 				<tr>
 					<th class="question-number">11</td>
@@ -202,7 +202,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">capacitance</td>
 				</tr>
 				<tr>
 					<th class="question-number">12</td>
@@ -215,7 +215,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>A Love Supreme</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -228,7 +228,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">South Sea Company</td>
 				</tr>
 				<tr>
 					<th class="question-number">14</td>
@@ -241,7 +241,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Kenzaburo Oe</td>
 				</tr>
 				<tr>
 					<th class="question-number">15</td>
@@ -254,7 +254,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">&#8220;born again&#8221; (common link)</td>
 				</tr>
 				<tr>
 					<th class="question-number">16</td>
@@ -267,7 +267,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">differential equations</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -280,7 +280,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Victoria Woodhull</td>
 				</tr>
 				<tr>
 					<th class="question-number">18</td>
@@ -293,7 +293,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">traveling preachers (in literature)</td>
 				</tr>
 				<tr>
 					<th class="question-number">19</td>
@@ -306,7 +306,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Delaware (current events)</td>
 				</tr>
 				<tr>
 					<th class="question-number">20</td>
@@ -319,7 +319,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">sandstone</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 20</th>
@@ -332,7 +332,7 @@
 					<td class="player-score-check">2</td><!-- Megan Wang -->
 					<td class="player-score-check">8</td><!-- Alex Crowell -->
 					<td class="player-score-check">5</td><!-- Gavin Markoff-->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
@@ -349,7 +349,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">cardioid</td>
 				</tr>
 				<tr>
 					<th class="question-number">22</td>
@@ -362,7 +362,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Chimamanda Ngozi Adichie</td>
 				</tr>
 				<tr>
 					<th class="question-number">23</td>
@@ -375,7 +375,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Alexi Navalny</td>
 				</tr>
 				<tr>
 					<th class="question-number">24</td>
@@ -388,7 +388,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Michael Collins (the Irish revolutionary)</td>
 				</tr>
 				<tr>
 					<th class="question-number">25</td>
@@ -401,7 +401,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>Music for the Royal Fireworks</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">26</td>
@@ -414,7 +414,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Callisto (the moon)</td>
 				</tr>
 				<tr>
 					<th class="question-number">27</td>
@@ -427,7 +427,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>The Mill on the Floss</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">28</td>
@@ -440,7 +440,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Heraclitus</td>
 				</tr>
 				<tr>
 					<th class="question-number">29</td>
@@ -453,7 +453,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Judith and Holofernes (as a painting subject)</td>
 				</tr>
 				<tr>
 					<th class="question-number">30</td>
@@ -466,7 +466,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Battle of Fort Necessity</td>
 				</tr>
 				<tr>
 					<th class="question-number">31</td>
@@ -479,7 +479,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Rabindranath Tagore</td>
 				</tr>
 				<tr>
 					<th class="question-number">32</td>
@@ -492,7 +492,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">gluons</td>
 				</tr>
 				<tr>
 					<th class="question-number">33</td>
@@ -505,7 +505,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Leto</td>
 				</tr>
 				<tr>
 					<th class="question-number">34</td>
@@ -518,7 +518,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Nineveh (historical)</td>
 				</tr>
 				<tr>
 					<th class="question-number">35</td>
@@ -531,7 +531,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Ursula K. Le&nbsp;Guin</td>
 				</tr>
 				<tr>
 					<th class="question-number">36</td>
@@ -544,7 +544,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">insertion reactions</td>
 				</tr>
 				<tr>
 					<th class="question-number">37</td>
@@ -557,7 +557,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>Der Rosenkavalier</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -570,7 +570,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Justin Smith Morrill</td>
 				</tr>
 				<tr>
 					<th class="question-number">39</td>
@@ -583,7 +583,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Lake Turkana</td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -596,7 +596,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">genetic drift</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 40</th>
@@ -609,7 +609,7 @@
 					<td class="player-score-check">2</td><!-- Megan Wang -->
 					<td class="player-score-check">9</td><!-- Alex Crowell -->
 					<td class="player-score-check">4</td><!-- Gavin Markoff-->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
@@ -628,7 +628,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Louis de&nbsp;Broglie</td>
 				</tr>
 				<tr>
 					<th class="question-number">42</td>
@@ -641,7 +641,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Ralph Vaughan Williams</td>
 				</tr>
 				<tr>
 					<th class="question-number">43</td>
@@ -654,7 +654,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Battle of Sekigahara</td>
 				</tr>
 				<tr>
 					<th class="question-number">44</td>
@@ -667,7 +667,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">shamans</td>
 				</tr>
 				<tr>
 					<th class="question-number">45</td>
@@ -680,7 +680,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">grass (in poetry)</td>
 				</tr>
 				<tr>
 					<th class="question-number">46</td>
@@ -693,7 +693,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Vietnam War (photos thereof)</td>
 				</tr>
 				<tr>
 					<th class="question-number">47</td>
@@ -706,7 +706,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Elijah Muhammad</td>
 				</tr>
 				<tr>
 					<th class="question-number">48</td>
@@ -719,7 +719,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">electron affinity</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -732,7 +732,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>Tom Jones</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">50</td>
@@ -745,7 +745,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Hamas</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 50</th>
@@ -758,7 +758,7 @@
 					<td class="player-eliminated">previously eliminated</td><!-- Megan Wang -->
 					<td class="player-score-check">11</td><!-- Alex Crowell -->
 					<td class="player-eliminated">previously eliminated</td><!-- Gavin Markoff-->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
@@ -777,7 +777,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Philip&nbsp;II</td>
 				</tr>
 				<tr>
 					<th class="question-number">52</td>
@@ -790,7 +790,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">troposphere</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
@@ -803,7 +803,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Friedrich Schiller</td>
 				</tr>
 				<tr>
 					<th class="question-number">54</td>
@@ -816,7 +816,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Henri Matisse</td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -829,7 +829,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Costa Rica (geography)</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -842,7 +842,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">keratin</td>
 				</tr>
 				<tr>
 					<th class="question-number">57</td>
@@ -855,7 +855,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Ptolemy (pharoah common link)</td>
 				</tr>
 				<tr>
 					<th class="question-number">58</td>
@@ -868,7 +868,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>As I Lay Dying</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>
@@ -881,7 +881,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">halal</td>
 				</tr>
 				<tr>
 					<th class="question-number">60</td>
@@ -894,7 +894,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">trisection</td>
 				</tr>
 			</tbody>
 			<tfoot>
@@ -909,7 +909,7 @@
 					<td class="player-eliminated">eliminated</td><!-- Megan Wang -->
 					<td class="player-eliminated">eliminated</td><!-- Alex Crowell -->
 					<td class="player-eliminated">eliminated</td><!-- Gavin Markoff-->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>
