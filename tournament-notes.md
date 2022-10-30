@@ -28,21 +28,22 @@
 * Shut down as many other services running on the same server as possible (e.g., Masonic and maybe the development instance of the Solo app).
 
 # At the tournament
-* Make sure there are printed copies of all questions in the control room
-* Make sure a buzzer system is available and set up for the championship match in advance (and that it can be kept until the finals end)
-* Make sure there's a printed copy of the championship-match questions for buzzpoint tracking
-* Make sure notes are kept at the award ceremony on which category winners did not pick up their ribbon
+* Make sure there are printed copies of all questions in the control room.
+* Make sure a buzzer system is available and set up for the championship match in advance (and that it can be kept until the finals end).
+* Make sure there's a printed copy of the championship-match questions for buzzpoint tracking (in addition to the moderator's copy if they plan to read from paper).
+* Make sure notes are kept at the award ceremony on which category winners did not pick up their ribbon.
 
 # After the tournament
-* Set player ranks
-* Post a wrap-up
-* Post the championship match scoresheet
-* Re-enable disabled sites on the same server
-* Restart the server the day after the tournament so that the cached menu updates
-* Archive messages so they won't still show up next year
-* Deactivate contacts who just finished their senior year
-* Deactivate other contacts who should, in your judgment, be deactivated (e.g., retiring coaches, former staff who haven't worked in a long time)
-* Deactivate all accounts except Reinstein and Jonah
-* Back up the database
-* Run the database maintenance "queries"
-* Update the QBWiki, including the pain-in-the-neck records portion
+* Close registration.
+* Set player ranks.
+* Post a wrap-up.
+* Post the championship match scoresheet.
+* Re-enable disabled sites on the same server.
+* Restart the server the day after the tournament so that the cached menu updates.
+* Archive messages so they won't still show up next year.
+* Deactivate contacts who just finished their senior year.
+* Deactivate other contacts who should, in your judgment, be deactivated (e.g., retiring coaches, former staff who haven't worked in a long time).
+* Deactivate all accounts except Reinstein's and Jonah's.
+* Back up the database.
+* Run the database maintenance "queries".
+* Update the QBWiki, including the pain-in-the-neck records portion.
