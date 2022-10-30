@@ -37,7 +37,7 @@
 * Close registration.
 * Set player ranks.
 * Post a wrap-up.
-* Post the championship match scoresheet.
+* Post the championship match scoresheet and set the value of 1Tournament.championship_match_url` accordingly.
 * Re-enable disabled sites on the same server.
 * Restart the server the day after the tournament so that the cached menu updates.
 * Archive messages so they won't still show up next year.
