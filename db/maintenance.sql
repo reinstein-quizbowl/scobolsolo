@@ -3,6 +3,7 @@ $ psql -U jonah -W -d scobolsolo
 reindex database scobolsolo;
 vacuum full;
 analyze;
+vacuum full analyze;
 \q
 
 
