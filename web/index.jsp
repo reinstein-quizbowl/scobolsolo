@@ -10,17 +10,15 @@
 <div class="row">
 	<div class="small-12 columns">
 		<section id="next">
-			<jsp:include page="/2022/fragment.jsp" />
+			<jsp:include page="/2023/fragment.jsp">
+				<jsp:param name="show_header" value="true" />
+			</jsp:include>
 		</section>
 		
 		<section id="last">
-			<h2>2021</h2>
-			
-			<p>The <a href="/2021/">2021 edition of Scobol Solo</a> took place on Saturday, November&nbsp;13, at Carl Sandburg High School in Orland Park, Illinois.</p>
-			
-			<p>The winner was Charles Young, a sophomore at Barrington High School.</p>
-			
-			<p><a class="primary button" href="/2021/">View Results</a></p>
+			<jsp:include page="/2022/fragment.jsp">
+				<jsp:param name="show_header" value="true" />
+			</jsp:include>
 		</section>
 		
 		<section id="about">

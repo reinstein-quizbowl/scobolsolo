@@ -7,8 +7,8 @@
 <%@ page import="com.scobolsolo.menu.Menus" %>
 <%
 
-final String lclName = "Scobol Solo 2022";
-final String lclShortName = "2022";
+final String lclName = "Scobol Solo 2023";
+final String lclShortName = "2023";
 final Tournament lclTourn = TournamentFactory.getInstance().forName(lclName);
 
 %>
@@ -18,10 +18,14 @@ final Tournament lclTourn = TournamentFactory.getInstance().forName(lclName);
 			%><h2><%= lclTourn == null ? lclShortName : lclTourn.getShortName() %></h2><%
 		}
 		
-		if (lclTourn.getDate().isAfter(LocalDateCache.today())) {
-			%><p><%= lclTourn.getName() %> will be <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
+		if (lclTourn == null) {
+			%><p><%= lclName %> will be held in the fall. The date and location have not been finalized but will be posted here when they are known.</p><%
+		} else if (lclTourn.getDate().isAfter(LocalDateCache.today())) {
+			%><p><%= lclTourn.getName() %> will be <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p><%
 			
-			<p><a class="primary button" href="/register/">Register</a></p><%
+			if (lclTourn.isRegistrationOpen()) {
+				%><p><a class="primary button" href="/register/">Register</a></p><%
+			}
 		} else if (lclTourn.getDate().equals(LocalDateCache.today())) {
 			%><p><%= lclTourn.getName() %> is today at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
 			
