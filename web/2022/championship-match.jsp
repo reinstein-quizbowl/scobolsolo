@@ -33,7 +33,7 @@
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1438#player_3139">Sinecio Morales</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1438#player_3158">Alex Crowell</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1452#player_3205">Jason Qin</a></th>
-					<!-- <th class="answer" rowspan="2">Answer</th> -->
+					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
 					<th>&nbsp;</th>
@@ -60,7 +60,7 @@
 					<td class="player-score-check">3</td><!-- Sinecio Morales -->
 					<td class="player-score-check">3</td><!-- Alex Crowell -->
 					<td class="player-score-check">3</td><!-- Jason Qin -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="question-number">1</td>
@@ -73,7 +73,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">continuum hypothesis</td>
 				</tr>
 				<tr>
 					<th class="question-number">2</td>
@@ -86,7 +86,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">extraversion</td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -99,7 +99,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>Lochner v. New York</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">4</td>
@@ -112,7 +112,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>Winesburg, Ohio</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">5</td>
@@ -125,7 +125,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Alex Crowell -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Giotto</td>
 				</tr>
 				<tr>
 					<th class="question-number">6</td>
@@ -138,7 +138,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">shielding effect</td>
 				</tr>
 				<tr>
 					<th class="question-number">7</td>
@@ -151,7 +151,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Zhou dynasty</td>
 				</tr>
 				<tr>
 					<th class="question-number">8</td>
@@ -164,7 +164,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Samuel Alito</td>
 				<tr>
 					<th class="question-number">9</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Charles Young -->
@@ -176,7 +176,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">&#8220;Sunstone&#8221;</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -189,7 +189,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">telomeres</td>
 				</tr>
 				<tr>
 					<th class="question-number">11</td>
@@ -202,7 +202,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Wynton Marsalis</td>
 				</tr>
 				<tr>
 					<th class="question-number">12</td>
@@ -215,7 +215,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Bay of Fundy</td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -228,7 +228,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Bulgaria (history)</td>
 				</tr>
 				<tr>
 					<th class="question-number">14</td>
@@ -241,7 +241,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">hysteresis</td>
 				</tr>
 				<tr>
 					<th class="question-number">15</td>
@@ -254,7 +254,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Yukio Mishima</td>
 				</tr>
 				<tr>
 					<th class="question-number">16</td>
@@ -267,7 +267,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Mahavira</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -280,7 +280,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">bassoon</td>
 				</tr>
 				<tr>
 					<th class="question-number">18</td>
@@ -293,7 +293,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">quasars</td>
 				</tr>
 				<tr>
 					<th class="question-number">19</td>
@@ -306,7 +306,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>Antony and Cleopatra</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">20</td>
@@ -319,7 +319,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Michel Ney</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 20</th>
@@ -332,11 +332,11 @@
 					<td class="player-score-check">6</td><!-- Sinecio Morales -->
 					<td class="player-score-check">4</td><!-- Alex Crowell -->
 					<td class="player-score-check">5</td><!-- Jason Qin -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">Charles Young, as Morning Champion, entered the game with a score equal to that of the then-leader, Rohan Kher: 7.</td>
+					<td colspan="10" class="note">Charles Young, as Morning Champion, entered the game with a score equal to that of the then-leader, Rohan Kher: 7.</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>
@@ -349,7 +349,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Fair Labor Standards Act</td>
 				</tr>
 				<tr>
 					<th class="question-number">22</td>
@@ -362,7 +362,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Hecate</td>
 				</tr>
 				<tr>
 					<th class="question-number">23</td>
@@ -375,7 +375,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Beer&ndash;Lambert Law</td>
 				</tr>
 				<tr>
 					<th class="question-number">24</td>
@@ -388,7 +388,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">B&eacute;la Bart&oacute;k</td>
 				</tr>
 				<tr>
 					<th class="question-number">25</td>
@@ -401,7 +401,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Ted Hughes</td>
 				</tr>
 				<tr>
 					<th class="question-number">26</td>
@@ -414,7 +414,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">St.&nbsp;Croix</td>
 				</tr>
 				<tr>
 					<th class="question-number">27</td>
@@ -427,7 +427,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Wheatstone bridges</td>
 				</tr>
 				<tr>
 					<th class="question-number">28</td>
@@ -440,7 +440,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Julius Nyerere</td>
 				</tr>
 				<tr>
 					<th class="question-number">29</td>
@@ -453,7 +453,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Gustave Courbet</td>
 				</tr>
 				<tr>
 					<th class="question-number">30</td>
@@ -466,7 +466,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Thomas Wolfe</td>
 				</tr>
 				<tr>
 					<th class="question-number">31</td>
@@ -479,7 +479,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">thylakoids</td>
 				</tr>
 				<tr>
 					<th class="question-number">32</td>
@@ -492,7 +492,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">George Berkeley</td>
 				</tr>
 				<tr>
 					<th class="question-number">33</td>
@@ -505,7 +505,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Adrianople</td>
 				</tr>
 				<tr>
 					<th class="question-number">34</td>
@@ -518,7 +518,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Ian McEwan</td>
 				</tr>
 				<tr>
 					<th class="question-number">35</td>
@@ -531,7 +531,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-correct-response">1</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Fourier series</td>
 				</tr>
 				<tr>
 					<th class="question-number">36</td>
@@ -544,7 +544,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Jacques Offenbach</td>
 				</tr>
 				<tr>
 					<th class="question-number">37</td>
@@ -557,7 +557,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Hanseatic League</td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -570,7 +570,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer"><i>A Hero of Our Time</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">39</td>
@@ -583,7 +583,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sinecio Morales -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">doldrums</td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -596,7 +596,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-no-response">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Uyghur people (current events)</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 40</th>
@@ -609,11 +609,11 @@
 					<td class="player-score-check">9</td><!-- Sinecio Morales -->
 					<td class="player-score-check">4</td><!-- Alex Crowell -->
 					<td class="player-score-check">6</td><!-- Jason Qin -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until four players remained. Therefore, Colin Stewart, Soren Gjesfjeld, Dwij Bhatt, Alex Crowell, and Jason Qin were eliminated. Charles Young, Rohan Kher, Teigue Kelly, and Sinecio morales remained.
 					</td>
 				</tr>
@@ -628,7 +628,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">prions</td>
 				</tr>
 				<tr>
 					<th class="question-number">42</td>
@@ -641,7 +641,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Artemio Cruz</td>
 				</tr>
 				<tr>
 					<th class="question-number">43</td>
@@ -654,7 +654,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Vespasian</td>
 				</tr>
 				<tr>
 					<th class="question-number">44</td>
@@ -667,7 +667,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">J.&nbsp;D. Vance</td>
 				</tr>
 				<tr>
 					<th class="question-number">45</td>
@@ -680,7 +680,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Alban Berg</td>
 				</tr>
 				<tr>
 					<th class="question-number">46</td>
@@ -693,7 +693,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Lagrange points</td>
 				</tr>
 				<tr>
 					<th class="question-number">47</td>
@@ -706,7 +706,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Amy Tan</td>
 				</tr>
 				<tr>
 					<th class="question-number">48</td>
@@ -719,7 +719,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Che Guevara</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -732,7 +732,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Daphne</td>
 				</tr>
 				<tr>
 					<th class="question-number">50</td>
@@ -745,7 +745,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">converse</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 50</th>
@@ -758,11 +758,11 @@
 					<td class="player-score-check">9</td><!-- Sinecio Morales -->
 					<td class="player-eliminated">eliminated</td><!-- Alex Crowell -->
 					<td class="player-eliminated">eliminated</td><!-- Jason Qin -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until two players remained. Therefore, Rohan Kher and Teigue Kelly were eliminated. Charles Young and Sinecio Morales remained.
 					</td>
 				</tr>
@@ -777,7 +777,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Arthur Rimbaud</td>
 				</tr>
 				<tr>
 					<th class="question-number">52</td>
@@ -790,7 +790,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Battle of Long Island</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
@@ -803,7 +803,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Le Corbusier</td>
 				</tr>
 				<tr>
 					<th class="question-number">54</td>
@@ -816,7 +816,7 @@
 					<td class="player-correct-response">1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">chloroform</td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -829,7 +829,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Max Weber</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -842,7 +842,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">PATCO</td>
 				</tr>
 				<tr>
 					<th class="question-number">57</td>
@@ -855,7 +855,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Samuel Richardson</td>
 				</tr>
 				<tr>
 					<th class="question-number">58</td>
@@ -868,7 +868,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">globes (in paintings)</td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>
@@ -881,7 +881,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">magnetic dipole moment</td>
 				</tr>
 				<tr>
 					<th class="question-number">60</td>
@@ -894,7 +894,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sinecio Morales -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Jason Qin -->
-					<!-- <td class="answer">answer</td> -->
+					<td class="answer">Lake Tanganyika</td>
 				</tr>
 			</tbody>
 			<tfoot>
@@ -909,7 +909,7 @@
 					<td class="player-score-check">12</td><!-- Sinecio Morales -->
 					<td class="player-eliminated">eliminated</td><!-- Alex Crowell -->
 					<td class="player-eliminated">eliminated</td><!-- Jason Qin -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>
