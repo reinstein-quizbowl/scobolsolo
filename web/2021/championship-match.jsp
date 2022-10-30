@@ -620,131 +620,131 @@
 				<tr>
 					<th class="question-number">41</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">42</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">43</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-correct-response">1</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">44</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-correct-response">1</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">45</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">46</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">47</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">48</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">50</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
 					<td class="player-correct-response">1</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
 					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr class="score-check">
@@ -769,131 +769,131 @@
 				<tr>
 					<th class="question-number">51</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">52</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">54</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">57</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">58</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-no-response">&nbsp;</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">59</td>
 					<td class="player-no-response">&nbsp;</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-correct-response">1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 				<tr>
 					<th class="question-number">60</td>
 					<td class="player-correct-response">1</td><!-- Rohan Ganeshan -->
-					<td class="player-no-response">&nbsp;</td><!-- Teigue Kelly -->
-					<td class="player-no-response">&nbsp;</td><!-- Anmol Dash -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Teigue Kelly -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Anmol Dash -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Charles Young -->
-					<td class="player-no-response">&nbsp;</td><!-- Michael Hunding -->
-					<td class="player-no-response">&nbsp;</td><!-- Thomas Lu -->
-					<td class="player-no-response">&nbsp;</td><!-- Megan Wang -->
-					<td class="player-no-response">&nbsp;</td><!-- Alex Crowell -->
-					<td class="player-no-response">&nbsp;</td><!-- Gavin Markoff-->
+					<td class="player-not-in-game">&nbsp;</td><!-- Michael Hunding -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Thomas Lu -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Megan Wang -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Alex Crowell -->
+					<td class="player-not-in-game">&nbsp;</td><!-- Gavin Markoff-->
 					<!-- <td class="answer">answer</td> -->
 				</tr>
 			</tbody>
