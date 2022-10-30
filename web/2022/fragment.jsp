@@ -86,7 +86,7 @@ Tournament lclTourn = TournamentFactory._2022();
 			
 			<p>This is Charles Young&#8217;s <a href="/2021/">second consecutive championship</a>.</p>
 			
-			<p>The full <a href="/stats/standings.jsp?object=2022">preliminary results</a> are available, as is the <a href="championship-match.jsp">championship match scoresheet</a>.</p><%
+			<p>The full <a href="/stats/standings.jsp?object=2022">preliminary results</a> are available, as is the <a href="/2022/championship-match.jsp">championship match scoresheet</a>.</p><%
 		}
 	%></div>
 </div>
