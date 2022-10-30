@@ -1,9 +1,26 @@
 var lclActivatedWord;
 
+function beforeUnloadListener(event) {
+	event.preventDefault();
+	
+	// The actual message is ignored in most modern browsers (they just use a default message), but it's worth a try.
+	return event.returnValue = 'You probably don&#8217;t want to navigate away now; the results you have entered won&#8217;t be saved. Use the &#8220;Continue&hellip;&#8221; button to save.';
+}
+
+function addCloseWarning() {
+	addEventListener('beforeunload', beforeUnloadListener, { capture: true });
+}
+
+function removeCloseWarning() {
+	removeEventListener('beforeunload', beforeUnloadListener, { capture: true });
+}
+
 $(document).ready(
 	function() {
 		$('.originally-buzzable').addClass('buzzable');
 		var lclMousedownFired = false;
+		
+		addCloseWarning();
 		
 		$(document).off()
 		.on(
@@ -115,6 +132,7 @@ function buzz(argSide, argBuzzPointId, argCorrect) {
 	
 	lclBuzzPoint.addClass(argCorrect ? 'buzzed-correct' : 'buzzed-incorrect');
 	
+	addCloseWarning();
 	hideBuzzMenu();
 }
 
@@ -147,8 +165,9 @@ function goOn() {
 	
 	$('<input type="hidden" name="data" />').val(JSON.stringify(lclData)).appendTo(lclForm);
 	
+	removeCloseWarning();
+	
 	document.forms['response'].submit();
-	// $.post('QuestionResponse', 'data=' + JSON.stringify(lclData));
 }
 
 function usePersisted() {

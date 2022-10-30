@@ -207,6 +207,10 @@ if (lclOvertime == false && lclPreviousPL == null && StringUtils.isNotBlank(lclR
 		if (lclRightResponse != null && lclRightResponse.hasLocation()) { // THINK: This won’t show anything if there’s no location. What should we do then?
 			%>buzz('right', findWordId(<%= lclRightResponse.getWordStartIndex(-1) %>), <%= lclRightResponse.getType().isCorrect() %>);<%
 		}
+		
+		if (lclLeftResponse != null && lclRightResponse != null) {
+			%>removeCloseWarning();<%
+		}
 	%>}
 </script>
 
