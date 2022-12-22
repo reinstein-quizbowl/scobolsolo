@@ -197,6 +197,8 @@ if (LocalDateCache.today().isAfter(lclTourn.getDate().minusWeeks(1))) {
 				<div class="row columns">
 					<p><strong>Total amount owed: $<span id="amount_owed">0</span>.</strong></p>
 					
+					<input type="text" name="winnie" style="position: absolute; overflow: hidden; clip: rect(0, 0, 0, 0); width: 1px; height: 1px; margin: -1px; border: 0; padding: 0;" tabindex="-1" autocomplete="off" />
+					
 					<p class="no-bottom-margin">We will send you a confirmation email containing all this information. Make checks payable to Reinstein QuizBowl and send them to&hellip;</p>
 					<address style="margin-bottom: 1rem;">
 						Reinstein QuizBowl<br />

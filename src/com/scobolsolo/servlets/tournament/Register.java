@@ -41,6 +41,11 @@ public class Register extends ScobolSoloControllerServlet {
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
 		final StringBuilder lclConfirmation = new StringBuilder();
 		
+		final String lclHoneypot = getParedParameter(argRequest, "winnie"); // we want a name that won't be detected by bots who are wise to this technique. Winnie the Pooh likes honey.
+		if (StringUtils.isNotBlank(lclHoneypot)) {
+			throw new IllegalArgumentException("No bots allowed");
+		}
+		
 		final Tournament lclTourn = Validate.notNull(getTournamentToRegisterFor());
 		final Contact lclTD = lclTourn.getTournamentDirectorContact();
 		lclConfirmation.append("<h1>Registration Confirmation for " + lclTourn.getName() + "</h1>")
