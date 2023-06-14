@@ -206,7 +206,8 @@ Tournament lclT = TournamentFactory.getInstance().fromHttpRequest(request, "obje
 			<div class="small-12 medium-6 columns">
 				<label>
 					From address
-					<input type="text" name="from" id="from" value="<%= lclT.getTournamentDirectorContact().getEmailAddress("") %>" required />
+					<input type="text" name="from" id="from" value="jonah@jonahgreenthal.com" required />
+					<p class="help-text">must end in jonahgreenthal.com</p>
 				</label>
 			</div>
 			<div class="small-12 medium-6 columns">

@@ -26,6 +26,8 @@ public class SendMessage extends ScobolSoloControllerServlet {
 	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(SendMessage.class);
 	private static final long serialVersionUID = 1L;
 	
+	private static final String NOTIFICATION_FROM_ADDRESS = "jonah@jonahgreenthal.com";
+	
 	private static final String RETURN_URL = "/messages/";
 	
 	@Override
@@ -60,7 +62,7 @@ public class SendMessage extends ScobolSoloControllerServlet {
 				try {
 					Mail.createEmail()
 						.addTo(lclRecipient.getMessageEmailNotifications())
-						.setFrom("noreply@scobolsolo.com", argUser.getContact().getName())
+						.setFrom(NOTIFICATION_FROM_ADDRESS, argUser.getContact().getName())
 						.setSubject("Scobol Solo message")
 						.setMsg(lclText)
 						.send();
