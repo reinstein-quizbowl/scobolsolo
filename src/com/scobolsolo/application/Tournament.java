@@ -24,6 +24,8 @@ import com.scobolsolo.persistence.TournamentUserFacing;
  */
 
 public interface Tournament extends TournamentUserFacing {
+	static final int DEFAULT_FIELD_CAP = 128;
+	
 	default List<Player> getPlayers() {
 		return streamSchoolRegistration().flatMap(SchoolRegistration::streamPlayer).collect(Collectors.toList());
 	}
@@ -48,11 +50,15 @@ public interface Tournament extends TournamentUserFacing {
 	}
 	
 	default int getFieldCap() {
+		if (getPhases().isEmpty()) {
+			return DEFAULT_FIELD_CAP;
+		}
+		
 		Phase lclFirstPhase = getPhases().get(0);
 		if (lclFirstPhase != null && lclFirstPhase.getCardSet().isEmpty() == false) {
 			return lclFirstPhase.getCardSet().size();
 		} else {
-			return 128;
+			return DEFAULT_FIELD_CAP;
 		}
 	}
 	
