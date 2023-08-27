@@ -25,7 +25,7 @@
 			
 			<p>After you have installed Discord, <a href="https://discord.gg/7a82hwWnZ4">open this link</a>, and if your browser asks you any questions about whether it’s okay to open that link in Discord, tell it that it’s okay. Press the “Join Scobol Solo” button.</p>
 			
-			<p>Find your name in the “Online” panel in the upper right. Right-click on your name and choose “Change Nickname”. Set your nickname to your full name <a href="/stats/field.jsp?object=2020">the way it is listed here</a>. If your name is not listed there or you want to be listed differently, write to <a href="mailto:reinsteind@yahoo.com">reinsteind@yahoo.com</a>.</p>
+			<p>Find your name in the “Online” panel in the upper right. Right-click on your name and choose “Change Nickname”. Set your nickname to your full name <a href="/stats/field.jsp?object=2020">the way it is listed here</a>. If your name is not listed there or you want to be listed differently, write to <a href="mailto:david@reinsteinquizbowl.com">david@reinsteinquizbowl.com</a>.</p>
 			
 			<p><strong>Log on to Discord at 1:00&nbsp;pm sharp each Saturday.</strong> Games won’t start until 1:30, but we really need to make sure everyone is present and solve any technical difficulties so that we can start on time. On December&nbsp;5, you will be done around 5:30&nbsp;pm. On December&nbsp;12, you will be done around 4:00&nbsp;pm unless you are one of the top nine players, in which case you will be done around 5:30&nbsp;pm.</p>
 			
@@ -71,7 +71,7 @@
 				<li>If you believe you have or your opponent has been ruled incorrect when you or they should have been ruled correct, or if you believe you have or your opponent has been ruled correct when you or they should have been ruled incorrect, politely inform the moderator that you wish to protest. The tournament director will determine a fair resolution. If you wish to lodge a protest, you must do so before either player has left the room, and both players must stay in the room until the protest is resolved.</li>
 				<li>If you are in a location with background noise or if your moderator asks you to, you should mute yourself when questions are being read. You will then need to unmute yourself whenever you give an answer. If both you and your moderator decide that muting is not necessary, then you do not need to mute.</li>
 				<li>Nine players will advance to the championship: the one player who finishes the preliminary rounds 7–0, the seven who finish 6–1, and the one with the highest points per tossup heard among the players who finished 5–2.</li>
-				<li>If you have any problems, tell a moderator or send a message on Discord to David Reinstein or Jonah Greenthal. You can also email them at <a href="mailto:reinsteind@yahoo.com">reinsteind@yahoo.com</a> and <a href="mailto:jonah@jonahgreenthal.com">jonah@jonahgreenthal.com</a>.</li>
+				<li>If you have any problems, tell a moderator or send a message on Discord to David Reinstein or Jonah Greenthal. You can also email them at <a href="mailto:david@reinsteinquizbowl.com">david@reinsteinquizbowl.com</a> and <a href="mailto:jonah@jonahgreenthal.com">jonah@jonahgreenthal.com</a>.</li>
 			</ul>
 		</section>
 	</div>

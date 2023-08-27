@@ -29,7 +29,8 @@ public class Register extends ScobolSoloControllerServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static final String RETURN_URL = "/register/confirmation.jsp";
-	private static final String FROM_ADDRESS = "jonah@jonahgreenthal.com";
+	private static final String FROM_ADDRESS = "david@reinsteinquizbowl.com";
+	private static final String FROM_DESCRIPTION = "Reinstein QuizBowl";
 	private static final String CC_NAME = "Jonah Greenthal";
 	private static final String CC_ADDRESS = "jonah@jonahgreenthal.com";
 	
@@ -152,7 +153,7 @@ public class Register extends ScobolSoloControllerServlet {
 				.addTo(lclTD.getEmailAddress(), lclTD.getName())
 				.addTo(lclContactEmail, lclContactName)
 				.addCc(CC_ADDRESS, CC_NAME)
-				.setFrom(FROM_ADDRESS, "Scobol Solo Registration")
+				.setFrom(FROM_ADDRESS, FROM_DESCRIPTION)
 				.setSubject(lclTourn.getName() + " Registration: " + lclSchoolName)
 				.send();
 			ourLogger.debug("Sent!");

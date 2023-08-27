@@ -161,7 +161,7 @@
 		<section id="questions">
 			<h2>Questions/Problems</h2>
 			
-			<p>If you have any questions or problems, find David Reinstein or Jonah Greenthal in the <code>control-room</code> channel. You can also use the messaging system built into scobolsolo.com, or email them at <a href="mailto:reinsteind@yahoo.com">reinsteind@yahoo.com</a> and <a href="mailto:jonah@jonahgreenthal.com">jonah@jonahgreenthal.com</a> respectively, but Discord is probably the most convenient method for both you and them.</p>
+			<p>If you have any questions or problems, find David Reinstein or Jonah Greenthal in the <code>control-room</code> channel. You can also use the messaging system built into scobolsolo.com, or email them at <a href="mailto:david@reinsteinquizbowl.com">david@reinsteinquizbowl.com</a> and <a href="mailto:jonah@jonahgreenthal.com">jonah@jonahgreenthal.com</a> respectively, but Discord is probably the most convenient method for both you and them.</p>
 		</section>
 		
 		<h2>Thanks again!</h2>
