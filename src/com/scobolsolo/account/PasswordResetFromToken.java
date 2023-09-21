@@ -18,7 +18,7 @@ import com.scobolsolo.Mail;
 import com.scobolsolo.ScobolSoloConfiguration;
 
 public class PasswordResetFromToken extends ScobolSoloControllerServlet {
-	private static final String FROM_ADDRESS = "jonah@jonahgreenthal.com";
+	private static final String FROM_ADDRESS = "admin@reinsteinquizbowl.com";
 	private static final String NOTIFICATION_TO_ADDRESS = "jonah@jonahgreenthal.com";
 	private static final String SEND_TO_BASE_URL = "confirmation.jsp";
 	private static final String ERROR_URL = "error.jsp";

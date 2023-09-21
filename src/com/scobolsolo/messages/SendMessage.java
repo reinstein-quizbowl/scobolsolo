@@ -26,7 +26,7 @@ public class SendMessage extends ScobolSoloControllerServlet {
 	private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(SendMessage.class);
 	private static final long serialVersionUID = 1L;
 	
-	private static final String NOTIFICATION_FROM_ADDRESS = "jonah@jonahgreenthal.com";
+	private static final String NOTIFICATION_FROM_ADDRESS = "admin@reinsteinquizbowl.com";
 	
 	private static final String RETURN_URL = "/messages/";
 	

@@ -23,7 +23,7 @@ import com.scobolsolo.Mail;
 import com.scobolsolo.Utility;
 
 public class PasswordResetGenerateToken extends ScobolSoloControllerServlet {
-	private static final String FROM_ADDRESS = "jonah@jonahgreenthal.com";
+	private static final String FROM_ADDRESS = "admin@reinsteinquizbowl.com";
 	private static final String NOTIFICATION_TO_ADDRESS = "jonah@jonahgreenthal.com";
 	
 	private static final String LINK_BASE_URL = "http://www.scobolsolo.com/password-reset/reset.jsp";
