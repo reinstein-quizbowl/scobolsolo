@@ -69,6 +69,7 @@ public class EmailAttendees extends ScobolSoloControllerServlet {
 		try {
 			for (final String lclTo : lclToAddresses) {
 				final Email lclE = Mail.createEmail()
+					.addReplyTo(lclT.getTournamentDirectorContact().getEmailAddress(), lclT.getTournamentDirectorContact().getName())
 					.addTo(lclTo)
 					.setFrom(lclFrom, lclFromDescription)
 					.setSubject(lclSubject)

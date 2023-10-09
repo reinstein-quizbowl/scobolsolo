@@ -29,11 +29,14 @@ public final class Mail {
 	private static final String mySmtpPassword = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_PASSWORD"));
 	private static final String myBounceAddress = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_BOUNCE_ADDRESS"));
 	
-	public static SimpleEmail createEmail() {
+	private static final String REPLY_TO_ADDRESS = "admin@reinsteinquizbowl.com";
+	private static final String REPLY_TO_DESCRIPTION = "Reinstein QuizBowl";
+	
+	public static SimpleEmail createEmail() throws EmailException {
 		return setUpSending(new SimpleEmail());
 	}
 	
-	public static HtmlEmail createHtmlEmail() {
+	public static HtmlEmail createHtmlEmail() throws EmailException {
 		return setUpSending(new HtmlEmail());
 	}
 	
@@ -55,7 +58,7 @@ public final class Mail {
 		return createEmailTo(Arrays.asList(argTos));
 	}
 	
-	public static MultiPartEmail createAttachableEmail() {
+	public static MultiPartEmail createAttachableEmail() throws EmailException {
 		return setUpSending(new MultiPartEmail());
 	}
 	
@@ -66,7 +69,7 @@ public final class Mail {
 		return new ByteArrayDataSource(argData, argMimeType);
 	}
 	
-	private static <T extends Email> T setUpSending(final T argEmail) {
+	private static <T extends Email> T setUpSending(final T argEmail) throws EmailException {
 		Validate.notNull(argEmail);
 		
 		argEmail.setHostName(mySmtpServer);
@@ -75,6 +78,7 @@ public final class Mail {
 		argEmail.setSSLOnConnect(mySmtpSsl);
 		argEmail.setStartTLSEnabled(mySmtpTls);
 		argEmail.setBounceAddress(myBounceAddress);
+		argEmail.addReplyTo(REPLY_TO_ADDRESS, REPLY_TO_DESCRIPTION);
 		
 		return argEmail;
 	}
