@@ -147,16 +147,15 @@ public class Register extends ScobolSoloControllerServlet {
 		lclConfirmation.append("<p>If you need to change players or have any questions, reply-all to this email or write to " + lclTD.getName() + " at <a href='mailto:" + lclTD.getEmailAddress() + "'>" + lclTD.getEmailAddress() + "</a>. We&#8217;ll be in touch if we have any questions or concerns, and we&#8217;ll send more information when the tournament gets closer.</p>");
 		
 		try {
-			ourLogger.debug("About to send " + lclConfirmation);
 			Mail.createHtmlEmail()
 				.setHtmlMsg(lclConfirmation.toString())
+				.addReplyTo(lclTD.getEmailAddress(), lclTD.getName())
 				.addTo(lclTD.getEmailAddress(), lclTD.getName())
 				.addTo(lclContactEmail, lclContactName)
 				.addCc(CC_ADDRESS, CC_NAME)
 				.setFrom(FROM_ADDRESS, FROM_DESCRIPTION)
 				.setSubject(lclTourn.getName() + " Registration: " + lclSchoolName)
 				.send();
-			ourLogger.debug("Sent!");
 		} catch (Exception lclE) {
 			ourLogger.error("Could not send registration notification with data\n" + lclConfirmation, lclE);
 		}
