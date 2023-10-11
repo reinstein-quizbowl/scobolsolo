@@ -389,7 +389,30 @@ public interface Question extends QuestionUserFacing {
 											break;
 										case "\\v": // caron/hacek
 											Validate.isTrue(lclArgs.size() == 1);
-											lclSB.append('&').append(lclArgs.get(0)).append("caron;");
+											switch (lclArgs.get(0)) {
+												case "C":
+												case "c":
+												case "D":
+												case "d":
+												case "E":
+												case "e":
+												case "L":
+												case "l":
+												case "N":
+												case "n":
+												case "R":
+												case "r":
+												case "S":
+												case "s":
+												case "T":
+												case "t":
+												case "Z":
+												case "z":
+													lclSB.append("&" + lclArgs.get(0) + "caron;"); break;
+												case "G": lclSB.append("&#486;"); break;
+												case "g": lclSB.append("&#487;"); break;
+												default: throw new LatexToHTMLConversionException("We don't know how to put a caron on '" + lclArgs.get(0) + '\'');
+											}
 											break;
 										case "\\O": // slash-through
 											Validate.isTrue(lclArgs.isEmpty());
