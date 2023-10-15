@@ -92,12 +92,8 @@ public class GeneratePaperwork extends DownloadServlet {
 				}
 			}
 			
-			if (ControllerServlet.getBooleanParameter(argRequest, "scoresheets_all_" + lclP.getId())) {
-				lclOutputters.add(new ScoresheetOutputter(new File(DIRECTORY + lclPhaseSpecificBaseFilename + "scoresheets-all.tex"), lclP, true));
-			}
-			
-			if (ControllerServlet.getBooleanParameter(argRequest, "scoresheets_nonelectronic_" + lclP.getId())) {
-				lclOutputters.add(new ScoresheetOutputter(new File(DIRECTORY + lclPhaseSpecificBaseFilename + "scoresheets-nonelectronic.tex"), lclP, false));
+			if (ControllerServlet.getBooleanParameter(argRequest, "scoresheets_" + lclP.getId())) {
+				lclOutputters.add(new ScoresheetOutputter(new File(DIRECTORY + lclPhaseSpecificBaseFilename + "scoresheets-all.tex"), lclP));
 			}
 		}
 		

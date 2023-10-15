@@ -17,15 +17,11 @@ import com.scobolsolo.application.Round;
 import com.scobolsolo.application.Staff;
 
 public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
-	private final boolean myAllRooms;
-	
 	private static final String THIN_LINE_WIDTH = "1pt";
 	private static final String THICK_LINE_WIDTH = "1.5pt";
 	
-	public ScoresheetOutputter(final File argOutputFile, final Phase argP, final boolean argAllRooms) {
+	public ScoresheetOutputter(final File argOutputFile, final Phase argP) {
 		super(argOutputFile, argP);
-		
-		myAllRooms = argAllRooms;
 	}
 	
 	@Override
@@ -38,9 +34,6 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 		getWriter().println("\\begin{document}");
 		
 		final List<Room> lclRooms = getPhase().getGameRooms(); // comes in sorted
-		if (!isAllRooms()) {
-			lclRooms.removeIf(argRoom -> argRoom.hasAnyAssignedStaffWithComputer(getPhase()));
-		}
 		
 		// Rooms:
 		for (final Room lclRoom : lclRooms) {
@@ -130,10 +123,6 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 		}
 		
 		getWriter().println("\\end{document}");
-	}
-	
-	public boolean isAllRooms() {
-		return myAllRooms;
 	}
 	
 	private static String verticalLine(final String argWidth) {

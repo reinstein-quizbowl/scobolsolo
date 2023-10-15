@@ -48,8 +48,4 @@ public interface Staff extends StaffUserFacing {
 	default String getName() {
 		return getContact().getName();
 	}
-	
-	default boolean hasComputer() {
-		return getTechnologyChoice().hasComputer();
-	}
 }

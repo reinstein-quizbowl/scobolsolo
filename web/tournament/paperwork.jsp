@@ -38,11 +38,8 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 							<li><label><input type="checkbox" id="master_by_card_<%= lclP.getId() %>" name="master_by_card_<%= lclP.getId() %>" value="true" />&nbsp;Master schedule by card</label></li>
 							<li><label><input type="checkbox" id="master_by_room_<%= lclP.getId() %>" name="master_by_room_<%= lclP.getId() %>" value="true" />&nbsp;Master schedule by room</label></li><%
 						}
-						%><li><label><input type="checkbox" id="scoresheets_all_<%= lclP.getId() %>" name="scoresheets_all_<%= lclP.getId() %>" value="true" />&nbsp;Scoresheets for all rooms</label></li><%
-						if (lclP.getGameRooms().stream().anyMatch(argRoom -> !argRoom.hasAnyAssignedStaffWithComputer(lclP))) {
-							%><li><label><input type="checkbox" id="scoresheets_nonelectronic_<%= lclP.getId() %>" name="scoresheets_nonelectronic_<%= lclP.getId() %>" value="true" />&nbsp;Scoresheets for rooms with no assigned staffer having a computer</label></li><%
-						}
-					%></ul><%
+						%><li><label><input type="checkbox" id="scoresheets_<%= lclP.getId() %>" name="scoresheets_all_<%= lclP.getId() %>" value="true" />&nbsp;Scoresheets for all rooms</label></li>
+					</ul><%
 				}
 				
 			%><label><input type="checkbox" name="include_tex_files" value="true" />&nbsp;Include <code>.tex</code> files</label>

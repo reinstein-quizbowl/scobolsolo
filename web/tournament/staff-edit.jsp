@@ -44,31 +44,22 @@ if (lclOF.hasErrors()) {
 }
 
 %><div class="row">
-	<div class="small-12 medium-6 columns">
+	<div class="small-12 medium-4 columns">
 		<label>
 			Name
 			<%= lclCOF.text("Name", 30) %>
 		</label>
 	</div>
-	<div class="small-12 medium-6 columns">
+	<div class="small-12 medium-4 columns">
 		<label>
 			Sort as
 			<%= lclCOF.text("SortBy", 30) %>
 		</label>
 	</div>
-</div>
-
-<div class="row">
-	<div class="small-9 medium-6 columns">
+	<div class="small-12 medium-4 columns">
 		<label>
 			School
 			<%= lclOF.dropdown("SchoolRegistration", SchoolRegistration.SchoolShortNameComparator.getInstance()).filter(argSR -> argSR.getTournament() == lclT).namer(argSR -> argSR.getSchool().getShortName()) %>
-		</label>
-	</div>
-	<div class="small-3 medium-6 columns">
-		<label>
-			Computer
-			<%= lclOF.<TechnologyChoice>dropdown("TechnologyChoice") %>
 		</label>
 	</div>
 </div>

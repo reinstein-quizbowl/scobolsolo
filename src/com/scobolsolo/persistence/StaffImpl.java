@@ -120,25 +120,6 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 		return this;
 	}
 
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Length(maximum = 32L)
-	@com.opal.annotation.Default(value = "TBD")
-	@Override
-	public java.lang.String getTechnologyChoiceCode() {
-		return getStaffOpal().getTechnologyChoiceCode();
-	}
-
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Length(maximum = 32L)
-	@com.opal.annotation.Default(value = "TBD")
-	@Override
-	public com.scobolsolo.persistence.StaffImpl setTechnologyChoiceCode(java.lang.String argTechnologyChoiceCode) {
-		getStaffOpal().setTechnologyChoiceCode(argTechnologyChoiceCode);
-		return this;
-	}
-
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 
@@ -171,22 +152,6 @@ public class StaffImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appl
 	@SuppressWarnings("unchecked")
 	public com.scobolsolo.application.Staff setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration) {
 		getStaffOpal().setSchoolRegistrationOpal(argSchoolRegistration == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.SchoolRegistration, com.scobolsolo.persistence.SchoolRegistrationOpal>) argSchoolRegistration).getOpal());
-		return this;
-	}
-
-	/** @return the TechnologyChoice object created from staff through reference staff_technology_choice_code_fkey */
-
-	@com.opal.annotation.Nullability(nullable = false)
-	@Override
-	public com.scobolsolo.application.TechnologyChoice getTechnologyChoice() {
-		TechnologyChoiceOpal lclTechnologyChoiceOpal = getStaffOpal().getTechnologyChoiceOpal();
-		return lclTechnologyChoiceOpal == null ? null : lclTechnologyChoiceOpal.getUserFacing();
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice) {
-		getStaffOpal().setTechnologyChoiceOpal(argTechnologyChoice == null ? null : ((com.opal.OpalBacked<com.scobolsolo.application.TechnologyChoice, com.scobolsolo.persistence.TechnologyChoiceOpal>) argTechnologyChoice).getOpal());
 		return this;
 	}
 

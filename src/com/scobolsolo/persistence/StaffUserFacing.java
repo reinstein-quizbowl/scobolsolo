@@ -272,38 +272,6 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Staff setNote(java.lang.String argNote);
 
 	/**
-	 * object accessor for the {@code TechnologyChoiceCode}
-	 *
-	 * <p>The {@code TechnologyChoiceCode} field is a direct mapping of the {@code technology_choice_code} field in {@code staff}.</p>
-	 *
-	 * @return an object value of {@code TechnologyChoiceCode} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
-	 */
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Length(maximum = 32L)
-	@com.opal.annotation.Default(value = "TBD")
-	public java.lang.String getTechnologyChoiceCode();
-
-	/**
-	 * sets the {@code TechnologyChoiceCode} to the value of {@code argTechnologyChoiceCode}
-	 *
-	 * @param argTechnologyChoiceCode the new value of {@code TechnologyChoiceCode}.  May not be <code>null</code>.
-	 * @return itself, so that mutator calls can be chained fluently
-	 * <p>The database column {@code technology_choice_code} to which this field is mapped is {@code NOT NULL}.</p>
-	 *
-	 * @throws com.opal.IllegalNullArgumentException if argTechnologyChoiceCode is null
-	 * @throws com.opal.ArgumentTooLongException if {@code argTechnologyChoiceCode} is longer than 32 characters
-	 * <p>The database column {@code technology_choice_code} is limited to 32 characters.</p>
-	 *
-	 */
-	@com.opal.annotation.Updatability(updatable = true)
-	@com.opal.annotation.Nullability(nullable = false)
-	@com.opal.annotation.Length(maximum = 32L)
-	@com.opal.annotation.Default(value = "TBD")
-	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Staff setTechnologyChoiceCode(java.lang.String argTechnologyChoiceCode);
-
-	/**
 	 * @return the {@code com.scobolsolo.application.Contact}
 	 * The returned {@code com.scobolsolo.application.Contact} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code contact} that is referenced by {@code staff_contact_id_fkey}.
 	 *
@@ -322,16 +290,6 @@ public interface StaffUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.SchoolRegistration getSchoolRegistration();
 	@com.opal.annotation.RequiresActiveTransaction
 	public com.scobolsolo.application.Staff setSchoolRegistration(com.scobolsolo.application.SchoolRegistration argSchoolRegistration);
-
-	/**
-	 * @return the {@code com.scobolsolo.application.TechnologyChoice}
-	 * The returned {@code com.scobolsolo.application.TechnologyChoice} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code technology_choice} that is referenced by {@code staff_technology_choice_code_fkey}.
-	 *
-	 */
-	@com.opal.annotation.Nullability(nullable = false)
-	public com.scobolsolo.application.TechnologyChoice getTechnologyChoice();
-	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Staff setTechnologyChoice(com.scobolsolo.application.TechnologyChoice argTechnologyChoice);
 
 	/**
 	 * @return the {@code com.scobolsolo.application.Tournament}
