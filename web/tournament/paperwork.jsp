@@ -38,7 +38,7 @@ Tournament lclT = Validate.notNull(TournamentFactory.getInstance().forUniqueStri
 							<li><label><input type="checkbox" id="master_by_card_<%= lclP.getId() %>" name="master_by_card_<%= lclP.getId() %>" value="true" />&nbsp;Master schedule by card</label></li>
 							<li><label><input type="checkbox" id="master_by_room_<%= lclP.getId() %>" name="master_by_room_<%= lclP.getId() %>" value="true" />&nbsp;Master schedule by room</label></li><%
 						}
-						%><li><label><input type="checkbox" id="scoresheets_<%= lclP.getId() %>" name="scoresheets_all_<%= lclP.getId() %>" value="true" />&nbsp;Scoresheets for all rooms</label></li>
+						%><li><label><input type="checkbox" id="scoresheets_<%= lclP.getId() %>" name="scoresheets_<%= lclP.getId() %>" value="true" />&nbsp;Scoresheets for all rooms</label></li>
 					</ul><%
 				}
 				
