@@ -336,7 +336,9 @@
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="10" class="note">Charles Young, as Morning Champion, entered the game with a score equal to that of the then-leader, Rohan Kher: 7.</td>
+					<td colspan="10" class="note">
+						Charles Young, as Morning Champion, entered the game with a score equal to that of the then-leader, Rohan Kher: 7.
+					</td>
 				</tr>
 				<tr>
 					<th class="question-number">21</td>
@@ -614,7 +616,7 @@
 				<tr class="note">
 					<th>&nbsp;</th>
 					<td colspan="10" class="note">
-						The players with the lowest scores were eliminated until four players remained. Therefore, Colin Stewart, Soren Gjesfjeld, Dwij Bhatt, Alex Crowell, and Jason Qin were eliminated. Charles Young, Rohan Kher, Teigue Kelly, and Sinecio morales remained.
+						The players with the lowest scores were eliminated until four players remained. Therefore, Colin Stewart, Soren Gjesfjeld, Dwij Bhatt, Alex Crowell, and Jason Qin were eliminated. Charles Young, Rohan Kher, Teigue Kelly, and Sinecio Morales remained.
 					</td>
 				</tr>
 				<tr>
