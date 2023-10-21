@@ -1,7 +1,10 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.format.FormatStyle" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="com.siliconage.web.ControllerServlet" %>
 <%@ page import="com.opal.LocalDateCache" %>
+<%@ page import="com.scobolsolo.application.Player" %>
+<%@ page import="com.scobolsolo.application.SchoolRegistration" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
@@ -26,7 +29,7 @@ final Tournament lclTourn = TournamentFactory.getInstance().forName(lclName);
 			if (lclTourn.isRegistrationOpen()) {
 				%><p><a class="primary button" href="/register/">Register</a></p><%
 			}
-		} else if (lclTourn.getDate().equals(LocalDateCache.today())) {
+		} else if (lclTourn.streamSchoolRegistration().flatMap(SchoolRegistration::streamPlayer).noneMatch(Player::isRanked)) {
 			%><p><%= lclTourn.getName() %> is today at <%= lclTourn.getSiteSchool().getExplainedName() %>.</p>
 			
 			<p>Results are being posted live.</p>
@@ -40,64 +43,66 @@ final Tournament lclTourn = TournamentFactory.getInstance().forName(lclName);
 				<tbody>
 					<tr>
 						<th class="rank">1.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1440#player_3148">Charles Young</a></th>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1490#player_3370">Rohan Kher</a></th>
 						<td class="school">Barrington High School</td>
 						<td class="note">Morning Champion</td>
 					</tr>
 					<tr>
 						<th class="rank">2.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1438#player_3139">Sinecio Morales</a></th>
-						<td class="school">Auburn High School (Rockford)</td>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1490#player_3369">Charles Young</a></th>
+						<td class="school">Barrington High School</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 					<tr>
 						<th class="rank">3.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1440#player_3149">Rohan Kher</a></th>
-						<td class="school">Barrington High School</td>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1471#player_3299">Sriram Koritala</a></th>
+						<td class="school">Lisle Senior High School</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 					<tr>
 						<th class="rank">4.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1443#player_3220">Teigue Kelly</a></th>
-						<td class="school">Waubonsie Valley High School (Aurora)</td>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1492#player_3383">Dwij Bhatt</a></th>
+						<td class="school">William Fremd High School (Palatine)</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 					<tr>
-						<th class="rank">5.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1452#player_3205">Jason Qin</a></th>
-						<td class="school">Illinois Mathematics &amp; Science Academy (Aurora)</td>
+						<th class="rank">5T.</th>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1484">David Bertolasi</a></th>
+						<td class="school">Belvidere High School</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 					<tr>
-						<th class="rank">6.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1450#player_3199">Soren Gjesfjeld</a></th>
-						<td class="school">Bloomington High School</td>
+						<th class="rank">&nbsp;</th>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1492#player_3382">Omkar Marathe</a></th>
+						<td class="school">William Fremd High School</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 					<tr>
-						<th class="rank">7.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1438#player_3158">Alex Crowell</a></th>
-						<td class="school">Auburn High School</td>
+						<th class="rank">&nbsp;</th>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1475">Anna-Maria Olarov</a></th>
+						<td class="school">Naperville North High School</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 					<tr>
 						<th class="rank">8.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1440#player_3151">Colin Stewart</a></th>
-						<td class="school">Barrington High School</td>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1494#player_3397">Soren Gjesfjeld</a></th>
+						<td class="school">Bloomington High School</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 					<tr>
 						<th class="rank">9.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1455">Dwij Bhatt</a></th>
-						<td class="school">William Fremd High School (Palatine)</td>
+						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1491#player_3375">Sam Kemeny</a></th>
+						<td class="school">Evanston Township High School</td>
 						<td class="note">&nbsp;</td>
 					</tr>
 				</tbody>
-			</table>
+			</table><%
 			
-			<p>This is Charles Young&#8217;s <a href="/2021/">second consecutive championship</a>.</p>
-			
-			<p>The full <a href="/stats/standings.jsp?object=<%= lclTourn.getUniqueString() %>">preliminary results</a> are available, as is the <a href="<%= lclTourn.getChampionshipMatchUrl() %>">championship match scoresheet</a>.</p><%
+			if (StringUtils.isBlank(lclTourn.getChampionshipMatchUrl())) {
+				%><p>The full <a href="/stats/standings.jsp?object=<%= lclTourn.getUniqueString() %>">preliminary results</a> are available.</p><%
+			} else {
+				%><p>The full <a href="/stats/standings.jsp?object=<%= lclTourn.getUniqueString() %>">preliminary results</a> are available, as is the <a href="<%= lclTourn.getChampionshipMatchUrl() %>">championship match scoresheet</a>.</p><%
+			}
 		}
 	%></div>
 </div>

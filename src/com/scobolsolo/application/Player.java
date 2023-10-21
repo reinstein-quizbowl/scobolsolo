@@ -48,6 +48,10 @@ public interface Player extends PlayerUserFacing, Comparable<Player> {
 		return getSchoolRegistration().getSchool();
 	}
 	
+	default public boolean isRanked() {
+		return getFinalPlaceAsObject() != null;
+	}
+	
 	@Override
 	default public int compareTo(Player that) {
 		return NameComparator.getInstance().compare(this, that);
