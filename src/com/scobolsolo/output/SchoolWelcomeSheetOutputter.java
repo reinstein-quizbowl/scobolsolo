@@ -46,9 +46,9 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 						getWriter().println("Please set it up for two players in " + escape(lclB.getRoom().getName()) + '.');
 					} else {
 						if (getTournament().getControlRoom() == null) {
-							getWriter().println("Please bring it to, but do not set it up in, the control room.");
+							getWriter().println("Please bring it to the control room, but do not set it up.");
 						} else {
-							getWriter().println("Please bring it to, but do not set it up in, " + getTournament().getControlRoom().getName() + '.');
+							getWriter().println("Please bring it to " + getTournament().getControlRoom().getName() + ", but do not set it up.");
 						}
 					}
 					getWriter().println("If you didn't bring it, please notify the check-in desk immediately.");
@@ -65,9 +65,9 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 								getWriter().print("Please set up ``" + escape(lclB.getName()) + "'' in " + escape(lclB.getRoom().getName()) + '.');
 							} else {
 								if (getTournament().getControlRoom() == null) {
-									getWriter().print("Please bring ``" + escape(lclB.getName()) + "'' to, but do not set it up in, the control room.");
+									getWriter().print("Please bring ``" + escape(lclB.getName()) + "'' to the control room, but do not set it up.");
 								} else {
-									getWriter().print("Please bring ``" + escape(lclB.getName()) + "'' to, but do not set it up in, " + escape(getTournament().getControlRoom().getName()) + '.');
+									getWriter().print("Please bring ``" + escape(lclB.getName()) + "'' to " + escape(getTournament().getControlRoom().getName()) + ", but do not set it up.");
 								}
 							}
 						} else {
@@ -75,9 +75,9 @@ public class SchoolWelcomeSheetOutputter extends TournamentSpecificLaTeXOutputte
 								getWriter().print("Please set one up for two players in " + escape(lclB.getRoom().getName()) + '.');
 							} else {
 								if (getTournament().getControlRoom() == null) {
-									getWriter().print("Please bring one to, but do not set it up in, the control room.");
+									getWriter().print("Please bring one to the control room, but do not set it up.");
 								} else {
-									getWriter().print("Please bring one to, but do not set it up in, " + escape(getTournament().getControlRoom().getName()) + '.');
+									getWriter().print("Please bring one to " + escape(getTournament().getControlRoom().getName()) + ", but do not set it up.");
 								}
 							}
 						}
