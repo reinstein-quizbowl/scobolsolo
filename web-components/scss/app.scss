@@ -85,7 +85,6 @@ a.has-tip {
 [title]:not(.stealth-tooltip) {
 	text-decoration: underline dotted $dark-gray;
 	border-bottom: none;
-	font-weight: inherit;
 	
 	&:hover {
 		border-bottom: none;

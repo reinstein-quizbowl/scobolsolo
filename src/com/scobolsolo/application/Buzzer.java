@@ -1,5 +1,7 @@
 package com.scobolsolo.application;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.scobolsolo.persistence.BuzzerUserFacing;
 
 /**
@@ -12,7 +14,7 @@ import com.scobolsolo.persistence.BuzzerUserFacing;
 
 public interface Buzzer extends BuzzerUserFacing {
 	default boolean hasMeaningfulName() {
-		if (getName() == null) {
+		if (StringUtils.isBlank(getName())) {
 			return false;
 		}
 		
@@ -30,6 +32,18 @@ public interface Buzzer extends BuzzerUserFacing {
 			return false;
 		} else {
 			return true;
+		}
+	}
+	
+	default String getNameSafe() {
+		if (StringUtils.isBlank(getName())) {
+			long lclLowerIdBuzzersThisSchool = getSchoolRegistration().streamBuzzer()
+				.filter(it -> it.getId() < this.getId())
+				.count();
+			
+			return getSchoolRegistration().getSchool().getShortName() + ' ' + (lclLowerIdBuzzersThisSchool + 1);
+		} else {
+			return getName();
 		}
 	}
 	

@@ -176,7 +176,7 @@ if (lclOF.alreadyExists()) {
 					Buzzer lclB = lclBOF.getUserFacing();
 					%><tr>
 						<%= lclBOF.open() %>
-						<td><%= lclBOF.getUserFacing().getName() %></td>
+						<td><%= lclBOF.getUserFacing().getNameSafe() %></td>
 						<td><%= HTMLUtility.deleteWidget(lclBOF) %></td>
 						<%= lclBOF.close() %>
 					</tr><%

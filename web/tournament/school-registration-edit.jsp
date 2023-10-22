@@ -168,7 +168,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 			%></tbody>
 			<tfoot>
 				<tr>
-					<td colspan="6"><a href="/admin/contact-edit.jsp">Add a new contact</a></td>
+					<td colspan="7"><a href="/admin/contact-edit.jsp">Add a new contact</a></td>
 				</tr>
 			</tfoot>
 		</table>
@@ -299,7 +299,7 @@ boolean lclSplitMainContact = lclOF.alreadyExists() && lclC != null && (lclC.get
 		<table>
 			<thead>
 				<tr>
-					<th>Name</th>
+					<th title="To add a buzzer with no special name, which is the normal thing to do, put something like ‘x’, save, then blank out the name and save again.">Custom Name</th>
 					<th>Room</th>
 					<th>Cancel?</th>
 				</tr>
