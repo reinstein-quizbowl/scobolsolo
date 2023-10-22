@@ -113,7 +113,7 @@ public final class Utility {
 		return makeList(argInputs, argStringExtractor, "and");
 	}
 	
-	public static String makeOrdinal(int argValue) {
+	public static String makeOrdinal(final int argValue) {
 		int lclAbs = argValue >= 0 ? argValue : -1 * argValue;
 		int lclRemainder = lclAbs % 10;
 		
@@ -131,5 +131,21 @@ public final class Utility {
 		}
 		
 		return argValue + lclSuffix;
+	}
+	
+	public static String writeOutIfAppropriate(final int argNumber) {
+		switch (argNumber) {
+			case 0: return "zero";
+			case 1: return "one";
+			case 2: return "two";
+			case 3: return "three";
+			case 4: return "four";
+			case 5: return "five";
+			case 6: return "six";
+			case 7: return "seven";
+			case 8: return "eight";
+			case 9: return "nine";
+			default: return String.valueOf(argNumber);
+		}
 	}
 }

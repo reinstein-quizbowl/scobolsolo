@@ -1,13 +1,20 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.format.FormatStyle" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.SortedSet" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="com.google.common.collect.SortedSetMultimap" %>
+<%@ page import="com.google.common.collect.TreeMultimap" %>
+<%@ page import="com.siliconage.util.Fast3Set" %>
 <%@ page import="com.siliconage.web.ControllerServlet" %>
 <%@ page import="com.opal.LocalDateCache" %>
 <%@ page import="com.scobolsolo.application.Player" %>
+<%@ page import="com.scobolsolo.application.School" %>
 <%@ page import="com.scobolsolo.application.SchoolRegistration" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
 <%@ page import="com.scobolsolo.application.TournamentFactory" %>
 <%@ page import="com.scobolsolo.menu.Menus" %>
+<%@ page import="com.scobolsolo.Utility" %>
 <%
 
 final String lclName = "Scobol Solo 2023";
@@ -36,66 +43,52 @@ final Tournament lclTourn = TournamentFactory.getInstance().forName(lclName);
 			
 			<p><a class="primary button" href="/stats/standings.jsp?object=<%= lclTourn.getUniqueString() %>">Standings</a></p><%
 		} else {
-			%><p><%= lclTourn.getName() %> was <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>. There were <%= lclTourn.getRealPlayerCount() %>&nbsp;players from <%= lclTourn.getSchoolCount() %>&nbsp;schools.</p>
+			%><p><%= lclTourn.getName() %> was <%= lclTourn.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) %> at <%= lclTourn.getSiteSchool().getExplainedName() %>. There were <%= Utility.writeOutIfAppropriate(lclTourn.getRealPlayerCount()) %>&nbsp;players from <%= Utility.writeOutIfAppropriate(lclTourn.getSchoolCount()) %>&nbsp;schools.</p><%
 			
-			<table class="tournament-final-standings">
-				<caption style="caption-side: top;">The nine players who made the Championship Match finished as follows:</p>
-				<tbody>
-					<tr>
-						<th class="rank">1.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1490#player_3370">Rohan Kher</a></th>
-						<td class="school">Barrington High School</td>
-						<td class="note">Morning Champion</td>
-					</tr>
-					<tr>
-						<th class="rank">2.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1490#player_3369">Charles Young</a></th>
-						<td class="school">Barrington High School</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-					<tr>
-						<th class="rank">3.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1471#player_3299">Sriram Koritala</a></th>
-						<td class="school">Lisle Senior High School</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-					<tr>
-						<th class="rank">4.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1492#player_3383">Dwij Bhatt</a></th>
-						<td class="school">William Fremd High School (Palatine)</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-					<tr>
-						<th class="rank">5T.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1484">David Bertolasi</a></th>
-						<td class="school">Belvidere High School</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-					<tr>
-						<th class="rank">&nbsp;</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1492#player_3382">Omkar Marathe</a></th>
-						<td class="school">William Fremd High School</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-					<tr>
-						<th class="rank">&nbsp;</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1475">Anna-Maria Olarov</a></th>
-						<td class="school">Naperville North High School</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-					<tr>
-						<th class="rank">8.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1494#player_3397">Soren Gjesfjeld</a></th>
-						<td class="school">Bloomington High School</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-					<tr>
-						<th class="rank">9.</th>
-						<th class="player"><a href="/stats/player-detail.jsp?school_registration_id=1491#player_3375">Sam Kemeny</a></th>
-						<td class="school">Evanston Township High School</td>
-						<td class="note">&nbsp;</td>
-					</tr>
-				</tbody>
+			final SortedSetMultimap<Integer, Player> lclChampionshipPlayersByRank = TreeMultimap.create();
+			lclTourn.streamSchoolRegistration()
+				.flatMap(SchoolRegistration::streamPlayer)
+				.filter(Player::isRanked)
+				.filter(it -> it.getFinalPlace(Integer.MAX_VALUE) <= 9)
+				.forEach(it -> lclChampionshipPlayersByRank.put(it.getFinalPlaceAsObject(), it));
+			
+			final Set<School> lclAlreadyExplainedSchools = new Fast3Set<>();
+			
+			%><table class="tournament-final-standings">
+				<caption style="caption-side: top;">The <%= Utility.writeOutIfAppropriate(lclChampionshipPlayersByRank.values().size()) %> players who made the Championship Match finished as follows:</p>
+				<tbody><%
+					for (final Integer lclPlace : lclChampionshipPlayersByRank.keySet()) {
+						final SortedSet<Player> lclPlayers = lclChampionshipPlayersByRank.get(lclPlace);
+						boolean lclFirstOfRank = true;
+						for (final Player lclPlayer : lclPlayers) {
+							final String lclRankDisplay;
+							if (lclFirstOfRank) {
+								if (lclPlayers.size() > 1) {
+									lclRankDisplay = lclPlace + "T.";
+								} else {
+									lclRankDisplay = lclPlace + ".";
+								}
+							} else {
+								lclRankDisplay = "&nbsp;";
+							}
+							
+							final String lclUrl = lclPlayer.getSchoolRegistration().getPlayerSet().size() == 1 ?
+								"/stats/player-detail.jsp?school_registration_id=" + lclPlayer.getSchoolRegistration().getId() :
+								"/stats/player-detail.jsp?school_registration_id=" + lclPlayer.getSchoolRegistration().getId() + "#player_" + lclPlayer.getId();
+							
+							final String lclSchoolName = lclAlreadyExplainedSchools.contains(lclPlayer.getSchool()) ? lclPlayer.getSchool().getName() : lclPlayer.getSchool().getExplainedName();
+							lclAlreadyExplainedSchools.add(lclPlayer.getSchool());
+							
+							%><tr>
+								<th class="rank"><%= lclRankDisplay %></th>
+								<th class="player"><a href="<%= lclUrl %>"><%= lclPlayer.getName() %></th>
+								<td class="school"><%= lclSchoolName %></td>
+								<td class="note"><%= lclPlayer.getOutgoingWinningCardGameSet().size() == 7 ? "Morning Champion" : "&nbsp;" %></td>
+							</tr><%
+							lclFirstOfRank = false;
+						}
+					}
+				%></tbody>
 			</table><%
 			
 			if (StringUtils.isBlank(lclTourn.getChampionshipMatchUrl())) {
