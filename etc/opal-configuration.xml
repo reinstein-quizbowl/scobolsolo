@@ -167,7 +167,6 @@
 			</Mapping>
 			
 			<Mapping Table="Staff">
-				<Column Name="technology_choice_code" Mapped="False" />
 				<Comparator Name="NameComparator">
 					<Child Name="Contact" Comparator="SortByComparator" />
 				</Comparator>
