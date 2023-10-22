@@ -1,11 +1,11 @@
 package com.scobolsolo.matches;
 
 public enum MatchStatus {
-	READY("Ready for entry", "Coming up"),
-	ONE_PLAYER_KNOWN("One incoming player known", "Coming up"),
 	NO_DATA("No data", "Coming up"),
-	COMPLETE("Complete", "Complete"),
-	IN_PROGRESS("In progress", "In progress");
+	ONE_PLAYER_KNOWN("One incoming player known", "Coming up"),
+	READY("Ready for entry", "Coming up"),
+	IN_PROGRESS("In progress", "In progress"),
+	COMPLETE("Complete", "Complete");
 	
 	private final String myName;
 	private final String myPublicFacingName;
