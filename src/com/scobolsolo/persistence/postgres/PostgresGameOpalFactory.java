@@ -31,6 +31,8 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		"outgoing_losing_card_player_id", 
 		"moderator_staff_id", 
 		"scorekeeper_staff_id", 
+		"start_time", 
+		"end_time", 
 	};
 
 	protected static String[] getStaticColumnNames() { return ourColumnNames; }
@@ -103,7 +105,7 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 
 	protected void registerOpal(GameOpal argOpal, Object[] argValues) {
 		if (argValues == null) { throw new IllegalStateException(); }
-		if (argValues.length != 8) { throw new IllegalStateException(); }
+		if (argValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<GameOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.addOpal(new IdOpalKey((java.lang.Integer) argValues[0]), argOpal, true);
@@ -114,7 +116,7 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 	protected void unregisterOpal(GameOpal argOpal) {
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<GameOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			lclOC.removeOpal(new IdOpalKey((java.lang.Integer) lclOldValues[0]));
@@ -126,10 +128,10 @@ public class PostgresGameOpalFactory extends com.opal.AbstractDatabaseIdentityOp
 		org.apache.commons.lang3.Validate.notNull(argOpal);
 		Object[] lclOldValues = argOpal.getOldValues();
 		if (lclOldValues == null) { throw new IllegalStateException(); }
-		if (lclOldValues.length != 8) { throw new IllegalStateException(); }
+		if (lclOldValues.length != 10) { throw new IllegalStateException(); }
 		Object[] lclNewValues = argOpal.getNewValues();
 		if (lclNewValues == null) { throw new IllegalStateException(); }
-		if (lclNewValues.length != 8) { throw new IllegalStateException(); }
+		if (lclNewValues.length != 10) { throw new IllegalStateException(); }
 		OpalCache<GameOpal> lclOC = getCache();
 		synchronized (lclOC) {
 			OpalKey<GameOpal> lclOldKey = null;

@@ -12,6 +12,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import com.opal.LocalDateCache;
 import com.opal.TransactionContext;
 
 import com.scobolsolo.application.Account;
@@ -197,9 +198,12 @@ public class QuestionResponse extends ScobolSoloControllerServlet {
 		final Match lclNextMatchForLoser = lclMatch.getNextForLoser();
 		
 		try (TransactionContext lclTC = TransactionContext.createAndActivate()) {
-			argGame.setTossupsHeard(argGame.calculateTossupsHeard());
-			argGame.setOutgoingWinningCardPlayer(lclWinner);
-			argGame.setOutgoingLosingCardPlayer(lclLoser);
+			argGame.setTossupsHeard(argGame.calculateTossupsHeard())
+				.setOutgoingWinningCardPlayer(lclWinner)
+				.setOutgoingLosingCardPlayer(lclLoser);
+			if (argGame.getEndTime() == null) {
+				argGame.setEndTime(LocalDateCache.now());
+			}
 			
 			if (lclNextMatchForWinner != null) {
 				Game lclNextGameForWinner = lclNextMatchForWinner.getGame();

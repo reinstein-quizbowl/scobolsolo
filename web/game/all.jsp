@@ -1,4 +1,6 @@
-﻿<%@ page import="java.util.Objects" %>
+﻿<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.format.FormatStyle" %>
+<%@ page import="java.util.Objects" %>
 <%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
@@ -115,7 +117,13 @@ Account lclUser = Account.demand(request);
 								%><%= lclS %><%
 								if (lclS.hasResults() && lclM.isDual()) {
 									Validate.notNull(lclG, "Null game"); // should be implied by lclS.hasResults()
-									%> (<%= lclG.getScoreHTMLWithWinner(Player::getName) %>)<%
+									%> (<%= lclG.getScoreHTMLWithWinner(Player::getName) %><%
+									if (lclG.getEndTime() != null) {
+										%>; ended at <%= lclG.getEndTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)) %><%
+									}
+									%>)<%
+								} else if (lclG != null && lclG.getStartTime() != null) {
+									%> (started at <%= lclG.getStartTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)) %>)<%
 								}
 								if (lclShowLink) {
 									%></a><%

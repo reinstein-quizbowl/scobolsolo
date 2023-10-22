@@ -623,6 +623,82 @@ public interface GameUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Game setScorekeeperStaffId(int argScorekeeperStaffId);
 
 	/**
+	 * object accessor for the {@code StartTime}
+	 *
+	 * <p>The {@code StartTime} field is a direct mapping of the {@code start_time} field in {@code game}.</p>
+	 *
+	 * @return an object value of {@code StartTime} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.time.LocalDateTime getStartTime();
+
+	/**
+	 * object accessor for the {@code StartTime} with substitution for a null value
+	 *
+	 * <p>The {@code StartTime} field is a direct mapping of the {@code start_time} database column in the table {@code game}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code StartTime} is {@code null}.
+	 * @return an object value of {@code StartTime} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getStartTime(java.lang.String argStringToSubstituteIfNull) {
+		java.time.LocalDateTime lclO = getStartTime();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code StartTime} to the value of {@code argStartTime}
+	 *
+	 * @param argStartTime the new value of {@code StartTime}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Game setStartTime(java.time.LocalDateTime argStartTime);
+
+	/**
+	 * object accessor for the {@code EndTime}
+	 *
+	 * <p>The {@code EndTime} field is a direct mapping of the {@code end_time} field in {@code game}.</p>
+	 *
+	 * @return an object value of {@code EndTime} (of the current {@link com.opal.TransactionContext})  May be <code>null</code>.
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	public java.time.LocalDateTime getEndTime();
+
+	/**
+	 * object accessor for the {@code EndTime} with substitution for a null value
+	 *
+	 * <p>The {@code EndTime} field is a direct mapping of the {@code end_time} database column in the table {@code game}.</p>
+	 *
+	 * <p>This method returns the current value if it is not {@code null}, or {@code argStringToSubstituteIfNull} if the current value is {@code null}.</p>
+	 *
+	 * @param argStringToSubstituteIfNull the value to return if the {@code EndTime} is {@code null}.
+	 * @return an object value of {@code EndTime} (of the current {@link com.opal.TransactionContext}) if it is not {@code null}, or {@code argStringToSubstituteIfNull} if it is {@code null}.
+	 */
+	default public java.lang.String getEndTime(java.lang.String argStringToSubstituteIfNull) {
+		java.time.LocalDateTime lclO = getEndTime();
+		return lclO != null ? String.valueOf(lclO) : argStringToSubstituteIfNull;
+	}
+
+
+	/**
+	 * sets the {@code EndTime} to the value of {@code argEndTime}
+	 *
+	 * @param argEndTime the new value of {@code EndTime}.  May be <code>null</code>.
+	 * @return itself, so that mutator calls can be chained fluently
+	 */
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@com.opal.annotation.RequiresActiveTransaction
+	public com.scobolsolo.application.Game setEndTime(java.time.LocalDateTime argEndTime);
+
+	/**
 	 * @return the {@code com.scobolsolo.application.Match}
 	 * The returned {@code com.scobolsolo.application.Match} is the {@link com.opal.UserFacing} object corresponding to the entry in {@code match} that is referenced by {@code game_id_fkey}.
 	 *

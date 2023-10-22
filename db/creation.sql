@@ -190,7 +190,6 @@ CREATE TABLE Room (
 	tournament_code code_t REFERENCES Tournament ON UPDATE CASCADE ON DELETE RESTRICT,
 	name name_t,
 	short_name short_name_t,
-	game_room BOOLEAN NOT NULL DEFAULT TRUE,
 	note note_t,
 	sequence sequence_t,
 	UNIQUE(tournament_code, name),
@@ -278,6 +277,8 @@ CREATE TABLE Game (-- 1-1 with Match
 	outgoing_winning_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up but hasn't been played yet
 	outgoing_losing_card_player_id INTEGER REFERENCES Player ON UPDATE CASCADE ON DELETE RESTRICT, -- NULL when the Game is set up but hasn't been played yet
 	scorekeeper_staff_id INTEGER REFERENCES Staff ON UPDATE CASCADE ON DELETE RESTRICT,
+	start_time TIMESTAMP NULL,
+	end_time TIMESTAMP NULL,
 	CHECK(incoming_winning_card_player_id IS NOT NULL OR incoming_losing_card_player_id IS NOT NULL),
 	CHECK((outgoing_winning_card_player_id IS NULL AND outgoing_losing_card_player_id IS NULL) OR (incoming_winning_card_player_id = outgoing_winning_card_player_id AND incoming_losing_card_player_id = outgoing_losing_card_player_id) OR (incoming_winning_card_player_id = outgoing_losing_card_player_id AND incoming_losing_card_player_id = outgoing_winning_card_player_id)) 
 );

@@ -126,6 +126,19 @@ if (lclOF.hasErrors()) {
 		</label>
 	</div>
 	
+	<div class="small-12 medium-6 columns">
+		<label>
+			Start Time
+			<%= lclOF.datetime("StartTime") %>
+		</label>
+	</div>
+	<div class="small-12 medium-6 columns">
+		<label>
+			End Time
+			<%= lclOF.datetime("EndTime") %>
+		</label>
+	</div>
+	
 	<div class="small-12 medium-6 large-3 columns">
 		<label>
 			Incoming Player with Winning Card

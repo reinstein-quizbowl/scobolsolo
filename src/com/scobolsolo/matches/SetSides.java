@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
 
+import com.opal.LocalDateCache;
 import com.opal.TransactionContext;
 
 import com.scobolsolo.application.Account;
@@ -65,8 +66,12 @@ public class SetSides extends ScobolSoloControllerServlet {
 				}
 			}
 			
-			lclGame.setModeratorStaff(lclModerator);
-			lclGame.setScorekeeperStaff(lclScorekeeper);
+			lclGame.setModeratorStaff(lclModerator)
+				.setScorekeeperStaff(lclScorekeeper);
+			
+			if (lclGame.getStartTime() == null) {
+				lclGame.setStartTime(LocalDateCache.now());
+			}
 			
 			lclTC.complete();
 		}

@@ -191,6 +191,36 @@ public class GameImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.appli
 		return this;
 	}
 
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.time.LocalDateTime getStartTime() {
+		return getGameOpal().getStartTime();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.persistence.GameImpl setStartTime(java.time.LocalDateTime argStartTime) {
+		getGameOpal().setStartTime(argStartTime);
+		return this;
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public java.time.LocalDateTime getEndTime() {
+		return getGameOpal().getEndTime();
+	}
+
+	@com.opal.annotation.Updatability(updatable = true)
+	@com.opal.annotation.Nullability(nullable = true)
+	@Override
+	public com.scobolsolo.persistence.GameImpl setEndTime(java.time.LocalDateTime argEndTime) {
+		getGameOpal().setEndTime(argEndTime);
+		return this;
+	}
+
 	/* The following methods allow direct access to the user objects to which
 	this object has references in the database. */
 

@@ -49,6 +49,8 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		"OutgoingLosingCardPlayerId",
 		"ModeratorStaffId",
 		"ScorekeeperStaffId",
+		"StartTime",
+		"EndTime",
 	};
 
 	/* package */ static final Class<?>[] ourFieldTypes = new Class<?>[] {
@@ -60,6 +62,8 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		java.lang.Integer.class,
 		java.lang.Integer.class,
 		java.lang.Integer.class,
+		java.time.LocalDateTime.class,
+		java.time.LocalDateTime.class,
 	};
 
 	/* package */ static final boolean[] ourFieldNullability = new boolean[] {
@@ -71,9 +75,13 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		true,
 		true,
 		true,
+		true,
+		true,
 	};
 
 	/* package */ static final com.opal.FieldValidator[] ourFieldValidators = new com.opal.FieldValidator[] {
+		null,
+		null,
 		null,
 		null,
 		null,
@@ -134,6 +142,14 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 
 	public synchronized java.lang.Integer getScorekeeperStaffIdAsObject() {
 		return (java.lang.Integer) getReadValueSet()[7];
+	}
+
+	public synchronized java.time.LocalDateTime getStartTime() {
+		return (java.time.LocalDateTime) getReadValueSet()[8];
+	}
+
+	public synchronized java.time.LocalDateTime getEndTime() {
+		return (java.time.LocalDateTime) getReadValueSet()[9];
 	}
 
 	public synchronized GameOpal setId(final java.lang.Integer argId) {
@@ -227,6 +243,18 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		return this;
 	}
 
+	public synchronized GameOpal setStartTime(final java.time.LocalDateTime argStartTime) {
+		tryMutate();
+		getNewValues()[8] = argStartTime;
+		return this;
+	}
+
+	public synchronized GameOpal setEndTime(final java.time.LocalDateTime argEndTime) {
+		tryMutate();
+		getNewValues()[9] = argEndTime;
+		return this;
+	}
+
 	private boolean myClearOldCollections = false;
 
 	protected boolean needsToClearOldCollections() {
@@ -302,6 +330,8 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		lclTargetNewValues[5] = lclValues[5]; /* OutgoingLosingCardPlayerId (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* ModeratorStaffId (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* ScorekeeperStaffId (immutable) */
+		lclTargetNewValues[8] = lclValues[8]; /* StartTime (immutable) */
+		lclTargetNewValues[9] = lclValues[9]; /* EndTime (immutable) */
 
 		return;
 	}
@@ -480,6 +510,8 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		argOutput.println("OutgoingLosingCardPlayerId = " + getOutgoingLosingCardPlayerIdAsObject());
 		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
 		argOutput.println("ScorekeeperStaffId = " + getScorekeeperStaffIdAsObject());
+		argOutput.println("StartTime = " + getStartTime());
+		argOutput.println("EndTime = " + getEndTime());
 	}
 
 	@Override
@@ -492,6 +524,8 @@ public final class GameOpal extends com.opal.UpdatableOpal<Game> {
 		argOutput.println("OutgoingLosingCardPlayerId = " + getOutgoingLosingCardPlayerIdAsObject());
 		argOutput.println("ModeratorStaffId = " + getModeratorStaffIdAsObject());
 		argOutput.println("ScorekeeperStaffId = " + getScorekeeperStaffIdAsObject());
+		argOutput.println("StartTime = " + getStartTime());
+		argOutput.println("EndTime = " + getEndTime());
 	}
 
 	private MatchOpal myOldMatchOpal;
