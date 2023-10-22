@@ -51,8 +51,8 @@ public class ReplacementGuideOutputter extends TournamentSpecificLaTeXOutputter 
 					
 					getWriter().print("\\item[\\#" + escape(String.valueOf(lclPL.getNumber())));
 					
-					if (lclPL.isTiebreaker()) {
-						getWriter().print(" (TB)");
+					if (lclPL.isOvertime()) {
+						getWriter().print(" (OT)");
 					}
 					
 					getWriter().println(": \\textit{" + escape(lclQ.getDescription()) + " (" + escape(lclQ.getCategory().getName()) + ")}]\\hfill\\\\");

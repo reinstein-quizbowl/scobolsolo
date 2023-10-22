@@ -139,7 +139,7 @@ if (lclOF.alreadyExists()) {
 						<th>Packet</th>
 						<th>Number</th>
 						<th>Score check after?</th>
-						<th>Tiebreaker?</th>
+						<th>Overtime?</th>
 					</tr>
 				</thead>
 				<tbody><%
@@ -148,7 +148,7 @@ if (lclOF.alreadyExists()) {
 							<td><%= lclPL.getPacket().getShortNameWithTournament() %></td>
 							<td><%= lclPL.getNumber() %></td>
 							<td><%= lclPL.isScorecheckAfter() ? "<i class=\"fa fa-check\"></i>" : "-" %></td>
-							<td><%= lclPL.isTiebreaker() ? "<i class=\"fa fa-check\"></i>" : "-" %></td>
+							<td><%= lclPL.isOvertime() ? "<i class=\"fa fa-check\"></i>" : "-" %></td>
 						</tr><%
 					}
 				%></tbody>

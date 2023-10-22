@@ -4,7 +4,7 @@ import com.scobolsolo.application.Tournament;
 
 public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 
-	public static final java.lang.Boolean ourDefaultTiebreakerSuddenDeath = java.lang.Boolean.TRUE;
+	public static final java.lang.Boolean ourDefaultOvertimeSuddenDeath = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultQuestionsComplete = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultOnlineStats = java.lang.Boolean.TRUE;
 	public static final java.lang.Boolean ourDefaultRegistrationOpen = java.lang.Boolean.FALSE;
@@ -21,7 +21,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 	@Override
 	protected void applyDefaults() {
 		/* Initialize fields with their default values. */
-		getNewValues()[5] = ourDefaultTiebreakerSuddenDeath;
+		getNewValues()[5] = ourDefaultOvertimeSuddenDeath;
 		getNewValues()[15] = ourDefaultQuestionsComplete;
 		getNewValues()[17] = ourDefaultOnlineStats;
 		getNewValues()[19] = ourDefaultRegistrationOpen;
@@ -77,7 +77,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		"ShortName",
 		"Code",
 		"WebXmlRoleCode",
-		"TiebreakerSuddenDeath",
+		"OvertimeSuddenDeath",
 		"Url",
 		"TournamentDirectorContactId",
 		"PlayerMessage",
@@ -203,7 +203,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return (java.lang.String) getReadValueSet()[4];
 	}
 
-	public synchronized java.lang.Boolean isTiebreakerSuddenDeathAsObject() {
+	public synchronized java.lang.Boolean isOvertimeSuddenDeathAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[5];
 	}
 
@@ -320,17 +320,17 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		return this;
 	}
 
-	public synchronized TournamentOpal setTiebreakerSuddenDeath(final java.lang.Boolean argTiebreakerSuddenDeath) {
+	public synchronized TournamentOpal setOvertimeSuddenDeath(final java.lang.Boolean argOvertimeSuddenDeath) {
 		tryMutate();
-		if (argTiebreakerSuddenDeath == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myTiebreakerSuddenDeath on " + this + " to null.");
+		if (argOvertimeSuddenDeath == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myOvertimeSuddenDeath on " + this + " to null.");
 		}
-		getNewValues()[5] = argTiebreakerSuddenDeath;
+		getNewValues()[5] = argOvertimeSuddenDeath;
 		return this;
 	}
 
-	public TournamentOpal setTiebreakerSuddenDeath(final boolean argTiebreakerSuddenDeath) {
-		setTiebreakerSuddenDeath(argTiebreakerSuddenDeath ? Boolean.TRUE : Boolean.FALSE);
+	public TournamentOpal setOvertimeSuddenDeath(final boolean argOvertimeSuddenDeath) {
+		setOvertimeSuddenDeath(argOvertimeSuddenDeath ? Boolean.TRUE : Boolean.FALSE);
 		return this;
 	}
 
@@ -523,7 +523,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		/* Field 2 (ShortName) is part of a unique key. */
 		/* Field 3 (Code) is part of a unique key. */
 		/* Field 4 (WebXmlRoleCode) is part of a unique key. */
-		lclTargetNewValues[5] = lclValues[5]; /* TiebreakerSuddenDeath (immutable) */
+		lclTargetNewValues[5] = lclValues[5]; /* OvertimeSuddenDeath (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* Url (immutable) */
 		lclTargetNewValues[7] = lclValues[7]; /* TournamentDirectorContactId (immutable) */
 		lclTargetNewValues[8] = lclValues[8]; /* PlayerMessage (immutable) */
@@ -637,7 +637,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("ShortName = " + getShortName());
 		argOutput.println("Code = " + getCode());
 		argOutput.println("WebXmlRoleCode = " + getWebXmlRoleCode());
-		argOutput.println("TiebreakerSuddenDeath = " + isTiebreakerSuddenDeathAsObject());
+		argOutput.println("OvertimeSuddenDeath = " + isOvertimeSuddenDeathAsObject());
 		argOutput.println("Url = " + getUrl());
 		argOutput.println("TournamentDirectorContactId = " + getTournamentDirectorContactIdAsObject());
 		argOutput.println("PlayerMessage = " + getPlayerMessage());
@@ -661,7 +661,7 @@ public final class TournamentOpal extends com.opal.UpdatableOpal<Tournament> {
 		argOutput.println("ShortName = " + getShortName());
 		argOutput.println("Code = " + getCode());
 		argOutput.println("WebXmlRoleCode = " + getWebXmlRoleCode());
-		argOutput.println("TiebreakerSuddenDeath = " + isTiebreakerSuddenDeathAsObject());
+		argOutput.println("OvertimeSuddenDeath = " + isOvertimeSuddenDeathAsObject());
 		argOutput.println("Url = " + getUrl());
 		argOutput.println("TournamentDirectorContactId = " + getTournamentDirectorContactIdAsObject());
 		argOutput.println("PlayerMessage = " + getPlayerMessage());

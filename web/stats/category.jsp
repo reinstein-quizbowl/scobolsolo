@@ -57,7 +57,7 @@ DecimalFormat lclPF = new DecimalFormat("0.0%");
 
 <div class="row">
 	<div class="small-12 columns">
-		<p>Tiebreakers are excluded.</p><%
+		<p>Overtime tossups are excluded.</p><%
 		
 		if (lclResults.isEmpty()) {
 			%><p>No results are available for this category.</p><%

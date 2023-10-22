@@ -73,7 +73,7 @@
 			</Mapping>
 			
 			<Mapping Table="Placement">
-				<Column Name="tiebreaker" Inverse="True" InverseAccessor="isRegulation" />
+				<Column Name="tiebreaker" FieldName="Overtime" Inverse="True" InverseAccessor="isRegulation" />
 			</Mapping>
 			
 			<Mapping Table="Player">
@@ -182,6 +182,7 @@
 			<Mapping Table="Staff_Assignment" />
 			
 			<Mapping Table="Tournament">
+				<Column Name="tiebreaker_sudden_death" FieldName="OvertimeSuddenDeath" />
 				<Column Name="date" Ordering="True" />
 			</Mapping>
 			<Reference Field="ControlRoom">

@@ -5,7 +5,7 @@ import com.scobolsolo.application.Placement;
 @com.opal.StoreGeneratedPrimaryKey
 public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 
-	public static final java.lang.Boolean ourDefaultTiebreaker = java.lang.Boolean.FALSE;
+	public static final java.lang.Boolean ourDefaultOvertime = java.lang.Boolean.FALSE;
 	public static final java.lang.Boolean ourDefaultScorecheckAfter = java.lang.Boolean.FALSE;
 
 	private PlacementOpal() {
@@ -20,7 +20,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 	@Override
 	protected void applyDefaults() {
 		/* Initialize fields with their default values. */
-		getNewValues()[4] = ourDefaultTiebreaker;
+		getNewValues()[4] = ourDefaultOvertime;
 		getNewValues()[5] = ourDefaultScorecheckAfter;
 
 
@@ -53,7 +53,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		"QuestionId",
 		"PacketId",
 		"Number",
-		"Tiebreaker",
+		"Overtime",
 		"ScorecheckAfter",
 		"CategoryCode",
 	};
@@ -124,7 +124,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return (java.lang.Integer) getReadValueSet()[3];
 	}
 
-	public synchronized java.lang.Boolean isTiebreakerAsObject() {
+	public synchronized java.lang.Boolean isOvertimeAsObject() {
 		return (java.lang.Boolean) getReadValueSet()[4];
 	}
 
@@ -189,17 +189,17 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		return this;
 	}
 
-	public synchronized PlacementOpal setTiebreaker(final java.lang.Boolean argTiebreaker) {
+	public synchronized PlacementOpal setOvertime(final java.lang.Boolean argOvertime) {
 		tryMutate();
-		if (argTiebreaker == null) {
-			throw new com.opal.IllegalNullArgumentException("Cannot set myTiebreaker on " + this + " to null.");
+		if (argOvertime == null) {
+			throw new com.opal.IllegalNullArgumentException("Cannot set myOvertime on " + this + " to null.");
 		}
-		getNewValues()[4] = argTiebreaker;
+		getNewValues()[4] = argOvertime;
 		return this;
 	}
 
-	public PlacementOpal setTiebreaker(final boolean argTiebreaker) {
-		setTiebreaker(argTiebreaker ? Boolean.TRUE : Boolean.FALSE);
+	public PlacementOpal setOvertime(final boolean argOvertime) {
+		setOvertime(argOvertime ? Boolean.TRUE : Boolean.FALSE);
 		return this;
 	}
 
@@ -281,7 +281,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		/* Field 1 (QuestionId) is part of a unique key. */
 		/* Field 2 (PacketId) is part of a unique key. */
 		lclTargetNewValues[3] = lclValues[3]; /* Number (immutable) */
-		lclTargetNewValues[4] = lclValues[4]; /* Tiebreaker (immutable) */
+		lclTargetNewValues[4] = lclValues[4]; /* Overtime (immutable) */
 		lclTargetNewValues[5] = lclValues[5]; /* ScorecheckAfter (immutable) */
 		lclTargetNewValues[6] = lclValues[6]; /* CategoryCode (immutable) */
 
@@ -382,7 +382,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		argOutput.println("QuestionId = " + getQuestionIdAsObject());
 		argOutput.println("PacketId = " + getPacketIdAsObject());
 		argOutput.println("Number = " + getNumberAsObject());
-		argOutput.println("Tiebreaker = " + isTiebreakerAsObject());
+		argOutput.println("Overtime = " + isOvertimeAsObject());
 		argOutput.println("ScorecheckAfter = " + isScorecheckAfterAsObject());
 		argOutput.println("CategoryCode = " + getCategoryCode());
 	}
@@ -393,7 +393,7 @@ public final class PlacementOpal extends com.opal.UpdatableOpal<Placement> {
 		argOutput.println("QuestionId = " + getQuestionIdAsObject());
 		argOutput.println("PacketId = " + getPacketIdAsObject());
 		argOutput.println("Number = " + getNumberAsObject());
-		argOutput.println("Tiebreaker = " + isTiebreakerAsObject());
+		argOutput.println("Overtime = " + isOvertimeAsObject());
 		argOutput.println("ScorecheckAfter = " + isScorecheckAfterAsObject());
 		argOutput.println("CategoryCode = " + getCategoryCode());
 	}

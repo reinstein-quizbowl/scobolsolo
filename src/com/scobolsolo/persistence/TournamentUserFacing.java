@@ -165,56 +165,56 @@ public interface TournamentUserFacing extends com.opal.IdentityUserFacing, Compa
 	public com.scobolsolo.application.Tournament setWebXmlRoleCode(java.lang.String argWebXmlRoleCode);
 
 	/**
-	 * object accessor for the {@code TiebreakerSuddenDeath}
+	 * object accessor for the {@code OvertimeSuddenDeath}
 	 *
-	 * <p>The {@code TiebreakerSuddenDeath} field is a direct mapping of the {@code tiebreaker_sudden_death} field in {@code tournament}.</p>
+	 * <p>The {@code OvertimeSuddenDeath} field is a direct mapping of the {@code tiebreaker_sudden_death} field in {@code tournament}.</p>
 	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isTiebreakerSuddenDeath() method.</p>
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isOvertimeSuddenDeath() method.</p>
 	 *
-	 * @return an object value of {@code TiebreakerSuddenDeath} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code OvertimeSuddenDeath} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
-	public java.lang.Boolean isTiebreakerSuddenDeathAsObject();
+	public java.lang.Boolean isOvertimeSuddenDeathAsObject();
 
 	/**
-	 * primitive accessor for the {@code TiebreakerSuddenDeath}
+	 * primitive accessor for the {@code OvertimeSuddenDeath}
 	 *
-	 * <p>The {@code TiebreakerSuddenDeath} field is a direct mapping of the {@code tiebreaker_sudden_death} database column in the table {@code tournament}.</p>
+	 * <p>The {@code OvertimeSuddenDeath} field is a direct mapping of the {@code tiebreaker_sudden_death} database column in the table {@code tournament}.</p>
 	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isTiebreakerSuddenDeathAsObject() method.</p>
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isOvertimeSuddenDeathAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code TiebreakerSuddenDeath} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code OvertimeSuddenDeath} (of the current {@link com.opal.TransactionContext})
 	 */
-	default public boolean isTiebreakerSuddenDeath() {
-		java.lang.Boolean lclO = isTiebreakerSuddenDeathAsObject();
+	default public boolean isOvertimeSuddenDeath() {
+		java.lang.Boolean lclO = isOvertimeSuddenDeathAsObject();
 		return lclO.booleanValue();
 	}
 
 	/**
-	 * sets the {@code TiebreakerSuddenDeath} to the value of {@code argTiebreakerSuddenDeath}
+	 * sets the {@code OvertimeSuddenDeath} to the value of {@code argOvertimeSuddenDeath}
 	 *
-	 * @param argTiebreakerSuddenDeath the new value of {@code TiebreakerSuddenDeath}.  May not be <code>null</code>.
+	 * @param argOvertimeSuddenDeath the new value of {@code OvertimeSuddenDeath}.  May not be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tiebreaker_sudden_death} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws com.opal.IllegalNullArgumentException if argTiebreakerSuddenDeath is null
+	 * @throws com.opal.IllegalNullArgumentException if argOvertimeSuddenDeath is null
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath);
+	public com.scobolsolo.application.Tournament setOvertimeSuddenDeath(java.lang.Boolean argOvertimeSuddenDeath);
 
 	/**
-	 * sets the {@code TiebreakerSuddenDeath} to the value of {@code argTiebreakerSuddenDeath}
+	 * sets the {@code OvertimeSuddenDeath} to the value of {@code argOvertimeSuddenDeath}
 	 *
-	 * @param argTiebreakerSuddenDeath the new value of {@code TiebreakerSuddenDeath}
+	 * @param argOvertimeSuddenDeath the new value of {@code OvertimeSuddenDeath}
 	 * @return itself, so that mutators may be chained fluently
 	 */
 	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Tournament setTiebreakerSuddenDeath(boolean argTiebreakerSuddenDeath);
+	public com.scobolsolo.application.Tournament setOvertimeSuddenDeath(boolean argOvertimeSuddenDeath);
 
 	/**
 	 * object accessor for the {@code Url}

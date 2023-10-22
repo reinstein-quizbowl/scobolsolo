@@ -107,7 +107,7 @@ if (lclOF.hasErrors()) {
 					<th>Question</th>
 					<th>Number</th>
 					<th>Category</th>
-					<th>Tiebreaker?</th>
+					<th>Overtime?</th>
 					<th>Score check after?</th>
 					<th>Edit</th>
 					<th>Remove?</th>
@@ -145,7 +145,7 @@ if (lclOF.hasErrors()) {
 						%></td>
 						<td><%= lclPLOF.number("Number").min(1) %></td>
 						<td><%= lclPLOF.<Category>dropdown("Category").filter(argC -> argC.isUsedAt(lclT)) %></td>
-						<td><%= HTMLUtility.switchWidget(lclPLOF, "Tiebreaker") %></td>
+						<td><%= HTMLUtility.switchWidget(lclPLOF, "Overtime") %></td>
 						<td><%= HTMLUtility.switchWidget(lclPLOF, "ScorecheckAfter") %></td>
 						<td><%
 							if (lclPLOF.alreadyExists() && lclPL.isFilled()) {

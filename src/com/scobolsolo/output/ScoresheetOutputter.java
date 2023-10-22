@@ -77,7 +77,7 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 				thickHorizontalLine();
 				
 				final Packet lclPacket = lclRound.getPacket();
-				boolean lclJustDidTiebreaker = false;
+				boolean lclJustDidOvertime = false;
 				
 				final List<Placement> lclPLs = lclPacket.getAllPlacements();
 				Placements:
@@ -86,20 +86,20 @@ public class ScoresheetOutputter extends PhaseSpecificLaTeXOutputter {
 					// final Placement lclPrev = lclI == 0 ? null : lclPLs.get(lclI-1);
 					final Placement lclNext = lclI == lclPLs.size() - 1 ? null : lclPLs.get(lclI+1);
 					
-					if (lclPL.isTiebreaker()) {
-						if (getTournament().isTiebreakerSuddenDeath() && lclJustDidTiebreaker) {
+					if (lclPL.isOvertime()) {
+						if (getTournament().isOvertimeSuddenDeath() && lclJustDidOvertime) {
 							continue Placements;
 						}
 						
-						getWriter().println("\\vstrut & & & & \\textsc{(tiebreaker)} & & & & \\tabularnewline");
+						getWriter().println("\\vstrut & & & & \\textsc{(overtime)} & & & & \\tabularnewline");
 						thickHorizontalLine();
-						lclJustDidTiebreaker = true;
+						lclJustDidOvertime = true;
 					} else {
-						lclJustDidTiebreaker = false;
+						lclJustDidOvertime = false;
 						
 						getWriter().println("\\vstrut & & & & \\textbf{" + lclPL.getNumberString() + "} & & & & \\tabularnewline");
 						
-						if (lclPL.isScorecheckAfter() || lclNext == null || lclNext.isTiebreaker()) {
+						if (lclPL.isScorecheckAfter() || lclNext == null || lclNext.isOvertime()) {
 							thickHorizontalLine();
 						} else {
 							thinHorizontalLine();

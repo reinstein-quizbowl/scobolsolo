@@ -48,7 +48,7 @@ int lclTieScore = lclGame.getTieScore().intValue();
 			} else {
 				%> among <%= Utility.makeList(lclPerfs, argPerf -> argPerf.getPlayer().getName()) %><%
 			}
-			%> is tied at <%= lclTieScore == 1 ? "1 point" : lclTieScore + " points" %>, but there are no more tiebreaker questions available online. Please contact the control room (<%= lclT.getControlRoom().getShortName() %>) for further instructions.
+			%> is tied at <%= lclTieScore == 1 ? "1 point" : lclTieScore + " points" %>, but there are no more overtime questions available online. Please ask the control room (<%= lclT.getControlRoom().getShortName() %>) for further instructions.
 		</p>
 	</div>
 </div>

@@ -70,7 +70,7 @@ public interface Placement extends PlacementUserFacing, Comparable<Placement> {
 	}
 	
 	default String getNumberString() {
-		return getNumber() + (isTiebreaker() ? " (TB)" : "");
+		return getNumber() + (isOvertime() ? " (OT)" : "");
 	}
 	
 	default String getDescription() {

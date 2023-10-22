@@ -111,22 +111,22 @@ public class PlacementImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo.
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	@Override
-	public java.lang.Boolean isTiebreakerAsObject() {
-		return getPlacementOpal().isTiebreakerAsObject();
+	public java.lang.Boolean isOvertimeAsObject() {
+		return getPlacementOpal().isOvertimeAsObject();
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	@Override
-	public com.scobolsolo.persistence.PlacementImpl setTiebreaker(java.lang.Boolean argTiebreaker) {
-		getPlacementOpal().setTiebreaker(argTiebreaker);
+	public com.scobolsolo.persistence.PlacementImpl setOvertime(java.lang.Boolean argOvertime) {
+		getPlacementOpal().setOvertime(argOvertime);
 		return this;
 	}
 
 	@Override
-	public com.scobolsolo.persistence.PlacementImpl setTiebreaker(boolean argTiebreaker) {
-		getPlacementOpal().setTiebreaker(argTiebreaker);
+	public com.scobolsolo.persistence.PlacementImpl setOvertime(boolean argOvertime) {
+		getPlacementOpal().setOvertime(argOvertime);
 		return this;
 	}
 

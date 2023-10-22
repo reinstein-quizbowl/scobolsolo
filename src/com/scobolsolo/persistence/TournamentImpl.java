@@ -115,22 +115,22 @@ public class TournamentImpl extends com.opal.AbstractIdentityImpl<com.scobolsolo
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	@Override
-	public java.lang.Boolean isTiebreakerSuddenDeathAsObject() {
-		return getTournamentOpal().isTiebreakerSuddenDeathAsObject();
+	public java.lang.Boolean isOvertimeSuddenDeathAsObject() {
+		return getTournamentOpal().isOvertimeSuddenDeathAsObject();
 	}
 
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "true")
 	@Override
-	public com.scobolsolo.persistence.TournamentImpl setTiebreakerSuddenDeath(java.lang.Boolean argTiebreakerSuddenDeath) {
-		getTournamentOpal().setTiebreakerSuddenDeath(argTiebreakerSuddenDeath);
+	public com.scobolsolo.persistence.TournamentImpl setOvertimeSuddenDeath(java.lang.Boolean argOvertimeSuddenDeath) {
+		getTournamentOpal().setOvertimeSuddenDeath(argOvertimeSuddenDeath);
 		return this;
 	}
 
 	@Override
-	public com.scobolsolo.persistence.TournamentImpl setTiebreakerSuddenDeath(boolean argTiebreakerSuddenDeath) {
-		getTournamentOpal().setTiebreakerSuddenDeath(argTiebreakerSuddenDeath);
+	public com.scobolsolo.persistence.TournamentImpl setOvertimeSuddenDeath(boolean argOvertimeSuddenDeath) {
+		getTournamentOpal().setOvertimeSuddenDeath(argOvertimeSuddenDeath);
 		return this;
 	}
 

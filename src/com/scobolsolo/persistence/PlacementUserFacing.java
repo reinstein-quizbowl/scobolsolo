@@ -249,65 +249,65 @@ public interface PlacementUserFacing extends com.opal.IdentityUserFacing {
 	public com.scobolsolo.application.Placement setNumber(int argNumber);
 
 	/**
-	 * object accessor for the {@code Tiebreaker}
+	 * object accessor for the {@code Overtime}
 	 *
-	 * <p>The {@code Tiebreaker} field is a direct mapping of the {@code tiebreaker} field in {@code placement}.</p>
+	 * <p>The {@code Overtime} field is a direct mapping of the {@code tiebreaker} field in {@code placement}.</p>
 	 *
-	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isTiebreaker() method.</p>
+	 * <p>This method returns the current value as an Object.  To retrieve the value as a primitive, use the isOvertime() method.</p>
 	 *
-	 * @return an object value of {@code Tiebreaker} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
+	 * @return an object value of {@code Overtime} (of the current {@link com.opal.TransactionContext})  Will not be <code>null</code>.
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
-	public java.lang.Boolean isTiebreakerAsObject();
+	public java.lang.Boolean isOvertimeAsObject();
 
 	default public java.lang.Boolean isRegulationAsObject() {
-		Boolean lclB = isTiebreakerAsObject();
+		Boolean lclB = isOvertimeAsObject();
 		return lclB.booleanValue() ? Boolean.FALSE : Boolean.TRUE;
 	}
 
 	/**
-	 * primitive accessor for the {@code Tiebreaker}
+	 * primitive accessor for the {@code Overtime}
 	 *
-	 * <p>The {@code Tiebreaker} field is a direct mapping of the {@code tiebreaker} database column in the table {@code placement}.</p>
+	 * <p>The {@code Overtime} field is a direct mapping of the {@code tiebreaker} database column in the table {@code placement}.</p>
 	 *
-	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isTiebreakerAsObject() method.</p>
+	 * <p>This method returns the value as a primitive (for example, as an {@code int} rather than an {@code Integer}; to retrieve the value as an object, use the isOvertimeAsObject() method.</p>
 	 *
-	 * @return the primitive value of {@code Tiebreaker} (of the current {@link com.opal.TransactionContext})
+	 * @return the primitive value of {@code Overtime} (of the current {@link com.opal.TransactionContext})
 	 */
-	default public boolean isTiebreaker() {
-		java.lang.Boolean lclO = isTiebreakerAsObject();
+	default public boolean isOvertime() {
+		java.lang.Boolean lclO = isOvertimeAsObject();
 		return lclO.booleanValue();
 	}
 
 	default public java.lang.Boolean isRegulation() {
-		return !isTiebreaker();
+		return !isOvertime();
 	}
 
 	/**
-	 * sets the {@code Tiebreaker} to the value of {@code argTiebreaker}
+	 * sets the {@code Overtime} to the value of {@code argOvertime}
 	 *
-	 * @param argTiebreaker the new value of {@code Tiebreaker}.  May not be <code>null</code>.
+	 * @param argOvertime the new value of {@code Overtime}.  May not be <code>null</code>.
 	 * @return itself, so that mutator calls can be chained fluently
 	 * <p>The database column {@code tiebreaker} to which this field is mapped is {@code NOT NULL}.</p>
 	 *
-	 * @throws com.opal.IllegalNullArgumentException if argTiebreaker is null
+	 * @throws com.opal.IllegalNullArgumentException if argOvertime is null
 	 */
 	@com.opal.annotation.Updatability(updatable = true)
 	@com.opal.annotation.Nullability(nullable = false)
 	@com.opal.annotation.Default(value = "false")
 	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Placement setTiebreaker(java.lang.Boolean argTiebreaker);
+	public com.scobolsolo.application.Placement setOvertime(java.lang.Boolean argOvertime);
 
 	/**
-	 * sets the {@code Tiebreaker} to the value of {@code argTiebreaker}
+	 * sets the {@code Overtime} to the value of {@code argOvertime}
 	 *
-	 * @param argTiebreaker the new value of {@code Tiebreaker}
+	 * @param argOvertime the new value of {@code Overtime}
 	 * @return itself, so that mutators may be chained fluently
 	 */
 	@com.opal.annotation.RequiresActiveTransaction
-	public com.scobolsolo.application.Placement setTiebreaker(boolean argTiebreaker);
+	public com.scobolsolo.application.Placement setOvertime(boolean argOvertime);
 
 	/**
 	 * object accessor for the {@code ScorecheckAfter}

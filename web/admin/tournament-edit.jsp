@@ -118,8 +118,8 @@ if (lclOF.hasErrors()) {
 	</div>
 	<div class="small-12 medium-6 large-2 columns">
 		<label>
-			Is tiebreaker sudden death?
-			<%= HTMLUtility.switchWidget(lclOF, "TiebreakerSuddenDeath") %>
+			Is overtime sudden death?
+			<%= HTMLUtility.switchWidget(lclOF, "OvertimeSuddenDeath") %>
 		</label>
 	</div>
 	<div class="small-12 medium-6 large-2 columns">

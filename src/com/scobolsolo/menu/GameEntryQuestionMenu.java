@@ -47,7 +47,7 @@ public final class GameEntryQuestionMenu {
 		
 		if (argOvertime) {
 			lclSB.append("		<ul class=\"menu\">")
-				.append("			<li class=\"menu-text\">Tiebreakers</li>");
+				.append("			<li class=\"menu-text\">Overtime</li>");
 				lclIndex = 0;
 				for (final Placement lclOTPL : lclPacket.getOvertimePlacements()) {
 					lclSB.append("				<li").append(lclIndex == argCurrentQuestionIndex ? " class=\"active\"" : "").append("><a href=\"").append(QuestionResponse.generateQueryString(argGame, argLeftPlayer, argRightPlayer, lclIndex, false, true)).append("\">").append(lclOTPL.getNumber()).append("</a></li>");

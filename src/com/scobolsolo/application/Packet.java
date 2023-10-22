@@ -58,7 +58,7 @@ public interface Packet extends PacketUserFacing, Comparable<Packet> {
 	}
 	
 	default List<Placement> getOvertimePlacements() {
-		return streamPlacement().filter(Placement::isTiebreaker).sorted().collect(Collectors.toList());
+		return streamPlacement().filter(Placement::isOvertime).sorted().collect(Collectors.toList());
 	}
 	
 	default List<String> determineIncompletionWarnings() {
