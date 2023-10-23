@@ -52,7 +52,7 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 		<dl>
 			<dt>Room</dt>
 				<dd><%= lclM.getRoom().getName() %></dd><%
-				
+			
 			Staff lclModerator = lclG.getModeratorStaff();
 			Staff lclScorekeeper = lclG.getScorekeeperStaff();
 			if (lclModerator != null) {
@@ -121,7 +121,9 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 						for (Performance lclPerf : lclPerfs) {
 							%><td><%
 								Response lclR = lclTable.get(lclBasePL, lclPerf);
-								lclScores.tally(lclPerf, lclR.getType().getPoints());
+								if (lclR != null) {
+									lclScores.tally(lclPerf, lclR.getType().getPoints());
+								}
 								
 								if (lclR == null) {
 									%>&nbsp;<%
@@ -130,9 +132,9 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 									if (lclR.getReplacementPlacement() != null && lclR.getReplacementPlacement() != lclBasePL) {
 										%> (replaced)<%
 									}
-								}
-								if (lclR.hasLocation()) {
-									%> at <%= lclR.getWordStartIndex() %>/<%= lclR.getWordEndIndex() %><%
+									if (lclR.hasLocation()) {
+										%> at <%= lclR.getWordStartIndex() %>/<%= lclR.getWordEndIndex() %><%
+									}
 								}
 							%></td>
 							<td><%= lclScores.get(lclPerf) %></td><%
