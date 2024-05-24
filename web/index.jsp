@@ -10,13 +10,13 @@
 <div class="row">
 	<div class="small-12 columns">
 		<section id="next">
-			<jsp:include page="/2023/fragment.jsp">
+			<jsp:include page="/2024/fragment.jsp">
 				<jsp:param name="show_header" value="true" />
 			</jsp:include>
 		</section>
 		
 		<section id="last">
-			<jsp:include page="/2022/fragment.jsp">
+			<jsp:include page="/2023/fragment.jsp">
 				<jsp:param name="show_header" value="true" />
 			</jsp:include>
 		</section>
