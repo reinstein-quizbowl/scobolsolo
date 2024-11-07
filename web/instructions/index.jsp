@@ -4,7 +4,7 @@
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Instructions" />
-	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2022()).asTopLevel().output(request, \"home\") %>" />
+	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2024()).asTopLevel().output(request, \"home\") %>" />
 	<jsp:param name="h1" value="Instructions" />
 </jsp:include>
 
@@ -21,8 +21,7 @@
 			
 			<p>Make sure you can log in: Go to <a href="/account/">your preferences page</a>, which will force you to log in. If you want, you can configure your pronunciation guide preferences (e.g. “don’t show me pronunciation guides in physics questions”). <strong>Please make sure you set your password and log in before the tournament!</strong> If you have any problems, <a href="#problems">write to Jonah Greenthal</a> with the details.</p>
 			
-			<p>Especially if you’re using a tablet or haven’t worked at Scobol Solo in the last few years, before the tournament you should also go to <a href="/account/question-demo.jsp">the
-			question demo page</a> to make sure that the interface for reading questions and entering answers (described below) works correctly. If you have any problems, <a href="#problems">write to Jonah Greenthal</a> with the details.</p>
+			<p>Especially if you’re using a tablet or haven’t worked at Scobol Solo in the last few years, before the tournament you should also go to <a href="/account/question-demo.jsp">the question demo page</a> to make sure that the interface for reading questions and entering answers (described below) works correctly. If you have any problems, <a href="#problems">write to Jonah Greenthal</a> with the details.</p>
 		</section>
 		
 		<hr />
@@ -30,7 +29,7 @@
 		<section id="saturday-morning">
 			<h2>Saturday morning</h2>
 			
-			<p>At the beginning of the day, connect to the wireless network. You will be given information about how to access the network at check-in.</p>
+			<p>At the beginning of the day, connect to the guest wireless network.</p>
 			
 			<p>When you’re ready to start, go to <a href="/game/">scobolsolo.com/game</a> and log in. You will be shown the games you can enter, which in most cases is just one game: the next game assigned to your room.</p>
 			
