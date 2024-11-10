@@ -33,7 +33,7 @@
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1484">David Bertolasi</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1475">Anna-Maria Olarov</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1471#player_3299">Sriram Koritala</a></th>
-					<!-- <th class="answer" rowspan="2">Answer</th> -->
+					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
 					<th>&nbsp;</th>
@@ -60,7 +60,7 @@
 					<td class="player-score-check">3</td><!-- David Bertolasi -->
 					<td class="player-score-check">3</td><!-- Anna-Maria Olarov -->
 					<td class="player-score-check">3</td><!-- Sriram Koritala -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="question-number">1</td>
@@ -73,7 +73,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">permittivity</td>
 				</tr>
 				<tr>
 					<th class="question-number">2</td>
@@ -86,7 +86,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Jacques Derrida</td>
 				</tr>
 				<tr>
 					<th class="question-number">3</td>
@@ -99,7 +99,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">&#8220;The Song of Despair&#8221;</td>
 				</tr>
 				<tr>
 					<th class="question-number">4</td>
@@ -112,7 +112,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-correct-response">1</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Josip Broz Tito</td>
 				</tr>
 				<tr>
 					<th class="question-number">5</td>
@@ -125,7 +125,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">urea</td>
 				</tr>
 				<tr>
 					<th class="question-number">6</td>
@@ -138,7 +138,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-correct-response">1</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">cadenzas</td>
 				</tr>
 				<tr>
 					<th class="question-number">7</td>
@@ -151,7 +151,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">&#8220;The Garden of Forking Paths&#8221;</td>
 				</tr>
 				<tr>
 					<th class="question-number">8</td>
@@ -164,7 +164,7 @@
 					<td class="player-correct-response">1</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Kyrgyzstan</td>
 				<tr>
 					<th class="question-number">9</td>
 					<td class="player-not-in-game">&nbsp;</td><!-- Rohan Kher -->
@@ -176,7 +176,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">cobalt</td>
 				</tr>
 				<tr>
 					<th class="question-number">10</td>
@@ -189,7 +189,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Fred Hampton</td>
 				</tr>
 				<tr>
 					<th class="question-number">11</td>
@@ -202,7 +202,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Eudora Welty</td>
 				</tr>
 				<tr>
 					<th class="question-number">12</td>
@@ -215,7 +215,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Stan Getz</td>
 				</tr>
 				<tr>
 					<th class="question-number">13</td>
@@ -228,7 +228,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Sam Bankman-Fried</td>
 				</tr>
 				<tr>
 					<th class="question-number">14</td>
@@ -241,7 +241,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">SMTP</td>
 				</tr>
 				<tr>
 					<th class="question-number">15</td>
@@ -254,7 +254,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">W. Somerset Maugham</td>
 				</tr>
 				<tr>
 					<th class="question-number">16</td>
@@ -267,7 +267,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Assyria</td>
 				</tr>
 				<tr>
 					<th class="question-number">17</td>
@@ -280,7 +280,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Francis Bacon (painter)</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
@@ -299,7 +299,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-correct-response">1</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">arc length</td>
 				</tr>
 				<tr>
 					<th class="question-number">19</td>
@@ -312,7 +312,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">bodhisattvas</td>
 				</tr>
 				<tr>
 					<th class="question-number">20</td>
@@ -325,7 +325,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Apache people</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 20</th>
@@ -338,7 +338,7 @@
 					<td class="player-score-check">4</td><!-- David Bertolasi -->
 					<td class="player-score-check">4</td><!-- Anna-Maria Olarov -->
 					<td class="player-score-check">8</td><!-- Sriram Koritala -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
@@ -357,7 +357,7 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Kartikeya</td>
 				</tr>
 				<tr>
 					<th class="question-number">22</td>
@@ -370,7 +370,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-correct-response">1</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">accretion disks</td>
 				</tr>
 				<tr>
 					<th class="question-number">23</td>
@@ -383,7 +383,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Julia Alvarez</td>
 				</tr>
 				<tr>
 					<th class="question-number">24</td>
@@ -396,7 +396,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Gaetano Donizetti</td>
 				</tr>
 				<tr>
 					<th class="question-number">25</td>
@@ -409,7 +409,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">functionalism</td>
 				</tr>
 				<tr>
 					<th class="question-number">26</td>
@@ -422,7 +422,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Songhai empire</td>
 				</tr>
 				<tr>
 					<th class="question-number">27</td>
@@ -435,7 +435,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">inductance</td>
 				</tr>
 				<tr>
 					<th class="question-number">28</td>
@@ -448,7 +448,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">kissing (in art)</td>
 				</tr>
 				<tr>
 					<th class="question-number">29</td>
@@ -461,7 +461,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>An American Tragedy</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">30</td>
@@ -474,7 +474,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Stockholm (in history)</td>
 				</tr>
 				<tr>
 					<th class="question-number">31</td>
@@ -487,7 +487,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">pyruvate</td>
 				</tr>
 				<tr>
 					<th class="question-number">32</td>
@@ -500,7 +500,7 @@
 					<td class="player-correct-response">1</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Cumberland (geography common link)</td>
 				</tr>
 				<tr>
 					<th class="question-number">33</td>
@@ -513,7 +513,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>Orlando Furioso</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">34</td>
@@ -526,7 +526,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Erik Satie</td>
 				</tr>
 				<tr>
 					<th class="question-number">35</td>
@@ -539,7 +539,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Myles Standish</td>
 				</tr>
 				<tr>
 					<th class="question-number">36</td>
@@ -552,7 +552,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">power of a point</td>
 				</tr>
 				<tr>
 					<th class="question-number">37</td>
@@ -565,7 +565,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-correct-response">1</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Azerbaijan (current events)</td>
 				</tr>
 				<tr>
 					<th class="question-number">38</td>
@@ -578,7 +578,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Richard Brinsley Sheridan</td>
 				</tr>
 				<tr>
 					<th class="question-number">39</td>
@@ -591,7 +591,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Eighty Years&#8217; War</td>
 				</tr>
 				<tr>
 					<th class="question-number">40</td>
@@ -604,7 +604,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-no-response">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-correct-response">1</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">esters</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 40</th>
@@ -617,7 +617,7 @@
 					<td class="player-score-check">4</td><!-- David Bertolasi -->
 					<td class="player-score-check">4</td><!-- Anna-Maria Olarov -->
 					<td class="player-score-check">7</td><!-- Sriram Koritala -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
@@ -636,7 +636,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Bohemia</td>
 				</tr>
 				<tr>
 					<th class="question-number">42</td>
@@ -649,7 +649,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">cirrus clouds</td>
 				</tr>
 				<tr>
 					<th class="question-number">43</td>
@@ -662,7 +662,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Yasunari Kawabata</td>
 				</tr>
 				<tr>
 					<th class="question-number">44</td>
@@ -675,7 +675,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Democratic Republic of the Congo (current events)</td>
 				</tr>
 				<tr>
 					<th class="question-number">45</td>
@@ -688,7 +688,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Paul Klee</td>
 				</tr>
 				<tr>
 					<th class="question-number">46</td>
@@ -701,7 +701,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Wounded Knee</td>
 				</tr>
 				<tr>
 					<th class="question-number">47</td>
@@ -714,7 +714,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-correct-response">1</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">centromeres</td>
 				</tr>
 				<tr>
 					<th class="question-number">48</td>
@@ -727,7 +727,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">&#8220;The Love Song of J.&nbsp;Alfred Prufrock&#8221;</td>
 				</tr>
 				<tr>
 					<th class="question-number">49</td>
@@ -740,7 +740,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">monks</td>
 				</tr>
 				<tr>
 					<th class="question-number">50</td>
@@ -753,7 +753,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-no-response">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">onion domes</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 50</th>
@@ -766,14 +766,14 @@
 					<td class="player-eliminated">eliminated</td><!-- David Bertolasi -->
 					<td class="player-eliminated">eliminated</td><!-- Anna-Maria Olarov -->
 					<td class="player-score-check">8</td><!-- Sriram Koritala -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
 					<td colspan="9" class="note">
 						The players with the lowest scores were eliminated until two players remained. Therefore, Dwij Bhatt and Sriram Koritala were eliminated. Rohan Kher and Charles Young remained.
 					</td>
-					<!-- <td>&nbsp;</td> -->
+					<td>&nbsp;</td>
 				</tr>
 				<tr>
 					<th class="question-number">51</td>
@@ -786,7 +786,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">powers of 2</td>
 				</tr>
 				<tr>
 					<th class="question-number">52</td>
@@ -799,7 +799,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">globalization</td>
 				</tr>
 				<tr>
 					<th class="question-number">53</td>
@@ -812,7 +812,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Charles Ives</td>
 				</tr>
 				<tr>
 					<th class="question-number">54</td>
@@ -825,7 +825,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>Wuthering Heights</i></td>
 				</tr>
 				<tr>
 					<th class="question-number">55</td>
@@ -838,7 +838,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Battle of Megiddo</td>
 				</tr>
 				<tr>
 					<th class="question-number">56</td>
@@ -851,7 +851,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">electric dipoles</td>
 				</tr>
 				<tr>
 					<th class="question-number">57</td>
@@ -864,7 +864,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Cameroon (geography)</td>
 				</tr>
 				<tr>
 					<th class="question-number">58</td>
@@ -877,7 +877,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Eugene O&#8217;Neill</td>
 				</tr>
 				<tr>
 					<th class="question-number">59</td>
@@ -890,7 +890,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Sri Lanka (history)</td>
 				</tr>
 				<tr>
 					<th class="question-number">60</td>
@@ -903,7 +903,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- David Bertolasi -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Anna-Maria Olarov -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Sriram Koritala -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">peroxides</td>
 				</tr>
 			</tbody>
 			<tfoot>
@@ -918,7 +918,7 @@
 					<td class="player-eliminated">eliminated</td><!-- David Bertolasi -->
 					<td class="player-eliminated">eliminated</td><!-- Anna-Maria Olarov -->
 					<td class="player-eliminated">eliminated</td><!-- Sriram Koritala -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>
