@@ -19,6 +19,7 @@
 * On the tournament-edit page:
 	* Make sure the control room is set
 	* Make sure registration is closed
+	* Make sure all packets are assigned to rounds, including replacement sources
 	* Check "Online Stats?"
 * Make sure that the school, player, and staff messages are accurate (including wifi password, control room, etc.).
 * Make sure cards that end 5–2 or better have final messages about the championship match. Maybe we want to do this for all cards (e.g., to advertise the awards ceremony).
@@ -28,6 +29,7 @@
 # Early the morning of the tournament
 * Restart the server so that the cached menu updates.
 * Shut down as many other services running on the same server as possible (e.g., Masonic and maybe the development instance of the Solo app).
+* Back up the database.
 
 # At the tournament
 * Make sure there are printed copies of all questions in the control room.
