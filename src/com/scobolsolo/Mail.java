@@ -22,9 +22,6 @@ public final class Mail {
 	// private static final org.apache.log4j.Logger ourLogger = org.apache.log4j.Logger.getLogger(Mail.class.getName());
 	
 	private static final String mySmtpServer = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_SERVER"));
-	private static final int mySmtpPort = ScobolSoloConfiguration.getInstance().getInt("SMTP_PORT");
-	private static final boolean mySmtpSsl = ScobolSoloConfiguration.getInstance().getBoolean("SMTP_SSL");
-	private static final boolean mySmtpTls = ScobolSoloConfiguration.getInstance().getBoolean("SMTP_TLS");
 	private static final String mySmtpUsername = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_USERNAME"));
 	private static final String mySmtpPassword = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_PASSWORD"));
 	private static final String myBounceAddress = Validate.notNull(ScobolSoloConfiguration.getInstance().getString("SMTP_BOUNCE_ADDRESS"));
@@ -72,11 +69,15 @@ public final class Mail {
 	private static <T extends Email> T setUpSending(final T argEmail) throws EmailException {
 		Validate.notNull(argEmail);
 		
+		// There has got to be a better way to do this.
+		java.security.Security.setProperty("jdk.tls.disabledAlgorithms", "");
+		
 		argEmail.setHostName(mySmtpServer);
-		argEmail.setSmtpPort(mySmtpPort);
+		argEmail.setSslSmtpPort("465");
 		argEmail.setAuthenticator(new DefaultAuthenticator(mySmtpUsername, mySmtpPassword));
-		argEmail.setSSLOnConnect(mySmtpSsl);
-		argEmail.setStartTLSEnabled(mySmtpTls);
+		argEmail.setSSLOnConnect(true);
+		argEmail.setSSL(true);
+		argEmail.setStartTLSEnabled(true);
 		argEmail.setBounceAddress(myBounceAddress);
 		argEmail.addReplyTo(REPLY_TO_ADDRESS, REPLY_TO_DESCRIPTION);
 		
