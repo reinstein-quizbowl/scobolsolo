@@ -117,6 +117,7 @@
 			<arg value="${scss.sourcefile}" />
 			<arg value="--style" />
 			<arg value="compressed" />
+			<arg value="--quiet" />
 		</exec>
 	</target>
 	
