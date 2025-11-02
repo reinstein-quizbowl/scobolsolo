@@ -4,7 +4,7 @@
 
 <jsp:include page="/template/header.jsp">
 	<jsp:param name="pageTitle" value="Instructions" />
-	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2024()).asTopLevel().output(request, \"home\") %>" />
+	<jsp:param name="topMenu" value="<%= Menus.stats(TournamentFactory._2025()).asTopLevel().output(request, \"home\") %>" />
 	<jsp:param name="h1" value="Instructions" />
 </jsp:include>
 

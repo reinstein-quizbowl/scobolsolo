@@ -7,6 +7,8 @@
 	* `,”`
 	* `.”` (okay if the enquoted text is a complete sentence [or multiple sentences])
 	* `, “` (okay if a comma would go there if the enquoted text were replaced by unenquoted text)
+	* `mentioned` (not to be used in usages like "before [x] is mentioned", but fine in normal prose)
+	* `is said` (not to be used in usages like "before [x] is said", but fine in normal prose)
 * Make sure the question descriptions are presentable, since they will eventually be shown publicly.
 * Use the "Render All" page to verify that everything renders with no explicit errors and no obvious problems. (Search the page for `Couldn’t convert`, and consider also scanning it visually.)
 * Skim the PDFs to make sure the questions render correctly that way too. Pay more attention to the Championship Match questions, since those will actually be read from PDFs in the normal course of events.
