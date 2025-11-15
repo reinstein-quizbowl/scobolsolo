@@ -65,7 +65,7 @@ if (lclOF.hasErrors()) {
 	<div class="small-6 medium-9 columns">
 		<label>
 			Final message
-			<%= lclOF.text("FinalMessage", 50) %>
+			<%= lclOF.textarea("FinalMessage", 50, 3) %>
 		</label>
 	</div>
 </div>
