@@ -33,7 +33,7 @@
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1484">Sam Kemeny</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1475">Winnie Nutkowitz</a></th>
 					<th class="player-name"><a href="/stats/player-detail.jsp?school_registration_id=1471#player_3299">Abigail AuYeung</a></th>
-					<!-- <th class="answer" rowspan="2">Answer</th> -->
+					<th class="answer" rowspan="2">Answer</th>
 				</tr>
 				<tr class="player-schools">
 					<th>&nbsp;</th>
@@ -60,10 +60,10 @@
 					<td class="player-score-check">3</td><!-- Sam Kemeny -->
 					<td class="player-score-check">3</td><!-- Winnie Nutkowitz -->
 					<td class="player-score-check">3</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr>
-					<th class="question-number">1</td>
+					<th class="question-number">1</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -73,10 +73,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Reynolds number</td>
 				</tr>
 				<tr>
-					<th class="question-number">2</td>
+					<th class="question-number">2</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -86,10 +86,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Hesiod</td>
 				</tr>
 				<tr>
-					<th class="question-number">3</td>
+					<th class="question-number">3</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -99,10 +99,10 @@
 					<td class="player-correct-response">1</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Tiberius</td>
 				</tr>
 				<tr>
-					<th class="question-number">4</td>
+					<th class="question-number">4</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -112,10 +112,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Baruch Spinoza</td>
 				</tr>
 				<tr>
-					<th class="question-number">5</td>
+					<th class="question-number">5</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-correct-response">1</td><!-- Evan Ting -->
@@ -125,10 +125,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">“The Rain in Spain”</td>
 				</tr>
 				<tr>
-					<th class="question-number">6</td>
+					<th class="question-number">6</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -138,10 +138,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">ketone bodies</td>
 				</tr>
 				<tr>
-					<th class="question-number">7</td>
+					<th class="question-number">7</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -151,10 +151,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Rudkus family</td>
 				</tr>
 				<tr>
-					<th class="question-number">8</td>
+					<th class="question-number">8</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -164,9 +164,9 @@
 					<td class="player-correct-response">1</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Lake Titicaca</td>
 				<tr>
-					<th class="question-number">9</td>
+					<th class="question-number">9</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -176,10 +176,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Artemisia Gentileschi</td>
 				</tr>
 				<tr>
-					<th class="question-number">10</td>
+					<th class="question-number">10</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -189,10 +189,10 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sam Kemeny -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Kwame Nkrumah</td>
 				</tr>
 				<tr>
-					<th class="question-number">11</td>
+					<th class="question-number">11</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -202,10 +202,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">centaurs (astronomical objects)</td>
 				</tr>
 				<tr>
-					<th class="question-number">12</td>
+					<th class="question-number">12</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -215,10 +215,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-correct-response">1</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>The Turn of the Screw</i></td>
 				</tr>
 				<tr>
-					<th class="question-number">13</td>
+					<th class="question-number">13</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -228,10 +228,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-correct-response">1</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Anton Webern</td>
 				</tr>
 				<tr>
-					<th class="question-number">14</td>
+					<th class="question-number">14</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -241,10 +241,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Henry A. Wallace</td>
 				</tr>
 				<tr>
-					<th class="question-number">15</td>
+					<th class="question-number">15</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -254,10 +254,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Ishtar</td>
 				</tr>
 				<tr>
-					<th class="question-number">16</td>
+					<th class="question-number">16</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -267,10 +267,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">salicylic acid</td>
 				</tr>
 				<tr>
-					<th class="question-number">17</td>
+					<th class="question-number">17</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -280,10 +280,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>The Master and Margarita</i></td>
 				</tr>
 				<tr>
-					<th class="question-number">18</td>
+					<th class="question-number">18</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -293,10 +293,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Creek War</td>
 				</tr>
 				<tr>
-					<th class="question-number">19</td>
+					<th class="question-number">19</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-correct-response">1</td><!-- Evan Ting -->
@@ -306,10 +306,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Giorgia Meloni</td>
 				</tr>
 				<tr>
-					<th class="question-number">20</td>
+					<th class="question-number">20</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -319,7 +319,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">cotangent function</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 20</th>
@@ -332,16 +332,16 @@
 					<td class="player-score-check">4</td><!-- Sam Kemeny -->
 					<td class="player-score-check">2</td><!-- Winnie Nutkowitz -->
 					<td class="player-score-check">5</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						Anirudh Srinivasan, as Morning Champion, entered the game with a score equal to that of the then-leader, Spencer Manning: 6.
 					</td>
 				</tr>
 				<tr>
-					<th class="question-number">21</td>
+					<th class="question-number">21</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -351,10 +351,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Carl Rogers</td>
 				</tr>
 				<tr>
-					<th class="question-number">22</td>
+					<th class="question-number">22</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -364,10 +364,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-correct-response">1</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Don DeLillo</td>
 				</tr>
 				<tr>
-					<th class="question-number">23</td>
+					<th class="question-number">23</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -377,10 +377,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">substitution reaction</td>
 				</tr>
 				<tr>
-					<th class="question-number">24</td>
+					<th class="question-number">24</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -390,10 +390,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Ella Fitzgerald</td>
 				</tr>
 				<tr>
-					<th class="question-number">25</td>
+					<th class="question-number">25</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-correct-response">1</td><!-- Evan Ting -->
@@ -403,10 +403,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Battle of Red Cliffs</td>
 				</tr>
 				<tr>
-					<th class="question-number">26</td>
+					<th class="question-number">26</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -416,10 +416,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>The Golden Notebook</i></td>
 				</tr>
 				<tr>
-					<th class="question-number">27</td>
+					<th class="question-number">27</th>
 					<td class="player-correct-response">1</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -429,10 +429,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">histones</td>
 				</tr>
 				<tr>
-					<th class="question-number">28</td>
+					<th class="question-number">28</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -442,10 +442,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Eric Adams</td>
 				</tr>
 				<tr>
-					<th class="question-number">29</td>
+					<th class="question-number">29</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Evan Ting -->
@@ -455,10 +455,10 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Sukarno</td>
 				</tr>
 				<tr>
-					<th class="question-number">30</td>
+					<th class="question-number">30</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -468,10 +468,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>The Well-Tempered Clavier</i></td>
 				</tr>
 				<tr>
-					<th class="question-number">31</td>
+					<th class="question-number">31</th>
 					<td class="player-correct-response">1</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -481,10 +481,10 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">feldspars</td>
 				</tr>
 				<tr>
-					<th class="question-number">32</td>
+					<th class="question-number">32</th>
 					<td class="player-correct-response">1</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -494,10 +494,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">golden calf</td>
 				</tr>
 				<tr>
-					<th class="question-number">33</td>
+					<th class="question-number">33</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -507,10 +507,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Juan Carlos&nbsp;I</td>
 				</tr>
 				<tr>
-					<th class="question-number">34</td>
+					<th class="question-number">34</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -520,10 +520,10 @@
 					<td class="player-correct-response">1</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>A Personal Matter</i></td>
 				</tr>
 				<tr>
-					<th class="question-number">35</td>
+					<th class="question-number">35</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-correct-response">1</td><!-- Evan Ting -->
@@ -533,10 +533,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">piezoelectricity</td>
 				</tr>
 				<tr>
-					<th class="question-number">36</td>
+					<th class="question-number">36</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -546,10 +546,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Fra Angelico</td>
 				</tr>
 				<tr>
-					<th class="question-number">37</td>
+					<th class="question-number">37</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -559,10 +559,10 @@
 					<td class="player-correct-response">1</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Shenandoah Valley</td>
 				</tr>
 				<tr>
-					<th class="question-number">38</td>
+					<th class="question-number">38</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -572,10 +572,10 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-correct-response">1</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Edna St.&nbsp;Vincent Millay</td>
 				</tr>
 				<tr>
-					<th class="question-number">39</td>
+					<th class="question-number">39</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -585,10 +585,10 @@
 					<td class="player-incorrect-response">&minus;1</td><!-- Sam Kemeny -->
 					<td class="player-no-response">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>Schenck v. United States</i></td>
 				</tr>
 				<tr>
-					<th class="question-number">40</td>
+					<th class="question-number">40</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-no-response">&nbsp;</td><!-- Evan Ting -->
@@ -598,7 +598,7 @@
 					<td class="player-no-response">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">&nbsp;</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 40</th>
@@ -611,16 +611,16 @@
 					<td class="player-score-check">3</td><!-- Sam Kemeny -->
 					<td class="player-score-check">2</td><!-- Winnie Nutkowitz -->
 					<td class="player-score-check">6</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until four players remained. Evan Ting, Felix Sacks, and Abigail AuYeung were tied for the last two positions, so tiebreaker questions were read. Abigail AuYeung answered the first tiebreaker question correctly to secure a spot in the next phase. Evan Ting answered the second tiebreaker question incorrectly, eliminating himself. Therefore, Evan Ting, Ryan Dai, Steven Long, Sam Kemeny, and Winnie Nutkowitz were eliminated. Anirudh Srinivasan, Spencer Manning, Felix Sacks, and Abigail AuYeung remained.
 					</td>
 				</tr>
 				<tr>
-					<th class="question-number">41</td>
+					<th class="question-number">41</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -630,10 +630,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Dorothea Dix</td>
 				</tr>
 				<tr>
-					<th class="question-number">42</td>
+					<th class="question-number">42</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -643,10 +643,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">interferometers</td>
 				</tr>
 				<tr>
-					<th class="question-number">43</td>
+					<th class="question-number">43</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -656,10 +656,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Sergei Rachmaninoff</td>
 				</tr>
 				<tr>
-					<th class="question-number">44</td>
+					<th class="question-number">44</th>
 					<td class="player-incorrect-response">&minus;1</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -669,10 +669,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">sirens (mythological creatures)</td>
 				</tr>
 				<tr>
-					<th class="question-number">45</td>
+					<th class="question-number">45</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -682,10 +682,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">John Osborne</td>
 				</tr>
 				<tr>
-					<th class="question-number">46</td>
+					<th class="question-number">46</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -695,10 +695,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Cretaceous period</td>
 				</tr>
 				<tr>
-					<th class="question-number">47</td>
+					<th class="question-number">47</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -708,10 +708,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Paraguay</td>
 				</tr>
 				<tr>
-					<th class="question-number">48</td>
+					<th class="question-number">48</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -721,10 +721,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">allegory of the cave</td>
 				</tr>
 				<tr>
-					<th class="question-number">49</td>
+					<th class="question-number">49</th>
 					<td class="player-no-response">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -734,10 +734,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-correct-response">1</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Saul Bellow</td>
 				</tr>
 				<tr>
-					<th class="question-number">50</td>
+					<th class="question-number">50</th>
 					<td class="player-correct-response">1</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -747,7 +747,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-no-response">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">center of mass</td>
 				</tr>
 				<tr class="score-check">
 					<th class="score-check-label">Scores through 50</th>
@@ -760,17 +760,17 @@
 					<td class="player-eliminated">eliminated</td><!-- Sam Kemeny -->
 					<td class="player-eliminated">eliminated</td><!-- Winnie Nutkowitz -->
 					<td class="player-score-check">7</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 				<tr class="note">
 					<th>&nbsp;</th>
-					<td colspan="9" class="note">
+					<td colspan="10" class="note">
 						The players with the lowest scores were eliminated until two players remained. Therefore, Anirudh Srinivasan and Abigail AuYeung were eliminated. Spencer Manning and Felix Sacks remained.
 					</td>
 					<!-- <td>&nbsp;</td> -->
 				</tr>
 				<tr>
-					<th class="question-number">51</td>
+					<th class="question-number">51</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -780,10 +780,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Giuseppe Mazzini</td>
 				</tr>
 				<tr>
-					<th class="question-number">52</td>
+					<th class="question-number">52</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -793,10 +793,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Jean-Michel Basquiat and Andy Warhol</td>
 				</tr>
 				<tr>
-					<th class="question-number">53</td>
+					<th class="question-number">53</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -806,10 +806,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Houthis</td>
 				</tr>
 				<tr>
-					<th class="question-number">54</td>
+					<th class="question-number">54</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -819,10 +819,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">plankton</td>
 				</tr>
 				<tr>
-					<th class="question-number">55</td>
+					<th class="question-number">55</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -832,10 +832,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer"><i>Lysistrata</i></td>
 				</tr>
 				<tr>
-					<th class="question-number">56</td>
+					<th class="question-number">56</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -845,10 +845,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Khufu</td>
 				</tr>
 				<tr>
-					<th class="question-number">57</td>
+					<th class="question-number">57</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -858,10 +858,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Antonio Canova</td>
 				</tr>
 				<tr>
-					<th class="question-number">58</td>
+					<th class="question-number">58</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-no-response">&nbsp;</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -871,10 +871,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">phosphate ion</td>
 				</tr>
 				<tr>
-					<th class="question-number">59</td>
+					<th class="question-number">59</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-incorrect-response">&minus;1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -884,10 +884,10 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Ranier Maria Rilke</td>
 				</tr>
 				<tr>
-					<th class="question-number">60</td>
+					<th class="question-number">60</th>
 					<td class="player-not-in-game">&nbsp;</td><!-- Anirudh Srinivasan -->
 					<td class="player-correct-response">1</td><!-- Spencer Manning -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Evan Ting -->
@@ -897,7 +897,7 @@
 					<td class="player-not-in-game">&nbsp;</td><!-- Sam Kemeny -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Winnie Nutkowitz -->
 					<td class="player-not-in-game">&nbsp;</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer">&nbsp;</td> -->
+					<td class="answer">Bangkok</td>
 				</tr>
 			</tbody>
 			<tfoot>
@@ -912,7 +912,7 @@
 					<td class="player-eliminated">eliminated</td><!-- Sam Kemeny -->
 					<td class="player-eliminated">eliminated</td><!-- Winnie Nutkowitz -->
 					<td class="player-eliminated">eliminated</td><!-- Abigail AuYeung -->
-					<!-- <td class="answer-blank">&nbsp;</td> -->
+					<td class="answer-blank">&nbsp;</td>
 				</tr>
 			</tfoot>
 		</table>
