@@ -1,0 +1,24 @@
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.format.FormatStyle" %>
+<%@ page import="com.opal.LocalDateCache" %>
+<%@ page import="com.scobolsolo.application.Tournament" %>
+<%@ page import="com.scobolsolo.application.TournamentFactory" %>
+<%@ page import="com.scobolsolo.menu.Menus" %>
+<%
+
+Tournament lclTourn = TournamentFactory.getInstance().forCode("2026");
+
+%>
+<jsp:include page="/template/header.jsp">
+	<jsp:param name="tournamentCode" value="2026" />
+	<jsp:param name="topMenu" value="<%= lclTourn == null ? Menus.TOURNAMENTS().asTopLevel().output(request, \"home\") : Menus.stats(lclTourn).asTopLevel().output(request, \"results\") %>" />
+	<jsp:param name="h1" value="Scobol Solo 2026" />
+</jsp:include>
+
+<jsp:include page="/template/fragments/tournament.jsp">
+	<jsp:param name="tournament_name" value="Scobol Solo 2026" />
+	<jsp:param name="tournament_short_name" value="2026" />
+	<jsp:param name="show_header" value="false" />
+</jsp:include>
+
+<jsp:include page="/template/footer.jsp" />

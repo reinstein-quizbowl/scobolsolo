@@ -55,6 +55,7 @@ public class TournamentFactory extends com.opal.AbstractIdentityFactory<Tourname
 	public static final Tournament _2023() { return getInstance().forCode("2023"); }
 	public static final Tournament _2024() { return getInstance().forCode("2024"); }
 	public static final Tournament _2025() { return getInstance().forCode("2025"); }
+	public static final Tournament _2026() { return getInstance().forCode("2026"); }
 
 	@com.opal.annotation.RequiresActiveTransaction
 	@Override

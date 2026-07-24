@@ -10,14 +10,18 @@
 <div class="row">
 	<div class="small-12 columns">
 		<section id="next">
-			<jsp:include page="/2025/fragment.jsp">
+			<jsp:include page="/template/fragments/tournament.jsp">
 				<jsp:param name="show_header" value="true" />
+				<jsp:param name="tournament_name" value="Scobol Solo 2026" />
+				<jsp:param name="tournament_short_name" value="2026" />
 			</jsp:include>
 		</section>
 		
 		<section id="last">
-			<jsp:include page="/2024/fragment.jsp">
+			<jsp:include page="/template/fragments/tournament.jsp">
 				<jsp:param name="show_header" value="true" />
+				<jsp:param name="tournament_name" value="Scobol Solo 2025" />
+				<jsp:param name="tournament_short_name" value="2025" />
 			</jsp:include>
 		</section>
 		

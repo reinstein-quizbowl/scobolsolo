@@ -34,6 +34,7 @@ data/generated-spreadsheets/**
 
 # Logs
 scobolsolo.log
+scobolsolo.log.*
 
 # Development stuff
 ant/**
