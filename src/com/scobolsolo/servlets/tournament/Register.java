@@ -34,9 +34,9 @@ public class Register extends ScobolSoloControllerServlet {
 	private static final String CC_NAME = "Jonah Greenthal";
 	private static final String CC_ADDRESS = "jonah@jonahgreenthal.com";
 	
-	public static final int PRICE_PER_PLAYER = 50;
+	public static final int PRICE_PER_PLAYER = 60;
 	public static final int DISCOUNT_PER_MODERATOR = 80;
-	public static final int MAX_DEFAULT_PLAYERS = 8;
+	public static final int MAX_DEFAULT_PLAYERS = 6;
 	
 	@Override
 	protected String processInternalTwo(final HttpServletRequest argRequest, final HttpSession argSession, final Account argUser) {
