@@ -379,13 +379,15 @@ public interface Question extends QuestionUserFacing {
 												default: throw new LatexToHTMLConversionException("We don't know how to put a cedilla on '" + lclArgs.get(0) + '\'');
 											}
 											break;
-										case "\\l": // stroked L
-											Validate.isTrue(lclArgs.size() == 1);
-											switch (lclArgs.get(0)) {
-												case "L": lclSB.append("&#321;"); break;
-												case "l": lclSB.append("&#322;"); break;
-												default: throw new LatexToHTMLConversionException("We don't know how to put a stroke on '" + lclArgs.get(0) + '\'');
-											}
+										case "\\L": // stroked L
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&#321;");
+											++lclI;
+											break;
+										case "\\l": // stroked l
+											Validate.isTrue(lclArgs.isEmpty());
+											lclSB.append("&#322;");
+											++lclI;
 											break;
 										case "\\v": // caron/hacek
 											Validate.isTrue(lclArgs.size() == 1);
