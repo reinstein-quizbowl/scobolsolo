@@ -35,6 +35,8 @@ final Tournament tourn = tournamentName == null ? null : TournamentFactory.getIn
 			
 			if (tourn.isRegistrationOpen()) {
 				%><p><a class="primary button" href="/register/">Register</a></p><%
+			} else {
+				%><p><a class="primary button" href="/stats/field.jsp?object=<%= tourn.getUniqueString() %>">View Field</a></p><%
 			}
 		} else if (tourn.streamSchoolRegistration().flatMap(SchoolRegistration::streamPlayer).noneMatch(Player::isRanked)) {
 			%><p><%= tourn.getName() %> is today at <%= tourn.getSiteSchool().getExplainedName() %>.</p>
