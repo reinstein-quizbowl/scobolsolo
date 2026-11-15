@@ -41,14 +41,24 @@
 
 # After the tournament
 * Set player ranks.
-* Post a wrap-up.
 * Post the championship match scoresheet and set the value of `Tournament.championship_match_url` accordingly.
 * Re-enable disabled sites on the same server.
 * Restart the server the day after the tournament so that the cached menu updates.
 * Archive messages so they won't still show up next year.
-* Deactivate contacts who just finished their senior year.
-* Deactivate other contacts who should, in your judgment, be deactivated (e.g., retiring coaches, former staff who haven't worked in a long time).
-* Deactivate all accounts except Reinstein's and Jonah's.
+* Deactivate contacts who seem unlikely to be needed in the near future, using a query like this:
+```sql
+update contact
+set active = false
+where active = true
+and id not in (select contact_id from staff where tournament_code in ('2025', '2026'))
+and id not in (select p.contact_id from player p join school_registration r on p.school_registration_id = r.id where r.tournament_code in ('2025', '2026'));
+```
+* Deactivate all accounts except Reinstein's and Jonah's, using a query like this:
+```sql
+update account
+set active = false
+where username not in ('reinstein', 'jonah');
+```
 * Back up the database.
 * Run the database maintenance "queries".
 * Update the QBWiki, including the pain-in-the-neck records portion.
