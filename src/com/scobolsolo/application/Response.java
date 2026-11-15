@@ -29,6 +29,10 @@ public interface Response extends ResponseUserFacing {
 		return getWordStartIndexAsObject() != null && getWordEndIndexAsObject() != null;
 	}
 	
+	default public boolean isAtEnd() {
+		return hasLocation() && getWordEndIndex(-1) == getDiff().getTextLength();
+	}
+	
 	default ResponseType getType() {
 		return getResponseType();
 	}

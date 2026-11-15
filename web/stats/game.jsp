@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.Comparator" %>
+﻿<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.util.Comparator" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.stream.Collectors" %>
@@ -36,6 +37,8 @@ if (lclG.getOutgoingWinningCardPlayer() != null && lclG.getOutgoingLosingCardPla
 		.sorted(Comparator.comparing(Performance::getPlayer))
 		.collect(Collectors.toList());
 }
+
+DecimalFormat lclPercentThroughFormatter = new DecimalFormat("0%");
 
 String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Utility.makeList(lclPerfs, argPerf -> argPerf.getPlayer().getName(), "vs.");
 %>
@@ -133,7 +136,7 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 										%> (replaced)<%
 									}
 									if (lclR.hasLocation()) {
-										%> at <%= lclR.getWordStartIndex() %>/<%= lclR.getWordEndIndex() %><%
+										%> (<%= lclR.isAtEnd() ? "at the end" : lclPercentThroughFormatter.format(1.0d * lclR.getWordStartIndex() / lclR.getDiff().getTextLength()) + " through" %>)<%
 									}
 								}
 							%></td>
