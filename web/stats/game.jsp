@@ -16,6 +16,7 @@
 <%@ page import="com.scobolsolo.application.Placement" %>
 <%@ page import="com.scobolsolo.application.Player" %>
 <%@ page import="com.scobolsolo.application.Response" %>
+<%@ page import="com.scobolsolo.application.ResponseTypeFactory" %>
 <%@ page import="com.scobolsolo.application.Round" %>
 <%@ page import="com.scobolsolo.application.Staff" %>
 <%@ page import="com.scobolsolo.application.Tournament" %>
@@ -135,7 +136,7 @@ String lclTitle = lclT.getName() + " " + lclM.getRound().getName() + ": " + Util
 									if (lclR.getReplacementPlacement() != null && lclR.getReplacementPlacement() != lclBasePL) {
 										%> (replaced)<%
 									}
-									if (lclR.hasLocation()) {
+									if (lclR.hasLocation() && lclR.getType() != ResponseTypeFactory.INCORRECT_AT_END()) {
 										%> (<%= lclR.isAtEnd() ? "at the end" : lclPercentThroughFormatter.format(1.0d * lclR.getWordStartIndex() / lclR.getDiff().getTextLength()) + " through" %>)<%
 									}
 								}
